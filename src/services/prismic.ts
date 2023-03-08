@@ -1,3 +1,6 @@
+// Worth noting that we can't update node-fetch to its latest version (v3)
+// as its currently unsupported by Prismic.
+// As we're going to move away from this later on, we'll be using v2.
 import fetch from "node-fetch";
 import * as prismic from "@prismicio/client";
 
