@@ -18,7 +18,7 @@ const contentTypeController = (
     const id = req.params.id;
 
     try {
-      const searchResponse  = await prismicClient.getByID(id);
+      const searchResponse = await prismicClient.getByID(id);
 
       res.status(200).json(searchResponse as ContentType);
     } catch (error) {
