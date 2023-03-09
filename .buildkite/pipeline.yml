@@ -9,7 +9,7 @@ steps:
           propagate-environment: true
 
   - label: "test: API"
-    command: "yarn workspace @weco/content-api run test"
     plugins:
       - docker-compose#v4.10.1:
-          run: tooling
+          run: api
+          command: ["yarn", "test"]

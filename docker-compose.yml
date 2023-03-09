@@ -4,3 +4,6 @@ services:
     build:
       dockerfile: tooling.Dockerfile
       context: .
+
+  api:
+    build: ./api
