@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/node:18-slim
+FROM public.ecr.aws/docker/library/node:18
 
 # Install Terraform (for formatting)
 ARG TERRAFORM_VERSION=1.4.0
