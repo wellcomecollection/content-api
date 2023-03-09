@@ -1,17 +1,18 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients, ContentType } from "../types";
+import { Clients } from "../types";
+import { PrismicDocument } from "@prismicio/types";
 
 import { Config } from "../../config";
 
 type PathParams = { id: string };
 
-type ContentTypeHandler = RequestHandler<PathParams, ContentType>;
+type ArticleHandler = RequestHandler<PathParams, PrismicDocument>;
 
-const contentTypeController = (
+const articleController = (
   clients: Clients,
   config: Config
-): ContentTypeHandler => {
+): ArticleHandler => {
   const prismicClient = clients.prismic;
 
   return asyncHandler(async (req, res) => {
@@ -20,11 +21,11 @@ const contentTypeController = (
     try {
       const searchResponse = await prismicClient.getByID(id);
 
-      res.status(200).json(searchResponse as ContentType);
+      res.status(200).json(searchResponse as PrismicDocument);
     } catch (error) {
       throw error;
     }
   });
 };
 
-export default contentTypeController;
+export default articleController;

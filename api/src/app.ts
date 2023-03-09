@@ -3,8 +3,8 @@ import morgan from "morgan";
 import { logStream } from "./services/logging";
 import {
   errorHandler,
-  contentTypeListController,
-  contentTypeController,
+  articlesController,
+  articleController,
 } from "./controllers";
 import { Config } from "../config";
 import { Clients } from "./types";
@@ -14,8 +14,8 @@ const createApp = (clients: Clients, config: Config) => {
 
   app.use(morgan("short", { stream: logStream("http") }));
 
-  app.get("/:contentType", contentTypeListController(clients, config));
-  app.get("/:contentType/:id", contentTypeController(clients, config));
+  app.get("/:articles", articlesController(clients, config));
+  app.get("/:articles/:id", articleController(clients, config));
 
   app.use(errorHandler);
 

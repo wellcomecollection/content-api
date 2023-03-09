@@ -4,7 +4,7 @@ import { Clients, ResultList, TransformedArticle } from "../types";
 
 import { Config } from "../../config";
 import { HttpError } from "./error";
-import { transformContentTypeList } from "../transformers/transformers";
+import { transformArticles } from "../transformers/articles";
 
 type PathParams = { contentType: string };
 
@@ -19,7 +19,7 @@ type ContentListHandler = RequestHandler<
   QueryParams
 >;
 
-const contentTypeListController = (
+const articlesController = (
   clients: Clients,
   config: Config // TODO ?
 ): ContentListHandler => {
@@ -33,9 +33,7 @@ const contentTypeListController = (
           req.params.contentType
         );
 
-        const transformedResponse = transformContentTypeList(
-          searchResponse.results
-        );
+        const transformedResponse = transformArticles(searchResponse.results);
 
         res.status(200).json({
           type: "ResultList",
@@ -54,4 +52,4 @@ const contentTypeListController = (
   });
 };
 
-export default contentTypeListController;
+export default articlesController;

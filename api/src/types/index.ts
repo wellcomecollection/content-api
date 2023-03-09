@@ -11,7 +11,3 @@ export type ResultList<Result> = {
   type: "ResultList";
   results: Result[];
 };
-
-export type ContentType = {
-  id: string;
-};

@@ -1,5 +1,5 @@
-import contentTypeListController from "./contentTypeList";
-import contentTypeController from "./contentType";
+import articlesController from "./articles";
+import articleController from "./article";
 
 export { errorHandler } from "./error";
-export { contentTypeListController, contentTypeController };
+export { articlesController, articleController };

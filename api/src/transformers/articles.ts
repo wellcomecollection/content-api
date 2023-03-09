@@ -20,7 +20,7 @@ const getContributors = (contributors: any): TransformedContributor[] => {
   });
 };
 
-export const transformContentTypeList = (
+export const transformArticles = (
   results: PrismicDocument[]
 ): TransformedArticle[] => {
   const transformedResults = results.map((result) => {
