@@ -1,9 +1,10 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients, ContentType, ResultList } from "../types";
+import { Clients, ResultList, TransformedArticle } from "../types";
 
 import { Config } from "../../config";
 import { HttpError } from "./error";
+import { transformContentTypeList } from "../transformers/transformers";
 
 type PathParams = { contentType: string };
 
@@ -14,7 +15,7 @@ type QueryParams = {
 
 type ContentListHandler = RequestHandler<
   PathParams,
-  ResultList<ContentType>,
+  ResultList<TransformedArticle>,
   QueryParams
 >;
 
@@ -32,9 +33,13 @@ const contentTypeListController = (
           req.params.contentType
         );
 
+        const transformedResponse = transformContentTypeList(
+          searchResponse.results
+        );
+
         res.status(200).json({
           type: "ResultList",
-          results: searchResponse?.results,
+          results: transformedResponse,
         });
       } catch (error) {
         throw error;
