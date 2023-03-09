@@ -6,3 +6,4 @@ steps:
           command: [".buildkite/scripts/autoformat.sh"]
           mount-ssh-agent: true
           mount-buildkite-agent: true
+          propagate-environment: true
