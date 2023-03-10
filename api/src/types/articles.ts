@@ -74,7 +74,7 @@ export type TransformedArticle = {
   publicationDate: string;
   caption?: string;
   contributors: TransformedContributor[];
-  image?: TransformedImageType;
+  image: TransformedImageType;
 };
 
 export type TransformedContributor = {

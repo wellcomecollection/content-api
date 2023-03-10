@@ -1,6 +1,5 @@
 import { TransformedArticle } from "../../src/types";
 
-// TODO fix
 export const article = (
   { id }: { id: string } = { id: "abcdefgh" }
 ): TransformedArticle => ({

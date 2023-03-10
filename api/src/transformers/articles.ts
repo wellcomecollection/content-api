@@ -7,7 +7,7 @@ export const transformArticles = (
 ): TransformedArticle[] => {
   const transformedDocuments = documents.map((document): TransformedArticle => {
     const { data, id, first_publication_date } = document;
-    const image = data.promo?.[0]?.primary;
+    const image = data.promo?.[0]?.primary; // TODO image types as "any", fix
 
     // When we imported data into Prismic from the Wordpress blog some content
     // needed to have its original publication date displayed. It is purely a display
