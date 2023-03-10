@@ -14,6 +14,10 @@ variable "vpc_id" {
   type = string
 }
 
+variable "elastic_cloud_vpce_sg_id" {
+  type = string
+}
+
 variable "desired_task_count" {
   type = object({
     api = number

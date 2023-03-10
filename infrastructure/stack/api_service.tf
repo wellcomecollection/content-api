@@ -7,7 +7,7 @@ module "content_api_service" {
 
   service_name       = "content-api-${var.environment}"
   desired_task_count = var.desired_task_count.api
-  container_image    = ""
+  container_image    = var.container_image.api
   container_port     = 3333
 
   app_cpu    = 256
@@ -15,8 +15,10 @@ module "content_api_service" {
 
   security_group_ids = [
     aws_security_group.vpc_ingress.id,
-    aws_security_group.egress.id
+    aws_security_group.egress.id,
+    var.elastic_cloud_vpce_sg_id
   ]
+  target_group_arn = aws_lb_target_group.content_api.arn
 
   cluster_arn = var.cluster_arn
   vpc_id      = var.vpc_id

@@ -9,7 +9,8 @@ module "content_api_stage" {
     api = 1
   }
 
-  cluster_arn     = aws_ecs_cluster.content_api.arn
-  private_subnets = local.private_subnets
-  vpc_id          = local.vpc_id
+  cluster_arn              = aws_ecs_cluster.content_api.arn
+  private_subnets          = local.private_subnets
+  vpc_id                   = local.vpc_id
+  elastic_cloud_vpce_sg_id = local.elastic_cloud_vpce_sg_id
 }

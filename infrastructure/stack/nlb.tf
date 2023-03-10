@@ -9,6 +9,6 @@ resource "aws_lb" "content_api" {
 locals {
   # Network load balancers can't route across availability zones by default, so
   # need to be told to if there are fewer tasks than AZs
-  min_task_count       = min(values(var.desired_task_count))
+  min_task_count       = min([for service, count in var.desired_task_count : count]...)
   should_cross_zone_lb = local.min_task_count < 3
 }

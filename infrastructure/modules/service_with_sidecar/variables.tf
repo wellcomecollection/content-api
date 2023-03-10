@@ -59,3 +59,7 @@ variable "app_cpu" {
 variable "app_memory" {
   type = number
 }
+
+variable "target_group_arn" {
+  type = string
+}

@@ -67,7 +67,7 @@ module "service" {
   desired_task_count = var.desired_task_count
   use_fargate_spot   = var.use_fargate_spot
 
-  target_group_arn = aws_lb_target_group.tcp.arn
+  target_group_arn = var.target_group_arn
 
   container_name = module.nginx_container.container_name
   container_port = module.nginx_container.container_port
