@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  tooling:
+    build:
+      dockerfile: tooling.Dockerfile
+      context: .
+
+  api:
+    build: ./api
