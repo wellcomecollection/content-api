@@ -1,0 +1,15 @@
+steps:
+  - label: "autoformat"
+    command: ".buildkite/scripts/autoformat.sh"
+    plugins:
+      - docker-compose#v4.10.1:
+          run: tooling
+          mount-ssh-agent: true
+          mount-buildkite-agent: true
+          propagate-environment: true
+
+  - label: "test: API"
+    plugins:
+      - docker-compose#v4.10.1:
+          run: api
+          command: ["yarn", "test"]
