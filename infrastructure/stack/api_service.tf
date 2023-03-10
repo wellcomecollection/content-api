@@ -1,5 +1,7 @@
 locals {
-  api_lb_port = 8000
+  # These are arbitrary
+  api_lb_port  = 8000
+  api_app_port = 3333
 }
 
 module "content_api_service" {
@@ -8,10 +10,14 @@ module "content_api_service" {
   service_name       = "content-api-${var.environment}"
   desired_task_count = var.desired_task_count.api
   container_image    = var.container_image.api
-  container_port     = 3333
+  container_port     = local.api_app_port
 
   app_cpu    = 256
   app_memory = 512
+
+  environment = {
+    PORT = local.api_app_port
+  }
 
   security_group_ids = [
     aws_security_group.vpc_ingress.id,
