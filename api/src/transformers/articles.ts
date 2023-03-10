@@ -1,48 +1,35 @@
-import { PrismicDocument } from "@prismicio/types";
-import { TransformedArticle, TransformedContributor } from "../types";
-
-// Look at what's being done here to get the name content/webapp/services/prismic/transformers/contributors.ts  (transformContributors)
-const getContributors = (contributors: any): TransformedContributor[] => {
-  return contributors.map((c) => {
-    return {
-      contributor: {
-        id: c.contributor.id,
-        label: "c.contributor.name", // TODO only have slug
-        type: c.contributor.type, // TODO casing? mapping?
-      },
-      role: {
-        id: c.role.id,
-        label: "Author", // TODO only have slug
-        type: c.role.type, // TODO casing? mapping?
-      },
-      type: "Contributor",
-    };
-  });
-};
+import { TransformedArticle, ArticlePrismicDocument } from "../types";
+import { getContributors } from "../helpers/contributors";
+import { asText } from "../helpers";
 
 export const transformArticles = (
-  results: PrismicDocument[]
+  documents: ArticlePrismicDocument[]
 ): TransformedArticle[] => {
-  const transformedResults = results.map((result) => {
-    const { format, title, promo, contributors } = result.data;
+  const transformedDocuments = documents.map((document): TransformedArticle => {
+    const { data, id, first_publication_date } = document;
+    const image = data.promo?.[0]?.primary;
 
-    const image = promo?.[0]?.primary;
+    // When we imported data into Prismic from the Wordpress blog some content
+    // needed to have its original publication date displayed. It is purely a display
+    // value and does not affect ordering.
+    const datePublished = data.publishDate || first_publication_date;
 
     return {
-      type: result.type,
-      id: result.id,
+      id,
+      type: "Article",
+      title: asText(data.title || ""),
+      caption: image?.caption?.[0].text,
       format: {
-        type: format.type, // TODO change casing?
-        id: format.id,
-        label: "Article" as const, // TODO
+        type: "ArticleFormat",
+        // id: data.format.id,
+        id: "data.format?.id", // TODO get
+        label: "Article", // TODO get
       },
-      title: title[0].text,
-      publicationDate: format.first_publication_date, // TODO is this right?
-      caption: promo[0].primary.caption[0].text, // TODO optional chaining checks
-      contributors: getContributors(contributors),
-      image: image.image,
+      image: image?.image,
+      publicationDate: datePublished,
+      contributors: getContributors(data.contributors),
     };
   });
 
-  return transformedResults;
+  return transformedDocuments;
 };

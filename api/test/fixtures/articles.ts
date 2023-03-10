@@ -1,5 +1,6 @@
 import { TransformedArticle } from "../../src/types";
 
+// TODO fix
 export const article = (
   { id }: { id: string } = { id: "abcdefgh" }
 ): TransformedArticle => ({
@@ -11,7 +12,7 @@ export const article = (
     label: "Article",
   },
   title: "Sick of being lonely",
-  publicationDate: new Date("2018-12-20T10:44:15+0000"),
+  publicationDate: "2018-12-20T10:44:15+0000",
   caption:
     "When his relationship ended, Thom James first withdrew from the world, then began to suffer from illnesses with no apparent physical cause.",
   contributors: [
