@@ -86,40 +86,36 @@ function transformLabelType(
   };
 }
 
-export const transformArticles = (
-  documents: ArticlePrismicDocument[]
-): TransformedArticle[] => {
-  const transformedDocuments = documents.map((document): TransformedArticle => {
-    const { data, id, first_publication_date } = document;
-    const primaryImage = data.promo?.[0]?.primary;
+export const transformArticle = (
+  document: ArticlePrismicDocument
+): TransformedArticle => {
+  const { data, id, first_publication_date } = document;
+  const primaryImage = data.promo?.[0]?.primary;
 
-    const image =
-      primaryImage && isImageLink(primaryImage.image)
-        ? { type: "PrismicImage" as const, ...primaryImage.image }
-        : undefined;
-
-    const caption = primaryImage?.caption && asText(primaryImage.caption);
-
-    const format = isFilledLinkToDocumentWithData(data.format)
-      ? (transformLabelType(data.format) as Format<ArticleFormatId>)
+  const image =
+    primaryImage && isImageLink(primaryImage.image)
+      ? { type: "PrismicImage" as const, ...primaryImage.image }
       : undefined;
 
-    // When we imported data into Prismic from the Wordpress blog some content
-    // needed to have its original publication date displayed. It is purely a display
-    // value and does not affect ordering.
-    const datePublished = data.publishDate || first_publication_date;
+  const caption = primaryImage?.caption && asText(primaryImage.caption);
 
-    return {
-      id,
-      type: "Article",
-      title: asTitle(data.title),
-      caption,
-      format,
-      publicationDate: new Date(datePublished),
-      contributors: getContributors(document),
-      image,
-    };
-  });
+  const format = isFilledLinkToDocumentWithData(data.format)
+    ? (transformLabelType(data.format) as Format<ArticleFormatId>)
+    : undefined;
 
-  return transformedDocuments;
+  // When we imported data into Prismic from the Wordpress blog some content
+  // needed to have its original publication date displayed. It is purely a display
+  // value and does not affect ordering.
+  const datePublished = data.publishDate || first_publication_date;
+
+  return {
+    id,
+    type: "Article",
+    title: asTitle(data.title),
+    caption,
+    format,
+    publicationDate: new Date(datePublished),
+    contributors: getContributors(document),
+    image,
+  };
 };

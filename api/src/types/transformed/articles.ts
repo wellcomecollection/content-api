@@ -6,7 +6,7 @@ export type TransformedArticle = {
   id: string;
   title: string;
   format?: Format<ArticleFormatId>;
-  publicationDate: string;
+  publicationDate: Date;
   image?: TransformedImageType;
   caption?: string;
   contributors: TransformedContributor[];
