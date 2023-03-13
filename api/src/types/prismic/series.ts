@@ -11,7 +11,7 @@ import {
   WithSeasons,
   CommonPrismicFields,
   InferDataInterface,
-} from "../..";
+} from "..";
 
 type SeriesPrismicDocument = PrismicDocument<
   {

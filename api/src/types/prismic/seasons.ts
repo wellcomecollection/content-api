@@ -4,7 +4,7 @@ import {
   RelationField,
   TimestampField,
 } from "@prismicio/types";
-import { CommonPrismicFields, InferDataInterface } from "..";
+import { CommonPrismicFields, InferDataInterface } from ".";
 
 type SeasonPrismicDocument = PrismicDocument<
   {

@@ -35,14 +35,14 @@ const graphQuery = `{
     contributors {
       ...contributorsFields
       role {
-        ...roleFields
+        title
       }
       contributor {
         ... on people {
-          ...peopleFields
+          name
         }
         ... on organisations {
-          ...organisationsFields
+          name
         }
       }
     }

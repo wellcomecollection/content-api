@@ -1,17 +1,8 @@
 import * as prismic from "@prismicio/client";
 
-import {
-  TransformedArticle,
-  TransformedContributor,
-  ArticlePrismicDocument,
-  ArticleFormat,
-} from "./articles";
-export type {
-  TransformedArticle,
-  TransformedContributor,
-  ArticlePrismicDocument,
-  ArticleFormat,
-};
+// From Prismic data
+import { ArticlePrismicDocument, ArticleFormat } from "./prismic/articles";
+export type { ArticlePrismicDocument, ArticleFormat };
 
 import {
   DataInterface,
@@ -26,21 +17,27 @@ export type { WithContributors };
 import { ArticleFormatId, Format } from "./prismic/formats";
 export type { ArticleFormatId, Format };
 
-import {
-  TransformedImageType,
-  PrismicImage,
-  ImageDimensions,
-} from "./prismic/images";
-export type { TransformedImageType, PrismicImage, ImageDimensions };
+import { PrismicImage, ImageDimensions } from "./prismic/images";
+export type { PrismicImage, ImageDimensions };
 
 import { LabelField } from "./prismic/labels";
 export type { LabelField };
 
-import { WithSeasons } from "./prismic/formats/seasons";
+import { WithSeasons } from "./prismic/seasons";
 export type { WithSeasons };
 
-import { WithSeries } from "./prismic/formats/series";
+import { WithSeries } from "./prismic/series";
 export type { WithSeries };
+
+// Transformed types
+import {
+  TransformedArticle,
+  TransformedContributor,
+} from "./transformed/articles";
+export type { TransformedArticle, TransformedContributor };
+
+import { TransformedImageType } from "./transformed/images";
+export type { TransformedImageType };
 
 export type Clients = {
   prismic: prismic.Client;

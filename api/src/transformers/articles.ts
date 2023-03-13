@@ -1,14 +1,90 @@
 import {
   TransformedArticle,
   ArticlePrismicDocument,
+  ArticleFormat,
   ArticleFormatId,
+  InferDataInterface,
+  LabelField,
   Format,
+  TransformedContributor,
+  PrismicImage,
+  WithContributors,
 } from "../types";
-import { getContributors } from "../helpers/contributors";
-import { asText, asTitle } from "../helpers";
+import { asText, asTitle, isNotUndefined } from "../helpers";
 import { isFilledLinkToDocumentWithData } from "../helpers/types";
-import { transformLabelType } from "../helpers/formats";
-import { isImageLink } from "../helpers/images";
+import {
+  FilledLinkToDocumentField,
+  EmptyImageFieldImage,
+  PrismicDocument,
+} from "@prismicio/types";
+
+const getContributors = (
+  document: PrismicDocument<WithContributors>
+): TransformedContributor[] => {
+  const { data } = document;
+  const contributors = (data.contributors ?? [])
+    .map((c): TransformedContributor => {
+      // ROLE
+      const roleDocument = isFilledLinkToDocumentWithData(c.role)
+        ? c.role
+        : undefined;
+
+      const role = roleDocument
+        ? {
+            id: roleDocument.id as string,
+            label: asText(roleDocument.data.title),
+            type: "EditorialContributorRole" as const,
+          }
+        : undefined;
+
+      // CONTRIBUTOR
+      const contributorDocument = isFilledLinkToDocumentWithData(c.contributor)
+        ? c.contributor
+        : undefined;
+
+      const contributor = roleDocument
+        ? {
+            id: contributorDocument.id as string,
+            label: asText(contributorDocument.data.name),
+            type:
+              contributorDocument.type === "people"
+                ? ("Person" as const)
+                : ("Organisation" as const),
+          }
+        : undefined;
+
+      return {
+        type: "Contributor",
+        contributor,
+        role,
+      };
+    })
+    .filter(isNotUndefined);
+
+  return contributors;
+};
+
+// when images have crops, event if the image isn't attached, we get e.g.
+// { '32:15': {}, '16:9': {}, square: {} }
+function isImageLink(
+  maybeImage: EmptyImageFieldImage | PrismicImage | undefined
+): maybeImage is PrismicImage {
+  return Boolean(maybeImage && maybeImage.dimensions);
+}
+
+function transformLabelType(
+  format: FilledLinkToDocumentField<
+    "article-formats",
+    "en-gb",
+    InferDataInterface<ArticleFormat>
+  > & { data: InferDataInterface<ArticleFormat> }
+): LabelField {
+  return {
+    type: "ArticleFormat",
+    id: format.id as ArticleFormatId,
+    title: asText(format.data.title),
+  };
+}
 
 export const transformArticles = (
   documents: ArticlePrismicDocument[]
@@ -40,7 +116,7 @@ export const transformArticles = (
       caption,
       format,
       publicationDate: datePublished,
-      contributors: getContributors(data.contributors),
+      contributors: getContributors(document),
       image,
     };
   });

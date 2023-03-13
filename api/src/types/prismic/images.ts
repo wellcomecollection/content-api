@@ -25,8 +25,3 @@ export type PrismicImage = ThumbnailedImageField<{
     height: 3200;
   };
 }>;
-
-// TODO move transformed types in different folder?
-export type TransformedImageType = PrismicImage & {
-  type: "PrismicImage";
-};

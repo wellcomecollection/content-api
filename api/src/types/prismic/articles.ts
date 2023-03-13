@@ -12,10 +12,7 @@ import {
   CommonPrismicFields,
   WithSeries,
   WithSeasons,
-  TransformedImageType,
-  ArticleFormatId,
-  Format,
-} from ".";
+} from "..";
 
 export type ArticleFormat = PrismicDocument<
   {
@@ -62,30 +59,3 @@ export type ArticlePrismicDocument = PrismicDocument<
     CommonPrismicFields,
   "articles"
 >;
-
-// TODO move transformed types in different folder?
-// TODO change types to more specific ones?
-export type TransformedArticle = {
-  type: "Article";
-  id: string;
-  title: string;
-  format?: Format<ArticleFormatId>;
-  publicationDate: string;
-  image?: TransformedImageType;
-  caption?: string;
-  contributors: TransformedContributor[];
-};
-
-export type TransformedContributor = {
-  contributor: {
-    id: string;
-    label: string;
-    type: string;
-  };
-  role?: {
-    id?: string;
-    label?: string;
-    type?: string;
-  };
-  type: "Contributor";
-};
