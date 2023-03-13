@@ -1,6 +1,4 @@
 import {
-  GroupField,
-  NumberField,
   PrismicDocument,
   RelationField,
   RichTextField,
@@ -31,22 +29,6 @@ type WithArticleFormat = {
   >;
 };
 
-type WithExhibitionParents = {
-  parents: GroupField<{
-    order: NumberField;
-    parent: RelationField<
-      "exhibitions",
-      // We know this is an ExhibitionPrismicDocument, but the type checker gets
-      // unhappy about the circular reference:
-      //
-      //    'event' is referenced directly or indirectly in its own type annotation.
-      //
-      // TODO: Find a better way to do this which doesn't upset the type checker.
-      InferDataInterface<any>
-    >;
-  }>;
-};
-
 // TODO is this all needed?
 export type ArticlePrismicDocument = PrismicDocument<
   {
@@ -55,7 +37,6 @@ export type ArticlePrismicDocument = PrismicDocument<
     WithContributors &
     WithSeasons &
     WithArticleFormat &
-    WithExhibitionParents &
     CommonPrismicFields,
   "articles"
 >;

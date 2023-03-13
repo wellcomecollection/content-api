@@ -1,6 +1,5 @@
 import { ArticleFormatId, Format, TransformedImageType } from "..";
 
-// TODO change types to more specific ones?
 export type TransformedArticle = {
   type: "Article";
   id: string;

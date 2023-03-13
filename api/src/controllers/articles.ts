@@ -23,7 +23,6 @@ type ContentListHandler = RequestHandler<
   QueryParams
 >;
 
-// TODO figure out if fetchLinks are useful here? Isn't not all done with GraphQuery?
 export const articlesFetcher = fetcher<ArticlePrismicDocument>(["articles"]);
 
 const articlesController = (

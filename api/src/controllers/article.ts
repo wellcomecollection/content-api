@@ -5,6 +5,7 @@ import { ArticlePrismicDocument, Clients, TransformedArticle } from "../types";
 import { Config } from "../../config";
 import { fetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
+import { HttpError } from "./error";
 
 type PathParams = { id: string };
 
@@ -34,7 +35,10 @@ const articleController = (
         const transformedResponse = transformArticle(searchResponse);
         res.status(200).json(transformedResponse);
       } else {
-        throw console.error("404"); // TODO send better error
+        throw new HttpError({
+          status: 404,
+          label: "Article not found",
+        });
       }
     } catch (error) {
       throw error;
