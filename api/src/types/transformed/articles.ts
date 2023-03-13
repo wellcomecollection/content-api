@@ -1,12 +1,10 @@
-import { ArticleFormatId, Format, TransformedImageType } from "..";
+import { LabelField, TransformedImageType } from "..";
 
 export type TransformedArticle = {
   type: "Article";
   id: string;
   title: string;
-  format?: Format<ArticleFormatId> & {
-    type: "ArticleFormat";
-  };
+  format?: LabelField;
   publicationDate: Date;
   image?: TransformedImageType;
   caption?: string;

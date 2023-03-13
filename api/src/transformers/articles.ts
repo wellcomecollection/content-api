@@ -101,7 +101,7 @@ export const transformArticles = (
     const caption = primaryImage?.caption && asText(primaryImage.caption);
 
     const format = isFilledLinkToDocumentWithData(data.format)
-      ? (transformLabelType(data.format) as Format<ArticleFormatId>)
+      ? transformLabelType(data.format)
       : undefined;
 
     // When we imported data into Prismic from the Wordpress blog some content
