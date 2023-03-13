@@ -1,7 +1,7 @@
-import { ArticleFormatId } from "./formats";
+import { ArticleFormatId } from "../prismic/formats";
 
 export type LabelField = {
   type: "ArticleFormat";
   id?: ArticleFormatId;
-  title?: string;
+  label?: string;
 };

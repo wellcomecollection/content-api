@@ -4,7 +4,9 @@ export type TransformedArticle = {
   type: "Article";
   id: string;
   title: string;
-  format?: Format<ArticleFormatId>;
+  format?: Format<ArticleFormatId> & {
+    type: "ArticleFormat";
+  };
   publicationDate: Date;
   image?: TransformedImageType;
   caption?: string;

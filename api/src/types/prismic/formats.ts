@@ -12,5 +12,5 @@ export type ArticleFormatId =
 
 export type Format<IdType extends string = string> = {
   id: IdType;
-  title: string;
+  label: string;
 };

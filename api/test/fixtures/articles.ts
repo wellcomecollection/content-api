@@ -6,12 +6,12 @@ export const article = (
   id,
   type: "Article",
   format: {
-    type: "ArticleFormat",
+    type: "ArticleFormat" as const,
     id: "W7TfJRAAAJ1D0eLK",
     label: "Article",
   },
   title: "Sick of being lonely",
-  publicationDate: "2018-12-20T10:44:15+0000",
+  publicationDate: new Date("2018-12-20T10:44:15+0000"),
   caption:
     "When his relationship ended, Thom James first withdrew from the world, then began to suffer from illnesses with no apparent physical cause.",
   contributors: [

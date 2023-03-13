@@ -20,9 +20,6 @@ export type { ArticleFormatId, Format };
 import { PrismicImage, ImageDimensions } from "./prismic/images";
 export type { PrismicImage, ImageDimensions };
 
-import { LabelField } from "./prismic/labels";
-export type { LabelField };
-
 import { WithSeasons } from "./prismic/seasons";
 export type { WithSeasons };
 
@@ -35,6 +32,9 @@ import {
   TransformedContributor,
 } from "./transformed/articles";
 export type { TransformedArticle, TransformedContributor };
+
+import { LabelField } from "./transformed/labels";
+export type { LabelField };
 
 import { TransformedImageType } from "./transformed/images";
 export type { TransformedImageType };
