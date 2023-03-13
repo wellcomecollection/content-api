@@ -1,7 +1,5 @@
 import { FilledImageFieldImage } from "@prismicio/types";
 
-type Crop = "32:15" | "16:9" | "square";
-
 export type ImageDimensions = {
   width?: number;
   height?: number;

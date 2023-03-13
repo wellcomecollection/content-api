@@ -13,12 +13,15 @@ import {
   WithSeries,
   WithSeasons,
   TransformedImageType,
+  ArticleFormatId,
+  Format,
 } from ".";
 
-type ArticleFormat = PrismicDocument<
+export type ArticleFormat = PrismicDocument<
   {
-    label?: RichTextField;
+    type: "ArticleFormat";
     id: string;
+    title: RichTextField;
   },
   "article-formats"
 >;
@@ -63,18 +66,14 @@ export type ArticlePrismicDocument = PrismicDocument<
 // TODO move transformed types in different folder?
 // TODO change types to more specific ones?
 export type TransformedArticle = {
-  type: string;
+  type: "Article";
   id: string;
-  format: {
-    type: string;
-    id: string;
-    label: "Article";
-  };
-  title?: string;
+  title: string;
+  format?: Format<ArticleFormatId>;
   publicationDate: string;
+  image?: TransformedImageType;
   caption?: string;
   contributors: TransformedContributor[];
-  image: TransformedImageType;
 };
 
 export type TransformedContributor = {

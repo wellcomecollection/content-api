@@ -16,7 +16,7 @@ type PathParams = { contentType: string };
 
 type QueryParams = {
   query?: string;
-  "identifiers.identifierType"?: string; // TODO ?
+  "identifiers.identifierType"?: string; // TODO unsure what this is for?
 };
 
 type ContentListHandler = RequestHandler<
@@ -25,12 +25,11 @@ type ContentListHandler = RequestHandler<
   QueryParams
 >;
 
-// TODO figure out how to get the metadata
 const graphQuery = `{
   articles {
     title
     format {
-      ...formatFields
+      title
     }
     promo
     contributors {
@@ -108,12 +107,10 @@ export function fetcher<Document extends PrismicDocument>(
       const response = isString(contentType)
         ? await client.getByType<Document>(contentType, {
             ...params,
-            fetchLinks,
             predicates,
           })
         : await client.get<Document>({
             ...params,
-            fetchLinks,
             predicates: [
               ...predicates,
               prismic.predicate.any("document.type", contentType),
@@ -127,7 +124,7 @@ export function fetcher<Document extends PrismicDocument>(
 
 const articlesController = (
   clients: Clients,
-  config: Config // TODO ?
+  config: Config // TODO we might want this later?
 ): ContentListHandler => {
   const prismicClient = clients.prismic;
 

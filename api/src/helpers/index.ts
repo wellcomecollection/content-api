@@ -1,12 +1,16 @@
 import { KeyTextField, RichTextField } from "@prismicio/types";
 import * as prismicH from "@prismicio/helpers";
 
-export function isString(v: any): v is string {
-  return typeof v === "string";
+export function isNotUndefined<T>(val: T | undefined): val is T {
+  return typeof val !== "undefined";
 }
 
 export function isUndefined<T>(val: T | undefined): val is T {
   return typeof val === "undefined";
+}
+
+export function isString(v: any): v is string {
+  return typeof v === "string";
 }
 
 // Prismic often returns empty RichText fields as `[]`, this filters them out
@@ -28,4 +32,9 @@ export function asText(
       field && field.length > 0 ? prismicH.asText(field).trim() : undefined;
     return output && output.length > 0 ? output : undefined;
   }
+}
+
+export function asTitle(title: RichTextField): string {
+  // We always need a title - blunt validation, but validation none the less
+  return asText(title) || "";
 }
