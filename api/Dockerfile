@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 WORKDIR api
-COPY package.json ./
+COPY api/package.json ./
 RUN yarn --frozen-lockfile && yarn cache clean
 
 COPY . ./
