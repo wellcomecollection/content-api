@@ -1,8 +1,14 @@
 import * as prismic from "@prismicio/client";
 
+// Generic types
+export type ImageDimensions = {
+  width?: number;
+  height?: number;
+};
+
 // From Prismic data
-import { ArticlePrismicDocument, ArticleFormat } from "./prismic/articles";
-export type { ArticlePrismicDocument, ArticleFormat };
+import { ArticlePrismicDocument } from "./prismic/articles";
+export type { ArticlePrismicDocument };
 
 import {
   DataInterface,
@@ -11,30 +17,31 @@ import {
 } from "./prismic";
 export type { DataInterface, InferDataInterface, CommonPrismicFields };
 
-import { ContentType } from "./prismic/content-types";
-export type { ContentType };
-
 import { WithContributors } from "./prismic/contributors";
 export type { WithContributors };
 
-import { ArticleFormatId, Format } from "./prismic/formats";
-export type { ArticleFormatId, Format };
+import {
+  ArticleFormatId,
+  PrismicArticleFormat,
+  ContentType,
+} from "./prismic/formats";
+export type { ArticleFormatId, PrismicArticleFormat, ContentType };
 
-import { PrismicImage, ImageDimensions } from "./prismic/images";
-export type { PrismicImage, ImageDimensions };
+import { PrismicImage } from "./prismic/images";
+export type { PrismicImage };
 
 // Transformed types
-import {
-  TransformedArticle,
-  TransformedContributor,
-} from "./transformed/articles";
-export type { TransformedArticle, TransformedContributor };
+import { TransformedArticle } from "./transformed/articles";
+export type { TransformedArticle };
 
-import { LabelField } from "./transformed/labels";
-export type { LabelField };
+import { TransformedContributor } from "./transformed/contributors";
+export type { TransformedContributor };
 
-import { TransformedImageType } from "./transformed/images";
-export type { TransformedImageType };
+import { TransformedArticleFormat } from "./transformed/formats";
+export type { TransformedArticleFormat };
+
+import { TransformedImage } from "./transformed/images";
+export type { TransformedImage };
 
 export type Clients = {
   prismic: prismic.Client;

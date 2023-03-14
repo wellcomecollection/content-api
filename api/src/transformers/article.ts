@@ -1,11 +1,10 @@
 import {
   TransformedArticle,
   ArticlePrismicDocument,
-  ArticleFormat,
+  PrismicArticleFormat,
   ArticleFormatId,
   InferDataInterface,
-  LabelField,
-  Format,
+  TransformedArticleFormat,
   TransformedContributor,
   PrismicImage,
   WithContributors,
@@ -31,9 +30,9 @@ const getContributors = (
 
       const role = roleDocument
         ? {
+            type: "EditorialContributorRole" as const,
             id: roleDocument.id as string,
             label: asText(roleDocument.data.title),
-            type: "EditorialContributorRole" as const,
           }
         : undefined;
 
@@ -44,12 +43,12 @@ const getContributors = (
 
       const contributor = roleDocument
         ? {
-            id: contributorDocument.id as string,
-            label: asText(contributorDocument.data.name),
             type:
               contributorDocument.type === "people"
                 ? ("Person" as const)
                 : ("Organisation" as const),
+            id: contributorDocument.id as string,
+            label: asText(contributorDocument.data.name),
           }
         : undefined;
 
@@ -76,9 +75,9 @@ function transformLabelType(
   format: FilledLinkToDocumentField<
     "article-formats",
     "en-gb",
-    InferDataInterface<ArticleFormat>
-  > & { data: InferDataInterface<ArticleFormat> }
-): LabelField {
+    InferDataInterface<PrismicArticleFormat>
+  > & { data: InferDataInterface<PrismicArticleFormat> }
+): TransformedArticleFormat {
   return {
     type: "ArticleFormat",
     id: format.id as ArticleFormatId,
@@ -109,8 +108,8 @@ export const transformArticle = (
   const datePublished = data.publishDate || first_publication_date;
 
   return {
-    id,
     type: "Article",
+    id,
     title: asTitle(data.title),
     caption,
     format,

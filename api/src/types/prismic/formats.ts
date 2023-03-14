@@ -1,3 +1,25 @@
+import { PrismicDocument, RichTextField } from "@prismicio/types";
+
+// These are the types we make addressable from Prismic
+const contentTypes = [
+  "articles",
+  "books",
+  "event-series",
+  "events",
+  "exhibitions",
+  "guides",
+  "pages",
+  "projects",
+  "seasons",
+  "series",
+  "webcomics",
+  "guide-formats",
+  "exhibition-guides",
+  "stories-landing",
+] as const;
+
+export type ContentType = (typeof contentTypes)[number];
+
 const ArticleFormatIds = {
   InPictures: "W5uKaCQAACkA3C0T",
   Article: "W7TfJRAAAJ1D0eLK",
@@ -10,7 +32,10 @@ const ArticleFormatIds = {
 export type ArticleFormatId =
   (typeof ArticleFormatIds)[keyof typeof ArticleFormatIds];
 
-export type Format<IdType extends string = string> = {
-  id: IdType;
-  label: string;
-};
+export type PrismicArticleFormat = PrismicDocument<
+  {
+    id: string;
+    title: RichTextField;
+  },
+  "article-formats"
+>;

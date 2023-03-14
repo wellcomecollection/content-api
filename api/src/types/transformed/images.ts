@@ -1,5 +1,5 @@
 import { PrismicImage } from "..";
 
-export type TransformedImageType = PrismicImage & {
+export type TransformedImage = PrismicImage & {
   type: "PrismicImage";
 };

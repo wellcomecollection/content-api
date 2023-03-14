@@ -1,9 +1,5 @@
 import { FilledImageFieldImage } from "@prismicio/types";
-
-export type ImageDimensions = {
-  width?: number;
-  height?: number;
-};
+import { ImageDimensions } from "..";
 
 // Currently the Prismic types only allow you to specify 1 image
 type ThumbnailedImageField<Thumbnails extends Record<string, ImageDimensions>> =

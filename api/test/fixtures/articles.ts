@@ -3,8 +3,8 @@ import { TransformedArticle } from "../../src/types";
 export const article = (
   { id }: { id: string } = { id: "abcdefgh" }
 ): TransformedArticle => ({
-  id,
   type: "Article",
+  id,
   format: {
     type: "ArticleFormat" as const,
     id: "W7TfJRAAAJ1D0eLK",
@@ -16,17 +16,17 @@ export const article = (
     "When his relationship ended, Thom James first withdrew from the world, then began to suffer from illnesses with no apparent physical cause.",
   contributors: [
     {
+      type: "Contributor",
       contributor: {
+        type: "Person",
         id: "XAaGDRQAAPE_-ePY",
         label: "Thom James",
-        type: "Person",
       },
       role: {
+        type: "EditorialContributorRole",
         id: "WcUWeCgAAFws-nGh",
         label: "Author",
-        type: "EditorialContributorRole",
       },
-      type: "Contributor",
     },
   ],
   image: {

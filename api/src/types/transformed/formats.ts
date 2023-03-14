@@ -1,7 +1,7 @@
 import { ArticleFormatId } from "..";
 
-export type LabelField = {
+export type TransformedArticleFormat = {
   type: "ArticleFormat";
-  id?: ArticleFormatId;
+  id: ArticleFormatId;
   label?: string;
 };

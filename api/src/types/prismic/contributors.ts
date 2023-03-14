@@ -7,7 +7,7 @@ import {
 } from "@prismicio/types";
 import { InferDataInterface } from "..";
 
-type PrismicContributor =
+type PrismicContributorContributor =
   | EmptyLinkField<"Document">
   | FilledLinkToDocumentField<
       "organisations" | "people",
@@ -23,7 +23,7 @@ type Contributors = GroupField<{
       title: RichTextField;
     }>
   >;
-  contributor: PrismicContributor;
+  contributor: PrismicContributorContributor;
 }>;
 
 export type WithContributors = {
