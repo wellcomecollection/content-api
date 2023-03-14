@@ -1,17 +1,15 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { ArticlePrismicDocument, Clients, TransformedArticle } from "../types";
+import { Clients, TransformedArticle } from "../types";
 
 import { Config } from "../../config";
-import { fetcher } from "./fetcher";
+import { articlesFetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
 
 type PathParams = { id: string };
 
 type ArticleHandler = RequestHandler<PathParams, TransformedArticle>;
-
-export const articleFetcher = fetcher<ArticlePrismicDocument>(["articles"]);
 
 const articleController = (
   clients: Clients,
@@ -23,7 +21,7 @@ const articleController = (
     const id = req.params.id;
 
     try {
-      const searchResponse = await articleFetcher.getById(
+      const searchResponse = await articlesFetcher.getById(
         {
           type: "GetServerSidePropsPrismicClient",
           client: prismicClient,

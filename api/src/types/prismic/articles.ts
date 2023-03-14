@@ -37,5 +37,5 @@ export type ArticlePrismicDocument = PrismicDocument<
     WithSeasons &
     WithArticleFormat &
     CommonPrismicFields,
-  "articles"
+  "articles" | "webcomics"
 >;

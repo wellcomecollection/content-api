@@ -1,6 +1,7 @@
 import { PrismicDocument, Query } from "@prismicio/types";
 import * as prismic from "@prismicio/client";
 import { isString } from "../helpers";
+import { ArticlePrismicDocument, ContentType } from "../types";
 
 const graphQuery = `{
     articles {
@@ -35,8 +36,11 @@ type GetByTypeParams = Parameters<
   GetServerSidePropsPrismicClient["client"]["getByType"]
 >[1];
 
+const contentTypes: ContentType[] = ["articles", "webcomics"];
+export const articlesFetcher = fetcher<ArticlePrismicDocument>(contentTypes);
+
 export function fetcher<Document extends PrismicDocument>(
-  contentType: "articles" | "articles"[]
+  contentType: ContentType | ContentType[]
 ) {
   return {
     getById: async (

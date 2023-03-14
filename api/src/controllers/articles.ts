@@ -1,13 +1,8 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import {
-  ArticlePrismicDocument,
-  Clients,
-  ResultList,
-  TransformedArticle,
-} from "../types";
+import { Clients, ResultList, TransformedArticle } from "../types";
 import { Config } from "../../config";
-import { fetcher } from "./fetcher";
+import { articlesFetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
 
@@ -24,9 +19,6 @@ type ContentListHandler = RequestHandler<
   ResultList<TransformedArticle>,
   QueryParams
 >;
-
-export const articlesFetcher = fetcher<ArticlePrismicDocument>(["articles"]);
-
 const articlesController = (
   clients: Clients,
   config: Config // TODO Unused now but required when we move to using ElasticSearch

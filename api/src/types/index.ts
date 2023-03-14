@@ -11,6 +11,9 @@ import {
 } from "./prismic";
 export type { DataInterface, InferDataInterface, CommonPrismicFields };
 
+import { ContentType } from "./prismic/content-types";
+export type { ContentType };
+
 import { WithContributors } from "./prismic/contributors";
 export type { WithContributors };
 
