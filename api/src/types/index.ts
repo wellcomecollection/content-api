@@ -46,4 +46,7 @@ export type Clients = {
 export type ResultList<Result> = {
   type: "ResultList";
   results: Result[];
+  totalResults: number;
+  totalPages: number;
+  pageSize: number;
 };

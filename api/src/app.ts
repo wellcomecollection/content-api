@@ -14,8 +14,8 @@ const createApp = (clients: Clients, config: Config) => {
 
   app.use(morgan("short", { stream: logStream("http") }));
 
-  app.get("/:articles", articlesController(clients, config));
-  app.get("/:articles/:id", articleController(clients, config));
+  app.get("/articles", articlesController(clients, config));
+  app.get("/articles/:id", articleController(clients, config));
 
   app.use(errorHandler);
 

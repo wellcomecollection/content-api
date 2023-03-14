@@ -9,6 +9,7 @@ import {
 import { Config } from "../../config";
 import { fetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
+import { HttpError } from "./error";
 
 type PathParams = { contentType: string };
 
@@ -38,15 +39,24 @@ const articlesController = (
         client: prismicClient,
       });
 
-      // TODO send 404 if no result
-      const transformedResponse = searchResponse.results.map((result) =>
-        transformArticle(result)
-      );
+      if (searchResponse) {
+        const transformedResponse = searchResponse.results.map((result) =>
+          transformArticle(result)
+        );
 
-      res.status(200).json({
-        type: "ResultList",
-        results: transformedResponse,
-      });
+        res.status(200).json({
+          type: "ResultList",
+          results: transformedResponse,
+          totalResults: 0, // TODO
+          totalPages: 0, // TODO
+          pageSize: 6, // TODO
+        });
+      } else {
+        throw new HttpError({
+          status: 404,
+          label: "No results found",
+        });
+      }
     } catch (error) {
       throw error;
     }
