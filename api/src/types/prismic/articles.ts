@@ -4,13 +4,7 @@ import {
   RichTextField,
   TimestampField,
 } from "@prismicio/types";
-import {
-  WithContributors,
-  InferDataInterface,
-  CommonPrismicFields,
-  WithSeries,
-  WithSeasons,
-} from "..";
+import { WithContributors, InferDataInterface, CommonPrismicFields } from "..";
 
 export type ArticleFormat = PrismicDocument<
   {
@@ -32,9 +26,7 @@ type WithArticleFormat = {
 export type ArticlePrismicDocument = PrismicDocument<
   {
     publishDate: TimestampField;
-  } & WithSeries &
-    WithContributors &
-    WithSeasons &
+  } & WithContributors &
     WithArticleFormat &
     CommonPrismicFields,
   "articles" | "webcomics"

@@ -23,12 +23,6 @@ export type { ArticleFormatId, Format };
 import { PrismicImage, ImageDimensions } from "./prismic/images";
 export type { PrismicImage, ImageDimensions };
 
-import { WithSeasons } from "./prismic/seasons";
-export type { WithSeasons };
-
-import { WithSeries } from "./prismic/series";
-export type { WithSeries };
-
 // Transformed types
 import {
   TransformedArticle,
