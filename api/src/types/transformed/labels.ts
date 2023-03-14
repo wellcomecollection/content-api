@@ -1,4 +1,4 @@
-import { ArticleFormatId } from "../prismic/formats";
+import { ArticleFormatId } from "..";
 
 export type LabelField = {
   type: "ArticleFormat";

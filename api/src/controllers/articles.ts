@@ -38,6 +38,7 @@ const articlesController = (
         client: prismicClient,
       });
 
+      // TODO send 404 if no result
       const transformedResponse = searchResponse.results.map((result) =>
         transformArticle(result)
       );

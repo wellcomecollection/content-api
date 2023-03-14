@@ -1,7 +1,6 @@
 import {
   AnyRegularField,
   GroupField,
-  KeyTextField,
   PrismicDocument,
   RichTextField,
   Slice,
@@ -33,7 +32,6 @@ export type InferDataInterface<T> = T extends PrismicDocument<
 type Promo = { caption: RichTextField; image: PrismicImage };
 export type PromoSliceZone = SliceZone<Slice<"editorialImage", Promo>>;
 
-// This one was taken from the stories search, not from Content (as that one contains way more)
 export type CommonPrismicFields = {
   title: RichTextField;
   promo: PromoSliceZone;

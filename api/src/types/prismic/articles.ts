@@ -29,7 +29,6 @@ type WithArticleFormat = {
   >;
 };
 
-// TODO is this all needed?
 export type ArticlePrismicDocument = PrismicDocument<
   {
     publishDate: TimestampField;
