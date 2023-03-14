@@ -2,11 +2,11 @@ import { ErrorRequestHandler } from "express";
 import log from "../services/logging";
 
 export type ErrorResponse = {
+  type: "Error";
   httpStatus: number;
   label: string;
   description?: string;
   errorType: "http";
-  type: "Error";
 };
 
 export class HttpError extends Error {
@@ -33,11 +33,11 @@ export class HttpError extends Error {
 
   get responseJson(): ErrorResponse {
     return {
+      type: "Error",
       httpStatus: this.status,
       label: this.label,
       description: this.description,
       errorType: "http",
-      type: "Error",
     };
   }
 }
