@@ -13,9 +13,10 @@ import { HttpError } from "./error";
 
 type PathParams = { contentType: string };
 
+// TODO Unused now, but for when we add querying capabilities
 type QueryParams = {
   query?: string;
-  "identifiers.identifierType"?: string; // TODO unsure what this is for?
+  "identifiers.identifierType"?: string;
 };
 
 type ContentListHandler = RequestHandler<
@@ -28,7 +29,7 @@ export const articlesFetcher = fetcher<ArticlePrismicDocument>(["articles"]);
 
 const articlesController = (
   clients: Clients,
-  config: Config // TODO we might want this later?
+  config: Config // TODO Unused now but required when we move to using ElasticSearch
 ): ContentListHandler => {
   const prismicClient = clients.prismic;
 
@@ -49,7 +50,7 @@ const articlesController = (
           results: transformedResponse,
           totalResults: searchResponse.total_results_size,
           totalPages: searchResponse.total_pages,
-          pageSize: searchResponse.results_per_page, // TODO this should be customisable
+          pageSize: searchResponse.results_per_page, // TODO This should be customisable, not worth doing until we move to ES?
         });
       } else {
         throw new HttpError({

@@ -15,7 +15,7 @@ export const articleFetcher = fetcher<ArticlePrismicDocument>(["articles"]);
 
 const articleController = (
   clients: Clients,
-  config: Config // TODO we might want this later?
+  config: Config // TODO Unused now but required when we move to using ElasticSearch
 ): ArticleHandler => {
   const prismicClient = clients.prismic;
 
