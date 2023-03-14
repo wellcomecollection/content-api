@@ -10,7 +10,7 @@ import {
   WithContributors,
 } from "../types";
 import { asText, asTitle, isNotUndefined } from "../helpers";
-import { isFilledLinkToDocumentWithData } from "../helpers/types";
+import { isFilledLinkToDocumentWithData } from "../helpers/type-guards";
 import {
   FilledLinkToDocumentField,
   EmptyImageFieldImage,
