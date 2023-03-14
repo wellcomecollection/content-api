@@ -7,8 +7,8 @@ import {
   TransformedArticle,
 } from "../types";
 import { Config } from "../../config";
-import { transformArticles } from "../transformers/articles";
 import { fetcher } from "./fetcher";
+import { transformArticle } from "../transformers/article";
 
 type PathParams = { contentType: string };
 
@@ -38,7 +38,9 @@ const articlesController = (
         client: prismicClient,
       });
 
-      const transformedResponse = transformArticles(searchResponse.results);
+      const transformedResponse = searchResponse.results.map((result) =>
+        transformArticle(result)
+      );
 
       res.status(200).json({
         type: "ResultList",
