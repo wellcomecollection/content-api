@@ -47,9 +47,9 @@ const articlesController = (
         res.status(200).json({
           type: "ResultList",
           results: transformedResponse,
-          totalResults: 0, // TODO
-          totalPages: 0, // TODO
-          pageSize: 6, // TODO
+          totalResults: searchResponse.total_results_size,
+          totalPages: searchResponse.total_pages,
+          pageSize: searchResponse.results_per_page, // TODO this should be customisable
         });
       } else {
         throw new HttpError({
