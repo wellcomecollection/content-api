@@ -1,12 +1,12 @@
+# Build this with the repo root as the build context
 FROM public.ecr.aws/docker/library/node:18
 
 WORKDIR /app
+
 COPY ./package.json ./yarn.lock ./
+COPY ./api ./api
+
 WORKDIR api
-COPY api/package.json ./
-
-RUN yarn --frozen-lockfile && yarn cache clean
-
-COPY . ./
+RUN yarn install --frozen-lockfile && yarn cache clean
 
 CMD ["yarn", "start"]
