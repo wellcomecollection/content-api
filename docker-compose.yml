@@ -7,5 +7,5 @@ services:
 
   api:
     build:
-      dockerfile: api/Dockerfile
+      dockerfile: ./api/Dockerfile
       context: .
