@@ -14,7 +14,7 @@ type QueryParams = {
   "identifiers.identifierType"?: string;
 };
 
-type ContentListHandler = RequestHandler<
+type ArticlesHandler = RequestHandler<
   PathParams,
   ResultList<TransformedArticle>,
   QueryParams
@@ -22,7 +22,7 @@ type ContentListHandler = RequestHandler<
 const articlesController = (
   clients: Clients,
   config: Config // TODO Unused now but required when we move to using ElasticSearch
-): ContentListHandler => {
+): ArticlesHandler => {
   const prismicClient = clients.prismic;
 
   return asyncHandler(async (req, res) => {
