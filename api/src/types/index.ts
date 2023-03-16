@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+import { Client as ElasticClient } from "@elastic/elasticsearch";
 
 // Generic types
 export type ImageDimensions = {
@@ -45,6 +46,13 @@ export type { TransformedImage };
 
 export type Clients = {
   prismic: prismic.Client;
+};
+export type ElasticClients = {
+  elastic: ElasticClient;
+};
+
+export type Displayable<T = any> = {
+  display: T;
 };
 
 export type ResultList<Result> = {
