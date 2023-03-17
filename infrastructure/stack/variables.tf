@@ -10,11 +10,6 @@ variable "private_subnets" {
   type = set(string)
 }
 
-# TODO Only required while APIGW isn't present
-variable "public_subnets" {
-  type = set(string)
-}
-
 variable "vpc_id" {
   type = string
 }
@@ -33,4 +28,12 @@ variable "container_image" {
   type = object({
     api = string
   })
+}
+
+variable "api_version" {
+  type = string
+}
+
+variable "external_hostname" {
+  type = string
 }
