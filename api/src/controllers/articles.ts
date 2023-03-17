@@ -1,10 +1,17 @@
 import { RequestHandler } from "express";
+import * as prismic from "@prismicio/client";
 import asyncHandler from "express-async-handler";
-import { Clients, ResultList, TransformedArticle } from "../types";
+import {
+  ArticlePrismicDocument,
+  Clients,
+  ContentType,
+  ResultList,
+  TransformedArticle,
+} from "../types";
 import { Config } from "../../config";
-import { articlesFetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
+import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
 
 type PathParams = { contentType: string };
 
@@ -27,9 +34,15 @@ const articlesController = (
 
   return asyncHandler(async (req, res) => {
     try {
-      const searchResponse = await articlesFetcher.getByType({
-        type: "GetServerSidePropsPrismicClient",
-        client: prismicClient,
+      const searchResponse = await prismicClient.get<
+        ArticlePrismicDocument & {
+          contentType: ContentType | ContentType[];
+        }
+      >({
+        graphQuery: graphQueryArticles,
+        predicates: [
+          prismic.predicate.any("document.type", articlesContentTypes),
+        ],
       });
 
       if (searchResponse) {

@@ -1,11 +1,16 @@
 import { RequestHandler } from "express";
+import * as prismic from "@prismicio/client";
 import asyncHandler from "express-async-handler";
-import { Clients, TransformedArticle } from "../types";
-
+import {
+  ArticlePrismicDocument,
+  Clients,
+  ContentType,
+  TransformedArticle,
+} from "../types";
 import { Config } from "../../config";
-import { articlesFetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
+import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
 
 type PathParams = { id: string };
 
@@ -21,13 +26,22 @@ const articleController = (
     const id = req.params.id;
 
     try {
-      const searchResponse = await articlesFetcher.getById(
-        {
-          type: "GetServerSidePropsPrismicClient",
-          client: prismicClient,
-        },
-        id
-      );
+      // This means that Prismic will only return the document with the given ID if
+      // it matches the content type.  So e.g. going to /events/<exhibition ID> will
+      // return a 404, rather than a 500 as we find we're missing a bunch of fields
+      // we need to render the page.
+      const predicates = [
+        prismic.predicate.any("document.type", articlesContentTypes),
+      ];
+
+      const searchResponse = await prismicClient.getByID<
+        ArticlePrismicDocument & {
+          contentType: ContentType | ContentType[];
+        }
+      >(id, {
+        predicates,
+        graphQuery: graphQueryArticles,
+      });
 
       if (searchResponse) {
         const transformedResponse = transformArticle(searchResponse);
