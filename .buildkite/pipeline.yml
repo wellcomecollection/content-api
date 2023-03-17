@@ -17,8 +17,7 @@ steps:
   - wait
 
   - label: "publish: API"
-    #    branches: "main"
-    branches: "ci-deployment"
+    branches: "main"
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
           role: "arn:aws:iam::756629837203:role/catalogue-ci"
@@ -32,8 +31,7 @@ steps:
   - wait
 
   - label: "deploy: stage"
-    #    branches: "main"
-    branches: "ci-deployment"
+    branches: "main"
     concurrency: 1
     concurrency_group: "content-api/deploy-stage"
     command: |
