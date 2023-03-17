@@ -25,7 +25,7 @@ const graphQuery = `{
         }
       }
     }
-  }`.replace(/\n(\s+)/g, "\n");
+  }`.replace(/\n(\s+)/g, "\n"); // Pre-emptive removal of whitespaces as requests to the Prismic Rest API are limited to 2048 characters.
 
 type GetServerSidePropsPrismicClient = {
   type: "GetServerSidePropsPrismicClient";

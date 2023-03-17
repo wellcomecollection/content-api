@@ -39,6 +39,7 @@ const articleController = (
         });
       }
     } catch (error) {
+      // TODO add error checking once we get ES in
       throw error;
     }
   });
