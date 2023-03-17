@@ -1,5 +1,8 @@
 resource "aws_acm_certificate" "content_api" {
-  domain_name       = "content.${var.external_hostname}"
+  // This is not the same as the external hostname!
+  // It should correspond to the origin domains in the CloudFront distribution:
+  // https://github.com/wellcomecollection/platform-infrastructure/blob/main/cloudfront/api.wellcomecollection.org/main.tf
+  domain_name       = "content.api-${var.environment}.wellcomecollection.org"
   validation_method = "DNS"
 
   lifecycle {
