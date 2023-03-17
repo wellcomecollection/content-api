@@ -1,17 +1,20 @@
 import { RequestHandler } from "express";
+import * as prismic from "@prismicio/client";
 import asyncHandler from "express-async-handler";
 import {
-  Clients,
+  ArticlePrismicDocument,
   Displayable,
   ElasticClients,
+  Clients,
+  ContentType,
   ResultList,
-  TransformedArticle,
+  Article,
 } from "../types";
 import { Config } from "../../config";
-import { articlesFetcher } from "./fetcher";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
 import { paginationElasticBody, paginationResponseGetter } from "./pagination";
+import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
 
 type PathParams = { contentType: string };
 
@@ -23,13 +26,13 @@ type QueryParams = {
 
 type ArticlesHandler = RequestHandler<
   PathParams,
-  ResultList<TransformedArticle>,
+  ResultList<Article>,
   QueryParams
 >;
 
 type ArticlesHandlerElastic = RequestHandler<
   never,
-  ResultList<TransformedArticle>,
+  ResultList<Article>,
   never,
   QueryParams
 >;
@@ -41,11 +44,16 @@ const articlesController = (
   if ("prismic" in clients) {
     return asyncHandler(async (req, res) => {
       try {
-        const searchResponse = await articlesFetcher.getByType({
-          type: "GetServerSidePropsPrismicClient",
-          client: clients.prismic,
+        const searchResponse = await clients.prismic.get<
+          ArticlePrismicDocument & {
+            contentType: ContentType | ContentType[];
+          }
+        >({
+          graphQuery: graphQueryArticles,
+          predicates: [
+            prismic.predicate.any("document.type", articlesContentTypes),
+          ],
         });
-
         if (searchResponse) {
           const transformedResponse = searchResponse.results.map((result) =>
             transformArticle(result)
@@ -80,52 +88,53 @@ const articlesController = (
       return asyncHandler(async (req, res) => {
         const queryString = req.query.query;
         const identifierTypeFilter = req.query["identifiers.identifierType"];
-        const searchResponse = await elasticClient.search<
-          Displayable<TransformedArticle>
-        >({
-          index,
-          body: {
-            ...paginationElasticBody(req.query),
-            _source: ["display"],
-            track_total_hits: true,
-            query: {
-              bool: {
-                should: queryString
-                  ? [
-                      {
-                        match: {
-                          "query.identifiers.value": {
-                            query: queryString,
-                            analyzer: "whitespace",
-                            operator: "OR",
-                            boost: 1000,
+        const searchResponse = await elasticClient.search<Displayable<Article>>(
+          {
+            index,
+            body: {
+              // TODO fix error
+              // ...paginationElasticBody(req.query),
+              _source: ["display"],
+              track_total_hits: true,
+              query: {
+                bool: {
+                  should: queryString
+                    ? [
+                        {
+                          match: {
+                            "query.identifiers.value": {
+                              query: queryString,
+                              analyzer: "whitespace",
+                              operator: "OR",
+                              boost: 1000,
+                            },
                           },
                         },
-                      },
-                      {
-                        multi_match: {
-                          query: queryString,
-                          fields: ["query.label", "query.alternativeLabels"],
-                          type: "cross_fields",
+                        {
+                          multi_match: {
+                            query: queryString,
+                            fields: ["query.label", "query.alternativeLabels"],
+                            type: "cross_fields",
+                          },
                         },
-                      },
-                    ]
-                  : [],
-                filter: identifierTypeFilter
-                  ? [
-                      {
-                        term: {
-                          "query.identifiers.identifierType":
-                            identifierTypeFilter,
+                      ]
+                    : [],
+                  filter: identifierTypeFilter
+                    ? [
+                        {
+                          term: {
+                            "query.identifiers.identifierType":
+                              identifierTypeFilter,
+                          },
                         },
-                      },
-                    ]
-                  : [],
+                      ]
+                    : [],
+                },
               },
+              sort: queryString ? ["_score"] : ["query.id"],
             },
-            sort: queryString ? ["_score"] : ["query.id"],
-          },
-        });
+          }
+        );
 
         const results = searchResponse.hits.hits.flatMap((hit) =>
           hit._source ? [hit._source.display] : []
@@ -150,6 +159,7 @@ const articlesController = (
         });
       });
     } catch (error) {
+      // TODO add error checking once we get ES in
       throw error;
     }
   } else {

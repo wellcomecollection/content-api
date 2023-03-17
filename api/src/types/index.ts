@@ -32,18 +32,10 @@ import { PrismicImage } from "./prismic/images";
 export type { PrismicImage };
 
 // Transformed types
-import { TransformedArticle } from "./transformed/articles";
-export type { TransformedArticle };
+import { Article, Contributor, ArticleFormat, Image } from "./transformed";
+export type { Article, Contributor, ArticleFormat, Image };
 
-import { TransformedContributor } from "./transformed/contributors";
-export type { TransformedContributor };
-
-import { TransformedArticleFormat } from "./transformed/formats";
-export type { TransformedArticleFormat };
-
-import { TransformedImage } from "./transformed/images";
-export type { TransformedImage };
-
+// Generic types
 export type Clients = {
   prismic: prismic.Client;
 };

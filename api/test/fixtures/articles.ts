@@ -1,8 +1,8 @@
-import { TransformedArticle } from "../../src/types";
+import { Article } from "../../src/types";
 
 export const article = (
   { id }: { id: string } = { id: "abcdefgh" }
-): TransformedArticle => ({
+): Article => ({
   type: "Article",
   id,
   format: {

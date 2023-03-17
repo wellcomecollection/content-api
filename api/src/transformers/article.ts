@@ -1,11 +1,11 @@
 import {
-  TransformedArticle,
+  Article,
   ArticlePrismicDocument,
   PrismicArticleFormat,
   ArticleFormatId,
   InferDataInterface,
-  TransformedArticleFormat,
-  TransformedContributor,
+  ArticleFormat,
+  Contributor,
   PrismicImage,
   WithContributors,
 } from "../types";
@@ -19,10 +19,10 @@ import {
 
 const getContributors = (
   document: PrismicDocument<WithContributors>
-): TransformedContributor[] => {
+): Contributor[] => {
   const { data } = document;
   const contributors = (data.contributors ?? [])
-    .map((c): TransformedContributor => {
+    .map((c): Contributor => {
       // ROLE
       const roleDocument = isFilledLinkToDocumentWithData(c.role)
         ? c.role
@@ -41,16 +41,17 @@ const getContributors = (
         ? c.contributor
         : undefined;
 
-      const contributor = roleDocument
-        ? {
-            type:
-              contributorDocument.type === "people"
-                ? ("Person" as const)
-                : ("Organisation" as const),
-            id: contributorDocument.id as string,
-            label: asText(contributorDocument.data.name),
-          }
-        : undefined;
+      const contributor =
+        roleDocument && contributorDocument
+          ? {
+              type:
+                contributorDocument.type === "people"
+                  ? ("Person" as const)
+                  : ("Organisation" as const),
+              id: contributorDocument.id as string,
+              label: asText(contributorDocument.data.name),
+            }
+          : undefined;
 
       return {
         type: "Contributor",
@@ -77,7 +78,7 @@ function transformLabelType(
     "en-gb",
     InferDataInterface<PrismicArticleFormat>
   > & { data: InferDataInterface<PrismicArticleFormat> }
-): TransformedArticleFormat {
+): ArticleFormat {
   return {
     type: "ArticleFormat",
     id: format.id as ArticleFormatId,
@@ -85,9 +86,7 @@ function transformLabelType(
   };
 }
 
-export const transformArticle = (
-  document: ArticlePrismicDocument
-): TransformedArticle => {
+export const transformArticle = (document: ArticlePrismicDocument): Article => {
   const { data, id, first_publication_date } = document;
   const primaryImage = data.promo?.[0]?.primary;
 

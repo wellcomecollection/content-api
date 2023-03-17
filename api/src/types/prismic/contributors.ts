@@ -2,6 +2,7 @@ import {
   EmptyLinkField,
   FilledLinkToDocumentField,
   GroupField,
+  PrismicDocument,
   RelationField,
   RichTextField,
 } from "@prismicio/types";
@@ -12,17 +13,21 @@ type PrismicContributorContributor =
   | FilledLinkToDocumentField<
       "organisations" | "people",
       "en-gb",
-      InferDataInterface<{ name: RichTextField }>
+      InferDataInterface<PrismicDocument<{ name: RichTextField }>>
     >;
 
-type Contributors = GroupField<{
-  role: RelationField<
-    "editorial-contributor-roles",
-    "en-gb",
-    InferDataInterface<{
+type PrismicContributorRole = RelationField<
+  "editorial-contributor-roles",
+  "en-gb",
+  InferDataInterface<
+    PrismicDocument<{
       title: RichTextField;
     }>
-  >;
+  >
+>;
+
+type Contributors = GroupField<{
+  role: PrismicContributorRole;
   contributor: PrismicContributorContributor;
 }>;
 
