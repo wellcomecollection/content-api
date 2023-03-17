@@ -2,10 +2,7 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "noImplicitAny": false,
-    "strict": false,
-    "strictNullChecks": true
+    "noEmit": true
   },
   "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]

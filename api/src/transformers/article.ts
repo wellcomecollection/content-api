@@ -41,16 +41,17 @@ const getContributors = (
         ? c.contributor
         : undefined;
 
-      const contributor = roleDocument
-        ? {
-            type:
-              contributorDocument.type === "people"
-                ? ("Person" as const)
-                : ("Organisation" as const),
-            id: contributorDocument.id as string,
-            label: asText(contributorDocument.data.name),
-          }
-        : undefined;
+      const contributor =
+        roleDocument && contributorDocument
+          ? {
+              type:
+                contributorDocument.type === "people"
+                  ? ("Person" as const)
+                  : ("Organisation" as const),
+              id: contributorDocument.id as string,
+              label: asText(contributorDocument.data.name),
+            }
+          : undefined;
 
       return {
         type: "Contributor",
