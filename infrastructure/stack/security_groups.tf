@@ -4,7 +4,7 @@ data "aws_vpc" "vpc" {
 
 resource "aws_security_group" "vpc_ingress" {
   name        = "${var.environment}-content-api-vpc-ingress"
-  description = "Allow traffic between services and the rest of the VPC"
+  description = "Allow traffic from within the VPC into the service"
   vpc_id      = var.vpc_id
 
   ingress {
