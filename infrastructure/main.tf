@@ -3,7 +3,7 @@ module "content_api_stage" {
 
   environment = "stage"
   container_image = {
-    api = "${aws_ecr_repository.concepts_api.repository_url}:env.stage"
+    api = "${aws_ecr_repository.content_api.repository_url}:env.stage"
   }
   desired_task_count = {
     api = 1
