@@ -6,4 +6,6 @@ services:
       context: .
 
   api:
-    build: ./api
+    build:
+      dockerfile: ./api/Dockerfile
+      context: .

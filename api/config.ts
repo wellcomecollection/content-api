@@ -10,7 +10,7 @@ const environmentSchema = z.object({
 const environment = environmentSchema.parse(process.env);
 
 const config = {
-  // TODO
+  // TODO Unused now but required when we move to using ElasticSearch
   pipelineDate: "",
   contentsIndex: "",
   publicRootUrl: new URL(environment.PUBLIC_ROOT_URL),
