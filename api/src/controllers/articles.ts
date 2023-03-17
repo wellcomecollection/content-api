@@ -6,7 +6,7 @@ import {
   Clients,
   ContentType,
   ResultList,
-  TransformedArticle,
+  Article,
 } from "../types";
 import { Config } from "../../config";
 import { transformArticle } from "../transformers/article";
@@ -23,7 +23,7 @@ type QueryParams = {
 
 type ArticlesHandler = RequestHandler<
   PathParams,
-  ResultList<TransformedArticle>,
+  ResultList<Article>,
   QueryParams
 >;
 const articlesController = (

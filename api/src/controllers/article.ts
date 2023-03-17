@@ -5,7 +5,7 @@ import {
   ArticlePrismicDocument,
   Clients,
   ContentType,
-  TransformedArticle,
+  Article,
 } from "../types";
 import { Config } from "../../config";
 import { transformArticle } from "../transformers/article";
@@ -14,7 +14,7 @@ import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
 
 type PathParams = { id: string };
 
-type ArticleHandler = RequestHandler<PathParams, TransformedArticle>;
+type ArticleHandler = RequestHandler<PathParams, Article>;
 
 const articleController = (
   clients: Clients,
