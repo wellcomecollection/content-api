@@ -9,7 +9,7 @@ import {
 import { Config } from "../config";
 import { Clients, ElasticClients } from "./types";
 
-const createApp = (clients: Clients, config: Config) => {
+const createApp = (clients: Clients | ElasticClients, config: Config) => {
   const app = express();
 
   app.use(morgan("short", { stream: logStream("http") }));
@@ -22,16 +22,3 @@ const createApp = (clients: Clients, config: Config) => {
   return app;
 };
 export default createApp;
-
-export const createAppElastic = (clients: ElasticClients, config: Config) => {
-  const app = express();
-
-  app.use(morgan("short", { stream: logStream("http") }));
-
-  app.get("/articles", articlesController(clients, config));
-  app.get("/articles/:id", articleController(clients, config));
-
-  app.use(errorHandler);
-
-  return app;
-};
