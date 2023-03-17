@@ -2,6 +2,8 @@ module "content_api_stage" {
   source = "./stack"
 
   environment = "stage"
+  api_version = "v0"
+
   container_image = {
     api = "${aws_ecr_repository.content_api.repository_url}:env.stage"
   }
