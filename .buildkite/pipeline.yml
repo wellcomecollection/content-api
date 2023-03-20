@@ -46,7 +46,7 @@ steps:
   - block: ":rocket: deploy to prod"
     branches: "main"
 
-  - label: "deploy: stage"
+  - label: "deploy: prod"
     branches: "main"
     concurrency: 1
     concurrency_group: "content-api/deploy-prod"
