@@ -32,7 +32,7 @@ module "content_api_service" {
 }
 
 resource "aws_lb_target_group" "content_api" {
-  name = "content-api"
+  name = "content-api-${var.environment}"
 
   port        = module.content_api_service.nginx_container_port
   target_type = "ip"
@@ -47,6 +47,10 @@ resource "aws_lb_target_group" "content_api" {
 
   health_check {
     protocol = "TCP"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 }
 

@@ -42,3 +42,19 @@ steps:
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
           role: "arn:aws:iam::756629837203:role/catalogue-ci"
+
+  - block: ":rocket: deploy to prod"
+    branches: "main"
+
+  - label: "deploy: prod"
+    branches: "main"
+    concurrency: 1
+    concurrency_group: "content-api/deploy-prod"
+    command: |
+      ENV_TAG="env.prod" ./builds/update_ecr_image_tag.sh weco/content-api
+      CLUSTER="content-api" ./builds/deploy_ecs_services.sh content-api-prod
+    agents:
+      queue: nano
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
