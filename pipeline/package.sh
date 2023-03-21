@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -o errexit
+set -o nounset
+set -o pipefail
 
 yarn clean
 yarn build
