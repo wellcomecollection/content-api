@@ -7,9 +7,9 @@ import {
   articleController,
 } from "./controllers";
 import { Config } from "../config";
-import { Clients, ElasticClients } from "./types";
+import { Clients } from "./types";
 
-const createApp = (clients: Clients | ElasticClients, config: Config) => {
+const createApp = (clients: Clients, config: Config) => {
   const app = express();
 
   app.use(morgan("short", { stream: logStream("http") }));

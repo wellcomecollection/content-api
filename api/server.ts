@@ -8,21 +8,15 @@ import { createPrismicClient } from "./src/services/prismic";
 import { getElasticClient } from "./src/services/elasticsearch";
 
 const config = getConfig();
+const prismicClient = createPrismicClient();
 
-const prismic = createPrismicClient();
-
-const app = createApp({ prismic }, config);
-const port = process.env.PORT ?? 3000;
-app.listen(port, () => {
-  log.info(`Content API listening on port ${port}`);
-});
-
-getElasticClient({ pipelineDate: config.pipelineDate }).then((elastic) => {
-  const app = createApp({ elastic }, config);
-  // Uncomment when ES only
-  // const port = process.env.PORT ?? 3001;
-  const port = 3001;
+getElasticClient().then(async (elasticClient) => {
+  const app = createApp(
+    { elastic: elasticClient, prismic: prismicClient },
+    config
+  );
+  const port = process.env.PORT ?? 3000;
   app.listen(port, () => {
-    log.info(`Content (Elastic) API listening on port ${port}`);
+    log.info(`Content API listening on port ${port}`);
   });
 });

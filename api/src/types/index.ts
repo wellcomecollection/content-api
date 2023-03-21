@@ -38,8 +38,6 @@ export type { Article, Contributor, ArticleFormat, Image };
 // Generic types
 export type Clients = {
   prismic: prismic.Client;
-};
-export type ElasticClients = {
   elastic: ElasticClient;
 };
 

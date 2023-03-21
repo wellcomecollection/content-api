@@ -34,7 +34,6 @@ export type ArticleFormatId =
 
 export type PrismicArticleFormat = PrismicDocument<
   {
-    id: string;
     title: RichTextField;
   },
   "article-formats"
