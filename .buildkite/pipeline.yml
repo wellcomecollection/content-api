@@ -13,3 +13,54 @@ steps:
       - docker-compose#v4.10.1:
           run: api
           command: ["yarn", "test"]
+
+  - label: "test: ETL pipeline"
+    plugins:
+      - docker-compose#v4.10.1:
+          run: pipeline
+          command: ["yarn", "test"]
+
+  - wait
+
+  - label: "publish: API"
+    branches: "main"
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+      - ecr#v2.1.1:
+          login: true
+      - docker-compose#v3.5.0:
+          push:
+            - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:ref.${BUILDKITE_COMMIT}
+            - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
+
+  - wait
+
+  - label: "deploy: stage"
+    branches: "main"
+    concurrency: 1
+    concurrency_group: "content-api/deploy-stage"
+    command: |
+      ENV_TAG="env.stage" ./builds/update_ecr_image_tag.sh weco/content-api
+      CLUSTER="content-api" ./builds/deploy_ecs_services.sh content-api-stage
+    agents:
+      queue: nano
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+
+  - block: ":rocket: deploy to prod"
+    branches: "main"
+
+  - label: "deploy: prod"
+    branches: "main"
+    concurrency: 1
+    concurrency_group: "content-api/deploy-prod"
+    command: |
+      ENV_TAG="env.prod" ./builds/update_ecr_image_tag.sh weco/content-api
+      CLUSTER="content-api" ./builds/deploy_ecs_services.sh content-api-prod
+    agents:
+      queue: nano
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"

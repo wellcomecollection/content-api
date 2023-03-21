@@ -1,8 +1,8 @@
 resource "aws_lb" "content_api" {
   name                             = "content-api-${var.environment}"
-  internal                         = false // TODO Switch back to internal once there's an API Gateway in front of it
+  internal                         = true
   load_balancer_type               = "network"
-  subnets                          = var.public_subnets # TODO Switch back to private subnets once APIGW is here
+  subnets                          = var.private_subnets
   enable_cross_zone_load_balancing = local.should_cross_zone_lb
 }
 
