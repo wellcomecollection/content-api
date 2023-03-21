@@ -3,12 +3,19 @@
   "version": "0.1.0",
   "description": "An ETL pipeline service for getting content from Prismic into Elasticsearch",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "package": "./package.sh",
+    "clean": "rimraf ./dist package.zip",
+    "test": "jest"
+  },
   "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/aws-lambda": "^8.10.114",
     "@types/node": "^18.15.5",
     "jest": "^29.5.0",
-    "ts-jest": "^29.0.5"
-  },
-  "dependencies": {
+    "rimraf": "^4.4.0",
+    "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   }

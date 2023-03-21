@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
+    "rootDirs": ["src", "test"],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   }
