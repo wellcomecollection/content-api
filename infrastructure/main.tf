@@ -1,5 +1,5 @@
 module "content_api_prod" {
-  source = "./stack"
+  source = "./api_stack"
 
   environment       = "prod"
   external_hostname = "api.wellcomecollection.org"
@@ -23,7 +23,7 @@ module "content_api_prod" {
 }
 
 module "content_api_stage" {
-  source = "./stack"
+  source = "./api_stack"
 
   environment       = "stage"
   external_hostname = "api-stage.wellcomecollection.org"
