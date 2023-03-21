@@ -48,6 +48,10 @@ resource "aws_lb_target_group" "content_api" {
   health_check {
     protocol = "TCP"
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_lb_listener" "tcp" {
