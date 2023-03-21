@@ -9,3 +9,8 @@ services:
     build:
       dockerfile: ./api/Dockerfile
       context: .
+
+  pipeline:
+    build:
+      dockerfile: ./pipeline/Dockerfile
+      context: .

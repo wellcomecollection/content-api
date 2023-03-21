@@ -14,6 +14,12 @@ steps:
           run: api
           command: ["yarn", "test"]
 
+  - label: "test: ETL pipeline"
+    plugins:
+      - docker-compose#v4.10.1:
+          run: pipeline
+          command: ["yarn", "test"]
+
   - wait
 
   - label: "publish: API"
