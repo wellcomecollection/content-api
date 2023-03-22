@@ -1,73 +1,77 @@
 import { RequestHandler } from "express";
-import * as prismic from "@prismicio/client";
 import asyncHandler from "express-async-handler";
-import {
-  ArticlePrismicDocument,
-  Clients,
-  ContentType,
-  ResultList,
-  Article,
-} from "../types";
+import { Displayable, Clients, ResultList, Article } from "../types";
 import { Config } from "../../config";
-import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
-import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
+import {
+  paginationElasticBody,
+  PaginationQueryParameters,
+  paginationResponseGetter,
+} from "./pagination";
 
-type PathParams = { contentType: string };
-
-// TODO Unused now, but for when we add querying capabilities
 type QueryParams = {
   query?: string;
-  "identifiers.identifierType"?: string;
-};
+} & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<
-  PathParams,
+  never,
   ResultList<Article>,
+  never,
   QueryParams
 >;
+
 const articlesController = (
   clients: Clients,
-  config: Config // TODO Unused now but required when we move to using ElasticSearch
+  config: Config
 ): ArticlesHandler => {
-  const prismicClient = clients.prismic;
+  const index = config.contentsIndex;
 
-  return asyncHandler(async (req, res) => {
-    try {
-      const searchResponse = await prismicClient.get<
-        ArticlePrismicDocument & {
-          contentType: ContentType | ContentType[];
+  const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
+
+  try {
+    return asyncHandler(async (req, res) => {
+      const searchResponse = await clients.elastic.search<Displayable<Article>>(
+        {
+          index,
+          body: {
+            ...paginationElasticBody(req.query),
+            _source: ["display"],
+          },
         }
-      >({
-        graphQuery: graphQueryArticles,
-        predicates: [
-          prismic.predicate.any("document.type", articlesContentTypes),
-        ],
+      );
+
+      const results = searchResponse.hits.hits.flatMap((hit) =>
+        hit._source ? [hit._source.display] : []
+      );
+
+      const requestUrl = new URL(
+        req.url,
+        `${req.protocol}://${req.headers.host}`
+      );
+
+      const totalResults =
+        typeof searchResponse.hits.total === "number"
+          ? searchResponse.hits.total
+          : searchResponse.hits.total?.value ?? 0;
+
+      const paginationResponse = getPaginationResponse({
+        requestUrl,
+        totalResults,
       });
 
-      if (searchResponse) {
-        const transformedResponse = searchResponse.results.map((result) =>
-          transformArticle(result)
-        );
-
-        res.status(200).json({
-          type: "ResultList",
-          results: transformedResponse,
-          totalResults: searchResponse.total_results_size,
-          totalPages: searchResponse.total_pages,
-          pageSize: searchResponse.results_per_page, // TODO This should be customisable, not worth doing until we move to ES?
-        });
-      } else {
-        throw new HttpError({
-          status: 404,
-          label: "No results found",
-        });
-      }
-    } catch (error) {
-      // TODO add error checking once we get ES in
-      throw error;
-    }
-  });
+      res.status(200).json({
+        type: "ResultList",
+        results,
+        ...paginationResponse,
+      });
+    });
+  } catch (error) {
+    // TODO handle this more constructively
+    throw new HttpError({
+      status: 500,
+      label: "Internal Server Error",
+    });
+  }
 };
 
 export default articlesController;

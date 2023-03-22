@@ -21,5 +21,4 @@ const createApp = (clients: Clients, config: Config) => {
 
   return app;
 };
-
 export default createApp;

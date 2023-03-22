@@ -11,8 +11,7 @@ const environment = environmentSchema.parse(process.env);
 
 const config = {
   // TODO Unused now but required when we move to using ElasticSearch
-  pipelineDate: "",
-  contentsIndex: "",
+  contentsIndex: "testing-index",
   publicRootUrl: new URL(environment.PUBLIC_ROOT_URL),
 };
 

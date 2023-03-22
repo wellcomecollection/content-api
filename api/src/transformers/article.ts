@@ -112,7 +112,7 @@ export const transformArticle = (document: ArticlePrismicDocument): Article => {
     title: asTitle(data.title),
     caption,
     format,
-    publicationDate: new Date(datePublished),
+    publicationDate: datePublished,
     contributors: getContributors(document),
     image,
   };
