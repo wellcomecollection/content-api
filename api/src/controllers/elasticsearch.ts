@@ -6,16 +6,14 @@ import {
   Clients,
   ContentType,
 } from "../types";
-import {
-  CountResponse,
-  ErrorCause,
-} from "@elastic/elasticsearch/lib/api/types";
-import { Config, getConfig } from "../../config";
-import { articlesContentTypes, graphQueryArticles } from "../helpers/articles";
+import { CountResponse } from "@elastic/elasticsearch/lib/api/types";
+import { getConfig } from "../../config";
+import { graphQueryArticles } from "../helpers/articles";
 import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
 import { PaginationQueryParameters } from "./pagination";
 import { RequestHandler } from "express";
+import { OnDropDocument } from "@elastic/elasticsearch/lib/helpers";
 
 const indexName = getConfig().contentsIndex;
 
@@ -42,72 +40,84 @@ const addIndex = async (elasticClient: Client, indexName: string) => {
   }
 };
 
-const bulkIndexArticles = async (elasticClient: Client, docs: Article[]) => {
+const bulkIndexDocuments = async (elasticClient: Client, docs: Article[]) => {
   const operations = docs.flatMap((doc) => {
     return [
-      { index: { _index: indexName, _id: doc.id } },
       {
-        display: doc as Article,
+        display: doc,
         query: { id: doc.id },
       },
     ];
   });
 
-  const bulkResponse = await elasticClient.bulk({ refresh: true, operations });
+  let failures: OnDropDocument<{ display: any; query: any }>[] = [];
+  await elasticClient.helpers.bulk({
+    datasource: operations,
+    onDocument(doc) {
+      return {
+        index: { _index: indexName, _id: doc.display.id },
+      };
+    },
+    onDrop: (fail) => {
+      failures.push(fail);
+    },
+  });
 
-  if (bulkResponse.errors) {
-    const erroredDocuments: {
-      status: number;
-      error: ErrorCause;
-      operation: any;
-      document: any;
-    }[] = [];
-    // The items array has the same order of the dataset we just indexed.
-    // The presence of the `error` key indicates that the operation
-    // that we did for the document has failed.
-    bulkResponse.items.forEach((action, i) => {
-      if (action["index"]?.error) {
-        erroredDocuments.push({
-          // If the status is 429 it means that you can retry the document,
-          // otherwise it's very likely a mapping error, and you should
-          // fix the document before to try it again.
-          status: action["index"]?.status,
-          error: action["index"]?.error,
-          operation: operations[i * 2],
-          document: operations[i * 2 + 1],
-        });
-      }
-    });
-    console.log("erroredDocuments", erroredDocuments);
+  if (failures.length !== 0) {
+    const failedServices = new Set(
+      failures.map(({ document }) => document.display)
+    );
+    console.error(
+      `Failed to ingest documents from ${failedServices.size} services: ${[
+        ...failedServices,
+      ].join(", ")}`
+    );
+    throw new Error(JSON.stringify(failures));
   }
 
   const count = await elasticClient.count({ index: indexName });
   return count;
 };
 
-const elasticsearchController = (clients: Clients, config: Config): Handler => {
+// Review what prismic function we use here.
+// getAllByType (no pagination blocker but only one type at a time)
+// or getByType (which allows more than one type at a time).
+// Review if predicates are still required
+const getPrismicDocuments = async <T>({
+  prismicClient,
+  contentTypes,
+}: {
+  prismicClient: prismic.Client;
+  contentTypes: ContentType[];
+}): Promise<T> => {
+  const getDocuments = await prismicClient.getAllByType(contentTypes[0], {
+    graphQuery: graphQueryArticles,
+    predicates: [prismic.predicate.any("document.type", contentTypes)],
+  });
+
+  return getDocuments as T;
+};
+
+const elasticsearchController = (clients: Clients): Handler => {
   return async (req, res) => {
     try {
-      const searchResponse = await clients.prismic.getAllByType<
-        ArticlePrismicDocument & {
-          contentType: ContentType | ContentType[];
-        }
-      >("articles", {
-        // We'll need to consider "webcomics" as well when we do this properly
-        graphQuery: graphQueryArticles,
-        predicates: [
-          prismic.predicate.any("document.type", articlesContentTypes),
-        ],
+      // Fetch all articles and webcomics from Prismic
+      const searchResponse = await getPrismicDocuments<
+        ArticlePrismicDocument[]
+      >({
+        prismicClient: clients.prismic,
+        contentTypes: ["articles", "webcomics"],
       });
 
       if (searchResponse) {
+        // Transform all articles and webcomics
         // As this is for testing, we don't need all 900 articles
         const transformedResponse = searchResponse
           .slice(0, 40)
           .map((result) => transformArticle(result));
 
-        // // Send to ES
-        const bulkHelper = await bulkIndexArticles(
+        // Bulk send them to Elasticsearch
+        const bulkHelper = await bulkIndexDocuments(
           clients.elastic,
           transformedResponse
         );
