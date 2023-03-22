@@ -13,7 +13,7 @@ import { transformArticle } from "../transformers/article";
 import { HttpError } from "./error";
 import { PaginationQueryParameters } from "./pagination";
 import { RequestHandler } from "express";
-import { OnDropDocument } from "@elastic/elasticsearch/lib/helpers";
+import { PrismicDocument } from "@prismicio/types";
 
 const indexName = getConfig().contentsIndex;
 
@@ -40,43 +40,31 @@ const addIndex = async (elasticClient: Client, indexName: string) => {
   }
 };
 
-const bulkIndexDocuments = async (elasticClient: Client, docs: Article[]) => {
-  const operations = docs.flatMap((doc) => {
-    return [
-      {
-        display: doc,
-        query: { id: doc.id },
-      },
-    ];
+type TransformedDocument = {
+  id: string;
+};
+
+const bulkIndexDocuments = async (
+  elasticClient: Client,
+  docs: TransformedDocument[]
+) => {
+  const datasource = docs.map((doc) => {
+    return {
+      display: doc,
+      query: { id: doc.id },
+    };
   });
 
-  let failures: OnDropDocument<{ display: any; query: any }>[] = [];
   await elasticClient.helpers.bulk({
-    datasource: operations,
+    datasource,
     onDocument(doc) {
       return {
         index: { _index: indexName, _id: doc.display.id },
       };
     },
-    onDrop: (fail) => {
-      failures.push(fail);
-    },
   });
 
-  if (failures.length !== 0) {
-    const failedServices = new Set(
-      failures.map(({ document }) => document.display)
-    );
-    console.error(
-      `Failed to ingest documents from ${failedServices.size} services: ${[
-        ...failedServices,
-      ].join(", ")}`
-    );
-    throw new Error(JSON.stringify(failures));
-  }
-
-  const count = await elasticClient.count({ index: indexName });
-  return count;
+  return await elasticClient.count({ index: indexName });
 };
 
 // Review what prismic function we use here.
