@@ -1,6 +1,6 @@
 import articlesController from "./articles";
 import articleController from "./article";
-import elasticSearchController from "./elastic-search";
+import elasticSearchController from "./elasticsearch";
 
 export { errorHandler } from "./error";
 export { articlesController, articleController, elasticSearchController };

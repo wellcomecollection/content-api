@@ -42,7 +42,7 @@ const addIndex = async (elasticClient: Client, indexName: string) => {
   }
 };
 
-const useBulkHelper = async (elasticClient: Client, docs: Article[]) => {
+const bulkIndexArticles = async (elasticClient: Client, docs: Article[]) => {
   const operations = docs.flatMap((doc) => {
     return [
       { index: { _index: indexName, _id: doc.id } },
@@ -107,7 +107,7 @@ const elasticSearchController = (clients: Clients, config: Config): Handler => {
           .map((result) => transformArticle(result));
 
         // // Send to ES
-        const bulkHelper = await useBulkHelper(
+        const bulkHelper = await bulkIndexArticles(
           clients.elastic,
           transformedResponse
         );
