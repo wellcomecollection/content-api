@@ -85,7 +85,7 @@ const bulkIndexArticles = async (elasticClient: Client, docs: Article[]) => {
   return count;
 };
 
-const elasticSearchController = (clients: Clients, config: Config): Handler => {
+const elasticsearchController = (clients: Clients, config: Config): Handler => {
   return async (req, res) => {
     try {
       const searchResponse = await clients.prismic.getAllByType<
@@ -127,4 +127,4 @@ const elasticSearchController = (clients: Clients, config: Config): Handler => {
   };
 };
 
-export default elasticSearchController;
+export default elasticsearchController;
