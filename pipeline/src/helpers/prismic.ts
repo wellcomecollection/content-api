@@ -36,10 +36,10 @@ export const getPrismicDocuments = async <T>({
   prismicClient: prismic.Client;
   contentTypes: ContentType[];
 }): Promise<T> => {
-  const getDocuments = await prismicClient.getAllByType(contentTypes[0], {
+  const getDocuments = await prismicClient.getByType(contentTypes[0], {
     graphQuery: graphQueryArticles,
     predicates: [prismic.predicate.any("document.type", contentTypes)],
   });
 
-  return getDocuments as T;
+  return getDocuments.results as T;
 };

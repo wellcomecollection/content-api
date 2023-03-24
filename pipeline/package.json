@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
+    "reindex": "ts-node src/local.ts",
     "package": "./package.sh",
     "clean": "rimraf ./dist package.zip",
     "test": "jest"
