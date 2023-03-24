@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Displayable, Clients, ResultList, Article } from "../types";
+import { Clients, Displayable, ResultList } from "../types";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 import {
@@ -13,12 +13,7 @@ type QueryParams = {
   query?: string;
 } & PaginationQueryParameters;
 
-type ArticlesHandler = RequestHandler<
-  never,
-  ResultList<Article>,
-  never,
-  QueryParams
->;
+type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
 const articlesController = (
   clients: Clients,
@@ -30,15 +25,13 @@ const articlesController = (
 
   try {
     return asyncHandler(async (req, res) => {
-      const searchResponse = await clients.elastic.search<Displayable<Article>>(
-        {
-          index,
-          body: {
-            ...paginationElasticBody(req.query),
-            _source: ["display"],
-          },
-        }
-      );
+      const searchResponse = await clients.elastic.search<Displayable>({
+        index,
+        body: {
+          ...paginationElasticBody(req.query),
+          _source: ["display"],
+        },
+      });
 
       const results = searchResponse.hits.hits.flatMap((hit) =>
         hit._source ? [hit._source.display] : []
