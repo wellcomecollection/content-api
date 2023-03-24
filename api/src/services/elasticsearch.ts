@@ -1,14 +1,31 @@
-import { Client } from "@elastic/elasticsearch";
+import { Client, ClientOptions } from "@elastic/elasticsearch";
+import { getSecret } from "./aws";
 
-// const isProduction = process.env.NODE_ENV === "production";
+type ClientParameters = {
+  pipelineDate: string;
+};
 
-export const getElasticClient = async (): Promise<Client> => {
-  const client = await new Client({
-    node: "https://content.es.eu-west-1.aws.found.io:9243",
+const isProduction = process.env.NODE_ENV === "production";
+
+const getElasticClientConfig = async ({
+  pipelineDate,
+}: ClientParameters): Promise<ClientOptions> => {
+  const secretPrefix = `elasticsearch/content-${pipelineDate}`;
+  const [host, password] = await Promise.all([
+    getSecret(`${secretPrefix}/${isProduction ? "private" : "public"}_host`),
+    getSecret(`${secretPrefix}/api/password`),
+  ]);
+  return {
+    node: `https://${host}:9243`,
     auth: {
-      username: "dev",
-      password: process.env.ELASTICSEARCH_PASSWORD || "",
+      username: "api",
+      password: password!,
     },
-  });
-  return client;
+  };
+};
+export const getElasticClient = async (
+  params: ClientParameters
+): Promise<Client> => {
+  const config = await getElasticClientConfig(params);
+  return new Client(config);
 };
