@@ -2,7 +2,6 @@ import { Handler } from "aws-lambda";
 import { ArticlePrismicDocument, Clients } from "./types";
 import { transformArticle } from "./transformers/article";
 import { bulkIndexDocuments } from "./helpers/elasticsearch";
-import { HttpError } from "./helpers/error";
 import { getPrismicDocuments } from "./helpers/prismic";
 
 export const createHandler = (clients: Clients): Handler => {
@@ -25,11 +24,6 @@ export const createHandler = (clients: Clients): Handler => {
 
         // Bulk send them to Elasticsearch
         await bulkIndexDocuments(clients.elastic, transformedResponse);
-      } else {
-        throw new HttpError({
-          status: 404,
-          label: "No results found",
-        });
       }
     } catch (error) {
       // TODO handle this better, what would we want here?
