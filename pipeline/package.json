@@ -12,10 +12,10 @@
   "dependencies": {
     "@prismicio/client": "^6.7.3",
     "@prismicio/helpers": "^2.3.9",
-    "@prismicio/types": "^0.2.7",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@prismicio/types": "^0.2.7",
     "@tsconfig/node18": "^1.0.1",
     "@types/aws-lambda": "^8.10.114",
     "@types/jest": "^29.5.0",

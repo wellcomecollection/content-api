@@ -25,7 +25,7 @@ const graphQueryArticles = `{
     }
   }`.replace(/\n(\s+)/g, "\n"); // Pre-emptive removal of whitespaces as requests to the Prismic Rest API are limited to 2048 characters.
 
-// Review what prismic function we use here.
+// TODO Review what prismic function we use here.
 // getAllByType (no pagination blocker but only one type at a time)
 // or getByType (which allows more than one type at a time).
 // Review if predicates are still required
