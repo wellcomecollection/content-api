@@ -1,6 +1,6 @@
-resource "ec_deployment" "cluster" {
-  name  = "content"
-  alias = "content"
+resource "ec_deployment" "content_cluster" {
+  name  = "content-${var.pipeline_date}"
+  alias = "content-${var.pipeline_date}"
 
   version                = data.ec_stack.latest_patch.version
   region                 = data.aws_region.current.name
@@ -20,7 +20,7 @@ resource "ec_deployment" "cluster" {
     zone_count = 1
   }
 
-  observability {
+  observability = {
     deployment_id = var.logging_cluster_id
   }
 }
