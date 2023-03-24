@@ -13,6 +13,6 @@ provider "elasticstack" {
   elasticsearch {
     username  = ec_deployment.content_cluster.elasticsearch_username
     password  = ec_deployment.content_cluster.elasticsearch_password
-    endpoints = ec_deployment.content_cluster.elasticsearch.*.https_endpoint
+    endpoints = ["https://${local.cluster_public_host}:9243"]
   }
 }

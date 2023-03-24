@@ -2,7 +2,7 @@ locals {
   indices = {
     articles = "articles"
   }
-  roles = {
+  service_roles = {
     api = [
       "${local.indices.articles}_read"
     ]
@@ -37,7 +37,7 @@ resource "elasticstack_elasticsearch_security_role" "write_indices" {
 
 module "elastic_users" {
   source   = "../modules/elastic_user"
-  for_each = local.roles
+  for_each = local.service_roles
 
   username = each.key
   roles    = each.value
