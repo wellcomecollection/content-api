@@ -1,21 +1,6 @@
 import { Client } from "@elastic/elasticsearch";
-import { CountResponse } from "@elastic/elasticsearch/lib/api/types";
-import { getConfig } from "../../../api/config";
-import { PaginationQueryParameters } from "../../../api/src/controllers/pagination";
-import { RequestHandler } from "express";
 
-const indexName = getConfig().contentsIndex;
-
-type QueryParams = {
-  query?: string;
-} & PaginationQueryParameters;
-
-export type Handler = RequestHandler<
-  never,
-  { count: CountResponse },
-  never,
-  QueryParams
->;
+const indexName = "testing-index";
 
 // TODO remove?
 export const addIndex = async (elasticClient: Client, indexName: string) => {
@@ -29,13 +14,13 @@ export const addIndex = async (elasticClient: Client, indexName: string) => {
   }
 };
 
-type TransformedDocument = {
+type HasIdentifier = {
   id: string;
 };
 
-export const bulkIndexDocuments = async (
+export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
-  docs: TransformedDocument[]
+  docs: T[]
 ) => {
   const datasource = docs.map((doc) => {
     return {
