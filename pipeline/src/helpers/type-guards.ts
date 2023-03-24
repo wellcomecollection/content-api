@@ -1,5 +1,5 @@
 import { FilledLinkToDocumentField, RelationField } from "@prismicio/types";
-import { isNotUndefined } from "../helpers";
+import { isNotUndefined } from ".";
 import { DataInterface } from "../types";
 
 export function isFilledLinkToDocument<T, L, D extends DataInterface>(
