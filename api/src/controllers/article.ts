@@ -1,17 +1,14 @@
-import {
-  errors as elasticErrors,
-  Client as ElasticClient,
-} from "@elastic/elasticsearch";
+import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Displayable } from "../types";
+import { Clients, Displayable } from "../types";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 
 type PathParams = { id: string };
 
 const articleController = (
-  elasticClient: ElasticClient,
+  clients: Clients,
   config: Config
 ): RequestHandler<PathParams> => {
   const index = config.contentsIndex;
@@ -19,7 +16,7 @@ const articleController = (
   return asyncHandler(async (req, res) => {
     const id = req.params.id;
     try {
-      const getResponse = await elasticClient.get<Displayable>({
+      const getResponse = await clients.elastic.get<Displayable>({
         index,
         id,
         _source: ["display"],

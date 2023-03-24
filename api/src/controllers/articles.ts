@@ -1,7 +1,6 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Client as ElasticClient } from "@elastic/elasticsearch";
-import { Displayable, ResultList } from "../types";
+import { Clients, Displayable, ResultList } from "../types";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 import {
@@ -17,7 +16,7 @@ type QueryParams = {
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
 const articlesController = (
-  elasticClient: ElasticClient,
+  clients: Clients,
   config: Config
 ): ArticlesHandler => {
   const index = config.contentsIndex;
@@ -26,7 +25,7 @@ const articlesController = (
 
   try {
     return asyncHandler(async (req, res) => {
-      const searchResponse = await elasticClient.search<Displayable>({
+      const searchResponse = await clients.elastic.search<Displayable>({
         index,
         body: {
           ...paginationElasticBody(req.query),
