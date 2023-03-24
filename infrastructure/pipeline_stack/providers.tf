@@ -9,8 +9,6 @@ terraform {
   }
 }
 
-
-
 provider "elasticstack" {
   elasticsearch {
     username  = ec_deployment.content_cluster.elasticsearch_username
