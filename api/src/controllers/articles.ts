@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
 import { Client as ElasticClient } from "@elastic/elasticsearch";
-import { Displayable, ResultList, Article } from "../types";
+import { Displayable, ResultList } from "../types";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 import {
@@ -14,12 +14,7 @@ type QueryParams = {
   query?: string;
 } & PaginationQueryParameters;
 
-type ArticlesHandler = RequestHandler<
-  never,
-  ResultList<Article>,
-  never,
-  QueryParams
->;
+type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
 const articlesController = (
   elasticClient: ElasticClient,
@@ -31,7 +26,7 @@ const articlesController = (
 
   try {
     return asyncHandler(async (req, res) => {
-      const searchResponse = await elasticClient.search<Displayable<Article>>({
+      const searchResponse = await elasticClient.search<Displayable>({
         index,
         body: {
           ...paginationElasticBody(req.query),

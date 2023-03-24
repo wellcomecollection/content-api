@@ -4,24 +4,22 @@ import {
 } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Displayable, Article } from "../types";
+import { Displayable } from "../types";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 
 type PathParams = { id: string };
 
-type ArticleHandler = RequestHandler<PathParams, Article>;
-
 const articleController = (
   elasticClient: ElasticClient,
   config: Config
-): ArticleHandler => {
+): RequestHandler<PathParams> => {
   const index = config.contentsIndex;
 
   return asyncHandler(async (req, res) => {
     const id = req.params.id;
     try {
-      const getResponse = await elasticClient.get<Displayable<Article>>({
+      const getResponse = await elasticClient.get<Displayable>({
         index,
         id,
         _source: ["display"],
