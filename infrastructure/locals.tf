@@ -5,4 +5,5 @@ locals {
   vpc_id                   = local.catalogue_networking["catalogue_vpc_id"]
   private_subnets          = local.catalogue_networking["catalogue_vpc_private_subnets"]
   elastic_cloud_vpce_sg_id = local.shared_infra["ec_catalogue_privatelink_sg_id"]
+  logging_cluster_id       = local.shared_infra["logging_cluster_id"]
 }

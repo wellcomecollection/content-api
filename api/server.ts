@@ -8,10 +8,12 @@ import { getElasticClient } from "./src/services/elasticsearch";
 
 const config = getConfig();
 
-getElasticClient().then(async (elasticClient) => {
-  const app = createApp({ elastic: elasticClient }, config);
-  const port = process.env.PORT ?? 3000;
-  app.listen(port, () => {
-    log.info(`Content API listening on port ${port}`);
-  });
-});
+getElasticClient({ pipelineDate: config.pipelineDate }).then(
+  async (elasticClient) => {
+    const app = createApp({ elastic: elasticClient }, config);
+    const port = process.env.PORT ?? 3000;
+    app.listen(port, () => {
+      log.info(`Content API listening on port ${port}`);
+    });
+  }
+);
