@@ -7,7 +7,8 @@ COPY ./package.json ./yarn.lock ./tsconfig.base.json ./jest.config.base.js ./
 COPY ./common ./common
 COPY ./pipeline ./pipeline
 
-WORKDIR pipeline
 RUN yarn install --frozen-lockfile && yarn cache clean
+
+WORKDIR pipeline
 
 CMD ["yarn", "start"]
