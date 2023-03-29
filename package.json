@@ -6,11 +6,16 @@
   "author": "digital@wellcomecollection.org",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "api",
-    "pipeline",
-    "common"
-  ],
+  "workspaces": {
+    "packages": [
+      "api",
+      "pipeline",
+      "common"
+    ],
+    "nohoist": [
+      "@weco/content-pipeline/**"
+    ]
+  },
   "scripts": {
     "prepare": "husky install"
   },
