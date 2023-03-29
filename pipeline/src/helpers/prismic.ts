@@ -48,6 +48,10 @@ export const getPrismicDocuments = async <T>({
   const docs = await client.getByType(contentTypes[0], {
     graphQuery: graphQueryArticles,
     predicates: [prismic.predicate.any("document.type", contentTypes)],
+    orderings: {
+      field: "document.last_publication_date",
+      direction: "desc",
+    },
     pageSize: 100,
     after,
   });
