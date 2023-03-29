@@ -1,0 +1,16 @@
+{
+  "name": "@weco/content-common",
+  "version": "0.1.0",
+  "description": "Shared code for the content API repo",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.301.0",
+    "@elastic/elasticsearch": "^8.6.0",
+    "elastic-apm-node": "^3.43.0",
+    "winston": "^3.8.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.2"
+  }
+}
