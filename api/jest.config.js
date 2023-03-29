@@ -1,7 +1,11 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
-const base = require("../jest.config.base");
+const { pathsToModuleNameMapper } = require("ts-jest");
+const { compilerOptions } = require("../tsconfig.base.json");
 
 module.exports = {
-  ...base,
   displayName: "API",
+  preset: "ts-jest",
+  testEnvironment: "node",
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: "<rootDir>/..",
+  }),
 };
