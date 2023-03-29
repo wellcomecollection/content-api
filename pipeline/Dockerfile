@@ -4,6 +4,7 @@ FROM public.ecr.aws/docker/library/node:18
 WORKDIR /app
 
 COPY ./package.json ./yarn.lock ./
+COPY ./common ./common
 COPY ./pipeline ./pipeline
 
 WORKDIR pipeline
