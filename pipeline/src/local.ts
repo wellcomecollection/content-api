@@ -1,11 +1,14 @@
 import { Context } from "aws-lambda";
+import { getElasticClient } from "@weco/content-common/services/elasticsearch";
 import { createHandler } from "./handler";
 import { createPrismicClient } from "./services/prismic";
-import { getElasticClient } from "./services/elasticsearch";
 
 const prismicClient = createPrismicClient();
 
-getElasticClient().then(async (elasticClient) => {
+getElasticClient({
+  pipelineDate: "2023-03-24",
+  serviceName: "pipeline",
+}).then((elasticClient) => {
   const handler = createHandler({
     prismic: prismicClient,
     elastic: elasticClient,

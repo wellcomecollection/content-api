@@ -1,6 +1,6 @@
 import express from "express";
 import morgan from "morgan";
-import { logStream } from "./services/logging";
+import { logStream } from "@weco/content-common/services/logging";
 import {
   errorHandler,
   articlesController,
