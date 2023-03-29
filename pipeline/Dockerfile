@@ -3,7 +3,7 @@ FROM public.ecr.aws/docker/library/node:18
 
 WORKDIR /app
 
-COPY ./package.json ./yarn.lock ./tsconfig.base.json ./
+COPY ./package.json ./yarn.lock ./tsconfig.base.json ./jest.config.base.js ./
 COPY ./common ./common
 COPY ./pipeline ./pipeline
 
