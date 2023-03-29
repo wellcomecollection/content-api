@@ -4,6 +4,9 @@
   "description": "Shared code for the content API repo",
   "license": "MIT",
   "private": true,
+  "exports": {
+    ".": "./lib"
+  },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.301.0",
     "@elastic/elasticsearch": "^8.6.0",
