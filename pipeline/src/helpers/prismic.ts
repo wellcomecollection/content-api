@@ -29,17 +29,35 @@ const graphQueryArticles = `{
 // getAllByType (no pagination blocker but only one type at a time)
 // or getByType (which allows more than one type at a time).
 // Review if predicates are still required
-export const getPrismicDocuments = async <T>({
-  prismicClient,
-  contentTypes,
-}: {
-  prismicClient: prismic.Client;
+type GetPrismicDocumentsParams = {
+  client: prismic.Client;
   contentTypes: ContentType[];
-}): Promise<T> => {
-  const getDocuments = await prismicClient.getByType(contentTypes[0], {
+  after?: string;
+};
+
+export type PrismicPage<T> = {
+  docs: T[];
+  lastDocId?: string;
+};
+
+export const getPrismicDocuments = async <T>({
+  client,
+  contentTypes,
+  after,
+}: GetPrismicDocumentsParams): Promise<PrismicPage<T>> => {
+  const docs = await client.getByType(contentTypes[0], {
     graphQuery: graphQueryArticles,
     predicates: [prismic.predicate.any("document.type", contentTypes)],
+    pageSize: 100,
+    after,
   });
 
-  return getDocuments.results as T;
+  const results = docs.results;
+  const lastDoc = results[results.length - 1];
+  const lastDocId = lastDoc?.id;
+
+  return {
+    docs: results as T[],
+    lastDocId,
+  };
 };
