@@ -1,5 +1,7 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
+const base = require("../jest.config.base");
+
 module.exports = {
-  preset: "ts-jest",
-  testEnvironment: "node",
+  ...base,
+  displayName: "API",
 };

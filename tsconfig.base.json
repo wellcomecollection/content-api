@@ -2,11 +2,12 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@weco/content-common/*": ["common/*"]
+    }
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts"],
-  "paths": {
-    "@weco/content-common/*": ["common/*"]
-  }
+  "include": ["**/*.ts"]
 }
