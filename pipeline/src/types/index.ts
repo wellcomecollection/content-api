@@ -18,6 +18,9 @@ import {
 } from "./prismic";
 export type { DataInterface, InferDataInterface, CommonPrismicFields };
 
+import { WithBody } from "./prismic/body";
+export type { WithBody };
+
 import { WithContributors } from "./prismic/contributors";
 export type { WithContributors };
 
@@ -43,6 +46,8 @@ export type ElasticsearchArticle = {
     published: Date;
     contributors: string[];
     promo_caption?: string;
+    body?: string;
+    standfirst?: string;
   };
 };
 

@@ -5,6 +5,7 @@ import {
 } from "@prismicio/types";
 import {
   WithContributors,
+  WithBody,
   InferDataInterface,
   CommonPrismicFields,
   PrismicArticleFormat,
@@ -23,6 +24,7 @@ export type ArticlePrismicDocument = PrismicDocument<
     publishDate: TimestampField;
   } & WithContributors &
     WithArticleFormat &
+    WithBody &
     CommonPrismicFields,
   "articles" | "webcomics"
 >;

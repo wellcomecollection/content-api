@@ -114,6 +114,13 @@ export const transformArticle = (
     .map((c) => c.contributor?.label)
     .filter(isNotUndefined);
 
+  const queryBody = data.body
+    ?.map((b) => b.primary.text.map((t) => t.text).find((t) => t))
+    .join(" ");
+
+  const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
+    ?.primary.text[0].text;
+
   return {
     id,
     display: {
@@ -131,6 +138,8 @@ export const transformArticle = (
       published: new Date(datePublished),
       contributors: queryContributors,
       promo_caption: caption,
+      body: queryBody,
+      standfirst: queryStandfirst,
     },
   };
 };

@@ -4,6 +4,39 @@ import { ContentType } from "../types";
 const graphQueryArticles = `{
     articles {
       title
+      body {
+        ...on text {
+          non-repeat {
+            text
+          }
+        }
+        ...on standfirst {
+          non-repeat {
+            text
+          }
+        }
+      }
+      format {
+        title
+      }
+      promo
+      contributors {
+        ...contributorsFields
+        role {
+          title
+        }
+        contributor {
+          ... on people {
+            name
+          }
+          ... on organisations {
+            name
+          }
+        }
+      }
+    }
+    webcomics {
+      title
       format {
         title
       }
@@ -45,7 +78,7 @@ export const getPrismicDocuments = async <T>({
   contentTypes,
   after,
 }: GetPrismicDocumentsParams): Promise<PrismicPage<T>> => {
-  const docs = await client.getByType(contentTypes[0], {
+  const docs = await client.get({
     graphQuery: graphQueryArticles,
     predicates: [prismic.predicate.any("document.type", contentTypes)],
     orderings: {
