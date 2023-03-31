@@ -31,7 +31,7 @@ export const addIndex = async (elasticClient: Client) => {
               contributors: {
                 type: "text",
               },
-              promo_caption: {
+              caption: {
                 type: "text",
               },
             },

@@ -42,7 +42,7 @@ export type ElasticsearchArticle = {
     title: string;
     published: Date;
     contributors: string[];
-    promo_caption?: string;
+    caption?: string;
   };
 };
 

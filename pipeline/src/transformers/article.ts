@@ -130,7 +130,7 @@ export const transformArticle = (
       title: asTitle(data.title),
       published: new Date(datePublished),
       contributors: queryContributors,
-      promo_caption: caption,
+      caption: caption,
     },
   };
 };
