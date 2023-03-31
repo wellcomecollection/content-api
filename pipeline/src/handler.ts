@@ -40,6 +40,9 @@ export const createHandler =
         observableToStream(articleObservable)
       );
 
+      // on first creation of the index, the number returned isn't relevant and tends to be way lower
+      // than the actual result.
+      // once created though, it does return the correct amount of indexed articles.
       console.log({ count });
       return count;
     } catch (error) {
