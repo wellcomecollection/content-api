@@ -1,5 +1,4 @@
 import {
-  Article,
   ArticlePrismicDocument,
   PrismicArticleFormat,
   ArticleFormatId,
@@ -8,6 +7,7 @@ import {
   Contributor,
   PrismicImage,
   WithContributors,
+  ElasticsearchArticle,
 } from "../types";
 import { asText, asTitle, isNotUndefined } from "../helpers";
 import { isFilledLinkToDocumentWithData } from "../helpers/type-guards";
@@ -86,7 +86,9 @@ function transformLabelType(
   };
 }
 
-export const transformArticle = (document: ArticlePrismicDocument): Article => {
+export const transformArticle = (
+  document: ArticlePrismicDocument
+): ElasticsearchArticle => {
   const { data, id, first_publication_date } = document;
   const primaryImage = data.promo?.[0]?.primary;
 
@@ -106,14 +108,29 @@ export const transformArticle = (document: ArticlePrismicDocument): Article => {
   // value and does not affect ordering.
   const datePublished = data.publishDate || first_publication_date;
 
+  const contributors = getContributors(document);
+
+  const queryContributors = contributors
+    .map((c) => c.contributor?.label)
+    .filter(isNotUndefined);
+
   return {
-    type: "Article",
     id,
-    title: asTitle(data.title),
-    caption,
-    format,
-    publicationDate: datePublished,
-    contributors: getContributors(document),
-    image,
+    display: {
+      type: "Article",
+      id,
+      title: asTitle(data.title),
+      caption,
+      format,
+      publicationDate: datePublished,
+      contributors,
+      image,
+    },
+    query: {
+      title: asTitle(data.title),
+      published: new Date(datePublished),
+      contributors: queryContributors,
+      promo_caption: caption,
+    },
   };
 };

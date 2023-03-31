@@ -1049,7 +1049,7 @@
     find-my-way "^5.2.0"
     into-stream "^6.0.0"
 
-"@elastic/elasticsearch@^8.5.0", "@elastic/elasticsearch@^8.6.0":
+"@elastic/elasticsearch@^8.6.0":
   version "8.6.0"
   resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-8.6.0.tgz#c474f49808deee64b5bc5b8f938bf78f4468cb94"
   integrity sha512-mN5EbbgSp1rfRmQ/5Hv7jqAK8xhGJxCg7G84xje8hSefE59P+HPPCv/+DgesCUSJdZpwXIo0DwOWHfHvktxxLw==

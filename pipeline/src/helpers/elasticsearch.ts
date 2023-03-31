@@ -3,12 +3,42 @@ import { Readable } from "stream";
 
 const indexName = "articles";
 
-// TODO remove?
-export const addIndex = async (elasticClient: Client, indexName: string) => {
+export const addIndex = async (elasticClient: Client) => {
   const exists = await elasticClient.indices.exists({ index: indexName });
 
   if (!exists) {
-    await elasticClient.indices.create({ index: indexName });
+    await elasticClient.indices.create({
+      index: indexName,
+      mappings: {
+        dynamic: "strict",
+        properties: {
+          id: {
+            type: "text",
+          },
+          display: {
+            type: "object",
+            enabled: false,
+          },
+          query: {
+            properties: {
+              title: {
+                type: "text",
+              },
+              published: {
+                type: "date",
+                format: "date_optional_time",
+              },
+              contributors: {
+                type: "text",
+              },
+              promo_caption: {
+                type: "text",
+              },
+            },
+          },
+        },
+      },
+    });
     console.log(indexName, "was created");
   } else {
     console.log("Index", indexName, "already exists");
@@ -29,6 +59,9 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       return {
         index: { _index: indexName, _id: doc.id },
       };
+    },
+    onDrop(fail) {
+      console.log(fail);
     },
   });
 

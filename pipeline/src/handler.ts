@@ -1,7 +1,7 @@
 import { Handler } from "aws-lambda";
-import { Article, ArticlePrismicDocument, Clients } from "./types";
+import { ArticlePrismicDocument, Clients } from "./types";
 import { transformArticle } from "./transformers/article";
-import { bulkIndexDocuments } from "./helpers/elasticsearch";
+import { addIndex, bulkIndexDocuments } from "./helpers/elasticsearch";
 import { getPrismicDocuments } from "./helpers/prismic";
 import { from, expand, mergeMap, map, EMPTY } from "rxjs";
 import { observableToStream } from "./helpers/observableToStream";
@@ -11,35 +11,30 @@ type WindowEvent = {
   end?: Date;
 };
 
-const toIndexedDocument = (article: Article) => ({
-  id: article.id,
-  display: article,
-  query: { id: article.id },
-});
-
 export const createHandler =
   (clients: Clients): Handler<WindowEvent> =>
   async (event, context) => {
-    // 0. Create index if necessary
-    // 1. Fetches everything from Prismic between event.start and event.end
-    // 2. Transforms each thing
-    // 3. Indexes all of them in ES
     try {
+      // 0. Create index if necessary
+      await addIndex(clients.elastic);
+
+      // 1. Fetches everything from Prismic
+      // TODO between event.start and event.end
       const getArticles = (after?: string) =>
         getPrismicDocuments<ArticlePrismicDocument>({
           client: clients.prismic,
           contentTypes: ["articles", "webcomics"],
           after,
         });
-      // Fetch all articles and webcomics from Prismic
+
+      // 2. Transforms each thing
       const articleObservable = from(getArticles()).pipe(
         expand((res) => (res.lastDocId ? getArticles(res.lastDocId) : EMPTY)),
         mergeMap((page) => page.docs),
-        map(transformArticle),
-        map(toIndexedDocument)
+        map(transformArticle)
       );
 
-      // Bulk send them to Elasticsearch
+      // // 3. Indexes all of them in ES
       const count = await bulkIndexDocuments(
         clients.elastic,
         observableToStream(articleObservable)
