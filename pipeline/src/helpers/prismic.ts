@@ -23,6 +23,27 @@ const graphQueryArticles = `{
         }
       }
     }
+    webcomics {
+      title
+      format {
+        title
+      }
+      promo
+      contributors {
+        ...contributorsFields
+        role {
+          title
+        }
+        contributor {
+          ... on people {
+            name
+          }
+          ... on organisations {
+            name
+          }
+        }
+      }
+    }
   }`.replace(/\n(\s+)/g, "\n"); // Pre-emptive removal of whitespaces as requests to the Prismic Rest API are limited to 2048 characters.
 
 // TODO Review what prismic function we use here.
@@ -45,7 +66,7 @@ export const getPrismicDocuments = async <T>({
   contentTypes,
   after,
 }: GetPrismicDocumentsParams): Promise<PrismicPage<T>> => {
-  const docs = await client.getByType(contentTypes[0], {
+  const docs = await client.get({
     graphQuery: graphQueryArticles,
     predicates: [prismic.predicate.any("document.type", contentTypes)],
     orderings: {
