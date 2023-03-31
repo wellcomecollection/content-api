@@ -1,5 +1,6 @@
 import { Client } from "@elastic/elasticsearch";
 import { Readable } from "stream";
+import { articlesMapping } from "../mappings/articles";
 
 const indexName = "articles";
 
@@ -9,35 +10,7 @@ export const addIndex = async (elasticClient: Client) => {
   if (!exists) {
     await elasticClient.indices.create({
       index: indexName,
-      mappings: {
-        dynamic: "strict",
-        properties: {
-          id: {
-            type: "text",
-          },
-          display: {
-            type: "object",
-            enabled: false,
-          },
-          query: {
-            properties: {
-              title: {
-                type: "text",
-              },
-              published: {
-                type: "date",
-                format: "date_optional_time",
-              },
-              contributors: {
-                type: "text",
-              },
-              caption: {
-                type: "text",
-              },
-            },
-          },
-        },
-      },
+      mappings: articlesMapping,
     });
     console.log(indexName, "was created");
   } else {
@@ -60,8 +33,12 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
         index: { _index: indexName, _id: doc.id },
       };
     },
-    onDrop(fail) {
-      console.log(fail);
+    onDrop(failureObject) {
+      console.log(
+        failureObject.document.id,
+        "was dropped during the bulk import:",
+        failureObject
+      );
     },
   });
 
