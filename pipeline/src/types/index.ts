@@ -35,6 +35,17 @@ export type { PrismicImage };
 import { Article, Contributor, ArticleFormat, Image } from "./transformed";
 export type { Article, Contributor, ArticleFormat, Image };
 
+export type ElasticsearchArticle = {
+  id: string;
+  display: Article;
+  query: {
+    title: string;
+    published: Date;
+    contributors: string[];
+    caption?: string;
+  };
+};
+
 // Generic types
 export type Clients = {
   prismic: prismic.Client;

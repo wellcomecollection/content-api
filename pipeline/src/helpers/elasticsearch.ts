@@ -1,14 +1,17 @@
 import { Client } from "@elastic/elasticsearch";
 import { Readable } from "stream";
+import { articlesMapping } from "../mappings/articles";
 
 const indexName = "articles";
 
-// TODO remove?
-export const addIndex = async (elasticClient: Client, indexName: string) => {
+export const addIndex = async (elasticClient: Client) => {
   const exists = await elasticClient.indices.exists({ index: indexName });
 
   if (!exists) {
-    await elasticClient.indices.create({ index: indexName });
+    await elasticClient.indices.create({
+      index: indexName,
+      mappings: articlesMapping,
+    });
     console.log(indexName, "was created");
   } else {
     console.log("Index", indexName, "already exists");
@@ -29,6 +32,13 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       return {
         index: { _index: indexName, _id: doc.id },
       };
+    },
+    onDrop(failureObject) {
+      console.log(
+        failureObject.document.id,
+        "was dropped during the bulk import:",
+        failureObject
+      );
     },
   });
 
