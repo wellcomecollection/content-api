@@ -81,7 +81,6 @@ const articlesController = (
       });
     });
   } catch (error) {
-    console.log({ error });
     // TODO handle this more constructively
     throw new HttpError({
       status: 500,
