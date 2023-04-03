@@ -135,7 +135,7 @@ export const transformArticle = (
     },
     query: {
       title: asTitle(data.title),
-      published: new Date(datePublished),
+      publicationDate: new Date(datePublished),
       contributors: queryContributors,
       caption,
       body: queryBody,

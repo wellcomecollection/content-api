@@ -43,7 +43,7 @@ export type ElasticsearchArticle = {
   display: Article;
   query: {
     title: string;
-    published: Date;
+    publicationDate: Date;
     contributors: string[];
     caption?: string;
     body?: string;
