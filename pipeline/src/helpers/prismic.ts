@@ -4,6 +4,18 @@ import { ContentType } from "../types";
 const graphQueryArticles = `{
     articles {
       title
+      body {
+        ...on text {
+          non-repeat {
+            text
+          }
+        }
+        ...on standfirst {
+          non-repeat {
+            text
+          }
+        }
+      }
       format {
         title
       }
