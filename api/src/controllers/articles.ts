@@ -11,6 +11,8 @@ import {
 
 type QueryParams = {
   query?: string;
+  sort?: string;
+  sortOrder?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -25,7 +27,7 @@ const articlesController = (
 
   try {
     return asyncHandler(async (req, res) => {
-      const queryString = req.query.query;
+      const { query: queryString, sort: sortBy, sortOrder } = req.query;
 
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
@@ -53,6 +55,16 @@ const articlesController = (
               }
             : undefined,
         },
+        sort:
+          sortBy === "publication.date"
+            ? [
+                {
+                  "query.publicationDate": {
+                    order: sortOrder === "asc" ? "asc" : "desc",
+                  },
+                },
+              ]
+            : ["_score"],
       });
 
       const results = searchResponse.hits.hits.flatMap((hit) =>
