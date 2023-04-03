@@ -1,6 +1,6 @@
 import { Client } from "@elastic/elasticsearch";
 import { Readable } from "stream";
-import { articlesMapping } from "../mappings/articles";
+import { articlesMapping, articlesSettings } from "../config/articles";
 
 const indexName = "articles";
 
@@ -11,6 +11,7 @@ export const addIndex = async (elasticClient: Client) => {
     await elasticClient.indices.create({
       index: indexName,
       mappings: articlesMapping,
+      settings: articlesSettings,
     });
     console.log(indexName, "was created");
   } else {
