@@ -1,6 +1,8 @@
 import { IndicesIndexSettings } from "@elastic/elasticsearch/lib/api/types";
 
-export const articlesMapping = {
+export const index = "articles";
+
+export const mapping = {
   dynamic: "strict",
   properties: {
     id: {
@@ -85,7 +87,7 @@ export const articlesMapping = {
   },
 } as const;
 
-export const articlesSettings = {
+export const settings = {
   analysis: {
     normalizer: {
       keyword_lowercase: {
