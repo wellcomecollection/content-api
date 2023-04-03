@@ -1,6 +1,7 @@
 import { Client } from "@elastic/elasticsearch";
+import { Readable } from "stream";
 
-const indexName = "testing-index";
+const indexName = "articles";
 
 // TODO remove?
 export const addIndex = async (elasticClient: Client, indexName: string) => {
@@ -20,20 +21,13 @@ type HasIdentifier = {
 
 export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
-  docs: T[]
+  datasource: Readable
 ) => {
-  const datasource = docs.map((doc) => {
-    return {
-      display: doc,
-      query: { id: doc.id },
-    };
-  });
-
-  await elasticClient.helpers.bulk({
+  await elasticClient.helpers.bulk<T>({
     datasource,
     onDocument(doc) {
       return {
-        index: { _index: indexName, _id: doc.display.id },
+        index: { _index: indexName, _id: doc.id },
       };
     },
   });

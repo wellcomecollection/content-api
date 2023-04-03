@@ -11,9 +11,6 @@
       "api",
       "pipeline",
       "common"
-    ],
-    "nohoist": [
-      "@weco/content-pipeline/**"
     ]
   },
   "scripts": {
