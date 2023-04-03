@@ -2,6 +2,11 @@ locals {
   # These are arbitrary
   api_lb_port  = 8000
   api_app_port = 3333
+
+  apm_secret_config = {
+    apm_server_url = "catalogue/api/apm_server_url"
+    apm_secret     = "catalogue/api/apm_secret"
+  }
 }
 
 module "content_api_service" {
@@ -16,8 +21,11 @@ module "content_api_service" {
   app_memory = 512
 
   environment = {
-    PORT = local.api_app_port
+    PORT             = local.api_app_port
+    apm_service_name = "content-api"
+    apm_environment  = var.environment
   }
+  secrets = local.apm_secret_config
 
   security_group_ids = [
     aws_security_group.vpc_ingress.id,
