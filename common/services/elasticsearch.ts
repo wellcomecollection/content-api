@@ -3,22 +3,24 @@ import { getSecret } from "./aws";
 
 type ClientParameters = {
   pipelineDate: string;
+  serviceName: string;
 };
 
 const isProduction = process.env.NODE_ENV === "production";
 
 const getElasticClientConfig = async ({
   pipelineDate,
+  serviceName,
 }: ClientParameters): Promise<ClientOptions> => {
   const secretPrefix = `elasticsearch/content-${pipelineDate}`;
   const [host, password] = await Promise.all([
     getSecret(`${secretPrefix}/${isProduction ? "private" : "public"}_host`),
-    getSecret(`${secretPrefix}/api/password`),
+    getSecret(`${secretPrefix}/${serviceName}/password`),
   ]);
   return {
     node: `https://${host}:9243`,
     auth: {
-      username: "api",
+      username: serviceName,
       password: password!,
     },
   };

@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from "express";
-import log from "../services/logging";
+import log from "@weco/content-common/services/logging";
 
 export type ErrorResponse = {
   type: "Error";

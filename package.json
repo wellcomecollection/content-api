@@ -6,14 +6,21 @@
   "author": "digital@wellcomecollection.org",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "api",
-    "pipeline"
-  ],
+  "workspaces": {
+    "packages": [
+      "api",
+      "pipeline",
+      "common"
+    ],
+    "nohoist": [
+      "@weco/content-pipeline/**"
+    ]
+  },
   "scripts": {
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4"
