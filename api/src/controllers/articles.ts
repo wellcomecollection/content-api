@@ -25,11 +25,33 @@ const articlesController = (
 
   try {
     return asyncHandler(async (req, res) => {
+      const queryString = req.query.query;
+
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         body: {
           ...paginationElasticBody(req.query),
           _source: ["display"],
+          query: queryString
+            ? {
+                multi_match: {
+                  query: queryString,
+                  fields: [
+                    "query.title.shingles^100",
+                    "query.title.keyword^100",
+                    "query.contributors^10",
+                    "query.contributors.keyword^100",
+                    "query.title.cased^10",
+                    "query.standfirst^10",
+                    "query.body",
+                    "query.caption",
+                  ],
+                  operator: "or",
+                  type: "cross_fields",
+                  minimum_should_match: "-25%",
+                },
+              }
+            : undefined,
         },
       });
 

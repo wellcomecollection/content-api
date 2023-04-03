@@ -6,15 +6,16 @@ type ClientParameters = {
   serviceName: string;
 };
 
-const isProduction = process.env.NODE_ENV === "production";
-
 const getElasticClientConfig = async ({
   pipelineDate,
   serviceName,
 }: ClientParameters): Promise<ClientOptions> => {
   const secretPrefix = `elasticsearch/content-${pipelineDate}`;
   const [host, password] = await Promise.all([
-    getSecret(`${secretPrefix}/${isProduction ? "private" : "public"}_host`),
+    // We always use the public internet endpoint because since 8.6.0 the client's
+    // internal Transport class has failed when used with the PrivateLink endpoint.
+    // We should monitor releases to see if this gets resolved.
+    getSecret(`${secretPrefix}/public_host`),
     getSecret(`${secretPrefix}/${serviceName}/password`),
   ]);
   return {
