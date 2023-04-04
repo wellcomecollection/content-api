@@ -28,7 +28,7 @@ export const mapping = {
             },
           },
         },
-        published: {
+        publicationDate: {
           type: "date",
           format: "date_optional_time",
         },
