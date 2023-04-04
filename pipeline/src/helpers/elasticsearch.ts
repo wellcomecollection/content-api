@@ -1,21 +1,32 @@
-import { Client } from "@elastic/elasticsearch";
-import { Readable } from "stream";
-import { articlesMapping, articlesSettings } from "../config/articles";
+import { Client, errors as elasticErrors } from "@elastic/elasticsearch";
+import {
+  IndicesIndexSettings,
+  MappingTypeMapping,
+} from "@elastic/elasticsearch/lib/api/types";
+import { Observable } from "rxjs";
+import { observableToStream } from "./observableToStream";
 
-const indexName = "articles";
+type IndexConfig = {
+  index: string;
+  mappings?: MappingTypeMapping;
+  settings?: IndicesIndexSettings;
+};
 
-export const addIndex = async (elasticClient: Client) => {
-  const exists = await elasticClient.indices.exists({ index: indexName });
-
-  if (!exists) {
-    await elasticClient.indices.create({
-      index: indexName,
-      mappings: articlesMapping,
-      settings: articlesSettings,
-    });
-    console.log(indexName, "was created");
-  } else {
-    console.log("Index", indexName, "already exists");
+export const ensureIndexExists = async (
+  elasticClient: Client,
+  indexConfig: IndexConfig
+): Promise<void> => {
+  try {
+    await elasticClient.indices.create(indexConfig);
+    console.log(`Index '${indexConfig.index}' was created`);
+  } catch (e) {
+    if (e instanceof elasticErrors.ResponseError) {
+      if (e.message.includes("resource_already_exists_exception")) {
+        console.log(`Index '${indexConfig.index}' already exists`);
+        return;
+      }
+    }
+    throw e;
   }
 };
 
@@ -23,15 +34,24 @@ type HasIdentifier = {
   id: string;
 };
 
+type BulkIndexResult<Doc> = {
+  successful: number;
+  failed: Doc[];
+  time: number;
+};
+
 export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
-  datasource: Readable
-) => {
-  await elasticClient.helpers.bulk<T>({
+  index: string,
+  documents: Observable<T>
+): Promise<BulkIndexResult<T>> => {
+  const datasource = observableToStream(documents);
+  const failed: T[] = [];
+  const result = await elasticClient.helpers.bulk<T>({
     datasource,
     onDocument(doc) {
       return {
-        index: { _index: indexName, _id: doc.id },
+        index: { _index: index, _id: doc.id },
       };
     },
     onDrop(failureObject) {
@@ -40,8 +60,13 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
         "was dropped during the bulk import:",
         failureObject
       );
+      failed.push(failureObject.document);
     },
   });
 
-  return await elasticClient.count({ index: indexName });
+  return {
+    successful: result.successful,
+    time: result.time,
+    failed,
+  };
 };

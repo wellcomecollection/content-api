@@ -5,13 +5,16 @@ import { getElasticClient } from "@weco/content-common/services/elasticsearch";
 import { createHandler } from "./handler";
 import { createPrismicClient } from "./services/prismic";
 import { Handler } from "aws-lambda";
+import { getConfig } from "./config";
+
+const config = getConfig();
 
 // This is a hoop we jump through because we need to create the handler asynchronously
 // (as we're fetching secrets) but we don't want to do that for every call, just for
 // every cold start of the Lambda.
 const initialiseHandler = async () => {
   const elasticClient = await getElasticClient({
-    pipelineDate: "2023-03-24",
+    pipelineDate: config.pipelineDate,
     serviceName: "pipeline",
   });
   const prismicClient = createPrismicClient();
