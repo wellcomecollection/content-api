@@ -26,7 +26,7 @@ export const articlesMapping = {
             },
           },
         },
-        published: {
+        publicationDate: {
           type: "date",
           format: "date_optional_time",
         },
