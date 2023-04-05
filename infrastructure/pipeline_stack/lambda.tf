@@ -1,5 +1,5 @@
 locals {
-  lambda_name = "content-api-pipeline-${var.pipeline_date}"
+  lambda_name = "content-pipeline-${var.pipeline_date}"
 }
 
 module "pipeline_lambda" {
