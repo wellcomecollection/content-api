@@ -1,3 +1,5 @@
+env:
+  LIVE_PIPELINE: 2023-03-24
 steps:
   - label: "autoformat"
     command: ".buildkite/scripts/autoformat.sh"
@@ -34,9 +36,24 @@ steps:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:ref.${BUILDKITE_COMMIT}
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
 
+  - label: "publish: pipeline"
+    #    branches: "main"
+    branches: "lambda-infra"
+    command: |
+      yarn workspace @weco/content-pipeline run package
+      .buildkite/scripts/upload_lambda_package.sh $LIVE_PIPELINE content-pipeline ./pipeline/package.zip
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+      - docker-compose#v3.5.0:
+          run: tooling
+          mount-ssh-agent: true
+          mount-buildkite-agent: true
+          propagate-environment: true
+
   - wait
 
-  - label: "deploy: stage"
+  - label: "deploy: API stage"
     branches: "main"
     concurrency: 1
     concurrency_group: "content-api/deploy-stage"
@@ -52,7 +69,7 @@ steps:
   - block: ":rocket: deploy to prod"
     branches: "main"
 
-  - label: "deploy: prod"
+  - label: "deploy: API prod"
     branches: "main"
     concurrency: 1
     concurrency_group: "content-api/deploy-prod"
