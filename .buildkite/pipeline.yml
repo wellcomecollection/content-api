@@ -40,6 +40,7 @@ steps:
     #    branches: "main"
     branches: "lambda-infra"
     command: |
+      yarn install --frozen-lockfile
       yarn workspace @weco/content-pipeline run package
       .buildkite/scripts/upload_lambda_package.sh $LIVE_PIPELINE content-pipeline ./pipeline/package.zip
     plugins:
