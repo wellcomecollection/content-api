@@ -17,7 +17,7 @@ type QueryParams = {
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
-const articlesSortValues = ["publication.date"];
+const articlesSortValues = ["publication.dates"];
 
 const articlesController = (
   clients: Clients,
@@ -61,7 +61,7 @@ const articlesController = (
               : undefined,
           },
           sort:
-            sortBy === "publication.date"
+            sortBy === "publication.dates"
               ? [
                   {
                     "query.publicationDate": {
