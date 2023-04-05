@@ -10,6 +10,8 @@ RUN wget -q -O /tmp/awscliv2.zip https://awscli.amazonaws.com/awscli-exe-linux-x
     unzip -q -o /tmp/awscliv2.zip -d /tmp/awscliv2 && \
     /tmp/awscliv2/aws/install
 
+RUN apt-get update && apt-get install -y zip && apt-get clean
+
 WORKDIR /app
 
 COPY package.json yarn.lock ./
