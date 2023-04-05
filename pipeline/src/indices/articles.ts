@@ -19,12 +19,15 @@ export const mapping = {
           fields: {
             shingles: {
               type: "text",
+              analyzer: "english_shingle_analyzer",
             },
             cased: {
               type: "text",
+              analyzer: "english_cased_analyzer",
             },
             keyword: {
               type: "keyword",
+              normalizer: "keyword_lowercase",
             },
           },
         },
@@ -37,9 +40,11 @@ export const mapping = {
           fields: {
             shingles: {
               type: "text",
+              analyzer: "english_shingle_analyzer",
             },
             keyword: {
               type: "keyword",
+              normalizer: "keyword_lowercase",
             },
           },
         },
