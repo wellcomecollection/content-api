@@ -7,6 +7,7 @@ PIPELINE_NAMESPACE=$1
 SERVICE_NAME=$2
 
 S3_BUCKET="wellcomecollection-content-api-packages"
+S3_KEY="${PIPELINE_NAMESPACE}/${SERVICE_NAME}/${BUILDKITE_COMMIT}.zip"
 FUNCTION_NAME="${SERVICE_NAME}-${PIPELINE_NAMESPACE}"
 
 echo "current lambda configuration"
