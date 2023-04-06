@@ -58,6 +58,17 @@ steps:
 
   - wait
 
+  - label: "deploy: live pipeline"
+    #    branches: "main"
+    branches: "lambda-infra"
+    concurrency: 1
+    concurrency_group: "content-pipeline/deploy-stage"
+    command: |
+      .buildkite/scripts/deploy_lambda.sh $LIVE_PIPELINE content-pipeline ref.$BUILDKITE_COMMIT
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+
   - label: "deploy: API stage"
     branches: "main"
     concurrency: 1
