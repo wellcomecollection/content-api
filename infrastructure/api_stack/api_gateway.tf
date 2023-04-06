@@ -7,8 +7,8 @@ resource "aws_api_gateway_rest_api" "content" {
 }
 
 resource "aws_api_gateway_domain_name" "content_api" {
-  domain_name              = aws_acm_certificate.content_api.domain_name
-  regional_certificate_arn = aws_acm_certificate_validation.content.certificate_arn
+  domain_name              = local.cert_domain_name
+  regional_certificate_arn = module.cert.arn
   security_policy          = "TLS_1_2"
 
   endpoint_configuration {
