@@ -16,6 +16,7 @@ import {
   EmptyImageFieldImage,
   PrismicDocument,
 } from "@prismicio/types";
+import { defaultArticleFormat } from "@weco/content-common/data/formats";
 
 const getContributors = (
   document: PrismicDocument<WithContributors>
@@ -101,11 +102,7 @@ export const transformArticle = (
 
   const format = isFilledLinkToDocumentWithData(data.format)
     ? transformLabelType(data.format)
-    : ({
-        type: "ArticleFormat",
-        id: "W7TfJRAAAJ1D0eLK",
-        label: "Article",
-      } as ArticleFormat);
+    : (defaultArticleFormat as ArticleFormat);
 
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display
