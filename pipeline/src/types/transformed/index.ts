@@ -7,7 +7,7 @@ export type Article = {
   title: string;
   publicationDate: string;
   contributors: Contributor[];
-  format?: ArticleFormat;
+  format: ArticleFormat;
   image?: Image;
   caption?: string;
 };
@@ -37,5 +37,5 @@ export type Contributor = {
 export type ArticleFormat = {
   type: "ArticleFormat";
   id: ArticleFormatId;
-  label?: string;
+  label: string;
 };
