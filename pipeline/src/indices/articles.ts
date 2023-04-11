@@ -115,13 +115,9 @@ export const settings = {
         type: "stemmer",
         language: "possessive_english",
       },
-      asciifolding_token_filter: {
-        type: "asciifolding",
-        preserve_original: true,
-      },
       punctuation_token_filter: {
         type: "pattern_replace",
-        pattern: "[^\\w\\s]",
+        pattern: "[^0-9\\p{L}\\s]",
         replacement: "",
       },
     },
@@ -129,18 +125,18 @@ export const settings = {
       english_shingle_analyzer: {
         filter: [
           "lowercase",
-          "asciifolding_token_filter",
+          "asciifolding",
           "english_stemmer",
           "english_possessive_stemmer",
-          "shingle_filter",
           "punctuation_token_filter",
+          "shingle_filter",
         ],
         type: "custom",
         tokenizer: "standard",
       },
       english_cased_analyzer: {
         filter: [
-          "asciifolding_token_filter",
+          "asciifolding",
           "english_stemmer",
           "english_possessive_stemmer",
           "punctuation_token_filter",

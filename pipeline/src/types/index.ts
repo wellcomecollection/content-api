@@ -46,7 +46,7 @@ export type ElasticsearchArticle = {
     publicationDate: Date;
     contributors: string[];
     caption?: string;
-    body?: string;
+    body?: string[] | string;
     standfirst?: string;
   };
 };
