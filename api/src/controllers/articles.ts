@@ -1,13 +1,14 @@
-import { RequestHandler } from "express";
-import asyncHandler from "express-async-handler";
 import { Clients, Displayable, ResultList } from "../types";
-import { Config } from "../../config";
-import { HttpError } from "./error";
 import {
-  paginationElasticBody,
   PaginationQueryParameters,
+  paginationElasticBody,
   paginationResponseGetter,
 } from "./pagination";
+
+import { Config } from "../../config";
+import { HttpError } from "./error";
+import { RequestHandler } from "express";
+import asyncHandler from "express-async-handler";
 
 type QueryParams = {
   query?: string;
@@ -44,14 +45,12 @@ const articlesController = (
                   multi_match: {
                     query: queryString,
                     fields: [
-                      "query.title.shingles^100",
-                      "query.title.keyword^100",
-                      "query.contributors^10",
+                      "query.title.*^100",
+                      "query.contributors.*^10",
                       "query.contributors.keyword^100",
-                      "query.title.cased^10",
-                      "query.standfirst^10",
-                      "query.body",
-                      "query.caption",
+                      "query.standfirst.*^10",
+                      "query.body.*",
+                      "query.caption.*",
                     ],
                     operator: "or",
                     type: "cross_fields",
