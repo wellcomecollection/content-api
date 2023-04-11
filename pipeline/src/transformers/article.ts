@@ -101,7 +101,11 @@ export const transformArticle = (
 
   const format = isFilledLinkToDocumentWithData(data.format)
     ? transformLabelType(data.format)
-    : undefined;
+    : ({
+        type: "ArticleFormat",
+        id: "W7TfJRAAAJ1D0eLK",
+        label: "Article",
+      } as ArticleFormat);
 
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display

@@ -7,7 +7,7 @@ export type Article = {
   title: string;
   publicationDate: string;
   contributors: Contributor[];
-  format?: ArticleFormat;
+  format: ArticleFormat;
   image?: Image;
   caption?: string;
 };
