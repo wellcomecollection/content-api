@@ -18,7 +18,7 @@ type QueryParams = {
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
-const articlesSortValues = ["publication.dates"];
+const articlesSortValues = ["relevance", "publication.dates"];
 
 const articlesController = (
   clients: Clients,
@@ -68,7 +68,13 @@ const articlesController = (
                     },
                   },
                 ]
-              : ["_score"],
+              : [
+                  {
+                    _score: {
+                      order: sortOrder === "asc" ? "asc" : "desc",
+                    },
+                  },
+                ],
         });
 
         const results = searchResponse.hits.hits.flatMap((hit) =>
