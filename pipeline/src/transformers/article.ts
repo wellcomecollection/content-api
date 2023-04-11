@@ -82,7 +82,7 @@ function transformLabelType(
   return {
     type: "ArticleFormat",
     id: format.id as ArticleFormatId,
-    label: asText(format.data.title),
+    label: asText(format.data.title) as string,
   };
 }
 

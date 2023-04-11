@@ -37,5 +37,5 @@ export type Contributor = {
 export type ArticleFormat = {
   type: "ArticleFormat";
   id: ArticleFormatId;
-  label?: string;
+  label: string;
 };
