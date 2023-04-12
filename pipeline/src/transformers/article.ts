@@ -22,8 +22,9 @@ const getContributors = (
   document: PrismicDocument<WithContributors>
 ): Contributor[] => {
   const { data } = document;
+
   const contributors = (data.contributors ?? [])
-    .map((c): Contributor => {
+    .map((c): Contributor | undefined => {
       // ROLE
       const roleDocument = isFilledLinkToDocumentWithData(c.role)
         ? c.role
@@ -42,23 +43,24 @@ const getContributors = (
         ? c.contributor
         : undefined;
 
-      const contributor =
-        roleDocument && contributorDocument
-          ? {
-              type:
-                contributorDocument.type === "people"
-                  ? ("Person" as const)
-                  : ("Organisation" as const),
-              id: contributorDocument.id as string,
-              label: asText(contributorDocument.data.name),
-            }
-          : undefined;
+      const contributor = contributorDocument
+        ? {
+            type:
+              contributorDocument.type === "people"
+                ? ("Person" as const)
+                : ("Organisation" as const),
+            id: contributorDocument.id as string,
+            label: asText(contributorDocument.data.name),
+          }
+        : undefined;
 
-      return {
-        type: "Contributor",
-        contributor,
-        role,
-      };
+      return contributor || role
+        ? {
+            type: "Contributor",
+            contributor,
+            role,
+          }
+        : undefined;
     })
     .filter(isNotUndefined);
 
