@@ -116,8 +116,14 @@ export const transformArticle = (
     .filter(isNotUndefined);
 
   const queryBody = data.body
-    ?.map((b) => b.primary.text.map((t) => t.text).find((t) => t))
-    .join(" ");
+    ?.map((slice) => {
+      if (["text", "quoteV2", "standfirst"].includes(slice.slice_type)) {
+        return slice.primary.text.map((text) => text.text);
+      } else {
+        return [];
+      }
+    })
+    .flat();
 
   const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
     ?.primary.text[0].text;
