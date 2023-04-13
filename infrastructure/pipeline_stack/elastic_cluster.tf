@@ -33,6 +33,13 @@ resource "ec_deployment" "content_cluster" {
   }
 }
 
+resource "ec_deployment_traffic_filter_association" "content_cluster" {
+  for_each = var.network_config.ec_traffic_filters
+
+  deployment_id     = ec_deployment.content_cluster.id
+  traffic_filter_id = each.value
+}
+
 data "ec_stack" "latest_patch" {
   version_regex = "8.6.?"
   region        = local.elastic_cloud_region

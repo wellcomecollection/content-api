@@ -6,4 +6,12 @@ locals {
   private_subnets          = local.catalogue_networking["catalogue_vpc_private_subnets"]
   elastic_cloud_vpce_sg_id = local.shared_infra["ec_catalogue_privatelink_sg_id"]
   logging_cluster_id       = local.shared_infra["logging_cluster_id"]
+
+  ec_network_config = {
+    ec_privatelink_security_group_id = local.elastic_cloud_vpce_sg_id
+    ec_traffic_filters = [
+      local.shared_infra["ec_catalogue_privatelink_traffic_filter_id"],
+      local.shared_infra["ec_public_internet_traffic_filter_id"]
+    ]
+  }
 }

@@ -8,9 +8,12 @@ import { getElasticClient } from "@weco/content-common/services/elasticsearch";
 
 const config = getConfig();
 
+const isRunningInECS = "ECS_CONTAINER_METADATA_URI_V4" in process.env;
+
 getElasticClient({
   serviceName: "api",
   pipelineDate: config.pipelineDate,
+  hostEndpointAccess: isRunningInECS ? "private" : "public",
 }).then(async (elasticClient) => {
   const app = createApp({ elastic: elasticClient }, config);
   const port = process.env.PORT ?? 3000;
