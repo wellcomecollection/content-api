@@ -1,5 +1,6 @@
 import { Client, ClientOptions } from "@elastic/elasticsearch";
 import { getSecret } from "./aws";
+import log from "./logging";
 
 type ClientParameters = {
   pipelineDate: string;
@@ -13,6 +14,9 @@ const getElasticClientConfig = async ({
   hostEndpointAccess = "public",
 }: ClientParameters): Promise<ClientOptions> => {
   const secretPrefix = `elasticsearch/content-${pipelineDate}`;
+  if (hostEndpointAccess === "private") {
+    log.info("Creating ES client for PrivateLink endpoint");
+  }
   const [host, password] = await Promise.all([
     getSecret(`${secretPrefix}/${hostEndpointAccess}_host`),
     getSecret(`${secretPrefix}/${serviceName}/password`),
