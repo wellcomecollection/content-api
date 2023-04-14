@@ -14,8 +14,9 @@ terraform {
       version = ">= 4.58.0"
     }
     ec = {
-      source  = "elastic/ec"
-      version = ">= 0.6.0"
+      source = "elastic/ec"
+      // Pinned to 0.5.1 as there seem to be various issues with 0.6.0
+      version = "0.5.1"
     }
     elasticstack = {
       source  = "elastic/elasticstack"
