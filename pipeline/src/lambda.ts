@@ -16,6 +16,7 @@ const initialiseHandler = async () => {
   const elasticClient = await getElasticClient({
     pipelineDate: config.pipelineDate,
     serviceName: "pipeline",
+    hostEndpointAccess: "private",
   });
   const prismicClient = createPrismicClient();
   return createHandler({ elastic: elasticClient, prismic: prismicClient });

@@ -8,6 +8,7 @@ const prismicClient = createPrismicClient();
 getElasticClient({
   pipelineDate: "2023-03-24",
   serviceName: "pipeline",
+  hostEndpointAccess: "public",
 }).then((elasticClient) => {
   const handler = createHandler({
     prismic: prismicClient,
