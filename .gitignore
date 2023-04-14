@@ -6,3 +6,6 @@ node_modules/
 
 # JetBrains IDEs
 .idea
+
+# Terraform
+*.plan
