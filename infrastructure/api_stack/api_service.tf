@@ -30,13 +30,13 @@ module "content_api_service" {
   security_group_ids = [
     aws_security_group.vpc_ingress.id,
     aws_security_group.egress.id,
-    var.elastic_cloud_vpce_sg_id
+    var.network_config.ec_privatelink_security_group_id
   ]
   target_group_arn = aws_lb_target_group.content_api.arn
 
   cluster_arn = var.cluster_arn
-  vpc_id      = var.vpc_id
-  subnets     = var.private_subnets
+  vpc_id      = var.network_config.vpc_id
+  subnets     = var.network_config.private_subnets
 }
 
 resource "aws_lb_target_group" "content_api" {
@@ -45,7 +45,7 @@ resource "aws_lb_target_group" "content_api" {
   port        = module.content_api_service.nginx_container_port
   target_type = "ip"
   protocol    = "TCP"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.network_config.vpc_id
 
   # The default deregistration delay is 5 minutes, which means that ECS
   # takes around 5–7 mins to fully drain connections to and deregister

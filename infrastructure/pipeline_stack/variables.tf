@@ -8,6 +8,8 @@ variable "pipeline_date" {
 
 variable "network_config" {
   type = object({
+    vpc_id                           = string
+    private_subnets                  = set(string)
     ec_privatelink_security_group_id = string
     ec_traffic_filters               = set(string)
   })

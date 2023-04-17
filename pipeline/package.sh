@@ -10,5 +10,5 @@ yarn run esbuild ./src/lambda.js \
   --sourcemap=external \
   --outdir=dist
 
-pushd dist
+cd dist
 zip -rq ../package.zip .

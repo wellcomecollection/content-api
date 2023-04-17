@@ -2,7 +2,7 @@ resource "aws_lb" "content_api" {
   name                             = "content-api-${var.environment}"
   internal                         = true
   load_balancer_type               = "network"
-  subnets                          = var.private_subnets
+  subnets                          = var.network_config.private_subnets
   enable_cross_zone_load_balancing = local.should_cross_zone_lb
 }
 

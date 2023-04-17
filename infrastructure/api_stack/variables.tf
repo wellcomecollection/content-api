@@ -6,18 +6,6 @@ variable "cluster_arn" {
   type = string
 }
 
-variable "private_subnets" {
-  type = set(string)
-}
-
-variable "vpc_id" {
-  type = string
-}
-
-variable "elastic_cloud_vpce_sg_id" {
-  type = string
-}
-
 variable "desired_task_count" {
   type = object({
     api = number
@@ -36,4 +24,12 @@ variable "api_version" {
 
 variable "external_hostname" {
   type = string
+}
+
+variable "network_config" {
+  type = object({
+    vpc_id                           = string
+    private_subnets                  = set(string)
+    ec_privatelink_security_group_id = string
+  })
 }

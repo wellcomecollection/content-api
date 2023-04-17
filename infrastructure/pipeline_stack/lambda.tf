@@ -16,7 +16,16 @@ module "pipeline_lambda" {
   environment = {
     variables = {
       PIPELINE_DATE = var.pipeline_date
+      NODE_OPTIONS  = "--enable-source-maps"
     }
+  }
+
+  vpc_config = {
+    subnet_ids = var.network_config.private_subnets
+    security_group_ids = [
+      var.network_config.ec_privatelink_security_group_id,
+      aws_security_group.egress.id
+    ]
   }
 }
 
@@ -50,4 +59,17 @@ resource "aws_iam_policy" "secrets_access" {
 resource "aws_iam_role_policy_attachment" "lambda_role_attachment" {
   role       = module.pipeline_lambda.lambda_role.name
   policy_arn = aws_iam_policy.secrets_access.arn
+}
+
+resource "aws_security_group" "egress" {
+  name        = "content-pipeline-${var.pipeline_date}-egress"
+  description = "Allows all egress traffic from the group"
+  vpc_id      = var.network_config.vpc_id
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
