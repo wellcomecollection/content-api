@@ -14,3 +14,7 @@ variable "network_config" {
     ec_traffic_filters               = set(string)
   })
 }
+
+variable "window_duration" {
+  type = string
+}
