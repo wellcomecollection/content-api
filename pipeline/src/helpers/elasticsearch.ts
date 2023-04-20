@@ -4,6 +4,7 @@ import {
   MappingTypeMapping,
 } from "@elastic/elasticsearch/lib/api/types";
 import { Observable } from "rxjs";
+import log from "@weco/content-common/services/logging";
 import { observableToStream } from "./observableToStream";
 
 type IndexConfig = {
@@ -18,11 +19,11 @@ export const ensureIndexExists = async (
 ): Promise<void> => {
   try {
     await elasticClient.indices.create(indexConfig);
-    console.log(`Index '${indexConfig.index}' was created`);
+    log.info(`Index '${indexConfig.index}' was created`);
   } catch (e) {
     if (e instanceof elasticErrors.ResponseError) {
       if (e.message.includes("resource_already_exists_exception")) {
-        console.log(`Index '${indexConfig.index}' already exists`);
+        log.info(`Index '${indexConfig.index}' already exists`);
         return;
       }
     }
@@ -55,7 +56,7 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       };
     },
     onDrop(failureObject) {
-      console.log(
+      log.info(
         failureObject.document.id,
         "was dropped during the bulk import:",
         failureObject

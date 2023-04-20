@@ -1,5 +1,6 @@
 import * as prismic from "@prismicio/client";
 import { ContentType } from "../types";
+import { TimeWindow } from "../event";
 
 const graphQueryArticles = `{
     articles {
@@ -58,13 +59,9 @@ const graphQueryArticles = `{
     }
   }`.replace(/\n(\s+)/g, "\n"); // Pre-emptive removal of whitespaces as requests to the Prismic Rest API are limited to 2048 characters.
 
-// TODO Review what prismic function we use here.
-// getAllByType (no pagination blocker but only one type at a time)
-// or getByType (which allows more than one type at a time).
-// Review if predicates are still required
 type GetPrismicDocumentsParams = {
-  client: prismic.Client;
   contentTypes: ContentType[];
+  publicationWindow: TimeWindow;
   after?: string;
 };
 
@@ -73,16 +70,30 @@ export type PrismicPage<T> = {
   lastDocId?: string;
 };
 
-export const getPrismicDocuments = async <T>({
-  client,
-  contentTypes,
-  after,
-}: GetPrismicDocumentsParams): Promise<PrismicPage<T>> => {
+const fields = {
+  documentType: "document.type",
+  lastPublicationDate: "document.last_publication_date",
+} as const;
+
+export const getPrismicDocuments = async <T>(
+  client: prismic.Client,
+  { contentTypes, publicationWindow, after }: GetPrismicDocumentsParams
+): Promise<PrismicPage<T>> => {
+  const startDate = publicationWindow.start;
+  const endDate = publicationWindow.end;
   const docs = await client.get({
     graphQuery: graphQueryArticles,
-    predicates: [prismic.predicate.any("document.type", contentTypes)],
+    predicates: [
+      prismic.predicate.any(fields.documentType, contentTypes),
+      startDate
+        ? prismic.predicate.dateAfter(fields.lastPublicationDate, startDate)
+        : [],
+      endDate
+        ? prismic.predicate.dateBefore(fields.lastPublicationDate, endDate)
+        : [],
+    ].flat(),
     orderings: {
-      field: "document.last_publication_date",
+      field: fields.lastPublicationDate,
       direction: "desc",
     },
     pageSize: 100,

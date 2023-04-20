@@ -5,6 +5,12 @@ import { createPrismicClient } from "./services/prismic";
 
 const prismicClient = createPrismicClient();
 
+// Reindexes all documents by default
+const timeWindow = {
+  start: undefined,
+  end: undefined,
+};
+
 getElasticClient({
   pipelineDate: "2023-03-24",
   serviceName: "pipeline",
@@ -14,5 +20,5 @@ getElasticClient({
     prismic: prismicClient,
     elastic: elasticClient,
   });
-  return handler({}, {} as Context, () => {});
+  return handler(timeWindow, {} as Context, () => {});
 });
