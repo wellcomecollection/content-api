@@ -2,28 +2,22 @@ import {
   EmptyLinkField,
   FilledLinkToDocumentField,
   GroupField,
-  PrismicDocument,
   RelationField,
   RichTextField,
 } from "@prismicio/types";
-import { InferDataInterface } from "..";
 
 type PrismicContributorContributor =
   | EmptyLinkField<"Document">
   | FilledLinkToDocumentField<
       "organisations" | "people",
       "en-gb",
-      InferDataInterface<PrismicDocument<{ name: RichTextField }>>
+      { name: RichTextField }
     >;
 
 type PrismicContributorRole = RelationField<
   "editorial-contributor-roles",
   "en-gb",
-  InferDataInterface<
-    PrismicDocument<{
-      title: RichTextField;
-    }>
-  >
+  { title: RichTextField }
 >;
 
 type Contributors = GroupField<{

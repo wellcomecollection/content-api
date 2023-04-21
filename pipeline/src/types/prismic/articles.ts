@@ -10,6 +10,7 @@ import {
   CommonPrismicFields,
   PrismicArticleFormat,
 } from "..";
+import { WithSeries } from "./series";
 
 type WithArticleFormat = {
   format: RelationField<
@@ -25,6 +26,7 @@ export type ArticlePrismicDocument = PrismicDocument<
   } & WithContributors &
     WithArticleFormat &
     WithBody &
+    WithSeries &
     CommonPrismicFields,
   "articles" | "webcomics"
 >;
