@@ -4,7 +4,7 @@ import log from "@weco/content-common/services/logging";
 
 import { ArticlePrismicDocument, Clients } from "./types";
 import { transformArticle } from "./transformers/article";
-import articlesQuery from "./graph-queries/articles";
+import { articlesQuery, webcomicsQuery, wrapQueries } from "./graph-queries";
 import { ensureIndexExists, bulkIndexDocuments } from "./helpers/elasticsearch";
 import { getPrismicDocuments } from "./helpers/prismic";
 import { articles } from "./indices";
@@ -22,10 +22,12 @@ export const createHandler =
 
     // 1. Fetches everything from Prismic
     const window = toBoundedWindow(event);
-    log.info(`Fetching articles last published ${describeWindow(window)}`);
+    log.info(
+      `Fetching articles and webcomics last published ${describeWindow(window)}`
+    );
     const getArticles = (after?: string) =>
       getPrismicDocuments<ArticlePrismicDocument>(clients.prismic, {
-        graphQuery: articlesQuery,
+        graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
         contentTypes: ["articles", "webcomics"],
         publicationWindow: toBoundedWindow(event),
         after,

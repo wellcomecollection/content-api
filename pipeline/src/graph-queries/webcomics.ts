@@ -1,17 +1,5 @@
-const query = `articles {
+const query = `webcomics {
     title
-    body {
-      ...on text {
-        non-repeat {
-          text
-        }
-      }
-      ...on standfirst {
-        non-repeat {
-          text
-        }
-      }
-    }
     format {
       title
     }
