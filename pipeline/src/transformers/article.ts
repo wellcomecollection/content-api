@@ -130,6 +130,22 @@ export const transformArticle = (
   const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
     ?.primary.text[0].text;
 
+  const querySeries = data.series.flatMap(({ series }) =>
+    isFilledLinkToDocumentWithData(series)
+      ? {
+          id: series.id,
+          title: asText(series.data.title),
+          contributors: series.data.contributors
+            .flatMap(({ contributor }) =>
+              isFilledLinkToDocumentWithData(contributor)
+                ? asText(contributor.data.name)
+                : []
+            )
+            .filter(isNotUndefined),
+        }
+      : []
+  );
+
   return {
     id,
     display: {
@@ -149,6 +165,7 @@ export const transformArticle = (
       caption,
       body: queryBody,
       standfirst: queryStandfirst,
+      series: querySeries,
     },
   };
 };
