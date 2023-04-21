@@ -14,3 +14,12 @@ variable "network_config" {
     ec_traffic_filters               = set(string)
   })
 }
+
+variable "window_duration_minutes" {
+  type = number
+}
+
+variable "window_overlap_minutes" {
+  type    = number
+  default = 1
+}
