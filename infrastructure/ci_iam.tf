@@ -7,7 +7,6 @@ data "aws_arn" "ci_role" {
 }
 
 resource "aws_iam_role_policy" "ci_s3_publish" {
-  name   = "content-s3-publish"
   role   = local.ci_role_name
   policy = data.aws_iam_policy_document.ci_s3_publish.json
 }
@@ -16,10 +15,8 @@ data "aws_iam_policy_document" "ci_s3_publish" {
   statement {
     effect = "Allow"
     actions = [
-      "s3:Get*",
-      "s3:Put*",
-      "s3:Delete*",
-      "s3:ListBucket"
+      "s3:GetObject",
+      "s3:PutObject"
     ]
     resources = [
       aws_s3_bucket.content_packages.arn,
@@ -29,7 +26,6 @@ data "aws_iam_policy_document" "ci_s3_publish" {
 }
 
 resource "aws_iam_role_policy" "ci_lambda_update" {
-  name   = "content-lambda_update"
   role   = local.ci_role_name
   policy = data.aws_iam_policy_document.ci_lambda_update.json
 }
