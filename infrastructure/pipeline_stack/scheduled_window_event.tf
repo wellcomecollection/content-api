@@ -1,6 +1,6 @@
 resource "aws_scheduler_schedule" "windows" {
   name                = "content-pipeline-windows-${var.pipeline_date}"
-  schedule_expression = "rate(${var.window_duration})"
+  schedule_expression = "rate(${var.window_duration_minutes})"
 
   // Using the templated Lambda target
   // https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-templated.html
@@ -13,8 +13,9 @@ resource "aws_scheduler_schedule" "windows" {
     // https://github.com/hashicorp/terraform-provider-aws/issues/23496
     // https://github.com/hashicorp/terraform/pull/18871#issuecomment-422220699
     input = replace(replace(jsonencode({
-      end      = "<aws.scheduler.scheduled-time>"
-      duration = var.window_duration
+      end = "<aws.scheduler.scheduled-time>"
+      // Make sure that we don't lose anything between windows
+      duration = var.window_duration_minutes + var.window_overlap_minutes
     }), "\\u003e", ">"), "\\u003c", "<")
   }
 

@@ -15,6 +15,11 @@ variable "network_config" {
   })
 }
 
-variable "window_duration" {
-  type = string
+variable "window_duration_minutes" {
+  type = number
+}
+
+variable "window_overlap_minutes" {
+  type    = number
+  default = 1
 }
