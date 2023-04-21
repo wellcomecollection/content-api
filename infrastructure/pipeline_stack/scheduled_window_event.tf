@@ -1,6 +1,6 @@
 resource "aws_scheduler_schedule" "windows" {
   name                = "content-pipeline-windows-${var.pipeline_date}"
-  schedule_expression = "rate(${var.window_duration_minutes})"
+  schedule_expression = "rate(${var.window_duration_minutes} minutes)"
 
   // Using the templated Lambda target
   // https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-templated.html
