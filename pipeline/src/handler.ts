@@ -1,8 +1,10 @@
 import { Handler } from "aws-lambda";
 import { from, expand, mergeMap, map, EMPTY } from "rxjs";
 import log from "@weco/content-common/services/logging";
+
 import { ArticlePrismicDocument, Clients } from "./types";
 import { transformArticle } from "./transformers/article";
+import articlesQuery from "./graph-queries/articles";
 import { ensureIndexExists, bulkIndexDocuments } from "./helpers/elasticsearch";
 import { getPrismicDocuments } from "./helpers/prismic";
 import { articles } from "./indices";
@@ -23,6 +25,7 @@ export const createHandler =
     log.info(`Fetching articles last published ${describeWindow(window)}`);
     const getArticles = (after?: string) =>
       getPrismicDocuments<ArticlePrismicDocument>(clients.prismic, {
+        graphQuery: articlesQuery,
         contentTypes: ["articles", "webcomics"],
         publicationWindow: toBoundedWindow(event),
         after,
