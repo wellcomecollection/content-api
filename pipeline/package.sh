@@ -3,14 +3,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-yarn clean
-yarn build
-yarn install --frozen-lockfile --production
+yarn run esbuild ./src/lambda.js \
+  --bundle \
+  --platform=node \
+  --target=node18 \
+  --sourcemap=external \
+  --outdir=dist
 
-pushd dist
+cd dist
 zip -rq ../package.zip .
-popd
-zip -urq package.zip ./node_modules
-
-# Restore dev tools
-yarn install --frozen-lockfile

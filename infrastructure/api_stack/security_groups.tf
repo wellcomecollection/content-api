@@ -1,11 +1,11 @@
 data "aws_vpc" "vpc" {
-  id = var.vpc_id
+  id = var.network_config.vpc_id
 }
 
 resource "aws_security_group" "vpc_ingress" {
   name        = "${var.environment}-content-api-vpc-ingress"
   description = "Allow traffic from within the VPC into the service"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.network_config.vpc_id
 
   ingress {
     from_port   = 0
@@ -22,7 +22,7 @@ resource "aws_security_group" "vpc_ingress" {
 resource "aws_security_group" "egress" {
   name        = "${var.environment}-content-api-egress"
   description = "Allows all egress traffic from the group"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.network_config.vpc_id
 
   egress {
     from_port   = 0

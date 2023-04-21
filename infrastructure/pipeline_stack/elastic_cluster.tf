@@ -1,6 +1,6 @@
 locals {
   elastic_cloud_region = data.aws_region.current.name
-  cluster_id           = ec_deployment.content_cluster.elasticsearch.resource_id
+  cluster_id           = ec_deployment.content_cluster.elasticsearch[0].resource_id
   cluster_alias        = ec_deployment.content_cluster.alias
   cluster_public_host  = "${local.cluster_alias}.es.${local.elastic_cloud_region}.aws.found.io"
   cluster_private_host = "${local.cluster_id}.vpce.${local.elastic_cloud_region}.aws.elastic-cloud.com"
@@ -14,22 +14,29 @@ resource "ec_deployment" "content_cluster" {
   region                 = local.elastic_cloud_region
   deployment_template_id = "aws-io-optimized-v3"
 
-  elasticsearch = {
+  elasticsearch {
     autoscale = "false"
-    hot = {
-      size        = "1g"
-      zone_count  = 1
-      autoscaling = {}
+    topology {
+      id         = "hot_content"
+      size       = "1g"
+      zone_count = 1
     }
   }
 
-  kibana = {
-    size       = "1g"
-    zone_count = 1
+  kibana {
+    topology {
+      size       = "1g"
+      zone_count = 1
+    }
   }
 
-  observability = {
+  observability {
     deployment_id = var.logging_cluster_id
+  }
+
+  lifecycle {
+    // See https://github.com/elastic/terraform-provider-ec/issues/419
+    ignore_changes = [traffic_filter]
   }
 }
 
