@@ -2,66 +2,10 @@ import * as prismic from "@prismicio/client";
 import { ContentType } from "../types";
 import { TimeWindow } from "../event";
 
-const graphQueryArticles = `{
-    articles {
-      title
-      body {
-        ...on text {
-          non-repeat {
-            text
-          }
-        }
-        ...on standfirst {
-          non-repeat {
-            text
-          }
-        }
-      }
-      format {
-        title
-      }
-      promo
-      contributors {
-        ...contributorsFields
-        role {
-          title
-        }
-        contributor {
-          ... on people {
-            name
-          }
-          ... on organisations {
-            name
-          }
-        }
-      }
-    }
-    webcomics {
-      title
-      format {
-        title
-      }
-      promo
-      contributors {
-        ...contributorsFields
-        role {
-          title
-        }
-        contributor {
-          ... on people {
-            name
-          }
-          ... on organisations {
-            name
-          }
-        }
-      }
-    }
-  }`.replace(/\n(\s+)/g, "\n"); // Pre-emptive removal of whitespaces as requests to the Prismic Rest API are limited to 2048 characters.
-
 type GetPrismicDocumentsParams = {
   contentTypes: ContentType[];
   publicationWindow: TimeWindow;
+  graphQuery?: string;
   after?: string;
 };
 
@@ -77,12 +21,18 @@ const fields = {
 
 export const getPrismicDocuments = async <T>(
   client: prismic.Client,
-  { contentTypes, publicationWindow, after }: GetPrismicDocumentsParams
+  {
+    contentTypes,
+    publicationWindow,
+    graphQuery,
+    after,
+  }: GetPrismicDocumentsParams
 ): Promise<PrismicPage<T>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
   const docs = await client.get({
-    graphQuery: graphQueryArticles,
+    // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
+    graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
     predicates: [
       prismic.predicate.any(fields.documentType, contentTypes),
       startDate

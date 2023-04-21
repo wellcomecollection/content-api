@@ -21,13 +21,19 @@ export const ensureIndexExists = async (
     await elasticClient.indices.create(indexConfig);
     log.info(`Index '${indexConfig.index}' was created`);
   } catch (e) {
-    if (e instanceof elasticErrors.ResponseError) {
-      if (e.message.includes("resource_already_exists_exception")) {
-        log.info(`Index '${indexConfig.index}' already exists`);
-        return;
-      }
+    if (
+      e instanceof elasticErrors.ResponseError &&
+      e.message.includes("resource_already_exists_exception")
+    ) {
+      log.info(`Index '${indexConfig.index}' already exists`);
+      // make sure the index mapping is up-to-date
+      await elasticClient.indices.putMapping({
+        index: indexConfig.index,
+        ...indexConfig.mappings,
+      });
+    } else {
+      throw e;
     }
-    throw e;
   }
 };
 
@@ -56,10 +62,8 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       };
     },
     onDrop(failureObject) {
-      log.info(
-        failureObject.document.id,
-        "was dropped during the bulk import:",
-        failureObject
+      log.warn(
+        `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`
       );
       failed.push(failureObject.document);
     },

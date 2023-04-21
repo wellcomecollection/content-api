@@ -48,6 +48,11 @@ export type ElasticsearchArticle = {
     caption?: string;
     body?: string[] | string;
     standfirst?: string;
+    series: Array<{
+      id: string;
+      title?: string;
+      contributors: string[];
+    }>;
   };
 };
 
