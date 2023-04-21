@@ -54,5 +54,8 @@ export const describeWindow = ({ start, end }: TimeWindow): string => {
   if (start) {
     return `after ${start.toISOString()}`;
   }
-  return `before ${end?.toISOString()}`;
+  if (end) {
+    return `before ${end?.toISOString()}`;
+  }
+  return "at any time";
 };

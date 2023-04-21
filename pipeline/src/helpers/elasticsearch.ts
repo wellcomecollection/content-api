@@ -56,10 +56,8 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       };
     },
     onDrop(failureObject) {
-      log.info(
-        failureObject.document.id,
-        "was dropped during the bulk import:",
-        failureObject
+      log.warn(
+        `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`
       );
       failed.push(failureObject.document);
     },
