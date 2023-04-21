@@ -4,6 +4,7 @@ export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
     query: queryString,
     fields: [
+      "id",
       "query.title.*^100",
       "query.contributors.*^10",
       "query.contributors.keyword^100",
