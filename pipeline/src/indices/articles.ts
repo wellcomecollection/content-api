@@ -6,7 +6,7 @@ export const mapping = {
   dynamic: "strict",
   properties: {
     id: {
-      type: "text",
+      type: "keyword",
     },
     display: {
       type: "object",
