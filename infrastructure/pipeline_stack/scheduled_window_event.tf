@@ -15,7 +15,7 @@ resource "aws_scheduler_schedule" "windows" {
     input = replace(replace(jsonencode({
       end = "<aws.scheduler.scheduled-time>"
       // Make sure that we don't lose anything between windows
-      duration = var.window_duration_minutes + var.window_overlap_minutes
+      duration = "${var.window_duration_minutes + var.window_overlap_minutes} minutes"
     }), "\\u003e", ">"), "\\u003c", "<")
   }
 
