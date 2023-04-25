@@ -1,9 +1,11 @@
 locals {
   catalogue_account = data.terraform_remote_state.accounts_catalogue.outputs
   shared_infra      = data.terraform_remote_state.infra_critical.outputs
+  monitoring        = data.terraform_remote_state.monitoring.outputs
 
-  ci_role_arn        = local.catalogue_account["ci_role_arn"]
-  logging_cluster_id = local.shared_infra["logging_cluster_id"]
+  ci_role_arn                      = local.catalogue_account["ci_role_arn"]
+  logging_cluster_id               = local.shared_infra["logging_cluster_id"]
+  catalogue_lambda_alarn_topic_arn = local.monitoring["catalogue_lambda_error_alerts_topic_arn"]
 
   network_config = {
     vpc_id                           = local.catalogue_account["catalogue_vpc_id"]

@@ -3,7 +3,7 @@ locals {
 }
 
 module "pipeline_lambda" {
-  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.1.1"
+  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
 
   name    = local.lambda_name
   runtime = "nodejs18.x"
@@ -27,6 +27,8 @@ module "pipeline_lambda" {
       aws_security_group.egress.id
     ]
   }
+
+  error_alarm_topic_arn = var.lambda_alarm_topic_arn
 }
 
 data "archive_file" "empty_zip" {
