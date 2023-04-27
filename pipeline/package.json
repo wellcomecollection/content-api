@@ -6,6 +6,7 @@
   "scripts": {
     "package": "./package.sh",
     "reindex": "ts-node src/local.ts",
+    "update-prismic-snapshots": "ts-node test/update-prismic-snapshots.ts",
     "test": "jest"
   },
   "dependencies": {

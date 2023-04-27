@@ -1,0 +1,426 @@
+{
+  "id": "YbjAThEAACEAcPYF",
+  "uid": null,
+  "url": null,
+  "type": "articles",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZEqN8RQAAMCZxXEJ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2022-01-10T10:59:43+0000",
+  "last_publication_date": "2022-01-10T13:01:19+0000",
+  "slugs": [
+    "the-enigma-of-the-medieval-folding-almanac",
+    "a-medieval-english-folding-almanac"
+  ],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": " The enigma of the medieval folding almanac",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "W7TfJRAAAJ1D0eLK",
+      "type": "article-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "article",
+      "first_publication_date": "2018-10-03T15:24:27+0000",
+      "last_publication_date": "2019-10-22T15:23:05+0000",
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "body": [
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "standfirst$b94d5bdc-fd73-432c-9627-e616f4838e37",
+        "slice_type": "standfirst",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Folding almanacs contain densely packed information connecting health, time and the heavens. They feature astrological calendars, lunar and solar tables, diagrams of the human body, and religious feast days. They were used by medical practitioners and other people with an interest in astrology, prognostication (foretelling future events) and treating illness.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$80d6e82a-3f42-4cc0-aed2-30c9777676e7",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "As well as this relatively recent acquisition, Wellcome Collection holds two other folding almanacs from later in the 15th century, all three of them written on parchment in Latin and produced in England. This almanac stands out because of its exquisitely embroidered silk binding, and the high artistic standard of its illustration, particularly the Zodiac Man, drawn in blue, red, crimson and gold leaf.",
+              "spans": [
+                {
+                  "start": 27,
+                  "end": 45,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://www.theguardian.com/culture/2013/dec/29/wellcome-library-medieval-medical-almanac",
+                    "target": "_blank"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$9af86d8b-b848-4c6d-b253-a6847e6f5e45",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Using a folding almanac ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The astrological features of folding almanacs are key to understanding how they were used. According to historian Hilary Carey, “The folded almanac provided the texts, tables, and diagrams required by any practitioner or patient who wished to consider the planetary hours and the place of the moon in the signs before undertaking a medical procedure. This level of practice constituted the most elementary form of medical astrology.” ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$e435617c-a007-44ee-90d8-cdabdd7930ef",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Their small size and format made them highly portable, and they could be fastened at the waist with a piece of cord. The act of using one made the user an integral part of the process of discovery, as art historian Jennifer Borland explains: “The unusual manipulation necessitated by the almanacs’ form – the repeated opening and closing of folios, the folding and unfolding of the parchment – directs the user’s experience and stimulates the senses.” ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$cc7c9347-6d26-4c83-bb36-b6789bedc051",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "At the same time, the practical function of almanacs, and the limited timespan of the calendars within them, suggest that most were ephemeral – readily discarded and replaced – and relatively inexpensive to produce. ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This particular almanac, however, appears to be a different kind of object. Its fine artwork, high-quality parchment and intricately embroidered binding indicate that this was a valuable and prestigious item; nonetheless, it has signs of wear, suggesting that it did see some practical use. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$4c016926-9f99-4073-a018-51c69d641489",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "English folding almanac in Latin, 1415–20.",
+              "spans": []
+            }
+          ],
+          "tasl": "English folding almanac in Latin, 1415–20 | Video: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+          "video": {
+            "link_type": "Media",
+            "name": "MS8932.mp4",
+            "kind": "document",
+            "url": "https://wellcomecollection.cdn.prismic.io/wellcomecollection/71315ee7-cc8d-4431-b10b-34ca36e38e07_MS8932.mp4",
+            "size": "101424393"
+          },
+          "playbackRate": null,
+          "autoPlay": false,
+          "loop": false,
+          "mute": false,
+          "showControls": true
+        },
+        "items": [],
+        "id": "gifVideo$c4ec4761-036d-438c-a96a-e50332aae156",
+        "slice_type": "gifVideo",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "The Zodiac Man ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The most striking feature of the content is a brightly painted and detailed illustration of the Zodiac Man. This figure has particular zodiac signs placed on specific parts of the body, to indicate times in the year at which it would be dangerous to practise bloodletting or perform other medical treatments on those areas. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$67e67681-d328-499e-8371-60e9696691dd",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The Zodiac Man is a common feature of many medical almanacs and codices of the time. It’s often accompanied by the Vein Man, a diagram that shows the points on the body where blood should be let – though a Vein Man is absent from this almanac.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$e54c2d05-7071-425f-88b8-54148d3b83a7",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "A beautiful and functional manuscript ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The most recent known owner of the almanac was the poet Dame Edith Sitwell (1887–1964), who received it as a gift in May 1940, but most of the 600-year history of the almanac and its owners is a mystery. ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "It was probably made in an English specialist workshop in the early 15th century – notable dates in the calendar include the feast of John of Beverley, an eighth-century Yorkshire saint particularly venerated by Henry V after his victory at Agincourt in 1415. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$21299413-ff3c-4702-9841-f24108e86c95",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The owner could have commissioned a conventional codex, but I think they must have been drawn to the format as well as the content. Maybe it was the must-have object of the day, or perhaps they wanted an attractive manuscript that they could wear on their body, as well as consult on the go for its astrological information. ",
+              "spans": [
+                {
+                  "start": 49,
+                  "end": 54,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://en.wikipedia.org/wiki/Codex",
+                    "target": "_blank"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$edb82053-1414-4cad-8214-6c28dbb838bb",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "It could have been commissioned by a wealthy patron, male or female, as a special object, in contrast to the more workaday almanacs that were probably produced in multiple copies. The luxurious textile binding could have been made either in the workshop, as part of the process of book production, or by an embroiderer in a domestic setting.   ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$687ac66e-5b3c-4705-9925-6519a9e660bf",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Use could have been made of its medical content within the household, as well as on the road or in encounters between medical practitioners and patients. Whatever the intention, this beautiful and intriguing example suggests that the folding almanac was a more versatile type of object than has previously been supposed, and could be a precious possession as well as a practical tool and source of information. ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Perhaps it is that unique combination of dynamic content and intricate construction in this enigmatic, jewel-like object that fascinated its original owner and continues to captivate and inspire all who encounter it today.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$4ca2fe59-4e12-49bd-9ae7-dc55e2b7d932",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
+    "outroResearchItem": {
+      "link_type": "Any"
+    },
+    "outroResearchLinkText": [],
+    "outroReadItem": {
+      "link_type": "Any"
+    },
+    "outroReadLinkText": [],
+    "outroVisitItem": {
+      "link_type": "Any"
+    },
+    "outroVisitLinkText": [],
+    "contributors": [
+      {
+        "role": {
+          "id": "WcUWeCgAAFws-nGh",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "author",
+          "first_publication_date": "2017-09-22T13:56:23+0000",
+          "last_publication_date": "2022-08-10T14:18:33+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "W3KvwikAACIAEFVE",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "elma-brenner",
+          "first_publication_date": "2018-08-14T10:32:40+0000",
+          "last_publication_date": "2022-11-15T16:10:50+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "description": []
+      }
+    ],
+    "contributorsTitle": [],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 3105
+            },
+            "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+            "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+            "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+              "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,672,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+              "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,507,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+              "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=447,0,3105,3105&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$4ecd48f3-273c-48a2-8b88-0b541089ba0e",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "metadataDescription": [],
+    "series": [
+      {
+        "series": {
+          "id": "Ybi9HREAACIAcOar",
+          "type": "series",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "modern-encounters-with-a-medieval-almanac",
+          "first_publication_date": "2021-12-14T15:50:39+0000",
+          "last_publication_date": "2022-10-06T11:54:54+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "positionInSeries": null
+      }
+    ],
+    "seasons": [
+      {
+        "season": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "parents": [
+      {
+        "order": null,
+        "parent": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "publishDate": null
+  }
+}
