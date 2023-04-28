@@ -24,17 +24,16 @@ const snapshotNamesForContentType = (contentType: ContentType): string[] =>
   contentTypesCache.get(contentType) ??
   fs.readdirSync(dataDir).filter((f) => f.endsWith(`${contentType}.json`));
 
-const forEachPrismicSnapshot = <T extends PrismicDocument>(
+export const getSnapshots = <T extends PrismicDocument>(
+  ...contentTypes: ContentType[]
+): T[] => contentTypes.flatMap(snapshotNamesForContentType).map(getSnapshot<T>);
+
+export const forEachPrismicSnapshot = <T extends PrismicDocument>(
   ...contentTypes: ContentType[]
 ) => {
-  const snapshots = contentTypes
-    .flatMap(snapshotNamesForContentType)
-    .map(getSnapshot<T>);
-
+  const snapshots = getSnapshots<T>(...contentTypes);
   return <EachFn extends JestGlobal.TestFn | JestGlobal.BlockFn>(
     description: string,
     testCase: (snapshot: T) => ReturnType<EachFn>
   ) => test.each(snapshots)(`${description} (document: $type/$id)`, testCase);
 };
-
-export default forEachPrismicSnapshot;

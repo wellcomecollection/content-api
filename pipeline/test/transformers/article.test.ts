@@ -1,4 +1,4 @@
-import forEachPrismicSnapshot from "../fixtures/forEachPrismicSnapshot";
+import { forEachPrismicSnapshot } from "../fixtures/prismic-snapshots";
 import { transformArticle } from "../../src/transformers/article";
 import { ArticlePrismicDocument } from "../../src/types";
 
