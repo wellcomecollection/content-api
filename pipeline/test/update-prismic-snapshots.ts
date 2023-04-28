@@ -7,11 +7,11 @@ import { Writable } from "stream";
 
 const dataDir = path.resolve(__dirname, "prismic-snapshots");
 const documentIds = [
-  "YbjAThEAACEAcPYF", // articles	-	The enigma of the medieval folding almanac
-  "Y0U4GBEAAA__16h6", // articles	-	Tracing the roots of our fears and fixations
-  "WcvPmSsAAG5B5-ox", // articles	-	The Key to Memory: Follow your nose
-  "XUGruhEAACYASyJh", // webcomics	-	Footpath
-  "XK9p2RIAAO1vQn__", // webcomics	-	Groan
+  "YbjAThEAACEAcPYF", // articles	- The enigma of the medieval folding almanac
+  "Y0U4GBEAAA__16h6", // articles	- Tracing the roots of our fears and fixations
+  "WcvPmSsAAG5B5-ox", // articles	- The Key to Memory: Follow your nose
+  "XUGruhEAACYASyJh", // webcomics	- Footpath
+  "XK9p2RIAAO1vQn__", // webcomics	- Groan
 ];
 
 const main = async () => {
@@ -33,7 +33,7 @@ const main = async () => {
 
   console.log("Adding comments to update script...");
   const comments = new Map(
-    docs.map((doc) => [doc.id, `${doc.type}\t-\t${asTitle(doc.data.title)}`])
+    docs.map((doc) => [doc.id, `${doc.type}\t- ${asTitle(doc.data.title)}`])
   );
   const tmpFile = `${__filename}.tmp`;
   const thisScript = await fs.open(__filename, "r");
@@ -41,6 +41,9 @@ const main = async () => {
   const writeStream = newScript.createWriteStream();
   const writeLine = lineWriter(writeStream);
   for await (const line of thisScript.readLines()) {
+    // This regex matches lines starting with an optional indent, followed by a string, followed by a comma, followed by an optional comment
+    // eg:
+    //   "blah", // hello world
     const stringArrayItemLine =
       /^(?<indent>\s*)"(?<id>.+)",(?<comment>\s*\/\/.*)?$/.exec(line);
     if (stringArrayItemLine) {
