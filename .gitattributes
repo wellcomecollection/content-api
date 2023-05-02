@@ -1,0 +1,3 @@
+pipeline/test/prismic-snapshots/*.json linguist-generated=true
+*.shot linguist-language=Jest-Snapshot
+*.shot linguist-generated
