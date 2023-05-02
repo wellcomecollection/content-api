@@ -25,25 +25,6 @@
     "body": [
       {
         "primary": {
-          "image": {
-            "dimensions": {
-              "width": 1600,
-              "height": 900
-            },
-            "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
-            "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-            "url": "https://images.prismic.io/wellcomecollection/4a8ea2d7fadbbf3f4524914b4618bf7de4e4cc2d_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
-          },
-          "caption": [],
-          "hasRoundedCorners": null
-        },
-        "items": [],
-        "id": "editorialImage$2bce6c48-1298-4313-a1c3-93764c1c67a7",
-        "slice_type": "editorialImage",
-        "slice_label": "featured"
-      },
-      {
-        "primary": {
           "text": [
             {
               "type": "paragraph",
@@ -94,89 +75,6 @@
       },
       {
         "primary": {
-          "embed": {
-            "height": 400,
-            "width": "100%",
-            "description": "",
-            "embed_url": "https://soundcloud.com/wellcomecollection/memory-object-3-a-pair-of/s-VkeKY",
-            "type": "rich",
-            "version": "1",
-            "title": "Memory object 3 | a pair of pomanders by Wellcome Collection",
-            "author_name": "Wellcome Collection",
-            "author_url": "https://soundcloud.com/wellcomecollection",
-            "provider_name": "SoundCloud",
-            "provider_url": "http://soundcloud.com",
-            "cache_age": null,
-            "thumbnail_url": "http://a1.sndcdn.com/images/fb_placeholder.png?1538127538",
-            "thumbnail_width": null,
-            "thumbnail_height": null,
-            "html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F345131951&show_artwork=true&secret_token=s-VkeKY\"></iframe>"
-          },
-          "caption": []
-        },
-        "items": [],
-        "id": "embed$380a8269-bbc0-478e-8917-4c572e4c2547",
-        "slice_type": "embed",
-        "slice_label": null
-      },
-      {
-        "primary": {
-          "iframeSrc": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/345131951%3Fsecret_token%3Ds-VkeKY&color=%23ff5500&inverse=false&auto_play=false&show_user=true"
-        },
-        "items": [],
-        "id": "soundcloudEmbed$f0a1dd88-c02b-4070-b332-0e66dbf39cfd",
-        "slice_type": "soundcloudEmbed",
-        "slice_label": null
-      },
-      {
-        "primary": {
-          "image": {
-            "dimensions": {
-              "width": 1600,
-              "height": 1068
-            },
-            "alt": "A portrait of two women standing against a bright red background.",
-            "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-            "url": "https://images.prismic.io/wellcomecollection/c9a07bcf52f3958b9f30dd4b4155a962db45b2ec_georgia-and-elissavet-02.jpg?auto=compress,format"
-          },
-          "caption": [
-            {
-              "type": "paragraph",
-              "text": "Georgia Mann and Elissavet Ntoulia",
-              "spans": []
-            }
-          ],
-          "hasRoundedCorners": null
-        },
-        "items": [],
-        "id": "editorialImage$a647eaf8-2af2-49a3-82e2-893cc395580c",
-        "slice_type": "editorialImage",
-        "slice_label": "supporting"
-      },
-      {
-        "primary": {
-          "text": [
-            {
-              "type": "paragraph",
-              "text": "Pomanders would contain aromatic spices, and you would carry them with you because you wanted this sweet-smelling aroma surrounding you... Memories that are evoked by smell are very emotionally charged.",
-              "spans": []
-            }
-          ],
-          "citation": [
-            {
-              "type": "paragraph",
-              "text": "Elissavet Ntoulia, Visitor Experience Assistant, Wellcome Collection",
-              "spans": []
-            }
-          ]
-        },
-        "items": [],
-        "id": "quoteV2$58da3089-f65a-443e-9123-5689fe3dbb85",
-        "slice_type": "quoteV2",
-        "slice_label": null
-      },
-      {
-        "primary": {
           "text": [
             {
               "type": "heading2",
@@ -219,42 +117,6 @@
         "id": "text$e308e482-cb0b-4aee-abd4-7852818b3098",
         "slice_type": "text",
         "slice_label": null
-      },
-      {
-        "primary": {
-          "iframeSrc": "https://static.wellcomecollection.org/why_music/pomander_2/index.html",
-          "previewImage": {
-            "dimensions": {
-              "width": 1600,
-              "height": 900
-            },
-            "alt": "A pomander",
-            "copyright": null,
-            "url": "https://images.prismic.io/wellcomecollection/180a6d0ab4f4bd4e1f74d8c3062756cd1a3e9a70_pomander2_1600_900.jpg?auto=compress,format"
-          }
-        },
-        "items": [],
-        "id": "iframe$652f7443-21c0-4acc-ac30-dabe01a34b61",
-        "slice_type": "iframe",
-        "slice_label": "standalone"
-      },
-      {
-        "primary": {
-          "iframeSrc": "https://static.wellcomecollection.org/why_music/pomander_1/index.html",
-          "previewImage": {
-            "dimensions": {
-              "width": 1600,
-              "height": 900
-            },
-            "alt": "A pomander",
-            "copyright": null,
-            "url": "https://images.prismic.io/wellcomecollection/748bf3215e38b561f69a2c6d94ea87ada4e225e0_pomander1_1600_900.jpg?auto=compress,format"
-          }
-        },
-        "items": [],
-        "id": "iframe$93f4b752-a34d-4647-8cc1-77a61eb35d6e",
-        "slice_type": "iframe",
-        "slice_label": "standalone"
       },
       {
         "primary": {
@@ -617,20 +479,7 @@
         "slice_label": null
       }
     ],
-    "outroResearchItem": {
-      "link_type": "Any"
-    },
-    "outroResearchLinkText": [],
-    "outroReadItem": {
-      "link_type": "Any"
-    },
-    "outroReadLinkText": [],
-    "outroVisitItem": {
-      "link_type": "Any"
-    },
-    "outroVisitLinkText": [],
     "contributors": [],
-    "contributorsTitle": [],
     "promo": [
       {
         "primary": {
@@ -685,7 +534,6 @@
         "slice_label": null
       }
     ],
-    "metadataDescription": [],
     "series": [
       {
         "series": {
@@ -696,14 +544,26 @@
           "slug": "memory-objects",
           "first_publication_date": "2017-10-02T13:40:48+0000",
           "last_publication_date": "2018-10-12T12:26:23+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Memory Objects",
+                "spans": []
+              }
+            ],
+            "contributors": [
+              {
+                "contributor": {
+                  "link_type": "Document"
+                }
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
-        },
-        "positionInSeries": null
+        }
       }
-    ],
-    "seasons": [],
-    "parents": [],
-    "publishDate": null
+    ]
   }
 }

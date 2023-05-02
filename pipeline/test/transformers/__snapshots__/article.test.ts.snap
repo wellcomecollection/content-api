@@ -4,10 +4,24 @@ exports[`article transformer also works for webcomics (document: webcomics/XK9p2
 {
   "display": {
     "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
-    "contributors": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "WSQ9rygAAA9xtwfy",
+          "label": "Rob Bidder",
+          "type": "Person",
+        },
+        "role": {
+          "id": "Wux6DyIAAO5n3lzk",
+          "label": "Artist",
+          "type": "EditorialContributorRole",
+        },
+        "type": "Contributor",
+      },
+    ],
     "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
+      "id": "W7d_ghAAALWY3Ujc",
+      "label": "Comic",
       "type": "ArticleFormat",
     },
     "id": "XK9p2RIAAO1vQn__",
@@ -54,11 +68,19 @@ exports[`article transformer also works for webcomics (document: webcomics/XK9p2
   },
   "id": "XK9p2RIAAO1vQn__",
   "query": {
-    "body": [],
+    "body": undefined,
     "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
-    "contributors": [],
+    "contributors": [
+      "Rob Bidder",
+    ],
     "publicationDate": 2019-04-12T09:00:00.000Z,
-    "series": [],
+    "series": [
+      {
+        "contributors": [],
+        "id": "WleP3iQAACUAYEoN",
+        "title": "Body Squabbles",
+      },
+    ],
     "standfirst": undefined,
     "title": "Groan",
   },
@@ -69,10 +91,24 @@ exports[`article transformer also works for webcomics (document: webcomics/XUGru
 {
   "display": {
     "caption": "They drew it with their feet, one step at a time",
-    "contributors": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "WSQ9rygAAA9xtwfy",
+          "label": "Rob Bidder",
+          "type": "Person",
+        },
+        "role": {
+          "id": "Wux6DyIAAO5n3lzk",
+          "label": "Artist",
+          "type": "EditorialContributorRole",
+        },
+        "type": "Contributor",
+      },
+    ],
     "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
+      "id": "W7d_ghAAALWY3Ujc",
+      "label": "Comic",
       "type": "ArticleFormat",
     },
     "id": "XUGruhEAACYASyJh",
@@ -119,11 +155,19 @@ exports[`article transformer also works for webcomics (document: webcomics/XUGru
   },
   "id": "XUGruhEAACYASyJh",
   "query": {
-    "body": [],
+    "body": undefined,
     "caption": "They drew it with their feet, one step at a time",
-    "contributors": [],
+    "contributors": [
+      "Rob Bidder",
+    ],
     "publicationDate": 2019-08-02T09:00:00.000Z,
-    "series": [],
+    "series": [
+      {
+        "contributors": [],
+        "id": "WleP3iQAACUAYEoN",
+        "title": "Body Squabbles",
+      },
+    ],
     "standfirst": undefined,
     "title": "Footpath",
   },
@@ -187,7 +231,6 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "body": [
       "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
       "Listen",
-      "Pomanders would contain aromatic spices, and you would carry them with you because you wanted this sweet-smelling aroma surrounding you... Memories that are evoked by smell are very emotionally charged.",
       "Take a look",
       "",
       "A pomander is a little bit like a locket, except it's designed to be filled with smells rather than pictures. The pair on display in our Medicine Man gallery date from the 17th century, and the interactive images below let you give them both a spin. The brass-coloured pomander is shaped like a snail, while the silvery one looks like a book. ",
@@ -233,7 +276,13 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
     "contributors": [],
     "publicationDate": 2017-10-11T08:30:00.000Z,
-    "series": [],
+    "series": [
+      {
+        "contributors": [],
+        "id": "WdJB3CcAAIE-RlQp",
+        "title": "Memory Objects",
+      },
+    ],
     "standfirst": "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
     "title": "The Key to Memory: Follow your nose",
   },
@@ -244,10 +293,37 @@ exports[`article transformer transforms articles from Prismic to the expected fo
 {
   "display": {
     "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
-    "contributors": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "YvtXgxAAACMA9j5d",
+          "label": "Kate Summerscale",
+          "type": "Person",
+        },
+        "role": {
+          "id": "WcUWeCgAAFws-nGh",
+          "label": "Author",
+          "type": "EditorialContributorRole",
+        },
+        "type": "Contributor",
+      },
+      {
+        "contributor": {
+          "id": "Yz07IxEAAA__s9BR",
+          "label": "Tim Robinson",
+          "type": "Person",
+        },
+        "role": {
+          "id": "XVQa_xMAACMAqbwo",
+          "label": "Illustrator",
+          "type": "EditorialContributorRole",
+        },
+        "type": "Contributor",
+      },
+    ],
     "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
+      "id": "W8CbPhEAAB8Nq4aG",
+      "label": "Book extract",
       "type": "ArticleFormat",
     },
     "id": "Y0U4GBEAAA__16h6",
@@ -311,7 +387,6 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       "But a review in The Lancet Psychiatry in 2018, which synthesised 25 surveys carried out between 1984 and 2014, found that 7.2 per cent of us are likely to experience a specific phobia at some point in our lives. A survey carried out by the World Health Organization in 2017, using data from 22 countries, came to very similar conclusions. ",
       "These studies also indicated that specific phobias are much more common in children than adults, that the rates halve among the elderly, and that women are twice as phobic as men. This means that, on average, one woman in ten experiences a specific phobia, and one man in 20. National surveys suggest that a further 7 per cent of Americans and 12 per cent of Britons have social phobias.",
       "These figures are for phobic disorders, which interfere with everyday life. Many more of us have milder aversions or dreads that we sometimes refer to as phobias: a strong dislike of public speaking or of visiting the dentist, of the sound of thunder, or the sight of spiders. In the US, more than 70 per cent of people say they have an unreasonable fear. ",
-      "Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs.",
       "When I began researching this subject, I did not think of myself as having any particular phobias – apart, perhaps, from my teenage dread of blushing and an enduring anxiety about flying – but by the time I’d finished I had talked myself into almost every one. Some terrors are no sooner imagined than felt.",
       "The causes of these conditions are much disputed. Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs. The American psychologist Granville Stanley Hall, who catalogued 132 phobias in an essay of 1914, observed that some children developed an obsessive fear after having a fright. Shock, he wrote, was “a fertile mother of phobias”.",
       "Sigmund Freud, who analysed phobic symptoms in two famous studies of 1909, proposed that a phobia was a suppressed fear displaced onto an external object: both an expression of anxiety and a defence against it. “Fleeing from an internal danger is a difficult enterprise,” he explained. “One can save oneself from an external danger by flight.”",
@@ -328,10 +403,12 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       "Along with the private urges, there are several communal manias, in which people have danced, giggled, trembled or screamed together. In the 1860s, for instance, a bout of demonomania seized the Alpine town of Morzine, and in the 1960s wild laughing broke out by a lake in Tanzania. These shared convulsions can seem like rebellions, in which unacknowledged feelings surge into view, and they can occasionally force us to reconsider what is rational. ",
       "When we decide that a particular behaviour is manic or phobic, we mark out our cultural as well as our psychological boundaries: we indicate the beliefs on which our social world is constructed. These borders shift over time, and in a moment of collective crisis – a war, a pandemic – they can change fast.",
       "A phobia or a mania acts like a spell, endowing an object or an action with mysterious meaning and giving it the power to possess and transform us. These conditions may be oppressive, but they also enchant the world around us, making it as scary and vivid as a fairy tale. They exert a physical hold, like magic, and in doing so reveal our own strangeness.",
-      "‘The Book of Phobias and Manias’ is out now. Join Kate Summerscale in conversation with psychoanalyst Stephen Grosz on Saturday 3 December, when they will be tracing the personal and historical origins of our obsessive anxieties. ",
     ],
     "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
-    "contributors": [],
+    "contributors": [
+      "Kate Summerscale",
+      "Tim Robinson",
+    ],
     "publicationDate": 2022-10-18T09:00:00.000Z,
     "series": [],
     "standfirst": "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
@@ -344,7 +421,21 @@ exports[`article transformer transforms articles from Prismic to the expected fo
 {
   "display": {
     "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
-    "contributors": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "W3KvwikAACIAEFVE",
+          "label": "Elma Brenner",
+          "type": "Person",
+        },
+        "role": {
+          "id": "WcUWeCgAAFws-nGh",
+          "label": "Author",
+          "type": "EditorialContributorRole",
+        },
+        "type": "Contributor",
+      },
+    ],
     "format": {
       "id": "W7TfJRAAAJ1D0eLK",
       "label": "Article",
@@ -415,9 +506,19 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       "Perhaps it is that unique combination of dynamic content and intricate construction in this enigmatic, jewel-like object that fascinated its original owner and continues to captivate and inspire all who encounter it today.",
     ],
     "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
-    "contributors": [],
+    "contributors": [
+      "Elma Brenner",
+    ],
     "publicationDate": 2022-01-10T10:59:43.000Z,
-    "series": [],
+    "series": [
+      {
+        "contributors": [
+          "Lalita Kaplish",
+        ],
+        "id": "Ybi9HREAACIAcOar",
+        "title": "Modern Encounters With a Medieval Almanac",
+      },
+    ],
     "standfirst": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
     "title": "The enigma of the medieval folding almanac",
   },

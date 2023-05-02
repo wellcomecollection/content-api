@@ -4,6 +4,11 @@ import path from "node:path";
 import { createPrismicClient } from "../src/services/prismic";
 import { asTitle } from "../src/helpers";
 import { Writable } from "stream";
+import {
+  articlesQuery,
+  webcomicsQuery,
+  wrapQueries,
+} from "../src/graph-queries";
 
 const dataDir = path.resolve(__dirname, "prismic-snapshots");
 const documentIds = [
@@ -18,7 +23,9 @@ const main = async () => {
   console.log("Updating prismic snapshots for the following documents:");
   console.log(documentIds.join("\n"));
   const client = createPrismicClient();
-  const docs = await client.getAllByIDs(documentIds);
+  const docs = await client.getAllByIDs(documentIds, {
+    graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
+  });
 
   await Promise.all(
     docs.map((doc) => {

@@ -30,6 +30,15 @@
       "slug": "article",
       "first_publication_date": "2018-10-03T15:24:27+0000",
       "last_publication_date": "2019-10-22T15:23:05+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Article",
+            "spans": []
+          }
+        ]
+      },
       "link_type": "Document",
       "isBroken": false
     },
@@ -143,34 +152,6 @@
         "items": [],
         "id": "text$4c016926-9f99-4073-a018-51c69d641489",
         "slice_type": "text",
-        "slice_label": null
-      },
-      {
-        "primary": {
-          "caption": [
-            {
-              "type": "paragraph",
-              "text": "English folding almanac in Latin, 1415–20.",
-              "spans": []
-            }
-          ],
-          "tasl": "English folding almanac in Latin, 1415–20 | Video: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-          "video": {
-            "link_type": "Media",
-            "name": "MS8932.mp4",
-            "kind": "document",
-            "url": "https://wellcomecollection.cdn.prismic.io/wellcomecollection/71315ee7-cc8d-4431-b10b-34ca36e38e07_MS8932.mp4",
-            "size": "101424393"
-          },
-          "playbackRate": null,
-          "autoPlay": false,
-          "loop": false,
-          "mute": false,
-          "showControls": true
-        },
-        "items": [],
-        "id": "gifVideo$c4ec4761-036d-438c-a96a-e50332aae156",
-        "slice_type": "gifVideo",
         "slice_label": null
       },
       {
@@ -295,18 +276,6 @@
         "slice_label": null
       }
     ],
-    "outroResearchItem": {
-      "link_type": "Any"
-    },
-    "outroResearchLinkText": [],
-    "outroReadItem": {
-      "link_type": "Any"
-    },
-    "outroReadLinkText": [],
-    "outroVisitItem": {
-      "link_type": "Any"
-    },
-    "outroVisitLinkText": [],
     "contributors": [
       {
         "role": {
@@ -317,6 +286,15 @@
           "slug": "author",
           "first_publication_date": "2017-09-22T13:56:23+0000",
           "last_publication_date": "2022-08-10T14:18:33+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Author",
+                "spans": []
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
         },
@@ -328,13 +306,14 @@
           "slug": "elma-brenner",
           "first_publication_date": "2018-08-14T10:32:40+0000",
           "last_publication_date": "2022-11-15T16:10:50+0000",
+          "data": {
+            "name": "Elma Brenner"
+          },
           "link_type": "Document",
           "isBroken": false
-        },
-        "description": []
+        }
       }
     ],
-    "contributorsTitle": [],
     "promo": [
       {
         "primary": {
@@ -389,7 +368,6 @@
         "slice_label": null
       }
     ],
-    "metadataDescription": [],
     "series": [
       {
         "series": {
@@ -400,27 +378,37 @@
           "slug": "modern-encounters-with-a-medieval-almanac",
           "first_publication_date": "2021-12-14T15:50:39+0000",
           "last_publication_date": "2022-10-06T11:54:54+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Modern Encounters With a Medieval Almanac",
+                "spans": []
+              }
+            ],
+            "contributors": [
+              {
+                "contributor": {
+                  "id": "WSQ9rygAAA9xtwgU",
+                  "type": "people",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "lalita-kaplish",
+                  "first_publication_date": "2017-05-23T13:48:54+0000",
+                  "last_publication_date": "2023-02-14T11:26:54+0000",
+                  "data": {
+                    "name": "Lalita Kaplish"
+                  },
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
-        },
-        "positionInSeries": null
-      }
-    ],
-    "seasons": [
-      {
-        "season": {
-          "link_type": "Document"
         }
       }
-    ],
-    "parents": [
-      {
-        "order": null,
-        "parent": {
-          "link_type": "Document"
-        }
-      }
-    ],
-    "publishDate": null
+    ]
   }
 }

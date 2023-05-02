@@ -27,70 +27,18 @@
       "slug": "comic",
       "first_publication_date": "2018-10-05T15:13:14+0000",
       "last_publication_date": "2018-10-05T15:13:14+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Comic",
+            "spans": []
+          }
+        ]
+      },
       "link_type": "Document",
       "isBroken": false
     },
-    "image": {
-      "dimensions": {
-        "width": 2468,
-        "height": 2447
-      },
-      "alt": "Footpath comic by Rob Bidder",
-      "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-      "url": "https://images.prismic.io/wellcomecollection%2F43de0b62-b660-4388-a5e3-7be0b5896c15_footpath.jpg?auto=compress,format&rect=0,0,2468,2447&w=2468&h=2447"
-    },
-    "body": [
-      {
-        "primary": {
-          "title": []
-        },
-        "items": [
-          {
-            "image": {
-              "dimensions": {
-                "width": 2468,
-                "height": 2447
-              },
-              "alt": "Footpath comic by Rob Bidder",
-              "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-              "url": "https://images.prismic.io/wellcomecollection%2F43de0b62-b660-4388-a5e3-7be0b5896c15_footpath.jpg?auto=compress,format&rect=0,0,2468,2447&w=2468&h=2447",
-              "32:15": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 1500
-                },
-                "alt": "Footpath comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F43de0b62-b660-4388-a5e3-7be0b5896c15_footpath.jpg?auto=compress,format&rect=0,645,2468,1157&w=3200&h=1500"
-              },
-              "16:9": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 1800
-                },
-                "alt": "Footpath comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F43de0b62-b660-4388-a5e3-7be0b5896c15_footpath.jpg?auto=compress,format&rect=0,529,2468,1388&w=3200&h=1800"
-              },
-              "square": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 3200
-                },
-                "alt": "Footpath comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F43de0b62-b660-4388-a5e3-7be0b5896c15_footpath.jpg?auto=compress,format&rect=10,0,2447,2447&w=3200&h=3200"
-              }
-            },
-            "caption": [],
-            "hasRoundedCorners": null
-          }
-        ],
-        "id": "editorialImageGallery$d4db4587-d25c-4eb6-b425-0f5f62e02a95",
-        "slice_type": "editorialImageGallery",
-        "slice_label": "standalone"
-      }
-    ],
     "contributors": [
       {
         "role": {
@@ -101,6 +49,15 @@
           "slug": "artist",
           "first_publication_date": "2018-05-04T15:19:48+0000",
           "last_publication_date": "2019-08-14T14:31:04+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Artist",
+                "spans": []
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
         },
@@ -112,13 +69,14 @@
           "slug": "rob-bidder",
           "first_publication_date": "2017-05-23T13:48:54+0000",
           "last_publication_date": "2022-11-16T17:15:36+0000",
+          "data": {
+            "name": "Rob Bidder"
+          },
           "link_type": "Document",
           "isBroken": false
-        },
-        "description": []
+        }
       }
     ],
-    "contributorsTitle": [],
     "promo": [
       {
         "primary": {
@@ -173,7 +131,6 @@
         "slice_label": null
       }
     ],
-    "metadataDescription": [],
     "series": [
       {
         "series": {
@@ -184,11 +141,26 @@
           "slug": "body-squabbles",
           "first_publication_date": "2018-01-11T16:25:07+0000",
           "last_publication_date": "2018-10-22T09:48:54+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Body Squabbles",
+                "spans": []
+              }
+            ],
+            "contributors": [
+              {
+                "contributor": {
+                  "link_type": "Document"
+                }
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
         }
       }
-    ],
-    "publishDate": null
+    ]
   }
 }

@@ -27,70 +27,18 @@
       "slug": "comic",
       "first_publication_date": "2018-10-05T15:13:14+0000",
       "last_publication_date": "2018-10-05T15:13:14+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Comic",
+            "spans": []
+          }
+        ]
+      },
       "link_type": "Document",
       "isBroken": false
     },
-    "image": {
-      "dimensions": {
-        "width": 2476,
-        "height": 2438
-      },
-      "alt": "Groan comic by Rob Bidder",
-      "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-      "url": "https://images.prismic.io/wellcomecollection%2F4ec2e08b-305b-4d56-91a7-0fc99abded02_groan_web.jpg?auto=compress,format&rect=0,0,2476,2438&w=2476&h=2438"
-    },
-    "body": [
-      {
-        "primary": {
-          "title": []
-        },
-        "items": [
-          {
-            "image": {
-              "dimensions": {
-                "width": 2476,
-                "height": 2438
-              },
-              "alt": "Groan comic by Rob Bidder",
-              "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-              "url": "https://images.prismic.io/wellcomecollection%2F4ec2e08b-305b-4d56-91a7-0fc99abded02_groan_web.jpg?auto=compress,format&rect=0,0,2476,2438&w=2476&h=2438",
-              "32:15": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 1500
-                },
-                "alt": "Groan comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F4ec2e08b-305b-4d56-91a7-0fc99abded02_groan_web.jpg?auto=compress,format&rect=0,638,2476,1161&w=3200&h=1500"
-              },
-              "16:9": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 1800
-                },
-                "alt": "Groan comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F4ec2e08b-305b-4d56-91a7-0fc99abded02_groan_web.jpg?auto=compress,format&rect=0,522,2476,1393&w=3200&h=1800"
-              },
-              "square": {
-                "dimensions": {
-                  "width": 3200,
-                  "height": 3200
-                },
-                "alt": "Groan comic by Rob Bidder",
-                "copyright": null,
-                "url": "https://images.prismic.io/wellcomecollection%2F4ec2e08b-305b-4d56-91a7-0fc99abded02_groan_web.jpg?auto=compress,format&rect=18,0,2438,2438&w=3200&h=3200"
-              }
-            },
-            "caption": [],
-            "hasRoundedCorners": null
-          }
-        ],
-        "id": "editorialImageGallery$12883264-7f60-420d-af96-e9264ed67b40",
-        "slice_type": "editorialImageGallery",
-        "slice_label": "standalone"
-      }
-    ],
     "contributors": [
       {
         "role": {
@@ -101,6 +49,15 @@
           "slug": "artist",
           "first_publication_date": "2018-05-04T15:19:48+0000",
           "last_publication_date": "2019-08-14T14:31:04+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Artist",
+                "spans": []
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
         },
@@ -112,13 +69,14 @@
           "slug": "rob-bidder",
           "first_publication_date": "2017-05-23T13:48:54+0000",
           "last_publication_date": "2022-11-16T17:15:36+0000",
+          "data": {
+            "name": "Rob Bidder"
+          },
           "link_type": "Document",
           "isBroken": false
-        },
-        "description": []
+        }
       }
     ],
-    "contributorsTitle": [],
     "promo": [
       {
         "primary": {
@@ -173,7 +131,6 @@
         "slice_label": null
       }
     ],
-    "metadataDescription": [],
     "series": [
       {
         "series": {
@@ -184,11 +141,26 @@
           "slug": "body-squabbles",
           "first_publication_date": "2018-01-11T16:25:07+0000",
           "last_publication_date": "2018-10-22T09:48:54+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Body Squabbles",
+                "spans": []
+              }
+            ],
+            "contributors": [
+              {
+                "contributor": {
+                  "link_type": "Document"
+                }
+              }
+            ]
+          },
           "link_type": "Document",
           "isBroken": false
         }
       }
-    ],
-    "publishDate": null
+    ]
   }
 }
