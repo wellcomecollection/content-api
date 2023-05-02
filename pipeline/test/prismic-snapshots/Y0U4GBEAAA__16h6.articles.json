@@ -1,0 +1,1002 @@
+{
+  "id": "Y0U4GBEAAA__16h6",
+  "uid": null,
+  "url": null,
+  "type": "articles",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZEuiKhQAAC4ZyjYR&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2022-10-18T09:00:00+0000",
+  "last_publication_date": "2022-11-03T15:04:17+0000",
+  "slugs": ["tracing-the-roots-of-our-fears-and-fixations"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Tracing the roots of our fears and fixations",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "W8CbPhEAAB8Nq4aG",
+      "type": "article-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "book-extract",
+      "first_publication_date": "2018-10-12T13:01:53+0000",
+      "last_publication_date": "2018-10-12T13:01:53+0000",
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "body": [
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
+              "spans": [
+                {
+                  "start": 104,
+                  "end": 134,
+                  "type": "hyperlink",
+                  "data": {
+                    "id": "YvtYchAAAPgZ9kK5",
+                    "type": "books",
+                    "tags": [],
+                    "lang": "en-gb",
+                    "slug": "the-book-of-phobias-and-manias",
+                    "first_publication_date": "2022-08-16T14:28:47+0000",
+                    "last_publication_date": "2022-11-03T15:03:48+0000",
+                    "link_type": "Document",
+                    "isBroken": false
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "standfirst$d6dbe6ea-3984-4aa7-ae59-baeba69130bc",
+        "slice_type": "standfirst",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "We are all driven by our fears and desires, and sometimes we are in thrall to them. Benjamin Rush, a Founding Father of the United States, kicked off the craze for naming such fixations in 1786. Until then, the word ‘phobia’ (which is derived from Phobos, the Greek god of panic and terror) had been applied only to symptoms of physical disease, and the word ‘mania’ (from the Greek for ‘madness’) to social fashions. Rush recast both as psychological phenomena. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$eeeb1760-9e50-4733-a5c2-4ef5daae0028",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "“I shall define phobia to be a fear of an imaginary evil,” he wrote, “or an undue fear of a real one.” He listed 18 phobias, among them terrors of dirt, ghosts, doctors and rats, and 26 new manias, including ‘gaming-mania’, ‘military-mania’ and ‘liberty-mania’. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$ea382230-8bbd-4234-b209-b3dd98e3fb05",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Rush adopted a lightly comic tone – ‘home phobia’, he said, afflicted gentlemen who felt compelled to stop off at the tavern after work – but over the next century, psychiatrists developed a more complex understanding of these traits. They came to see phobias and manias as lurid traces of our evolutionary and personal histories, manifestations both of submerged animal instincts and of desires that we had repressed. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$c6eea27c-824a-4eec-91ff-9c9d87d2fac0",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "A string of manias was added to Rush’s list in the early part of the 19th century, and a great flurry of phobias and manias at the century’s close. The phobias included irrational fears of public spaces, small spaces, blushing and being buried alive (agoraphobia, claustrophobia, erythrophobia, taphephobia). The manias included compulsions to dance, to wander, to count and to pluck hair (choreomania, dromomania, arithmomania, trichotillomania). ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$6b12984d-d674-4248-aec7-dacad20a0f8b",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "And we have continued to discover new anxieties: nomophobia (a fear of being without a mobile phone), bambakomallophobia (a dread of cotton wool), coulrophobia (a horror of clowns), trypophobia (an aversion to clusters of holes). Many have been given more than one name – a fear of flying, for instance, is known as aerophobia, aviophobia, pteromerhanophobia and, more straightforwardly, flying phobia.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$ba31ab17-9e4f-4fd1-a5fc-6a587b4a4d66",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 2348,
+              "height": 2700
+            },
+            "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a man trapped in a small box, a car and an image of the grim reaper standing behind a man.",
+            "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/a045c6e1-79f2-46af-90a4-ceb1275125b2_Phobias-WellcomeCollection-TRart9-29-22-3.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a man trapped in a small box, a car and an image of the grim reaper standing behind a man.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/a045c6e1-79f2-46af-90a4-ceb1275125b2_Phobias-WellcomeCollection-TRart9-29-22-3.jpg?auto=compress,format&rect=0,800,2348,1101&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a man trapped in a small box, a car and an image of the grim reaper standing behind a man.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/a045c6e1-79f2-46af-90a4-ceb1275125b2_Phobias-WellcomeCollection-TRart9-29-22-3.jpg?auto=compress,format&rect=0,690,2348,1321&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a man trapped in a small box, a car and an image of the grim reaper standing behind a man.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/a045c6e1-79f2-46af-90a4-ceb1275125b2_Phobias-WellcomeCollection-TRart9-29-22-3.jpg?auto=compress,format&rect=0,176,2348,2348&w=3200&h=3200"
+            }
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "“The word ‘phobia’ had been applied only to symptoms of physical disease, and the word ‘mania’ to social fashions. In 1786 Benjamin Rush recast both as psychological phenomena.”",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": true
+        },
+        "items": [],
+        "id": "editorialImage$20ae04bd-eab6-48d2-985d-9ba0b6dc560e",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "All phobias and manias are cultural creations: the moment at which each was identified – or invented – marked a change in how we thought about ourselves. A few are not psychiatric diagnoses at all, being words coined to name prejudice (homophobia, xenophobia), to mock fads or fashions (Beatlemania, tulipomania) or to make a joke (aibohphobia, hippopotomonstrosesquipediophobia, the supposed fears of palindromes and long words). ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$f7d89c09-ec65-46cd-ad28-59cc79fb619c",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "But most describe real and sometimes tormenting conditions. Phobias and manias reveal our inner landscapes – what we recoil from or lurch towards, what we can’t get out of our heads. Collectively, they are the most common anxiety disorders of our time.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$03fd207b-8258-40f4-8640-b0ffa8e08022",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "“Phobia particularises anxiety,” observes the literary scholar David Trotter, “to the point at which it can be felt and known in its particularity, and thus counteracted or got around.” A mania, too, can condense a host of fears and desires. These private obsessions are the madnesses of the sane; perhaps the madnesses that keep us sane by crystallising our frights and fancies, and allowing us to proceed as if everything else makes sense.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$7d746ba7-857e-49b3-9baa-8c6b9091b6f2",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Anxieties, aversions and full-blown phobias",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$4654e79f-b6f8-46d7-a5f7-ce5c2beea50c",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "To be diagnosed as a phobia, according to the American Psychiatric Association’s Diagnostic and Statistical Manual 5 (2013), a fear must be excessive, unreasonable and have lasted for six months or more; and it must have driven the individual to avoid the feared situation or object in a way that interferes with normal functioning. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$60c3e1ae-8bb0-4593-a009-2f0c292047c3",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The DSM-5 distinguishes social phobias, which are overwhelming fears of social situations, from specific phobias, which can be divided into five types: animal phobias; natural environment phobias (fears of heights, for instance, or of water); blood, injection and injury phobias; situational phobias (such as entrapment in closed spaces); and other extreme fears, such as a dread of vomiting, choking or noise.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$12c46a9c-a493-425b-aa51-66036b6cb132",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 2348,
+              "height": 2700
+            },
+            "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a large spider, an aeroplane flying upside-down, a large crowd, and a dog with a dashed white sightline coming from its head.",
+            "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/392dae22-59af-4299-aae1-a91c324fb752_Phobias-WellcomeCollection-TRart9-29-22-2.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a large spider, an aeroplane flying upside-down, a large crowd, and a dog with a dashed white sightline coming from its head.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/392dae22-59af-4299-aae1-a91c324fb752_Phobias-WellcomeCollection-TRart9-29-22-2.jpg?auto=compress,format&rect=0,800,2348,1101&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a large spider, an aeroplane flying upside-down, a large crowd, and a dog with a dashed white sightline coming from its head.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/392dae22-59af-4299-aae1-a91c324fb752_Phobias-WellcomeCollection-TRart9-29-22-2.jpg?auto=compress,format&rect=0,690,2348,1321&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork including a large spider, an aeroplane flying upside-down, a large crowd, and a dog with a dashed white sightline coming from its head.",
+              "copyright": "Detail from, Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/392dae22-59af-4299-aae1-a91c324fb752_Phobias-WellcomeCollection-TRart9-29-22-2.jpg?auto=compress,format&rect=0,176,2348,2348&w=3200&h=3200"
+            }
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "“Phobias and manias reveal our inner landscapes – what we recoil from or lurch towards, what we can’t get out of our heads.”",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": true
+        },
+        "items": [],
+        "id": "editorialImage$d5a87b96-82dc-4efc-967a-9a3386e3a677",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Though specific phobias can be more responsive to treatment than any other anxious conditions, most people don’t report them, choosing instead to avoid the objects that they fear – it is thought that only one in eight people with such a phobia seeks help. This makes it difficult to measure their prevalence. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$57fe6367-9a8a-4c45-9188-a2ba07dab0b5",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "But a review in The Lancet Psychiatry in 2018, which synthesised 25 surveys carried out between 1984 and 2014, found that 7.2 per cent of us are likely to experience a specific phobia at some point in our lives. A survey carried out by the World Health Organization in 2017, using data from 22 countries, came to very similar conclusions. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$44b29dbf-adfe-4887-b80f-325448e92a13",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "These studies also indicated that specific phobias are much more common in children than adults, that the rates halve among the elderly, and that women are twice as phobic as men. This means that, on average, one woman in ten experiences a specific phobia, and one man in 20. National surveys suggest that a further 7 per cent of Americans and 12 per cent of Britons have social phobias.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$367bfc8b-2e68-44bb-9a9a-d0421caa492a",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "These figures are for phobic disorders, which interfere with everyday life. Many more of us have milder aversions or dreads that we sometimes refer to as phobias: a strong dislike of public speaking or of visiting the dentist, of the sound of thunder, or the sight of spiders. In the US, more than 70 per cent of people say they have an unreasonable fear. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$d3077588-10d8-4ae9-a52a-550916c6df18",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs.",
+              "spans": []
+            }
+          ],
+          "citation": []
+        },
+        "items": [],
+        "id": "quoteV2$8d6073bf-1ecf-49b8-974c-c4fcc8ab0e21",
+        "slice_type": "quoteV2",
+        "slice_label": "pull"
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of manias. There's a definition of mania taken from a dictionary, a series of photographs of a couple dancing, a half revealed photograph of a naked woman's torso, a list of numbers from 1 to 9, a laughing face, a match and a wiring diagram representing links within the human brain.\n",
+            "copyright": "Manias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/60a38fcc-b22a-477c-95b4-87e88ec936eb_Manias-WellcomeCollection-TRskch3.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of manias. There's a definition of mania taken from a dictionary, a series of photographs of a couple dancing, a half revealed photograph of a naked woman's torso, a list of numbers from 1 to 9, a laughing face, a match and a wiring diagram representing links within the human brain.\n",
+              "copyright": "Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/60a38fcc-b22a-477c-95b4-87e88ec936eb_Manias-WellcomeCollection-TRskch3.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of manias. There's a definition of mania taken from a dictionary, a series of photographs of a couple dancing, a half revealed photograph of a naked woman's torso, a list of numbers from 1 to 9, a laughing face, a match and a wiring diagram representing links within the human brain.\n",
+              "copyright": "Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/60a38fcc-b22a-477c-95b4-87e88ec936eb_Manias-WellcomeCollection-TRskch3.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of manias. There's a definition of mania taken from a dictionary, a series of photographs of a couple dancing, a half revealed photograph of a naked woman's torso, a list of numbers from 1 to 9, a laughing face, a match and a wiring diagram representing links within the human brain.\n",
+              "copyright": "Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/60a38fcc-b22a-477c-95b4-87e88ec936eb_Manias-WellcomeCollection-TRskch3.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200"
+            }
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "“Many manias are obsessive behaviours, centred on an object, action or idea – hair-plucking, for example, or hoarding.”",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": false
+        },
+        "items": [],
+        "id": "editorialImage$523f750a-4761-4fee-91d7-89d35dba99d1",
+        "slice_type": "editorialImage",
+        "slice_label": "standalone"
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "When I began researching this subject, I did not think of myself as having any particular phobias – apart, perhaps, from my teenage dread of blushing and an enduring anxiety about flying – but by the time I’d finished I had talked myself into almost every one. Some terrors are no sooner imagined than felt.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$2e1c25b3-a6f9-477f-bcec-27624a36c6bc",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The causes of these conditions are much disputed. Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs. The American psychologist Granville Stanley Hall, who catalogued 132 phobias in an essay of 1914, observed that some children developed an obsessive fear after having a fright. Shock, he wrote, was “a fertile mother of phobias”.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$ca59a68a-85ab-4e7e-9cce-0649a73f4620",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Sigmund Freud, who analysed phobic symptoms in two famous studies of 1909, proposed that a phobia was a suppressed fear displaced onto an external object: both an expression of anxiety and a defence against it. “Fleeing from an internal danger is a difficult enterprise,” he explained. “One can save oneself from an external danger by flight.”",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$2587438e-947c-4f24-9c10-1296c115cff8",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Evolution or conditioning?",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$e47541ef-18ca-4fd7-aa92-907daa172a84",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Evolutionary psychologists argue that many phobias are adaptive: our fears of heights and snakes are hardwired in our brains to prevent us from falling from heights or being bitten by snakes; our disgust at rats and slugs protects us from disease. Phobias of this kind may be part of our evolutionary inheritance, “biologically prepared” fears designed to shield us from external threats. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$82a7718f-0260-4a02-9b9a-8a7d2ae5a3c7",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "A phobic reaction does feel like an instinctive reflex. On detecting a threatening object or situation, our primitive brains release chemicals to help us fight or flee, and our physical responses – a shudder or a flinch, a wave of heat or nausea – seem to take us over.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$7d4bf714-69ae-4907-94ea-9778ef291f7d",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 2142,
+              "height": 2700
+            },
+            "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a laughing face, a match and a wiring diagram representing links within the human brain.",
+            "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/2d34cd8b-d367-4213-9ce6-953b84c8c26f_Manias-WellcomeCollection-TRskch3-3.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a laughing face, a match and a wiring diagram representing links within the human brain.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/2d34cd8b-d367-4213-9ce6-953b84c8c26f_Manias-WellcomeCollection-TRskch3-3.jpg?auto=compress,format&rect=0,848,2142,1004&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a laughing face, a match and a wiring diagram representing links within the human brain.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/2d34cd8b-d367-4213-9ce6-953b84c8c26f_Manias-WellcomeCollection-TRskch3-3.jpg?auto=compress,format&rect=0,748,2142,1205&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a laughing face, a match and a wiring diagram representing links within the human brain.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/2d34cd8b-d367-4213-9ce6-953b84c8c26f_Manias-WellcomeCollection-TRskch3-3.jpg?auto=compress,format&rect=0,279,2142,2142&w=3200&h=3200"
+            }
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "“Along with the private urges, there are several communal manias, in which people have danced, giggled, trembled or screamed together.”",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": true
+        },
+        "items": [],
+        "id": "editorialImage$a7f612dd-3eaf-4cea-98a4-caa4909b9b1a",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Evolution may help to explain why women are disproportionately phobic, especially in the years in which they are able to bear children: their heightened caution protects their offspring as well as themselves. But phobias may also seem more common in women because the social environment is more hostile to them – they have more reasons to be afraid – or because their fears are more often dismissed as irrational. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$0fb976b9-035c-4b71-9bda-8831c4023496",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Evolutionary accounts of phobias are based on post hoc reasoning, and they don’t account for all phobias, nor why some individuals are phobic and others are not. In 1919 the American behavioural psychologists James Broadus Watson and Rosalie Rayner devised an experiment to show that a phobia could be induced by conditioning. In the 1960s, Albert Bandura demonstrated that a phobia could also be learnt by direct exposure to the anxieties and irrational fears of someone else, such as a parent. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$d71b6273-01c8-4126-a657-51e09f0a6254",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Families pass on fear as much by example as by genes. Even if we are predisposed to certain anxieties, they need to be triggered by experience or education.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$310761bc-bc2d-405c-9ba8-d5602ffc9294",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Acts of obsession and rebellion",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$708e6d20-9aab-46ba-98a6-4332b8457a9f",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "If a phobia is a compulsion to avoid something, a mania is usually a compulsion to do something. The great French psychiatrist Jean-Étienne Esquirol invented the concept of monomania, or specific mania, early in the 19th century, while his countryman Pierre Janet wrote tender and attentive case studies of the men and women he treated for such conditions at the turn of the 20th century. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$d61022aa-5f3b-47ff-b94c-aedd7a2db074",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Many manias are obsessive behaviours, centred on an object, action or idea – hair-plucking, for example, or hoarding. Their prevalence is hard to assess, partly because modern medicine has subsumed many into categories such as addiction, obsessive-compulsive disorder, body-focused repetitive disorder, impulse-control disorder and borderline personality disorder. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$afd77046-7c87-43b6-b4a7-db412ccfe69f",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 2186,
+              "height": 2700
+            },
+            "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a definition of mania taken from a dictionary, a series of photographs of a couple dancing and a half revealed photograph of a naked woman's torso.",
+            "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/f4a94d3a-7aa1-4b0e-8f20-62a7d80b541c_Manias-WellcomeCollection-TRskch3-2.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a definition of mania taken from a dictionary, a series of photographs of a couple dancing and a half revealed photograph of a naked woman's torso.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/f4a94d3a-7aa1-4b0e-8f20-62a7d80b541c_Manias-WellcomeCollection-TRskch3-2.jpg?auto=compress,format&rect=0,838,2186,1025&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a definition of mania taken from a dictionary, a series of photographs of a couple dancing and a half revealed photograph of a naked woman's torso.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/f4a94d3a-7aa1-4b0e-8f20-62a7d80b541c_Manias-WellcomeCollection-TRskch3-2.jpg?auto=compress,format&rect=0,735,2186,1230&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Detail from a larger digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, greens and blacks. There are a number of references across the artwork including a definition of mania taken from a dictionary, a series of photographs of a couple dancing and a half revealed photograph of a naked woman's torso.",
+              "copyright": "Detail from, Manias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/f4a94d3a-7aa1-4b0e-8f20-62a7d80b541c_Manias-WellcomeCollection-TRskch3-2.jpg?auto=compress,format&rect=0,257,2186,2186&w=3200&h=3200"
+            }
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "“Manias often magnify ordinary desires – the wishes to laugh, light a fire, have sex, get high, surrender to misery, be adored.”",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": true
+        },
+        "items": [],
+        "id": "editorialImage$549b20bc-f989-4d42-936b-f5265d5a663e",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Like phobias, they are sometimes ascribed to chemical imbalances in the brain and sometimes to difficult or forbidden feelings. Often they magnify ordinary desires – the wishes to laugh, shout, buy things, steal things, tell a lie, light a fire, have sex, get high, pick at a scab, surrender to misery, be adored.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$f5985666-de04-4ce4-8f15-051e20a1862b",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Along with the private urges, there are several communal manias, in which people have danced, giggled, trembled or screamed together. In the 1860s, for instance, a bout of demonomania seized the Alpine town of Morzine, and in the 1960s wild laughing broke out by a lake in Tanzania. These shared convulsions can seem like rebellions, in which unacknowledged feelings surge into view, and they can occasionally force us to reconsider what is rational. ",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$4c886aa9-4e37-4c05-9432-85b212f27199",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "When we decide that a particular behaviour is manic or phobic, we mark out our cultural as well as our psychological boundaries: we indicate the beliefs on which our social world is constructed. These borders shift over time, and in a moment of collective crisis – a war, a pandemic – they can change fast.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$89b72eb0-a089-43a2-afaa-1ef0bb7c6491",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "A phobia or a mania acts like a spell, endowing an object or an action with mysterious meaning and giving it the power to possess and transform us. These conditions may be oppressive, but they also enchant the world around us, making it as scary and vivid as a fairy tale. They exert a physical hold, like magic, and in doing so reveal our own strangeness.",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$477c562e-ec15-4884-93f4-7083b2a307c3",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "‘The Book of Phobias and Manias’ is out now. Join Kate Summerscale in conversation with psychoanalyst Stephen Grosz on Saturday 3 December, when they will be tracing the personal and historical origins of our obsessive anxieties. ",
+              "spans": [
+                {
+                  "start": 1,
+                  "end": 31,
+                  "type": "hyperlink",
+                  "data": {
+                    "id": "YvtYchAAAPgZ9kK5",
+                    "type": "books",
+                    "tags": [],
+                    "lang": "en-gb",
+                    "slug": "the-book-of-phobias-and-manias",
+                    "first_publication_date": "2022-08-16T14:28:47+0000",
+                    "last_publication_date": "2022-11-03T15:03:48+0000",
+                    "link_type": "Document",
+                    "isBroken": false
+                  }
+                },
+                {
+                  "start": 45,
+                  "end": 115,
+                  "type": "hyperlink",
+                  "data": {
+                    "id": "YwY_gxAAAIueJrWW",
+                    "type": "events",
+                    "tags": [],
+                    "lang": "en-gb",
+                    "slug": "phobias-and-manias-with-kate-summerscale-and-stephen-grosz",
+                    "first_publication_date": "2022-10-06T15:00:00+0000",
+                    "last_publication_date": "2023-03-03T09:00:08+0000",
+                    "link_type": "Document",
+                    "isBroken": false
+                  }
+                }
+              ]
+            }
+          ],
+          "citation": []
+        },
+        "items": [],
+        "id": "quoteV2$e28ed9e3-e4e8-4809-9d37-3f5a17eadbbe",
+        "slice_type": "quoteV2",
+        "slice_label": null
+      }
+    ],
+    "outroResearchItem": {
+      "link_type": "Any"
+    },
+    "outroResearchLinkText": [],
+    "outroReadItem": {
+      "link_type": "Any"
+    },
+    "outroReadLinkText": [],
+    "outroVisitItem": {
+      "link_type": "Any"
+    },
+    "outroVisitLinkText": [],
+    "contributors": [
+      {
+        "role": {
+          "id": "WcUWeCgAAFws-nGh",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "author",
+          "first_publication_date": "2017-09-22T13:56:23+0000",
+          "last_publication_date": "2022-08-10T14:18:33+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "YvtXgxAAACMA9j5d",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "kate-summerscale",
+          "first_publication_date": "2022-08-16T08:39:34+0000",
+          "last_publication_date": "2022-10-04T10:37:30+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "description": []
+      },
+      {
+        "role": {
+          "id": "XVQa_xMAACMAqbwo",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "illustrator",
+          "first_publication_date": "2019-08-14T14:30:26+0000",
+          "last_publication_date": "2019-08-20T14:59:54+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "Yz07IxEAAA__s9BR",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "tim-robinson",
+          "first_publication_date": "2022-10-05T08:07:03+0000",
+          "last_publication_date": "2022-10-11T16:26:16+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "description": []
+      }
+    ],
+    "contributorsTitle": [],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+            "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+            "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+              "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+              "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+              "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,2250,2250&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$92c36b48-9bdf-41a4-9357-ae8adc9bce97",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "metadataDescription": [],
+    "series": [
+      {
+        "series": {
+          "link_type": "Document"
+        },
+        "positionInSeries": null
+      }
+    ],
+    "seasons": [
+      {
+        "season": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "parents": [
+      {
+        "order": null,
+        "parent": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "publishDate": null
+  }
+}

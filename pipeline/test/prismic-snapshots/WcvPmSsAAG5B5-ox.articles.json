@@ -1,0 +1,709 @@
+{
+  "id": "WcvPmSsAAG5B5-ox",
+  "uid": null,
+  "url": null,
+  "type": "articles",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZEuiKhQAAC4ZyjYR&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2017-10-11T08:30:00+0000",
+  "last_publication_date": "2018-10-15T15:41:42+0000",
+  "slugs": ["the-key-to-memory-follow-your-nose"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "The Key to Memory: Follow your nose",
+        "spans": []
+      }
+    ],
+    "format": {
+      "link_type": "Document"
+    },
+    "body": [
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1600,
+              "height": 900
+            },
+            "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+            "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+            "url": "https://images.prismic.io/wellcomecollection/4a8ea2d7fadbbf3f4524914b4618bf7de4e4cc2d_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+          },
+          "caption": [],
+          "hasRoundedCorners": null
+        },
+        "items": [],
+        "id": "editorialImage$2bce6c48-1298-4313-a1c3-93764c1c67a7",
+        "slice_type": "editorialImage",
+        "slice_label": "featured"
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
+              "spans": [
+                {
+                  "start": 4,
+                  "end": 32,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/whymusic"
+                  }
+                },
+                {
+                  "start": 65,
+                  "end": 66,
+                  "type": "em"
+                },
+                {
+                  "start": 155,
+                  "end": 156,
+                  "type": "em"
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "standfirst$9047697a-092e-48fd-83bd-7a12e6a2f070",
+        "slice_type": "standfirst",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Listen",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$d3725960-7d73-4dd8-be46-b71b77f3529f",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "embed": {
+            "height": 400,
+            "width": "100%",
+            "description": "",
+            "embed_url": "https://soundcloud.com/wellcomecollection/memory-object-3-a-pair-of/s-VkeKY",
+            "type": "rich",
+            "version": "1",
+            "title": "Memory object 3 | a pair of pomanders by Wellcome Collection",
+            "author_name": "Wellcome Collection",
+            "author_url": "https://soundcloud.com/wellcomecollection",
+            "provider_name": "SoundCloud",
+            "provider_url": "http://soundcloud.com",
+            "cache_age": null,
+            "thumbnail_url": "http://a1.sndcdn.com/images/fb_placeholder.png?1538127538",
+            "thumbnail_width": null,
+            "thumbnail_height": null,
+            "html": "<iframe width=\"100%\" height=\"400\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F345131951&show_artwork=true&secret_token=s-VkeKY\"></iframe>"
+          },
+          "caption": []
+        },
+        "items": [],
+        "id": "embed$380a8269-bbc0-478e-8917-4c572e4c2547",
+        "slice_type": "embed",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "iframeSrc": "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/345131951%3Fsecret_token%3Ds-VkeKY&color=%23ff5500&inverse=false&auto_play=false&show_user=true"
+        },
+        "items": [],
+        "id": "soundcloudEmbed$f0a1dd88-c02b-4070-b332-0e66dbf39cfd",
+        "slice_type": "soundcloudEmbed",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 1600,
+              "height": 1068
+            },
+            "alt": "A portrait of two women standing against a bright red background.",
+            "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+            "url": "https://images.prismic.io/wellcomecollection/c9a07bcf52f3958b9f30dd4b4155a962db45b2ec_georgia-and-elissavet-02.jpg?auto=compress,format"
+          },
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann and Elissavet Ntoulia",
+              "spans": []
+            }
+          ],
+          "hasRoundedCorners": null
+        },
+        "items": [],
+        "id": "editorialImage$a647eaf8-2af2-49a3-82e2-893cc395580c",
+        "slice_type": "editorialImage",
+        "slice_label": "supporting"
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Pomanders would contain aromatic spices, and you would carry them with you because you wanted this sweet-smelling aroma surrounding you... Memories that are evoked by smell are very emotionally charged.",
+              "spans": []
+            }
+          ],
+          "citation": [
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia, Visitor Experience Assistant, Wellcome Collection",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "quoteV2$58da3089-f65a-443e-9123-5689fe3dbb85",
+        "slice_type": "quoteV2",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Take a look",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$c24c6604-f922-4d4e-a3a1-adc6223994ce",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "A pomander is a little bit like a locket, except it's designed to be filled with smells rather than pictures. The pair on display in our Medicine Man gallery date from the 17th century, and the interactive images below let you give them both a spin. The brass-coloured pomander is shaped like a snail, while the silvery one looks like a book. ",
+              "spans": [
+                {
+                  "start": 137,
+                  "end": 149,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/medicine-man"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$e308e482-cb0b-4aee-abd4-7852818b3098",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "iframeSrc": "https://static.wellcomecollection.org/why_music/pomander_2/index.html",
+          "previewImage": {
+            "dimensions": {
+              "width": 1600,
+              "height": 900
+            },
+            "alt": "A pomander",
+            "copyright": null,
+            "url": "https://images.prismic.io/wellcomecollection/180a6d0ab4f4bd4e1f74d8c3062756cd1a3e9a70_pomander2_1600_900.jpg?auto=compress,format"
+          }
+        },
+        "items": [],
+        "id": "iframe$652f7443-21c0-4acc-ac30-dabe01a34b61",
+        "slice_type": "iframe",
+        "slice_label": "standalone"
+      },
+      {
+        "primary": {
+          "iframeSrc": "https://static.wellcomecollection.org/why_music/pomander_1/index.html",
+          "previewImage": {
+            "dimensions": {
+              "width": 1600,
+              "height": 900
+            },
+            "alt": "A pomander",
+            "copyright": null,
+            "url": "https://images.prismic.io/wellcomecollection/748bf3215e38b561f69a2c6d94ea87ada4e225e0_pomander1_1600_900.jpg?auto=compress,format"
+          }
+        },
+        "items": [],
+        "id": "iframe$93f4b752-a34d-4647-8cc1-77a61eb35d6e",
+        "slice_type": "iframe",
+        "slice_label": "standalone"
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Photography by Ben Gilbert and Thomas Farnetti for Wellcome Collection. Audio produced by Freya Hellier in collaboration with BBC Radio 3. Why Music? The Key to Memory takes places from 13-15 October 2017.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 167,
+                  "type": "em"
+                },
+                {
+                  "start": 139,
+                  "end": 205,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/whymusic"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$07b584bb-9c7e-4ee6-b91a-144581ed6e22",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Full audio transcript",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "[they are standing outside the Medicine Man gallery]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: You basically want me to smell some shoe polish?",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Yeah sorry.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[Georgia pops open a tin]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: See, I actually really enjoy that, weirdly. If anything transports me to a mildly miserable Sunday, it’s shoe polish.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[she closes the lid]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Now what?",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: So I have a bit of rosemary.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: Nice. ",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[sniffs] ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Rosemary, which has that wonderful fresh smell that just brings me straight into the kitchen. So thank you for that.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: You’re welcome.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: I feel olfactorily refreshed. Let’s pop inside the Medicine Man gallery now because there’s an object in there which is all to do with smell, health and memory that you’re going to show me.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Yes, exactly.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: Thanks Elissavet, let’s go.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[music, they walk into the gallery]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "So we’re looking at these two tiny little things, which look like lockets, they look like pieces of jewellery. One’s in the shape of a shell, the other one looks like a little mini book, and a sort of filigree metalwork on the front of it. But they aren’t lockets, what are they?",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: They’re called pomanders, and the idea was that they will protect you, literally protect you from the plague. So they would contain aromatic spices and you would carry them with you because you wanted these sweet-smelling aromas surrounding you in order to counteract what they said was miasma. Basically, bad, smelly air.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[music]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: How would you have got your pomander to a sort of Yves Saint Laurent like level of aroma, what was in here?",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Anything that has a very very strong smell that comes from nature. So what you smelled before, rosemary, was one that, it was kind of easily available to most people.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: I was sniffing that rosemary before and it was taking me back to my mum’s dinners, but there is in fact a bit of science backing up that link between rosemary and being transported memory wise, isn’t there?",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Yes absolutely, and also, it’s been believed since ancient times it can improve your performance when you’re trying to recall something.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 18,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: And then more recently I think, there’s been quite solid science suggesting that it can aid memory?",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: This is from a team at the University of Northumbria, and they put some students in a room to perform an exam and the room was filled with rosemary essential oil. And they found out that their performance was improved up to seven per cent. ",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[music]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: Elissavet, there’s that very famous Proust moment where he uses a madeleine, it’s probably the most famous bit of cake eating in literary history. A character eats a madeleine and it transports them very vividly to a moment, and there is in fact some scientific back-up for the connection between smell and memory.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Yes, actually, I think today scientists are calling it the Proustian memory. ",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[music]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Memories that are evoked from smell, they are very emotionally charged because apparently, how we process smell in our brain goes through a part of our brain that is called amygdala and hippocampus, they process emotion and memory. There is definitely research, especially being done around dementia and Alzheimer’s to find out how smell loss can affect memory loss. ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: So perhaps we could have a bit of a come back from the pomander for those of us who struggle to remember their own child’s middle name, as happened to me yesterday! ",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[laughter]",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia, thank you so much.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia: Thank you.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Georgia Mann: They should give these out on the tube can I just say. ",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "[laughter]",
+              "spans": []
+            }
+          ]
+        },
+        "items": [],
+        "id": "text$b2432e90-66bb-462d-86e8-6fb50931a8fe",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "primary": {
+          "text": []
+        },
+        "items": [],
+        "id": "text$0c710892-a0e2-4808-b8f6-3e4c19b856b2",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
+    "outroResearchItem": {
+      "link_type": "Any"
+    },
+    "outroResearchLinkText": [],
+    "outroReadItem": {
+      "link_type": "Any"
+    },
+    "outroReadLinkText": [],
+    "outroVisitItem": {
+      "link_type": "Any"
+    },
+    "outroVisitLinkText": [],
+    "contributors": [],
+    "contributorsTitle": [],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember. ",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 1600,
+              "height": 900
+            },
+            "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+            "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+            "url": "https://images.prismic.io/wellcomecollection/4a8ea2d7fadbbf3f4524914b4618bf7de4e4cc2d_pomander-pair_featured-image_1600x900.jpg?auto=compress,format",
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection/021324702713b7524925427b973bb4273598cea4_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+            },
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection/44b639ad0b2d5a41a688c20f3a8fa83477c457b6_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection/458292e3bbd9c0354f7d909592479c85857c1e14_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$ad7b384e-d1d9-4158-925a-32f373099201",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "metadataDescription": [],
+    "series": [
+      {
+        "series": {
+          "id": "WdJB3CcAAIE-RlQp",
+          "type": "series",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "memory-objects",
+          "first_publication_date": "2017-10-02T13:40:48+0000",
+          "last_publication_date": "2018-10-12T12:26:23+0000",
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "positionInSeries": null
+      }
+    ],
+    "seasons": [],
+    "parents": [],
+    "publishDate": null
+  }
+}
