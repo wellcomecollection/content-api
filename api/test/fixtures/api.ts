@@ -11,25 +11,45 @@ type Identified = {
   id: string | number;
 };
 
+const elastic404 = () =>
+  new elasticErrors.ResponseError({
+    statusCode: 404,
+    body: undefined,
+    meta: {} as any,
+    warnings: [],
+  });
+
 export const mockedApi = <T extends Displayable & Identified>(
   documents: T[]
 ) => {
   const testIndex = "test-index";
   const documentsMap = new Map(documents.map((d) => [d.id, d]));
 
-  const elasticGet = jest.fn(
+  const elasticClientGet = jest.fn(
     ({ id, index }: Parameters<ElasticClient["get"]>[0]) => {
       if (documentsMap.has(id) && index === testIndex) {
         return {
           _source: documentsMap.get(id),
         };
       } else {
-        throw new elasticErrors.ResponseError({
-          statusCode: 404,
-          body: undefined,
-          meta: {} as any,
-          warnings: [],
-        });
+        throw elastic404();
+      }
+    }
+  );
+
+  const elasticClientSearch = jest.fn(
+    (params: Parameters<ElasticClient["search"]>[0]) => {
+      if (params?.index === testIndex) {
+        return {
+          hits: {
+            total: documents.length,
+            hits: documents.map((doc) => ({
+              _source: doc,
+            })),
+          },
+        };
+      } else {
+        throw elastic404();
       }
     }
   );
@@ -37,7 +57,8 @@ export const mockedApi = <T extends Displayable & Identified>(
   const app = createApp(
     {
       elastic: {
-        get: elasticGet,
+        get: elasticClientGet,
+        search: elasticClientSearch,
       } as unknown as ElasticClient,
     },
     {
