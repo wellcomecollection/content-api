@@ -14,6 +14,9 @@ export const mapping = {
     },
     query: {
       properties: {
+        linkedIdentifiers: {
+          type: "keyword",
+        },
         title: {
           type: "text",
           fields: {

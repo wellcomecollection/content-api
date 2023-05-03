@@ -1,9 +1,8 @@
 import * as prismic from "@prismicio/client";
-import { ContentType } from "../types";
+import { PrismicDocument } from "@prismicio/types";
 import { TimeWindow } from "../event";
 
 type GetPrismicDocumentsParams = {
-  contentTypes: ContentType[];
   publicationWindow: TimeWindow;
   graphQuery?: string;
   after?: string;
@@ -19,22 +18,16 @@ const fields = {
   lastPublicationDate: "document.last_publication_date",
 } as const;
 
-export const getPrismicDocuments = async <T>(
+export const getPrismicDocuments = async (
   client: prismic.Client,
-  {
-    contentTypes,
-    publicationWindow,
-    graphQuery,
-    after,
-  }: GetPrismicDocumentsParams
-): Promise<PrismicPage<T>> => {
+  { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams
+): Promise<PrismicPage<PrismicDocument>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
     graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
     predicates: [
-      prismic.predicate.any(fields.documentType, contentTypes),
       startDate
         ? prismic.predicate.dateAfter(fields.lastPublicationDate, startDate)
         : [],
@@ -55,7 +48,7 @@ export const getPrismicDocuments = async <T>(
   const lastDocId = lastDoc?.id;
 
   return {
-    docs: results as T[],
+    docs: results,
     lastDocId,
   };
 };

@@ -42,6 +42,7 @@ export type ElasticsearchArticle = {
   id: string;
   display: Article;
   query: {
+    linkedIdentifiers: string[];
     title: string;
     publicationDate: Date;
     contributors: string[];

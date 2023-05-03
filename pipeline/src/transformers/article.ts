@@ -17,6 +17,7 @@ import {
   PrismicDocument,
 } from "@prismicio/types";
 import { defaultArticleFormat } from "@weco/content-common/data/formats";
+import { linkedDocumentIdentifiers } from "./identifiers";
 
 const getContributors = (
   document: PrismicDocument<WithContributors>
@@ -159,6 +160,7 @@ export const transformArticle = (
       image,
     },
     query: {
+      linkedIdentifiers: linkedDocumentIdentifiers(document),
       title: asTitle(data.title),
       publicationDate: new Date(datePublished),
       contributors: queryContributors,
