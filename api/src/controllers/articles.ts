@@ -1,3 +1,4 @@
+import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
 import { Clients, Displayable, ResultList } from "../types";
@@ -9,6 +10,7 @@ import {
 import { Config } from "../../config";
 import { articlesQuery } from "../queries/articles";
 import { queryValidator } from "./validation";
+import { HttpError } from "./error";
 
 type QueryParams = {
   query?: string;
@@ -42,19 +44,42 @@ const articlesController = (
     const sort = sortValidator(queryParams);
     const sortOrder = sortOrderValidator(queryParams);
 
-    const searchResponse = await clients.elastic.search<Displayable>({
-      index,
-      _source: ["display"],
-      query: queryString ? articlesQuery(queryString) : undefined,
-      sort: [
-        {
-          [sort === "publication.dates" ? "query.publicationDate" : "_score"]: {
-            order: sortOrder,
+    const searchResponse = await clients.elastic
+      .search<Displayable>({
+        index,
+        _source: ["display"],
+        query: queryString ? articlesQuery(queryString) : undefined,
+        sort: [
+          {
+            [sort === "publication.dates" ? "query.publicationDate" : "_score"]:
+              {
+                order: sortOrder,
+              },
           },
-        },
-      ],
-      ...paginationElasticBody(req.query),
-    });
+        ],
+        ...paginationElasticBody(req.query),
+      })
+      .catch((error) => {
+        console.log(error.message.includes("too_many_nested_clauses"));
+        console.log(queryString?.length ?? 0);
+        if (
+          error instanceof elasticErrors.ResponseError &&
+          // This is an error we see from very long (spam) queries which contain
+          // many many terms and so overwhelm the multi_match query. The check
+          // for length is a heuristic so that if we get legitimate `too_many_nested_clauses`
+          // errors, we're still alerted to them
+          error.message.includes("too_many_nested_clauses") &&
+          encodeURIComponent(queryString || "").length > 2000
+        ) {
+          throw new HttpError({
+            status: 400,
+            label: "Bad Request",
+            description:
+              "Your query contained too many terms, please try again with a simpler query",
+          });
+        }
+        throw error;
+      });
 
     const results = searchResponse.hits.hits.flatMap((hit) =>
       hit._source ? [hit._source.display] : []
