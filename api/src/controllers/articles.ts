@@ -7,8 +7,8 @@ import {
   paginationResponseGetter,
 } from "./pagination";
 import { Config } from "../../config";
-import { HttpError } from "./error";
 import { articlesQuery } from "../queries/articles";
+import { queryValidator } from "./validation";
 
 type QueryParams = {
   query?: string;
@@ -18,29 +18,29 @@ type QueryParams = {
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
-const articlesSortValues = ["relevance", "publication.dates"];
+const sortValidator = queryValidator({
+  name: "sort",
+  defaultValue: "relevance",
+  allowed: ["relevance", "publication.dates"],
+});
+
+const sortOrderValidator = queryValidator({
+  name: "sortOrder",
+  defaultValue: "desc",
+  allowed: ["asc", "desc"],
+});
 
 const articlesController = (
   clients: Clients,
   config: Config
 ): ArticlesHandler => {
   const index = config.contentsIndex;
-
   const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, sort: sortBy, sortOrder } = req.query;
-
-    const hasValidSortBy =
-      !sortBy || (sortBy && articlesSortValues.includes(sortBy));
-    if (!hasValidSortBy) {
-      throw new HttpError({
-        status: 400,
-        label: `'Sort by' value is not valid: ${sortBy}. Did you mean: ${articlesSortValues.join(
-          ", "
-        )}?`,
-      });
-    }
+    const { query: queryString, ...queryParams } = req.query;
+    const sort = sortValidator(queryParams);
+    const sortOrder = sortOrderValidator(queryParams);
 
     const searchResponse = await clients.elastic.search<Displayable>({
       index,
@@ -48,10 +48,9 @@ const articlesController = (
       query: queryString ? articlesQuery(queryString) : undefined,
       sort: [
         {
-          [sortBy === "publication.dates" ? "query.publicationDate" : "_score"]:
-            {
-              order: sortOrder === "asc" ? "asc" : "desc",
-            },
+          [sort === "publication.dates" ? "query.publicationDate" : "_score"]: {
+            order: sortOrder,
+          },
         },
       ],
       ...paginationElasticBody(req.query),
