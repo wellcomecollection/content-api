@@ -15,7 +15,7 @@ describe("query validator", () => {
     expect(() =>
       testValidator({ test: "123" })
     ).toThrowErrorMatchingInlineSnapshot(
-      `"test: '123' is not a valid value. Please choose one of: 'a', 'b'"`
+      `"Bad Request: test: '123' is not a valid value. Please choose one of: 'a', 'b'"`
     );
   });
 

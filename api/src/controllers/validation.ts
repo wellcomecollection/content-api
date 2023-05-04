@@ -34,7 +34,8 @@ export const queryValidator =
     } else {
       throw new HttpError({
         status: 400,
-        label:
+        label: "Bad Request",
+        description:
           `${name}: '${value}' is not a valid value. Please choose one of: ` +
           allowed.map((s) => `'${s}'`).join(", "),
       });

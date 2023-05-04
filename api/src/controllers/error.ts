@@ -23,7 +23,7 @@ export class HttpError extends Error {
     label: string;
     description?: string;
   }) {
-    super(label);
+    super(`${label}: ${description}`);
     Object.setPrototypeOf(this, HttpError.prototype);
 
     this.status = status;
