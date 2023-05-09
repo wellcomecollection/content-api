@@ -2,7 +2,12 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { ensureIndexExists } from "../src/helpers/elasticsearch";
+import { lastValueFrom, range, map } from "rxjs";
+import {
+  ensureIndexExists,
+  getParentDocumentIDs,
+} from "../src/helpers/elasticsearch";
+import { identifiedDocuments } from "./fixtures/generators";
 
 describe("ensureIndexExists", () => {
   it("creates an index", async () => {
@@ -50,5 +55,38 @@ describe("ensureIndexExists", () => {
       index: "test",
       ...testMapping,
     });
+  });
+});
+
+describe("getParentDocumentIDs", () => {
+  it("queries for batches of potential child document IDs", async () => {
+    const totalDocs = 100;
+    const batchSize = 10;
+
+    const documents = identifiedDocuments(totalDocs);
+    const elasticScrollDocuments = jest.fn(async function* implementation() {
+      for (const doc of documents) {
+        yield doc;
+      }
+    });
+    const testClient = {
+      helpers: {
+        scrollDocuments: elasticScrollDocuments,
+      },
+    } as unknown as ElasticClient;
+
+    const finalDoc = await lastValueFrom(
+      range(totalDocs).pipe(
+        map((n) => n.toString()),
+        getParentDocumentIDs(testClient, {
+          index: "test",
+          identifiersField: "childIds",
+          batchSize: batchSize,
+        })
+      )
+    );
+
+    expect(elasticScrollDocuments).toHaveBeenCalledTimes(totalDocs / batchSize);
+    expect(finalDoc).toBe(totalDocs.toString());
   });
 });

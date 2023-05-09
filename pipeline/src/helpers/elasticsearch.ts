@@ -94,14 +94,19 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
 type ParentDocumentIdsConfig = {
   index: string;
   identifiersField: string;
+  batchSize?: number;
 };
 
-export const getParentDocumentIds = (
+export const getParentDocumentIDs = (
   elasticClient: Client,
-  { index, identifiersField }: ParentDocumentIdsConfig
+  {
+    index,
+    identifiersField,
+    batchSize = BULK_BATCH_SIZE,
+  }: ParentDocumentIdsConfig
 ): OperatorFunction<string, string> =>
   pipe(
-    bufferCount(BULK_BATCH_SIZE),
+    bufferCount(batchSize),
     mergeMap((maybeChildIds) => {
       const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
         index,

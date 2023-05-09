@@ -7,7 +7,7 @@ import { articlesQuery, webcomicsQuery, wrapQueries } from "./graph-queries";
 import {
   ensureIndexExists,
   bulkIndexDocuments,
-  getParentDocumentIds,
+  getParentDocumentIDs,
 } from "./helpers/elasticsearch";
 import {
   getDocumentsByID,
@@ -65,7 +65,7 @@ export const createHandler =
       map((doc) => doc.id),
       // Query elasticsearch for (parent) documents that contain these child document IDs
       // The field name is mapped in `indices/articles.ts` and populated by the transformer
-      getParentDocumentIds(clients.elastic, {
+      getParentDocumentIDs(clients.elastic, {
         index: articles.index,
         identifiersField: "query.linkedIdentifiers",
       }),

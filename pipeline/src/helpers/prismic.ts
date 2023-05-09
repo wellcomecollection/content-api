@@ -8,6 +8,7 @@ import {
   expand,
   from,
   mergeMap,
+  Observable,
   OperatorFunction,
   pipe,
 } from "rxjs";
@@ -68,7 +69,7 @@ export const getPrismicDocuments = async (
 
 export const paginator = <T extends PrismicDocument>(
   nextPage: (after?: string) => Promise<PrismicPage<T>>
-) =>
+): Observable<T> =>
   from(nextPage()).pipe(
     expand((res) => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
     concatMap((page) => page.docs)
@@ -76,7 +77,7 @@ export const paginator = <T extends PrismicDocument>(
 
 export const getDocumentsByID = <T extends PrismicDocument>(
   client: prismic.Client,
-  { graphQuery }: { graphQuery: string }
+  { graphQuery }: { graphQuery?: string } = {}
 ): OperatorFunction<string, T> =>
   pipe(
     bufferCount(PRISMIC_MAX_PAGE_SIZE),
