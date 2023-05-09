@@ -3,7 +3,7 @@ import {
   IndicesIndexSettings,
   MappingTypeMapping,
 } from "@elastic/elasticsearch/lib/api/types";
-import { Observable } from "rxjs";
+import { from, map, Observable } from "rxjs";
 import log from "@weco/content-common/services/logging";
 import { observableToStream } from "./observableToStream";
 
@@ -42,8 +42,7 @@ type HasIdentifier = {
 };
 
 type BulkIndexResult<Doc> = {
-  successful: number;
-  failed: Doc[];
+  successfulIds: Set<string>;
   time: number;
 };
 
@@ -53,10 +52,12 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
   documents: Observable<T>
 ): Promise<BulkIndexResult<T>> => {
   const datasource = observableToStream(documents);
+  const successfulIds = new Set<string>();
   const failed: T[] = [];
   const result = await elasticClient.helpers.bulk<T>({
     datasource,
     onDocument(doc) {
+      successfulIds.add(doc.id);
       return {
         index: { _index: index, _id: doc.id },
       };
@@ -65,13 +66,43 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       log.warn(
         `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`
       );
+      successfulIds.delete(failureObject.document.id);
       failed.push(failureObject.document);
     },
   });
 
+  if (failed.length !== 0) {
+    throw new Error(`Bulk index of ${failed.length} documents failed`);
+  }
+
   return {
-    successful: result.successful,
     time: result.time,
-    failed,
+    successfulIds,
   };
+};
+
+type ParentDocumentIdsConfig = {
+  index: string;
+  identifiersField: string;
+  childIds: string[];
+};
+
+export const parentDocumentIds = (
+  elasticClient: Client,
+  { index, identifiersField, childIds }: ParentDocumentIdsConfig
+): Observable<string> => {
+  const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
+    index,
+    // If _source is falsy, which should work from a pure ES perspective, the helper returns
+    // an empty iterable: to avoid this we (unfortunately) rely on there being an `id`
+    // in the document source as well as the built-in `_id`.
+    _source: ["id"],
+    query: {
+      terms: {
+        [identifiersField]: childIds,
+      },
+    },
+  });
+
+  return from(scroll).pipe(map((doc) => doc.id));
 };

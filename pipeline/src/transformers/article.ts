@@ -90,6 +90,11 @@ function transformLabelType(
   };
 }
 
+export const isArticle = (
+  doc: PrismicDocument
+): doc is ArticlePrismicDocument =>
+  ["articles", "webcomics"].includes(doc.type);
+
 export const transformArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchArticle => {
