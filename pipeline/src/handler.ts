@@ -7,16 +7,18 @@ import { articlesQuery, webcomicsQuery, wrapQueries } from "./graph-queries";
 import {
   ensureIndexExists,
   bulkIndexDocuments,
-  parentDocumentIds,
+  getParentDocumentIds,
 } from "./helpers/elasticsearch";
 import {
+  getDocumentsByID,
   getPrismicDocuments,
   paginator,
-  PRISMIC_MAX_PAGE_SIZE,
 } from "./helpers/prismic";
 import { articles } from "./indices";
 import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
 import { transformArticle, isArticle } from "./transformers/article";
+
+const graphQuery = wrapQueries(articlesQuery, webcomicsQuery);
 
 export const createHandler =
   (clients: Clients): Handler<WindowEvent> =>
@@ -38,8 +40,8 @@ export const createHandler =
     const [parentDocuments, otherDocuments] = partition(
       paginator((after?: string) =>
         getPrismicDocuments(clients.prismic, {
-          graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
           publicationWindow: toBoundedWindow(event),
+          graphQuery,
           after,
         })
       ),
@@ -61,30 +63,17 @@ export const createHandler =
     // were changed
     const nextParentDocuments = otherDocuments.pipe(
       map((doc) => doc.id),
-      tap((foo) => {
-        // console.log(foo);
+      // Query elasticsearch for (parent) documents that contain these child document IDs
+      // The field name is mapped in `indices/articles.ts` and populated by the transformer
+      getParentDocumentIds(clients.elastic, {
+        index: articles.index,
+        identifiersField: "query.linkedIdentifiers",
       }),
-      bufferCount(1000),
-      mergeMap((maybeChildIds) =>
-        // Query elasticsearch for (parent) documents that contain these child document IDs
-        // The field name is mapped in `indices/articles.ts` and populated by the transformer
-        parentDocumentIds(clients.elastic, {
-          index: articles.index,
-          identifiersField: "query.linkedIdentifiers",
-          childIds: maybeChildIds,
-        })
-      ),
       // We don't need to update parent documents that we already got in this window
       // as they were updated above
       filter((parentId) => !initialIndex.successfulIds.has(parentId)),
-      bufferCount(PRISMIC_MAX_PAGE_SIZE),
       // Fetch the latest version of all the parent documents
-      mergeMap((parentIds) =>
-        clients.prismic.getByIDs<ArticlePrismicDocument>(parentIds, {
-          graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
-        })
-      ),
-      mergeMap((query) => query.results)
+      getDocumentsByID<ArticlePrismicDocument>(clients.prismic, { graphQuery })
     );
 
     const nextIndex = await bulkIndexDocuments(

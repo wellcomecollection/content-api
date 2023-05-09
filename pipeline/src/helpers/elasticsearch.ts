@@ -3,9 +3,19 @@ import {
   IndicesIndexSettings,
   MappingTypeMapping,
 } from "@elastic/elasticsearch/lib/api/types";
-import { from, map, Observable } from "rxjs";
+import {
+  bufferCount,
+  from,
+  map,
+  mergeMap,
+  Observable,
+  OperatorFunction,
+  pipe,
+} from "rxjs";
 import log from "@weco/content-common/services/logging";
 import { observableToStream } from "./observableToStream";
+
+const BULK_BATCH_SIZE = 1000;
 
 type IndexConfig = {
   index: string;
@@ -84,25 +94,28 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
 type ParentDocumentIdsConfig = {
   index: string;
   identifiersField: string;
-  childIds: string[];
 };
 
-export const parentDocumentIds = (
+export const getParentDocumentIds = (
   elasticClient: Client,
-  { index, identifiersField, childIds }: ParentDocumentIdsConfig
-): Observable<string> => {
-  const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
-    index,
-    // If _source is falsy, which should work from a pure ES perspective, the helper returns
-    // an empty iterable: to avoid this we (unfortunately) rely on there being an `id`
-    // in the document source as well as the built-in `_id`.
-    _source: ["id"],
-    query: {
-      terms: {
-        [identifiersField]: childIds,
-      },
-    },
-  });
+  { index, identifiersField }: ParentDocumentIdsConfig
+): OperatorFunction<string, string> =>
+  pipe(
+    bufferCount(BULK_BATCH_SIZE),
+    mergeMap((maybeChildIds) => {
+      const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
+        index,
+        // If _source is falsy, which should work from a pure ES perspective, the helper returns
+        // an empty iterable: to avoid this we (unfortunately) rely on there being an `id`
+        // in the document source as well as the built-in `_id`.
+        _source: ["id"],
+        query: {
+          terms: {
+            [identifiersField]: maybeChildIds,
+          },
+        },
+      });
 
-  return from(scroll).pipe(map((doc) => doc.id));
-};
+      return from(scroll).pipe(map((doc) => doc.id));
+    })
+  );

@@ -1,10 +1,19 @@
 import * as prismic from "@prismicio/client";
 import { PrismicDocument } from "@prismicio/types";
 import { TimeWindow } from "../event";
-import { concatMap, EMPTY, expand, from } from "rxjs";
+import {
+  bufferCount,
+  concatMap,
+  EMPTY,
+  expand,
+  from,
+  mergeMap,
+  OperatorFunction,
+  pipe,
+} from "rxjs";
 
 // https://prismic.io/docs/technical-reference/prismicio-client#params-object
-export const PRISMIC_MAX_PAGE_SIZE = 100;
+const PRISMIC_MAX_PAGE_SIZE = 100;
 
 type GetPrismicDocumentsParams = {
   publicationWindow: TimeWindow;
@@ -63,4 +72,18 @@ export const paginator = <T extends PrismicDocument>(
   from(nextPage()).pipe(
     expand((res) => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
     concatMap((page) => page.docs)
+  );
+
+export const getDocumentsByID = <T extends PrismicDocument>(
+  client: prismic.Client,
+  { graphQuery }: { graphQuery: string }
+): OperatorFunction<string, T> =>
+  pipe(
+    bufferCount(PRISMIC_MAX_PAGE_SIZE),
+    mergeMap((ids) =>
+      client.getByIDs<T>(ids, {
+        graphQuery,
+      })
+    ),
+    mergeMap((query) => query.results)
   );
