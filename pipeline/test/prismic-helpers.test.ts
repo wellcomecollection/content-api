@@ -12,7 +12,7 @@ describe("paginator", () => {
       totalDocs
     ) as unknown as PrismicDocument[];
     const nextPage = jest.fn((after?: string) => {
-      const idx = parseInt(after ?? "0");
+      const idx = after ? allThings.findIndex((doc) => doc.id === after) : 0;
       return Promise.resolve({
         docs: allThings.slice(idx),
         lastDocId: allThings[idx + pageSize]?.id,
@@ -20,7 +20,7 @@ describe("paginator", () => {
     });
 
     const lastDoc = await lastValueFrom(paginator(nextPage));
-    expect(lastDoc.id).toBe(totalDocs.toString());
+    expect(lastDoc.id).toBe(allThings[allThings.length - 1].id);
     expect(nextPage).toHaveBeenCalledTimes(totalDocs / pageSize);
   });
 });
@@ -40,7 +40,7 @@ describe("getDocumentsByID", () => {
         getDocumentsByID(prismicClient)
       )
     );
-    expect(lastDoc.id).toBe("100");
+    expect(lastDoc.id).toBe(allDocuments[allDocuments.length - 1].id);
     expect(prismicGetByIDs).toHaveBeenCalledTimes(1);
   });
 });

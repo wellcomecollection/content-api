@@ -72,7 +72,7 @@ describe("getParentDocumentIDs", () => {
       },
     } as unknown as ElasticClient;
 
-    const finalDoc = await lastValueFrom(
+    const finalDocumentId = await lastValueFrom(
       range(totalDocs).pipe(
         map((n) => n.toString()),
         getParentDocumentIDs(testClient, {
@@ -84,6 +84,6 @@ describe("getParentDocumentIDs", () => {
     );
 
     expect(elasticScrollDocuments).toHaveBeenCalledTimes(totalDocs / batchSize);
-    expect(finalDoc).toBe(totalDocs.toString());
+    expect(finalDocumentId).toBe(documents[documents.length - 1].id);
   });
 });

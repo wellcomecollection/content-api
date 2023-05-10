@@ -1,2 +1,2 @@
 export const identifiedDocuments = (n: number): Array<{ id: string }> =>
-  Array.from({ length: n }).map((_, i) => ({ id: (i + 1).toString() }));
+  Array.from({ length: n }).map((_, i) => ({ id: `doc-${i + 1}` }));
