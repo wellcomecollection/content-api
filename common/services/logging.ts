@@ -18,6 +18,7 @@ const logger = createLogger({
   transports: [new transports.Console()],
   format: formatter,
   level: "http",
+  silent: process.env.NODE_ENV === "test",
 });
 
 export const logStream = (level: string) => ({

@@ -2,7 +2,7 @@ import { EOL } from "node:os";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createPrismicClient } from "../src/services/prismic";
-import { asTitle } from "../src/helpers";
+import { asTitle, asText } from "../src/helpers";
 import { Writable } from "stream";
 import {
   articlesQuery,
@@ -17,6 +17,7 @@ const documentIds = [
   "WcvPmSsAAG5B5-ox", // articles	- The Key to Memory: Follow your nose
   "XUGruhEAACYASyJh", // webcomics	- Footpath
   "XK9p2RIAAO1vQn__", // webcomics	- Groan
+  "YvtXgxAAACMA9j5d", // people	- Kate Summerscale
 ];
 
 const main = async () => {
@@ -40,7 +41,10 @@ const main = async () => {
 
   console.log("Adding comments to update script...");
   const comments = new Map(
-    docs.map((doc) => [doc.id, `${doc.type}\t- ${asTitle(doc.data.title)}`])
+    docs.map((doc) => [
+      doc.id,
+      `${doc.type}\t- ${asTitle(doc.data.title) || asText(doc.data.name)}`,
+    ])
   );
   const tmpFile = `${__filename}.tmp`;
   const thisScript = await fs.open(__filename, "r");
@@ -58,7 +62,7 @@ const main = async () => {
       const indent = stringArrayItemLine.groups?.["indent"];
       const uncommentedLine = `${indent}"${id}",`;
       if (id && comments.has(id)) {
-        await writeLine(uncommentedLine + `// ${comments.get(id)}`);
+        await writeLine(uncommentedLine + ` // ${comments.get(id)}`);
         continue;
       }
     }

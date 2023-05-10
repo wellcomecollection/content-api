@@ -8,6 +8,7 @@ import {
   getParentDocumentIDs,
 } from "../src/helpers/elasticsearch";
 import { identifiedDocuments } from "./fixtures/generators";
+import { createElasticScrollDocuments } from "./fixtures/elastic";
 
 describe("ensureIndexExists", () => {
   it("creates an index", async () => {
@@ -64,11 +65,7 @@ describe("getParentDocumentIDs", () => {
     const batchSize = 10;
 
     const documents = identifiedDocuments(totalDocs);
-    const elasticScrollDocuments = jest.fn(async function* implementation() {
-      for (const doc of documents) {
-        yield doc;
-      }
-    });
+    const elasticScrollDocuments = createElasticScrollDocuments(documents);
     const testClient = {
       helpers: {
         scrollDocuments: elasticScrollDocuments,

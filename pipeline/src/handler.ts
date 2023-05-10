@@ -1,5 +1,5 @@
 import { Handler } from "aws-lambda";
-import { mergeMap, map, partition, bufferCount, filter, tap } from "rxjs";
+import { map, partition, filter } from "rxjs";
 import log from "@weco/content-common/services/logging";
 
 import { ArticlePrismicDocument, Clients } from "./types";

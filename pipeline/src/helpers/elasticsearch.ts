@@ -111,8 +111,8 @@ export const getParentDocumentIDs = (
       const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
         index,
         // If _source is falsy, which should work from a pure ES perspective, the helper returns
-        // an empty iterable: to avoid this we (unfortunately) rely on there being an `id`
-        // in the document source as well as the built-in `_id`.
+        // an empty iterable: as we're already stating that we're scrolling `HasIdentifier`s, we're
+        // safe to specify that the documents have `id`s in their sources.
         _source: ["id"],
         query: {
           terms: {
