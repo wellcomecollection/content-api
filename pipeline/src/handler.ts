@@ -72,7 +72,10 @@ export const createHandler =
       // We don't need to update parent documents that we already got in this window
       // as they were updated above
       filter((parentId) => !initialIndex.successfulIds.has(parentId)),
-      // Fetch the latest version of all the parent documents
+      // Fetch the latest version of all the parent documents including the denormalised data
+      // from the child document: while we do have all the information for both the parent (from ES)
+      // and the child (from the initial Prismic query), we don't want to have to know how to
+      // combine it: the graphQuery holds all of that information.
       getDocumentsByID<ArticlePrismicDocument>(clients.prismic, { graphQuery })
     );
 
