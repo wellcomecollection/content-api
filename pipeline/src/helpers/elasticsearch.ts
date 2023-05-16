@@ -3,9 +3,19 @@ import {
   IndicesIndexSettings,
   MappingTypeMapping,
 } from "@elastic/elasticsearch/lib/api/types";
-import { Observable } from "rxjs";
+import {
+  bufferCount,
+  from,
+  map,
+  mergeMap,
+  Observable,
+  OperatorFunction,
+  pipe,
+} from "rxjs";
 import log from "@weco/content-common/services/logging";
 import { observableToStream } from "./observableToStream";
+
+const BULK_BATCH_SIZE = 1000;
 
 type IndexConfig = {
   index: string;
@@ -42,8 +52,7 @@ type HasIdentifier = {
 };
 
 type BulkIndexResult<Doc> = {
-  successful: number;
-  failed: Doc[];
+  successfulIds: Set<string>;
   time: number;
 };
 
@@ -53,10 +62,12 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
   documents: Observable<T>
 ): Promise<BulkIndexResult<T>> => {
   const datasource = observableToStream(documents);
+  const successfulIds = new Set<string>();
   const failed: T[] = [];
   const result = await elasticClient.helpers.bulk<T>({
     datasource,
     onDocument(doc) {
+      successfulIds.add(doc.id);
       return {
         index: { _index: index, _id: doc.id },
       };
@@ -65,13 +76,52 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
       log.warn(
         `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`
       );
+      successfulIds.delete(failureObject.document.id);
       failed.push(failureObject.document);
     },
   });
 
+  if (failed.length !== 0) {
+    throw new Error(`Bulk index of ${failed.length} documents failed`);
+  }
+
   return {
-    successful: result.successful,
     time: result.time,
-    failed,
+    successfulIds,
   };
 };
+
+type ParentDocumentIdsConfig = {
+  index: string;
+  identifiersField: string;
+  batchSize?: number;
+};
+
+export const getParentDocumentIDs = <T extends { id: string }>(
+  elasticClient: Client,
+  {
+    index,
+    identifiersField,
+    batchSize = BULK_BATCH_SIZE,
+  }: ParentDocumentIdsConfig
+): OperatorFunction<T, string> =>
+  pipe(
+    map((doc) => doc.id),
+    bufferCount(batchSize),
+    mergeMap((maybeChildIds) => {
+      const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
+        index,
+        // If _source is falsy, which should work from a pure ES perspective, the helper returns
+        // an empty iterable: as we're already stating that we're scrolling `HasIdentifier`s, we're
+        // safe to specify that the documents have `id`s in their sources.
+        _source: ["id"],
+        query: {
+          terms: {
+            [identifiersField]: maybeChildIds,
+          },
+        },
+      });
+
+      return from(scroll).pipe(map((doc) => doc.id));
+    })
+  );

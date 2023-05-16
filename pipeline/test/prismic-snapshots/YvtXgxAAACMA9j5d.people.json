@@ -1,0 +1,67 @@
+{
+  "id": "YvtXgxAAACMA9j5d",
+  "uid": null,
+  "url": null,
+  "type": "people",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZFow5BQAADxsCtLj&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YvtXgxAAACMA9j5d%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2022-08-16T08:39:34+0000",
+  "last_publication_date": "2022-10-04T10:37:30+0000",
+  "slugs": ["kate-summerscale"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "name": "Kate Summerscale",
+    "description": [
+      {
+        "type": "paragraph",
+        "text": "Kate Summerscale is the author of the number-one bestselling ‘The Suspicions of Mr Whicher’, winner of the Samuel Johnson Prize for Non-Fiction 2008, winner of the Galaxy British Book of the Year Award, a Richard & Judy Book Club pick and adapted into a major ITV drama. Her debut, ‘The Queen of Whale Cay’, won a Somerset Maugham Award and was shortlisted for the Whitbread Biography Award. ‘The Wicked Boy’, published in 2016, won the Mystery Writers of America Edgar Award for Best Fact Crime. Her latest book, ‘The Haunting of Alma Fielding’, was shortlisted for the Baillie Gifford Prize for Non-Fiction. She lives in north London.",
+        "spans": []
+      }
+    ],
+    "pronouns": null,
+    "image": {
+      "dimensions": {
+        "width": 2195,
+        "height": 2195
+      },
+      "alt": "Black and white photograph of the author Kate Summerscale",
+      "copyright": null,
+      "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format",
+      "32:15": {
+        "dimensions": {
+          "width": 3200,
+          "height": 1500
+        },
+        "alt": "Black and white photograph of the author Kate Summerscale",
+        "copyright": null,
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,583,2195,1029&w=3200&h=1500"
+      },
+      "16:9": {
+        "dimensions": {
+          "width": 3200,
+          "height": 1800
+        },
+        "alt": "Black and white photograph of the author Kate Summerscale",
+        "copyright": null,
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,480,2195,1235&w=3200&h=1800"
+      },
+      "square": {
+        "dimensions": {
+          "width": 3200,
+          "height": 3200
+        },
+        "alt": "Black and white photograph of the author Kate Summerscale",
+        "copyright": null,
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,0,2195,2195&w=3200&h=3200"
+      }
+    },
+    "sameAs": [
+      {
+        "link": null,
+        "title": []
+      }
+    ]
+  }
+}

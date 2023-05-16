@@ -1,9 +1,22 @@
 import * as prismic from "@prismicio/client";
-import { ContentType } from "../types";
+import { PrismicDocument } from "@prismicio/types";
 import { TimeWindow } from "../event";
+import {
+  bufferCount,
+  concatMap,
+  EMPTY,
+  expand,
+  from,
+  mergeMap,
+  Observable,
+  OperatorFunction,
+  pipe,
+} from "rxjs";
+
+// https://prismic.io/docs/technical-reference/prismicio-client#params-object
+const PRISMIC_MAX_PAGE_SIZE = 100;
 
 type GetPrismicDocumentsParams = {
-  contentTypes: ContentType[];
   publicationWindow: TimeWindow;
   graphQuery?: string;
   after?: string;
@@ -19,22 +32,16 @@ const fields = {
   lastPublicationDate: "document.last_publication_date",
 } as const;
 
-export const getPrismicDocuments = async <T>(
+export const getPrismicDocuments = async (
   client: prismic.Client,
-  {
-    contentTypes,
-    publicationWindow,
-    graphQuery,
-    after,
-  }: GetPrismicDocumentsParams
-): Promise<PrismicPage<T>> => {
+  { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams
+): Promise<PrismicPage<PrismicDocument>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
     graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
     predicates: [
-      prismic.predicate.any(fields.documentType, contentTypes),
       startDate
         ? prismic.predicate.dateAfter(fields.lastPublicationDate, startDate)
         : [],
@@ -46,7 +53,7 @@ export const getPrismicDocuments = async <T>(
       field: fields.lastPublicationDate,
       direction: "desc",
     },
-    pageSize: 100,
+    pageSize: PRISMIC_MAX_PAGE_SIZE,
     after,
   });
 
@@ -55,7 +62,29 @@ export const getPrismicDocuments = async <T>(
   const lastDocId = lastDoc?.id;
 
   return {
-    docs: results as T[],
+    docs: results,
     lastDocId,
   };
 };
+
+export const paginator = <T extends PrismicDocument>(
+  nextPage: (after?: string) => Promise<PrismicPage<T>>
+): Observable<T> =>
+  from(nextPage()).pipe(
+    expand((res) => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
+    concatMap((page) => page.docs)
+  );
+
+export const getDocumentsByID = <T extends PrismicDocument>(
+  client: prismic.Client,
+  { graphQuery }: { graphQuery?: string } = {}
+): OperatorFunction<string, T> =>
+  pipe(
+    bufferCount(PRISMIC_MAX_PAGE_SIZE),
+    mergeMap((ids) =>
+      client.getByIDs<T>(ids, {
+        graphQuery,
+      })
+    ),
+    mergeMap((query) => query.results)
+  );

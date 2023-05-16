@@ -2,7 +2,13 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { ensureIndexExists } from "../src/helpers/elasticsearch";
+import { lastValueFrom, from } from "rxjs";
+import {
+  ensureIndexExists,
+  getParentDocumentIDs,
+} from "../src/helpers/elasticsearch";
+import { identifiedDocuments } from "./fixtures/generators";
+import { createElasticScrollDocuments } from "./fixtures/elastic";
 
 describe("ensureIndexExists", () => {
   it("creates an index", async () => {
@@ -50,5 +56,33 @@ describe("ensureIndexExists", () => {
       index: "test",
       ...testMapping,
     });
+  });
+});
+
+describe("getParentDocumentIDs", () => {
+  it("queries for batches of potential child document IDs", async () => {
+    const totalDocs = 100;
+    const batchSize = 10;
+
+    const documents = identifiedDocuments(totalDocs);
+    const elasticScrollDocuments = createElasticScrollDocuments(documents);
+    const testClient = {
+      helpers: {
+        scrollDocuments: elasticScrollDocuments,
+      },
+    } as unknown as ElasticClient;
+
+    const finalDocumentId = await lastValueFrom(
+      from(documents).pipe(
+        getParentDocumentIDs(testClient, {
+          index: "test",
+          identifiersField: "childIds",
+          batchSize: batchSize,
+        })
+      )
+    );
+
+    expect(elasticScrollDocuments).toHaveBeenCalledTimes(totalDocs / batchSize);
+    expect(finalDocumentId).toBe(documents[documents.length - 1].id);
   });
 });

@@ -17,6 +17,7 @@ import {
   PrismicDocument,
 } from "@prismicio/types";
 import { defaultArticleFormat } from "@weco/content-common/data/formats";
+import { linkedDocumentIdentifiers } from "./identifiers";
 
 const getContributors = (
   document: PrismicDocument<WithContributors>
@@ -89,6 +90,11 @@ function transformLabelType(
   };
 }
 
+export const isArticle = (
+  doc: PrismicDocument
+): doc is ArticlePrismicDocument =>
+  ["articles", "webcomics"].includes(doc.type);
+
 export const transformArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchArticle => {
@@ -159,6 +165,7 @@ export const transformArticle = (
       image,
     },
     query: {
+      linkedIdentifiers: linkedDocumentIdentifiers(document),
       title: asTitle(data.title),
       publicationDate: new Date(datePublished),
       contributors: queryContributors,

@@ -5,9 +5,13 @@ import type { Global as JestGlobal } from "@jest/types";
 import { ContentType } from "../../src/types";
 import { PrismicDocument } from "@prismicio/types";
 
+// For prismic types which we do not make addressable but are included in our other documents
+type NonAddressableContentType = "people";
+type PrismicType = ContentType | NonAddressableContentType;
+
 // Hold snapshots in memory rather than reading from the filesystem for every test
 const snapshotCache = new Map<string, any>();
-const contentTypesCache = new Map<ContentType, string[]>();
+const prismicTypesCache = new Map<PrismicType, string[]>();
 
 const dataDir = path.resolve(__dirname, "../prismic-snapshots");
 
@@ -20,18 +24,18 @@ const getSnapshot = <T>(name: string): T => {
   );
 };
 
-const snapshotNamesForContentType = (contentType: ContentType): string[] =>
-  contentTypesCache.get(contentType) ??
-  fs.readdirSync(dataDir).filter((f) => f.endsWith(`${contentType}.json`));
+const snapshotNamesForContentType = (prismicType: PrismicType): string[] =>
+  prismicTypesCache.get(prismicType) ??
+  fs.readdirSync(dataDir).filter((f) => f.endsWith(`${prismicType}.json`));
 
 export const getSnapshots = <T extends PrismicDocument>(
-  ...contentTypes: ContentType[]
-): T[] => contentTypes.flatMap(snapshotNamesForContentType).map(getSnapshot<T>);
+  ...prismicTypes: PrismicType[]
+): T[] => prismicTypes.flatMap(snapshotNamesForContentType).map(getSnapshot<T>);
 
 export const forEachPrismicSnapshot = <T extends PrismicDocument>(
-  ...contentTypes: ContentType[]
+  ...prismicTypes: PrismicType[]
 ) => {
-  const snapshots = getSnapshots<T>(...contentTypes);
+  const snapshots = getSnapshots<T>(...prismicTypes);
   return <EachFn extends JestGlobal.TestFn | JestGlobal.BlockFn>(
     description: string,
     testCase: (snapshot: T) => ReturnType<EachFn>
