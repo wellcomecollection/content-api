@@ -2,7 +2,7 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { lastValueFrom, range, map } from "rxjs";
+import { lastValueFrom, from } from "rxjs";
 import {
   ensureIndexExists,
   getParentDocumentIDs,
@@ -73,8 +73,7 @@ describe("getParentDocumentIDs", () => {
     } as unknown as ElasticClient;
 
     const finalDocumentId = await lastValueFrom(
-      range(totalDocs).pipe(
-        map((n) => n.toString()),
+      from(documents).pipe(
         getParentDocumentIDs(testClient, {
           index: "test",
           identifiersField: "childIds",

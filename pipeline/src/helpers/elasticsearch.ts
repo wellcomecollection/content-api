@@ -97,15 +97,16 @@ type ParentDocumentIdsConfig = {
   batchSize?: number;
 };
 
-export const getParentDocumentIDs = (
+export const getParentDocumentIDs = <T extends { id: string }>(
   elasticClient: Client,
   {
     index,
     identifiersField,
     batchSize = BULK_BATCH_SIZE,
   }: ParentDocumentIdsConfig
-): OperatorFunction<string, string> =>
+): OperatorFunction<T, string> =>
   pipe(
+    map((doc) => doc.id),
     bufferCount(batchSize),
     mergeMap((maybeChildIds) => {
       const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
