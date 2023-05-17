@@ -23,7 +23,8 @@ type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 const sortValidator = queryValidator({
   name: "sort",
   defaultValue: "relevance",
-  allowed: ["relevance", "publication.dates"],
+  // TODO remove publication.dates when frontend is updated
+  allowed: ["relevance", "publication.dates", "publicationDate"],
 });
 
 const sortOrderValidator = queryValidator({
@@ -44,18 +45,21 @@ const articlesController = (
     const sort = sortValidator(queryParams);
     const sortOrder = sortOrderValidator(queryParams);
 
+    const sortKey =
+      // TODO remove publication.dates when frontend is updated
+      sort === "publication.dates" || sort === "publicationDate"
+        ? "query.publicationDate"
+        : "_score";
+
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
         query: queryString ? articlesQuery(queryString) : undefined,
         sort: [
-          {
-            [sort === "publication.dates" ? "query.publicationDate" : "_score"]:
-              {
-                order: sortOrder,
-              },
-          },
+          { [sortKey]: { order: sortOrder } },
+          // Use recency as a "tie-breaker" sort
+          { "query.publicationDate": { order: "desc" } },
         ],
         ...paginationElasticBody(req.query),
       });
