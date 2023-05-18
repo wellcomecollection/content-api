@@ -23,8 +23,7 @@ type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 const sortValidator = queryValidator({
   name: "sort",
   defaultValue: "relevance",
-  // TODO remove publication.dates when frontend is updated
-  allowed: ["relevance", "publication.dates", "publicationDate"],
+  allowed: ["relevance", "publicationDate"],
 });
 
 const sortOrderValidator = queryValidator({
@@ -46,10 +45,7 @@ const articlesController = (
     const sortOrder = sortOrderValidator(queryParams);
 
     const sortKey =
-      // TODO remove publication.dates when frontend is updated
-      sort === "publication.dates" || sort === "publicationDate"
-        ? "query.publicationDate"
-        : "_score";
+      sort === "publicationDate" ? "query.publicationDate" : "_score";
 
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
