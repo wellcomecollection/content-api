@@ -8,14 +8,16 @@ import {
   paginationResponseGetter,
 } from "./pagination";
 import { Config } from "../../config";
-import { articlesQuery } from "../queries/articles";
+import { articlesFilter, articlesQuery } from "../queries/articles";
 import { queryValidator } from "./validation";
 import { HttpError } from "./error";
+import { ifDefined, isNotUndefined } from "../helpers";
 
 type QueryParams = {
   query?: string;
   sort?: string;
   sortOrder?: string;
+  "contributors.contributor"?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -51,7 +53,17 @@ const articlesController = (
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
-        query: queryString ? articlesQuery(queryString) : undefined,
+        query: {
+          bool: {
+            must: ifDefined(queryString, articlesQuery),
+            filter: [
+              ifDefined(
+                queryParams["contributors.contributor"]?.split(","),
+                articlesFilter.contributors
+              ),
+            ].filter(isNotUndefined),
+          },
+        },
         sort: [
           { [sortKey]: { order: sortOrder } },
           // Use recency as a "tie-breaker" sort

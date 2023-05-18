@@ -129,6 +129,13 @@ export const mapping = {
         },
       },
     },
+    filter: {
+      properties: {
+        contributorIds: {
+          type: "keyword",
+        },
+      },
+    },
   },
 } as const;
 

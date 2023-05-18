@@ -1,4 +1,5 @@
 import { HttpError } from "./error";
+import { isInArray } from "../helpers";
 
 type StringLiteral<T> = T extends string
   ? string extends T
@@ -11,11 +12,6 @@ type QueryValidatorConfig<Name, AllowedValue> = {
   defaultValue: Readonly<StringLiteral<AllowedValue>>;
   allowed: ReadonlyArray<StringLiteral<AllowedValue>>;
 };
-
-const isInArray = <T, A extends T>(
-  item: T,
-  array: ReadonlyArray<A>
-): item is A => array.includes(item as A);
 
 export const queryValidator =
   <Name, AllowedValue>({

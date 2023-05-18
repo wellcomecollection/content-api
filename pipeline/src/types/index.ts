@@ -55,6 +55,9 @@ export type ElasticsearchArticle = {
       contributors: string[];
     }>;
   };
+  filter: {
+    contributorIds: string[];
+  };
 };
 
 // Generic types
