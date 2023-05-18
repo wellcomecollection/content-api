@@ -9,15 +9,17 @@ import {
 } from "./pagination";
 import { Config } from "../../config";
 import { articlesFilter, articlesQuery } from "../queries/articles";
-import { queryValidator } from "./validation";
-import { HttpError } from "./error";
+import { queryValidator, validateDate } from "./validation";
 import { ifDefined, isNotUndefined } from "../helpers";
+import { HttpError } from "./error";
 
 type QueryParams = {
   query?: string;
   sort?: string;
   sortOrder?: string;
   "contributors.contributor"?: string;
+  "publicationDate.from"?: string;
+  "publicationDate.to"?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -42,9 +44,9 @@ const articlesController = (
   const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, ...queryParams } = req.query;
-    const sort = sortValidator(queryParams);
-    const sortOrder = sortOrderValidator(queryParams);
+    const { query: queryString, ...params } = req.query;
+    const sort = sortValidator(params);
+    const sortOrder = sortOrderValidator(params);
 
     const sortKey =
       sort === "publicationDate" ? "query.publicationDate" : "_score";
@@ -58,9 +60,15 @@ const articlesController = (
             must: ifDefined(queryString, articlesQuery),
             filter: [
               ifDefined(
-                queryParams["contributors.contributor"]?.split(","),
+                params["contributors.contributor"]?.split(","),
                 articlesFilter.contributors
               ),
+              params["publicationDate.from"] || params["publicationDate.to"]
+                ? articlesFilter.publicationDate(
+                    ifDefined(params["publicationDate.from"], validateDate),
+                    ifDefined(params["publicationDate.to"], validateDate)
+                  )
+                : undefined,
             ].filter(isNotUndefined),
           },
         },

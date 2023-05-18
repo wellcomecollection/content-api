@@ -27,4 +27,12 @@ export const articlesFilter = {
       "filter.contributorIds": contributors,
     },
   }),
+  publicationDate: (from?: Date, to?: Date): QueryDslQueryContainer => ({
+    range: {
+      "filter.publicationDate": {
+        gte: from?.toISOString(),
+        lte: to?.toISOString(),
+      },
+    },
+  }),
 };

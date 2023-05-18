@@ -176,6 +176,7 @@ export const transformArticle = (
     },
     filter: {
       contributorIds: contributors.flatMap((c) => c.contributor?.id ?? []),
+      publicationDate: new Date(datePublished),
     },
   };
 };

@@ -134,6 +134,9 @@ export const mapping = {
         contributorIds: {
           type: "keyword",
         },
+        publicationDate: {
+          type: "date",
+        },
       },
     },
   },

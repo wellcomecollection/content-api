@@ -37,3 +37,15 @@ export const queryValidator =
       });
     }
   };
+
+export const validateDate = (input: string): Date => {
+  const date = new Date(input);
+  if (isNaN(date.getTime())) {
+    throw new HttpError({
+      status: 400,
+      label: "Bad Request",
+      description: `'${input}' is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
+    });
+  }
+  return date;
+};
