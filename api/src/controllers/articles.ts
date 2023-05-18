@@ -20,6 +20,7 @@ type QueryParams = {
   "contributors.contributor"?: string;
   "publicationDate.from"?: string;
   "publicationDate.to"?: string;
+  format?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -63,6 +64,7 @@ const articlesController = (
                 params["contributors.contributor"]?.split(","),
                 articlesFilter.contributors
               ),
+              ifDefined(params.format?.split(","), articlesFilter.format),
               params["publicationDate.from"] || params["publicationDate.to"]
                 ? articlesFilter.publicationDate(
                     ifDefined(params["publicationDate.from"], validateDate),

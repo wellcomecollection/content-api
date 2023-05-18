@@ -27,6 +27,11 @@ export const articlesFilter = {
       "filter.contributorIds": contributors,
     },
   }),
+  format: (formats: string[]): QueryDslQueryContainer => ({
+    terms: {
+      "filter.formatId": formats,
+    },
+  }),
   publicationDate: (from?: Date, to?: Date): QueryDslQueryContainer => ({
     range: {
       "filter.publicationDate": {

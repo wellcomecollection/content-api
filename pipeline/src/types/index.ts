@@ -58,6 +58,7 @@ export type ElasticsearchArticle = {
   filter: {
     publicationDate: Date;
     contributorIds: string[];
+    formatId: string;
   };
 };
 
