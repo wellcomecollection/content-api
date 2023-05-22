@@ -1,4 +1,5 @@
-import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/typesWithBodyKey";
+import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
+
 export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
     query: queryString,
@@ -22,7 +23,9 @@ export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
 });
 
 export const articlesFilter = {
-  contributors: (contributors: string[]): QueryDslQueryContainer => ({
+  "contributors.contributor": (
+    contributors: string[]
+  ): QueryDslQueryContainer => ({
     terms: {
       "filter.contributorIds": contributors,
     },
@@ -41,3 +44,23 @@ export const articlesFilter = {
     },
   }),
 };
+
+export const articlesAggregations = {
+  "contributors.contributor": {
+    terms: {
+      // At time of writing (2023-05-19) there are 560 contributors, too many to consider
+      // returning all of them in the aggregation
+      size: 20,
+      field: "aggregatableValues.contributors",
+    },
+  },
+  format: {
+    terms: {
+      // At time of writing (2023-05-19) we have 10 article formats. This list is likely
+      // to remain fairly stable, but I have chosen to use 20 as the size here so we have
+      // some buffer if we add more formats
+      size: 20,
+      field: "aggregatableValues.format",
+    },
+  },
+} as const;

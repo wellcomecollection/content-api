@@ -1,5 +1,5 @@
 import { HttpError } from "./error";
-import { isInArray } from "../helpers";
+import { isInSet, not } from "../helpers";
 
 type StringLiteral<T> = T extends string
   ? string extends T
@@ -7,36 +7,62 @@ type StringLiteral<T> = T extends string
     : T
   : never;
 
+type NonEmptyArray<T> = [T, ...T[]];
+
 type QueryValidatorConfig<Name, AllowedValue> = {
   name: StringLiteral<Name>;
-  defaultValue: Readonly<StringLiteral<AllowedValue>>;
   allowed: ReadonlyArray<StringLiteral<AllowedValue>>;
+  defaultValue?: Readonly<StringLiteral<AllowedValue>>;
+  singleValue?: boolean;
 };
-
-export const queryValidator =
-  <Name, AllowedValue>({
-    name,
-    defaultValue,
-    allowed,
-  }: QueryValidatorConfig<Name, AllowedValue>) =>
-  <Query extends { [key in typeof name]?: AllowedValue | string }>(
+export const queryValidator = <Name, AllowedValue>({
+  name,
+  allowed,
+  defaultValue,
+  singleValue,
+}: QueryValidatorConfig<Name, AllowedValue>) => {
+  const allowedSet = new Set(allowed);
+  return <Query extends { [key in typeof name]?: string }>(
     query: Query
-  ): AllowedValue => {
-    const value: AllowedValue | string | undefined = query[name];
-    if (typeof value === "undefined") {
-      return defaultValue;
-    } else if (isInArray(value, allowed)) {
-      return value;
-    } else {
+  ): NonEmptyArray<AllowedValue> | undefined => {
+    const providedValues = query[name]?.split(",");
+    if (providedValues === undefined) {
+      return defaultValue === undefined ? undefined : [defaultValue];
+    }
+
+    const validValues = providedValues.filter(isInSet(allowedSet));
+    if (
+      validValues.length !== providedValues.length ||
+      validValues.length === 0
+    ) {
+      const invalidValues = providedValues.filter(not(isInSet(allowedSet)));
+      const invalidMessage =
+        invalidValues.length === 1
+          ? "is not a valid value"
+          : "are not valid values";
       throw new HttpError({
         status: 400,
         label: "Bad Request",
-        description:
-          `${name}: '${value}' is not a valid value. Please choose one of: ` +
-          allowed.map((s) => `'${s}'`).join(", "),
+        description: `${name}: ${readableList(
+          invalidValues
+        )} ${invalidMessage}. Please choose one of: ${readableList(
+          allowed,
+          "or"
+        )}`,
       });
     }
+
+    if (singleValue && validValues.length > 1) {
+      throw new HttpError({
+        status: 400,
+        label: "Bad Request",
+        description: `Only 1 value can be specified for ${name}`,
+      });
+    }
+
+    return validValues as NonEmptyArray<AllowedValue>;
   };
+};
 
 export const validateDate = (input: string): Date => {
   const date = new Date(input);
@@ -49,3 +75,14 @@ export const validateDate = (input: string): Date => {
   }
   return date;
 };
+
+const readableList = (
+  arr: readonly string[],
+  conjunction: "and" | "or" = "and"
+): string =>
+  arr
+    .slice(0, -1)
+    .map((v) => `'${v}'`)
+    .join(", ") +
+  ` ${conjunction} ` +
+  arr[arr.length - 1];
