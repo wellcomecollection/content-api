@@ -152,6 +152,8 @@ export const transformArticle = (
       : []
   );
 
+  const flatContributors = contributors.flatMap((c) => c.contributor ?? []);
+
   return {
     id,
     display: {
@@ -175,9 +177,13 @@ export const transformArticle = (
       series: querySeries,
     },
     filter: {
-      contributorIds: contributors.flatMap((c) => c.contributor?.id ?? []),
+      contributorIds: flatContributors.map((c) => c.id),
       formatId: format.id,
       publicationDate: new Date(datePublished),
+    },
+    aggregatableValues: {
+      contributors: flatContributors.map((c) => JSON.stringify(c)),
+      format: JSON.stringify(format),
     },
   };
 };

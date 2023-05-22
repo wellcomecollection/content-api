@@ -60,6 +60,10 @@ export type ElasticsearchArticle = {
     contributorIds: string[];
     formatId: string;
   };
+  aggregatableValues: {
+    contributors: string[];
+    format: string;
+  };
 };
 
 // Generic types

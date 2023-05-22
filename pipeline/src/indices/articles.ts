@@ -142,6 +142,16 @@ export const mapping = {
         },
       },
     },
+    aggregatableValues: {
+      properties: {
+        contributors: {
+          type: "keyword",
+        },
+        format: {
+          type: "keyword",
+        },
+      },
+    },
   },
 } as const;
 

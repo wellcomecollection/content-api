@@ -2,6 +2,12 @@
 
 exports[`article transformer also works for webcomics (document: webcomics/XK9p2RIAAO1vQn__) 1`] = `
 {
+  "aggregatableValues": {
+    "contributors": [
+      "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
+    ],
+    "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
+  },
   "display": {
     "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
     "contributors": [
@@ -102,6 +108,12 @@ exports[`article transformer also works for webcomics (document: webcomics/XK9p2
 
 exports[`article transformer also works for webcomics (document: webcomics/XUGruhEAACYASyJh) 1`] = `
 {
+  "aggregatableValues": {
+    "contributors": [
+      "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
+    ],
+    "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
+  },
   "display": {
     "caption": "They drew it with their feet, one step at a time",
     "contributors": [
@@ -202,6 +214,10 @@ exports[`article transformer also works for webcomics (document: webcomics/XUGru
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/WcvPmSsAAG5B5-ox) 1`] = `
 {
+  "aggregatableValues": {
+    "contributors": [],
+    "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
+  },
   "display": {
     "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
     "contributors": [],
@@ -325,6 +341,13 @@ exports[`article transformer transforms articles from Prismic to the expected fo
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/Y0U4GBEAAA__16h6) 1`] = `
 {
+  "aggregatableValues": {
+    "contributors": [
+      "{"type":"Person","id":"YvtXgxAAACMA9j5d","label":"Kate Summerscale"}",
+      "{"type":"Person","id":"Yz07IxEAAA__s9BR","label":"Tim Robinson"}",
+    ],
+    "format": "{"type":"ArticleFormat","id":"W8CbPhEAAB8Nq4aG","label":"Book extract"}",
+  },
   "display": {
     "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
     "contributors": [
@@ -468,6 +491,12 @@ exports[`article transformer transforms articles from Prismic to the expected fo
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/YbjAThEAACEAcPYF) 1`] = `
 {
+  "aggregatableValues": {
+    "contributors": [
+      "{"type":"Person","id":"W3KvwikAACIAEFVE","label":"Elma Brenner"}",
+    ],
+    "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
+  },
   "display": {
     "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
     "contributors": [
