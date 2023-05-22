@@ -1,11 +1,6 @@
 import { HttpError } from "./error";
 import { isInSet, not } from "../helpers";
-
-type StringLiteral<T> = T extends string
-  ? string extends T
-    ? never
-    : T
-  : never;
+import { StringLiteral } from "../types";
 
 type NonEmptyArray<T> = [T, ...T[]];
 

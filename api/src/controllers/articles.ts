@@ -15,6 +15,11 @@ import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
 import { AggregationsAggregate } from "@elastic/elasticsearch/lib/api/types";
+import {
+  partitionFiltersForFacets,
+  rewriteAggregationsForFacets,
+} from "../queries/faceting";
+import { pickFiltersFromQuery } from "../helpers/requests";
 
 type QueryParams = {
   query?: string;
@@ -64,6 +69,26 @@ const articlesController = (
     const sortKey =
       sort === "publicationDate" ? "query.publicationDate" : "_score";
 
+    const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
+      pick(articlesAggregations, requestedAggs)
+    );
+    const initialFilters = pickFiltersFromQuery(
+      ["contributors.contributor", "format"],
+      params,
+      articlesFilter
+    );
+    const { postFilters, queryFilters } = partitionFiltersForFacets(
+      initialAggregations ?? {},
+      initialFilters
+    );
+    const dateFilter =
+      params["publicationDate.from"] || params["publicationDate.to"]
+        ? articlesFilter.publicationDate(
+            ifDefined(params["publicationDate.from"], validateDate),
+            ifDefined(params["publicationDate.to"], validateDate)
+          )
+        : undefined;
+
     try {
       const searchResponse = await clients.elastic.search<
         Displayable,
@@ -73,25 +98,18 @@ const articlesController = (
       >({
         index,
         _source: ["display"],
-        aggregations: ifDefined(aggregations, (requestedAggs) =>
-          pick(articlesAggregations, requestedAggs)
+        aggregations: ifDefined(initialAggregations, (aggs) =>
+          rewriteAggregationsForFacets(aggs, initialFilters)
         ),
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),
-            filter: [
-              ifDefined(
-                params["contributors.contributor"]?.split(","),
-                articlesFilter["contributors.contributor"]
-              ),
-              ifDefined(params.format?.split(","), articlesFilter.format),
-              params["publicationDate.from"] || params["publicationDate.to"]
-                ? articlesFilter.publicationDate(
-                    ifDefined(params["publicationDate.from"], validateDate),
-                    ifDefined(params["publicationDate.to"], validateDate)
-                  )
-                : undefined,
-            ].filter(isNotUndefined),
+            filter: [...queryFilters, dateFilter].filter(isNotUndefined),
+          },
+        },
+        post_filter: {
+          bool: {
+            filter: postFilters,
           },
         },
         sort: [
