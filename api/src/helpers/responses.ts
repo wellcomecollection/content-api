@@ -7,14 +7,14 @@ import { Displayable } from "../types";
 import { Aggregation, Aggregations, ResultList } from "../types/responses";
 import { Config } from "../../config";
 import { paginationResponseGetter } from "../controllers/pagination";
-import { isTermsAggregation } from "./elastic";
+import { isMultiBucketAggregation } from "./elastic";
 
-const mapAggregations = (
+export const mapAggregations = (
   elasticAggs: AggregationsAggregate
-): Aggregations | undefined =>
+): Aggregations =>
   Object.fromEntries(
     Object.entries(elasticAggs).flatMap(([name, aggregation]) =>
-      isTermsAggregation(aggregation) &&
+      isMultiBucketAggregation(aggregation) &&
       // The built-in types in the ES client claim that buckets can be a Record<string, TBucket>.
       // This seems dubious to me, but I'm jumping through the hoop nonetheless.
       Array.isArray(aggregation.buckets)

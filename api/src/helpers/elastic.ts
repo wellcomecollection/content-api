@@ -1,6 +1,6 @@
 import {
   AggregationsAggregate,
-  AggregationsTermsAggregateBase,
+  AggregationsMultiBucketAggregateBase,
 } from "@elastic/elasticsearch/lib/api/types";
 
 // The built-in aggregation types are a bit inflexible, given how flexible the aggregations API is.
@@ -14,7 +14,7 @@ type TermsBucket = {
   };
 };
 
-export const isTermsAggregation = (
+export const isMultiBucketAggregation = (
   agg: AggregationsAggregate
-): agg is AggregationsTermsAggregateBase<TermsBucket> =>
+): agg is AggregationsMultiBucketAggregateBase<TermsBucket> =>
   "buckets" in agg && "doc_count" in agg.buckets[0] && "key" in agg.buckets[0];
