@@ -12,7 +12,7 @@ export const pickFiltersFromQuery = <
   filterNames: ReadonlyArray<StringLiteral<Name>>,
   query: Query,
   filters: Filters
-): Record<string, QueryDslQueryContainer> =>
+): Record<Name, QueryDslQueryContainer> =>
   Object.fromEntries(
     filterNames.flatMap((filterName) => {
       const maybeFilter = ifDefined(
@@ -21,4 +21,4 @@ export const pickFiltersFromQuery = <
       );
       return maybeFilter ? [[filterName, maybeFilter]] : [];
     })
-  );
+  ) as Record<Name, QueryDslQueryContainer>;

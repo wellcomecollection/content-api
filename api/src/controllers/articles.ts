@@ -77,10 +77,17 @@ const articlesController = (
       params,
       articlesFilter
     );
+
+    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
+      rewriteAggregationsForFacets(aggs, initialFilters)
+    );
     const { postFilters, queryFilters } = partitionFiltersForFacets(
       initialAggregations ?? {},
       initialFilters
     );
+
+    // The date filter is a special case because 2 parameters filter 1 field,
+    // and it doesn't (currently) have a corresponding aggregation.
     const dateFilter =
       params["publicationDate.from"] || params["publicationDate.to"]
         ? articlesFilter.publicationDate(
@@ -98,9 +105,7 @@ const articlesController = (
       >({
         index,
         _source: ["display"],
-        aggregations: ifDefined(initialAggregations, (aggs) =>
-          rewriteAggregationsForFacets(aggs, initialFilters)
-        ),
+        aggregations: facetedAggregations,
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),

@@ -27,7 +27,10 @@ const mapAggregations = (
                   // parse it something has gone wrong in the pipeline and we
                   // should know about it
                   data: JSON.parse(bucket.key),
-                  count: bucket.doc_count,
+                  // If there is a filter subaggregation (named `filtered`), we should
+                  // use that: it will exist if other filters and aggregations are
+                  // applied in addition to the aggregation/filter corresponding to this bucket.
+                  count: bucket.filtered?.doc_count ?? bucket.doc_count,
                   type: "AggregationBucket",
                 })),
                 type: "Aggregation",
