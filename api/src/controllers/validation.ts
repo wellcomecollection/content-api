@@ -1,4 +1,5 @@
 import { HttpError } from "./error";
+import { isInArray } from "../helpers";
 
 type StringLiteral<T> = T extends string
   ? string extends T
@@ -11,11 +12,6 @@ type QueryValidatorConfig<Name, AllowedValue> = {
   defaultValue: Readonly<StringLiteral<AllowedValue>>;
   allowed: ReadonlyArray<StringLiteral<AllowedValue>>;
 };
-
-const isInArray = <T, A extends T>(
-  item: T,
-  array: ReadonlyArray<A>
-): item is A => array.includes(item as A);
 
 export const queryValidator =
   <Name, AllowedValue>({
@@ -41,3 +37,15 @@ export const queryValidator =
       });
     }
   };
+
+export const validateDate = (input: string): Date => {
+  const date = new Date(input);
+  if (isNaN(date.getTime())) {
+    throw new HttpError({
+      status: 400,
+      label: "Bad Request",
+      description: `'${input}' is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
+    });
+  }
+  return date;
+};

@@ -8,14 +8,19 @@ import {
   paginationResponseGetter,
 } from "./pagination";
 import { Config } from "../../config";
-import { articlesQuery } from "../queries/articles";
-import { queryValidator } from "./validation";
+import { articlesFilter, articlesQuery } from "../queries/articles";
+import { queryValidator, validateDate } from "./validation";
+import { ifDefined, isNotUndefined } from "../helpers";
 import { HttpError } from "./error";
 
 type QueryParams = {
   query?: string;
   sort?: string;
   sortOrder?: string;
+  "contributors.contributor"?: string;
+  "publicationDate.from"?: string;
+  "publicationDate.to"?: string;
+  format?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -40,9 +45,9 @@ const articlesController = (
   const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, ...queryParams } = req.query;
-    const sort = sortValidator(queryParams);
-    const sortOrder = sortOrderValidator(queryParams);
+    const { query: queryString, ...params } = req.query;
+    const sort = sortValidator(params);
+    const sortOrder = sortOrderValidator(params);
 
     const sortKey =
       sort === "publicationDate" ? "query.publicationDate" : "_score";
@@ -51,7 +56,24 @@ const articlesController = (
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
-        query: queryString ? articlesQuery(queryString) : undefined,
+        query: {
+          bool: {
+            must: ifDefined(queryString, articlesQuery),
+            filter: [
+              ifDefined(
+                params["contributors.contributor"]?.split(","),
+                articlesFilter.contributors
+              ),
+              ifDefined(params.format?.split(","), articlesFilter.format),
+              params["publicationDate.from"] || params["publicationDate.to"]
+                ? articlesFilter.publicationDate(
+                    ifDefined(params["publicationDate.from"], validateDate),
+                    ifDefined(params["publicationDate.to"], validateDate)
+                  )
+                : undefined,
+            ].filter(isNotUndefined),
+          },
+        },
         sort: [
           { [sortKey]: { order: sortOrder } },
           // Use recency as a "tie-breaker" sort

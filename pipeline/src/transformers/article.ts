@@ -174,5 +174,10 @@ export const transformArticle = (
       standfirst: queryStandfirst,
       series: querySeries,
     },
+    filter: {
+      contributorIds: contributors.flatMap((c) => c.contributor?.id ?? []),
+      formatId: format.id,
+      publicationDate: new Date(datePublished),
+    },
   };
 };

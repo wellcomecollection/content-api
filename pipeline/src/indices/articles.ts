@@ -129,6 +129,19 @@ export const mapping = {
         },
       },
     },
+    filter: {
+      properties: {
+        contributorIds: {
+          type: "keyword",
+        },
+        formatId: {
+          type: "keyword",
+        },
+        publicationDate: {
+          type: "date",
+        },
+      },
+    },
   },
 } as const;
 

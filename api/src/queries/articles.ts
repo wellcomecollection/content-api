@@ -1,5 +1,4 @@
 import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/typesWithBodyKey";
-
 export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
     query: queryString,
@@ -21,3 +20,24 @@ export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
     minimum_should_match: "-25%",
   },
 });
+
+export const articlesFilter = {
+  contributors: (contributors: string[]): QueryDslQueryContainer => ({
+    terms: {
+      "filter.contributorIds": contributors,
+    },
+  }),
+  format: (formats: string[]): QueryDslQueryContainer => ({
+    terms: {
+      "filter.formatId": formats,
+    },
+  }),
+  publicationDate: (from?: Date, to?: Date): QueryDslQueryContainer => ({
+    range: {
+      "filter.publicationDate": {
+        gte: from?.toISOString(),
+        lte: to?.toISOString(),
+      },
+    },
+  }),
+};
