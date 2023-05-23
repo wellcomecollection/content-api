@@ -40,7 +40,7 @@ export const queryValidator = <Name, AllowedValue>({
         label: "Bad Request",
         description: `${name}: ${readableList(
           invalidValues
-        )} ${invalidMessage}. Please choose one of: ${readableList(
+        )} ${invalidMessage}. Please choose one of ${readableList(
           allowed,
           "or"
         )}`,
@@ -65,19 +65,28 @@ export const validateDate = (input: string): Date => {
     throw new HttpError({
       status: 400,
       label: "Bad Request",
-      description: `'${input}' is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
+      description: `${quoted(
+        input
+      )} is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
     });
   }
   return date;
 };
 
+const quoted = (str: string) => `'${str}'`;
+
+// For listing items (no Oxford comma)
 const readableList = (
   arr: readonly string[],
   conjunction: "and" | "or" = "and"
-): string =>
-  arr
-    .slice(0, -1)
-    .map((v) => `'${v}'`)
-    .join(", ") +
-  ` ${conjunction} ` +
-  arr[arr.length - 1];
+): string => {
+  if (arr.length === 0) {
+    return "";
+  }
+  const quotes = arr.map(quoted);
+  return arr.length > 1
+    ? `${quotes.slice(0, -1).join(", ")} ${conjunction} ${
+        quotes[quotes.length - 1]
+      }`
+    : quotes[0];
+};
