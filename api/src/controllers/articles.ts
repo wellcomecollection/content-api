@@ -78,6 +78,7 @@ const articlesController = (
       articlesFilter
     );
 
+    // See comments in `queries/faceting.ts` for some explanation of what's going on here
     const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
       rewriteAggregationsForFacets(aggs, initialFilters)
     );
