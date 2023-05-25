@@ -10,7 +10,7 @@ import {
   articlesQuery,
 } from "../queries/articles";
 import { queryValidator, validateDate } from "./validation";
-import { ifDefined, isNotUndefined, pick } from "../helpers";
+import { ifDefined, pick } from "../helpers";
 import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
@@ -89,13 +89,15 @@ const articlesController = (
 
     // The date filter is a special case because 2 parameters filter 1 field,
     // and it doesn't (currently) have a corresponding aggregation.
-    const dateFilter =
+    const dateFilters =
       params["publicationDate.from"] || params["publicationDate.to"]
-        ? articlesFilter.publicationDate(
-            ifDefined(params["publicationDate.from"], validateDate),
-            ifDefined(params["publicationDate.to"], validateDate)
-          )
-        : undefined;
+        ? [
+            articlesFilter.publicationDate(
+              ifDefined(params["publicationDate.from"], validateDate),
+              ifDefined(params["publicationDate.to"], validateDate)
+            ),
+          ]
+        : [];
 
     try {
       const searchResponse = await clients.elastic.search<
@@ -110,7 +112,7 @@ const articlesController = (
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),
-            filter: [...queryFilters, dateFilter].filter(isNotUndefined),
+            filter: [queryFilters, dateFilters].flat(),
           },
         },
         post_filter: {
