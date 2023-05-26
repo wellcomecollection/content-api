@@ -1,5 +1,5 @@
 import type { Client as ElasticClient } from "@elastic/elasticsearch";
-import type { Client as PrismicClient } from "@prismicio/client";
+import * as prismic from "@prismicio/client";
 import { createHandler } from "../src/handler";
 import { Context } from "aws-lambda";
 import { ArticlePrismicDocument } from "../src/types";
@@ -28,7 +28,7 @@ describe("handler", () => {
 
     const prismicClient = {
       get: prismicGet(allDocs),
-    } as unknown as PrismicClient;
+    } as unknown as prismic.Client;
 
     const testHandler = createHandler({
       elastic: elasticClient,
@@ -67,7 +67,7 @@ describe("handler", () => {
     const prismicClient = {
       get: prismicGet(contributors),
       getByIDs: prismicGetByIDs,
-    } as unknown as PrismicClient;
+    } as unknown as prismic.Client;
 
     const elasticIndexCreator = jest.fn().mockResolvedValue(true);
     const [elasticBulkHelper, getIndexedDocuments] = createElasticBulkHelper();
