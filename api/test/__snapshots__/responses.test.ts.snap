@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mapAggregations maps aggregations responses from ES to our expected response format 1`] = `
+{
+  "format": {
+    "buckets": [
+      {
+        "count": 595,
+        "data": {
+          "id": "W7TfJRAAAJ1D0eLK",
+          "label": "Article",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 271,
+        "data": {
+          "id": "W7d_ghAAALWY3Ujc",
+          "label": "Comic",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 137,
+        "data": {
+          "id": "W5uKaCQAACkA3C0T",
+          "label": "In pictures",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 38,
+        "data": {
+          "id": "W8CbPhEAAB8Nq4aG",
+          "label": "Book extract",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 19,
+        "data": {
+          "id": "XTYCkRAAACUANeph",
+          "label": "Photo story",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 16,
+        "data": {
+          "id": "XwRZ6hQAAG4K-bbt",
+          "label": "Podcast",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 10,
+        "data": {
+          "id": "W9BoHhIAANBp1EXg",
+          "label": "Interview",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 3,
+        "data": {
+          "id": "ZBH6PRQAAIrrFirA",
+          "label": "Short film",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 2,
+        "data": {
+          "id": "YxcjgREAACAAkjBg",
+          "label": "Long read",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+      {
+        "count": 1,
+        "data": {
+          "id": "YrwCTxEAACUALJQ0",
+          "label": "Prose poem",
+          "type": "ArticleFormat",
+        },
+        "type": "AggregationBucket",
+      },
+    ],
+    "type": "Aggregation",
+  },
+}
+`;

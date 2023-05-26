@@ -1,17 +1,15 @@
 import { Client as ElasticClient } from "@elastic/elasticsearch";
 
-export type Displayable<T = any> = {
-  display: T;
-};
-
-export type ResultList<Result = any> = {
-  type: "ResultList";
-  results: Result[];
-  totalResults: number;
-  totalPages: number;
-  pageSize: number;
+export type Displayable = {
+  display: any;
 };
 
 export type Clients = {
   elastic: ElasticClient;
 };
+
+export type StringLiteral<T> = T extends string
+  ? string extends T
+    ? never
+    : T
+  : never;

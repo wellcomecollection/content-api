@@ -1,22 +1,31 @@
 import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients, Displayable, ResultList } from "../types";
-import {
-  PaginationQueryParameters,
-  paginationElasticBody,
-  paginationResponseGetter,
-} from "./pagination";
+import { Clients, Displayable } from "../types";
+import { PaginationQueryParameters, paginationElasticBody } from "./pagination";
 import { Config } from "../../config";
-import { articlesFilter, articlesQuery } from "../queries/articles";
+import {
+  articlesAggregations,
+  articlesFilter,
+  articlesQuery,
+} from "../queries/articles";
 import { queryValidator, validateDate } from "./validation";
-import { ifDefined, isNotUndefined } from "../helpers";
+import { ifDefined, pick } from "../helpers";
 import { HttpError } from "./error";
+import { ResultList } from "../types/responses";
+import { resultListResponse } from "../helpers/responses";
+import { AggregationsAggregate } from "@elastic/elasticsearch/lib/api/types";
+import {
+  partitionFiltersForFacets,
+  rewriteAggregationsForFacets,
+} from "../queries/faceting";
+import { pickFiltersFromQuery } from "../helpers/requests";
 
 type QueryParams = {
   query?: string;
   sort?: string;
   sortOrder?: string;
+  aggregations?: string;
   "contributors.contributor"?: string;
   "publicationDate.from"?: string;
   "publicationDate.to"?: string;
@@ -29,12 +38,19 @@ const sortValidator = queryValidator({
   name: "sort",
   defaultValue: "relevance",
   allowed: ["relevance", "publicationDate"],
+  singleValue: true,
 });
 
 const sortOrderValidator = queryValidator({
   name: "sortOrder",
   defaultValue: "desc",
   allowed: ["asc", "desc"],
+  singleValue: true,
+});
+
+const aggregationsValidator = queryValidator({
+  name: "aggregations",
+  allowed: ["contributors.contributor", "format"],
 });
 
 const articlesController = (
@@ -42,36 +58,66 @@ const articlesController = (
   config: Config
 ): ArticlesHandler => {
   const index = config.contentsIndex;
-  const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
+  const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
     const { query: queryString, ...params } = req.query;
-    const sort = sortValidator(params);
-    const sortOrder = sortOrderValidator(params);
+    const sort = sortValidator(params)?.[0];
+    const sortOrder = sortOrderValidator(params)?.[0];
+    const aggregations = aggregationsValidator(params);
 
     const sortKey =
       sort === "publicationDate" ? "query.publicationDate" : "_score";
 
+    const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
+      pick(articlesAggregations, requestedAggs)
+    );
+    const initialFilters = pickFiltersFromQuery(
+      ["contributors.contributor", "format"],
+      params,
+      articlesFilter
+    );
+
+    // See comments in `queries/faceting.ts` for some explanation of what's going on here
+    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
+      rewriteAggregationsForFacets(aggs, initialFilters)
+    );
+    const { postFilters, queryFilters } = partitionFiltersForFacets(
+      initialAggregations ?? {},
+      initialFilters
+    );
+
+    // The date filter is a special case because 2 parameters filter 1 field,
+    // and it doesn't (currently) have a corresponding aggregation.
+    const dateFilters =
+      params["publicationDate.from"] || params["publicationDate.to"]
+        ? [
+            articlesFilter.publicationDate(
+              ifDefined(params["publicationDate.from"], validateDate),
+              ifDefined(params["publicationDate.to"], validateDate)
+            ),
+          ]
+        : [];
+
     try {
-      const searchResponse = await clients.elastic.search<Displayable>({
+      const searchResponse = await clients.elastic.search<
+        Displayable,
+        Partial<
+          Record<keyof typeof articlesAggregations, AggregationsAggregate>
+        >
+      >({
         index,
         _source: ["display"],
+        aggregations: facetedAggregations,
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),
-            filter: [
-              ifDefined(
-                params["contributors.contributor"]?.split(","),
-                articlesFilter.contributors
-              ),
-              ifDefined(params.format?.split(","), articlesFilter.format),
-              params["publicationDate.from"] || params["publicationDate.to"]
-                ? articlesFilter.publicationDate(
-                    ifDefined(params["publicationDate.from"], validateDate),
-                    ifDefined(params["publicationDate.to"], validateDate)
-                  )
-                : undefined,
-            ].filter(isNotUndefined),
+            filter: [queryFilters, dateFilters].flat(),
+          },
+        },
+        post_filter: {
+          bool: {
+            filter: postFilters,
           },
         },
         sort: [
@@ -82,30 +128,7 @@ const articlesController = (
         ...paginationElasticBody(req.query),
       });
 
-      const results = searchResponse.hits.hits.flatMap((hit) =>
-        hit._source ? [hit._source.display] : []
-      );
-
-      const requestUrl = new URL(
-        req.url,
-        `${req.protocol}://${req.headers.host}`
-      );
-
-      const totalResults =
-        typeof searchResponse.hits.total === "number"
-          ? searchResponse.hits.total
-          : searchResponse.hits.total?.value ?? 0;
-
-      const paginationResponse = getPaginationResponse({
-        requestUrl,
-        totalResults,
-      });
-
-      res.status(200).json({
-        type: "ResultList",
-        results,
-        ...paginationResponse,
-      });
+      res.status(200).json(resultList(req, searchResponse));
     } catch (e) {
       if (
         e instanceof elasticErrors.ResponseError &&

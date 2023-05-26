@@ -7,20 +7,38 @@ describe("query validator", () => {
     allowed: ["a", "b"],
   });
   it("extracts allowed values from query parameters", () => {
-    expect(testValidator({ test: "a" })).toBe("a");
-    expect(testValidator({ test: "b" })).toBe("b");
+    expect(testValidator({ test: "a" })).toStrictEqual(["a"]);
+    expect(testValidator({ test: "b" })).toStrictEqual(["b"]);
   });
 
   it("rejects values which are not in the allowlist", () => {
     expect(() =>
       testValidator({ test: "123" })
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Bad Request: test: '123' is not a valid value. Please choose one of: 'a', 'b'"`
+      `"Bad Request: test: '123' is not a valid value. Please choose one of 'a' or 'b'"`
     );
   });
 
   it("returns a given default value when the parameter is undefined", () => {
-    expect(testValidator({ test: undefined })).toBe("a");
+    expect(testValidator({ test: undefined })).toStrictEqual(["a"]);
+  });
+
+  it("parses multiple values", () => {
+    expect(testValidator({ test: "a,b" })).toStrictEqual(["a", "b"]);
+  });
+
+  it("rejects multiple values if singleValue is specified", () => {
+    const testValidatorSingle = queryValidator({
+      name: "test",
+      defaultValue: "a",
+      allowed: ["a", "b"],
+      singleValue: true,
+    });
+    expect(() =>
+      testValidatorSingle({ test: "a,b" })
+    ).toThrowErrorMatchingInlineSnapshot(
+      `"Bad Request: Only 1 value can be specified for test"`
+    );
   });
 });
 

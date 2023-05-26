@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`articles query makes the expected query to ES for a given set of query parameters 1`] = `
+{
+  "_source": [
+    "display",
+  ],
+  "aggregations": {
+    "format": {
+      "aggs": {
+        "filtered": {
+          "filter": {
+            "bool": {
+              "filter": [
+                {
+                  "terms": {
+                    "filter.contributorIds": [
+                      "test-contributor",
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+      "terms": {
+        "field": "aggregatableValues.format",
+        "min_doc_count": 0,
+        "order": {
+          "filtered": "desc",
+        },
+        "size": 20,
+      },
+    },
+  },
+  "from": 336,
+  "index": "test",
+  "post_filter": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "filter.formatId": [
+              "test-format",
+            ],
+          },
+        },
+      ],
+    },
+  },
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "filter.contributorIds": [
+              "test-contributor",
+            ],
+          },
+        },
+        {
+          "range": {
+            "filter.publicationDate": {
+              "gte": "2022-02-22T00:00:00.000Z",
+              "lte": "2023-03-23T00:00:00.000Z",
+            },
+          },
+        },
+      ],
+      "must": {
+        "multi_match": {
+          "fields": [
+            "id",
+            "query.title.*^100",
+            "query.contributors.*^10",
+            "query.contributors.keyword^100",
+            "query.standfirst.*^10",
+            "query.body.*",
+            "query.caption.*",
+            "query.series.id",
+            "query.series.title.*^80",
+            "query.series.contributors*^8",
+            "query.series.contributors.keyword^80",
+          ],
+          "minimum_should_match": "-25%",
+          "operator": "or",
+          "query": "henry wellcome",
+          "type": "cross_fields",
+        },
+      },
+    },
+  },
+  "size": 42,
+  "sort": [
+    {
+      "query.publicationDate": {
+        "order": "asc",
+      },
+    },
+    {
+      "query.publicationDate": {
+        "order": "desc",
+      },
+    },
+  ],
+}
+`;
