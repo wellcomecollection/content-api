@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client";
-import { PrismicDocument } from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 import { TimeWindow } from "../event";
 import {
   bufferCount,
@@ -35,7 +35,7 @@ const fields = {
 export const getPrismicDocuments = async (
   client: prismic.Client,
   { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams
-): Promise<PrismicPage<PrismicDocument>> => {
+): Promise<PrismicPage<prismicT.PrismicDocument>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
   const docs = await client.get({
@@ -67,7 +67,7 @@ export const getPrismicDocuments = async (
   };
 };
 
-export const paginator = <T extends PrismicDocument>(
+export const paginator = <T extends prismicT.PrismicDocument>(
   nextPage: (after?: string) => Promise<PrismicPage<T>>
 ): Observable<T> =>
   from(nextPage()).pipe(
@@ -75,7 +75,7 @@ export const paginator = <T extends PrismicDocument>(
     concatMap((page) => page.docs)
   );
 
-export const getDocumentsByID = <T extends PrismicDocument>(
+export const getDocumentsByID = <T extends prismicT.PrismicDocument>(
   client: prismic.Client,
   { graphQuery }: { graphQuery?: string } = {}
 ): OperatorFunction<string, T> =>

@@ -1,4 +1,4 @@
-import { KeyTextField, RichTextField } from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 import * as prismicH from "@prismicio/helpers";
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
@@ -17,7 +17,7 @@ export function isString(v: any): v is string {
  * they add extra validation steps, e.g. removing stray whitespace or null values.
  */
 export function asText(
-  field: KeyTextField | RichTextField
+  field: prismicT.KeyTextField | prismicT.RichTextField
 ): string | undefined {
   if (isString(field)) {
     // KeyTextField
@@ -30,7 +30,7 @@ export function asText(
   }
 }
 
-export function asTitle(title: RichTextField): string {
+export function asTitle(title: prismicT.RichTextField): string {
   // We always need a title - blunt validation, but validation none the less
   return asText(title) || "";
 }

@@ -1,4 +1,4 @@
-import { GroupField, RelationField, RichTextField } from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 import { WithContributors } from "./contributors";
 
 export type WithSeries = {

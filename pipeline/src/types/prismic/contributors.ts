@@ -1,26 +1,20 @@
-import {
-  EmptyLinkField,
-  FilledLinkToDocumentField,
-  GroupField,
-  RelationField,
-  RichTextField,
-} from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 
 type PrismicContributorContributor =
-  | EmptyLinkField<"Document">
-  | FilledLinkToDocumentField<
-      "organisations" | "people",
-      "en-gb",
-      { name: RichTextField }
-    >;
+  | prismicT.EmptyLinkField<"Document">
+  | prismicT.FilledLinkToDocumentField<
+    "organisations" | "people",
+    "en-gb",
+    { name: prismicT.RichTextField }
+  >;
 
-type PrismicContributorRole = RelationField<
+type PrismicContributorRole = prismicT.RelationField<
   "editorial-contributor-roles",
   "en-gb",
-  { title: RichTextField }
+  { title: prismicT.RichTextField }
 >;
 
-type Contributors = GroupField<{
+type Contributors = prismicT.GroupField<{
   role: PrismicContributorRole;
   contributor: PrismicContributorContributor;
 }>;

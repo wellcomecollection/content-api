@@ -1,4 +1,4 @@
-import { GroupField } from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 
 type PrismicBody = {
   primary: {
@@ -9,5 +9,5 @@ type PrismicBody = {
 };
 
 export type WithBody = {
-  body?: GroupField<PrismicBody>;
+  body?: prismicT.GroupField<PrismicBody>;
 };

@@ -3,7 +3,7 @@ import path from "node:path";
 import { test } from "@jest/globals";
 import type { Global as JestGlobal } from "@jest/types";
 import { ContentType } from "../../src/types";
-import { PrismicDocument } from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 
 // For prismic types which we do not make addressable but are included in our other documents
 type NonAddressableContentType = "people";
@@ -28,11 +28,11 @@ const snapshotNamesForContentType = (prismicType: PrismicType): string[] =>
   prismicTypesCache.get(prismicType) ??
   fs.readdirSync(dataDir).filter((f) => f.endsWith(`${prismicType}.json`));
 
-export const getSnapshots = <T extends PrismicDocument>(
+export const getSnapshots = <T extends prismic.PrismicDocument>(
   ...prismicTypes: PrismicType[]
 ): T[] => prismicTypes.flatMap(snapshotNamesForContentType).map(getSnapshot<T>);
 
-export const forEachPrismicSnapshot = <T extends PrismicDocument>(
+export const forEachPrismicSnapshot = <T extends prismic.PrismicDocument>(
   ...prismicTypes: PrismicType[]
 ) => {
   const snapshots = getSnapshots<T>(...prismicTypes);
