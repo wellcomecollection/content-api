@@ -1,4 +1,4 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 import { PrismicImage } from "..";
 
 /**
@@ -6,7 +6,7 @@ import { PrismicImage } from "..";
  */
 export type DataInterface = Record<
   string,
-  prismicT.AnyRegularField | prismicT.GroupField | prismicT.SliceZone
+  prismic.AnyRegularField | prismic.GroupField | prismic.SliceZone
 >;
 
 /**
@@ -16,18 +16,16 @@ export type DataInterface = Record<
  * type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
  * RelationField<'formats', 'en-gb', DataInterface>
  */
-export type InferDataInterface<T> = T extends prismicT.PrismicDocument<
+export type InferDataInterface<T> = T extends prismic.PrismicDocument<
   infer DataInterface
 >
   ? DataInterface
   : never;
 
-type Promo = { caption: prismicT.RichTextField; image: PrismicImage };
-export type PromoSliceZone = prismicT.SliceZone<
-  prismicT.Slice<"editorialImage", Promo>
->;
+type Promo = { caption: prismic.RichTextField; image: PrismicImage };
+export type PromoSliceZone = prismic.SliceZone<prismic.Slice<"editorialImage", Promo>>;
 
 export type CommonPrismicFields = {
-  title: prismicT.RichTextField;
+  title: prismic.RichTextField;
   promo: PromoSliceZone;
 };

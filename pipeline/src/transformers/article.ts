@@ -11,12 +11,12 @@ import {
 } from "../types";
 import { asText, asTitle, isNotUndefined } from "../helpers";
 import { isFilledLinkToDocumentWithData } from "../helpers/type-guards";
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 import { defaultArticleFormat } from "@weco/content-common/data/formats";
 import { linkedDocumentIdentifiers } from "./identifiers";
 
 const getContributors = (
-  document: prismicT.PrismicDocument<WithContributors>
+  document: prismic.PrismicDocument<WithContributors>
 ): Contributor[] => {
   const { data } = document;
 
@@ -67,13 +67,13 @@ const getContributors = (
 // when images have crops, event if the image isn't attached, we get e.g.
 // { '32:15': {}, '16:9': {}, square: {} }
 function isImageLink(
-  maybeImage: prismicT.EmptyImageFieldImage | PrismicImage | undefined
+  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
 ): maybeImage is PrismicImage {
   return Boolean(maybeImage && maybeImage.dimensions);
 }
 
 function transformLabelType(
-  format: prismicT.FilledLinkToDocumentField<
+  format: prismic.FilledLinkToDocumentField<
     "article-formats",
     "en-gb",
     InferDataInterface<PrismicArticleFormat>
@@ -87,7 +87,7 @@ function transformLabelType(
 }
 
 export const isArticle = (
-  doc: prismicT.PrismicDocument
+  doc: prismic.PrismicDocument
 ): doc is ArticlePrismicDocument =>
   ["articles", "webcomics"].includes(doc.type);
 
