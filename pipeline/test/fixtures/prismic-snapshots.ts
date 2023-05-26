@@ -28,11 +28,11 @@ const snapshotNamesForContentType = (prismicType: PrismicType): string[] =>
   prismicTypesCache.get(prismicType) ??
   fs.readdirSync(dataDir).filter((f) => f.endsWith(`${prismicType}.json`));
 
-export const getSnapshots = <T extends prismic.PrismicDocument>(
+export const getSnapshots = <T extends prismicT.PrismicDocument>(
   ...prismicTypes: PrismicType[]
 ): T[] => prismicTypes.flatMap(snapshotNamesForContentType).map(getSnapshot<T>);
 
-export const forEachPrismicSnapshot = <T extends prismic.PrismicDocument>(
+export const forEachPrismicSnapshot = <T extends prismicT.PrismicDocument>(
   ...prismicTypes: PrismicType[]
 ) => {
   const snapshots = getSnapshots<T>(...prismicTypes);
