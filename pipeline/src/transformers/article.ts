@@ -29,10 +29,10 @@ const getContributors = (
 
       const role = roleDocument
         ? {
-          type: "EditorialContributorRole" as const,
-          id: roleDocument.id as string,
-          label: asText(roleDocument.data.title),
-        }
+            type: "EditorialContributorRole" as const,
+            id: roleDocument.id as string,
+            label: asText(roleDocument.data.title),
+          }
         : undefined;
 
       // CONTRIBUTOR
@@ -42,21 +42,21 @@ const getContributors = (
 
       const contributor = contributorDocument
         ? {
-          type:
-            contributorDocument.type === "people"
-              ? ("Person" as const)
-              : ("Organisation" as const),
-          id: contributorDocument.id as string,
-          label: asText(contributorDocument.data.name),
-        }
+            type:
+              contributorDocument.type === "people"
+                ? ("Person" as const)
+                : ("Organisation" as const),
+            id: contributorDocument.id as string,
+            label: asText(contributorDocument.data.name),
+          }
         : undefined;
 
       return contributor || role
         ? {
-          type: "Contributor",
-          contributor,
-          role,
-        }
+            type: "Contributor",
+            contributor,
+            role,
+          }
         : undefined;
     })
     .filter(isNotUndefined);
@@ -135,16 +135,16 @@ export const transformArticle = (
   const querySeries = data.series.flatMap(({ series }) =>
     isFilledLinkToDocumentWithData(series)
       ? {
-        id: series.id,
-        title: asText(series.data.title),
-        contributors: series.data.contributors
-          .flatMap(({ contributor }) =>
-            isFilledLinkToDocumentWithData(contributor)
-              ? asText(contributor.data.name)
-              : []
-          )
-          .filter(isNotUndefined),
-      }
+          id: series.id,
+          title: asText(series.data.title),
+          contributors: series.data.contributors
+            .flatMap(({ contributor }) =>
+              isFilledLinkToDocumentWithData(contributor)
+                ? asText(contributor.data.name)
+                : []
+            )
+            .filter(isNotUndefined),
+        }
       : []
   );
 

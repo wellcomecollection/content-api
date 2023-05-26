@@ -10,6 +10,8 @@ export function isFilledLinkToDocument<T, L, D extends DataInterface>(
 
 export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
   field: prismicT.RelationField<T, L, D> | undefined
-): field is prismicT.FilledLinkToDocumentField<T, L, D> & { data: DataInterface } {
+): field is prismicT.FilledLinkToDocumentField<T, L, D> & {
+  data: DataInterface;
+} {
   return isFilledLinkToDocument(field) && "data" in field;
 }

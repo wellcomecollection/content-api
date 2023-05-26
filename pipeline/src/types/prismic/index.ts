@@ -23,7 +23,9 @@ export type InferDataInterface<T> = T extends prismicT.PrismicDocument<
   : never;
 
 type Promo = { caption: prismicT.RichTextField; image: PrismicImage };
-export type PromoSliceZone = prismicT.SliceZone<prismicT.Slice<"editorialImage", Promo>>;
+export type PromoSliceZone = prismicT.SliceZone<
+  prismicT.Slice<"editorialImage", Promo>
+>;
 
 export type CommonPrismicFields = {
   title: prismicT.RichTextField;

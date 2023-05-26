@@ -20,9 +20,9 @@ export type ArticlePrismicDocument = prismic.PrismicDocument<
   {
     publishDate: prismic.TimestampField;
   } & WithContributors &
-  WithArticleFormat &
-  WithBody &
-  WithSeries &
-  CommonPrismicFields,
+    WithArticleFormat &
+    WithBody &
+    WithSeries &
+    CommonPrismicFields,
   "articles" | "webcomics"
 >;
