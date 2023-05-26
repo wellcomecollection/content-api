@@ -2,13 +2,13 @@ import * as prismic from "@prismicio/client";
 
 type PrismicContributorContributor =
   | prismic.EmptyLinkField<"Document">
-  | prismic.FilledLinkToDocumentField<
+  | prismic.FilledContentRelationshipField<
     "organisations" | "people",
     "en-gb",
     { name: prismic.RichTextField }
   >;
 
-type PrismicContributorRole = prismic.RelationField<
+type PrismicContributorRole = prismic.ContentRelationshipField<
   "editorial-contributor-roles",
   "en-gb",
   { title: prismic.RichTextField }

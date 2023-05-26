@@ -73,7 +73,7 @@ function isImageLink(
 }
 
 function transformLabelType(
-  format: prismic.FilledLinkToDocumentField<
+  format: prismic.FilledContentRelationshipField<
     "article-formats",
     "en-gb",
     InferDataInterface<PrismicArticleFormat>

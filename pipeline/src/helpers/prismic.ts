@@ -40,12 +40,12 @@ export const getPrismicDocuments = async (
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
     graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
-    predicates: [
+    filters: [
       startDate
-        ? prismic.predicate.dateAfter(fields.lastPublicationDate, startDate)
+        ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)
         : [],
       endDate
-        ? prismic.predicate.dateBefore(fields.lastPublicationDate, endDate)
+        ? prismic.filter.dateBefore(fields.lastPublicationDate, endDate)
         : [],
     ].flat(),
     orderings: {
