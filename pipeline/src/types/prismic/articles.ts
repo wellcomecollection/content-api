@@ -1,8 +1,4 @@
-import {
-  PrismicDocument,
-  RelationField,
-  TimestampField,
-} from "@prismicio/types";
+import * as prismicT from "@prismicio/types";
 import {
   WithContributors,
   WithBody,
@@ -13,16 +9,16 @@ import {
 import { WithSeries } from "./series";
 
 type WithArticleFormat = {
-  format: RelationField<
+  format: prismicT.RelationField<
     "article-formats",
     "en-gb",
     InferDataInterface<PrismicArticleFormat>
   >;
 };
 
-export type ArticlePrismicDocument = PrismicDocument<
+export type ArticlePrismicDocument = prismicT.PrismicDocument<
   {
-    publishDate: TimestampField;
+    publishDate: prismicT.TimestampField;
   } & WithContributors &
     WithArticleFormat &
     WithBody &
