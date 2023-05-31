@@ -5,12 +5,12 @@ export type WithSeries = {
   series: Series;
 };
 
-type Series = prismicT.GroupField<{
+type Series = prismic.GroupField<{
   series: PrismicSeries;
 }>;
 
-type PrismicSeries = prismicT.RelationField<
+type PrismicSeries = prismic.ContentRelationshipField<
   "webcomic-series" | "series",
   "en-gb",
-  { title: prismicT.RichTextField } & WithContributors
+  { title: prismic.RichTextField } & WithContributors
 >;
