@@ -9,16 +9,16 @@ import {
 import { WithSeries } from "./series";
 
 type WithArticleFormat = {
-  format: prismic.RelationField<
+  format: prismicT.RelationField<
     "article-formats",
     "en-gb",
     InferDataInterface<PrismicArticleFormat>
   >;
 };
 
-export type ArticlePrismicDocument = prismic.PrismicDocument<
+export type ArticlePrismicDocument = prismicT.PrismicDocument<
   {
-    publishDate: prismic.TimestampField;
+    publishDate: prismicT.TimestampField;
   } & WithContributors &
     WithArticleFormat &
     WithBody &
