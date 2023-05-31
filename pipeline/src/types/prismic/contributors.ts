@@ -3,10 +3,10 @@ import * as prismic from "@prismicio/client";
 type PrismicContributorContributor =
   | prismic.EmptyLinkField<"Document">
   | prismic.FilledContentRelationshipField<
-    "organisations" | "people",
-    "en-gb",
-    { name: prismic.RichTextField }
-  >;
+      "organisations" | "people",
+      "en-gb",
+      { name: prismic.RichTextField }
+    >;
 
 type PrismicContributorRole = prismic.ContentRelationshipField<
   "editorial-contributor-roles",
