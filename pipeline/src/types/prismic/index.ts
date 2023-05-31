@@ -12,11 +12,11 @@ export type DataInterface = Record<
 /**
  * This allows us to get the DataInterface from PrismicDocuments when we
  * Need them for `ContentRelationshipField`s e.g.
- * 
+ *
  *     type Doc = PrismicDocument<{ title: prismic.RichTextField }>
  *     type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
  *     ContentRelationshipField<'formats', 'en-gb', DataInterface>
- * 
+ *
  */
 export type InferDataInterface<T> = T extends prismic.PrismicDocument<
   infer DataInterface
