@@ -2,7 +2,7 @@ import * as prismic from "@prismicio/client";
 import { PrismicImage } from "..";
 
 /**
- * This is a convenience type for what the generic DataInterface type extend in @prismicio/types
+ * This is a convenience type for what the generic DataInterface type extend in @prismicio/client
  */
 export type DataInterface = Record<
   string,
@@ -11,10 +11,12 @@ export type DataInterface = Record<
 
 /**
  * This allows us to get the DataInterface from PrismicDocuments when we
- * Need them for `RelationField`s e.g.
- * type Doc = PrismicDocument<{ title: RichTextField }>
- * type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
- * RelationField<'formats', 'en-gb', DataInterface>
+ * Need them for `ContentRelationshipField`s e.g.
+ * 
+ *     type Doc = PrismicDocument<{ title: prismic.RichTextField }>
+ *     type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
+ *     ContentRelationshipField<'formats', 'en-gb', DataInterface>
+ * 
  */
 export type InferDataInterface<T> = T extends prismic.PrismicDocument<
   infer DataInterface

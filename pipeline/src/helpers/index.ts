@@ -1,4 +1,4 @@
-import * as prismic from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
   return typeof val !== "undefined";
