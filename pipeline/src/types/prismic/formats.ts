@@ -1,4 +1,4 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 import {
   articleFormatIds,
   contentTypes,
@@ -9,9 +9,9 @@ export type ContentType = (typeof contentTypes)[number];
 export type ArticleFormatId =
   (typeof articleFormatIds)[keyof typeof articleFormatIds];
 
-export type PrismicArticleFormat = prismicT.PrismicDocument<
+export type PrismicArticleFormat = prismic.PrismicDocument<
   {
-    title: prismicT.RichTextField;
+    title: prismic.RichTextField;
   },
   "article-formats"
 >;

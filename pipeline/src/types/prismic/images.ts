@@ -1,10 +1,10 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 import { ImageDimensions } from "..";
 
 // Currently the Prismic types only allow you to specify 1 image
 type ThumbnailedImageField<Thumbnails extends Record<string, ImageDimensions>> =
-  prismicT.FilledImageFieldImage & {
-    [Property in keyof Thumbnails]?: prismicT.FilledImageFieldImage;
+  prismic.FilledImageFieldImage & {
+    [Property in keyof Thumbnails]?: prismic.FilledImageFieldImage;
   };
 
 export type PrismicImage = ThumbnailedImageField<{

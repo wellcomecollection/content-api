@@ -1,6 +1,6 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 
-export const prismicGet = <T extends prismicT.PrismicDocument>(docs: T[]) =>
+export const prismicGet = <T extends prismic.PrismicDocument>(docs: T[]) =>
   jest
     .fn()
     .mockResolvedValueOnce({ results: docs })

@@ -1,5 +1,4 @@
-import * as prismicT from "@prismicio/types";
-import * as prismicH from "@prismicio/helpers";
+import * as prismic from "@prismicio/client";
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
   return typeof val !== "undefined";
@@ -17,7 +16,7 @@ export function isString(v: any): v is string {
  * they add extra validation steps, e.g. removing stray whitespace or null values.
  */
 export function asText(
-  field: prismicT.KeyTextField | prismicT.RichTextField
+  field: prismic.KeyTextField | prismic.RichTextField
 ): string | undefined {
   if (isString(field)) {
     // KeyTextField
@@ -25,12 +24,12 @@ export function asText(
   } else {
     // RichTextField
     const output =
-      field && field.length > 0 ? prismicH.asText(field).trim() : undefined;
+      field && field.length > 0 ? prismic.asText(field).trim() : undefined;
     return output && output.length > 0 ? output : undefined;
   }
 }
 
-export function asTitle(title: prismicT.RichTextField): string {
+export function asTitle(title: prismic.RichTextField): string {
   // We always need a title - blunt validation, but validation none the less
   return asText(title) || "";
 }

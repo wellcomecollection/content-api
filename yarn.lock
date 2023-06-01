@@ -1431,27 +1431,18 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.4.1.tgz#ff22eb2e5d476fbc2450a196e40dd243cc20c28f"
   integrity sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==
 
-"@prismicio/client@^6.7.3":
-  version "6.7.3"
-  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-6.7.3.tgz#a9744f523507334de86c6bad98417b3dd4f4b6d2"
-  integrity sha512-zQVZhuQDYIgdaY636u+QNk2tvvbtpkaKsEiLT0Ef51nFW/y5fqpOG5U0eU3cVsikZaYNlZ17x6O1wmvVCLdimQ==
+"@prismicio/client@^7.0.0":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.0.1.tgz#5cc9693a81c52c3e71721271ca2583cbb7004445"
+  integrity sha512-f4SDcDwVB2T73QKJJtzXd8LsfvDgIqOQNhC78bwsKLb1BjfPZNucsyIcRI9jGZdGxcU7lA+HStkYHw6z98ofKQ==
   dependencies:
-    "@prismicio/helpers" "^2.3.8"
-    "@prismicio/types" "^0.2.7"
-
-"@prismicio/helpers@^2.3.8", "@prismicio/helpers@^2.3.9":
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/@prismicio/helpers/-/helpers-2.3.9.tgz#dd2513a429644ed2d7a6fbc8955de6b2e9659fc0"
-  integrity sha512-p7Y1sG83A2YPZvptfAzuZA8xH1bdM2wGRjqSKW9Qa0rAnBq2OfVKRvwl9OMCZML4eLUMxSEUAEWRVSoKpQnJvA==
-  dependencies:
-    "@prismicio/richtext" "^2.1.4"
-    "@prismicio/types" "^0.2.7"
+    "@prismicio/richtext" "^2.1.5"
     imgix-url-builder "^0.0.3"
 
-"@prismicio/richtext@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.1.4.tgz#c79070542f395ce4bfb44e32dc82dfb5ef828c91"
-  integrity sha512-hyC8XItj+2yMmLGNjg9xGA/lRMO5UgbPF132VFrpZHzHhtIKvHN3iYxCZxnrEoPaTcT6JjA8vWyYLjmmB49bvw==
+"@prismicio/richtext@^2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.1.5.tgz#8a433939765bead2a521150fb15af0b49c6af421"
+  integrity sha512-Sf6iCsciPmfK3uQeFmeY9RTRSuhrCVzyU39OkiJ1VJn8O0531pKapGoWS+5WGxouJtE5+jGqV8L+L2mKP7NkXQ==
   dependencies:
     "@prismicio/types" "^0.2.7"
 

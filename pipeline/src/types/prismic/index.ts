@@ -1,33 +1,35 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 import { PrismicImage } from "..";
 
 /**
- * This is a convenience type for what the generic DataInterface type extend in @prismicio/types
+ * This is a convenience type for what the generic DataInterface type extend in @prismicio/client
  */
 export type DataInterface = Record<
   string,
-  prismicT.AnyRegularField | prismicT.GroupField | prismicT.SliceZone
+  prismic.AnyRegularField | prismic.GroupField | prismic.SliceZone
 >;
 
 /**
  * This allows us to get the DataInterface from PrismicDocuments when we
- * Need them for `RelationField`s e.g.
- * type Doc = PrismicDocument<{ title: RichTextField }>
- * type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
- * RelationField<'formats', 'en-gb', DataInterface>
+ * Need them for `ContentRelationshipField`s e.g.
+ *
+ *     type Doc = PrismicDocument<{ title: prismic.RichTextField }>
+ *     type DataInterface = InferDataInterface<Doc> // { title: RichTextField }
+ *     ContentRelationshipField<'formats', 'en-gb', DataInterface>
+ *
  */
-export type InferDataInterface<T> = T extends prismicT.PrismicDocument<
+export type InferDataInterface<T> = T extends prismic.PrismicDocument<
   infer DataInterface
 >
   ? DataInterface
   : never;
 
-type Promo = { caption: prismicT.RichTextField; image: PrismicImage };
-export type PromoSliceZone = prismicT.SliceZone<
-  prismicT.Slice<"editorialImage", Promo>
+type Promo = { caption: prismic.RichTextField; image: PrismicImage };
+export type PromoSliceZone = prismic.SliceZone<
+  prismic.Slice<"editorialImage", Promo>
 >;
 
 export type CommonPrismicFields = {
-  title: prismicT.RichTextField;
+  title: prismic.RichTextField;
   promo: PromoSliceZone;
 };

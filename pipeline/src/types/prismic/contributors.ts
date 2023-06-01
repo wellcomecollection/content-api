@@ -1,20 +1,20 @@
-import * as prismicT from "@prismicio/types";
+import * as prismic from "@prismicio/client";
 
 type PrismicContributorContributor =
-  | prismicT.EmptyLinkField<"Document">
-  | prismicT.FilledLinkToDocumentField<
+  | prismic.EmptyLinkField<"Document">
+  | prismic.FilledContentRelationshipField<
       "organisations" | "people",
       "en-gb",
-      { name: prismicT.RichTextField }
+      { name: prismic.RichTextField }
     >;
 
-type PrismicContributorRole = prismicT.RelationField<
+type PrismicContributorRole = prismic.ContentRelationshipField<
   "editorial-contributor-roles",
   "en-gb",
-  { title: prismicT.RichTextField }
+  { title: prismic.RichTextField }
 >;
 
-type Contributors = prismicT.GroupField<{
+type Contributors = prismic.GroupField<{
   role: PrismicContributorRole;
   contributor: PrismicContributorContributor;
 }>;

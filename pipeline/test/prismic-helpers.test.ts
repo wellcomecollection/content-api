@@ -1,5 +1,4 @@
 import * as prismic from "@prismicio/client";
-import * as prismicT from "@prismicio/types";
 import { lastValueFrom, of } from "rxjs";
 import { getDocumentsByID, paginator } from "../src/helpers/prismic";
 import { identifiedDocuments } from "./fixtures/generators";
@@ -10,7 +9,7 @@ describe("paginator", () => {
     const pageSize = 10;
     const allThings = identifiedDocuments(
       totalDocs
-    ) as unknown as prismicT.PrismicDocument[];
+    ) as unknown as prismic.PrismicDocument[];
     const nextPage = jest.fn((after?: string) => {
       const idx = after ? allThings.findIndex((doc) => doc.id === after) : 0;
       return Promise.resolve({
