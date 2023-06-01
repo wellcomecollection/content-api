@@ -1,5 +1,4 @@
 import * as prismic from "@prismicio/client";
-import * as prismic from "@prismicio/client";
 import { lastValueFrom, of } from "rxjs";
 import { getDocumentsByID, paginator } from "../src/helpers/prismic";
 import { identifiedDocuments } from "./fixtures/generators";
