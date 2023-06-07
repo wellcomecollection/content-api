@@ -6,9 +6,57 @@ exports[`articles query makes the expected query to ES for a given set of query 
     "display",
   ],
   "aggregations": {
+    "contributors.contributor": {
+      "aggs": {
+        "filtered": {
+          "filter": {
+            "bool": {
+              "filter": [
+                {
+                  "terms": {
+                    "filter.formatId": [
+                      "test-format",
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+      "terms": {
+        "field": "aggregatableValues.contributors",
+        "min_doc_count": 0,
+        "order": {
+          "filtered": "desc",
+        },
+        "size": 20,
+      },
+    },
     "format": {
+      "aggs": {
+        "filtered": {
+          "filter": {
+            "bool": {
+              "filter": [
+                {
+                  "terms": {
+                    "filter.contributorIds": [
+                      "test-contributor",
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
       "terms": {
         "field": "aggregatableValues.format",
+        "min_doc_count": 0,
+        "order": {
+          "filtered": "desc",
+        },
         "size": 20,
       },
     },
@@ -18,6 +66,13 @@ exports[`articles query makes the expected query to ES for a given set of query 
   "post_filter": {
     "bool": {
       "filter": [
+        {
+          "terms": {
+            "filter.contributorIds": [
+              "test-contributor",
+            ],
+          },
+        },
         {
           "terms": {
             "filter.formatId": [
@@ -31,13 +86,6 @@ exports[`articles query makes the expected query to ES for a given set of query 
   "query": {
     "bool": {
       "filter": [
-        {
-          "terms": {
-            "filter.contributorIds": [
-              "test-contributor",
-            ],
-          },
-        },
         {
           "range": {
             "filter.publicationDate": {
