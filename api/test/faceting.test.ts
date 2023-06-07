@@ -6,7 +6,7 @@ import {
 import { SortOrder } from "@elastic/elasticsearch/lib/api/types";
 
 describe("rewriteAggregationsForFacets", () => {
-  it("rewrites aggregations correctly when their corresponding filters are present", () => {
+  it("rewrites aggregations correctly when other filters are present", () => {
     const { format } = articlesAggregations;
     const aggregations = { format };
     const filters = {
@@ -31,9 +31,11 @@ describe("rewriteAggregationsForFacets", () => {
     ).toIncludeAnyMembers([filters["contributors.contributor"]]);
   });
 
-  it("does not modify aggregations which have no corresponding filter present", () => {
-    const { format } = articlesAggregations;
-    const aggregations = { format };
+  it("does not modify aggregations when there are no other filters present", () => {
+    const aggregations = {
+      "contributors.contributor":
+        articlesAggregations["contributors.contributor"],
+    };
     const filters = {
       "contributors.contributor": articlesFilter["contributors.contributor"]([
         "test",
@@ -44,7 +46,9 @@ describe("rewriteAggregationsForFacets", () => {
       filters
     );
 
-    expect(facetedAggregations.format).toStrictEqual(format);
+    expect(facetedAggregations["contributors.contributor"]).toStrictEqual(
+      articlesAggregations["contributors.contributor"]
+    );
   });
 });
 
@@ -63,8 +67,8 @@ describe("partitionFiltersForFacets", () => {
       aggregations,
       filters
     );
-    expect(postFilters).toIncludeAllMembers([filters.format]);
-    expect(queryFilters).toIncludeAllMembers([
+    expect(postFilters).toContainAllValues([filters.format]);
+    expect(queryFilters).toContainAllValues([
       filters["contributors.contributor"],
     ]);
   });

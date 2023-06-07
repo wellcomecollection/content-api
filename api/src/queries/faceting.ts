@@ -48,30 +48,34 @@ const filtered = (
 
 export const rewriteAggregationsForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
-  filters: Record<string, QueryDslQueryContainer>
+  postFilters: Record<string, QueryDslQueryContainer>
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
-    Object.entries(aggregations).map(([name, agg]) => [
-      name,
-      name in filters // If we have applied the filter corresponding to this aggregation
-        ? {
-            ...filtered(agg), // See above
-            aggs: {
-              // The sub-aggregation has a fixed name, `filtered`, and applies all requested
-              // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
-              // "When a filter and its paired aggregation are both applied, that aggregation's buckets are not filtered"
-              filtered: {
-                // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html
-                filter: {
-                  bool: {
-                    filter: excludeValue(filters, name),
-                  },
+    Object.entries(aggregations).map(([name, agg]) => {
+      const otherFilters = excludeValue(postFilters, name);
+      // No need to rewrite if there are no other filters to apply
+      if (otherFilters.length === 0) {
+        return [name, agg];
+      } else {
+        const filteredAgg = {
+          ...filtered(agg), // See above
+          aggs: {
+            // The sub-aggregation has a fixed name, `filtered`, and applies all requested
+            // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
+            // "When a filter and its paired aggregation are both applied, that aggregation's buckets are not filtered"
+            filtered: {
+              // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html
+              filter: {
+                bool: {
+                  filter: excludeValue(postFilters, name),
                 },
               },
             },
-          }
-        : agg,
-    ])
+          },
+        };
+        return [name, filteredAgg];
+      }
+    })
   );
 
 // While we do want all requested filters to apply to our search results, we don't
@@ -86,14 +90,14 @@ export const partitionFiltersForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
   filters: Record<string, QueryDslQueryContainer>
 ) => {
-  const postFilters: QueryDslQueryContainer[] = [];
-  const queryFilters: QueryDslQueryContainer[] = [];
+  const postFilters: Record<string, QueryDslQueryContainer> = {};
+  const queryFilters: Record<string, QueryDslQueryContainer> = {};
 
   for (const [filterName, filter] of Object.entries(filters)) {
     if (filterName in aggregations) {
-      postFilters.push(filter);
+      postFilters[filterName] = filter;
     } else {
-      queryFilters.push(filter);
+      queryFilters[filterName] = filter;
     }
   }
 

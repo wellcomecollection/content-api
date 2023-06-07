@@ -7,29 +7,8 @@ exports[`articles query makes the expected query to ES for a given set of query 
   ],
   "aggregations": {
     "format": {
-      "aggs": {
-        "filtered": {
-          "filter": {
-            "bool": {
-              "filter": [
-                {
-                  "terms": {
-                    "filter.contributorIds": [
-                      "test-contributor",
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        },
-      },
       "terms": {
         "field": "aggregatableValues.format",
-        "min_doc_count": 0,
-        "order": {
-          "filtered": "desc",
-        },
         "size": 20,
       },
     },
