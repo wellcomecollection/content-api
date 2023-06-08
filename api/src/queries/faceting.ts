@@ -48,17 +48,24 @@ const filtered = (
 
 export const rewriteAggregationsForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
+  // We only need to deal with filters that aren't already applied by the query: this means post_filters.
+  // These are determined below (`partitionFiltersForFacets`); they are the filters for which corresponding
+  // aggregations are present and so require finer-grained application to individual aggregations,
+  // in order to (a) avoid applying them to their corresponding aggregation and (b) make sure they _are_
+  // applied to all other aggregations.
   postFilters: Record<string, QueryDslQueryContainer>
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
       const otherFilters = excludeValue(postFilters, name);
       // No need to rewrite if there are no other filters to apply
+      // as the subquery would be empty: note that this branch is a
+      // short-circuit rather than containing any business logic.
       if (otherFilters.length === 0) {
         return [name, agg];
       } else {
         const filteredAgg = {
-          ...filtered(agg), // See above
+          ...filtered(agg), // See function definition above
           aggs: {
             // The sub-aggregation has a fixed name, `filtered`, and applies all requested
             // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
