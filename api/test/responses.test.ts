@@ -81,4 +81,17 @@ describe("mapAggregations", () => {
       elasticAggregationsWithSubAgg.format.buckets[0].doc_count
     );
   });
+
+  it("handles the case where the aggregation returns zero buckets", () => {
+    const elasticAggregations = {
+      format: {
+        doc_count_error_upper_bound: 0,
+        sum_other_doc_count: 0,
+        buckets: [],
+      },
+    };
+    const mappedAggregations = mapAggregations(elasticAggregations);
+
+    expect(mappedAggregations.format.buckets).toHaveLength(0);
+  });
 });

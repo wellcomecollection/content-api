@@ -17,4 +17,8 @@ type TermsBucket = {
 export const isMultiBucketAggregation = (
   agg: AggregationsAggregate
 ): agg is AggregationsMultiBucketAggregateBase<TermsBucket> =>
-  "buckets" in agg && "doc_count" in agg.buckets[0] && "key" in agg.buckets[0];
+  "buckets" in agg &&
+  // Buckets might reasonably be empty, in which case obviously we can't/shouldn't
+  // check their shape
+  (agg.buckets.length === 0 ||
+    ("doc_count" in agg.buckets[0] && "key" in agg.buckets[0]));
