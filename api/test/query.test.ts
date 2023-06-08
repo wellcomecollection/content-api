@@ -8,7 +8,7 @@ describe("articles query", () => {
   // The purpose of this test is as a smoke test for the question,
   // "do we understand how we map a given query into an ES request?"
   it("makes the expected query to ES for a given set of query parameters", async () => {
-    const aggregations = "format";
+    const aggregations = "format,contributors.contributor";
     const format = "test-format";
     const contributor = "test-contributor";
     const pageSize = 42;
@@ -37,14 +37,14 @@ describe("articles query", () => {
 
     expect(esRequest.from).toBe((page - 1) * pageSize);
     expect(esRequest.size).toBe(pageSize);
-    expect(esRequest.aggregations).toContainAllKeys([aggregations]);
+    expect(esRequest.aggregations).toContainAllKeys(aggregations.split(","));
 
     expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
-    expect(JSON.stringify(esRequest.query?.bool?.filter)).toInclude(
-      contributor
-    );
     expect(JSON.stringify(esRequest.query?.bool?.filter)).toInclude(dateFrom);
     expect(JSON.stringify(esRequest.query?.bool?.filter)).toInclude(dateTo);
+    expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
+      contributor
+    );
     expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
       format
     );

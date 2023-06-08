@@ -48,30 +48,41 @@ const filtered = (
 
 export const rewriteAggregationsForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
-  filters: Record<string, QueryDslQueryContainer>
+  // We only need to deal with filters that aren't already applied by the query: this means post_filters.
+  // These are determined below (`partitionFiltersForFacets`); they are the filters for which corresponding
+  // aggregations are present and so require finer-grained application to individual aggregations,
+  // in order to (a) avoid applying them to their corresponding aggregation and (b) make sure they _are_
+  // applied to all other aggregations.
+  postFilters: Record<string, QueryDslQueryContainer>
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
-    Object.entries(aggregations).map(([name, agg]) => [
-      name,
-      name in filters // If we have applied the filter corresponding to this aggregation
-        ? {
-            ...filtered(agg), // See above
-            aggs: {
-              // The sub-aggregation has a fixed name, `filtered`, and applies all requested
-              // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
-              // "When a filter and its paired aggregation are both applied, that aggregation's buckets are not filtered"
-              filtered: {
-                // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html
-                filter: {
-                  bool: {
-                    filter: excludeValue(filters, name),
-                  },
+    Object.entries(aggregations).map(([name, agg]) => {
+      const otherFilters = excludeValue(postFilters, name);
+      // No need to rewrite if there are no other filters to apply
+      // as the subquery would be empty: note that this branch is a
+      // short-circuit rather than containing any business logic.
+      if (otherFilters.length === 0) {
+        return [name, agg];
+      } else {
+        const filteredAgg = {
+          ...filtered(agg), // See function definition above
+          aggs: {
+            // The sub-aggregation has a fixed name, `filtered`, and applies all requested
+            // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
+            // "When a filter and its paired aggregation are both applied, that aggregation's buckets are not filtered"
+            filtered: {
+              // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html
+              filter: {
+                bool: {
+                  filter: excludeValue(postFilters, name),
                 },
               },
             },
-          }
-        : agg,
-    ])
+          },
+        };
+        return [name, filteredAgg];
+      }
+    })
   );
 
 // While we do want all requested filters to apply to our search results, we don't
@@ -86,14 +97,14 @@ export const partitionFiltersForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
   filters: Record<string, QueryDslQueryContainer>
 ) => {
-  const postFilters: QueryDslQueryContainer[] = [];
-  const queryFilters: QueryDslQueryContainer[] = [];
+  const postFilters: Record<string, QueryDslQueryContainer> = {};
+  const queryFilters: Record<string, QueryDslQueryContainer> = {};
 
   for (const [filterName, filter] of Object.entries(filters)) {
     if (filterName in aggregations) {
-      postFilters.push(filter);
+      postFilters[filterName] = filter;
     } else {
-      queryFilters.push(filter);
+      queryFilters[filterName] = filter;
     }
   }
 

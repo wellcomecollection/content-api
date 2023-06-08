@@ -79,12 +79,12 @@ const articlesController = (
     );
 
     // See comments in `queries/faceting.ts` for some explanation of what's going on here
-    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
-      rewriteAggregationsForFacets(aggs, initialFilters)
-    );
     const { postFilters, queryFilters } = partitionFiltersForFacets(
       initialAggregations ?? {},
       initialFilters
+    );
+    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
+      rewriteAggregationsForFacets(aggs, postFilters)
     );
 
     // The date filter is a special case because 2 parameters filter 1 field,
@@ -112,12 +112,12 @@ const articlesController = (
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),
-            filter: [queryFilters, dateFilters].flat(),
+            filter: [Object.values(queryFilters), dateFilters].flat(),
           },
         },
         post_filter: {
           bool: {
-            filter: postFilters,
+            filter: Object.values(postFilters),
           },
         },
         sort: [
