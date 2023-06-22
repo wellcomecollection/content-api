@@ -1,4 +1,5 @@
 import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
+import { TermsFilter } from "./common";
 
 export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
@@ -23,16 +24,20 @@ export const articlesQuery = (queryString: string): QueryDslQueryContainer => ({
 });
 
 export const articlesFilter = {
-  "contributors.contributor": (
-    contributors: string[]
-  ): QueryDslQueryContainer => ({
-    terms: {
-      "filter.contributorIds": contributors,
+  "contributors.contributor": (contributors: string[]): TermsFilter => ({
+    values: contributors,
+    esQuery: {
+      terms: {
+        "filter.contributorIds": contributors,
+      },
     },
   }),
-  format: (formats: string[]): QueryDslQueryContainer => ({
-    terms: {
-      "filter.formatId": formats,
+  format: (formats: string[]): TermsFilter => ({
+    values: formats,
+    esQuery: {
+      terms: {
+        "filter.formatId": formats,
+      },
     },
   }),
   publicationDate: (from?: Date, to?: Date): QueryDslQueryContainer => ({
