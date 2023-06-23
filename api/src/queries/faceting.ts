@@ -19,7 +19,7 @@ const excludeValue = <T>(
     .filter(([key]) => key !== keyToExclude)
     .map(([_, value]) => value);
 
-const withEmptySelfFilter = (
+const includeEmptyFilterValues = (
   aggregation: AggregationsAggregationContainer,
   filter: Filter
 ): AggregationsAggregationContainer =>
@@ -58,15 +58,19 @@ export const rewriteAggregationsForFacets = (
             },
           },
           aggs: {
-            [name]: agg,
-            self_filters: {
-              filter: esQuery(postFilters[name]),
-              aggs: {
-                [name]: withEmptySelfFilter(agg, postFilters[name]),
-              },
-            },
+            terms: agg,
           },
         };
+
+        if (name in postFilters) {
+          filteredAgg.aggs!.self_filter = {
+            filter: esQuery(postFilters[name]),
+            aggs: {
+              terms: includeEmptyFilterValues(agg, postFilters[name]),
+            },
+          } as AggregationsAggregationContainer;
+        }
+
         return [name, filteredAgg];
       }
     })
