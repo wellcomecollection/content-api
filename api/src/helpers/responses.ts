@@ -71,7 +71,6 @@ export const resultListResponse = (config: Config) => {
       hit._source ? [hit._source.display] : []
     );
 
-    console.log(JSON.stringify(searchResponse.aggregations, null, 2));
     const aggregations: Aggregations | undefined = searchResponse.aggregations
       ? mapAggregations(searchResponse.aggregations)
       : undefined;

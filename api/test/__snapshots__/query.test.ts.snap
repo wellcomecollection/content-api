@@ -8,56 +8,86 @@ exports[`articles query makes the expected query to ES for a given set of query 
   "aggregations": {
     "contributors.contributor": {
       "aggs": {
-        "filtered": {
+        "self_filter": {
+          "aggs": {
+            "terms": {
+              "terms": {
+                "field": "aggregatableValues.contributors",
+                "include": ".*test-contributor.*",
+                "min_doc_count": 0,
+                "size": 20,
+              },
+            },
+          },
           "filter": {
-            "bool": {
-              "filter": [
-                {
-                  "terms": {
-                    "filter.formatId": [
-                      "test-format",
-                    ],
-                  },
-                },
+            "terms": {
+              "filter.contributorIds": [
+                "test-contributor",
               ],
             },
           },
         },
-      },
-      "terms": {
-        "field": "aggregatableValues.contributors",
-        "min_doc_count": 0,
-        "order": {
-          "filtered": "desc",
+        "terms": {
+          "terms": {
+            "field": "aggregatableValues.contributors",
+            "size": 20,
+          },
         },
-        "size": 20,
+      },
+      "filter": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "filter.formatId": [
+                  "test-format",
+                ],
+              },
+            },
+          ],
+        },
       },
     },
     "format": {
       "aggs": {
-        "filtered": {
+        "self_filter": {
+          "aggs": {
+            "terms": {
+              "terms": {
+                "field": "aggregatableValues.format",
+                "include": ".*test-format.*",
+                "min_doc_count": 0,
+                "size": 20,
+              },
+            },
+          },
           "filter": {
-            "bool": {
-              "filter": [
-                {
-                  "terms": {
-                    "filter.contributorIds": [
-                      "test-contributor",
-                    ],
-                  },
-                },
+            "terms": {
+              "filter.formatId": [
+                "test-format",
               ],
             },
           },
         },
-      },
-      "terms": {
-        "field": "aggregatableValues.format",
-        "min_doc_count": 0,
-        "order": {
-          "filtered": "desc",
+        "terms": {
+          "terms": {
+            "field": "aggregatableValues.format",
+            "size": 20,
+          },
         },
-        "size": 20,
+      },
+      "filter": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "filter.contributorIds": [
+                  "test-contributor",
+                ],
+              },
+            },
+          ],
+        },
       },
     },
   },
