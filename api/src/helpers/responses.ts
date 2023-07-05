@@ -14,6 +14,7 @@ import {
 } from "../types/responses";
 import { Config } from "../../config";
 import { paginationResponseGetter } from "../controllers/pagination";
+import { isNotUndefined } from "./index";
 
 const mapBucket = (
   bucket: AggregationsStringTermsBucket
@@ -36,9 +37,9 @@ export const mapAggregations = (
       const selfFilterBuckets: AggregationsStringTermsBucket[] =
         aggregation.self_filter?.terms.buckets;
       const selfFilterBucket: AggregationsStringTermsBucket | undefined =
-        selfFilterBuckets[0];
+        selfFilterBuckets?.[0];
 
-      if (selfFilterBuckets.length > 1) {
+      if (selfFilterBuckets?.length > 1) {
         logger.warn(
           `Ambiguous self-filter buckets: ${selfFilterBuckets
             .map((b) => JSON.stringify(b, null, 2))
@@ -46,10 +47,13 @@ export const mapAggregations = (
         );
       }
 
-      const allBuckets = [
-        ...buckets.filter((b) => b.key !== selfFilterBucket?.key),
-        selfFilterBucket,
-      ]
+      const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
+      const allBuckets = [...buckets, selfFilterBucket]
+        .filter((b) => {
+          const result = isNotUndefined(b) && !bucketKeys.has(b.key);
+          bucketKeys.add(b?.key);
+          return result;
+        })
         .sort((a, b) => b.doc_count - a.doc_count)
         .map(mapBucket);
       return [[name, { buckets: allBuckets, type: "Aggregation" }]];
@@ -67,6 +71,7 @@ export const resultListResponse = (config: Config) => {
       hit._source ? [hit._source.display] : []
     );
 
+    console.log(JSON.stringify(searchResponse.aggregations, null, 2));
     const aggregations: Aggregations | undefined = searchResponse.aggregations
       ? mapAggregations(searchResponse.aggregations)
       : undefined;

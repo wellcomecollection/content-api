@@ -21,14 +21,11 @@ describe("rewriteAggregationsForFacets", () => {
     );
 
     const rewrittenFormatAgg = facetedAggregations.format;
-    expect(rewrittenFormatAgg.terms?.min_doc_count).toBe(0);
-    expect(
-      (rewrittenFormatAgg.terms?.order as Record<string, SortOrder>).filtered
-    ).toBe("desc");
-    expect(rewrittenFormatAgg.aggs?.filtered.filter?.bool?.filter).toBeArray();
-    expect(
-      rewrittenFormatAgg.aggs?.filtered.filter?.bool?.filter
-    ).toIncludeAnyMembers([filters["contributors.contributor"]]);
+    expect(rewrittenFormatAgg.filter).toBeDefined();
+    expect(rewrittenFormatAgg.filter?.bool?.filter).toIncludeAnyMembers([
+      filters["contributors.contributor"].esQuery,
+    ]);
+    expect(rewrittenFormatAgg.aggs?.terms).toEqual(aggregations.format);
   });
 
   it("does not modify aggregations when there are no other filters present", () => {

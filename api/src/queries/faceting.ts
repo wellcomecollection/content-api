@@ -19,6 +19,7 @@ const excludeValue = <T>(
     .filter(([key]) => key !== keyToExclude)
     .map(([_, value]) => value);
 
+// Modifies a terms aggregation in order to (a) include empty buckets and (b) only include values from a given filter
 const includeEmptyFilterValues = (
   aggregation: AggregationsAggregationContainer,
   filter: Filter
