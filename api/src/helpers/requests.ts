@@ -1,6 +1,7 @@
 import { StringLiteral } from "../types";
 import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
 import { ifDefined } from "./index";
+import { Filter } from "../queries/common";
 
 // Given an object of query parameters, and one with the same keys
 // of functions that create filter objects, apply all those functions
@@ -9,13 +10,13 @@ export const pickFiltersFromQuery = <
   Name extends string,
   Query extends { [key in Name]?: string },
   Filters extends {
-    [key in Name]: (params: string[]) => QueryDslQueryContainer;
+    [key in Name]: (params: string[]) => Filter;
   }
 >(
   filterNames: ReadonlyArray<StringLiteral<Name>>,
   query: Query,
   filters: Filters
-): Record<Name, QueryDslQueryContainer> =>
+): Record<Name, Filter> =>
   Object.fromEntries(
     filterNames.flatMap((filterName) => {
       const maybeFilter = ifDefined(
@@ -24,4 +25,4 @@ export const pickFiltersFromQuery = <
       );
       return maybeFilter ? [[filterName, maybeFilter]] : [];
     })
-  ) as Record<Name, QueryDslQueryContainer>;
+  ) as Record<Name, Filter>;

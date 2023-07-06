@@ -2,6 +2,7 @@ import {
   AggregationsAggregationContainer,
   QueryDslQueryContainer,
 } from "@elastic/elasticsearch/lib/api/types";
+import { esQuery, Filter, isTermsFilter } from "./common";
 
 // This file contains functions to rewrite terms aggregations and filters
 // in order to fulfil the requirements of a faceting interface as documented
@@ -18,30 +19,18 @@ const excludeValue = <T>(
     .filter(([key]) => key !== keyToExclude)
     .map(([_, value]) => value);
 
-// If we are adding a `filter` sub-aggregation to a `terms` aggregation, this means
-// that we have also applied the filter corresponding to the aggregated value, and
-// so we want to tweak the aggregation in a couple of ways:
-// 1. `min_doc_count: 0`: necessary to fulfil point (6) of the RFC,
-//    "When a filter and its paired aggregation are both applied, the bucket corresponding to the filtered value is always present"
-// 2. `order.filtered: "desc"`: we want buckets to be ordered by the filtered value
-//     because this will be the value returned to consumers of the API.
-//
-// see also:
-// https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html#_minimum_document_count_4
-// https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html#_ordering_by_a_sub_aggregation
-const filtered = (
-  aggregation: AggregationsAggregationContainer
+// Modifies a terms aggregation in order to (a) include empty buckets and (b) only include values from a given filter
+const includeEmptyFilterValues = (
+  aggregation: AggregationsAggregationContainer,
+  filter: Filter
 ): AggregationsAggregationContainer =>
-  // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html
-  "terms" in aggregation
+  "terms" in aggregation && isTermsFilter(filter)
     ? {
         ...aggregation,
         terms: {
           ...aggregation.terms,
           min_doc_count: 0,
-          order: {
-            filtered: "desc",
-          },
+          include: filter.values.map((val) => `.*${val}.*`).join("|"),
         },
       }
     : aggregation;
@@ -53,33 +42,36 @@ export const rewriteAggregationsForFacets = (
   // aggregations are present and so require finer-grained application to individual aggregations,
   // in order to (a) avoid applying them to their corresponding aggregation and (b) make sure they _are_
   // applied to all other aggregations.
-  postFilters: Record<string, QueryDslQueryContainer>
+  postFilters: Record<string, Filter>
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
       const otherFilters = excludeValue(postFilters, name);
-      // No need to rewrite if there are no other filters to apply
-      // as the subquery would be empty: note that this branch is a
-      // short-circuit rather than containing any business logic.
+      // No need to rewrite if there are no other filters to apply:
+      // note that this branch is a short-circuit rather than containing any business logic.
       if (otherFilters.length === 0) {
         return [name, agg];
       } else {
-        const filteredAgg = {
-          ...filtered(agg), // See function definition above
-          aggs: {
-            // The sub-aggregation has a fixed name, `filtered`, and applies all requested
-            // filters _except_ for the one it corresponds to. This is to fulfil point (5) of the RFC:
-            // "When a filter and its paired aggregation are both applied, that aggregation's buckets are not filtered"
-            filtered: {
-              // See https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-filter-aggregation.html
-              filter: {
-                bool: {
-                  filter: excludeValue(postFilters, name),
-                },
-              },
+        const filteredAgg: AggregationsAggregationContainer = {
+          filter: {
+            bool: {
+              filter: otherFilters.map(esQuery),
             },
           },
+          aggs: {
+            terms: agg,
+          },
         };
+
+        if (name in postFilters) {
+          filteredAgg.aggs!.self_filter = {
+            filter: esQuery(postFilters[name]),
+            aggs: {
+              terms: includeEmptyFilterValues(agg, postFilters[name]),
+            },
+          } as AggregationsAggregationContainer;
+        }
+
         return [name, filteredAgg];
       }
     })
@@ -95,10 +87,10 @@ export const rewriteAggregationsForFacets = (
 // (to be used in the normal `query`).
 export const partitionFiltersForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
-  filters: Record<string, QueryDslQueryContainer>
+  filters: Record<string, Filter>
 ) => {
-  const postFilters: Record<string, QueryDslQueryContainer> = {};
-  const queryFilters: Record<string, QueryDslQueryContainer> = {};
+  const postFilters: Record<string, Filter> = {};
+  const queryFilters: Record<string, Filter> = {};
 
   for (const [filterName, filter] of Object.entries(filters)) {
     if (filterName in aggregations) {

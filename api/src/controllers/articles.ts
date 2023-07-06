@@ -19,6 +19,7 @@ import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
 } from "../queries/faceting";
+import { esQuery } from "../queries/common";
 import { pickFiltersFromQuery } from "../helpers/requests";
 
 type QueryParams = {
@@ -112,12 +113,15 @@ const articlesController = (
         query: {
           bool: {
             must: ifDefined(queryString, articlesQuery),
-            filter: [Object.values(queryFilters), dateFilters].flat(),
+            filter: [
+              Object.values(queryFilters).map(esQuery),
+              dateFilters,
+            ].flat(),
           },
         },
         post_filter: {
           bool: {
-            filter: Object.values(postFilters),
+            filter: Object.values(postFilters).map(esQuery),
           },
         },
         sort: [
