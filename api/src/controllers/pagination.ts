@@ -26,10 +26,12 @@ export const paginationElasticBody = ({
   page,
   pageSize,
 }: PaginationQueryParameters): { from: number; size: number } => {
-  const size = Math.min(pageSize ?? defaultPageSize, limits.maxSize);
+  const safePage = isNaN(Number(page)) ? undefined : page;
+  const safeSize = isNaN(Number(pageSize)) ? undefined : pageSize;
+  const size = Math.min(safeSize ?? defaultPageSize, limits.maxSize);
   return {
     size,
-    from: ((page ?? 1) - 1) * size,
+    from: ((safePage ?? 1) - 1) * size,
   };
 };
 
@@ -39,21 +41,21 @@ const parsePaginationQueryParameters = (
   const page = parseNumberParam("page", params);
   const pageSize = parseNumberParam("pageSize", params);
 
-  if (page !== undefined && page < 1) {
+  if (page !== undefined && (page < 1 || isNaN(page))) {
     throw new HttpError({
       status: 400,
       label: "Bad Request",
-      description: "page: must be greater than 1",
+      description: "page: must be a number greater than 1",
     });
   }
   if (
     pageSize !== undefined &&
-    (pageSize > limits.maxSize || pageSize < limits.minSize)
+    (pageSize > limits.maxSize || pageSize < limits.minSize || isNaN(pageSize))
   ) {
     throw new HttpError({
       status: 400,
       label: "Bad request",
-      description: `pageSize: must be between ${limits.minSize} and ${limits.maxSize}`,
+      description: `pageSize: must be a number between ${limits.minSize} and ${limits.maxSize}`,
     });
   }
 
@@ -98,8 +100,11 @@ const parseNumberParam = (
   key: string,
   params: URLSearchParams
 ): number | undefined => {
-  const number = parseInt(params.get(key) ?? "");
-  return isNaN(number) ? undefined : number;
+  const value = params.get(key);
+  if (value === null) {
+    return undefined;
+  }
+  return parseInt(value);
 };
 
 const extractPublicUrl = (requestUrl: URL, publicRootUrl: URL): URL => {
