@@ -168,7 +168,7 @@ describe("mapAggregations", () => {
     expect(new Set(bucketKeys).size).toBe(bucketKeys.length);
   });
 
-  it("returns buckets in descending order of count", () => {
+  it("returns buckets in descending order of count and ascending order of ID", () => {
     const elasticAggregations = {
       "contributors.contributor": {
         doc_count: 37,
@@ -275,9 +275,14 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    const counts = mappedAggregations["contributors.contributor"].buckets.map(
-      (b) => b.count
-    );
-    expect(counts).toEqual(counts.sort());
+    const buckets = mappedAggregations["contributors.contributor"].buckets;
+    for (let i = 0; i < buckets.length - 1; i++) {
+      expect(buckets[i].count).toBeGreaterThanOrEqual(buckets[i + 1].count);
+      if (buckets[i].count === buckets[i + 1].count) {
+        expect(
+          buckets[i].data.id.localeCompare(buckets[i + 1].data.id)
+        ).toBeLessThanOrEqual(0);
+      }
+    }
   });
 });

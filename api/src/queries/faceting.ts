@@ -55,7 +55,7 @@ export const rewriteAggregationsForFacets = (
         const filteredAgg: AggregationsAggregationContainer = {
           filter: {
             bool: {
-              filter: excludeValue(postFilters, name).map(esQuery),
+              filter: otherFilters.map(esQuery),
             },
           },
           aggs: {

@@ -27,6 +27,10 @@ const mapBucket = (
   type: "AggregationBucket",
 });
 
+// Sort by count (descending) and then by ID (ascending)
+const compareBucket = (a: AggregationBucket, b: AggregationBucket) =>
+  b.count - a.count || (a.data.id ?? "").localeCompare(b.data.id ?? "");
+
 export const mapAggregations = (
   elasticAggs: AggregationsAggregate
 ): Aggregations =>
@@ -54,8 +58,8 @@ export const mapAggregations = (
           bucketKeys.add(b?.key);
           return result;
         })
-        .sort((a, b) => b.doc_count - a.doc_count)
-        .map(mapBucket);
+        .map(mapBucket)
+        .sort(compareBucket);
       return [[name, { buckets: allBuckets, type: "Aggregation" }]];
     })
   );
