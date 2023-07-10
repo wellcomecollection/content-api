@@ -10,6 +10,9 @@ locals {
       "${local.indices.articles}_read",
       "${local.indices.articles}_write"
     ]
+    unpublisher = [
+      "${local.indices.articles}_write"
+    ]
   }
 }
 
