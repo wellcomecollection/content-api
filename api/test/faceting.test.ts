@@ -3,10 +3,9 @@ import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
 } from "../src/queries/faceting";
-import { SortOrder } from "@elastic/elasticsearch/lib/api/types";
 
 describe("rewriteAggregationsForFacets", () => {
-  it("rewrites aggregations correctly when other filters are present", () => {
+  it("rewrites aggregations correctly", () => {
     const { format } = articlesAggregations;
     const aggregations = { format };
     const filters = {
@@ -26,26 +25,6 @@ describe("rewriteAggregationsForFacets", () => {
       filters["contributors.contributor"].esQuery,
     ]);
     expect(rewrittenFormatAgg.aggs?.terms).toEqual(aggregations.format);
-  });
-
-  it("does not modify aggregations when there are no other filters present", () => {
-    const aggregations = {
-      "contributors.contributor":
-        articlesAggregations["contributors.contributor"],
-    };
-    const filters = {
-      "contributors.contributor": articlesFilter["contributors.contributor"]([
-        "test",
-      ]),
-    };
-    const facetedAggregations = rewriteAggregationsForFacets(
-      aggregations,
-      filters
-    );
-
-    expect(facetedAggregations["contributors.contributor"]).toStrictEqual(
-      articlesAggregations["contributors.contributor"]
-    );
   });
 });
 

@@ -47,33 +47,27 @@ export const rewriteAggregationsForFacets = (
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
       const otherFilters = excludeValue(postFilters, name);
-      // No need to rewrite if there are no other filters to apply:
-      // note that this branch is a short-circuit rather than containing any business logic.
-      if (otherFilters.length === 0) {
-        return [name, agg];
-      } else {
-        const filteredAgg: AggregationsAggregationContainer = {
-          filter: {
-            bool: {
-              filter: otherFilters.map(esQuery),
-            },
+      const filteredAgg: AggregationsAggregationContainer = {
+        filter: {
+          bool: {
+            filter: otherFilters.map(esQuery),
           },
+        },
+        aggs: {
+          terms: agg,
+        },
+      };
+
+      if (name in postFilters) {
+        filteredAgg.aggs!.self_filter = {
+          filter: esQuery(postFilters[name]),
           aggs: {
-            terms: agg,
+            terms: includeEmptyFilterValues(agg, postFilters[name]),
           },
-        };
-
-        if (name in postFilters) {
-          filteredAgg.aggs!.self_filter = {
-            filter: esQuery(postFilters[name]),
-            aggs: {
-              terms: includeEmptyFilterValues(agg, postFilters[name]),
-            },
-          } as AggregationsAggregationContainer;
-        }
-
-        return [name, filteredAgg];
+        } as AggregationsAggregationContainer;
       }
+
+      return [name, filteredAgg];
     })
   );
 
