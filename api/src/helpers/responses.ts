@@ -39,20 +39,10 @@ export const mapAggregations = (
       const buckets: AggregationsStringTermsBucket[] =
         aggregation.buckets ?? aggregation.terms.buckets;
       const selfFilterBuckets: AggregationsStringTermsBucket[] =
-        aggregation.self_filter?.terms.buckets;
-      const selfFilterBucket: AggregationsStringTermsBucket | undefined =
-        selfFilterBuckets?.[0];
-
-      if (selfFilterBuckets?.length > 1) {
-        logger.warn(
-          `Ambiguous self-filter buckets: ${selfFilterBuckets
-            .map((b) => JSON.stringify(b, null, 2))
-            .join("\n")}`
-        );
-      }
+        aggregation.self_filter?.terms.buckets ?? [];
 
       const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
-      const allBuckets = [...buckets, selfFilterBucket]
+      const allBuckets = [...buckets, ...selfFilterBuckets]
         .filter((b) => {
           const result = isNotUndefined(b) && !bucketKeys.has(b.key);
           bucketKeys.add(b?.key);
