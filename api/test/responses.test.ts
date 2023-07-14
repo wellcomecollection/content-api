@@ -107,6 +107,10 @@ describe("mapAggregations", () => {
             sum_other_doc_count: 0,
             buckets: [
               {
+                key: '{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}',
+                doc_count: 1,
+              },
+              {
                 key: '{"type":"ArticleFormat","id":"ZBH6PRQAAIrrFirA","label":"Short film"}',
                 doc_count: 0,
               },
@@ -117,12 +121,21 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    expect(mappedAggregations.format.buckets).toHaveLength(2);
+    expect(mappedAggregations.format.buckets).toHaveLength(3);
     expect(mappedAggregations.format.buckets).toContainEqual({
       count: 0,
       data: {
         id: "ZBH6PRQAAIrrFirA",
         label: "Short film",
+        type: "ArticleFormat",
+      },
+      type: "AggregationBucket",
+    });
+    expect(mappedAggregations.format.buckets).toContainEqual({
+      count: 1,
+      data: {
+        id: "W7d_ghAAALWY3Ujc",
+        label: "Comic",
         type: "ArticleFormat",
       },
       type: "AggregationBucket",
