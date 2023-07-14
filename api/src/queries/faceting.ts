@@ -58,6 +58,15 @@ export const rewriteAggregationsForFacets = (
         },
       };
 
+      if (name in postFilters) {
+        filteredAgg.aggs!.self_filter = {
+          filter: esQuery(postFilters[name]),
+          aggs: {
+            terms: includeEmptyFilterValues(agg, postFilters[name]),
+          },
+        } as AggregationsAggregationContainer;
+      }
+
       return [name, filteredAgg];
     })
   );
