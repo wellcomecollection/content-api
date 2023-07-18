@@ -14,7 +14,7 @@ aws lambda get-function-configuration --function-name $SERVICE_NAME
 
 echo "updating lambda package"
 aws lambda update-function-code \
-  --function-name $FUNCTION_NAME \
+  --function-name $SERVICE_NAME \
   --s3-bucket $S3_BUCKET \
   --s3-key $S3_KEY
 
