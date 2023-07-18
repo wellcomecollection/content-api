@@ -3,6 +3,7 @@ import {
   WebhookBodyAPIUpdate,
   WebhookType,
 } from "@prismicio/types";
+import { APIGatewayProxyEventV2 } from "aws-lambda/trigger/api-gateway-proxy";
 export const isPrismicWebhookPayload = (
   requestBody: any
 ): requestBody is WebhookBody =>
@@ -13,3 +14,8 @@ export const isPrismicWebhookPayload = (
 export const isPrismicApiUpdate = (
   webhook: WebhookBody
 ): webhook is WebhookBodyAPIUpdate => webhook.type === "api-update";
+
+export const hasCustomTriggerHeader = (
+  event: APIGatewayProxyEventV2,
+  trigger: string
+): boolean => event.headers["X-Weco-Prismic-Trigger"] === trigger;
