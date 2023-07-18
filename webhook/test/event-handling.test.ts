@@ -50,7 +50,7 @@ describe("Event handling", () => {
       await status({
         method: "POST",
         webhook: mockWebhook(),
-        headers: { "X-Weco-Prismic-Trigger": testConfig.trigger },
+        headers: { "x-weco-prismic-trigger": testConfig.trigger },
       })
     ).toBe(401);
   });
@@ -60,7 +60,7 @@ describe("Event handling", () => {
       await status({
         method: "POST",
         webhook: mockWebhook({ secret: "wrong-secret" }),
-        headers: { "X-Weco-Prismic-Trigger": testConfig.trigger },
+        headers: { "x-weco-prismic-trigger": testConfig.trigger },
       })
     ).toBe(403);
   });
@@ -73,7 +73,7 @@ describe("Event handling", () => {
           secret: testConfig.secret,
           type: "test-trigger",
         }),
-        headers: { "X-Weco-Prismic-Trigger": testConfig.trigger },
+        headers: { "x-weco-prismic-trigger": testConfig.trigger },
       })
     ).toBe(200);
   });
@@ -86,7 +86,7 @@ describe("Event handling", () => {
           secret: testConfig.secret,
           type: "api-update",
         }),
-        headers: { "X-Weco-Prismic-Trigger": testConfig.trigger },
+        headers: { "x-weco-prismic-trigger": testConfig.trigger },
       })
     ).toBe(202);
   });
@@ -99,7 +99,7 @@ describe("Event handling", () => {
     expect(
       await status({
         method: "POST",
-        headers: { "X-Weco-Prismic-Trigger": testConfig.trigger },
+        headers: { "x-weco-prismic-trigger": testConfig.trigger },
         webhook,
       })
     ).toBe(202);

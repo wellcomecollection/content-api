@@ -18,4 +18,6 @@ export const isPrismicApiUpdate = (
 export const hasCustomTriggerHeader = (
   event: APIGatewayProxyEventV2,
   trigger: string
-): boolean => event.headers["X-Weco-Prismic-Trigger"] === trigger;
+): boolean =>
+  // Header names are always normalised to lowercase by the time the Lambda sees them
+  event.headers["x-weco-prismic-trigger"] === trigger;
