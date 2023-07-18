@@ -63,6 +63,9 @@ export const createHandler =
       });
     }
 
+    // If we expunge this now we don't accidentally log it and consumers don't find out about it
+    webhook.secret = "<sensitive>";
+
     if (!isPrismicApiUpdate(webhook)) {
       log.info("Test webhook: ");
       log.info(JSON.stringify(webhook));

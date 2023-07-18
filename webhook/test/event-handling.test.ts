@@ -108,6 +108,9 @@ describe("Event handling", () => {
     expect(lastCall.input.Entries[0].EventBusName).toEqual(
       testConfig.eventBusName
     );
-    expect(JSON.parse(lastCall.input.Entries[0].Detail)).toEqual(webhook);
+    expect(JSON.parse(lastCall.input.Entries[0].Detail)).toEqual({
+      ...webhook,
+      secret: "<sensitive>",
+    });
   });
 });
