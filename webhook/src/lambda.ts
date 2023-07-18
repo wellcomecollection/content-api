@@ -4,10 +4,10 @@ import { getConfig } from "./config";
 import { createHandler } from "./handler";
 import { Handler } from "aws-lambda";
 
-const config = getConfig();
+const { secretName, ...config } = getConfig();
 
 const initialiseHandler = async () => {
-  const secret = await getSecret("prismic/webhook/unpublish-secret");
+  const secret = await getSecret(secretName);
   if (!secret) {
     throw new Error("A secret must be specified!");
   }

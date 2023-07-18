@@ -22,6 +22,12 @@ steps:
           run: pipeline
           command: ["yarn", "test"]
 
+  - label: "test: webhook"
+    plugins:
+      - docker-compose#v4.11.0:
+          run: pipeline
+          command: ["yarn", "test"]
+
   - wait
 
   - label: "publish: API"
@@ -41,7 +47,27 @@ steps:
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/content-pipeline run package
-      .buildkite/scripts/upload_lambda_package.sh $LIVE_PIPELINE content-pipeline ./pipeline/package.zip
+      .buildkite/scripts/upload_lambda_package.sh content-pipeline-$LIVE_PIPELINE ./pipeline/package.zip
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+      - docker-compose#v4.11.0:
+          run: tooling
+          mount-ssh-agent: true
+          mount-buildkite-agent: true
+          propagate-environment: true
+          env:
+            - AWS_ACCESS_KEY_ID
+            - AWS_SECRET_ACCESS_KEY
+            - AWS_SESSION_TOKEN
+
+  - label: "publish: webhook"
+    #    branches: "main"
+    branches: "handle-unpublish"
+    command: |
+      yarn install --frozen-lockfile
+      yarn workspace @weco/prismic-webhook run package
+      .buildkite/scripts/upload_lambda_package.sh content-prismic-webhook ./webhook/package.zip
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
           role: "arn:aws:iam::756629837203:role/catalogue-ci"
@@ -62,7 +88,18 @@ steps:
     concurrency: 1
     concurrency_group: "content-pipeline/deploy-stage"
     command: |
-      .buildkite/scripts/deploy_lambda.sh $LIVE_PIPELINE content-pipeline ref.$BUILDKITE_COMMIT
+      .buildkite/scripts/deploy_lambda.sh content-pipeline-$LIVE_PIPELINE ref.$BUILDKITE_COMMIT
+    plugins:
+      - wellcomecollection/aws-assume-role#v0.2.2:
+          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+
+  - label: "deploy: webhook"
+    #    branches: "main"
+    branches: "handle-unpublish"
+    concurrency: 1
+    concurrency_group: "content-webhook/deploy"
+    command: |
+      .buildkite/scripts/deploy_lambda.sh content-prismic-webhook ref.$BUILDKITE_COMMIT
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
           role: "arn:aws:iam::756629837203:role/catalogue-ci"

@@ -14,3 +14,8 @@ services:
     build:
       dockerfile: ./pipeline/Dockerfile
       context: .
+
+  webhook:
+    build:
+      dockerfile: ./webhook/Dockerfile
+      context: .
