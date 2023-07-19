@@ -15,9 +15,8 @@ export const isPrismicApiUpdate = (
   webhook: WebhookBody
 ): webhook is WebhookBodyAPIUpdate => webhook.type === "api-update";
 
-export const hasCustomTriggerHeader = (
-  event: APIGatewayProxyEventV2,
-  trigger: string
-): boolean =>
+export const wecoPrismicTrigger = (
+  event: APIGatewayProxyEventV2
+): string | undefined =>
   // Header names are always normalised to lowercase by the time the Lambda sees them
-  event.headers["x-weco-prismic-trigger"] === trigger;
+  event.headers["x-weco-prismic-trigger"];

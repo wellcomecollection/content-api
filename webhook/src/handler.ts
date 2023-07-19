@@ -5,9 +5,9 @@ import {
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
 import { response } from "./responses";
 import {
-  hasCustomTriggerHeader,
   isPrismicApiUpdate,
   isPrismicWebhookPayload,
+  wecoPrismicTrigger,
 } from "./requests";
 import log from "@weco/content-common/services/logging";
 
@@ -40,7 +40,7 @@ export const createHandler =
       });
     }
 
-    if (config.trigger && !hasCustomTriggerHeader(event, config.trigger)) {
+    if (config.trigger && wecoPrismicTrigger(event) !== config.trigger) {
       return response({
         status: 400,
         label: "Bad Request",
@@ -81,7 +81,7 @@ export const createHandler =
         Entries: [
           {
             Detail: JSON.stringify(webhook),
-            DetailType: webhook.type,
+            DetailType: wecoPrismicTrigger(event) ?? webhook.type,
             EventBusName: config.eventBusName,
             Resources: [],
             Source: "prismic-webhook",
