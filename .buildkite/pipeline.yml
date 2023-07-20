@@ -49,7 +49,8 @@ steps:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
 
   - label: "publish: pipeline & unpublisher"
-    branches: "main"
+    #    branches: "main"
+    branches: "handle-unpublish"
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/content-pipeline run package
@@ -92,7 +93,8 @@ steps:
   - wait
 
   - label: "deploy: live pipeline & unpublisher"
-    branches: "main"
+    #    branches: "main"
+    branches: "handle-unpublish"
     concurrency: 1
     concurrency_group: "content-pipeline/deploy-stage"
     command: |
