@@ -9,7 +9,7 @@ const [_1, _2, ...deletionIds] = argv;
 
 export const eventBridgePrismicEvent = (
   documents: string[]
-): EventBridgeEvent<"api-update", WebhookBodyAPIUpdate> => ({
+): EventBridgeEvent<"document-unpublish", WebhookBodyAPIUpdate> => ({
   account: "",
   id: "",
   region: "",
@@ -17,7 +17,7 @@ export const eventBridgePrismicEvent = (
   source: "",
   time: "",
   version: "",
-  "detail-type": "api-update",
+  "detail-type": "document-unpublish",
   detail: {
     type: "api-update",
     domain: "",

@@ -1,11 +1,11 @@
 locals {
-  lambda_name = "content-pipeline-${var.pipeline_date}"
+  pipeline_lambda_name = "content-pipeline-${var.pipeline_date}"
 }
 
 module "pipeline_lambda" {
   source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
 
-  name    = local.lambda_name
+  name    = local.pipeline_lambda_name
   runtime = "nodejs18.x"
   handler = "lambda.handler"
 
@@ -40,7 +40,7 @@ data "archive_file" "empty_zip" {
   }
 }
 
-data "aws_iam_policy_document" "secrets_access" {
+data "aws_iam_policy_document" "pipeline_secrets_access" {
   statement {
     actions = [
       "secretsmanager:GetSecretValue"
@@ -52,15 +52,14 @@ data "aws_iam_policy_document" "secrets_access" {
   }
 }
 
-
-resource "aws_iam_policy" "secrets_access" {
-  name   = "${local.lambda_name}-secrets-access"
-  policy = data.aws_iam_policy_document.secrets_access.json
+resource "aws_iam_policy" "pipeline_secrets_access" {
+  name   = "${local.pipeline_lambda_name}-secrets-access"
+  policy = data.aws_iam_policy_document.pipeline_secrets_access.json
 }
 
-resource "aws_iam_role_policy_attachment" "lambda_role_attachment" {
+resource "aws_iam_role_policy_attachment" "pipeline_lambda_role_attachment" {
   role       = module.pipeline_lambda.lambda_role.name
-  policy_arn = aws_iam_policy.secrets_access.arn
+  policy_arn = aws_iam_policy.pipeline_secrets_access.arn
 }
 
 resource "aws_security_group" "egress" {

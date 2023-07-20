@@ -7,4 +7,6 @@ module "pipeline" {
   logging_cluster_id     = local.logging_cluster_id
   network_config         = local.network_config
   lambda_alarm_topic_arn = local.catalogue_lambda_alarn_topic_arn
+
+  unpublish_event_rule = module.webhook.unpublish_event_rule
 }

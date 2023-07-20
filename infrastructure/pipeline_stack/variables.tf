@@ -24,6 +24,13 @@ variable "window_overlap_minutes" {
   default = 1
 }
 
+variable "unpublish_event_rule" {
+  type = object({
+    name = string
+    arn  = string
+  })
+}
+
 variable "lambda_alarm_topic_arn" {
   type = string
 }

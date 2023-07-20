@@ -16,7 +16,7 @@ export const createHandler =
   (
     clients: Clients,
     config: Config
-  ): EventBridgeHandler<"api-update", WebhookBodyAPIUpdate, void> =>
+  ): EventBridgeHandler<"document-unpublish", WebhookBodyAPIUpdate, void> =>
   async (event, context) => {
     // There is no way to tell from the payload whether the update is for unpublished
     // documents or published documents; we have to rely on having configured the
