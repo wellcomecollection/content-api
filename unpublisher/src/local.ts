@@ -1,34 +1,11 @@
 import { argv } from "node:process";
+import { Context } from "aws-lambda";
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
-import { createHandler } from "./handler";
 import { getSecret } from "@weco/content-common/services/aws";
-import { Context, EventBridgeEvent } from "aws-lambda";
-import { WebhookBodyAPIUpdate } from "@prismicio/types";
+import { createHandler } from "./handler";
+import { eventBridgePrismicEvent } from "./event";
 
 const [_1, _2, ...deletionIds] = argv;
-
-export const eventBridgePrismicEvent = (
-  documents: string[]
-): EventBridgeEvent<"document-unpublish", WebhookBodyAPIUpdate> => ({
-  account: "",
-  id: "",
-  region: "",
-  resources: [],
-  source: "",
-  time: "",
-  version: "",
-  "detail-type": "document-unpublish",
-  detail: {
-    type: "api-update",
-    domain: "",
-    apiUrl: "",
-    secret: "",
-    releases: {},
-    masks: {},
-    tags: {},
-    documents,
-  },
-});
 
 getElasticClient({
   pipelineDate: "2023-03-24",

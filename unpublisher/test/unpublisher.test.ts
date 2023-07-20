@@ -1,5 +1,5 @@
 import { Client as ElasticClient } from "@elastic/elasticsearch";
-import { eventBridgePrismicEvent } from "../src/local";
+import { eventBridgePrismicEvent } from "../src/event";
 import { createHandler } from "../src/handler";
 import { Context } from "aws-lambda";
 
