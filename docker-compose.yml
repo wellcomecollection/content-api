@@ -19,3 +19,8 @@ services:
     build:
       dockerfile: ./webhook/Dockerfile
       context: .
+
+  unpublisher:
+    build:
+      dockerfile: ./unpublisher/Dockerfile
+      context: .
