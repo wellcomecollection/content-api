@@ -26,8 +26,9 @@ variable "window_overlap_minutes" {
 
 variable "unpublish_event_rule" {
   type = object({
-    name = string
-    arn  = string
+    name           = string
+    arn            = string
+    event_bus_name = string
   })
 }
 

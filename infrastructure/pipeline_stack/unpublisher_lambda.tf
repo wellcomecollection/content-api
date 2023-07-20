@@ -32,8 +32,9 @@ module "unpublisher_lambda" {
 }
 
 resource "aws_cloudwatch_event_target" "trigger_unpublisher" {
-  rule = var.unpublish_event_rule.name
-  arn  = module.unpublisher_lambda.lambda.arn
+  rule           = var.unpublish_event_rule.name
+  event_bus_name = var.unpublish_event_rule.event_bus_name
+  arn            = module.unpublisher_lambda.lambda.arn
 }
 
 resource "aws_lambda_permission" "allow_eventbridge_trigger" {
