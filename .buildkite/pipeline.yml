@@ -49,8 +49,7 @@ steps:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
 
   - label: "publish: pipeline & unpublisher"
-    #    branches: "main"
-    branches: "handle-unpublish"
+    branches: "main"
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/content-pipeline run package
@@ -71,8 +70,7 @@ steps:
             - AWS_SESSION_TOKEN
 
   - label: "publish: webhook"
-    #    branches: "main"
-    branches: "handle-unpublish"
+    branches: "main"
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/prismic-webhook run package
@@ -93,8 +91,7 @@ steps:
   - wait
 
   - label: "deploy: live pipeline & unpublisher"
-    #    branches: "main"
-    branches: "handle-unpublish"
+    branches: "main"
     concurrency: 1
     concurrency_group: "content-pipeline/deploy-stage"
     command: |
@@ -105,8 +102,7 @@ steps:
           role: "arn:aws:iam::756629837203:role/catalogue-ci"
 
   - label: "deploy: webhook"
-    #    branches: "main"
-    branches: "handle-unpublish"
+    branches: "main"
     concurrency: 1
     concurrency_group: "content-webhook/deploy"
     command: |
