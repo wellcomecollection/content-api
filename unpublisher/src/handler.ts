@@ -1,5 +1,8 @@
 import { EventBridgeHandler } from "aws-lambda";
-import { Client as ElasticClient } from "@elastic/elasticsearch";
+import {
+  Client as ElasticClient,
+  errors as elasticErrors,
+} from "@elastic/elasticsearch";
 import log from "@weco/content-common/services/logging";
 import { Result } from "@elastic/elasticsearch/lib/api/types";
 import { WebhookBodyAPIUpdate } from "@prismicio/types";
@@ -26,11 +29,20 @@ export const createHandler =
     const deletedDocuments = Object.fromEntries<Result>(
       await Promise.all(
         unpublishedDocuments.map(async (id) => {
-          const response = await clients.elastic.delete({
-            index: config.index,
-            id,
-          });
-          return [id, response.result] as const;
+          try {
+            const response = await clients.elastic.delete({
+              index: config.index,
+              id,
+            });
+            return [id, response.result] as const;
+          } catch (e) {
+            if (e instanceof elasticErrors.ResponseError) {
+              if (e.statusCode === 404) {
+                return [id, "not_found"] as const;
+              }
+            }
+            throw e;
+          }
         })
       )
     );
