@@ -63,7 +63,7 @@ resource "aws_iam_policy" "unpublisher_secrets_access" {
 }
 
 resource "aws_iam_role_policy_attachment" "unpublisher_lambda_role_attachment" {
-  role       = module.pipeline_lambda.lambda_role.name
+  role       = module.unpublisher_lambda.lambda_role.name
   policy_arn = aws_iam_policy.unpublisher_secrets_access.arn
 }
 
