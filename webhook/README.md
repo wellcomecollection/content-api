@@ -13,9 +13,9 @@ Unfortunately we can't configure Prismic webhooks programmatically, so the proce
 1. Apply the Terraform in `infrastructure`: there will be 2 outputs, `webhook_secret_name` and `webhook_url`. Note these down.
 2. In the Prismic dashboard, go to settings (gear icon in the bottom left) and then to "Webhooks". Create a new webhook.
 3. Configure the webhook as follows:
-
-- _Name_: whatever you want, eg ("document unpublish")
-- _URL_: the value of `webhook_url` from the Terraform output
-- _Secret_: the value of the secret with the name from `webhook_secret_name`; you'll be able to find this in Secrets Manager in the AWS console (in the catalogue account).
-- _Custom Headers_: add a new header with name `x-weco-prismic-trigger` and value `document-unpublish`. Make sure you click the "add" button after entering these details!
-- _Triggers_: "A document is unpublished" only.
+  
+    - _Name_: whatever you want, eg ("document unpublish")
+    - _URL_: the value of `webhook_url` from the Terraform output
+    - _Secret_: the value of the secret with the name from `webhook_secret_name`; you'll be able to find this in Secrets Manager in the AWS console (in the catalogue account).
+    - _Custom Headers_: add a new header with name `x-weco-prismic-trigger` and value `document-unpublish`. Make sure you click the "add" button after entering these details!
+    - _Triggers_: "A document is unpublished" only.
