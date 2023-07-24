@@ -48,4 +48,25 @@ describe("content unpublisher", () => {
 
     return expect(testHandler(event, {} as Context, () => {})).resolves;
   });
+
+  it("fails when Elasticsearch returns an unexpected error", async () => {
+    const event = eventBridgePrismicEvent(["test"]);
+    const mockElasticClient = {
+      delete: jest.fn().mockRejectedValue(
+        new elasticErrors.ResponseError({
+          meta: {} as any,
+          warnings: [],
+          statusCode: 400,
+        })
+      ),
+    };
+    const testHandler = createHandler(
+      { elastic: mockElasticClient as unknown as ElasticClient },
+      { index: "test" }
+    );
+
+    return expect(
+      testHandler(event, {} as Context, () => {})
+    ).rejects.toBeInstanceOf(elasticErrors.ResponseError);
+  });
 });

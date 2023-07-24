@@ -1,5 +1,6 @@
 locals {
-  lambda_name = "content-prismic-webhook"
+  lambda_name   = "content-prismic-webhook"
+  event_trigger = "document-unpublish"
 }
 
 module "webhook_lambda" {
@@ -19,7 +20,7 @@ module "webhook_lambda" {
     variables = {
       SECRET_NAME    = local.webhook_secret_name
       EVENT_BUS_NAME = aws_cloudwatch_event_bus.document_unpublish_events.name
-      EVENT_TRIGGER  = "document-unpublish"
+      EVENT_TRIGGER  = local.event_trigger
     }
   }
 }

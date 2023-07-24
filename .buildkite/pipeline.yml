@@ -48,7 +48,7 @@ steps:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:ref.${BUILDKITE_COMMIT}
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
 
-  - label: "publish: pipeline & unpublisher"
+  - label: "publish: pipeline & unpublisher ($LIVE_PIPELINE)"
     branches: "main"
     command: |
       yarn install --frozen-lockfile

@@ -1,10 +1,10 @@
 # Prismic Webhook
 
-This is a Lambda which expects to live at a [Function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) which is configured as a webhook in Prismic.
+This is a Lambda which expects to live at a [Function URL](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) which is configured as a [webhook](https://prismic.io/docs/webhooks) in Prismic.
 
-It receives Webhook events, checks that they are valid and contain a specified secret, and then forwards them to an EventBridge bus.
+It receives Webhook events, checks that they are valid and contain a specified secret, and then forwards them to an EventBridge bus. The secret is the only way to authenticate the webhook events (otherwise anyone could delete arbitrary documents).
 
-We configure one of these Lambdas with a webhook that runs on document unpublish, and the events are subscribed to by an "unpublisher" Lambda in each pipeline stack.
+We configure one of these Lambdas with a webhook that runs on document unpublish (i.e. delete), and the events are subscribed to by an "unpublisher" Lambda in each pipeline stack.
 
 Unfortunately we can't configure Prismic webhooks programmatically, so the process is documented here. It shouldn't need to happen often/ever!
 

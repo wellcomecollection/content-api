@@ -5,9 +5,10 @@ locals {
 module "unpublisher_lambda" {
   source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
 
-  name    = local.unpublisher_lambda_name
-  runtime = "nodejs18.x"
-  handler = "lambda.handler"
+  name        = local.unpublisher_lambda_name
+  description = "Handle any documents which are 'unpublished' (deleted) in Prismic"
+  runtime     = "nodejs18.x"
+  handler     = "lambda.handler"
 
   filename    = data.archive_file.empty_zip.output_path
   memory_size = 128
