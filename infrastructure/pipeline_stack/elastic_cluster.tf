@@ -18,7 +18,7 @@ resource "ec_deployment" "content_cluster" {
     autoscale = "false"
     topology {
       id         = "hot_content"
-      size       = "2g"
+      size       = "1g"
       zone_count = 1
     }
   }

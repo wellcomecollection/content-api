@@ -9,8 +9,10 @@
   "workspaces": {
     "packages": [
       "api",
+      "common",
       "pipeline",
-      "common"
+      "unpublisher",
+      "webhook"
     ]
   },
   "scripts": {
