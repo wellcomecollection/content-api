@@ -1,17 +1,22 @@
 locals {
   indices = {
     articles = "articles"
+    events   = "events"
   }
   service_roles = {
     api = [
-      "${local.indices.articles}_read"
+      "${local.indices.articles}_read",
+      "${local.indices.events}_read",
     ]
     pipeline = [
       "${local.indices.articles}_read",
-      "${local.indices.articles}_write"
+      "${local.indices.articles}_write",
+      "${local.indices.events}_read",
+      "${local.indices.events}_write"
     ]
     unpublisher = [
-      "${local.indices.articles}_write"
+      "${local.indices.articles}_write",
+      "${local.indices.events}_write"
     ]
   }
 }
