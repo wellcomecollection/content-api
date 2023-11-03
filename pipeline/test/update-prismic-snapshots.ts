@@ -1,6 +1,7 @@
 import { EOL } from "node:os";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { Client, PrismicDocument } from "@prismicio/client";
 import { createPrismicClient } from "../src/services/prismic";
 import { asTitle, asText } from "../src/helpers";
 import { Writable } from "stream";
@@ -8,23 +9,45 @@ import {
   articlesQuery,
   webcomicsQuery,
   wrapQueries,
+  eventDocumentsQuery,
 } from "../src/graph-queries";
 
 const dataDir = path.resolve(__dirname, "prismic-snapshots");
-const documentIds = [
-  "YbjAThEAACEAcPYF", // articles	- The enigma of the medieval folding almanac
-  "Y0U4GBEAAA__16h6", // articles	- Tracing the roots of our fears and fixations
-  "WcvPmSsAAG5B5-ox", // articles	- The Key to Memory: Follow your nose
-  "XUGruhEAACYASyJh", // webcomics	- Footpath
-  "XK9p2RIAAO1vQn__", // webcomics	- Groan
-  "YvtXgxAAACMA9j5d", // people	- Kate Summerscale
+
+const articleDocumentIds = [
+  "YbjAThEAACEAcPYF", // articles - The enigma of the medieval folding almanac
+  "Y0U4GBEAAA__16h6", // articles - Tracing the roots of our fears and fixations
+  "WcvPmSsAAG5B5-ox", // articles - The Key to Memory: Follow your nose
+  "XUGruhEAACYASyJh", // webcomics - Footpath
+  "XK9p2RIAAO1vQn__", // webcomics - Groan
+  "YvtXgxAAACMA9j5d", // people - Kate Summerscale
+];
+
+const eventDocumentIds = [
+  "ZSPXJBAAACIAiERm", // discussion - Recipes for Early Modern Beauty
+  "ZQgdkREAAAbr6cRR", // Format undefined - Lights Up on The Cult of Beauty
+  "ZTevFxAAACQAyHEk", // workshop - Sexing Up the Internet
+  "ZJLZoRAAACIARz42", // gallery-tour - Perspective Tour With Jess Dobkin
+  "ZFt0WhQAAHnPEH7P", // festival - Land Body Ecologies Festival Day Two
+  "ZRrijRIAAJNSARgG", // performance - Standards, My Right to Beauty
 ];
 
 const main = async () => {
-  console.log("Updating prismic snapshots for the following documents:");
-  console.log(documentIds.join("\n"));
   const client = createPrismicClient();
-  const docs = await client.getAllByIDs(documentIds, {
+  const articleDocs = await updateArticleSnapshots(client);
+  const eventDocs = await updateEventDocumentSnapshots(client);
+  console.log("Done saving snapshots.");
+
+  console.log("Adding comments to update script...");
+  await addCommentsToUpdateScript([...articleDocs, ...eventDocs]);
+
+  console.log("Done.");
+};
+
+const updateArticleSnapshots = async (client: Client) => {
+  console.log("Updating prismic snapshots for the following articles:");
+  console.log(articleDocumentIds.join("\n"));
+  const docs = await client.getAllByIDs(articleDocumentIds, {
     graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
   });
 
@@ -37,14 +60,46 @@ const main = async () => {
       );
     })
   );
-  console.log("Done saving snapshots.");
+  return docs;
+};
 
-  console.log("Adding comments to update script...");
+const updateEventDocumentSnapshots = async (client: Client) => {
+  console.log("Updating prismic snapshots for the following eventDocuments:");
+  console.log(eventDocumentIds.join("\n"));
+  const docs = await client.getAllByIDs(eventDocumentIds, {
+    graphQuery: eventDocumentsQuery,
+  });
+
+  await Promise.all(
+    docs.map((doc) => {
+      const docJson = JSON.stringify(doc, null, 2);
+      return fs.writeFile(
+        path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
+        docJson
+      );
+    })
+  );
+  return docs;
+};
+
+const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
   const comments = new Map(
-    docs.map((doc) => [
-      doc.id,
-      `${doc.type}\t- ${asTitle(doc.data.title) || asText(doc.data.name)}`,
-    ])
+    docs.map((doc) => {
+      switch (doc.type) {
+        case "events":
+          return [
+            doc.id,
+            `${doc.data.format?.slug || "Format undefined"} - ${
+              asTitle(doc.data.title) || asText(doc.data.name)
+            }`,
+          ];
+        default:
+          return [
+            doc.id,
+            `${doc.type} - ${asTitle(doc.data.title) || asText(doc.data.name)}`,
+          ];
+      }
+    })
   );
   const tmpFile = `${__filename}.tmp`;
   const thisScript = await fs.open(__filename, "r");
@@ -70,7 +125,6 @@ const main = async () => {
   }
 
   await fs.rename(tmpFile, __filename);
-  console.log("Done.");
 };
 
 const lineWriter = (stream: Writable) => (line: string) =>

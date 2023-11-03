@@ -1,0 +1,640 @@
+{
+  "id": "ZFt0WhQAAHnPEH7P",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "tags": ["LBEF"],
+  "first_publication_date": "2023-05-25T15:00:01+0000",
+  "last_publication_date": "2023-06-12T09:52:28+0000",
+  "slugs": [
+    "land-body-ecologies-festival-day-two",
+    "land-body-ecologies-festival---friday",
+    "land-body-ecologies-festival---thursday"
+  ],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Land Body Ecologies Festival Day Two",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "W5fV5iYAACQAMxHb",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "festival",
+      "first_publication_date": "2018-09-11T14:49:14+0000",
+      "last_publication_date": "2018-09-11T14:49:14+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Festival",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "locations": [
+      {
+        "location": {
+          "id": "XEnJIhUAAArdgVsW",
+          "type": "places",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "throughout-our-building",
+          "first_publication_date": "2019-01-24T14:18:15+0000",
+          "last_publication_date": "2022-04-12T09:56:54+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Throughout our building",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "isOnline": true,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-06-23T09:00:00+0000",
+        "endDateTime": "2023-06-23T17:00:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "id": "ZFtubBQAAHnPEGEG",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "boalno",
+          "first_publication_date": "2023-05-10T10:15:04+0000",
+          "last_publication_date": "2023-05-24T13:36:53+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Boalno",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T10:00:00+0000",
+                "endDateTime": "2023-06-23T10:20:00+0000"
+              },
+              {
+                "startDateTime": "2023-06-23T14:00:00+0000",
+                "endDateTime": "2023-06-23T14:20:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFteSBQAADxsEBMa",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "communal-meitophi",
+          "first_publication_date": "2023-05-10T09:05:18+0000",
+          "last_publication_date": "2023-05-10T11:07:03+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Communal Meitophi",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T11:00:00+0000",
+                "endDateTime": "2023-06-23T12:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtfvxQAAHnPEBo-",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "stories-as-evidence",
+          "first_publication_date": "2023-05-10T13:59:11+0000",
+          "last_publication_date": "2023-05-24T13:01:29+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Stories as Evidence",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T12:00:00+0000",
+                "endDateTime": "2023-06-23T13:30:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtX3xQAADxsD_RB",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "weaving-land-and-health",
+          "first_publication_date": "2023-05-10T08:39:05+0000",
+          "last_publication_date": "2023-06-07T15:04:50+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Weaving Land and Health",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T13:00:00+0000",
+                "endDateTime": "2023-06-23T14:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtd-BQAAMCZEBGP",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "meitau-making",
+          "first_publication_date": "2023-05-10T09:04:05+0000",
+          "last_publication_date": "2023-05-24T14:25:46+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Meitau-Making",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T15:00:00+0000",
+                "endDateTime": "2023-06-23T16:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtZFBQAAHnPD_n1",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "reimagining-conservation-policy",
+          "first_publication_date": "2023-05-10T08:43:14+0000",
+          "last_publication_date": "2023-05-17T15:22:01+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Reimagining Conservation Policy ",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T15:00:00+0000",
+                "endDateTime": "2023-06-23T16:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZGTv2hQAADxsOdmn",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "in-the-end-of-this-world",
+          "first_publication_date": "2023-05-17T15:17:50+0000",
+          "last_publication_date": "2023-05-24T13:05:44+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "In the End of This World",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T15:30:00+0000",
+                "endDateTime": "2023-06-23T16:45:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFttJBQAAHnPEFn0",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "microtonal",
+          "first_publication_date": "2023-05-10T10:08:54+0000",
+          "last_publication_date": "2023-06-09T07:46:28+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Microtonal",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T16:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtr3BQAAHnPEFN5",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "stories-of-entanglement",
+          "first_publication_date": "2023-05-10T10:03:27+0000",
+          "last_publication_date": "2023-05-24T11:25:59+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Stories of Entanglement",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T17:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFttnRQAAHnPEFyu",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "asking-the-salmon-to-return",
+          "first_publication_date": "2023-05-10T10:11:06+0000",
+          "last_publication_date": "2023-06-15T15:02:17+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Asking the Salmon to Return",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T17:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtsuRQAAHnPEFfW",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "virran-mukana",
+          "first_publication_date": "2023-05-10T10:07:07+0000",
+          "last_publication_date": "2023-05-24T13:58:03+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Virran Mukana",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T17:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFtsVxQAAHnPEFXh",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "ovdavazzit--forewalkers",
+          "first_publication_date": "2023-05-10T10:05:28+0000",
+          "last_publication_date": "2023-06-07T15:43:39+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Ovdavázzit – Forewalkers",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T17:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZFuh7hQAAMCZEVTX",
+          "type": "events",
+          "tags": ["delist", "LBEF"],
+          "lang": "en-gb",
+          "slug": "chill-out-room",
+          "first_publication_date": "2023-05-10T13:54:03+0000",
+          "last_publication_date": "2023-05-24T10:36:40+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Chill-Out Room",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-06-23T09:00:00+0000",
+                "endDateTime": "2023-06-23T17:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "id": "XwRXehQAAOMZ-avh",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "host",
+          "first_publication_date": "2020-07-07T11:07:42+0000",
+          "last_publication_date": "2020-07-07T11:41:39+0000",
+          "data": {
+            "title": [
+              {
+                "type": "paragraph",
+                "text": "Host",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZGtEqBQAACi-Q2xc",
+          "type": "organisations",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "land-body-ecologies",
+          "first_publication_date": "2023-05-22T10:32:14+0000",
+          "last_publication_date": "2023-05-30T09:59:58+0000",
+          "data": {
+            "name": [
+              {
+                "type": "heading1",
+                "text": "Land Body Ecologies",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "XwRXehQAAOMZ-avh",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "host",
+          "first_publication_date": "2020-07-07T11:07:42+0000",
+          "last_publication_date": "2020-07-07T11:41:39+0000",
+          "data": {
+            "title": [
+              {
+                "type": "paragraph",
+                "text": "Host",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZIbqVRAAAMwEHpqg",
+          "type": "organisations",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "the-hub",
+          "first_publication_date": "2023-06-12T09:50:35+0000",
+          "last_publication_date": "2023-06-12T10:45:55+0000",
+          "data": {
+            "name": [
+              {
+                "type": "heading1",
+                "text": "The Hub",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Explore the deep connections between mental health and ecosystem health in this four-day festival created by Land Body Ecologies (LBE), from teams across India, Uganda, Kenya, Thailand, the UK and the Arctic. Take part and experience performances, food, workshops, music, films and more. ",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
+            "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
+            "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
+              "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,232,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
+              "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
+              "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=1202,0,2250,2250&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$5274f024-b167-475c-ad1f-318840a528bf",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "id": "ZFt3UBQAAMFmEIya",
+          "type": "event-series",
+          "tags": ["LBEF"],
+          "lang": "en-gb",
+          "slug": "land-body-ecologies-festival",
+          "first_publication_date": "2023-05-16T14:46:48+0000",
+          "last_publication_date": "2023-06-22T09:55:09+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Land Body Ecologies Festival",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ]
+  }
+}

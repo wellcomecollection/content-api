@@ -1,0 +1,230 @@
+{
+  "id": "ZJLZoRAAACIARz42",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2023-07-27T15:00:00+0000",
+  "last_publication_date": "2023-09-01T11:22:04+0000",
+  "slugs": ["perspective-tour-with-jess-dobkin"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Perspective Tour With Jess Dobkin",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "WmYRpCQAACUAn-Ap",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "gallery-tour",
+      "first_publication_date": "2018-01-22T16:30:31+0000",
+      "last_publication_date": "2018-01-22T16:30:31+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Gallery tour",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "locations": [
+      {
+        "location": {
+          "id": "W22bICkAACgA-hVJ",
+          "type": "places",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "information-point",
+          "first_publication_date": "2018-08-10T14:03:19+0000",
+          "last_publication_date": "2019-10-22T09:10:24+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Information Point",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "isOnline": false,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-08-24T16:30:00+0000",
+        "endDateTime": "2023-08-24T17:30:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "id": "XkFGqxEAACIAIhNH",
+          "type": "interpretation-types",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "british-sign-language",
+          "first_publication_date": "2020-02-10T15:44:36+0000",
+          "last_publication_date": "2022-10-10T18:27:10+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "British Sign Language",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "link_type": "Document"
+        },
+        "isNotLinked": null
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "id": "Wyu-wCoAACkACpod",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "guide",
+          "first_publication_date": "2018-06-21T15:05:39+0000",
+          "last_publication_date": "2018-06-21T15:05:39+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Guide",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZLeRyBAAACIAwnNz",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "jess-dobkin",
+          "first_publication_date": "2023-07-19T07:36:48+0000",
+          "last_publication_date": "2023-07-19T14:37:08+0000",
+          "data": {
+            "name": "Jess Dobkin"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Join performance artist Jess Dobkin for a tour of our exhibition ‘Milk’.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
+            "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
+            "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
+              "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
+              "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
+              "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=1361,0,2250,2250&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$76a1583f-6177-4a69-9997-b180efeaf431",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "id": "WlYUDCQAACQAWcdt",
+          "type": "event-series",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "perspective-tours",
+          "first_publication_date": "2018-01-10T13:24:40+0000",
+          "last_publication_date": "2018-08-13T08:33:55+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Perspective Tours",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ]
+  }
+}

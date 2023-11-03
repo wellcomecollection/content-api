@@ -1,0 +1,261 @@
+{
+  "id": "ZQgdkREAAAbr6cRR",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "tags": ["LightsUpBeauty"],
+  "first_publication_date": "2023-10-26T15:00:00+0000",
+  "last_publication_date": "2023-10-26T15:00:00+0000",
+  "slugs": ["lights-up-on-the-cult-of-beauty"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Lights Up on The Cult of Beauty",
+        "spans": []
+      }
+    ],
+    "format": {
+      "link_type": "Document"
+    },
+    "locations": [
+      {
+        "location": {
+          "id": "WrEgqSAAACAAPEw7",
+          "type": "places",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "gallery-1",
+          "first_publication_date": "2018-03-20T14:54:36+0000",
+          "last_publication_date": "2022-10-26T09:17:33+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Gallery 1",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "isOnline": false,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-11-23T16:00:00+0000",
+        "endDateTime": "2023-12-16T14:00:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "id": "ZQgi7hIAACQAN2QG",
+          "type": "events",
+          "tags": ["delist", "LightsUpBeauty"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-09-18T10:19:01+0000",
+          "last_publication_date": "2023-10-04T13:48:21+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-11-23T16:00:00+0000",
+                "endDateTime": "2023-11-23T20:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZQghdREAAEnw6cr1",
+          "type": "events",
+          "tags": ["delist", "LightsUpBeauty"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-09-18T10:13:48+0000",
+          "last_publication_date": "2023-09-18T10:28:11+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-11-23T17:30:00+0000",
+                "endDateTime": "2023-11-23T18:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZQgkIRIAACIAN2X1",
+          "type": "events",
+          "tags": ["delist", "LightsUpBeauty"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-09-18T10:20:01+0000",
+          "last_publication_date": "2023-10-04T13:49:00+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-12-16T10:00:00+0000",
+                "endDateTime": "2023-12-16T14:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZQgiFxYAACcAYG_6",
+          "type": "events",
+          "tags": ["delist", "LightsUpBeauty"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-09-18T10:12:27+0000",
+          "last_publication_date": "2023-09-18T10:27:44+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2023-12-16T11:30:00+0000",
+                "endDateTime": "2023-12-16T12:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "link_type": "Document"
+        },
+        "contributor": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Explore ‘The Cult of Beauty’ exhibition with brighter and more even lighting conditions across the gallery. Audio and BSL digital guides, a visual story, and large-print and braille guides are available for use at these drop-in sessions.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
+            "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
+            "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
+              "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
+              "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
+              "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$3ffcf212-21fc-472a-98c6-58404db2bf96",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "link_type": "Document"
+        }
+      }
+    ]
+  }
+}
