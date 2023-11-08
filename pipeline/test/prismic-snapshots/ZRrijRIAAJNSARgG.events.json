@@ -1,0 +1,293 @@
+{
+  "id": "ZRrijRIAAJNSARgG",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2023-10-19T15:00:00+0000",
+  "last_publication_date": "2023-11-02T10:04:40+0000",
+  "slugs": ["standards-my-right-to-beauty", "my-right-to-beauty"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Standards, My Right to Beauty",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "Wn3Q3SoAACsAIeFI",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "performance",
+      "first_publication_date": "2018-02-09T16:48:32+0000",
+      "last_publication_date": "2019-10-22T09:37:37+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Performance",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "locations": [
+      {
+        "location": {
+          "id": "W8XfKxEAADwYer9D",
+          "type": "places",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "the-studio-and-the-forum",
+          "first_publication_date": "2018-10-16T12:53:02+0000",
+          "last_publication_date": "2019-08-30T09:40:12+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "The Studio and the Forum",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "isOnline": false,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-11-18T14:00:00+0000",
+        "endDateTime": "2023-11-18T16:00:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "id": "XkFGqxEAACIAIhNH",
+          "type": "interpretation-types",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "british-sign-language",
+          "first_publication_date": "2020-02-10T15:44:36+0000",
+          "last_publication_date": "2022-10-10T18:27:10+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "British Sign Language",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "interpretationType": {
+          "id": "W5JXVSYAACYAGtkh",
+          "type": "interpretation-types",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "relaxed",
+          "first_publication_date": "2018-09-07T10:47:52+0000",
+          "last_publication_date": "2022-11-07T11:48:36+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Relaxed",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "id": "WlYWECQAACcAWdBf",
+          "type": "audiences",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "youth-event",
+          "first_publication_date": "2018-01-10T13:33:29+0000",
+          "last_publication_date": "2023-08-24T10:39:43+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Youth event",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "link_type": "Document"
+        },
+        "isNotLinked": null
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "id": "WyvU0ioAACkACvwK",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "host",
+          "first_publication_date": "2018-06-21T16:39:48+0000",
+          "last_publication_date": "2018-06-21T16:39:48+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Host",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZRrmchIAACAAASlI",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "amaarah-roze",
+          "first_publication_date": "2023-10-02T15:49:12+0000",
+          "last_publication_date": "2023-10-13T10:12:16+0000",
+          "data": {
+            "name": "Amaarah Roze"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "WyvU0ioAACkACvwK",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "host",
+          "first_publication_date": "2018-06-21T16:39:48+0000",
+          "last_publication_date": "2018-06-21T16:39:48+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Host",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZRrnCxIAACAAASwU",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "chiquita-delisser",
+          "first_publication_date": "2023-10-02T15:51:44+0000",
+          "last_publication_date": "2023-10-13T10:14:21+0000",
+          "data": {
+            "name": "Chiquita Delisser"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Join an afternoon of performance and discussion about beauty in which the audience plays an important part, including deciding on the running order and joining in debates. ",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 2048,
+              "height": 1152
+            },
+            "alt": "A group of performers on a stage smiling and pointing at the audience",
+            "copyright": " | | | | | Photo by Sharne Fairchild |",
+            "url": "https://images.prismic.io/wellcomecollection/17d55a2b-2f7c-41db-b951-b5c81a0d14a6__SNF0643+16x9+Crop+Sharne+Fairchild.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "A group of performers on a stage smiling and pointing at the audience",
+              "copyright": " | | | | | Photo by Sharne Fairchild |",
+              "url": "https://images.prismic.io/wellcomecollection/17d55a2b-2f7c-41db-b951-b5c81a0d14a6__SNF0643+16x9+Crop+Sharne+Fairchild.jpg?auto=compress,format&rect=0,96,2048,960&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "A group of performers on a stage smiling and pointing at the audience",
+              "copyright": " | | | | | Photo by Sharne Fairchild |",
+              "url": "https://images.prismic.io/wellcomecollection/17d55a2b-2f7c-41db-b951-b5c81a0d14a6__SNF0643+16x9+Crop+Sharne+Fairchild.jpg?auto=compress,format&rect=0,0,2048,1152&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "A group of performers on a stage smiling and pointing at the audience",
+              "copyright": " | | | | | Photo by Sharne Fairchild |",
+              "url": "https://images.prismic.io/wellcomecollection/17d55a2b-2f7c-41db-b951-b5c81a0d14a6__SNF0643+16x9+Crop+Sharne+Fairchild.jpg?auto=compress,format&rect=448,0,1152,1152&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$7a813658-98fc-4ea1-ae3c-09150d556084",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "link_type": "Document"
+        }
+      }
+    ]
+  }
+}

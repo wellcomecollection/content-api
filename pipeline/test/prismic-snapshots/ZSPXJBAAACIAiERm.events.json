@@ -1,0 +1,321 @@
+{
+  "id": "ZSPXJBAAACIAiERm",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2023-10-12T15:00:00+0000",
+  "last_publication_date": "2023-10-30T15:33:59+0000",
+  "slugs": ["recipes-for-early-modern-beauty"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Recipes for Early Modern Beauty",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "Wd-QYCcAACcAoiJS",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "discussion",
+      "first_publication_date": "2017-10-12T15:55:16+0000",
+      "last_publication_date": "2019-10-22T09:38:17+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Discussion",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "locations": [
+      {
+        "location": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "isOnline": true,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-11-14T15:00:00+0000",
+        "endDateTime": "2023-11-14T16:30:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "id": "YzGD9hEAAEAKfx0E",
+          "type": "interpretation-types",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "captioned-online",
+          "first_publication_date": "2022-09-26T10:52:38+0000",
+          "last_publication_date": "2022-09-26T12:53:59+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Captioned (online)",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "link_type": "Document"
+        },
+        "isNotLinked": null
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "id": "Wyu-rCoAACsACpm_",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "speaker",
+          "first_publication_date": "2018-06-21T15:05:19+0000",
+          "last_publication_date": "2018-06-21T15:05:19+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Speaker",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZIAyLRAAACEAANjv",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "jill-burke",
+          "first_publication_date": "2023-06-07T07:30:58+0000",
+          "last_publication_date": "2023-06-21T07:57:05+0000",
+          "data": {
+            "name": "Jill Burke"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "Wyu-rCoAACsACpm_",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "speaker",
+          "first_publication_date": "2018-06-21T15:05:19+0000",
+          "last_publication_date": "2018-06-21T15:05:19+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Speaker",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZSP5ThAAACIAiMsF",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "hayley-okell",
+          "first_publication_date": "2023-10-09T13:06:27+0000",
+          "last_publication_date": "2023-10-09T13:06:27+0000",
+          "data": {
+            "name": "Hayley O’Kell"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "Wyu-rCoAACsACpm_",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "speaker",
+          "first_publication_date": "2018-06-21T15:05:19+0000",
+          "last_publication_date": "2018-06-21T15:05:19+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Speaker",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZSP7IhAAACMAiNPU",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "romana-sammern",
+          "first_publication_date": "2023-10-09T13:10:44+0000",
+          "last_publication_date": "2023-10-09T13:10:44+0000",
+          "data": {
+            "name": "Romana Sammern"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "Wyu-0CoAACkACppp",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "facilitator",
+          "first_publication_date": "2018-06-21T15:05:55+0000",
+          "last_publication_date": "2018-06-21T15:05:55+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Facilitator",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZSP8zBAAACEAiNuV",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "patricia-akhimie",
+          "first_publication_date": "2023-10-09T13:17:00+0000",
+          "last_publication_date": "2023-10-11T09:44:20+0000",
+          "data": {
+            "name": "Patricia Akhimie"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Join an online conversation about early modern health and beauty routines, and what they reveal about western European women’s lives.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 2560,
+              "height": 1440
+            },
+            "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
+            "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
+            "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
+              "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,120,2560,1200&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
+              "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,0,2560,1440&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
+              "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=560,0,1440,1440&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$1f57ad32-7870-4ffc-8161-fc0297d4e4ba",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "id": "W5Zj_CYAACQALK5B",
+          "type": "event-series",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "exploring-research",
+          "first_publication_date": "2018-09-13T14:08:30+0000",
+          "last_publication_date": "2021-02-18T10:43:10+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Exploring Research",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ]
+  }
+}

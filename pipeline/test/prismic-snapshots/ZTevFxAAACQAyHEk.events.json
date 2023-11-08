@@ -1,0 +1,232 @@
+{
+  "id": "ZTevFxAAACQAyHEk",
+  "uid": null,
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2023-10-26T15:04:01+0000",
+  "last_publication_date": "2023-10-27T11:21:25+0000",
+  "slugs": ["sexing-up-the-internet", "sexual-health-wikithon"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Sexing Up the Internet",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "WcKmiysAACx_A8NR",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "workshop",
+      "first_publication_date": "2017-09-20T17:34:27+0000",
+      "last_publication_date": "2019-10-22T09:36:59+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Workshop",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "locations": [
+      {
+        "location": {
+          "id": "XVqn7RMAACIAxvVM",
+          "type": "places",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "wellcome-kitchen",
+          "first_publication_date": "2019-08-19T13:45:23+0000",
+          "last_publication_date": "2019-08-19T13:47:14+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Wellcome Kitchen",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "isOnline": false,
+    "availableOnline": false,
+    "times": [
+      {
+        "startDateTime": "2023-11-22T11:00:00+0000",
+        "endDateTime": "2023-11-22T14:00:00+0000"
+      }
+    ],
+    "interpretations": [
+      {
+        "interpretationType": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "audiences": [
+      {
+        "audience": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "schedule": [
+      {
+        "event": {
+          "link_type": "Document"
+        },
+        "isNotLinked": null
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "id": "Wyu-0CoAACkACppp",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "facilitator",
+          "first_publication_date": "2018-06-21T15:05:55+0000",
+          "last_publication_date": "2018-06-21T15:05:55+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Facilitator",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZTev3RAAACYAyHTx",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "sophia-smith-galer",
+          "first_publication_date": "2023-10-25T14:31:35+0000",
+          "last_publication_date": "2023-10-25T15:27:32+0000",
+          "data": {
+            "name": "Sophia Smith Galer"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "Wyu-0CoAACkACppp",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "facilitator",
+          "first_publication_date": "2018-06-21T15:05:55+0000",
+          "last_publication_date": "2018-06-21T15:05:55+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Facilitator",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "WfLM2yoAAKKpVrxD",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "alice-white",
+          "first_publication_date": "2017-10-27T08:04:04+0000",
+          "last_publication_date": "2021-11-12T12:56:36+0000",
+          "data": {
+            "name": "Alice White"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Join Sophia and Wellcome digital editor Alice White at a Wikipedia edit-a-thon, and make your own contributions to Wikipedia pages about sexual health.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 3475,
+              "height": 1955
+            },
+            "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
+            "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
+            "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format",
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
+              "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,163,3475,1629&w=3200&h=1500"
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
+              "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,0,3475,1955&w=3200&h=1800"
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
+              "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=760,0,1955,1955&w=3200&h=3200"
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$dd7d7e3c-dda2-4d4f-990e-73d0b2923cc7",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "link_type": "Document"
+        }
+      }
+    ]
+  }
+}
