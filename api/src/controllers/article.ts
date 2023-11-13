@@ -11,7 +11,7 @@ const articleController = (
   clients: Clients,
   config: Config
 ): RequestHandler<PathParams> => {
-  const index = config.contentsIndex;
+  const index = config.articlesIndex;
 
   return asyncHandler(async (req, res) => {
     const id = req.params.id;

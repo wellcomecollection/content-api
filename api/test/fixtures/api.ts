@@ -63,8 +63,9 @@ export const mockedApi = <T extends Displayable & Identified>(
     },
     {
       pipelineDate: "2222-22-22",
-      contentsIndex: testIndex,
+      articlesIndex: testIndex,
       publicRootUrl: new URL("http://test.test/test"),
+      eventsIndex: "",
     }
   );
 
