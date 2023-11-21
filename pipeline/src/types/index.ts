@@ -2,15 +2,20 @@ import * as prismic from "@prismicio/client";
 import { Client as ElasticClient } from "@elastic/elasticsearch";
 
 // Generic types
+
+export type Clients = {
+  prismic: prismic.Client;
+  elastic: ElasticClient;
+};
+
 export type ImageDimensions = {
   width?: number;
   height?: number;
 };
 
-// From Prismic data
-import { ArticlePrismicDocument } from "./prismic/articles";
-export type { ArticlePrismicDocument };
+// Prismic types
 
+// -> common
 import {
   DataInterface,
   InferDataInterface,
@@ -18,25 +23,39 @@ import {
 } from "./prismic";
 export type { DataInterface, InferDataInterface, CommonPrismicFields };
 
+import {
+  ContentType,
+  PrismicFormat,
+  ArticleFormatId,
+} from "./prismic/common/formats";
+export type { ContentType, PrismicFormat, ArticleFormatId };
+
+import { WithContributors } from "./prismic/common/contributors";
+export type { WithContributors };
+
+export type { WithSeries } from "./prismic/common/series";
+
+import { PrismicImage } from "./prismic/common/images";
+export type { PrismicImage };
+
+// -> article
+import { ArticlePrismicDocument } from "./prismic/articles";
+export type { ArticlePrismicDocument };
+
 import { WithBody } from "./prismic/body";
 export type { WithBody };
 
-import { WithContributors } from "./prismic/contributors";
-export type { WithContributors };
+// Transformed types
 
 import {
-  ArticleFormatId,
-  PrismicArticleFormat,
-  ContentType,
-} from "./prismic/formats";
-export type { ArticleFormatId, PrismicArticleFormat, ContentType };
-
-import { PrismicImage } from "./prismic/images";
-export type { PrismicImage };
-
-// Transformed types
-import { Article, Contributor, ArticleFormat, Image } from "./transformed";
-export type { Article, Contributor, ArticleFormat, Image };
+  Article,
+  EventDocument,
+  ArticleFormat,
+  Contributor,
+  Image,
+  QuerySeries,
+} from "./transformed";
+export type { Article, ArticleFormat, Contributor, Image, QuerySeries };
 
 export type ElasticsearchArticle = {
   id: string;
@@ -49,11 +68,7 @@ export type ElasticsearchArticle = {
     caption?: string;
     body?: string[] | string;
     standfirst?: string;
-    series: Array<{
-      id: string;
-      title?: string;
-      contributors: string[];
-    }>;
+    series: QuerySeries;
   };
   filter: {
     publicationDate: Date;
@@ -66,8 +81,13 @@ export type ElasticsearchArticle = {
   };
 };
 
-// Generic types
-export type Clients = {
-  prismic: prismic.Client;
-  elastic: ElasticClient;
+export type ElasticsearchEventDocument = {
+  id: string;
+  display: EventDocument;
+  query: {
+    linkedIdentifiers: string[];
+    title: string;
+    caption?: string;
+    series: QuerySeries;
+  };
 };

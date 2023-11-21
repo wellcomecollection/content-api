@@ -1,16 +1,10 @@
-import { PrismicImage, ArticleFormatId } from "..";
+import { PrismicImage } from "..";
 
-// Main article type
-export type Article = {
-  type: "Article";
-  id: string;
-  title: string;
-  publicationDate: string;
-  contributors: Contributor[];
-  format: ArticleFormat;
-  image?: Image;
-  caption?: string;
-};
+// Main  article type
+export type { Article, ArticleFormat } from "./article";
+
+// Main eventDocument type
+export type { EventDocument } from "./eventDocument";
 
 // Image
 export type Image = PrismicImage & {
@@ -33,9 +27,8 @@ export type Contributor = {
   };
 };
 
-// Article formats (e.g. webcomics, podcast, interview)
-export type ArticleFormat = {
-  type: "ArticleFormat";
-  id: ArticleFormatId;
-  label: string;
-};
+export type QuerySeries = Array<{
+  id: string;
+  title?: string;
+  contributors: string[];
+}>;

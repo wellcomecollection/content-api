@@ -1,10 +1,11 @@
 import * as prismic from "@prismicio/client";
+import { DataInterface, PrismicImage } from "../types";
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
   return typeof val !== "undefined";
 }
 
-export function isString(v: any): v is string {
+function isString(v: any): v is string {
   return typeof v === "string";
 }
 
@@ -32,4 +33,26 @@ export function asText(
 export function asTitle(title: prismic.RichTextField): string {
   // We always need a title - blunt validation, but validation none the less
   return asText(title) || "";
+}
+
+export function isFilledLinkToDocument<T, L, D extends DataInterface>(
+  field: prismic.ContentRelationshipField<T, L, D> | undefined
+): field is prismic.FilledContentRelationshipField<T, L, D> {
+  return isNotUndefined(field) && "id" in field && field.isBroken === false;
+}
+
+export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
+  field: prismic.ContentRelationshipField<T, L, D> | undefined
+): field is prismic.FilledContentRelationshipField<T, L, D> & {
+  data: DataInterface;
+} {
+  return isFilledLinkToDocument(field) && "data" in field;
+}
+
+// when images have crops, event if the image isn't attached, we get e.g.
+// { '32:15': {}, '16:9': {}, square: {} }
+export function isImageLink(
+  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
+): maybeImage is PrismicImage {
+  return Boolean(maybeImage && maybeImage.dimensions);
 }

@@ -1,19 +1,18 @@
 import {
   ArticlePrismicDocument,
-  PrismicArticleFormat,
+  PrismicFormat,
   ArticleFormatId,
   InferDataInterface,
   ArticleFormat,
   Contributor,
-  PrismicImage,
   WithContributors,
   ElasticsearchArticle,
 } from "../types";
 import { asText, asTitle, isNotUndefined } from "../helpers";
-import { isFilledLinkToDocumentWithData } from "../helpers/type-guards";
+import { isFilledLinkToDocumentWithData, isImageLink } from "../helpers";
 import * as prismic from "@prismicio/client";
 import { defaultArticleFormat } from "@weco/content-common/data/formats";
-import { linkedDocumentIdentifiers } from "./identifiers";
+import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 const getContributors = (
   document: prismic.PrismicDocument<WithContributors>
@@ -64,20 +63,12 @@ const getContributors = (
   return contributors;
 };
 
-// when images have crops, event if the image isn't attached, we get e.g.
-// { '32:15': {}, '16:9': {}, square: {} }
-function isImageLink(
-  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
-): maybeImage is PrismicImage {
-  return Boolean(maybeImage && maybeImage.dimensions);
-}
-
 function transformLabelType(
   format: prismic.FilledContentRelationshipField<
     "article-formats",
     "en-gb",
-    InferDataInterface<PrismicArticleFormat>
-  > & { data: InferDataInterface<PrismicArticleFormat> }
+    InferDataInterface<PrismicFormat>
+  > & { data: InferDataInterface<PrismicFormat> }
 ): ArticleFormat {
   return {
     type: "ArticleFormat",
@@ -132,22 +123,6 @@ export const transformArticle = (
   const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
     ?.primary.text[0].text;
 
-  const querySeries = data.series.flatMap(({ series }) =>
-    isFilledLinkToDocumentWithData(series)
-      ? {
-          id: series.id,
-          title: asText(series.data.title),
-          contributors: series.data.contributors
-            .flatMap(({ contributor }) =>
-              isFilledLinkToDocumentWithData(contributor)
-                ? asText(contributor.data.name)
-                : []
-            )
-            .filter(isNotUndefined),
-        }
-      : []
-  );
-
   const flatContributors = contributors.flatMap((c) => c.contributor ?? []);
 
   return {
@@ -170,7 +145,7 @@ export const transformArticle = (
       caption,
       body: queryBody,
       standfirst: queryStandfirst,
-      series: querySeries,
+      series: formatSeriesForQuery(document),
     },
     filter: {
       contributorIds: flatContributors.map((c) => c.id),
