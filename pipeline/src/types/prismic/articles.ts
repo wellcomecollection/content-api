@@ -4,15 +4,15 @@ import {
   WithBody,
   InferDataInterface,
   CommonPrismicFields,
-  PrismicArticleFormat,
+  PrismicFormat,
 } from "..";
-import { WithSeries } from "./series";
+import { WithSeries } from "./common/series";
 
 type WithArticleFormat = {
   format: prismic.ContentRelationshipField<
     "article-formats",
     "en-gb",
-    InferDataInterface<PrismicArticleFormat>
+    InferDataInterface<PrismicFormat>
   >;
 };
 
