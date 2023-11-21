@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
   "tags": ["LBEF"],
   "first_publication_date": "2023-05-25T15:00:01+0000",
   "last_publication_date": "2023-06-12T09:52:28+0000",
@@ -628,6 +628,52 @@
                 "type": "heading1",
                 "text": "Land Body Ecologies Festival",
                 "spans": []
+              }
+            ],
+            "contributors": [
+              {
+                "contributor": {
+                  "id": "ZGtEqBQAACi-Q2xc",
+                  "type": "organisations",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "land-body-ecologies",
+                  "first_publication_date": "2023-05-22T10:32:14+0000",
+                  "last_publication_date": "2023-05-30T09:59:58+0000",
+                  "data": {
+                    "name": [
+                      {
+                        "type": "heading1",
+                        "text": "Land Body Ecologies",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "isBroken": false
+                }
+              },
+              {
+                "contributor": {
+                  "id": "ZIbqVRAAAMwEHpqg",
+                  "type": "organisations",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "the-hub",
+                  "first_publication_date": "2023-06-12T09:50:35+0000",
+                  "last_publication_date": "2023-06-12T10:45:55+0000",
+                  "data": {
+                    "name": [
+                      {
+                        "type": "heading1",
+                        "text": "The Hub",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "isBroken": false
+                }
               }
             ]
           },
