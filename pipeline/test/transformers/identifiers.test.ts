@@ -1,4 +1,4 @@
-import { linkedDocumentIdentifiers } from "../../src/transformers/identifiers";
+import { linkedDocumentIdentifiers } from "../../src/transformers/utils";
 
 describe("linkedDocumentIdentifiers", () => {
   it("extracts linked document identifier where the document has data", () => {

@@ -4,7 +4,7 @@ import { createHandler } from "../src/handler";
 import { Context } from "aws-lambda";
 import { ArticlePrismicDocument } from "../src/types";
 import { getSnapshots } from "./fixtures/prismic-snapshots";
-import { isFilledLinkToDocument } from "../src/helpers/type-guards";
+import { isFilledLinkToDocument } from "../src/helpers";
 import {
   createElasticBulkHelper,
   createElasticScrollDocuments,
