@@ -61,6 +61,16 @@ const query = `{
     series {
       series {
         title
+        contributors {
+          contributor {
+            ... on people {
+              name
+            }
+            ... on organisations {
+              name
+            }
+          }
+        }
       }
     }
   }
