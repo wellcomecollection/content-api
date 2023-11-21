@@ -74,6 +74,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZFt0WhQAAHnPEH7P",
   "query": {
+    "caption": "Explore the deep connections between mental health and ecosystem health in this four-day festival created by Land Body Ecologies (LBE), from teams across India, Uganda, Kenya, Thailand, the UK and the Arctic. Take part and experience performances, food, workshops, music, films and more.",
     "linkedIdentifiers": [
       "W5fV5iYAACQAMxHb",
       "XEnJIhUAAArdgVsW",
@@ -181,6 +182,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZJLZoRAAACIARz42",
   "query": {
+    "caption": "Join performance artist Jess Dobkin for a tour of our exhibition ‘Milk’.",
     "linkedIdentifiers": [
       "WmYRpCQAACUAn-Ap",
       "W22bICkAACgA-hVJ",
@@ -262,6 +264,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZQgdkREAAAbr6cRR",
   "query": {
+    "caption": "Explore ‘The Cult of Beauty’ exhibition with brighter and more even lighting conditions across the gallery. Audio and BSL digital guides, a visual story, and large-print and braille guides are available for use at these drop-in sessions.",
     "linkedIdentifiers": [
       "WrEgqSAAACAAPEw7",
       "ZQgi7hIAACQAN2QG",
@@ -351,6 +354,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZRrijRIAAJNSARgG",
   "query": {
+    "caption": "Join an afternoon of performance and discussion about beauty in which the audience plays an important part, including deciding on the running order and joining in debates.",
     "linkedIdentifiers": [
       "Wn3Q3SoAACsAIeFI",
       "W8XfKxEAADwYer9D",
@@ -438,6 +442,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZSPXJBAAACIAiERm",
   "query": {
+    "caption": "Join an online conversation about early modern health and beauty routines, and what they reveal about western European women’s lives.",
     "linkedIdentifiers": [
       "Wd-QYCcAACcAoiJS",
       "YzGD9hEAAEAKfx0E",
@@ -526,6 +531,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
   },
   "id": "ZTevFxAAACQAyHEk",
   "query": {
+    "caption": "Join Sophia and Wellcome digital editor Alice White at a Wikipedia edit-a-thon, and make your own contributions to Wikipedia pages about sexual health.",
     "linkedIdentifiers": [
       "WcKmiysAACx_A8NR",
       "XVqn7RMAACIAxvVM",
