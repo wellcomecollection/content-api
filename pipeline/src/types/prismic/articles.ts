@@ -1,14 +1,10 @@
 import * as prismic from "@prismicio/client";
-import {
-  WithContributors,
-  WithBody,
-  InferDataInterface,
-  CommonPrismicFields,
-  PrismicFormat,
-} from "..";
-import { WithSeries } from "./common/series";
+import { InferDataInterface, CommonPrismicFields, PrismicFormat } from ".";
+import { WithContributors } from "./contributors";
+import { WithBody } from "./body";
+import { WithSeries } from "./series";
 
-type WithArticleFormat = {
+export type WithArticleFormat = {
   format: prismic.ContentRelationshipField<
     "article-formats",
     "en-gb",

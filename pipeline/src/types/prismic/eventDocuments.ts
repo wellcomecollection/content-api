@@ -1,11 +1,6 @@
 import * as prismic from "@prismicio/client";
-import {
-  WithContributors,
-  InferDataInterface,
-  CommonPrismicFields,
-  PrismicFormat,
-} from "..";
-import { WithSeries } from "./common/series";
+import { InferDataInterface, CommonPrismicFields, PrismicFormat } from ".";
+import { WithSeries } from "./series";
 
 export type WithEventFormat = {
   format: prismic.ContentRelationshipField<
@@ -42,8 +37,7 @@ export type EventPrismicDocument = prismic.PrismicDocument<
       startDateTime: prismic.TimestampField;
       endDateTime: prismic.TimestampField;
     }>;
-  } & WithContributors &
-    WithEventFormat &
+  } & WithEventFormat &
     WithLocations &
     WithInterpretations &
     WithSeries &

@@ -4,7 +4,8 @@ import {
   asText,
   isNotUndefined,
 } from "../helpers";
-import { WithSeries, QuerySeries } from "../types";
+import { WithSeries } from "../types/prismic/series";
+import { QuerySeries } from "../types/transformed";
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];

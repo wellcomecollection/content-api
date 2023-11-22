@@ -1,17 +1,22 @@
-import {
-  ArticlePrismicDocument,
-  PrismicFormat,
-  ArticleFormatId,
-  InferDataInterface,
-  ArticleFormat,
-  Contributor,
-  WithContributors,
-  ElasticsearchArticle,
-} from "../types";
-import { asText, asTitle, isNotUndefined } from "../helpers";
-import { isFilledLinkToDocumentWithData, isImageLink } from "../helpers";
 import * as prismic from "@prismicio/client";
 import { defaultArticleFormat } from "@weco/content-common/data/formats";
+import {
+  ArticlePrismicDocument,
+  WithArticleFormat,
+  WithContributors,
+} from "../types/prismic";
+import {
+  ElasticsearchArticle,
+  Contributor,
+  ArticleFormat,
+} from "../types/transformed";
+import {
+  isFilledLinkToDocumentWithData,
+  isImageLink,
+  asText,
+  asTitle,
+  isNotUndefined,
+} from "../helpers";
 import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 const getContributors = (
@@ -64,17 +69,16 @@ const getContributors = (
 };
 
 function transformLabelType(
-  format: prismic.FilledContentRelationshipField<
-    "article-formats",
-    "en-gb",
-    InferDataInterface<PrismicFormat>
-  > & { data: InferDataInterface<PrismicFormat> }
+  document: prismic.PrismicDocument<WithArticleFormat>
 ): ArticleFormat {
-  return {
-    type: "ArticleFormat",
-    id: format.id as ArticleFormatId,
-    label: asText(format.data.title) as string,
-  };
+  const { data } = document;
+  return isFilledLinkToDocumentWithData(data.format)
+    ? {
+        type: "ArticleFormat",
+        id: data.format.id,
+        label: asText(data.format.data.title) as string,
+      }
+    : (defaultArticleFormat as ArticleFormat);
 }
 
 export const isArticle = (
@@ -95,9 +99,7 @@ export const transformArticle = (
 
   const caption = primaryImage?.caption && asText(primaryImage.caption);
 
-  const format = isFilledLinkToDocumentWithData(data.format)
-    ? transformLabelType(data.format)
-    : (defaultArticleFormat as ArticleFormat);
+  const format = transformLabelType(document);
 
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display

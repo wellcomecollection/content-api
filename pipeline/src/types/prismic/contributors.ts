@@ -18,7 +18,7 @@ type PrismicContributorRole = prismic.ContentRelationshipField<
   { title: prismic.RichTextField }
 >;
 
-type Contributors = prismic.GroupField<{
+export type Contributors = prismic.GroupField<{
   role: PrismicContributorRole;
   contributor: PrismicContributorContributor;
 }>;

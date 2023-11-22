@@ -1,4 +1,4 @@
-import { ArticleFormatId } from "..";
+import { ArticleFormatId } from "../prismic";
 import { Contributor, Image } from ".";
 
 // Main article type
