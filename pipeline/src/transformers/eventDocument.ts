@@ -10,14 +10,14 @@ import {
   EventDocumentLocation,
   EventDocumentInterpretation,
 } from "../types/transformed/eventDocument";
-import { ElasticsearchEventDocument } from "../types";
+import { ElasticsearchEventDocument } from "../types/transformed";
 import {
   isFilledLinkToDocumentWithData,
   isImageLink,
   asText,
   asTitle,
   isNotUndefined,
-} from "../helpers";
+} from "../helpers/type-guards";
 import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 const onlineLocation = {

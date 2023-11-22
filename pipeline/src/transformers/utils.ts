@@ -3,7 +3,7 @@ import {
   isFilledLinkToDocumentWithData,
   asText,
   isNotUndefined,
-} from "../helpers";
+} from "../helpers/type-guards";
 import { WithSeries } from "../types/prismic/series";
 import { QuerySeries } from "../types/transformed";
 

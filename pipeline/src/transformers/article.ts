@@ -16,7 +16,7 @@ import {
   asText,
   asTitle,
   isNotUndefined,
-} from "../helpers";
+} from "../helpers/type-guards";
 import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 const getContributors = (
