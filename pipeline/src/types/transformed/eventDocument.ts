@@ -5,8 +5,8 @@ export type EventDocument = {
   id: string;
   title: string;
   image?: Image;
-  times: { startDateTime: Date | null; endDateTime: Date | null }[];
-  format: EventDocumentFormat | undefined;
+  times: { startDateTime?: Date; endDateTime?: Date }[];
+  format: EventDocumentFormat;
   locations: EventDocumentLocation[];
   interpretations: EventDocumentInterpretation[];
 };

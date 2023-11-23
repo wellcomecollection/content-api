@@ -26,7 +26,7 @@ import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 function transformFormat(
   document: PrismicDocument<WithEventFormat>
-): EventDocumentFormat | undefined {
+): EventDocumentFormat {
   const { data } = document;
   return isFilledLinkToDocumentWithData(data.format)
     ? {
@@ -82,10 +82,10 @@ const transformInterpretations = (
 const prismicTimestampToDate = (times: {
   startDateTime: TimestampField;
   endDateTime: TimestampField;
-}): { startDateTime: Date | null; endDateTime: Date | null } => {
+}): { startDateTime: Date | undefined; endDateTime: Date | undefined } => {
   return {
-    startDateTime: asDate(times.startDateTime),
-    endDateTime: asDate(times.endDateTime),
+    startDateTime: asDate(times.startDateTime) || undefined,
+    endDateTime: asDate(times.endDateTime) || undefined,
   };
 };
 
