@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client";
-import { defaultArticleFormat } from "@weco/content-common/data/formats";
+import { defaultArticleFormat } from "@weco/content-common/data/defaultValues";
 import {
   ArticlePrismicDocument,
   WithArticleFormat,

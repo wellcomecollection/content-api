@@ -206,7 +206,11 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZQgdkREAAAbr6cRR) 1`] = `
 {
   "display": {
-    "format": undefined,
+    "format": {
+      "id": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
+      "label": "Event",
+      "type": "EventFormat",
+    },
     "id": "ZQgdkREAAAbr6cRR",
     "image": {
       "16:9": {

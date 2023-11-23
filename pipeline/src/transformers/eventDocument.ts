@@ -1,5 +1,9 @@
 import { PrismicDocument, TimestampField, asDate } from "@prismicio/client";
 import {
+  defaultEventFormat,
+  onlineLocation,
+} from "@weco/content-common/data/defaultValues";
+import {
   EventPrismicDocument,
   WithEventFormat,
   WithLocations,
@@ -20,12 +24,6 @@ import {
 } from "../helpers/type-guards";
 import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
-const onlineLocation = {
-  type: "EventLocation",
-  id: "ef04c8e3-26be-4fbc-9bef-f52589ebc56c",
-  label: "Online",
-} as EventDocumentLocation;
-
 function transformFormat(
   document: PrismicDocument<WithEventFormat>
 ): EventDocumentFormat | undefined {
@@ -36,7 +34,7 @@ function transformFormat(
         id: data.format.id,
         label: asText(data.format.data.title),
       }
-    : undefined; // we need a default format
+    : (defaultEventFormat as EventDocumentFormat);
 }
 
 const transformLocations = (
@@ -58,7 +56,9 @@ const transformLocations = (
     })
     .filter(isNotUndefined);
 
-  return isOnline ? [...physicalLocations, onlineLocation] : physicalLocations;
+  return isOnline
+    ? [...physicalLocations, onlineLocation as EventDocumentLocation]
+    : physicalLocations;
 };
 
 const transformInterpretations = (
