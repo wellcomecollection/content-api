@@ -1,5 +1,9 @@
 import * as prismic from "@prismicio/client";
 
+export type WithContributors = {
+  contributors: Contributors;
+};
+
 type PrismicContributorContributor =
   | prismic.EmptyLinkField<"Document">
   | prismic.FilledContentRelationshipField<
@@ -14,11 +18,7 @@ type PrismicContributorRole = prismic.ContentRelationshipField<
   { title: prismic.RichTextField }
 >;
 
-type Contributors = prismic.GroupField<{
+export type Contributors = prismic.GroupField<{
   role: PrismicContributorRole;
   contributor: PrismicContributorContributor;
 }>;
-
-export type WithContributors = {
-  contributors: Contributors;
-};
