@@ -7,12 +7,11 @@ import { HttpError } from "./error";
 
 type PathParams = { id: string };
 
-const articleController = (
+const eventController = (
   clients: Clients,
   config: Config
 ): RequestHandler<PathParams> => {
-  const index = config.articlesIndex;
-  // const index = config.contentsIndex;
+  const index = config.eventsIndex;
 
   return asyncHandler(async (req, res) => {
     const id = req.params.id;
@@ -30,7 +29,7 @@ const articleController = (
           throw new HttpError({
             status: 404,
             label: "Not Found",
-            description: `Article not found for identifier ${id}`,
+            description: `Event not found for identifier ${id}`,
           });
         }
       }
@@ -39,4 +38,4 @@ const articleController = (
   });
 };
 
-export default articleController;
+export default eventController;

@@ -58,7 +58,8 @@ const articlesController = (
   clients: Clients,
   config: Config
 ): ArticlesHandler => {
-  const index = config.contentsIndex;
+  const index = config.articlesIndex;
+  // const index = config.contentsIndex;
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
