@@ -12,7 +12,7 @@ const environment = environmentSchema.parse(process.env);
 const config = {
   pipelineDate: "2023-03-24",
   articlesIndex: "articles",
-  eventsIndex: "events-test",
+  eventsIndex: "events",
   // eventsIndex: "events-test"
   // test data with data under id abc123
   // use GET /events/abc123
