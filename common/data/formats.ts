@@ -4,6 +4,7 @@ export const contentTypes = [
   "books",
   "event-series",
   "events",
+  "event-formats",
   "exhibitions",
   "guides",
   "pages",
