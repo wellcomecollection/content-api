@@ -2,7 +2,8 @@ import { Handler } from "aws-lambda";
 import { map, partition, filter, tap, concat } from "rxjs";
 import log from "@weco/content-common/services/logging";
 
-import { ArticlePrismicDocument, Clients } from "./types";
+import { Clients } from "./types";
+import { ArticlePrismicDocument } from "./types/prismic";
 import { articlesQuery, webcomicsQuery, wrapQueries } from "./graph-queries";
 import {
   ensureIndexExists,

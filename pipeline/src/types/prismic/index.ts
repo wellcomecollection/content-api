@@ -1,5 +1,17 @@
 import * as prismic from "@prismicio/client";
-import { PrismicImage } from "..";
+import { PrismicImage } from "./images";
+
+export { ArticlePrismicDocument, WithArticleFormat } from "./articles";
+export {
+  EventPrismicDocument,
+  WithEventFormat,
+  WithLocations,
+  WithInterpretations,
+} from "./eventDocuments";
+export { Contributors, WithContributors } from "./contributors";
+export { ContentType, PrismicFormat, ArticleFormatId } from "./formats";
+export { PrismicImage } from "./images";
+export { WithSeries } from "./series";
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client

@@ -1,5 +1,9 @@
 import * as prismic from "@prismicio/client";
-import { ImageDimensions } from "..";
+
+type ImageDimensions = {
+  width?: number;
+  height?: number;
+};
 
 // Currently the Prismic types only allow you to specify 1 image
 type ThumbnailedImageField<Thumbnails extends Record<string, ImageDimensions>> =

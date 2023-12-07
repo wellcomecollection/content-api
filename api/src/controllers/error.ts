@@ -1,5 +1,6 @@
 import { ErrorRequestHandler } from "express";
 import log from "@weco/content-common/services/logging";
+import apm from "elastic-apm-node";
 
 export type ErrorResponse = {
   type: "Error";
@@ -46,9 +47,11 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof HttpError) {
     res.status(err.status).json(err.responseJson);
   } else {
-    // if (apm.isStarted()) {
-    //   apm.captureError(err);
-    // }
+    // Log this to prevent it getting swallowed
+    log.error(err);
+    if (apm.isStarted()) {
+      apm.captureError(err);
+    }
     const httpError = new HttpError({
       status: 500,
       label: "Server Error",

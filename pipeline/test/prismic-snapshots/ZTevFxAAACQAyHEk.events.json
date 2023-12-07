@@ -3,10 +3,10 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZUTEoBAAACMAsmXA&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-26T15:04:01+0000",
-  "last_publication_date": "2023-10-27T11:21:25+0000",
+  "last_publication_date": "2023-11-13T11:40:39+0000",
   "slugs": ["sexing-up-the-internet", "sexual-health-wikithon"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -161,6 +161,42 @@
           "last_publication_date": "2021-11-12T12:56:36+0000",
           "data": {
             "name": "Alice White"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "role": {
+          "id": "Wyu-rCoAACsACpm_",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "speaker",
+          "first_publication_date": "2018-06-21T15:05:19+0000",
+          "last_publication_date": "2018-06-21T15:05:19+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Speaker",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "ZVIKWBIAACcAZMlz",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "anne-philpott",
+          "first_publication_date": "2023-11-13T11:37:02+0000",
+          "last_publication_date": "2023-11-13T11:41:29+0000",
+          "data": {
+            "name": "Anne Philpott"
           },
           "link_type": "Document",
           "isBroken": false

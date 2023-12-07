@@ -1,19 +1,23 @@
+import * as prismic from "@prismicio/client";
+import { defaultArticleFormat } from "@weco/content-common/data/defaultValues";
 import {
   ArticlePrismicDocument,
-  PrismicArticleFormat,
-  ArticleFormatId,
-  InferDataInterface,
-  ArticleFormat,
-  Contributor,
-  PrismicImage,
+  WithArticleFormat,
   WithContributors,
+} from "../types/prismic";
+import {
   ElasticsearchArticle,
-} from "../types";
-import { asText, asTitle, isNotUndefined } from "../helpers";
-import { isFilledLinkToDocumentWithData } from "../helpers/type-guards";
-import * as prismic from "@prismicio/client";
-import { defaultArticleFormat } from "@weco/content-common/data/formats";
-import { linkedDocumentIdentifiers } from "./identifiers";
+  Contributor,
+  ArticleFormat,
+} from "../types/transformed";
+import {
+  isFilledLinkToDocumentWithData,
+  isImageLink,
+  asText,
+  asTitle,
+  isNotUndefined,
+} from "../helpers/type-guards";
+import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
 
 const getContributors = (
   document: prismic.PrismicDocument<WithContributors>
@@ -64,26 +68,17 @@ const getContributors = (
   return contributors;
 };
 
-// when images have crops, event if the image isn't attached, we get e.g.
-// { '32:15': {}, '16:9': {}, square: {} }
-function isImageLink(
-  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
-): maybeImage is PrismicImage {
-  return Boolean(maybeImage && maybeImage.dimensions);
-}
-
 function transformLabelType(
-  format: prismic.FilledContentRelationshipField<
-    "article-formats",
-    "en-gb",
-    InferDataInterface<PrismicArticleFormat>
-  > & { data: InferDataInterface<PrismicArticleFormat> }
+  document: prismic.PrismicDocument<WithArticleFormat>
 ): ArticleFormat {
-  return {
-    type: "ArticleFormat",
-    id: format.id as ArticleFormatId,
-    label: asText(format.data.title) as string,
-  };
+  const { data } = document;
+  return isFilledLinkToDocumentWithData(data.format)
+    ? {
+        type: "ArticleFormat",
+        id: data.format.id,
+        label: asText(data.format.data.title) as string,
+      }
+    : (defaultArticleFormat as ArticleFormat);
 }
 
 export const isArticle = (
@@ -104,9 +99,7 @@ export const transformArticle = (
 
   const caption = primaryImage?.caption && asText(primaryImage.caption);
 
-  const format = isFilledLinkToDocumentWithData(data.format)
-    ? transformLabelType(data.format)
-    : (defaultArticleFormat as ArticleFormat);
+  const format = transformLabelType(document);
 
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display
@@ -132,22 +125,6 @@ export const transformArticle = (
   const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
     ?.primary.text[0].text;
 
-  const querySeries = data.series.flatMap(({ series }) =>
-    isFilledLinkToDocumentWithData(series)
-      ? {
-          id: series.id,
-          title: asText(series.data.title),
-          contributors: series.data.contributors
-            .flatMap(({ contributor }) =>
-              isFilledLinkToDocumentWithData(contributor)
-                ? asText(contributor.data.name)
-                : []
-            )
-            .filter(isNotUndefined),
-        }
-      : []
-  );
-
   const flatContributors = contributors.flatMap((c) => c.contributor ?? []);
 
   return {
@@ -170,7 +147,7 @@ export const transformArticle = (
       caption,
       body: queryBody,
       standfirst: queryStandfirst,
-      series: querySeries,
+      series: formatSeriesForQuery(document),
     },
     filter: {
       contributorIds: flatContributors.map((c) => c.id),

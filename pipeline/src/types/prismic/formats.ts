@@ -6,12 +6,12 @@ import {
 
 export type ContentType = (typeof contentTypes)[number];
 
-export type ArticleFormatId =
-  (typeof articleFormatIds)[keyof typeof articleFormatIds];
-
-export type PrismicArticleFormat = prismic.PrismicDocument<
+export type PrismicFormat = prismic.PrismicDocument<
   {
     title: prismic.RichTextField;
   },
-  "article-formats"
+  "article-formats" | "event-formats"
 >;
+
+export type ArticleFormatId =
+  (typeof articleFormatIds)[keyof typeof articleFormatIds];

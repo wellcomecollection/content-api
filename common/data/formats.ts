@@ -24,9 +24,3 @@ export const articleFormatIds = {
   BookExtract: "W8CbPhEAAB8Nq4aG",
   LongRead: "YxcjgREAACAAkjBg",
 };
-
-export const defaultArticleFormat = {
-  type: "ArticleFormat",
-  id: "W7TfJRAAAJ1D0eLK",
-  label: "Article",
-};

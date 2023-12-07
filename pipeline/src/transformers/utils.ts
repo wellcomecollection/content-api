@@ -1,3 +1,12 @@
+import { PrismicDocument } from "@prismicio/client";
+import {
+  isFilledLinkToDocumentWithData,
+  asText,
+  isNotUndefined,
+} from "../helpers/type-guards";
+import { WithSeries } from "../types/prismic/series";
+import { QuerySeries } from "../types/transformed";
+
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];
 type JsonObject = { [Key in string]: JsonValue } & {
@@ -45,4 +54,24 @@ export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
   };
 
   return Array.from(getLinkedIdentifiers(rootDocument, new Set<string>()));
+};
+
+export const formatSeriesForQuery = (
+  document: PrismicDocument<WithSeries>
+): QuerySeries => {
+  return document.data.series.flatMap(({ series }) =>
+    isFilledLinkToDocumentWithData(series)
+      ? {
+          id: series.id,
+          title: asText(series.data.title),
+          contributors: series.data.contributors
+            .flatMap(({ contributor }) =>
+              isFilledLinkToDocumentWithData(contributor)
+                ? asText(contributor.data.name)
+                : []
+            )
+            .filter(isNotUndefined),
+        }
+      : []
+  );
 };

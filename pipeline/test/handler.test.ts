@@ -2,7 +2,7 @@ import type { Client as ElasticClient } from "@elastic/elasticsearch";
 import * as prismic from "@prismicio/client";
 import { createHandler } from "../src/handler";
 import { Context } from "aws-lambda";
-import { ArticlePrismicDocument } from "../src/types";
+import { ArticlePrismicDocument } from "../src/types/prismic";
 import { getSnapshots } from "./fixtures/prismic-snapshots";
 import { isFilledLinkToDocument } from "../src/helpers/type-guards";
 import {
