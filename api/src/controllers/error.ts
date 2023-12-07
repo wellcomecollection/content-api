@@ -46,8 +46,6 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof HttpError) {
     res.status(err.status).json(err.responseJson);
   } else {
-    // Log this to prevent it getting swallowed
-    console.error(err);
     // if (apm.isStarted()) {
     //   apm.captureError(err);
     // }

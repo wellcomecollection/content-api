@@ -13,9 +13,6 @@ const config = {
   pipelineDate: "2023-03-24",
   articlesIndex: "articles",
   eventsIndex: "events",
-  // eventsIndex: "events-test"
-  // test data with data under id abc123
-  // use GET /events/abc123
   publicRootUrl: new URL(environment.PUBLIC_ROOT_URL),
 };
 
