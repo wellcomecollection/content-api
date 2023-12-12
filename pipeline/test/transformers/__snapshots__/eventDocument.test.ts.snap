@@ -1,33 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/WqfhAyUAAM8VVngg) 1`] = `
-{
-  "display": {
-    "format": {
-      "id": "Wn3Q3SoAACsAIeFI",
-      "label": "Performance",
-      "type": "EventFormat",
-    },
-    "id": "WqfhAyUAAM8VVngg",
-    "image": undefined,
-    "interpretations": [],
-    "locations": [],
-    "times": [],
-    "title": "DMC Test",
-    "type": "Event",
-  },
-  "id": "WqfhAyUAAM8VVngg",
-  "query": {
-    "caption": undefined,
-    "linkedIdentifiers": [
-      "Wn3Q3SoAACsAIeFI",
-    ],
-    "series": [],
-    "title": "DMC Test",
-  },
-}
-`;
-
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZFt0WhQAAHnPEH7P) 1`] = `
 {
   "display": {
