@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZW3GuBIAACYA91jS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-19T15:00:00+0000",
   "last_publication_date": "2023-11-14T14:26:03+0000",
@@ -246,6 +246,13 @@
             "alt": "A group of young performers on stage posing for a group portrait. ",
             "copyright": " | | | | | Photo by Sharne Fairchild |",
             "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format",
+            "id": "ZVNa_hIAACcAarUk",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -253,7 +260,14 @@
               },
               "alt": "A group of young performers on stage posing for a group portrait. ",
               "copyright": " | | | | | Photo by Sharne Fairchild |",
-              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500",
+              "id": "ZVNa_hIAACcAarUk",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -262,7 +276,14 @@
               },
               "alt": "A group of young performers on stage posing for a group portrait. ",
               "copyright": " | | | | | Photo by Sharne Fairchild |",
-              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
+              "id": "ZVNa_hIAACcAarUk",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -271,7 +292,14 @@
               },
               "alt": "A group of young performers on stage posing for a group portrait. ",
               "copyright": " | | | | | Photo by Sharne Fairchild |",
-              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/a37c1539-a43a-490f-9f98-8c282d016a46_Group+shot+by+Sharne+Fairchild.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200",
+              "id": "ZVNa_hIAACcAarUk",
+              "edit": {
+                "x": -1244.4444444444446,
+                "y": 0,
+                "zoom": 1.4222222222222223,
+                "background": "#fff"
+              }
             }
           },
           "link": null

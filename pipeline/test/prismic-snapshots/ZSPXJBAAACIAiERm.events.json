@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZW3GuBIAACYA91jS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
   "last_publication_date": "2023-11-15T11:44:42+0000",
@@ -257,6 +257,13 @@
             "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
             "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
             "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format",
+            "id": "ZSamWhAAACAAlKe0",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -264,7 +271,14 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,120,2560,1200&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,120,2560,1200&w=3200&h=1500",
+              "id": "ZSamWhAAACAAlKe0",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 1.25,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -273,7 +287,14 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,0,2560,1440&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,0,2560,1440&w=3200&h=1800",
+              "id": "ZSamWhAAACAAlKe0",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1.25,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -282,7 +303,14 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=560,0,1440,1440&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=560,0,1440,1440&w=3200&h=3200",
+              "id": "ZSamWhAAACAAlKe0",
+              "edit": {
+                "x": -1244,
+                "y": 0,
+                "zoom": 2.2222222222222223,
+                "background": "#fff"
+              }
             }
           },
           "link": null

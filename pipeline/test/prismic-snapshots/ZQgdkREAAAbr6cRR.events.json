@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZW3GuBIAACYA91jS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2023-10-26T15:00:00+0000",
@@ -214,6 +214,13 @@
             "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
             "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
             "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format",
+            "id": "ZJ2kURAAACIAdBpu",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -221,7 +228,14 @@
               },
               "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
               "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500",
+              "id": "ZJ2kURAAACIAdBpu",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -230,7 +244,14 @@
               },
               "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
               "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
+              "id": "ZJ2kURAAACIAdBpu",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -239,7 +260,14 @@
               },
               "alt": "A Visitor Experience Assistant standing in a brightly lit gallery giving a tour of the exhibition to visitors. Two museum staff are wearing black t-shirts with \"Wellcome Collection\" printed in white lettering on their sleeves. ",
               "copyright": "Audio-described tour of 'The Cult of Beauty' exhibition | Gallery photo: Steven Pocock | Wellcome Collection | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format&rect=875,0,2250,2250&w=3200&h=3200",
+              "id": "ZJ2kURAAACIAdBpu",
+              "edit": {
+                "x": -1244,
+                "y": 0,
+                "zoom": 1.4222222222222223,
+                "background": "#fff"
+              }
             }
           },
           "link": null

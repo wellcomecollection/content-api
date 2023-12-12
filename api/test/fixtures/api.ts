@@ -22,12 +22,16 @@ const elastic404 = () =>
 export const mockedApi = <T extends Displayable & Identified>(
   documents: T[]
 ) => {
-  const testIndex = "test-index";
+  const testArticlesIndex = "test-article-index";
+  const testEventsIndex = "test-event-index";
   const documentsMap = new Map(documents.map((d) => [d.id, d]));
 
   const elasticClientGet = jest.fn(
     ({ id, index }: Parameters<ElasticClient["get"]>[0]) => {
-      if (documentsMap.has(id) && index === testIndex) {
+      if (
+        documentsMap.has(id) &&
+        (index === testArticlesIndex || index === testEventsIndex)
+      ) {
         return {
           _source: documentsMap.get(id),
         };
@@ -39,7 +43,10 @@ export const mockedApi = <T extends Displayable & Identified>(
 
   const elasticClientSearch = jest.fn(
     (params: Parameters<ElasticClient["search"]>[0]) => {
-      if (params?.index === testIndex) {
+      if (
+        params?.index === testArticlesIndex ||
+        params?.index === testEventsIndex
+      ) {
         return {
           hits: {
             total: documents.length,
@@ -63,7 +70,8 @@ export const mockedApi = <T extends Displayable & Identified>(
     },
     {
       pipelineDate: "2222-22-22",
-      contentsIndex: testIndex,
+      articlesIndex: testArticlesIndex,
+      eventsIndex: testEventsIndex,
       publicRootUrl: new URL("http://test.test/test"),
     }
   );

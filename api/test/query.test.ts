@@ -61,7 +61,8 @@ const elasticsearchRequestForURL = async (
     { elastic: { search: searchSpy } as unknown as ElasticClient },
     {
       pipelineDate: "2222-22-22",
-      contentsIndex: "test",
+      articlesIndex: "test",
+      eventsIndex: "",
       publicRootUrl: new URL("http://test.test/test"),
     }
   );

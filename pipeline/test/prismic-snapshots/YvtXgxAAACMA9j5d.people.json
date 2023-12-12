@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "people",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZW3GuBIAACYA91jS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YvtXgxAAACMA9j5d%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YvtXgxAAACMA9j5d%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-08-16T08:39:34+0000",
   "last_publication_date": "2022-10-04T10:37:30+0000",
@@ -29,6 +29,13 @@
       "alt": "Black and white photograph of the author Kate Summerscale",
       "copyright": null,
       "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format",
+      "id": "YvtXmRAAAILu9j7K",
+      "edit": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1,
+        "background": "#fff"
+      },
       "32:15": {
         "dimensions": {
           "width": 3200,
@@ -36,7 +43,14 @@
         },
         "alt": "Black and white photograph of the author Kate Summerscale",
         "copyright": null,
-        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,583,2195,1029&w=3200&h=1500"
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,583,2195,1029&w=3200&h=1500",
+        "id": "YvtXmRAAAILu9j7K",
+        "edit": {
+          "x": 0,
+          "y": -850,
+          "zoom": 1.457858769931663,
+          "background": "#fff"
+        }
       },
       "16:9": {
         "dimensions": {
@@ -45,7 +59,14 @@
         },
         "alt": "Black and white photograph of the author Kate Summerscale",
         "copyright": null,
-        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,480,2195,1235&w=3200&h=1800"
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,480,2195,1235&w=3200&h=1800",
+        "id": "YvtXmRAAAILu9j7K",
+        "edit": {
+          "x": 0,
+          "y": -700,
+          "zoom": 1.457858769931663,
+          "background": "#fff"
+        }
       },
       "square": {
         "dimensions": {
@@ -54,7 +75,14 @@
         },
         "alt": "Black and white photograph of the author Kate Summerscale",
         "copyright": null,
-        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,0,2195,2195&w=3200&h=3200"
+        "url": "https://images.prismic.io/wellcomecollection/276d0808-a730-43e0-8aed-fd37b91c1e3b_Kate+Summerscale+bw+crop.jpg?auto=compress,format&rect=0,0,2195,2195&w=3200&h=3200",
+        "id": "YvtXmRAAAILu9j7K",
+        "edit": {
+          "x": 0,
+          "y": 0,
+          "zoom": 1.457858769931663,
+          "background": "#fff"
+        }
       }
     },
     "sameAs": [

@@ -49,8 +49,8 @@ export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
   return isFilledLinkToDocument(field) && "data" in field;
 }
 
-// when images have crops, event if the image isn't attached, we get e.g.
-// { '32:15': {}, '16:9': {}, square: {} }
+// When the Prismic image field is empty (of type EmptyImageFieldImage),
+// it does not have a dimensions object.
 export function isImageLink(
   maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
 ): maybeImage is PrismicImage {
