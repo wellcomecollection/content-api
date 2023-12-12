@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-26T15:04:01+0000",
   "last_publication_date": "2023-11-13T11:40:39+0000",
@@ -221,6 +221,13 @@
             "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
             "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
             "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format",
+            "id": "ZTfEHxAAACQAyNMD",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -228,7 +235,14 @@
               },
               "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
               "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
-              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,163,3475,1629&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,163,3475,1629&w=3200&h=1500",
+              "id": "ZTfEHxAAACQAyNMD",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 0.920863309352518,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -237,7 +251,14 @@
               },
               "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
               "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
-              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,0,3475,1955&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=0,0,3475,1955&w=3200&h=1800",
+              "id": "ZTfEHxAAACQAyNMD",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 0.920863309352518,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -246,7 +267,14 @@
               },
               "alt": "People sitting around a table with laptops editing Wikipedia pages and listening to a facilitator.",
               "copyright": "Wikithon Event | Photo: Thomas S. G. Farnetti | Wellcome Collection | | CC-BY-NC ",
-              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=760,0,1955,1955&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format&rect=760,0,1955,1955&w=3200&h=3200",
+              "id": "ZTfEHxAAACQAyNMD",
+              "edit": {
+                "x": -1243,
+                "y": 0,
+                "zoom": 1.6368286445012787,
+                "background": "#fff"
+              }
             }
           },
           "link": null

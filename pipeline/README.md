@@ -20,6 +20,8 @@ The tests use snapshots of real Prismic data, and also save [Jest snapshots](htt
 
 If you want to update the Prismic data that's in the repo, run _`yarn update-prismic-snapshots`_. The list of document IDs to store lives in `tests/update-prismic-snapshots.ts`. The comments next to each ID, containing the document titles, are automatically added when the script is run.
 
+To update the Jest snapshots, you'll need to run `yarn jest --updateSnapshot`.
+
 ## How we handle nested content
 
 We use Prismic's graph query API to denormalise nested content onto articles: for example, although contributors are separate documents which articles are linked to, when we fetch an article we instruct Prismic to grab the contributors' names off those linked documents for us and to insert them into the article response.
