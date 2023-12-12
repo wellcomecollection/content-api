@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhGjBAAACIAWWcP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2017-10-11T08:30:00+0000",
   "last_publication_date": "2023-06-09T09:26:33+0000",
@@ -498,6 +498,13 @@
             "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
             "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
             "url": "https://images.prismic.io/wellcomecollection/4a8ea2d7fadbbf3f4524914b4618bf7de4e4cc2d_pomander-pair_featured-image_1600x900.jpg?auto=compress,format",
+            "id": "WdUZCCkAACgAoVoq",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "square": {
               "dimensions": {
                 "width": 3200,
@@ -505,7 +512,14 @@
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/wellcomecollection/021324702713b7524925427b973bb4273598cea4_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+              "url": "https://images.prismic.io/wellcomecollection/021324702713b7524925427b973bb4273598cea4_pomander-pair_featured-image_1600x900.jpg?auto=compress,format",
+              "id": "WdUZCCkAACgAoVoq",
+              "edit": {
+                "x": -1244,
+                "y": 0,
+                "zoom": 3.555555582046509,
+                "background": "#fff"
+              }
             },
             "32:15": {
               "dimensions": {
@@ -514,7 +528,14 @@
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/wellcomecollection/44b639ad0b2d5a41a688c20f3a8fa83477c457b6_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+              "url": "https://images.prismic.io/wellcomecollection/44b639ad0b2d5a41a688c20f3a8fa83477c457b6_pomander-pair_featured-image_1600x900.jpg?auto=compress,format",
+              "id": "WdUZCCkAACgAoVoq",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 2,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -523,7 +544,14 @@
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/wellcomecollection/458292e3bbd9c0354f7d909592479c85857c1e14_pomander-pair_featured-image_1600x900.jpg?auto=compress,format"
+              "url": "https://images.prismic.io/wellcomecollection/458292e3bbd9c0354f7d909592479c85857c1e14_pomander-pair_featured-image_1600x900.jpg?auto=compress,format",
+              "id": "WdUZCCkAACgAoVoq",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 2,
+                "background": "#fff"
+              }
             }
           },
           "link": null

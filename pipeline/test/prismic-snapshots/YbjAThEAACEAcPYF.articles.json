@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhGjBAAACIAWWcP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-01-10T10:59:43+0000",
   "last_publication_date": "2022-01-10T13:01:19+0000",
@@ -332,6 +332,13 @@
             "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
             "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
             "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format",
+            "id": "YbtigREAACIAfIIl",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -339,7 +346,14 @@
               },
               "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
               "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,672,4000,1875&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,672,4000,1875&w=3200&h=1500",
+              "id": "YbtigREAACIAfIIl",
+              "edit": {
+                "x": 0,
+                "y": -537,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -348,7 +362,14 @@
               },
               "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
               "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,507,4000,2250&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,507,4000,2250&w=3200&h=1800",
+              "id": "YbtigREAACIAfIIl",
+              "edit": {
+                "x": 0,
+                "y": -405,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -357,7 +378,14 @@
               },
               "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
               "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=447,0,3105,3105&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=447,0,3105,3105&w=3200&h=3200",
+              "id": "YbtigREAACIAfIIl",
+              "edit": {
+                "x": -460,
+                "y": 0,
+                "zoom": 1.0305958132045085,
+                "background": "#fff"
+              }
             }
           },
           "link": null

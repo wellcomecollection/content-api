@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "webcomics",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZVyZ5RUAACcAMbnu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XK9p2RIAAO1vQn__%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhGjBAAACIAWWcP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XK9p2RIAAO1vQn__%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2019-04-12T09:00:00+0000",
   "last_publication_date": "2021-11-12T10:49:24+0000",
@@ -95,6 +95,13 @@
             "alt": "Groan comic by Rob Bidder (detail)",
             "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
             "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,0,1600,900&w=1600&h=900",
+            "id": "XK9ofhIAAOA9QnrN",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -102,7 +109,14 @@
               },
               "alt": "Groan comic by Rob Bidder (detail)",
               "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500",
+              "id": "XK9ofhIAAOA9QnrN",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 2,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -111,7 +125,14 @@
               },
               "alt": "Groan comic by Rob Bidder (detail)",
               "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800",
+              "id": "XK9ofhIAAOA9QnrN",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 2,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -120,7 +141,14 @@
               },
               "alt": "Groan comic by Rob Bidder (detail)",
               "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200",
+              "id": "XK9ofhIAAOA9QnrN",
+              "edit": {
+                "x": -1244,
+                "y": 0,
+                "zoom": 3.555555582046509,
+                "background": "#fff"
+              }
             }
           },
           "link": null
