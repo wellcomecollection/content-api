@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZW3GuBIAACYA91jS&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
   "tags": ["LBEF"],
   "first_publication_date": "2023-05-25T15:00:01+0000",
   "last_publication_date": "2023-06-12T09:52:28+0000",
@@ -576,6 +576,13 @@
             "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
             "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
             "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format",
+            "id": "ZGYrjxQAADxsO9nG",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
             "32:15": {
               "dimensions": {
                 "width": 3200,
@@ -583,7 +590,14 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,232,4000,1875&w=3200&h=1500"
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,232,4000,1875&w=3200&h=1500",
+              "id": "ZGYrjxQAADxsO9nG",
+              "edit": {
+                "x": 0,
+                "y": -185,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "16:9": {
               "dimensions": {
@@ -592,7 +606,14 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800"
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
+              "id": "ZGYrjxQAADxsO9nG",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
             },
             "square": {
               "dimensions": {
@@ -601,7 +622,14 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=1202,0,2250,2250&w=3200&h=3200"
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=1202,0,2250,2250&w=3200&h=3200",
+              "id": "ZGYrjxQAADxsO9nG",
+              "edit": {
+                "x": -1709,
+                "y": 0,
+                "zoom": 1.4222222222222223,
+                "background": "#fff"
+              }
             }
           },
           "link": null

@@ -17,7 +17,7 @@ import { observableToStream } from "./observableToStream";
 
 const BULK_BATCH_SIZE = 1000;
 
-type IndexConfig = {
+export type IndexConfig = {
   index: string;
   mappings?: MappingTypeMapping;
   settings?: IndicesIndexSettings;
@@ -47,7 +47,7 @@ export const ensureIndexExists = async (
   }
 };
 
-type HasIdentifier = {
+export type HasIdentifier = {
   id: string;
 };
 
