@@ -37,7 +37,11 @@ export const createETLPipeline =
 
     // 1. Prepare queries to fetch everything from Prismic
     const window = toBoundedWindow(event);
-    log.info(`Fetching documents last published ${describeWindow(window)}`);
+    log.info(
+      `Fetching ${
+        etlParameters.indexConfig.index
+      } last published ${describeWindow(window)}`
+    );
 
     // 2. Fetch all documents published in the given window and partition them into
     // "parent" and "other" documents: those which we want to transform and those

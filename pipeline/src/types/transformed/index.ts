@@ -31,7 +31,7 @@ export type Contributor = {
 export type QuerySeries = Array<{
   id: string;
   title?: string;
-  contributors: string[];
+  contributors?: string[];
 }>;
 
 export type { Article, ArticleFormat };

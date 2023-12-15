@@ -2,7 +2,7 @@ import { IndicesIndexSettings } from "@elastic/elasticsearch/lib/api/types";
 
 export const index = "articles";
 
-export const mapping = {
+export const mappings = {
   dynamic: "strict",
   properties: {
     id: {
