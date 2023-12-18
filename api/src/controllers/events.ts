@@ -13,7 +13,6 @@ type QueryParams = {
   sort?: string;
   sortOrder?: string;
   aggregations?: string;
-  "contributors.contributor"?: string;
   "publicationDate.from"?: string;
   "publicationDate.to"?: string;
   format?: string;
