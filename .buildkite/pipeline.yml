@@ -44,6 +44,7 @@ steps:
       - ecr#v2.1.1:
           login: true
       - docker-compose#v4.11.0:
+          cli-version: 2
           push:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:ref.${BUILDKITE_COMMIT}
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
