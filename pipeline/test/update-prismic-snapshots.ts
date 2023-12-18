@@ -30,6 +30,7 @@ const eventDocumentIds = [
   "ZJLZoRAAACIARz42", // gallery-tour - Perspective Tour With Jess Dobkin
   "ZFt0WhQAAHnPEH7P", // festival - Land Body Ecologies Festival Day Two
   "ZRrijRIAAJNSARgG", // performance - Standards, My Right to Beauty
+  "Wn3Q3SoAACsAIeFI", // event-formats - Performance
 ];
 
 const main = async () => {

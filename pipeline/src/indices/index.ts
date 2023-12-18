@@ -1,3 +1,4 @@
 import * as articles from "./articles";
+import * as events from "./events";
 
-export { articles };
+export { articles, events };
