@@ -35,14 +35,17 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
 
       res.status(200).json(resultList(req, searchResponse));
     } catch (error) {
-      if (error instanceof elasticErrors.ResponseError) {
-        if (error.statusCode === 404) {
-          throw new HttpError({
-            status: 404,
-            label: "Not Found",
-            description: `No events`,
-          });
-        }
+      if (
+        error instanceof elasticErrors.ResponseError &&
+        error.message.includes("too_many_nested_clauses") &&
+        encodeURIComponent(queryString || "").length > 2000
+      ) {
+        throw new HttpError({
+          status: 400,
+          label: "Bad Request",
+          description:
+            "Your query contained too many terms, please try again with a simpler query",
+        });
       }
       throw error;
     }
