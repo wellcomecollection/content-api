@@ -65,12 +65,14 @@ export const formatSeriesForQuery = (
           id: series.id,
           title: asText(series.data.title),
           contributors: series.data.contributors
-            .flatMap(({ contributor }) =>
-              isFilledLinkToDocumentWithData(contributor)
-                ? asText(contributor.data.name)
-                : []
-            )
-            .filter(isNotUndefined),
+            ? series.data.contributors
+                .flatMap(({ contributor }) =>
+                  isFilledLinkToDocumentWithData(contributor)
+                    ? asText(contributor.data.name)
+                    : []
+                )
+                .filter(isNotUndefined)
+            : [],
         }
       : []
   );
