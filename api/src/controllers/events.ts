@@ -13,8 +13,6 @@ type QueryParams = {
   sort?: string;
   sortOrder?: string;
   aggregations?: string;
-  "publicationDate.from"?: string;
-  "publicationDate.to"?: string;
   format?: string;
 } & PaginationQueryParameters;
 
