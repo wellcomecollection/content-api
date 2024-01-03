@@ -6,6 +6,7 @@ import {
   articlesController,
   articleController,
   eventController,
+  eventsController,
 } from "./controllers";
 import { Config } from "../config";
 import { Clients } from "./types";
@@ -17,7 +18,7 @@ const createApp = (clients: Clients, config: Config) => {
 
   app.get("/articles", articlesController(clients, config));
   app.get("/articles/:id", articleController(clients, config));
-
+  app.get("/events", eventsController(clients, config));
   app.get("/events/:id", eventController(clients, config));
 
   app.use(errorHandler);
