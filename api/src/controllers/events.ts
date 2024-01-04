@@ -7,6 +7,7 @@ import { Config } from "../../config";
 import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
+import { queryValidator, validateDate } from "./validation";
 
 type QueryParams = {
   query?: string;
@@ -18,16 +19,41 @@ type QueryParams = {
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
+const sortValidator = queryValidator({
+  name: "sort",
+  defaultValue: "relevance",
+  allowed: ["relevance", "times.startDateTime"],
+  singleValue: true,
+});
+
+const sortOrderValidator = queryValidator({
+  name: "sortOrder",
+  defaultValue: "desc",
+  allowed: ["asc", "desc"],
+  singleValue: true,
+});
+
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
   const index = config.eventsIndex;
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
     const { query: queryString, ...params } = req.query;
+    const sort = sortValidator(params)?.[0];
+    const sortOrder = sortOrderValidator(params)?.[0];
+
+    const sortKey =
+      sort === "times.startDateTime" ? "query.times.startDateTime" : "_score";
+
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
+        sort: [
+          { [sortKey]: { order: sortOrder } },
+          // Use recency as a "tie-breaker" sort
+          { "query.times.startDateTime": { order: "desc" } },
+        ],
         ...paginationElasticBody(req.query),
       });
 
