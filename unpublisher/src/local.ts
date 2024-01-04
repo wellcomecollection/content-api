@@ -16,10 +16,7 @@ getElasticClient({
   if (!secret) {
     throw new Error("A secret must be specified!");
   }
-  const handler = createHandler(
-    { elastic: elasticClient },
-    { index: "articles" }
-  );
+  const handler = createHandler({ elastic: elasticClient });
 
   await handler(eventBridgePrismicEvent(deletionIds), {} as Context, () => {});
 });

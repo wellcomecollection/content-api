@@ -3,23 +3,23 @@ import {
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
 import { eventBridgePrismicEvent } from "../src/event";
-import { createHandler } from "../src/handler";
-import { Context } from "aws-lambda";
+import { createUnpublisher } from "../src/unpublisher";
+
+const testIndex = "test-index";
+const documents = ["test-1", "test-2"];
 
 describe("content unpublisher", () => {
   it("deletes all the documents in the event from the index", async () => {
-    const documents = ["test-1", "test-2"];
-    const testIndex = "test-index";
-    const event = eventBridgePrismicEvent(documents);
     const mockElasticClient = {
       delete: jest.fn().mockResolvedValue({}),
     };
-    const testHandler = createHandler(
-      { elastic: mockElasticClient as unknown as ElasticClient },
-      { index: testIndex }
-    );
 
-    await testHandler(event, {} as Context, () => {});
+    const testUnpublisher = createUnpublisher(testIndex);
+
+    await testUnpublisher(
+      { elastic: mockElasticClient as unknown as ElasticClient },
+      documents
+    );
 
     expect(mockElasticClient.delete).toHaveBeenCalledTimes(2);
     expect(
@@ -31,7 +31,6 @@ describe("content unpublisher", () => {
   });
 
   it("does not error if a document is not found", async () => {
-    const event = eventBridgePrismicEvent(["test"]);
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
@@ -41,16 +40,18 @@ describe("content unpublisher", () => {
         })
       ),
     };
-    const testHandler = createHandler(
-      { elastic: mockElasticClient as unknown as ElasticClient },
-      { index: "test" }
-    );
 
-    return expect(testHandler(event, {} as Context, () => {})).resolves;
+    const testUnpublisher = createUnpublisher(testIndex);
+
+    return expect(
+      testUnpublisher(
+        { elastic: mockElasticClient as unknown as ElasticClient },
+        documents
+      )
+    ).resolves;
   });
 
   it("fails when Elasticsearch returns an unexpected error", async () => {
-    const event = eventBridgePrismicEvent(["test"]);
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
@@ -60,13 +61,13 @@ describe("content unpublisher", () => {
         })
       ),
     };
-    const testHandler = createHandler(
-      { elastic: mockElasticClient as unknown as ElasticClient },
-      { index: "test" }
-    );
+    const testUnpublisher = createUnpublisher(testIndex);
 
     return expect(
-      testHandler(event, {} as Context, () => {})
+      testUnpublisher(
+        { elastic: mockElasticClient as unknown as ElasticClient },
+        documents
+      )
     ).rejects.toBeInstanceOf(elasticErrors.ResponseError);
   });
 });

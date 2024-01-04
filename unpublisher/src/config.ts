@@ -6,7 +6,10 @@ const environmentSchema = z.object({
 const environment = environmentSchema.parse(process.env);
 
 const config = {
-  index: "articles",
+  indices: {
+    articlesIndex: "articles",
+    eventsIndex: "events",
+  },
   pipelineDate: environment.PIPELINE_DATE,
 };
 
