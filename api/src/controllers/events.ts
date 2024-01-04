@@ -2,7 +2,7 @@ import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
 import { Clients, Displayable } from "../types";
-import { PaginationQueryParameters } from "./pagination";
+import { PaginationQueryParameters, paginationElasticBody } from "./pagination";
 import { Config } from "../../config";
 import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
@@ -28,6 +28,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
+        ...paginationElasticBody(req.query),
       });
 
       res.status(200).json(resultList(req, searchResponse));
