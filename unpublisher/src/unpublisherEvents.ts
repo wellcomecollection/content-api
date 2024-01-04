@@ -3,4 +3,6 @@ import { getConfig } from "./config";
 
 const config = getConfig();
 
-export const eventsUnpublisher = createUnpublisher(config.indices.eventsIndex);
+export const eventDocumentsUnpublisher = createUnpublisher(
+  config.indices.eventdocumentsIndex
+);

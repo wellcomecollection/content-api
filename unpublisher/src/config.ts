@@ -8,7 +8,7 @@ const environment = environmentSchema.parse(process.env);
 const config = {
   indices: {
     articlesIndex: "articles",
-    eventsIndex: "events",
+    eventdocumentsIndex: "events",
   },
   pipelineDate: environment.PIPELINE_DATE,
 };

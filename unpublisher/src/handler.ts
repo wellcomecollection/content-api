@@ -2,7 +2,7 @@ import { EventBridgeHandler } from "aws-lambda";
 import { Client as ElasticClient } from "@elastic/elasticsearch";
 import { WebhookBodyAPIUpdate } from "@prismicio/types";
 import { articlesUnpublisher } from "./unpublisherArticles";
-import { eventsUnpublisher } from "./unpublisherEvents";
+import { eventDocumentsUnpublisher } from "./unpublisherEvents";
 
 type Clients = {
   elastic: ElasticClient;
@@ -16,5 +16,5 @@ export const createHandler =
     const unpublishedDocuments = event.detail.documents;
 
     await articlesUnpublisher(clients, unpublishedDocuments);
-    await eventsUnpublisher(clients, unpublishedDocuments);
+    await eventDocumentsUnpublisher(clients, unpublishedDocuments);
   };

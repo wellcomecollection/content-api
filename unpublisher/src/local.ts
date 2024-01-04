@@ -12,11 +12,6 @@ getElasticClient({
   serviceName: "unpublisher",
   hostEndpointAccess: "public",
 }).then(async (elasticClient) => {
-  const secret = await getSecret("prismic/content-unpublisher/secret");
-  if (!secret) {
-    throw new Error("A secret must be specified!");
-  }
   const handler = createHandler({ elastic: elasticClient });
-
   await handler(eventBridgePrismicEvent(deletionIds), {} as Context, () => {});
 });
