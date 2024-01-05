@@ -7,7 +7,7 @@ import { Config } from "../../config";
 import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
-import { queryValidator, validateDate } from "./validation";
+import { queryValidator } from "./validation";
 
 type QueryParams = {
   query?: string;
