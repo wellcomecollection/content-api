@@ -9,6 +9,14 @@ export const mappings = {
       type: "object",
       enabled: false,
     },
+    query: {
+      properties: {
+        "times.startDateTime": {
+          type: "date",
+          format: "date_optional_time",
+        },
+      },
+    },
   },
 } as const;
 
