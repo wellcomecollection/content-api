@@ -13,7 +13,8 @@ resource "aws_scheduler_schedule" "windows" {
     // https://github.com/hashicorp/terraform-provider-aws/issues/23496
     // https://github.com/hashicorp/terraform/pull/18871#issuecomment-422220699
     input = replace(replace(jsonencode({
-      end = "<aws.scheduler.scheduled-time>"
+      contentType = "all",
+      end         = "<aws.scheduler.scheduled-time>"
       // Make sure that we don't lose anything between windows
       duration = "${var.window_duration_minutes + var.window_overlap_minutes} minutes"
     }), "\\u003e", ">"), "\\u003c", "<")
