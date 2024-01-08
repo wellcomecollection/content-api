@@ -4,13 +4,14 @@ import { createHandler } from "./handler";
 import { getConfig } from "./config";
 
 const config = getConfig();
+
 const initialiseHandler = async () => {
   const elasticClient = await getElasticClient({
     pipelineDate: config.pipelineDate,
     serviceName: "unpublisher",
     hostEndpointAccess: "private",
   });
-  return createHandler({ elastic: elasticClient }, { index: config.index });
+  return createHandler({ elastic: elasticClient });
 };
 
 const handlerPromise = initialiseHandler();

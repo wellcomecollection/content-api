@@ -8,7 +8,7 @@ These are the services that back our [Content API](https://developers.wellcomeco
 
 - `/pipeline`: runs on a schedule, queries for updated content, transforms it and puts it into an index in the content ES cluster.
 - `/api`: queries the Elasticsearch index
-- `/webhook`: a Lambda handler exposed via a function URL for handling Prismic webhook events and publishing them to a CloudWatch event bus
+- `/webhook`: a Lambda handler exposed via a function URL for handling Prismic webhook events and publishing them to a EventBridge bus
 - `/unpublisher`: receives events published by the webhook, extracts document IDs from them and removes them from the ES index.
 
 ### Developing
