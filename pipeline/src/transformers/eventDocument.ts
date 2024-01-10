@@ -97,7 +97,7 @@ export const transformEventDocument = (
     id,
   } = document;
 
-  const documentTimes = document.data.times;
+  const documentTimes = times.map(prismicTimestampToDate);
 
   const primaryImage = promo?.[0]?.primary;
   const image =
@@ -130,10 +130,8 @@ export const transformEventDocument = (
       series: formatSeriesForQuery(document),
       times: {
         startDateTime: documentTimes
-          .map((time) =>
-            time.startDateTime ? new Date(time.startDateTime) : null
-          )
-          .filter((date): date is Date => date !== null),
+          .map((time) => time.startDateTime)
+          .filter(isNotUndefined),
       },
     },
   };
