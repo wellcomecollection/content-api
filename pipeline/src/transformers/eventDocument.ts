@@ -97,6 +97,8 @@ export const transformEventDocument = (
     id,
   } = document;
 
+  const documentTimes = document.data.times;
+
   const primaryImage = promo?.[0]?.primary;
   const image =
     primaryImage && isImageLink(primaryImage.image)
@@ -126,6 +128,13 @@ export const transformEventDocument = (
       title: asTitle(title),
       caption: primaryImage?.caption && asText(primaryImage.caption),
       series: formatSeriesForQuery(document),
+      times: {
+        startDateTime: documentTimes
+          .map((time) =>
+            time.startDateTime ? new Date(time.startDateTime) : null
+          )
+          .filter((date): date is Date => date !== null),
+      },
     },
   };
 };
