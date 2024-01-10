@@ -2,11 +2,15 @@ import { Context } from "aws-lambda";
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
 import { createHandler } from "./handler";
 import { createPrismicClient } from "./services/prismic";
+import { WindowEvent } from "./event";
 
 const prismicClient = createPrismicClient();
 
+const contentType = (process.argv[2] ?? "all") as "articles" | "events" | "all";
+
 // Reindexes all documents by default
-const timeWindow = {
+const windowEvent: WindowEvent = {
+  contentType,
   start: undefined,
   end: undefined,
 };
@@ -20,5 +24,5 @@ getElasticClient({
     prismic: prismicClient,
     elastic: elasticClient,
   });
-  return handler(timeWindow, {} as Context, () => {});
+  return handler(windowEvent, {} as Context, () => {});
 });
