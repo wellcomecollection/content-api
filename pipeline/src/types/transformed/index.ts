@@ -1,3 +1,4 @@
+import { TimestampField } from "@prismicio/client/*";
 import { PrismicImage } from "../prismic";
 import { Article, ArticleFormat } from "../transformed/article";
 import {
@@ -75,5 +76,6 @@ export type ElasticsearchEventDocument = {
     title: string;
     caption?: string;
     series: QuerySeries;
+    times: { startDateTime: Date[] };
   };
 };
