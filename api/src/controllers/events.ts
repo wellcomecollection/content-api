@@ -8,6 +8,8 @@ import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
 import { queryValidator } from "./validation";
+import { ifDefined } from "../helpers";
+import { eventsQuery } from "../queries/events";
 
 type QueryParams = {
   query?: string;
@@ -49,6 +51,11 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
+        query: {
+          bool: {
+            must: ifDefined(queryString, eventsQuery),
+          },
+        },
         sort: [
           { [sortKey]: { order: sortOrder } },
           // Use recency as a "tie-breaker" sort
