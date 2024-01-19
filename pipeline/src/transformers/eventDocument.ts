@@ -8,11 +8,13 @@ import {
   WithEventFormat,
   WithLocations,
   WithInterpretations,
+  WithAudiences,
 } from "../types/prismic/eventDocuments";
 import {
   EventDocumentFormat,
   EventDocumentLocation,
   EventDocumentInterpretation,
+  EventDocumentAudience,
 } from "../types/transformed/eventDocument";
 import { ElasticsearchEventDocument } from "../types/transformed";
 import {
@@ -22,7 +24,7 @@ import {
   asTitle,
   isNotUndefined,
 } from "../helpers/type-guards";
-import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
+import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 function transformFormat(
   document: PrismicDocument<WithEventFormat>
@@ -79,6 +81,22 @@ const transformInterpretations = (
     .filter(isNotUndefined);
 };
 
+const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
+  const { data } = document;
+
+  return (data.audiences ?? [])
+    .map((i): EventDocumentAudience | undefined => {
+      return isFilledLinkToDocumentWithData(i.audience)
+        ? {
+            type: "EventAudience",
+            id: i.audience.id,
+            label: asText(i.audience.data.title),
+          }
+        : undefined;
+    })
+    .filter(isNotUndefined);
+};
+
 const prismicTimestampToDate = (times: {
   startDateTime: TimestampField;
   endDateTime: TimestampField;
@@ -111,6 +129,8 @@ export const transformEventDocument = (
 
   const interpretations = transformInterpretations(document);
 
+  const audiences = transformAudiences(document);
+
   return {
     id,
     display: {
@@ -122,12 +142,14 @@ export const transformEventDocument = (
       format,
       locations,
       interpretations,
+      audiences,
+      series: transformSeries(document),
     },
     query: {
       linkedIdentifiers: linkedDocumentIdentifiers(document),
       title: asTitle(title),
       caption: primaryImage?.caption && asText(primaryImage.caption),
-      series: formatSeriesForQuery(document),
+      series: transformSeries(document),
       times: {
         startDateTime: documentTimes
           .map((time) => time.startDateTime)

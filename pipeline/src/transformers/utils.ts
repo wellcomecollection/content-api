@@ -5,7 +5,7 @@ import {
   isNotUndefined,
 } from "../helpers/type-guards";
 import { WithSeries } from "../types/prismic/series";
-import { QuerySeries } from "../types/transformed";
+import { Series } from "../types/transformed";
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];
@@ -56,9 +56,9 @@ export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
   return Array.from(getLinkedIdentifiers(rootDocument, new Set<string>()));
 };
 
-export const formatSeriesForQuery = (
+export const transformSeries = (
   document: PrismicDocument<WithSeries>
-): QuerySeries => {
+): Series => {
   return document.data.series.flatMap(({ series }) =>
     isFilledLinkToDocumentWithData(series)
       ? {

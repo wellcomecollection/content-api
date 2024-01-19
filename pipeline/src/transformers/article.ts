@@ -17,7 +17,7 @@ import {
   asTitle,
   isNotUndefined,
 } from "../helpers/type-guards";
-import { linkedDocumentIdentifiers, formatSeriesForQuery } from "./utils";
+import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 const getContributors = (
   document: prismic.PrismicDocument<WithContributors>
@@ -142,7 +142,7 @@ export const transformArticle = (
       caption,
       body: queryBody,
       standfirst: queryStandfirst,
-      series: formatSeriesForQuery(document),
+      series: transformSeries(document),
     },
     filter: {
       contributorIds: flatContributors.map((c) => c.id),

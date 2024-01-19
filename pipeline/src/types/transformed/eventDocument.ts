@@ -1,4 +1,5 @@
 import { Image } from ".";
+import { Series } from ".";
 
 export type EventDocument = {
   type: "Event";
@@ -9,6 +10,8 @@ export type EventDocument = {
   format: EventDocumentFormat;
   locations: EventDocumentLocation[];
   interpretations: EventDocumentInterpretation[];
+  audiences: EventDocumentAudience[];
+  series: Series;
 };
 
 export type EventDocumentFormat = {
@@ -25,6 +28,12 @@ export type EventDocumentLocation = {
 
 export type EventDocumentInterpretation = {
   type: "EventInterpretation";
+  id: string;
+  label?: string;
+};
+
+export type EventDocumentAudience = {
+  type: "EventAudience";
   id: string;
   label?: string;
 };
