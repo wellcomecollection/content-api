@@ -3,6 +3,7 @@
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZFt0WhQAAHnPEH7P) 1`] = `
 {
   "display": {
+    "audiences": [],
     "format": {
       "id": "W5fV5iYAACQAMxHb",
       "label": "Festival",
@@ -91,6 +92,16 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [
+      {
+        "contributors": [
+          "Land Body Ecologies",
+          "The Hub",
+        ],
+        "id": "ZFt3UBQAAMFmEIya",
+        "title": "Land Body Ecologies Festival",
+      },
+    ],
     "times": [
       {
         "endDateTime": 2023-06-23T17:00:00.000Z,
@@ -147,6 +158,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZJLZoRAAACIARz42) 1`] = `
 {
   "display": {
+    "audiences": [],
     "format": {
       "id": "WmYRpCQAACUAn-Ap",
       "label": "Gallery tour",
@@ -232,6 +244,13 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [
+      {
+        "contributors": [],
+        "id": "WlYUDCQAACQAWcdt",
+        "title": "Perspective Tours",
+      },
+    ],
     "times": [
       {
         "endDateTime": 2023-08-24T17:30:00.000Z,
@@ -272,6 +291,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZQgdkREAAAbr6cRR) 1`] = `
 {
   "display": {
+    "audiences": [],
     "format": {
       "id": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
       "label": "Event",
@@ -351,6 +371,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [],
     "times": [
       {
         "endDateTime": 2023-12-16T14:00:00.000Z,
@@ -384,6 +405,13 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZRrijRIAAJNSARgG) 1`] = `
 {
   "display": {
+    "audiences": [
+      {
+        "id": "WlYWECQAACcAWdBf",
+        "label": "Youth event",
+        "type": "EventAudience",
+      },
+    ],
     "format": {
       "id": "Wn3Q3SoAACsAIeFI",
       "label": "Performance",
@@ -474,6 +502,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [],
     "times": [
       {
         "endDateTime": 2023-11-18T16:00:00.000Z,
@@ -510,6 +539,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZSPXJBAAACIAiERm) 1`] = `
 {
   "display": {
+    "audiences": [],
     "format": {
       "id": "Wd-QYCcAACcAoiJS",
       "label": "Discussion",
@@ -595,6 +625,13 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [
+      {
+        "contributors": [],
+        "id": "W5Zj_CYAACQALK5B",
+        "title": "Exploring Research",
+      },
+    ],
     "times": [
       {
         "endDateTime": 2023-11-14T16:30:00.000Z,
@@ -638,6 +675,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZTevFxAAACQAyHEk) 1`] = `
 {
   "display": {
+    "audiences": [],
     "format": {
       "id": "WcKmiysAACx_A8NR",
       "label": "Workshop",
@@ -717,6 +755,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
         "type": "EventLocation",
       },
     ],
+    "series": [],
     "times": [
       {
         "endDateTime": 2023-11-22T14:00:00.000Z,
