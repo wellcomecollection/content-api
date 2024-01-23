@@ -1,4 +1,3 @@
-import { TimestampField } from "@prismicio/client/*";
 import { PrismicImage } from "../prismic";
 import { Article, ArticleFormat } from "../transformed/article";
 import {
@@ -29,7 +28,7 @@ export type Contributor = {
   };
 };
 
-export type QuerySeries = Array<{
+export type Series = Array<{
   id: string;
   title?: string;
   contributors?: string[];
@@ -55,7 +54,7 @@ export type ElasticsearchArticle = {
     caption?: string;
     body?: string[] | string;
     standfirst?: string;
-    series: QuerySeries;
+    series: Series;
   };
   filter: {
     publicationDate: Date;
@@ -75,7 +74,7 @@ export type ElasticsearchEventDocument = {
     linkedIdentifiers: string[];
     title: string;
     caption?: string;
-    series: QuerySeries;
+    series: Series;
     times: { startDateTime: Date[] };
   };
 };
