@@ -26,6 +26,11 @@ variable "external_hostname" {
   type = string
 }
 
+variable "healthcheck_path" {
+  type    = string
+  default = "/management/healthcheck"
+}
+
 variable "network_config" {
   type = object({
     vpc_id                           = string
