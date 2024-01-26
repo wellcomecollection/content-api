@@ -29,6 +29,8 @@ const query = `{
     times {
       startDateTime
       endDateTime
+      isFullyBooked
+      onlineIsFullyBooked
     }
     audiences {
       audience {

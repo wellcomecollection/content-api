@@ -69,6 +69,7 @@ export type ElasticsearchArticle = {
 
 export type ElasticsearchEventDocument = {
   id: string;
+  childScheduledEvent?: boolean;
   display: EventDocument;
   query: {
     linkedIdentifiers: string[];
