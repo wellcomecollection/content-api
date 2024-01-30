@@ -8,6 +8,9 @@ export const mappings = {
     id: {
       type: "keyword",
     },
+    isChildScheduledEvent: {
+      type: "boolean",
+    },
     display: {
       type: "object",
       enabled: false,
