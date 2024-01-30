@@ -144,7 +144,7 @@ export const transformEventDocument = (
 
   return {
     id,
-    ...(tags.includes("delist") && { childScheduledEvent: true }),
+    ...(tags.includes("delist") && { isChildScheduledEvent: true }),
     display: {
       type: "Event",
       id,
