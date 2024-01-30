@@ -97,13 +97,23 @@ const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
     .filter(isNotUndefined);
 };
 
-const prismicTimestampToDate = (times: {
+const transformTimes = (times: {
   startDateTime: TimestampField;
   endDateTime: TimestampField;
-}): { startDateTime: Date | undefined; endDateTime: Date | undefined } => {
+  isFullyBooked: "yes" | null;
+  onlineIsFullyBooked: "yes" | null;
+}): {
+  startDateTime: Date | undefined;
+  endDateTime: Date | undefined;
+  isFullyBooked: { inVenue: boolean; online: boolean };
+} => {
   return {
     startDateTime: asDate(times.startDateTime) || undefined,
     endDateTime: asDate(times.endDateTime) || undefined,
+    isFullyBooked: {
+      inVenue: !!times.isFullyBooked,
+      online: !!times.onlineIsFullyBooked,
+    },
   };
 };
 
@@ -113,9 +123,10 @@ export const transformEventDocument = (
   const {
     data: { title, promo, times },
     id,
+    tags,
   } = document;
 
-  const documentTimes = times.map(prismicTimestampToDate);
+  const documentTimes = times.map(transformTimes);
 
   const primaryImage = promo?.[0]?.primary;
   const image =
@@ -133,12 +144,13 @@ export const transformEventDocument = (
 
   return {
     id,
+    ...(tags.includes("delist") && { isChildScheduledEvent: true }),
     display: {
       type: "Event",
       id,
       title: asTitle(title),
       image,
-      times: times.map(prismicTimestampToDate),
+      times: times.map(transformTimes),
       format,
       locations,
       interpretations,

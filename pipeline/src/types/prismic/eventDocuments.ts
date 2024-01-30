@@ -46,6 +46,8 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     times: prismic.GroupField<{
       startDateTime: prismic.TimestampField;
       endDateTime: prismic.TimestampField;
+      isFullyBooked: "yes" | null;
+      onlineIsFullyBooked: "yes" | null;
     }>;
   } & WithEventFormat &
     WithLocations &
