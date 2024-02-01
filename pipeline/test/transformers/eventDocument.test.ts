@@ -4,7 +4,7 @@ import { EventPrismicDocument } from "../../src/types/prismic/eventDocuments";
 
 describe("eventDocument transformer", () => {
   forEachPrismicSnapshot<EventPrismicDocument>("events")(
-    "transforms articles from Prismic to the expected format",
+    "transforms events from Prismic to the expected format",
     (prismicDocument) => {
       const transformed = transformEventDocument(prismicDocument);
       expect(transformed).toMatchSnapshot();

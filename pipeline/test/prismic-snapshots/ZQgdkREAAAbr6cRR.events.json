@@ -3,10 +3,10 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZXhcVRAAACMAWcy5&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZbtroBAAAB8AIMAQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
-  "last_publication_date": "2023-10-26T15:00:00+0000",
+  "last_publication_date": "2023-12-14T15:45:07+0000",
   "slugs": ["lights-up-on-the-cult-of-beauty"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -51,7 +51,9 @@
     "times": [
       {
         "startDateTime": "2023-11-23T16:00:00+0000",
-        "endDateTime": "2023-12-16T14:00:00+0000"
+        "endDateTime": "2024-04-11T19:00:00+0000",
+        "isFullyBooked": null,
+        "onlineIsFullyBooked": null
       }
     ],
     "interpretations": [
@@ -177,6 +179,296 @@
               {
                 "startDateTime": "2023-12-16T11:30:00+0000",
                 "endDateTime": "2023-12-16T12:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmjzxAAACMAX3kD",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-12-13T12:49:41+0000",
+          "last_publication_date": "2023-12-13T12:49:41+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-01-09T14:00:00+0000",
+                "endDateTime": "2024-01-09T18:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmj5xAAACMAX3l2",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-12-14T12:04:29+0000",
+          "last_publication_date": "2023-12-14T12:04:29+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-01-09T15:30:00+0000",
+                "endDateTime": "2024-01-09T16:15:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmj-xAAACEAX3nP",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-12-13T12:49:33+0000",
+          "last_publication_date": "2023-12-13T12:49:33+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-02-01T16:00:00+0000",
+                "endDateTime": "2024-02-01T20:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmkMxAAACEAX3rQ",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-12-14T12:04:33+0000",
+          "last_publication_date": "2023-12-14T12:04:33+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-02-01T17:30:00+0000",
+                "endDateTime": "2024-02-01T18:15:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmkXhAAACEAX3uY",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-12-13T12:49:27+0000",
+          "last_publication_date": "2023-12-13T12:49:27+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-02-24T10:00:00+0000",
+                "endDateTime": "2024-02-24T14:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmkgBAAACIAX3w8",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-12-14T12:04:36+0000",
+          "last_publication_date": "2023-12-14T12:04:36+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-02-24T11:30:00+0000",
+                "endDateTime": "2024-02-24T12:15:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmkoBAAACIAX3zL",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-12-13T12:49:21+0000",
+          "last_publication_date": "2023-12-13T12:49:21+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-03-19T14:00:00+0000",
+                "endDateTime": "2024-03-19T18:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmkwRAAACEAX31l",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-12-14T12:04:40+0000",
+          "last_publication_date": "2023-12-14T12:04:40+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-03-19T15:30:00+0000",
+                "endDateTime": "2024-03-19T16:15:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmk3BAAACAAX33g",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "lights-up-on-the-cult-of-beauty",
+          "first_publication_date": "2023-12-13T12:49:15+0000",
+          "last_publication_date": "2023-12-13T12:49:15+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Lights Up on The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-04-11T15:00:00+0000",
+                "endDateTime": "2024-04-11T19:00:00+0000"
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        },
+        "isNotLinked": "yes"
+      },
+      {
+        "event": {
+          "id": "ZXmk8hAAACIAX35E",
+          "type": "events",
+          "tags": ["LightsUpBeauty", "delist"],
+          "lang": "en-gb",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2023-12-14T12:04:44+0000",
+          "last_publication_date": "2023-12-14T12:08:54+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "AD Tour of The Cult of Beauty",
+                "spans": []
+              }
+            ],
+            "times": [
+              {
+                "startDateTime": "2024-04-11T16:30:00+0000",
+                "endDateTime": "2024-04-11T17:15:00+0000"
               }
             ]
           },
