@@ -170,7 +170,7 @@ export const transformEventDocument = (
     },
     filter: {
       formatId: format.id,
-      isOnline,
+      isOnline: !!isOnline,
       interpretationIds: interpretations.map((i) => i.id),
       audienceIds: audiences.map((a) => a.id),
     },
@@ -180,7 +180,7 @@ export const transformEventDocument = (
       audiences: audiences.map((a) => JSON.stringify(a)),
       location: JSON.stringify({
         type: "EventLocation",
-        isOnline: isOnline,
+        isOnline: !!isOnline,
       }),
     },
   };
