@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZFt0WhQAAHnPEH7P) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZFt0WhQAAHnPEH7P) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [],
+    "format": "{"type":"EventFormat","id":"W5fV5iYAACQAMxHb","label":"Festival"}",
+    "interpretations": [],
+    "location": "{"type":"EventLocation","isOnline":true}",
+  },
   "display": {
     "audiences": [],
     "format": {
@@ -115,6 +121,12 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "title": "Land Body Ecologies Festival Day Two",
     "type": "Event",
   },
+  "filter": {
+    "audienceIds": [],
+    "formatId": "W5fV5iYAACQAMxHb",
+    "interpretationIds": [],
+    "isOnline": true,
+  },
   "id": "ZFt0WhQAAHnPEH7P",
   "query": {
     "caption": "Explore the deep connections between mental health and ecosystem health in this four-day festival created by Land Body Ecologies (LBE), from teams across India, Uganda, Kenya, Thailand, the UK and the Arctic. Take part and experience performances, food, workshops, music, films and more.",
@@ -159,8 +171,16 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 }
 `;
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZJLZoRAAACIARz42) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZJLZoRAAACIARz42) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [],
+    "format": "{"type":"EventFormat","id":"WmYRpCQAACUAn-Ap","label":"Gallery tour"}",
+    "interpretations": [
+      "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
+    ],
+    "location": "{"type":"EventLocation","isOnline":false}",
+  },
   "display": {
     "audiences": [],
     "format": {
@@ -268,6 +288,14 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "title": "Perspective Tour With Jess Dobkin",
     "type": "Event",
   },
+  "filter": {
+    "audienceIds": [],
+    "formatId": "WmYRpCQAACUAn-Ap",
+    "interpretationIds": [
+      "XkFGqxEAACIAIhNH",
+    ],
+    "isOnline": false,
+  },
   "id": "ZJLZoRAAACIARz42",
   "query": {
     "caption": "Join performance artist Jess Dobkin for a tour of our exhibition ‘Milk’.",
@@ -296,8 +324,14 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 }
 `;
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZQgdkREAAAbr6cRR) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZQgdkREAAAbr6cRR) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [],
+    "format": "{"type":"EventFormat","id":"dfc2b7f9-c362-47da-9644-b0f98212ccaa","label":"Event"}",
+    "interpretations": [],
+    "location": "{"type":"EventLocation","isOnline":false}",
+  },
   "display": {
     "audiences": [],
     "format": {
@@ -382,7 +416,7 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "series": [],
     "times": [
       {
-        "endDateTime": 2023-12-16T14:00:00.000Z,
+        "endDateTime": 2024-04-11T19:00:00.000Z,
         "isFullyBooked": {
           "inVenue": false,
           "online": false,
@@ -393,6 +427,12 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "title": "Lights Up on The Cult of Beauty",
     "type": "Event",
   },
+  "filter": {
+    "audienceIds": [],
+    "formatId": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
+    "interpretationIds": [],
+    "isOnline": false,
+  },
   "id": "ZQgdkREAAAbr6cRR",
   "query": {
     "caption": "Explore ‘The Cult of Beauty’ exhibition with brighter and more even lighting conditions across the gallery. Audio and BSL digital guides, a visual story, and large-print and braille guides are available for use at these drop-in sessions.",
@@ -402,6 +442,16 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
       "ZQghdREAAEnw6cr1",
       "ZQgkIRIAACIAN2X1",
       "ZQgiFxYAACcAYG_6",
+      "ZXmjzxAAACMAX3kD",
+      "ZXmj5xAAACMAX3l2",
+      "ZXmj-xAAACEAX3nP",
+      "ZXmkMxAAACEAX3rQ",
+      "ZXmkXhAAACEAX3uY",
+      "ZXmkgBAAACIAX3w8",
+      "ZXmkoBAAACIAX3zL",
+      "ZXmkwRAAACEAX31l",
+      "ZXmk3BAAACAAX33g",
+      "ZXmk8hAAACIAX35E",
     ],
     "series": [],
     "times": {
@@ -414,8 +464,19 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 }
 `;
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZRrijRIAAJNSARgG) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZRrijRIAAJNSARgG) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [
+      "{"type":"EventAudience","id":"WlYWECQAACcAWdBf","label":"Youth event"}",
+    ],
+    "format": "{"type":"EventFormat","id":"Wn3Q3SoAACsAIeFI","label":"Performance"}",
+    "interpretations": [
+      "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
+      "{"type":"EventInterpretation","id":"W5JXVSYAACYAGtkh","label":"Relaxed"}",
+    ],
+    "location": "{"type":"EventLocation","isOnline":false}",
+  },
   "display": {
     "audiences": [
       {
@@ -528,6 +589,17 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "title": "Standards, My Right to Beauty",
     "type": "Event",
   },
+  "filter": {
+    "audienceIds": [
+      "WlYWECQAACcAWdBf",
+    ],
+    "formatId": "Wn3Q3SoAACsAIeFI",
+    "interpretationIds": [
+      "XkFGqxEAACIAIhNH",
+      "W5JXVSYAACYAGtkh",
+    ],
+    "isOnline": false,
+  },
   "id": "ZRrijRIAAJNSARgG",
   "query": {
     "caption": "Join an afternoon of performance and discussion about beauty in which the audience plays an important part, including deciding on the running order and joining in debates.",
@@ -552,8 +624,16 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 }
 `;
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZSPXJBAAACIAiERm) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZSPXJBAAACIAiERm) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [],
+    "format": "{"type":"EventFormat","id":"Wd-QYCcAACcAoiJS","label":"Discussion"}",
+    "interpretations": [
+      "{"type":"EventInterpretation","id":"YzGD9hEAAEAKfx0E","label":"Captioned (online)"}",
+    ],
+    "location": "{"type":"EventLocation","isOnline":true}",
+  },
   "display": {
     "audiences": [],
     "format": {
@@ -661,6 +741,14 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     "title": "Recipes for Early Modern Beauty",
     "type": "Event",
   },
+  "filter": {
+    "audienceIds": [],
+    "formatId": "Wd-QYCcAACcAoiJS",
+    "interpretationIds": [
+      "YzGD9hEAAEAKfx0E",
+    ],
+    "isOnline": true,
+  },
   "id": "ZSPXJBAAACIAiERm",
   "query": {
     "caption": "Join an online conversation about early modern health and beauty routines, and what they reveal about western European women’s lives.",
@@ -692,8 +780,14 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
 }
 `;
 
-exports[`eventDocument transformer transforms articles from Prismic to the expected format (document: events/ZTevFxAAACQAyHEk) 1`] = `
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZTevFxAAACQAyHEk) 1`] = `
 {
+  "aggregatableValues": {
+    "audiences": [],
+    "format": "{"type":"EventFormat","id":"WcKmiysAACx_A8NR","label":"Workshop"}",
+    "interpretations": [],
+    "location": "{"type":"EventLocation","isOnline":false}",
+  },
   "display": {
     "audiences": [],
     "format": {
@@ -788,6 +882,12 @@ exports[`eventDocument transformer transforms articles from Prismic to the expec
     ],
     "title": "Sexing Up the Internet",
     "type": "Event",
+  },
+  "filter": {
+    "audienceIds": [],
+    "formatId": "WcKmiysAACx_A8NR",
+    "interpretationIds": [],
+    "isOnline": false,
   },
   "id": "ZTevFxAAACQAyHEk",
   "query": {

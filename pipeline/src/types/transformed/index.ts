@@ -78,4 +78,16 @@ export type ElasticsearchEventDocument = {
     series: Series;
     times: { startDateTime: Date[] };
   };
+  filter: {
+    formatId: string;
+    isOnline: boolean;
+    interpretationIds: string[];
+    audienceIds: string[];
+  };
+  aggregatableValues: {
+    format: string;
+    location: string;
+    interpretations: string[];
+    audiences: string[];
+  };
 };

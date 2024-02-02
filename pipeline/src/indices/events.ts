@@ -93,6 +93,38 @@ export const mappings = {
         },
       },
     },
+    filter: {
+      properties: {
+        formatId: {
+          type: "keyword",
+        },
+        isOnline: {
+          type: "boolean",
+        },
+        interpretationIds: {
+          type: "keyword",
+        },
+        audienceIds: {
+          type: "keyword",
+        },
+      },
+    },
+    aggregatableValues: {
+      properties: {
+        format: {
+          type: "keyword",
+        },
+        interpretations: {
+          type: "keyword",
+        },
+        audiences: {
+          type: "keyword",
+        },
+        location: {
+          type: "keyword",
+        },
+      },
+    },
   },
 } as const;
 
