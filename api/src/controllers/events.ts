@@ -18,8 +18,6 @@ import { pickFiltersFromQuery } from "../helpers/requests";
 import { esQuery } from "../queries/common";
 import { rewriteAggregationsForFacets } from "../queries/faceting";
 
-const util = require("util");
-
 type QueryParams = {
   query?: string;
   sort?: string;
@@ -88,7 +86,9 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
             must: ifDefined(queryString, eventsQuery),
             must_not: {
               term: {
-                isChildScheduledEvent: true, // exclude childScheduledEvents from search
+                // exclude childScheduledEvents from search
+                // https://github.com/wellcomecollection/content-api/issues/93
+                isChildScheduledEvent: true,
               },
             },
           },
