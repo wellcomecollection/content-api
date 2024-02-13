@@ -1,5 +1,4 @@
 import { StringLiteral } from "../types";
-import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
 import { ifDefined } from "./index";
 import { Filter } from "../queries/common";
 

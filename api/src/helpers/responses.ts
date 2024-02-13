@@ -4,10 +4,8 @@ import {
   AggregationsStringTermsBucket,
   SearchResponse,
 } from "@elastic/elasticsearch/lib/api/types";
-import logger from "@weco/content-common/services/logging";
 import { Displayable } from "../types";
 import {
-  Aggregation,
   AggregationBucket,
   Aggregations,
   ResultList,
