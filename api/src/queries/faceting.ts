@@ -1,7 +1,4 @@
-import {
-  AggregationsAggregationContainer,
-  QueryDslQueryContainer,
-} from "@elastic/elasticsearch/lib/api/types";
+import { AggregationsAggregationContainer } from "@elastic/elasticsearch/lib/api/types";
 import { esQuery, Filter, isTermsFilter } from "./common";
 
 // This file contains functions to rewrite terms aggregations and filters

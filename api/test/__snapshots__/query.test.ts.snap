@@ -92,7 +92,7 @@ exports[`articles query makes the expected query to ES for a given set of query 
     },
   },
   "from": 336,
-  "index": "test",
+  "index": "test-articles",
   "post_filter": {
     "bool": {
       "filter": [
@@ -157,6 +157,157 @@ exports[`articles query makes the expected query to ES for a given set of query 
     },
     {
       "query.publicationDate": {
+        "order": "desc",
+      },
+    },
+  ],
+}
+`;
+
+exports[`events query makes the expected query to ES for a given set of query parameters 1`] = `
+{
+  "_source": [
+    "display",
+  ],
+  "aggregations": {
+    "format": {
+      "aggs": {
+        "self_filter": {
+          "aggs": {
+            "terms": {
+              "terms": {
+                "field": "aggregatableValues.format",
+                "include": ".*test-format.*",
+                "min_doc_count": 0,
+                "size": 20,
+              },
+            },
+          },
+          "filter": {
+            "terms": {
+              "filter.formatId": [
+                "test-format",
+              ],
+            },
+          },
+        },
+        "terms": {
+          "terms": {
+            "field": "aggregatableValues.format",
+            "size": 20,
+          },
+        },
+      },
+      "filter": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "filter.interpretationIds": [
+                  "test-interpretation",
+                ],
+              },
+            },
+          ],
+        },
+      },
+    },
+    "interpretation": {
+      "aggs": {
+        "self_filter": {
+          "aggs": {
+            "terms": {
+              "terms": {
+                "field": "aggregatableValues.interpretations",
+                "include": ".*test-interpretation.*",
+                "min_doc_count": 0,
+                "size": 20,
+              },
+            },
+          },
+          "filter": {
+            "terms": {
+              "filter.interpretationIds": [
+                "test-interpretation",
+              ],
+            },
+          },
+        },
+        "terms": {
+          "terms": {
+            "field": "aggregatableValues.interpretations",
+            "size": 20,
+          },
+        },
+      },
+      "filter": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "filter.formatId": [
+                  "test-format",
+                ],
+              },
+            },
+          ],
+        },
+      },
+    },
+  },
+  "from": 120,
+  "index": "test-events",
+  "post_filter": {
+    "bool": {
+      "filter": [
+        {
+          "terms": {
+            "filter.formatId": [
+              "test-format",
+            ],
+          },
+        },
+        {
+          "terms": {
+            "filter.interpretationIds": [
+              "test-interpretation",
+            ],
+          },
+        },
+      ],
+    },
+  },
+  "query": {
+    "bool": {
+      "must": {
+        "multi_match": {
+          "fields": [
+            "id",
+            "query.title.*^100",
+            "query.caption.*^10",
+          ],
+          "minimum_should_match": "-25%",
+          "operator": "or",
+          "query": "henry wellcome",
+          "type": "cross_fields",
+        },
+      },
+      "must_not": {
+        "term": {
+          "isChildScheduledEvent": true,
+        },
+      },
+    },
+  },
+  "size": 20,
+  "sort": [
+    {
+      "_score": {
+        "order": "asc",
+      },
+    },
+    {
+      "query.times.startDateTime": {
         "order": "desc",
       },
     },

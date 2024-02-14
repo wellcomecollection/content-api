@@ -53,6 +53,47 @@ describe("articles query", () => {
   });
 });
 
+describe("events query", () => {
+  // The purpose of this test is as a smoke test for the question,
+  // "do we understand how we map a given query into an ES request?"
+  it("makes the expected query to ES for a given set of query parameters", async () => {
+    const aggregations = "format,interpretation";
+    const format = "test-format";
+    const interpretation = "test-interpretation";
+    const pageSize = 20;
+    const page = 7;
+    const sortOrder = "asc";
+    const query = "henry wellcome";
+
+    const params = new URLSearchParams({
+      aggregations,
+      format,
+      interpretation,
+      page,
+      pageSize,
+      sortOrder,
+      query,
+    } as unknown as Record<string, string>);
+    const esRequest = await elasticsearchRequestForURL(
+      `/events?${params.toString()}`
+    );
+
+    expect(esRequest.from).toBe((page - 1) * pageSize);
+    expect(esRequest.size).toBe(pageSize);
+    expect(esRequest.aggregations).toContainAllKeys(aggregations.split(","));
+
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
+    expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
+      interpretation
+    );
+    expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
+      format
+    );
+
+    expect(esRequest).toMatchSnapshot();
+  });
+});
+
 const elasticsearchRequestForURL = async (
   url: string
 ): Promise<SearchRequest> => {
@@ -61,8 +102,8 @@ const elasticsearchRequestForURL = async (
     { elastic: { search: searchSpy } as unknown as ElasticClient },
     {
       pipelineDate: "2222-22-22",
-      articlesIndex: "test",
-      eventsIndex: "",
+      articlesIndex: "test-articles",
+      eventsIndex: "test-events",
       publicRootUrl: new URL("http://test.test/test"),
     }
   );

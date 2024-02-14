@@ -1,4 +1,5 @@
 import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
+import { TermsFilter } from "./common";
 
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
@@ -9,3 +10,62 @@ export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
     minimum_should_match: "-25%",
   },
 });
+
+export const eventsFilter = {
+  format: (formats: string[]): TermsFilter => ({
+    values: formats,
+    esQuery: {
+      terms: {
+        "filter.formatId": formats,
+      },
+    },
+  }),
+  interpretation: (interpretations: string[]): TermsFilter => ({
+    values: interpretations,
+    esQuery: {
+      terms: {
+        "filter.interpretationIds": interpretations,
+      },
+    },
+  }),
+  audience: (audiences: string[]): TermsFilter => ({
+    values: audiences,
+    esQuery: {
+      terms: {
+        "filter.audienceIds": audiences,
+      },
+    },
+  }),
+  isOnline: (): QueryDslQueryContainer => ({
+    term: {
+      "filter.isOnline": true,
+    },
+  }),
+};
+
+export const eventsAggregations = {
+  format: {
+    terms: {
+      size: 20,
+      field: "aggregatableValues.format",
+    },
+  },
+  interpretation: {
+    terms: {
+      size: 20,
+      field: "aggregatableValues.interpretations",
+    },
+  },
+  audience: {
+    terms: {
+      size: 10,
+      field: "aggregatableValues.audiences",
+    },
+  },
+  isOnline: {
+    terms: {
+      size: 2,
+      field: "aggregatableValues.location",
+    },
+  },
+} as const;

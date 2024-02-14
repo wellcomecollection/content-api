@@ -8,8 +8,15 @@ import { HttpError } from "./error";
 import { ResultList } from "../types/responses";
 import { resultListResponse } from "../helpers/responses";
 import { queryValidator } from "./validation";
-import { ifDefined } from "../helpers";
-import { eventsQuery } from "../queries/events";
+import { ifDefined, pick } from "../helpers";
+import {
+  eventsAggregations,
+  eventsFilter,
+  eventsQuery,
+} from "../queries/events";
+import { pickFiltersFromQuery } from "../helpers/requests";
+import { esQuery } from "../queries/common";
+import { rewriteAggregationsForFacets } from "../queries/faceting";
 
 type QueryParams = {
   query?: string;
@@ -17,6 +24,9 @@ type QueryParams = {
   sortOrder?: string;
   aggregations?: string;
   format?: string;
+  audience?: string;
+  interpretation?: string;
+  isOnline?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -35,6 +45,11 @@ const sortOrderValidator = queryValidator({
   singleValue: true,
 });
 
+const aggregationsValidator = queryValidator({
+  name: "aggregations",
+  allowed: ["format", "audience", "interpretation", "isOnline"],
+});
+
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
   const index = config.eventsIndex;
   const resultList = resultListResponse(config);
@@ -43,17 +58,44 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const { query: queryString, ...params } = req.query;
     const sort = sortValidator(params)?.[0];
     const sortOrder = sortOrderValidator(params)?.[0];
-
+    const aggregations = aggregationsValidator(params);
     const sortKey =
       sort === "times.startDateTime" ? "query.times.startDateTime" : "_score";
+
+    const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
+      pick(eventsAggregations, requestedAggs)
+    );
+
+    const postFilters = pickFiltersFromQuery(
+      ["format", "audience", "interpretation", "isOnline"],
+      params,
+      eventsFilter
+    );
+
+    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
+      rewriteAggregationsForFacets(aggs, postFilters)
+    );
 
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
+        aggregations: facetedAggregations,
         query: {
           bool: {
             must: ifDefined(queryString, eventsQuery),
+            must_not: {
+              term: {
+                // exclude childScheduledEvents from search
+                // https://github.com/wellcomecollection/content-api/issues/93
+                isChildScheduledEvent: true,
+              },
+            },
+          },
+        },
+        post_filter: {
+          bool: {
+            filter: Object.values(postFilters).map(esQuery),
           },
         },
         sort: [
