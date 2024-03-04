@@ -121,7 +121,7 @@ export const transformEventDocument = (
   document: EventPrismicDocument
 ): ElasticsearchEventDocument => {
   const {
-    data: { title, promo, times, isOnline },
+    data: { title, promo, times, isOnline, availableOnline },
     id,
     tags,
   } = document;
@@ -156,6 +156,7 @@ export const transformEventDocument = (
       interpretations,
       audiences,
       series: transformSeries(document),
+      isAvailableOnline: availableOnline,
     },
     query: {
       linkedIdentifiers: linkedDocumentIdentifiers(document),
@@ -173,6 +174,7 @@ export const transformEventDocument = (
       isOnline: !!isOnline,
       interpretationIds: interpretations.map((i) => i.id),
       audienceIds: audiences.map((a) => a.id),
+      isAvailableOnline: availableOnline,
     },
     aggregatableValues: {
       format: JSON.stringify(format),
@@ -181,6 +183,9 @@ export const transformEventDocument = (
       location: JSON.stringify({
         type: "EventLocation",
         isOnline: !!isOnline,
+      }),
+      isAvailableOnline: JSON.stringify({
+        isAvailableOnline: availableOnline,
       }),
     },
   };

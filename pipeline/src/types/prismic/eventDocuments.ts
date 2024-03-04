@@ -49,6 +49,7 @@ export type EventPrismicDocument = prismic.PrismicDocument<
       isFullyBooked: "yes" | null;
       onlineIsFullyBooked: "yes" | null;
     }>;
+    availableOnline: boolean;
   } & WithEventFormat &
     WithLocations &
     WithInterpretations &
