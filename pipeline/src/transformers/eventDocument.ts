@@ -142,6 +142,10 @@ export const transformEventDocument = (
 
   const audiences = transformAudiences(document);
 
+  // Events that existed before the field was added have `null` as a value
+  // They should be considered as false
+  const isAvailableOnline = !!availableOnline;
+
   return {
     id,
     ...(tags.includes("delist") && { isChildScheduledEvent: true }),
@@ -156,7 +160,7 @@ export const transformEventDocument = (
       interpretations,
       audiences,
       series: transformSeries(document),
-      isAvailableOnline: availableOnline,
+      isAvailableOnline,
     },
     query: {
       linkedIdentifiers: linkedDocumentIdentifiers(document),
@@ -174,7 +178,7 @@ export const transformEventDocument = (
       isOnline: !!isOnline,
       interpretationIds: interpretations.map((i) => i.id),
       audienceIds: audiences.map((a) => a.id),
-      isAvailableOnline: availableOnline,
+      isAvailableOnline,
     },
     aggregatableValues: {
       format: JSON.stringify(format),
@@ -185,7 +189,7 @@ export const transformEventDocument = (
         isOnline: !!isOnline,
       }),
       isAvailableOnline: JSON.stringify({
-        isAvailableOnline: availableOnline,
+        isAvailableOnline,
       }),
     },
   };

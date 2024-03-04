@@ -33,3 +33,10 @@ Our solution is to:
 1. Store all of the `linkedIdentifiers` of a parent document alongside it in the index. For example, this would be the identifiers of the contributors for a given article.
 2. When _any_ document is updated, we query for anything that includes its identifier in those `linkedIdentifiers`.
 3. If we find anything, we re-fetch that document too (we don't worry about applying the update we've received to already-indexed documents, we just fetch them again).
+
+## How to reindex
+
+First, ensure it's safe to do so as it will affect data used in production. Then you'll need to be logged in and specify the role in the command line.
+
+For example:
+`AWS_PROFILE=catalogue-developer yarn reindex-events`
