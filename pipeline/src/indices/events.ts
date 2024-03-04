@@ -107,6 +107,9 @@ export const mappings = {
         audienceIds: {
           type: "keyword",
         },
+        isAvailableOnline: {
+          type: "boolean",
+        },
       },
     },
     aggregatableValues: {
@@ -121,6 +124,9 @@ export const mappings = {
           type: "keyword",
         },
         location: {
+          type: "keyword",
+        },
+        isAvailableOnline: {
           type: "keyword",
         },
       },
