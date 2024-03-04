@@ -16,6 +16,7 @@ export type EventDocument = {
   interpretations: EventDocumentInterpretation[];
   audiences: EventDocumentAudience[];
   series: Series;
+  isAvailableOnline: boolean;
 };
 
 export type EventDocumentFormat = {

@@ -83,11 +83,13 @@ export type ElasticsearchEventDocument = {
     isOnline: boolean;
     interpretationIds: string[];
     audienceIds: string[];
+    isAvailableOnline: boolean;
   };
   aggregatableValues: {
     format: string;
     location: string;
     interpretations: string[];
     audiences: string[];
+    isAvailableOnline: string;
   };
 };

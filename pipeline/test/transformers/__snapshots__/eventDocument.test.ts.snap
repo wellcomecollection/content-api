@@ -6,6 +6,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"W5fV5iYAACQAMxHb","label":"Festival"}",
     "interpretations": [],
+    "isAvailableOnline": "{"isAvailableOnline":false}",
     "location": "{"type":"EventLocation","isOnline":true}",
   },
   "display": {
@@ -86,6 +87,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format",
     },
     "interpretations": [],
+    "isAvailableOnline": false,
     "locations": [
       {
         "id": "XEnJIhUAAArdgVsW",
@@ -125,6 +127,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audienceIds": [],
     "formatId": "W5fV5iYAACQAMxHb",
     "interpretationIds": [],
+    "isAvailableOnline": false,
     "isOnline": true,
   },
   "id": "ZFt0WhQAAHnPEH7P",
@@ -179,6 +182,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretations": [
       "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
     ],
+    "isAvailableOnline": "{"isAvailableOnline":false}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -261,6 +265,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         "type": "EventInterpretation",
       },
     ],
+    "isAvailableOnline": false,
     "locations": [
       {
         "id": "W22bICkAACgA-hVJ",
@@ -294,6 +299,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretationIds": [
       "XkFGqxEAACIAIhNH",
     ],
+    "isAvailableOnline": false,
     "isOnline": false,
   },
   "id": "ZJLZoRAAACIARz42",
@@ -330,6 +336,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"dfc2b7f9-c362-47da-9644-b0f98212ccaa","label":"Event"}",
     "interpretations": [],
+    "isAvailableOnline": "{"isAvailableOnline":false}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -406,6 +413,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "url": "https://images.prismic.io/wellcomecollection/d8e4d673-0874-4888-88f6-ff3ebd7de642_EP_002351_013+4k+16x9.jpg?auto=compress,format",
     },
     "interpretations": [],
+    "isAvailableOnline": false,
     "locations": [
       {
         "id": "WrEgqSAAACAAPEw7",
@@ -431,6 +439,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audienceIds": [],
     "formatId": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
     "interpretationIds": [],
+    "isAvailableOnline": false,
     "isOnline": false,
   },
   "id": "ZQgdkREAAAbr6cRR",
@@ -475,6 +484,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
       "{"type":"EventInterpretation","id":"W5JXVSYAACYAGtkh","label":"Relaxed"}",
     ],
+    "isAvailableOnline": "{"isAvailableOnline":false}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -568,6 +578,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         "type": "EventInterpretation",
       },
     ],
+    "isAvailableOnline": false,
     "locations": [
       {
         "id": "W8XfKxEAADwYer9D",
@@ -598,6 +609,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "XkFGqxEAACIAIhNH",
       "W5JXVSYAACYAGtkh",
     ],
+    "isAvailableOnline": false,
     "isOnline": false,
   },
   "id": "ZRrijRIAAJNSARgG",
@@ -632,6 +644,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretations": [
       "{"type":"EventInterpretation","id":"YzGD9hEAAEAKfx0E","label":"Captioned (online)"}",
     ],
+    "isAvailableOnline": "{"isAvailableOnline":true}",
     "location": "{"type":"EventLocation","isOnline":true}",
   },
   "display": {
@@ -714,6 +727,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         "type": "EventInterpretation",
       },
     ],
+    "isAvailableOnline": true,
     "locations": [
       {
         "id": "ef04c8e3-26be-4fbc-9bef-f52589ebc56c",
@@ -747,6 +761,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretationIds": [
       "YzGD9hEAAEAKfx0E",
     ],
+    "isAvailableOnline": true,
     "isOnline": true,
   },
   "id": "ZSPXJBAAACIAiERm",
@@ -786,6 +801,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"WcKmiysAACx_A8NR","label":"Workshop"}",
     "interpretations": [],
+    "isAvailableOnline": "{"isAvailableOnline":false}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -862,6 +878,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "url": "https://images.prismic.io/wellcomecollection/89a8299e-a07e-40b6-8b02-020e29442b70_EP_000607_088+16x9+4K.jpg?auto=compress,format",
     },
     "interpretations": [],
+    "isAvailableOnline": false,
     "locations": [
       {
         "id": "XVqn7RMAACIAxvVM",
@@ -887,6 +904,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audienceIds": [],
     "formatId": "WcKmiysAACx_A8NR",
     "interpretationIds": [],
+    "isAvailableOnline": false,
     "isOnline": false,
   },
   "id": "ZTevFxAAACQAyHEk",
