@@ -27,6 +27,7 @@ type QueryParams = {
   audience?: string;
   interpretation?: string;
   isOnline?: string;
+  isAvailableOnline?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -47,8 +48,33 @@ const sortOrderValidator = queryValidator({
 
 const aggregationsValidator = queryValidator({
   name: "aggregations",
-  allowed: ["format", "audience", "interpretation", "isOnline"],
+  allowed: [
+    "format",
+    "audience",
+    "interpretation",
+    "isOnline",
+    "isAvailableOnline",
+  ],
 });
+
+const isAvailableOnlineValidator = queryValidator({
+  name: "isAvailableOnline",
+  allowed: ["true"],
+  singleValue: true,
+});
+
+const paramsValidator = (params: QueryParams): QueryParams => {
+  const { isAvailableOnline, ...rest } = params;
+
+  // We are ignoring all other values passed in but "true".
+  // Anything else should remove the param from the query
+  return isAvailableOnline &&
+    isAvailableOnlineValidator({
+      isAvailableOnline,
+    })
+    ? params
+    : { ...rest };
+};
 
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
   const index = config.eventsIndex;
@@ -59,6 +85,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const sort = sortValidator(params)?.[0];
     const sortOrder = sortOrderValidator(params)?.[0];
     const aggregations = aggregationsValidator(params);
+    const validParams = paramsValidator(params);
     const sortKey =
       sort === "times.startDateTime" ? "query.times.startDateTime" : "_score";
 
@@ -67,8 +94,8 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     );
 
     const postFilters = pickFiltersFromQuery(
-      ["format", "audience", "interpretation", "isOnline"],
-      params,
+      ["format", "audience", "interpretation", "isOnline", "isAvailableOnline"],
+      validParams,
       eventsFilter
     );
 
