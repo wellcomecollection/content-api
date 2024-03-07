@@ -19,7 +19,7 @@ export type Venue = {
 type DayOfWeek =
   | "monday"
   | "tuesday"
-  | "wesdnesday"
+  | "wednesday"
   | "thursday"
   | "friday"
   | "saturday"
