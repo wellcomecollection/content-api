@@ -5,13 +5,15 @@ import { WindowEvent } from "./event";
 import { createETLPipeline } from "./extractTransformLoad";
 import {
   articlesQuery,
-  eventDocumentsQuery,
   webcomicsQuery,
   wrapQueries,
+  eventDocumentsQuery,
+  venueQuery,
 } from "./graph-queries";
-import { articles, events } from "./indices";
+import { articles, events, venues } from "./indices";
 import { transformArticle } from "./transformers/article";
 import { transformEventDocument } from "./transformers/eventDocument";
+import { transformVenue } from "./transformers/venues";
 
 const loadArticles = createETLPipeline({
   graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
@@ -27,6 +29,13 @@ const loadEvents = createETLPipeline({
   transformer: transformEventDocument,
 });
 
+const loadVenues = createETLPipeline({
+  graphQuery: venueQuery,
+  indexConfig: venues,
+  parentDocumentTypes: new Set(["venues"]),
+  transformer: transformVenue,
+});
+
 export const createHandler =
   (clients: Clients): Handler<WindowEvent> =>
   async (event, context) => {
@@ -39,5 +48,8 @@ export const createHandler =
     }
     if (event.contentType === "all" || event.contentType === "events") {
       await loadEvents(clients, event);
+    }
+    if (event.contentType === "all" || event.contentType === "venues") {
+      await loadVenues(clients, event);
     }
   };
