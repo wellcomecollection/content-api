@@ -70,7 +70,7 @@ const mockDateNow = (dateToMock: string) => {
 };
 
 describe("getNextOpeningDates", () => {
-  it("start the dateList at today + 1 when it's before 10am", () => {
+  it("start the dateList at today + 1", () => {
     mockDateNow("2024-03-12T08:00:00.000Z");
 
     const expectedStart = {
@@ -83,37 +83,11 @@ describe("getNextOpeningDates", () => {
     );
   });
 
-  it("start the dateList at today + 2 when it's on or after 10am", () => {
-    mockDateNow("2024-03-12T10:00:00.000Z");
-
-    const expectedStart = {
-      open: new Date("2024-03-14T10:00:00.000Z"),
-      close: new Date("2024-03-14T20:00:00.000Z"),
-    };
-
-    expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
-      expectedStart
-    );
-  });
-
-  it("also works during BST", () => {
-    // 9:30am UTC is 10:30am BST so timeSeries should start at today + 2
-    mockDateNow("2024-05-12T09:30:00.000Z");
-
-    const expectedStart = {
-      open: new Date("2024-05-14T09:00:00.000Z"),
-      close: new Date("2024-05-14T17:00:00.000Z"),
-    };
-
-    expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
-      expectedStart
-    );
-  });
-
   it("works when there are no upcoming exceptional closures", () => {
     mockDateNow("2024-03-12T10:00:00.000Z");
 
     const expectedNextOpeningDates = [
+      { open: "2024-03-13T10:00:00.000Z", close: "2024-03-13T18:00:00.000Z" },
       { open: "2024-03-14T10:00:00.000Z", close: "2024-03-14T20:00:00.000Z" },
       { open: "2024-03-15T10:00:00.000Z", close: "2024-03-15T18:00:00.000Z" },
       { open: "2024-03-16T10:00:00.000Z", close: "2024-03-16T16:00:00.000Z" },
@@ -131,7 +105,6 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-30T10:00:00.000Z", close: "2024-03-30T16:00:00.000Z" },
       { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
       { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
-      { open: "2024-04-03T09:00:00.000Z", close: "2024-04-03T17:00:00.000Z" },
     ].map((dates) => ({
       open: new Date(dates.open),
       close: new Date(dates.close),
@@ -146,6 +119,7 @@ describe("getNextOpeningDates", () => {
     mockDateNow("2024-03-12T10:00:00.000Z");
 
     const expectedNextOpeningDates = [
+      { open: "2024-03-13T10:00:00.000Z", close: "2024-03-13T18:00:00.000Z" },
       { open: "2024-03-14T10:00:00.000Z", close: "2024-03-14T20:00:00.000Z" },
       { open: "2024-03-15T10:00:00.000Z", close: "2024-03-15T18:00:00.000Z" },
       { open: "2024-03-16T10:00:00.000Z", close: "2024-03-16T16:00:00.000Z" },
@@ -161,7 +135,6 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-29T10:00:00.000Z", close: "2024-03-29T18:00:00.000Z" },
       { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
       { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
-      { open: "2024-04-03T09:00:00.000Z", close: "2024-04-03T17:00:00.000Z" },
     ].map((dates) => ({
       open: new Date(dates.open),
       close: new Date(dates.close),

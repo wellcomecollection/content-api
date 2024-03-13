@@ -89,9 +89,7 @@ export function getNextOpeningDates(
   exceptionalClosedDays: DisplayExceptionalClosedDay[]
 ): NextOpeningDate[] {
   const dateNow = new Date();
-  console.log("!@!@!@!@!@", regularOpeningDays);
-  const timeSeriesStart =
-    dateNow.getHours() < 10 ? addDays(dateNow, 1) : addDays(dateNow, 2);
+  const timeSeriesStart = addDays(dateNow, 1);
   const dateList = [...Array(21).keys()].map((day) =>
     addDays(timeSeriesStart, day)
   );
@@ -145,8 +143,8 @@ function addOpeningHours(
       : "00:00";
 
     return {
-      open: toUTCDate(new Date(setHoursAndMinutes(date, openingHour))),
-      close: toUTCDate(new Date(setHoursAndMinutes(date, closingHour))),
+      open: new Date(setHoursAndMinutes(date, openingHour)),
+      close: new Date(setHoursAndMinutes(date, closingHour)),
     };
   });
 }
@@ -159,7 +157,6 @@ function setHoursAndMinutes(date: Date, time: string) {
     0
   );
 }
-
-function toUTCDate(date: Date): Date {
-  return new Date(date.toUTCString());
+function offsetTimezone(date: Date): number {
+  return date.getTimezoneOffset();
 }
