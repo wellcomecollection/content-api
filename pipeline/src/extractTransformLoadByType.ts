@@ -1,11 +1,9 @@
 import * as prismic from "@prismicio/client";
-import {} from "@elastic/elasticsearch";
 import log from "@weco/content-common/services/logging";
-import { getPrismicDocuments } from "./helpers/prismic";
+import { getPrismicDocumentsByType } from "./helpers/prismic";
 import { Clients } from "./types";
 import {
   ensureIndexExists,
-  bulkIndexDocuments,
   IndexConfig,
   HasIdentifier,
 } from "./helpers/elasticsearch";
@@ -15,10 +13,11 @@ import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
 type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;
   graphQuery: string;
+  documentType: string;
   transformer: (prismicDoc: PrismicDocument) => ElasticsearchDocument;
 };
 
-export const createNonLinkedDocETLPipeline =
+export const createETLByTypePipeline =
   <
     PrismicDocument extends prismic.PrismicDocument,
     ElasticsearchDocument extends HasIdentifier
@@ -36,17 +35,22 @@ export const createNonLinkedDocETLPipeline =
       } last published ${describeWindow(window)}`
     );
 
-    const { docs } = await getPrismicDocuments(clients.prismic, {
+    const documents = await getPrismicDocumentsByType(clients.prismic, {
       publicationWindow: toBoundedWindow(event),
       graphQuery: etlParameters.graphQuery,
+      documentType: etlParameters.documentType,
     });
 
-    const operations = docs.flatMap((doc) => [
-      { index: { _index: "venues" } },
-      doc,
-    ]);
+    const operations = documents
+      .map((document) => etlParameters.transformer(document as PrismicDocument))
+      .flatMap((document) => [
+        {
+          index: { _index: etlParameters.indexConfig.index, _id: document.id },
+        },
+        document,
+      ]);
 
     await clients.elastic.bulk({ refresh: true, operations });
 
-    log.info(`Indexed ${docs.length} documents`);
+    log.info(`Indexed ${documents.length} documents`);
   };

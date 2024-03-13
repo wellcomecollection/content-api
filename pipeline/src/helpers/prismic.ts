@@ -17,8 +17,9 @@ const PRISMIC_MAX_PAGE_SIZE = 100;
 
 type GetPrismicDocumentsParams = {
   publicationWindow: TimeWindow;
-  graphQuery?: string;
+  graphQuery: string;
   after?: string;
+  documentType?: string;
 };
 
 export type PrismicPage<T> = {
@@ -39,7 +40,7 @@ export const getPrismicDocuments = async (
   const endDate = publicationWindow.end;
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
-    graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
+    graphQuery: graphQuery.replace(/\n(\s+)/g, "\n"),
     filters: [
       startDate
         ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)
@@ -64,6 +65,30 @@ export const getPrismicDocuments = async (
     docs: results,
     lastDocId,
   };
+};
+
+export const getPrismicDocumentsByType = async (
+  client: prismic.Client,
+  { publicationWindow, graphQuery, documentType }: GetPrismicDocumentsParams
+): Promise<prismic.PrismicDocument[]> => {
+  const startDate = publicationWindow.start;
+  const endDate = publicationWindow.end;
+  if (!documentType) {
+    throw "document type must be specified";
+  }
+  return await client.getAllByType(documentType, {
+    // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
+    graphQuery: graphQuery.replace(/\n(\s+)/g, "\n"),
+    filters: [
+      startDate
+        ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)
+        : [],
+      endDate
+        ? prismic.filter.dateBefore(fields.lastPublicationDate, endDate)
+        : [],
+    ].flat(),
+    pageSize: PRISMIC_MAX_PAGE_SIZE,
+  });
 };
 
 export const paginator = <T extends prismic.PrismicDocument>(
