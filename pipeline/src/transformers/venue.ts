@@ -96,7 +96,7 @@ export const transformVenue = (
       exceptionalClosedDays,
     },
     filter: {
-      title,
+      title: title.toLowerCase(),
       id,
     },
     nextOpeningDates,
