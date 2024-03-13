@@ -3,6 +3,7 @@ import { Handler } from "aws-lambda";
 import { Clients } from "./types";
 import { WindowEvent } from "./event";
 import { createETLPipeline } from "./extractTransformLoad";
+import { createNonLinkedDocETLPipeline } from "./extractTransformLoadNonLinkedDocs";
 import {
   articlesQuery,
   webcomicsQuery,
@@ -13,7 +14,7 @@ import {
 import { articles, events, venues } from "./indices";
 import { transformArticle } from "./transformers/article";
 import { transformEventDocument } from "./transformers/eventDocument";
-import { transformVenue } from "./transformers/venues";
+import { transformVenue } from "./transformers/venue";
 
 const loadArticles = createETLPipeline({
   graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
@@ -29,10 +30,9 @@ const loadEvents = createETLPipeline({
   transformer: transformEventDocument,
 });
 
-const loadVenues = createETLPipeline({
+const loadVenues = createNonLinkedDocETLPipeline({
   graphQuery: venueQuery,
   indexConfig: venues,
-  parentDocumentTypes: new Set(["venues"]),
   transformer: transformVenue,
 });
 
@@ -42,7 +42,6 @@ export const createHandler =
     if (!event.contentType) {
       throw new Error("Event contentType must be specified!");
     }
-
     if (event.contentType === "all" || event.contentType === "articles") {
       await loadArticles(clients, event);
     }

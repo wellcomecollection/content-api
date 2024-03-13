@@ -8,6 +8,7 @@
     "reindex": "ts-node src/local.ts all",
     "reindex-articles": "ts-node src/local.ts articles",
     "reindex-events": "ts-node src/local.ts events",
+    "reindex-venues": "ts-node src/local.ts venues",
     "update-prismic-snapshots": "ts-node test/update-prismic-snapshots.ts",
     "test": "jest"
   },
