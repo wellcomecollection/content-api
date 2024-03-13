@@ -6,7 +6,7 @@ import {
   EventDocumentLocation,
   EventDocumentInterpretation,
 } from "./eventDocument";
-import { Venue } from "./venue";
+import { Venue, NextOpeningDate } from "./venue";
 
 // Image
 export type Image = PrismicImage & {
@@ -98,12 +98,9 @@ export type ElasticsearchEventDocument = {
 export type ElasticsearchVenue = {
   id: string;
   display: Venue;
-  query: {
+  filter: {
     title: string;
     id: string;
   };
-  nextOpeningDates: {
-    open: Date;
-    close: Date;
-  }[];
+  nextOpeningDates: NextOpeningDate[];
 };

@@ -3,21 +3,26 @@ export type Venue = {
   id: string;
   title: string;
   regularOpeningDays: DisplayRegularOpeningDay[];
-  exceptionalOpeningDays: DisplayExceptionalOpeningDays[];
+  exceptionalClosedDays: DisplayExceptionalClosedDay[];
 };
 
 export type DisplayRegularOpeningDay = {
   dayOfWeek: DayOfWeek;
   opens: string;
   closes: string;
-  isClosed?: boolean;
+  isClosed: boolean;
 };
 
-export type DisplayExceptionalOpeningDays = {
-  overrideDate: Date;
+export type DisplayExceptionalClosedDay = {
+  overrideDate: Date | null;
   type: string | null;
   startDateTime: string;
   endDateTime: string;
+};
+
+export type NextOpeningDate = {
+  open: Date;
+  close: Date;
 };
 
 export type DayOfWeek =

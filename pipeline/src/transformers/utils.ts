@@ -6,10 +6,11 @@ import {
 } from "../helpers/type-guards";
 import { WithSeries } from "../types/prismic/series";
 import { Series } from "../types/transformed";
-import { ExceptionalOpeningDays } from "../types/prismic/venues";
 import {
   DayOfWeek,
   DisplayRegularOpeningDay,
+  DisplayExceptionalClosedDay,
+  NextOpeningDate,
 } from "../types/transformed/venue";
 
 type JsonPrimitive = string | number | boolean | null;
@@ -85,32 +86,22 @@ export const transformSeries = (
 
 export function getNextOpeningDates(
   regularOpeningDays: DisplayRegularOpeningDay[],
-  modifiedDayOpeningTimes: ExceptionalOpeningDays,
-  dateList: Date[] = []
-): Date[] | void {
-  const now = new Date("Wed 13 Mar 2024");
+  exceptionalClosedDays: DisplayExceptionalClosedDay[]
+): NextOpeningDate[] {
+  const dateNow = new Date();
 
-  if (!dateList.length) {
-    const timeSeriesStart =
-      now.getHours() < 10 ? addDays(now, 1) : addDays(now, 2);
-    dateList = [...Array(14).keys()].map((day) =>
-      addDays(timeSeriesStart, day)
-    );
-  } else {
-    dateList = [
-      ...dateList,
-      ...[...Array(14 - dateList.length).keys()].map((day) =>
-        addDays(dateList[dateList.length - 1], day + 1)
-      ),
-    ];
-  }
+  const timeSeriesStart =
+    dateNow.getHours() < 10 ? addDays(dateNow, 1) : addDays(dateNow, 2);
+  const dateList = [...Array(21).keys()].map((day) =>
+    addDays(timeSeriesStart, day)
+  );
 
   const regularClosedDays = regularOpeningDays
     .filter((day) => day.isClosed)
     .map((day) => day.dayOfWeek);
-  const upcomingExceptionalClosedDates = modifiedDayOpeningTimes
-    .map((date) => asDate(date.overrideDate))
-    .filter((date) => date && date > new Date())
+  const upcomingExceptionalClosedDates = exceptionalClosedDays
+    .map((date) => date.overrideDate)
+    .filter((date) => date && date > dateNow)
     .map((date) => date && getDateWithoutTime(date));
 
   const upcomingRegularOpenDays = dateList.filter(
@@ -120,18 +111,10 @@ export function getNextOpeningDates(
     (date) => !upcomingExceptionalClosedDates.includes(getDateWithoutTime(date))
   );
 
-  console.log("UPCOMING OPEN DAYS", upcomingOpenDays);
-
-  return upcomingOpenDays.length === 14
-    ? upcomingOpenDays
-    : getNextOpeningDates(
-        regularOpeningDays,
-        modifiedDayOpeningTimes,
-        upcomingOpenDays
-      );
+  return addOpeningHours(upcomingOpenDays, regularOpeningDays);
 }
 
-export function addDays(date: Date, days: number): Date {
+function addDays(date: Date, days: number): Date {
   const newDate = new Date(date);
   return new Date(newDate.setDate(date.getDate() + days));
 }
@@ -143,5 +126,36 @@ function getDayName(date: Date) {
 }
 
 function getDateWithoutTime(date: Date) {
-  return date.toDateString().split("T")[0];
+  return date.toDateString();
+}
+
+function addOpeningHours(
+  upcomingOpenDays: Date[],
+  regularOpeningDays: DisplayRegularOpeningDay[]
+): NextOpeningDate[] {
+  return upcomingOpenDays.map((date) => {
+    const regularOpeningDay = regularOpeningDays.find(
+      (day) => day.dayOfWeek === getDayName(date)
+    );
+    const openingHour = regularOpeningDay?.opens
+      ? regularOpeningDay.opens
+      : "00:00";
+    const closingHour = regularOpeningDay?.closes
+      ? regularOpeningDay.closes
+      : "00:00";
+
+    return {
+      open: new Date(setHoursAndMinutes(date, openingHour)),
+      close: new Date(setHoursAndMinutes(date, closingHour)),
+    };
+  });
+}
+
+function setHoursAndMinutes(date: Date, time: string) {
+  return date.setHours(
+    Number(time.split(":")[0]),
+    Number(time.split(":")[1]),
+    0,
+    0
+  );
 }
