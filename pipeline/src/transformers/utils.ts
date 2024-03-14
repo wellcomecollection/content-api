@@ -124,14 +124,8 @@ function getDayName(date: Date) {
     .toLowerCase() as DayOfWeek;
 }
 
-function getDateWithoutTime(date: Date) {
-  // when a venue is closed during BST Prismic has it as:
-  // '2024-03-31T23:00:00+0000' for '2024-04-01T00:00:00 Europe/London'
-  // we set the desired timezone here because we care about the day
-  const dateInLondonTimezone = DateTime.fromJSDate(date)
-    .setZone("Europe/London")
-    .toJSDate();
-  return dateInLondonTimezone.toDateString();
+function getDateWithoutTime(date: Date): string {
+  return DateTime.fromJSDate(date).setLocale("en-GB").toLocaleString();
 }
 
 function addOpeningHours(
