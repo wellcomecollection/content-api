@@ -144,25 +144,20 @@ function addOpeningHours(
       : "00:00";
 
     return {
-      open: setLondonHoursAndMinutes(date, openingHour).toISO(),
-      close: setLondonHoursAndMinutes(date, closingHour).toISO(),
+      open: setHourAndMinute(date, openingHour),
+      close: setHourAndMinute(date, closingHour),
     };
   });
 }
 
-function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
-  const setHoursAndMinutes = (date: Date, time: string): Date => {
-    return new Date(
-      date.setHours(
-        Number(time.split(":")[0]),
-        Number(time.split(":")[1]),
-        0,
-        0
-      )
-    );
-  };
-  const withLondonOffset = (dateTime: Date): DateTime => {
-    return DateTime.fromJSDate(dateTime).setLocale("en-GB");
-  };
-  return withLondonOffset(setHoursAndMinutes(date, time));
-}
+// function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
+const setHourAndMinute = (date: Date, time: string): string | undefined => {
+  // we set the timezone to Europe/London before setting the time
+  const dateInLondonTimezone = DateTime.fromJSDate(date).setLocale("en-GB");
+  const withHourAndMinute = dateInLondonTimezone.set({
+    hour: Number(time.split(":")[0]),
+    minute: Number(time.split(":")[1]),
+  });
+  // time is set in London, we can now convert back to UTC ISO string
+  return withHourAndMinute.toUTC().toISO() || undefined;
+};

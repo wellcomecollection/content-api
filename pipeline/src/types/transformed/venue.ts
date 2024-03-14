@@ -23,8 +23,8 @@ export type DisplayExceptionalClosedDay = {
 };
 
 export type NextOpeningDate = {
-  open: string | null;
-  close: string | null;
+  open: string | undefined;
+  close: string | undefined;
 };
 
 export type DayOfWeek =
