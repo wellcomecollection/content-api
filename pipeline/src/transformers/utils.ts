@@ -153,7 +153,8 @@ function addOpeningHours(
 // function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
 const setHourAndMinute = (date: Date, time: string): string | undefined => {
   // we set the timezone to Europe/London before setting the time
-  const dateInLondonTimezone = DateTime.fromJSDate(date).setLocale("en-GB");
+  const dateInLondonTimezone =
+    DateTime.fromJSDate(date).setZone("Europe/London");
   const withHourAndMinute = dateInLondonTimezone.set({
     hour: Number(time.split(":")[0]),
     minute: Number(time.split(":")[1]),
