@@ -52,13 +52,20 @@ const regularOpeningDays = [
 
 const exceptionalClosedDays = [
   {
-    overrideDate: new Date("2024-03-28T10:00:00.000Z"),
+    overrideDate: new Date("2024-03-28T00:00:00.000Z"),
     type: "Easter",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
-    overrideDate: new Date("2024-03-30T10:00:00.000Z"),
+    overrideDate: new Date("2024-03-30T00:00:00.000Z"),
+    type: "Easter",
+    startDateTime: "00:00",
+    endDateTime: "00:00",
+  },
+  {
+    // this is during BST so 2024-03-31T23:00:00.000Z is 2024-04-01T00:00:00.BST
+    overrideDate: new Date("2024-03-31T23:00:00.000Z"),
     type: "Easter",
     startDateTime: "00:00",
     endDateTime: "00:00",
@@ -130,7 +137,6 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-26T10:00:00.000Z", close: "2024-03-26T18:00:00.000Z" },
       { open: "2024-03-27T10:00:00.000Z", close: "2024-03-27T18:00:00.000Z" },
       { open: "2024-03-29T10:00:00.000Z", close: "2024-03-29T18:00:00.000Z" },
-      { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
       { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
     ];
 
