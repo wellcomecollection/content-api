@@ -739,6 +739,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       "WcUWeCgAAFws-nGh",
       "W3KvwikAACIAEFVE",
       "Ybi9HREAACIAcOar",
+      "WsSUrR8AAL3KGFPF",
     ],
     "publicationDate": 2022-01-10T10:59:43.000Z,
     "series": [
@@ -748,6 +749,11 @@ exports[`article transformer transforms articles from Prismic to the expected fo
         ],
         "id": "Ybi9HREAACIAcOar",
         "title": "Modern Encounters With a Medieval Almanac",
+      },
+      {
+        "contributors": [],
+        "id": "WsSUrR8AAL3KGFPF",
+        "title": "Inside Our Collections",
       },
     ],
     "standfirst": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
