@@ -125,7 +125,7 @@ function getDayName(date: Date) {
 }
 
 function getDateWithoutTime(date: Date): string {
-  return DateTime.fromJSDate(date).setLocale("en-GB").toLocaleString();
+  return DateTime.fromJSDate(date).setZone("en-GB").toLocaleString();
 }
 
 function addOpeningHours(
