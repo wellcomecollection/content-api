@@ -150,15 +150,16 @@ function addOpeningHours(
   });
 }
 
-// function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
-const setHourAndMinute = (date: Date, time: string): string | undefined => {
+function setHourAndMinute(date: Date, time: string): string | undefined {
   // we set the timezone to Europe/London before setting the time
   const dateInLondonTimezone =
     DateTime.fromJSDate(date).setZone("Europe/London");
   const withHourAndMinute = dateInLondonTimezone.set({
     hour: Number(time.split(":")[0]),
     minute: Number(time.split(":")[1]),
+    second: 0,
+    millisecond: 0,
   });
   // time is set in London, we can now convert back to UTC ISO string
   return withHourAndMinute.toUTC().toISO() || undefined;
-};
+}

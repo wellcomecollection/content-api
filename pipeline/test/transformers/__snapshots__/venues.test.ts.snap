@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`eventDocument transformer transforms venues from Prismic to the expected format (document: collection-venue/WsuS_R8AACS1Nwlx) 1`] = `
+{
+  "display": {
+    "exceptionalClosedDays": [
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-21T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-22T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-23T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-24T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-25T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-26T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-27T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-28T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-29T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-30T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2023-12-31T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2024-01-01T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2024-03-29T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2024-03-30T00:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": 2024-03-31T23:00:00.000Z,
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+    ],
+    "id": "WsuS_R8AACS1Nwlx",
+    "regularOpeningDays": [
+      {
+        "closes": "18:00",
+        "dayOfWeek": "monday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "tuesday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "wednesday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "20:00",
+        "dayOfWeek": "thursday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "friday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "16:00",
+        "dayOfWeek": "saturday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "00:00",
+        "dayOfWeek": "sunday",
+        "isClosed": true,
+        "opens": "00:00",
+      },
+    ],
+    "title": "Library",
+    "type": "Venue",
+  },
+  "filter": {
+    "id": "WsuS_R8AACS1Nwlx",
+    "title": "library",
+  },
+  "id": "WsuS_R8AACS1Nwlx",
+  "nextOpeningDates": [
+    {
+      "close": "2024-03-15T18:00:00.000Z",
+      "open": "2024-03-15T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-16T16:00:00.000Z",
+      "open": "2024-03-16T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-18T18:00:00.000Z",
+      "open": "2024-03-18T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-19T18:00:00.000Z",
+      "open": "2024-03-19T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-20T18:00:00.000Z",
+      "open": "2024-03-20T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-21T20:00:00.000Z",
+      "open": "2024-03-21T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-22T18:00:00.000Z",
+      "open": "2024-03-22T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-23T16:00:00.000Z",
+      "open": "2024-03-23T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-25T18:00:00.000Z",
+      "open": "2024-03-25T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-26T18:00:00.000Z",
+      "open": "2024-03-26T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-27T18:00:00.000Z",
+      "open": "2024-03-27T10:00:00.000Z",
+    },
+    {
+      "close": "2024-03-28T20:00:00.000Z",
+      "open": "2024-03-28T10:00:00.000Z",
+    },
+    {
+      "close": "2024-04-02T17:00:00.000Z",
+      "open": "2024-04-02T09:00:00.000Z",
+    },
+    {
+      "close": "2024-04-03T17:00:00.000Z",
+      "open": "2024-04-03T09:00:00.000Z",
+    },
+    {
+      "close": "2024-04-04T19:00:00.000Z",
+      "open": "2024-04-04T09:00:00.000Z",
+    },
+  ],
+}
+`;

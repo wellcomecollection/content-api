@@ -67,7 +67,7 @@ export const getPrismicDocuments = async (
   };
 };
 
-export const getPrismicDocumentsByType = async (
+export const getDocumentsByType = async (
   client: prismic.Client,
   { publicationWindow, graphQuery, documentType }: GetPrismicDocumentsParams
 ): Promise<prismic.PrismicDocument[]> => {
@@ -87,7 +87,6 @@ export const getPrismicDocumentsByType = async (
         ? prismic.filter.dateBefore(fields.lastPublicationDate, endDate)
         : [],
     ].flat(),
-    pageSize: PRISMIC_MAX_PAGE_SIZE,
   });
 };
 

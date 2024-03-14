@@ -1,6 +1,6 @@
 import * as prismic from "@prismicio/client";
 import log from "@weco/content-common/services/logging";
-import { getPrismicDocumentsByType } from "./helpers/prismic";
+import { getDocumentsByType } from "./helpers/prismic";
 import { Clients } from "./types";
 import {
   ensureIndexExists,
@@ -35,7 +35,7 @@ export const createETLByTypePipeline =
       } last published ${describeWindow(window)}`
     );
 
-    const documents = await getPrismicDocumentsByType(clients.prismic, {
+    const documents = await getDocumentsByType(clients.prismic, {
       publicationWindow: toBoundedWindow(event),
       graphQuery: etlParameters.graphQuery,
       documentType: etlParameters.documentType,
