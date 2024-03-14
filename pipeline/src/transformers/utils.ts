@@ -162,7 +162,7 @@ function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
     );
   };
   const withLondonOffset = (dateTime: Date): DateTime => {
-    return DateTime.fromJSDate(dateTime).setLocale("en-GB").toUTC();
+    return DateTime.fromJSDate(dateTime).setLocale("en-GB");
   };
   return withLondonOffset(setHoursAndMinutes(date, time));
 }
