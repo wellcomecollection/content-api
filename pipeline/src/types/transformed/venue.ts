@@ -1,3 +1,5 @@
+import { DateTime } from "luxon";
+
 export type Venue = {
   type: "Venue";
   id: string;
@@ -21,8 +23,8 @@ export type DisplayExceptionalClosedDay = {
 };
 
 export type NextOpeningDate = {
-  open: Date;
-  close: Date;
+  open: string | null;
+  close: string | null;
 };
 
 export type DayOfWeek =

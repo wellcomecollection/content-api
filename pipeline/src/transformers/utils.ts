@@ -12,6 +12,7 @@ import {
   DisplayExceptionalClosedDay,
   NextOpeningDate,
 } from "../types/transformed/venue";
+import { DateTime } from "luxon";
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];
@@ -143,20 +144,25 @@ function addOpeningHours(
       : "00:00";
 
     return {
-      open: new Date(setHoursAndMinutes(date, openingHour)),
-      close: new Date(setHoursAndMinutes(date, closingHour)),
+      open: setLondonHoursAndMinutes(date, openingHour).toISO(),
+      close: setLondonHoursAndMinutes(date, closingHour).toISO(),
     };
   });
 }
 
-function setHoursAndMinutes(date: Date, time: string) {
-  return date.setHours(
-    Number(time.split(":")[0]),
-    Number(time.split(":")[1]),
-    0,
-    0
-  );
-}
-function offsetTimezone(date: Date): number {
-  return date.getTimezoneOffset();
+function setLondonHoursAndMinutes(date: Date, time: string): DateTime {
+  const setHoursAndMinutes = (date: Date, time: string): Date => {
+    return new Date(
+      date.setHours(
+        Number(time.split(":")[0]),
+        Number(time.split(":")[1]),
+        0,
+        0
+      )
+    );
+  };
+  const withLondonOffset = (dateTime: Date): DateTime => {
+    return DateTime.fromJSDate(dateTime).setLocale("en-GB").toUTC();
+  };
+  return withLondonOffset(setHoursAndMinutes(date, time));
 }

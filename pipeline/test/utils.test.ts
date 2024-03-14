@@ -74,8 +74,8 @@ describe("getNextOpeningDates", () => {
     mockDateNow("2024-03-12T08:00:00.000Z");
 
     const expectedStart = {
-      open: new Date("2024-03-13T10:00:00.000Z"),
-      close: new Date("2024-03-13T18:00:00.000Z"),
+      open: "2024-03-13T10:00:00.000Z",
+      close: "2024-03-13T18:00:00.000Z",
     };
 
     expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
@@ -105,10 +105,7 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-30T10:00:00.000Z", close: "2024-03-30T16:00:00.000Z" },
       { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
       { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
-    ].map((dates) => ({
-      open: new Date(dates.open),
-      close: new Date(dates.close),
-    }));
+    ];
 
     expect(getNextOpeningDates(regularOpeningDays, [])).toStrictEqual(
       expectedNextOpeningDates
@@ -135,10 +132,7 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-29T10:00:00.000Z", close: "2024-03-29T18:00:00.000Z" },
       { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
       { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
-    ].map((dates) => ({
-      open: new Date(dates.open),
-      close: new Date(dates.close),
-    }));
+    ];
 
     expect(
       getNextOpeningDates(regularOpeningDays, exceptionalClosedDays)
