@@ -41,16 +41,20 @@ export const createETLByTypePipeline =
       documentType: etlParameters.documentType,
     });
 
-    const operations = documents
-      .map((document) => etlParameters.transformer(document as PrismicDocument))
-      .flatMap((document) => [
-        {
-          index: { _index: etlParameters.indexConfig.index, _id: document.id },
-        },
-        document,
-      ]);
+    const transformedDocuments = documents.map((document) =>
+      etlParameters.transformer(document as PrismicDocument)
+    );
 
-    await clients.elastic.bulk({ refresh: true, operations });
+    const result = await clients.elastic.helpers.bulk({
+      datasource: transformedDocuments,
+      onDocument(doc) {
+        return {
+          index: { _index: etlParameters.indexConfig.index, _id: doc.id },
+        };
+      },
+    });
 
-    log.info(`Indexed ${documents.length} documents`);
+    log.info(
+      `Indexed ${result.successful} ${etlParameters.documentType} documents in ${result.time}ms.`
+    );
   };

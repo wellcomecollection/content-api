@@ -10,6 +10,7 @@ import {
   webcomicsQuery,
   wrapQueries,
   eventDocumentsQuery,
+  venueQuery,
 } from "../src/graph-queries";
 
 const dataDir = path.resolve(__dirname, "prismic-snapshots");
@@ -33,14 +34,20 @@ const eventDocumentIds = [
   "Wn3Q3SoAACsAIeFI", // event-formats - Performance
 ];
 
+const venueIds = [
+  "WsuS_R8AACS1Nwlx", // Library
+];
+
 const main = async () => {
   const client = createPrismicClient();
   const articleDocs = await updateArticleSnapshots(client);
   const eventDocs = await updateEventDocumentSnapshots(client);
+  const venueDocs = await updateVenueSnapshots(client);
+
   console.log("Done saving snapshots.");
 
   console.log("Adding comments to update script...");
-  await addCommentsToUpdateScript([...articleDocs, ...eventDocs]);
+  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
 
   console.log("Done.");
 };
@@ -69,6 +76,25 @@ const updateEventDocumentSnapshots = async (client: Client) => {
   console.log(eventDocumentIds.join("\n"));
   const docs = await client.getAllByIDs(eventDocumentIds, {
     graphQuery: eventDocumentsQuery,
+  });
+
+  await Promise.all(
+    docs.map((doc) => {
+      const docJson = JSON.stringify(doc, null, 2);
+      return fs.writeFile(
+        path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
+        docJson
+      );
+    })
+  );
+  return docs;
+};
+
+const updateVenueSnapshots = async (client: Client) => {
+  console.log("Updating prismic snapshots for the following venues:");
+  console.log(venueIds.join("\n"));
+  const docs = await client.getAllByIDs(venueIds, {
+    graphQuery: venueQuery,
   });
 
   await Promise.all(

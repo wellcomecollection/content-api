@@ -48,7 +48,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     await eventPipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "all" }
+      { contentType: "events" }
     );
 
     expect(elasticIndexCreator).toHaveBeenCalled();
@@ -101,7 +101,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     await eventPipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "all" }
+      { contentType: "events" }
     );
 
     const parentIds = parentArticles.map((doc) => doc.id);
@@ -143,7 +143,7 @@ describe("Extract, transform and load articles", () => {
 
     await articlePipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "all" }
+      { contentType: "articles" }
     );
     expect(elasticIndexCreator).toHaveBeenCalled();
     expect(elasticBulkHelper).toHaveBeenCalled();
@@ -200,7 +200,7 @@ describe("Extract, transform and load articles", () => {
 
     await articlePipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "all" }
+      { contentType: "articles" }
     );
     expect(elasticIndexCreator).toHaveBeenCalled();
     expect(elasticBulkHelper).toHaveBeenCalled();
