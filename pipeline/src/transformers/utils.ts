@@ -119,7 +119,7 @@ function addDays(date: Date, days: number): Date {
 }
 
 function getDayName(date: Date) {
-  return new Date(date)
+  return date
     .toLocaleString("en-gb", { weekday: "long" })
     .toLowerCase() as DayOfWeek;
 }
