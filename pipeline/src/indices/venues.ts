@@ -8,7 +8,6 @@ export const mappings = {
     },
     display: {
       type: "object",
-      enabled: false,
     },
     filter: {
       properties: {
@@ -17,16 +16,6 @@ export const mappings = {
         },
         title: {
           type: "keyword",
-        },
-      },
-    },
-    nextOpeningDates: {
-      properties: {
-        close: {
-          type: "date",
-        },
-        open: {
-          type: "date",
         },
       },
     },
