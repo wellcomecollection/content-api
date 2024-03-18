@@ -189,7 +189,9 @@ export const transformEventDocument = (
         isOnline: !!isOnline,
       }),
       isAvailableOnline: JSON.stringify({
-        isAvailableOnline,
+        type: "OnlineAvailabilityBoolean",
+        value: isAvailableOnline,
+        label: "Catch-up event",
       }),
     },
   };
