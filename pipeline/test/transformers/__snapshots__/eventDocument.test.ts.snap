@@ -6,7 +6,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"W5fV5iYAACQAMxHb","label":"Festival"}",
     "interpretations": [],
-    "isAvailableOnline": "{"isAvailableOnline":false}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":true}",
   },
   "display": {
@@ -182,7 +182,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretations": [
       "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
     ],
-    "isAvailableOnline": "{"isAvailableOnline":false}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -336,7 +336,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"dfc2b7f9-c362-47da-9644-b0f98212ccaa","label":"Event"}",
     "interpretations": [],
-    "isAvailableOnline": "{"isAvailableOnline":false}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -484,7 +484,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
       "{"type":"EventInterpretation","id":"W5JXVSYAACYAGtkh","label":"Relaxed"}",
     ],
-    "isAvailableOnline": "{"isAvailableOnline":false}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
@@ -644,7 +644,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "interpretations": [
       "{"type":"EventInterpretation","id":"YzGD9hEAAEAKfx0E","label":"Captioned (online)"}",
     ],
-    "isAvailableOnline": "{"isAvailableOnline":true}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":true,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":true}",
   },
   "display": {
@@ -801,7 +801,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"WcKmiysAACx_A8NR","label":"Workshop"}",
     "interpretations": [],
-    "isAvailableOnline": "{"isAvailableOnline":false}",
+    "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
     "location": "{"type":"EventLocation","isOnline":false}",
   },
   "display": {
