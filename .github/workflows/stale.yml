@@ -1,6 +1,6 @@
 # Automatically mark any pull requests that have been inactive for 30 days as "Stale"
 # then close them 3 days later if there is still no activity.
-# 
+#
 # Shamelessly copied from https://github.com/guardian/.github/blob/main/workflow-templates/stale.yml
 name: "Stale PR Handler"
 
