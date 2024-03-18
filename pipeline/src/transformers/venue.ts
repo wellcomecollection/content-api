@@ -81,11 +81,6 @@ export const transformVenue = (
     modifiedDayOpeningTimes
   );
 
-  const nextOpeningDates = getNextOpeningDates(
-    regularOpeningDays,
-    exceptionalClosedDays
-  );
-
   return {
     id,
     display: {
@@ -99,6 +94,5 @@ export const transformVenue = (
       title: title.toLowerCase(),
       id,
     },
-    nextOpeningDates,
   };
 };

@@ -1,9 +1,5 @@
 import { getNextOpeningDates } from "../src/transformers/utils";
-import { RegularOpeningDay } from "./types/prismic/venues";
-import {
-  DisplayRegularOpeningDay,
-  DisplayExceptionalClosedDay,
-} from "./types/transformed/venue";
+import { DisplayRegularOpeningDay } from "./types/transformed/venue";
 
 const regularOpeningDays = [
   {

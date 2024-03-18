@@ -1,4 +1,4 @@
-import { PrismicDocument, asDate } from "@prismicio/client";
+import { PrismicDocument } from "@prismicio/client";
 import {
   isFilledLinkToDocumentWithData,
   asText,
@@ -10,7 +10,6 @@ import {
   DayOfWeek,
   DisplayRegularOpeningDay,
   DisplayExceptionalClosedDay,
-  NextOpeningDate,
 } from "../types/transformed/venue";
 import { DateTime } from "luxon";
 
@@ -24,6 +23,11 @@ type LinkedDocumentWithData = {
   link_type: "Document";
   id: string;
   data?: any;
+};
+
+type NextOpeningDate = {
+  open: string | undefined;
+  close: string | undefined;
 };
 
 // We want to extract IDs only from linked documents (not slices) from which
