@@ -8,6 +8,49 @@ export const mappings = {
     },
     display: {
       type: "object",
+      properties: {
+        type: {
+          type: "text",
+        },
+        id: {
+          type: "text",
+        },
+        title: {
+          type: "text",
+        },
+        exceptionalClosedDays: {
+          properties: {
+            endDateTime: {
+              type: "text",
+            },
+            overrideDate: {
+              type: "date",
+            },
+            startDateTime: {
+              type: "text",
+            },
+            type: {
+              type: "text",
+            },
+          },
+        },
+        regularOpeningDays: {
+          properties: {
+            closes: {
+              type: "text",
+            },
+            dayOfWeek: {
+              type: "text",
+            },
+            isClosed: {
+              type: "boolean",
+            },
+            opens: {
+              type: "text",
+            },
+          },
+        },
+      },
     },
     filter: {
       properties: {
