@@ -3,7 +3,6 @@ import { Handler } from "aws-lambda";
 import { Clients } from "./types";
 import { WindowEvent } from "./event";
 import { createETLPipeline } from "./extractTransformLoad";
-import { createETLByTypePipeline } from "./extractTransformLoadByType";
 import {
   articlesQuery,
   webcomicsQuery,
@@ -30,10 +29,10 @@ const loadEvents = createETLPipeline({
   transformer: transformEventDocument,
 });
 
-const loadVenues = createETLByTypePipeline({
+const loadVenues = createETLPipeline({
   graphQuery: venueQuery,
   indexConfig: venues,
-  documentType: "collection-venue",
+  parentDocumentTypes: new Set(["collection-venue"]),
   transformer: transformVenue,
 });
 

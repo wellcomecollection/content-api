@@ -19,7 +19,6 @@ type GetPrismicDocumentsParams = {
   publicationWindow: TimeWindow;
   graphQuery: string;
   after?: string;
-  documentType?: string;
 };
 
 export type PrismicPage<T> = {
@@ -65,29 +64,6 @@ export const getPrismicDocuments = async (
     docs: results,
     lastDocId,
   };
-};
-
-export const getDocumentsByType = async (
-  client: prismic.Client,
-  { publicationWindow, graphQuery, documentType }: GetPrismicDocumentsParams
-): Promise<prismic.PrismicDocument[]> => {
-  const startDate = publicationWindow.start;
-  const endDate = publicationWindow.end;
-  if (!documentType) {
-    throw "document type must be specified";
-  }
-  return await client.getAllByType(documentType, {
-    // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
-    graphQuery: graphQuery.replace(/\n(\s+)/g, "\n"),
-    filters: [
-      startDate
-        ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)
-        : [],
-      endDate
-        ? prismic.filter.dateBefore(fields.lastPublicationDate, endDate)
-        : [],
-    ].flat(),
-  });
 };
 
 export const paginator = <T extends prismic.PrismicDocument>(
