@@ -3,7 +3,7 @@ import { Article, ArticleFormat } from "./article";
 import {
   EventDocument,
   EventDocumentFormat,
-  EventDocumentLocation,
+  EventDocumentLocations,
   EventDocumentInterpretation,
 } from "./eventDocument";
 import { Venue } from "./venue";
@@ -40,7 +40,7 @@ export type { Article, ArticleFormat };
 export type {
   EventDocument,
   EventDocumentFormat,
-  EventDocumentLocation,
+  EventDocumentLocations,
   EventDocumentInterpretation,
 };
 
@@ -81,16 +81,16 @@ export type ElasticsearchEventDocument = {
   };
   filter: {
     formatId: string;
-    isOnline: boolean;
     interpretationIds: string[];
     audienceIds: string[];
+    locationIds: string[];
     isAvailableOnline: boolean;
   };
   aggregatableValues: {
     format: string;
-    location: string;
     interpretations: string[];
     audiences: string[];
+    locations: string[];
     isAvailableOnline: string;
   };
 };
