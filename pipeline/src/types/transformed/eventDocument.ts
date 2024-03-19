@@ -12,7 +12,7 @@ export type EventDocument = {
     isFullyBooked: { inVenue: boolean; online: boolean };
   }[];
   format: EventDocumentFormat;
-  locations: EventDocumentLocation[];
+  locations: EventDocumentLocations;
   interpretations: EventDocumentInterpretation[];
   audiences: EventDocumentAudience[];
   series: Series;
@@ -25,8 +25,26 @@ export type EventDocumentFormat = {
   label?: string;
 };
 
-export type EventDocumentLocation = {
-  type: "EventLocation";
+type OnlineAttendance = {
+  id: "online";
+  label: "Online";
+};
+type BuildingAttendance = {
+  id: "in-our-building";
+  label: "In our building";
+};
+
+export type EventDocumentLocations = {
+  isOnline: boolean;
+  places?: EventDocumentPlace[];
+  attendance: ((BuildingAttendance | OnlineAttendance) & {
+    type: "EventAttendance";
+  })[];
+  type: "EventLocations";
+};
+
+export type EventDocumentPlace = {
+  type: "EventPlace";
   id: string;
   label?: string;
 };

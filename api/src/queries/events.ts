@@ -36,9 +36,12 @@ export const eventsFilter = {
       },
     },
   }),
-  isOnline: (): QueryDslQueryContainer => ({
-    term: {
-      "filter.isOnline": true,
+  location: (locations: string[]): TermsFilter => ({
+    values: locations,
+    esQuery: {
+      terms: {
+        "filter.locationIds": locations,
+      },
     },
   }),
   isAvailableOnline: (): QueryDslQueryContainer => {
@@ -69,10 +72,10 @@ export const eventsAggregations = {
       field: "aggregatableValues.audiences",
     },
   },
-  isOnline: {
+  location: {
     terms: {
-      size: 2,
-      field: "aggregatableValues.location",
+      size: 3,
+      field: "aggregatableValues.locations",
     },
   },
   isAvailableOnline: {

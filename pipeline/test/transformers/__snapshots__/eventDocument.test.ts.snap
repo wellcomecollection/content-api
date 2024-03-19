@@ -7,7 +7,10 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "format": "{"type":"EventFormat","id":"W5fV5iYAACQAMxHb","label":"Festival"}",
     "interpretations": [],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":true}",
+    "locations": [
+      "{"id":"online","label":"Online","type":"EventAttendance"}",
+      "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [],
@@ -88,18 +91,29 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "interpretations": [],
     "isAvailableOnline": false,
-    "locations": [
-      {
-        "id": "XEnJIhUAAArdgVsW",
-        "label": "Throughout our building",
-        "type": "EventLocation",
-      },
-      {
-        "id": "ef04c8e3-26be-4fbc-9bef-f52589ebc56c",
-        "label": "Online",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "online",
+          "label": "Online",
+          "type": "EventAttendance",
+        },
+        {
+          "id": "in-our-building",
+          "label": "In our building",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": true,
+      "places": [
+        {
+          "id": "XEnJIhUAAArdgVsW",
+          "label": "Throughout our building",
+          "type": "EventPlace",
+        },
+      ],
+      "type": "EventLocations",
+    },
     "series": [
       {
         "contributors": [
@@ -128,7 +142,10 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "formatId": "W5fV5iYAACQAMxHb",
     "interpretationIds": [],
     "isAvailableOnline": false,
-    "isOnline": true,
+    "locationIds": [
+      "online",
+      "in-our-building",
+    ],
   },
   "id": "ZFt0WhQAAHnPEH7P",
   "query": {
@@ -183,7 +200,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
     ],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":false}",
+    "locations": [
+      "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [],
@@ -266,13 +285,24 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       },
     ],
     "isAvailableOnline": false,
-    "locations": [
-      {
-        "id": "W22bICkAACgA-hVJ",
-        "label": "Information Point",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "in-our-building",
+          "label": "In our building",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": false,
+      "places": [
+        {
+          "id": "W22bICkAACgA-hVJ",
+          "label": "Information Point",
+          "type": "EventPlace",
+        },
+      ],
+      "type": "EventLocations",
+    },
     "series": [
       {
         "contributors": [],
@@ -300,7 +330,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "XkFGqxEAACIAIhNH",
     ],
     "isAvailableOnline": false,
-    "isOnline": false,
+    "locationIds": [
+      "in-our-building",
+    ],
   },
   "id": "ZJLZoRAAACIARz42",
   "query": {
@@ -337,7 +369,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "format": "{"type":"EventFormat","id":"dfc2b7f9-c362-47da-9644-b0f98212ccaa","label":"Event"}",
     "interpretations": [],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":false}",
+    "locations": [
+      "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [],
@@ -414,13 +448,24 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "interpretations": [],
     "isAvailableOnline": false,
-    "locations": [
-      {
-        "id": "WrEgqSAAACAAPEw7",
-        "label": "Gallery 1",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "in-our-building",
+          "label": "In our building",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": false,
+      "places": [
+        {
+          "id": "WrEgqSAAACAAPEw7",
+          "label": "Gallery 1",
+          "type": "EventPlace",
+        },
+      ],
+      "type": "EventLocations",
+    },
     "series": [],
     "times": [
       {
@@ -440,7 +485,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "formatId": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
     "interpretationIds": [],
     "isAvailableOnline": false,
-    "isOnline": false,
+    "locationIds": [
+      "in-our-building",
+    ],
   },
   "id": "ZQgdkREAAAbr6cRR",
   "query": {
@@ -485,7 +532,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "{"type":"EventInterpretation","id":"W5JXVSYAACYAGtkh","label":"Relaxed"}",
     ],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":false}",
+    "locations": [
+      "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [
@@ -579,13 +628,24 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       },
     ],
     "isAvailableOnline": false,
-    "locations": [
-      {
-        "id": "W8XfKxEAADwYer9D",
-        "label": "The Studio and the Forum",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "in-our-building",
+          "label": "In our building",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": false,
+      "places": [
+        {
+          "id": "W8XfKxEAADwYer9D",
+          "label": "The Studio and the Forum",
+          "type": "EventPlace",
+        },
+      ],
+      "type": "EventLocations",
+    },
     "series": [],
     "times": [
       {
@@ -610,7 +670,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "W5JXVSYAACYAGtkh",
     ],
     "isAvailableOnline": false,
-    "isOnline": false,
+    "locationIds": [
+      "in-our-building",
+    ],
   },
   "id": "ZRrijRIAAJNSARgG",
   "query": {
@@ -645,7 +707,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "{"type":"EventInterpretation","id":"YzGD9hEAAEAKfx0E","label":"Captioned (online)"}",
     ],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":true,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":true}",
+    "locations": [
+      "{"id":"online","label":"Online","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [],
@@ -728,13 +792,18 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       },
     ],
     "isAvailableOnline": true,
-    "locations": [
-      {
-        "id": "ef04c8e3-26be-4fbc-9bef-f52589ebc56c",
-        "label": "Online",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "online",
+          "label": "Online",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": true,
+      "places": undefined,
+      "type": "EventLocations",
+    },
     "series": [
       {
         "contributors": [],
@@ -762,7 +831,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "YzGD9hEAAEAKfx0E",
     ],
     "isAvailableOnline": true,
-    "isOnline": true,
+    "locationIds": [
+      "online",
+    ],
   },
   "id": "ZSPXJBAAACIAiERm",
   "query": {
@@ -802,7 +873,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "format": "{"type":"EventFormat","id":"WcKmiysAACx_A8NR","label":"Workshop"}",
     "interpretations": [],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
-    "location": "{"type":"EventLocation","isOnline":false}",
+    "locations": [
+      "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+    ],
   },
   "display": {
     "audiences": [],
@@ -879,13 +952,24 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "interpretations": [],
     "isAvailableOnline": false,
-    "locations": [
-      {
-        "id": "XVqn7RMAACIAxvVM",
-        "label": "Wellcome Kitchen",
-        "type": "EventLocation",
-      },
-    ],
+    "locations": {
+      "attendance": [
+        {
+          "id": "in-our-building",
+          "label": "In our building",
+          "type": "EventAttendance",
+        },
+      ],
+      "isOnline": false,
+      "places": [
+        {
+          "id": "XVqn7RMAACIAxvVM",
+          "label": "Wellcome Kitchen",
+          "type": "EventPlace",
+        },
+      ],
+      "type": "EventLocations",
+    },
     "series": [],
     "times": [
       {
@@ -905,7 +989,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "formatId": "WcKmiysAACx_A8NR",
     "interpretationIds": [],
     "isAvailableOnline": false,
-    "isOnline": false,
+    "locationIds": [
+      "in-our-building",
+    ],
   },
   "id": "ZTevFxAAACQAyHEk",
   "query": {
