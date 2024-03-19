@@ -12,9 +12,10 @@ import {
 } from "../types/prismic/eventDocuments";
 import {
   EventDocumentFormat,
-  EventDocumentLocation,
+  EventDocumentLocations,
   EventDocumentInterpretation,
   EventDocumentAudience,
+  EventDocumentPlace,
 } from "../types/transformed/eventDocument";
 import { ElasticsearchEventDocument } from "../types/transformed";
 import {
@@ -41,26 +42,44 @@ function transformFormat(
 
 const transformLocations = (
   document: PrismicDocument<WithLocations>
-): EventDocumentLocation[] => {
+): EventDocumentLocations => {
   const { data } = document;
 
-  const isOnline = data.isOnline;
+  const isOnline = !!data.isOnline;
 
   const physicalLocations = (data.locations ?? [])
-    .map((l): EventDocumentLocation | undefined => {
+    .map((l): EventDocumentPlace | undefined => {
       return isFilledLinkToDocumentWithData(l.location)
         ? {
-            type: "EventLocation",
             id: l.location.id,
             label: asText(l.location.data.title),
+            type: "EventPlace",
           }
         : undefined;
     })
     .filter(isNotUndefined);
 
-  return isOnline
-    ? [...physicalLocations, onlineLocation as EventDocumentLocation]
-    : physicalLocations;
+  return {
+    type: "EventLocations",
+    isOnline,
+    places: physicalLocations.length > 0 ? physicalLocations : undefined,
+    attendance: [
+      isOnline
+        ? {
+            id: "online" as const,
+            label: "Online" as const,
+            type: "EventAttendance" as const,
+          }
+        : undefined,
+      physicalLocations.length > 0
+        ? {
+            id: "in-our-building" as const,
+            label: "In our building" as const,
+            type: "EventAttendance" as const,
+          }
+        : undefined,
+    ].filter(isNotUndefined),
+  };
 };
 
 const transformInterpretations = (
@@ -121,7 +140,7 @@ export const transformEventDocument = (
   document: EventPrismicDocument
 ): ElasticsearchEventDocument => {
   const {
-    data: { title, promo, times, isOnline, availableOnline },
+    data: { title, promo, times, availableOnline },
     id,
     tags,
   } = document;
@@ -175,19 +194,16 @@ export const transformEventDocument = (
     },
     filter: {
       formatId: format.id,
-      isOnline: !!isOnline,
       interpretationIds: interpretations.map((i) => i.id),
       audienceIds: audiences.map((a) => a.id),
+      locationIds: locations.attendance.map((l) => l.id),
       isAvailableOnline,
     },
     aggregatableValues: {
       format: JSON.stringify(format),
       interpretations: interpretations.map((i) => JSON.stringify(i)),
       audiences: audiences.map((a) => JSON.stringify(a)),
-      location: JSON.stringify({
-        type: "EventLocation",
-        isOnline: !!isOnline,
-      }),
+      locations: locations.attendance.map((l) => JSON.stringify(l)),
       isAvailableOnline: JSON.stringify({
         type: "OnlineAvailabilityBoolean",
         value: isAvailableOnline,

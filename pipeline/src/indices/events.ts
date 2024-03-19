@@ -98,13 +98,13 @@ export const mappings = {
         formatId: {
           type: "keyword",
         },
-        isOnline: {
-          type: "boolean",
-        },
         interpretationIds: {
           type: "keyword",
         },
         audienceIds: {
+          type: "keyword",
+        },
+        locationIds: {
           type: "keyword",
         },
         isAvailableOnline: {
@@ -123,7 +123,7 @@ export const mappings = {
         audiences: {
           type: "keyword",
         },
-        location: {
+        locations: {
           type: "keyword",
         },
         isAvailableOnline: {
