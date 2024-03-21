@@ -16,7 +16,7 @@ export type DisplayRegularOpeningDay = {
 };
 
 export type DisplayExceptionalClosedDay = {
-  overrideDate: Date | null;
+  overrideDate: string | undefined;
   type: string | null;
   startDateTime: string;
   endDateTime: string;

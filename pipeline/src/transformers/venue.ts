@@ -1,6 +1,5 @@
 import { TimestampField, asDate } from "@prismicio/client";
 import { ElasticsearchVenue } from "../types/transformed";
-import { getNextOpeningDates } from "./utils";
 import {
   VenuePrismicDocument,
   RegularOpeningDay,
@@ -59,7 +58,7 @@ export const transformVenue = (
       }
 
       return {
-        overrideDate: asDate(day.overrideDate),
+        overrideDate: asDate(day.overrideDate)?.toISOString(),
         type: day.type,
         startDateTime: "00:00",
         endDateTime: "00:00",
