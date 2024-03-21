@@ -17,7 +17,7 @@ const PRISMIC_MAX_PAGE_SIZE = 100;
 
 type GetPrismicDocumentsParams = {
   publicationWindow: TimeWindow;
-  graphQuery?: string;
+  graphQuery: string;
   after?: string;
 };
 
@@ -39,7 +39,7 @@ export const getPrismicDocuments = async (
   const endDate = publicationWindow.end;
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
-    graphQuery: graphQuery?.replace(/\n(\s+)/g, "\n"),
+    graphQuery: graphQuery.replace(/\n(\s+)/g, "\n"),
     filters: [
       startDate
         ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)

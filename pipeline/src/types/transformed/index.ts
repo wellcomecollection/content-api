@@ -1,11 +1,12 @@
 import { PrismicImage } from "../prismic";
-import { Article, ArticleFormat } from "../transformed/article";
+import { Article, ArticleFormat } from "./article";
 import {
   EventDocument,
   EventDocumentFormat,
   EventDocumentLocations,
   EventDocumentInterpretation,
-} from "../transformed/eventDocument";
+} from "./eventDocument";
+import { Venue } from "./venue";
 
 // Image
 export type Image = PrismicImage & {
@@ -91,5 +92,14 @@ export type ElasticsearchEventDocument = {
     audiences: string[];
     locations: string[];
     isAvailableOnline: string;
+  };
+};
+
+export type ElasticsearchVenue = {
+  id: string;
+  display: Venue;
+  filter: {
+    title: string;
+    id: string;
   };
 };

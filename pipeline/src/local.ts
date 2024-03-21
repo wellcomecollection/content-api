@@ -6,7 +6,11 @@ import { WindowEvent } from "./event";
 
 const prismicClient = createPrismicClient();
 
-const contentType = (process.argv[2] ?? "all") as "articles" | "events" | "all";
+const contentType = (process.argv[2] ?? "all") as
+  | "articles"
+  | "events"
+  | "venues"
+  | "all";
 
 // Reindexes all documents by default
 const windowEvent: WindowEvent = {

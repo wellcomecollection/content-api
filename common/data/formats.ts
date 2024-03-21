@@ -15,6 +15,7 @@ export const contentTypes = [
   "guide-formats",
   "exhibition-guides",
   "stories-landing",
+  "collection-venue",
 ] as const;
 
 export const articleFormatIds = {
