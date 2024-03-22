@@ -1,5 +1,5 @@
 import { getNextOpeningDates } from "../src/controllers/utils";
-import { DisplayRegularOpeningDay } from "../../pipeline/src/types/transformed/venue";
+import { DisplayRegularOpeningDay } from "@weco/content-common/types/venue";
 
 const regularOpeningDays = [
   {

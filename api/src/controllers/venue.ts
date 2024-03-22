@@ -5,8 +5,7 @@ import { Config } from "../../config";
 import { venuesFilter } from "../queries/venues";
 import { pickFiltersFromQuery } from "../helpers/requests";
 import { esQuery } from "../queries/common";
-import { ElasticsearchVenue } from "../../../pipeline/src/types/transformed";
-import { Venue } from "../../../pipeline/src/types/transformed/venue";
+import { Venue, ElasticsearchVenue } from "@weco/content-common/types/venue";
 import { getNextOpeningDates } from "./utils";
 
 type QueryParams = {

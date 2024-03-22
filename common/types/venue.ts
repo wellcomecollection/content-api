@@ -1,4 +1,11 @@
-import { DateTime } from "luxon";
+export type ElasticsearchVenue = {
+  id: string;
+  display: Venue;
+  filter: {
+    title: string;
+    id: string;
+  };
+};
 
 export type Venue = {
   type: "Venue";

@@ -3,7 +3,7 @@ import {
   DayOfWeek,
   DisplayRegularOpeningDay,
   DisplayExceptionalClosedDay,
-} from "../../../pipeline/src/types/transformed/venue";
+} from "@weco/content-common/types/venue";
 
 type NextOpeningDate = {
   open: string | undefined;

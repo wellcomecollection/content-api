@@ -1,5 +1,4 @@
 import { TimestampField, asDate } from "@prismicio/client";
-import { ElasticsearchVenue } from "../types/transformed";
 import {
   VenuePrismicDocument,
   RegularOpeningDay,
@@ -9,7 +8,8 @@ import {
   DayOfWeek,
   DisplayRegularOpeningDay,
   DisplayExceptionalClosedDay,
-} from "../types/transformed/venue";
+  ElasticsearchVenue,
+} from "@weco/content-common/types/venue";
 
 export const transformVenue = (
   document: VenuePrismicDocument
