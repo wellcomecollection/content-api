@@ -1,4 +1,11 @@
-import { DateTime } from "luxon";
+export type ElasticsearchVenue = {
+  id: string;
+  display: Venue;
+  filter: {
+    title: string;
+    id: string;
+  };
+};
 
 export type Venue = {
   type: "Venue";
@@ -16,7 +23,7 @@ export type DisplayRegularOpeningDay = {
 };
 
 export type DisplayExceptionalClosedDay = {
-  overrideDate: Date | null;
+  overrideDate: string | undefined;
   type: string | null;
   startDateTime: string;
   endDateTime: string;

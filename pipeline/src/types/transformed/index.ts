@@ -6,7 +6,6 @@ import {
   EventDocumentLocations,
   EventDocumentInterpretation,
 } from "./eventDocument";
-import { Venue } from "./venue";
 
 // Image
 export type Image = PrismicImage & {
@@ -92,14 +91,5 @@ export type ElasticsearchEventDocument = {
     audiences: string[];
     locations: string[];
     isAvailableOnline: string;
-  };
-};
-
-export type ElasticsearchVenue = {
-  id: string;
-  display: Venue;
-  filter: {
-    title: string;
-    id: string;
   };
 };

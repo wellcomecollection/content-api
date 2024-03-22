@@ -24,6 +24,8 @@ export const mockedApi = <T extends Displayable & Identified>(
 ) => {
   const testArticlesIndex = "test-article-index";
   const testEventsIndex = "test-event-index";
+  const testVenuesIndex = "test-venue-index";
+
   const documentsMap = new Map(documents.map((d) => [d.id, d]));
 
   const elasticClientGet = jest.fn(
@@ -72,6 +74,7 @@ export const mockedApi = <T extends Displayable & Identified>(
       pipelineDate: "2222-22-22",
       articlesIndex: testArticlesIndex,
       eventsIndex: testEventsIndex,
+      venuesIndex: testVenuesIndex,
       publicRootUrl: new URL("http://test.test/test"),
     }
   );
