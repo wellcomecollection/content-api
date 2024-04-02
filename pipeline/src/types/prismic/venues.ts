@@ -1,11 +1,11 @@
 import * as prismic from "@prismicio/client";
 
-export type RegularOpeningDay = prismic.GroupField<{
+export type PrismicRegularOpeningDay = prismic.GroupField<{
   startDateTime: prismic.TimestampField | null;
   endDateTime: prismic.TimestampField | null;
 }>;
 
-export type ExceptionalOpeningDays = prismic.GroupField<{
+export type PrismicExceptionalOpeningDays = prismic.GroupField<{
   overrideDate: prismic.TimestampField;
   type: string | null;
   startDateTime: prismic.TimestampField | null;
@@ -14,12 +14,12 @@ export type ExceptionalOpeningDays = prismic.GroupField<{
 
 export type VenuePrismicDocument = prismic.PrismicDocument<{
   title: string;
-  monday: RegularOpeningDay;
-  tuesday: RegularOpeningDay;
-  wednesday: RegularOpeningDay;
-  thursday: RegularOpeningDay;
-  friday: RegularOpeningDay;
-  saturday: RegularOpeningDay;
-  sunday: RegularOpeningDay;
-  modifiedDayOpeningTimes: ExceptionalOpeningDays;
+  monday: PrismicRegularOpeningDay;
+  tuesday: PrismicRegularOpeningDay;
+  wednesday: PrismicRegularOpeningDay;
+  thursday: PrismicRegularOpeningDay;
+  friday: PrismicRegularOpeningDay;
+  saturday: PrismicRegularOpeningDay;
+  sunday: PrismicRegularOpeningDay;
+  modifiedDayOpeningTimes: PrismicExceptionalOpeningDays;
 }>;

@@ -1,14 +1,14 @@
 import { DateTime } from "luxon";
 import {
   DayOfWeek,
-  DisplayRegularOpeningDay,
-  DisplayExceptionalClosedDay,
+  RegularOpeningDay,
+  ExceptionalClosedDay,
   NextOpeningDate,
 } from "@weco/content-common/types/venue";
 
 export function getNextOpeningDates(
-  regularOpeningDays: DisplayRegularOpeningDay[],
-  exceptionalClosedDays: DisplayExceptionalClosedDay[]
+  regularOpeningDays: RegularOpeningDay[],
+  exceptionalClosedDays: ExceptionalClosedDay[]
 ): NextOpeningDate[] {
   // create a dateList of 21 consecutive days starting tomorrow
   // 21 is arbitrary, we just need to have at least 12 once all the closed days have been removed
@@ -65,7 +65,7 @@ function getDateWithoutTime(date: Date): string {
 
 function addOpeningHours(
   upcomingOpenDays: Date[],
-  regularOpeningDays: DisplayRegularOpeningDay[]
+  regularOpeningDays: RegularOpeningDay[]
 ): NextOpeningDate[] {
   return upcomingOpenDays.map((date) => {
     const regularOpeningDay = regularOpeningDays.find(

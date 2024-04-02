@@ -1,13 +1,13 @@
 import { TimestampField, asDate } from "@prismicio/client";
 import {
   VenuePrismicDocument,
-  RegularOpeningDay,
-  ExceptionalOpeningDays,
+  PrismicRegularOpeningDay,
+  PrismicExceptionalOpeningDays,
 } from "../types/prismic/venues";
 import {
   DayOfWeek,
-  DisplayRegularOpeningDay,
-  DisplayExceptionalClosedDay,
+  RegularOpeningDay,
+  ExceptionalClosedDay,
   ElasticsearchVenue,
 } from "@weco/content-common/types/venue";
 
@@ -31,8 +31,8 @@ export const transformVenue = (
 
   const formatRegularOpeningDay = (
     day: DayOfWeek,
-    openingTimes: RegularOpeningDay
-  ): DisplayRegularOpeningDay => {
+    openingTimes: PrismicRegularOpeningDay
+  ): RegularOpeningDay => {
     const formatTime = (time: TimestampField | undefined): string => {
       return time
         ? `${asDate(time).getHours()}:${String(
@@ -50,8 +50,8 @@ export const transformVenue = (
   };
 
   const formatExceptionalClosedDays = (
-    modifiedDayOpeningTimes: ExceptionalOpeningDays
-  ): DisplayExceptionalClosedDay[] => {
+    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays
+  ): ExceptionalClosedDay[] => {
     return modifiedDayOpeningTimes.map((day) => {
       if (!asDate(day.overrideDate)) {
         throw new Error("Date for modified opening time is not valid");
@@ -89,8 +89,18 @@ export const transformVenue = (
       regularOpeningDays,
       exceptionalClosedDays,
     },
+    data: {
+      regularOpeningDays,
+      exceptionalClosedDays,
+    },
     filter: {
-      title: title.toLowerCase(),
+      title: [
+        title,
+        title
+          .toLowerCase()
+          .replace(new RegExp(/[èéêë]/g), "e")
+          .replace(/\s+/g, "-"),
+      ],
       id,
     },
   };

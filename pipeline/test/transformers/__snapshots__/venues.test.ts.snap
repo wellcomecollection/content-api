@@ -2,6 +2,144 @@
 
 exports[`eventDocument transformer transforms venues from Prismic to the expected format (document: collection-venue/WsuS_R8AACS1Nwlx) 1`] = `
 {
+  "data": {
+    "exceptionalClosedDays": [
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-21T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-22T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-23T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-24T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-25T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-26T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-27T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-28T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-29T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-30T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2023-12-31T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-01-01T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-03-29T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-03-30T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-03-31T23:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "Easter",
+      },
+    ],
+    "regularOpeningDays": [
+      {
+        "closes": "18:00",
+        "dayOfWeek": "monday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "tuesday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "wednesday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "20:00",
+        "dayOfWeek": "thursday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "18:00",
+        "dayOfWeek": "friday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "16:00",
+        "dayOfWeek": "saturday",
+        "isClosed": false,
+        "opens": "10:00",
+      },
+      {
+        "closes": "00:00",
+        "dayOfWeek": "sunday",
+        "isClosed": true,
+        "opens": "00:00",
+      },
+    ],
+  },
   "display": {
     "exceptionalClosedDays": [
       {
@@ -145,7 +283,10 @@ exports[`eventDocument transformer transforms venues from Prismic to the expecte
   },
   "filter": {
     "id": "WsuS_R8AACS1Nwlx",
-    "title": "library",
+    "title": [
+      "Library",
+      "library",
+    ],
   },
   "id": "WsuS_R8AACS1Nwlx",
 }

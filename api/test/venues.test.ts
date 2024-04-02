@@ -5,7 +5,9 @@ describe("GET /venues", () => {
     jest.useFakeTimers().setSystemTime(new Date("2024-04-02T08:00:00.000Z"));
 
     const testId = "123";
-    const api = mockedApi([{ id: testId, display: venueDisplay }]);
+    const api = mockedApi([
+      { id: testId, display: venueDisplay, data: venueData },
+    ]);
 
     const response = await api.get(`/venues`);
     expect(response.statusCode).toBe(200);
@@ -23,80 +25,89 @@ describe("GET /venues", () => {
   });
 });
 
+const regularOpeningDays = [
+  {
+    dayOfWeek: "monday",
+    opens: "10:00",
+    closes: "18:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "tuesday",
+    opens: "10:00",
+    closes: "18:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "wednesday",
+    opens: "10:00",
+    closes: "18:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "thursday",
+    opens: "10:00",
+    closes: "20:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "friday",
+    opens: "10:00",
+    closes: "18:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "saturday",
+    opens: "10:00",
+    closes: "16:00",
+    isClosed: false,
+  },
+  {
+    dayOfWeek: "sunday",
+    opens: "00:00",
+    closes: "00:00",
+    isClosed: true,
+  },
+];
+
+const exceptionalClosedDays = [
+  {
+    overrideDate: "2024-01-01T00:00:00.000Z",
+    type: "Christmas and New Year",
+    startDateTime: "00:00",
+    endDateTime: "00:00",
+  },
+  {
+    overrideDate: "2024-03-29T00:00:00.000Z",
+    type: "Easter",
+    startDateTime: "00:00",
+    endDateTime: "00:00",
+  },
+  {
+    overrideDate: "2024-03-30T00:00:00.000Z",
+    type: "Easter",
+    startDateTime: "00:00",
+    endDateTime: "00:00",
+  },
+  {
+    overrideDate: "2024-03-31T23:00:00.000Z",
+    type: "Easter",
+    startDateTime: "00:00",
+    endDateTime: "00:00",
+  },
+];
+
 const venueDisplay = {
   type: "Venue",
   id: "WsuS_R8AACS1Nwlx",
   title: "Library",
-  regularOpeningDays: [
-    {
-      dayOfWeek: "monday",
-      opens: "10:00",
-      closes: "18:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "tuesday",
-      opens: "10:00",
-      closes: "18:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "wednesday",
-      opens: "10:00",
-      closes: "18:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "thursday",
-      opens: "10:00",
-      closes: "20:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "friday",
-      opens: "10:00",
-      closes: "18:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "saturday",
-      opens: "10:00",
-      closes: "16:00",
-      isClosed: false,
-    },
-    {
-      dayOfWeek: "sunday",
-      opens: "00:00",
-      closes: "00:00",
-      isClosed: true,
-    },
-  ],
-  exceptionalClosedDays: [
-    {
-      overrideDate: "2024-01-01T00:00:00.000Z",
-      type: "Christmas and New Year",
-      startDateTime: "00:00",
-      endDateTime: "00:00",
-    },
-    {
-      overrideDate: "2024-03-29T00:00:00.000Z",
-      type: "Easter",
-      startDateTime: "00:00",
-      endDateTime: "00:00",
-    },
-    {
-      overrideDate: "2024-03-30T00:00:00.000Z",
-      type: "Easter",
-      startDateTime: "00:00",
-      endDateTime: "00:00",
-    },
-    {
-      overrideDate: "2024-03-31T23:00:00.000Z",
-      type: "Easter",
-      startDateTime: "00:00",
-      endDateTime: "00:00",
-    },
-  ],
+  regularOpeningDays,
+  exceptionalClosedDays,
+};
+
+const venueData = {
+  regularOpeningDays,
+  exceptionalClosedDays,
 };
 
 const expectedNextOpeningDates = [

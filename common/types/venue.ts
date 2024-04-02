@@ -1,8 +1,12 @@
 export type ElasticsearchVenue = {
   id: string;
   display: Venue;
+  data: {
+    regularOpeningDays: RegularOpeningDay[];
+    exceptionalClosedDays: ExceptionalClosedDay[];
+  };
   filter: {
-    title: string;
+    title: string[];
     id: string;
   };
 };
@@ -11,18 +15,18 @@ export type Venue = {
   type: "Venue";
   id: string;
   title: string;
-  regularOpeningDays: DisplayRegularOpeningDay[];
-  exceptionalClosedDays: DisplayExceptionalClosedDay[];
+  regularOpeningDays: RegularOpeningDay[];
+  exceptionalClosedDays: ExceptionalClosedDay[];
 };
 
-export type DisplayRegularOpeningDay = {
+export type RegularOpeningDay = {
   dayOfWeek: DayOfWeek;
   opens: string;
   closes: string;
   isClosed: boolean;
 };
 
-export type DisplayExceptionalClosedDay = {
+export type ExceptionalClosedDay = {
   overrideDate: string | undefined;
   type: string | null;
   startDateTime: string;

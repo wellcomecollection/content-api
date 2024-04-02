@@ -1,5 +1,5 @@
 import { getNextOpeningDates } from "../src/controllers/utils";
-import { DisplayRegularOpeningDay } from "@weco/content-common/types/venue";
+import { RegularOpeningDay } from "@weco/content-common/types/venue";
 
 const regularOpeningDays = [
   {
@@ -44,7 +44,7 @@ const regularOpeningDays = [
     closes: "00:00",
     isClosed: true,
   },
-] as DisplayRegularOpeningDay[];
+] as RegularOpeningDay[];
 
 const exceptionalClosedDays = [
   {

@@ -5,7 +5,11 @@ import { Config } from "../../config";
 import { venuesFilter } from "../queries/venues";
 import { pickFiltersFromQuery } from "../helpers/requests";
 import { esQuery } from "../queries/common";
-import { Venue, NextOpeningDate } from "@weco/content-common/types/venue";
+import {
+  ElasticsearchVenue,
+  Venue,
+  NextOpeningDate,
+} from "@weco/content-common/types/venue";
 import { getNextOpeningDates } from "./utils";
 
 type QueryParams = {
@@ -31,24 +35,25 @@ const venuesController = (clients: Clients, config: Config): EventsHandler => {
     const filters = pickFiltersFromQuery(["title", "id"], params, venuesFilter);
 
     try {
-      const searchResponse = await clients.elastic.search<Displayable>({
+      const searchResponse = await clients.elastic.search<ElasticsearchVenue>({
         index,
-        _source: ["display"],
+        _source: ["display", "data"],
         query: {
           bool: {
             filter: Object.values(filters).map(esQuery),
           },
         },
       });
-
       const results = searchResponse.hits.hits.flatMap((hit) =>
-        hit._source ? [hit._source.display] : []
+        hit._source
+          ? [{ display: hit._source.display, data: hit._source.data }]
+          : []
       );
 
-      const withNextOpeningDates = results.map((venue: Venue) => {
-        const { regularOpeningDays, exceptionalClosedDays } = venue;
+      const withNextOpeningDates = results.map(({ display, data }) => {
+        const { regularOpeningDays, exceptionalClosedDays } = data;
         return {
-          ...venue,
+          ...display,
           nextOpeningDates: getNextOpeningDates(
             regularOpeningDays,
             exceptionalClosedDays
