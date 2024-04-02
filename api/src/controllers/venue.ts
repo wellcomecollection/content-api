@@ -29,7 +29,7 @@ const venuesController = (clients: Clients, config: Config): EventsHandler => {
     try {
       const searchResponse = await clients.elastic.search<ElasticsearchVenue>({
         index,
-        _source: ["display", "nextOpeningDates"],
+        _source: ["display"],
         query: {
           bool: {
             filter: Object.values(filters).map(esQuery),
