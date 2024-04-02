@@ -1,20 +1,24 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients } from "../types";
+import { Clients, Displayable } from "../types";
 import { Config } from "../../config";
 import { venuesFilter } from "../queries/venues";
 import { pickFiltersFromQuery } from "../helpers/requests";
 import { esQuery } from "../queries/common";
-import { Venue, ElasticsearchVenue } from "@weco/content-common/types/venue";
+import { Venue, NextOpeningDate } from "@weco/content-common/types/venue";
 import { getNextOpeningDates } from "./utils";
 
 type QueryParams = {
   title?: string;
   id?: string;
 };
+
+type VenueApiResponse = Venue & {
+  nextOpeningDates: NextOpeningDate[];
+};
 type ResultList = {
   type: "ResultList";
-  results: Venue[];
+  results: VenueApiResponse[];
 };
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
@@ -27,7 +31,7 @@ const venuesController = (clients: Clients, config: Config): EventsHandler => {
     const filters = pickFiltersFromQuery(["title", "id"], params, venuesFilter);
 
     try {
-      const searchResponse = await clients.elastic.search<ElasticsearchVenue>({
+      const searchResponse = await clients.elastic.search<Displayable>({
         index,
         _source: ["display"],
         query: {

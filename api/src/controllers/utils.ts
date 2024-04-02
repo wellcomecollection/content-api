@@ -3,12 +3,8 @@ import {
   DayOfWeek,
   DisplayRegularOpeningDay,
   DisplayExceptionalClosedDay,
+  NextOpeningDate,
 } from "@weco/content-common/types/venue";
-
-type NextOpeningDate = {
-  open: string | undefined;
-  close: string | undefined;
-};
 
 export function getNextOpeningDates(
   regularOpeningDays: DisplayRegularOpeningDay[],

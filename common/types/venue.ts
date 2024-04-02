@@ -29,6 +29,11 @@ export type DisplayExceptionalClosedDay = {
   endDateTime: string;
 };
 
+export type NextOpeningDate = {
+  open: string | undefined;
+  close: string | undefined;
+};
+
 export type DayOfWeek =
   | "monday"
   | "tuesday"
