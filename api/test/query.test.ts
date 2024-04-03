@@ -104,6 +104,7 @@ const elasticsearchRequestForURL = async (
       pipelineDate: "2222-22-22",
       articlesIndex: "test-articles",
       eventsIndex: "test-events",
+      venuesIndex: "test-venues",
       publicRootUrl: new URL("http://test.test/test"),
     }
   );

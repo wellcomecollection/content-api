@@ -1,16 +1,15 @@
 import { TimestampField, asDate } from "@prismicio/client";
-import { ElasticsearchVenue } from "../types/transformed";
-import { getNextOpeningDates } from "./utils";
 import {
   VenuePrismicDocument,
-  RegularOpeningDay,
-  ExceptionalOpeningDays,
+  PrismicRegularOpeningDay,
+  PrismicExceptionalOpeningDays,
 } from "../types/prismic/venues";
 import {
   DayOfWeek,
-  DisplayRegularOpeningDay,
-  DisplayExceptionalClosedDay,
-} from "../types/transformed/venue";
+  RegularOpeningDay,
+  ExceptionalClosedDay,
+  ElasticsearchVenue,
+} from "@weco/content-common/types/venue";
 
 export const transformVenue = (
   document: VenuePrismicDocument
@@ -32,8 +31,8 @@ export const transformVenue = (
 
   const formatRegularOpeningDay = (
     day: DayOfWeek,
-    openingTimes: RegularOpeningDay
-  ): DisplayRegularOpeningDay => {
+    openingTimes: PrismicRegularOpeningDay
+  ): RegularOpeningDay => {
     const formatTime = (time: TimestampField | undefined): string => {
       return time
         ? `${asDate(time).getHours()}:${String(
@@ -51,15 +50,15 @@ export const transformVenue = (
   };
 
   const formatExceptionalClosedDays = (
-    modifiedDayOpeningTimes: ExceptionalOpeningDays
-  ): DisplayExceptionalClosedDay[] => {
+    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays
+  ): ExceptionalClosedDay[] => {
     return modifiedDayOpeningTimes.map((day) => {
       if (!asDate(day.overrideDate)) {
         throw new Error("Date for modified opening time is not valid");
       }
 
       return {
-        overrideDate: asDate(day.overrideDate),
+        overrideDate: asDate(day.overrideDate)?.toISOString(),
         type: day.type,
         startDateTime: "00:00",
         endDateTime: "00:00",
@@ -90,8 +89,18 @@ export const transformVenue = (
       regularOpeningDays,
       exceptionalClosedDays,
     },
+    data: {
+      regularOpeningDays,
+      exceptionalClosedDays,
+    },
     filter: {
-      title: title.toLowerCase(),
+      title: [
+        title,
+        title
+          .toLowerCase()
+          .replace(new RegExp(/[èéêë]/g), "e")
+          .replace(/\s+/g, "-"),
+      ],
       id,
     },
   };

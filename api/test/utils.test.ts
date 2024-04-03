@@ -1,5 +1,5 @@
-import { getNextOpeningDates } from "../src/transformers/utils";
-import { DisplayRegularOpeningDay } from "./types/transformed/venue";
+import { getNextOpeningDates } from "../src/controllers/utils";
+import { RegularOpeningDay } from "@weco/content-common/types/venue";
 
 const regularOpeningDays = [
   {
@@ -44,24 +44,24 @@ const regularOpeningDays = [
     closes: "00:00",
     isClosed: true,
   },
-] as DisplayRegularOpeningDay[];
+] as RegularOpeningDay[];
 
 const exceptionalClosedDays = [
   {
-    overrideDate: new Date("2024-03-28T00:00:00.000Z"),
+    overrideDate: "2024-03-28T00:00:00.000Z",
     type: "Easter",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
-    overrideDate: new Date("2024-03-30T00:00:00.000Z"),
+    overrideDate: "2024-03-30T00:00:00.000Z",
     type: "Easter",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
     // this is during BST so 2024-03-31T23:00:00.000Z is 2024-04-01T00:00:00.BST
-    overrideDate: new Date("2024-03-31T23:00:00.000Z"),
+    overrideDate: "2024-03-31T23:00:00.000Z",
     type: "Easter",
     startDateTime: "00:00",
     endDateTime: "00:00",

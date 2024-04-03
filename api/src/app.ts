@@ -8,6 +8,7 @@ import {
   eventController,
   eventsController,
   healthcheckController,
+  venuesController,
 } from "./controllers";
 import { Config } from "../config";
 import { Clients } from "./types";
@@ -21,6 +22,7 @@ const createApp = (clients: Clients, config: Config) => {
   app.get("/articles/:id", articleController(clients, config));
   app.get("/events", eventsController(clients, config));
   app.get("/events/:id", eventController(clients, config));
+  app.get("/venues", venuesController(clients, config));
   app.get("/management/healthcheck", healthcheckController(config));
 
   app.use(errorHandler);

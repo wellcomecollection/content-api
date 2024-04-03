@@ -15,6 +15,7 @@ const config = {
   pipelineDate: "2023-03-24",
   articlesIndex: "articles",
   eventsIndex: "events",
+  venuesIndex: "venues",
   publicRootUrl: new URL(environment.PUBLIC_ROOT_URL),
 };
 

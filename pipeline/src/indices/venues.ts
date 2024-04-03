@@ -8,16 +8,11 @@ export const mappings = {
     },
     display: {
       type: "object",
+      enabled: false,
+    },
+    data: {
+      type: "object",
       properties: {
-        type: {
-          type: "text",
-        },
-        id: {
-          type: "text",
-        },
-        title: {
-          type: "text",
-        },
         exceptionalClosedDays: {
           properties: {
             endDateTime: {
