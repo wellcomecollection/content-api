@@ -112,6 +112,10 @@ const venueData = {
 
 const expectedNextOpeningDates = [
   {
+    open: "2024-04-02T09:00:00.000Z",
+    close: "2024-04-02T17:00:00.000Z",
+  },
+  {
     open: "2024-04-03T09:00:00.000Z",
     close: "2024-04-03T17:00:00.000Z",
   },
@@ -178,9 +182,5 @@ const expectedNextOpeningDates = [
   {
     open: "2024-04-22T09:00:00.000Z",
     close: "2024-04-22T17:00:00.000Z",
-  },
-  {
-    open: "2024-04-23T09:00:00.000Z",
-    close: "2024-04-23T17:00:00.000Z",
   },
 ];

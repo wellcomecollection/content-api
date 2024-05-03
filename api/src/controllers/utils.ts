@@ -13,10 +13,7 @@ export function getNextOpeningDates(
   // create a dateList of 21 consecutive days starting tomorrow
   // 21 is arbitrary, we just need to have at least 12 once all the closed days have been removed
   const dateNow = new Date();
-  const timeSeriesStart = addDays(dateNow, 1);
-  const dateList = [...Array(21).keys()].map((day) =>
-    addDays(timeSeriesStart, day)
-  );
+  const dateList = [...Array(21).keys()].map((day) => addDays(dateNow, day));
 
   // day(s) of the week when the venue is normally closed, as ["monday", "sunday", ...]
   const regularClosedDays = regularOpeningDays

@@ -73,12 +73,12 @@ const mockDateNow = (dateToMock: string) => {
 };
 
 describe("getNextOpeningDates", () => {
-  it("start the dateList at today + 1", () => {
+  it("start the dateList from today", () => {
     mockDateNow("2024-03-12T08:00:00.000Z");
 
     const expectedStart = {
-      open: "2024-03-13T10:00:00.000Z",
-      close: "2024-03-13T18:00:00.000Z",
+      open: "2024-03-12T10:00:00.000Z",
+      close: "2024-03-12T18:00:00.000Z",
     };
 
     expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
@@ -90,6 +90,7 @@ describe("getNextOpeningDates", () => {
     mockDateNow("2024-03-12T10:00:00.000Z");
 
     const expectedNextOpeningDates = [
+      { open: "2024-03-12T10:00:00.000Z", close: "2024-03-12T18:00:00.000Z" },
       { open: "2024-03-13T10:00:00.000Z", close: "2024-03-13T18:00:00.000Z" },
       { open: "2024-03-14T10:00:00.000Z", close: "2024-03-14T20:00:00.000Z" },
       { open: "2024-03-15T10:00:00.000Z", close: "2024-03-15T18:00:00.000Z" },
@@ -107,7 +108,6 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-29T10:00:00.000Z", close: "2024-03-29T18:00:00.000Z" },
       { open: "2024-03-30T10:00:00.000Z", close: "2024-03-30T16:00:00.000Z" },
       { open: "2024-04-01T09:00:00.000Z", close: "2024-04-01T17:00:00.000Z" },
-      { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
     ];
 
     expect(getNextOpeningDates(regularOpeningDays, [])).toStrictEqual(
@@ -119,6 +119,7 @@ describe("getNextOpeningDates", () => {
     mockDateNow("2024-03-12T10:00:00.000Z");
 
     const expectedNextOpeningDates = [
+      { open: "2024-03-12T10:00:00.000Z", close: "2024-03-12T18:00:00.000Z" },
       { open: "2024-03-13T10:00:00.000Z", close: "2024-03-13T18:00:00.000Z" },
       { open: "2024-03-14T10:00:00.000Z", close: "2024-03-14T20:00:00.000Z" },
       { open: "2024-03-15T10:00:00.000Z", close: "2024-03-15T18:00:00.000Z" },
@@ -133,7 +134,6 @@ describe("getNextOpeningDates", () => {
       { open: "2024-03-26T10:00:00.000Z", close: "2024-03-26T18:00:00.000Z" },
       { open: "2024-03-27T10:00:00.000Z", close: "2024-03-27T18:00:00.000Z" },
       { open: "2024-03-29T10:00:00.000Z", close: "2024-03-29T18:00:00.000Z" },
-      { open: "2024-04-02T09:00:00.000Z", close: "2024-04-02T17:00:00.000Z" },
     ];
 
     expect(
