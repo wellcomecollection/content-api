@@ -3,15 +3,11 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zfly5xgAACYAlauO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
   "tags": ["LBEF"],
   "first_publication_date": "2023-05-25T15:00:01+0000",
-  "last_publication_date": "2023-06-12T09:52:28+0000",
-  "slugs": [
-    "land-body-ecologies-festival-day-two",
-    "land-body-ecologies-festival---friday",
-    "land-body-ecologies-festival---thursday"
-  ],
+  "last_publication_date": "2024-05-07T14:05:18+0000",
+  "slugs": [],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -98,9 +94,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "boalno",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:15:04+0000",
-          "last_publication_date": "2023-05-24T13:36:53+0000",
+          "last_publication_date": "2024-05-07T14:05:09+0000",
           "data": {
             "title": [
               {
@@ -131,9 +127,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "communal-meitophi",
+          "slug": "-",
           "first_publication_date": "2023-05-10T09:05:18+0000",
-          "last_publication_date": "2023-05-10T11:07:03+0000",
+          "last_publication_date": "2024-05-07T14:05:02+0000",
           "data": {
             "title": [
               {
@@ -189,9 +185,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "weaving-land-and-health",
+          "slug": "-",
           "first_publication_date": "2023-05-10T08:39:05+0000",
-          "last_publication_date": "2023-06-07T15:04:50+0000",
+          "last_publication_date": "2024-05-07T14:05:05+0000",
           "data": {
             "title": [
               {
@@ -218,9 +214,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "meitau-making",
+          "slug": "-",
           "first_publication_date": "2023-05-10T09:04:05+0000",
-          "last_publication_date": "2023-05-24T14:25:46+0000",
+          "last_publication_date": "2024-05-07T14:05:08+0000",
           "data": {
             "title": [
               {
@@ -247,9 +243,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "reimagining-conservation-policy",
+          "slug": "-",
           "first_publication_date": "2023-05-10T08:43:14+0000",
-          "last_publication_date": "2023-05-17T15:22:01+0000",
+          "last_publication_date": "2024-05-07T14:05:01+0000",
           "data": {
             "title": [
               {
@@ -305,9 +301,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "microtonal",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:08:54+0000",
-          "last_publication_date": "2023-06-09T07:46:28+0000",
+          "last_publication_date": "2024-05-07T14:05:19+0000",
           "data": {
             "title": [
               {
@@ -334,9 +330,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "stories-of-entanglement",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:03:27+0000",
-          "last_publication_date": "2023-05-24T11:25:59+0000",
+          "last_publication_date": "2024-05-07T14:05:14+0000",
           "data": {
             "title": [
               {
@@ -363,9 +359,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "asking-the-salmon-to-return",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:11:06+0000",
-          "last_publication_date": "2023-06-15T15:02:17+0000",
+          "last_publication_date": "2024-05-07T14:05:23+0000",
           "data": {
             "title": [
               {
@@ -392,9 +388,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "virran-mukana",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:07:07+0000",
-          "last_publication_date": "2023-05-24T13:58:03+0000",
+          "last_publication_date": "2024-05-07T14:05:08+0000",
           "data": {
             "title": [
               {
@@ -421,9 +417,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "ovdavazzit--forewalkers",
+          "slug": "-",
           "first_publication_date": "2023-05-10T10:05:28+0000",
-          "last_publication_date": "2023-06-07T15:43:39+0000",
+          "last_publication_date": "2024-05-07T14:05:12+0000",
           "data": {
             "title": [
               {
@@ -450,9 +446,9 @@
           "type": "events",
           "tags": ["delist", "LBEF"],
           "lang": "en-gb",
-          "slug": "chill-out-room",
+          "slug": "-",
           "first_publication_date": "2023-05-10T13:54:03+0000",
-          "last_publication_date": "2023-05-24T10:36:40+0000",
+          "last_publication_date": "2024-05-07T14:05:15+0000",
           "data": {
             "title": [
               {
@@ -577,7 +573,7 @@
             },
             "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
             "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-            "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format",
+            "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
             "id": "ZGYrjxQAADxsO9nG",
             "edit": {
               "x": 0,
@@ -592,7 +588,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,232,4000,1875&w=3200&h=1500",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": 0,
@@ -608,7 +604,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": 0,
@@ -624,7 +620,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=1202,0,2250,2250&w=3200&h=3200",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": -1709,
@@ -649,9 +645,9 @@
           "type": "event-series",
           "tags": ["LBEF"],
           "lang": "en-gb",
-          "slug": "land-body-ecologies-festival",
+          "slug": "-",
           "first_publication_date": "2023-05-16T14:46:48+0000",
-          "last_publication_date": "2023-06-22T09:55:09+0000",
+          "last_publication_date": "2024-05-07T14:24:47+0000",
           "data": {
             "title": [
               {

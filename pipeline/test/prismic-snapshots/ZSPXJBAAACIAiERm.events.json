@@ -3,11 +3,11 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zfly5xgAACYAlauO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
-  "last_publication_date": "2023-11-15T11:44:42+0000",
-  "slugs": ["recipes-for-early-modern-beauty"],
+  "last_publication_date": "2024-05-07T14:05:41+0000",
+  "slugs": [],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -258,7 +258,7 @@
             },
             "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
             "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-            "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format",
+            "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
             "id": "ZSamWhAAACAAlKe0",
             "edit": {
               "x": 0,
@@ -273,7 +273,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,120,2560,1200&w=3200&h=1500",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": 0,
@@ -289,7 +289,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,0,2560,1440&w=3200&h=1800",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": 0,
@@ -305,7 +305,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=560,0,1440,1440&w=3200&h=3200",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": -1244,
@@ -330,9 +330,9 @@
           "type": "event-series",
           "tags": [],
           "lang": "en-gb",
-          "slug": "exploring-research",
+          "slug": "-",
           "first_publication_date": "2018-09-13T14:08:30+0000",
-          "last_publication_date": "2021-02-18T10:43:10+0000",
+          "last_publication_date": "2024-05-07T14:24:43+0000",
           "data": {
             "title": [
               {

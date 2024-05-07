@@ -35,7 +35,7 @@ const eventDocumentIds = [
 ];
 
 const venueIds = [
-  "WsuS_R8AACS1Nwlx", // Library
+  "WsuS_R8AACS1Nwlx", // collection-venue - Library
 ];
 
 const main = async () => {
