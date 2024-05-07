@@ -3,11 +3,11 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zfly5xgAACYAlauO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-07-27T15:00:00+0000",
-  "last_publication_date": "2023-09-01T11:22:04+0000",
-  "slugs": ["perspective-tour-with-jess-dobkin"],
+  "last_publication_date": "2024-05-07T14:05:30+0000",
+  "slugs": [],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -167,7 +167,7 @@
             },
             "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
             "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
-            "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format",
+            "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=format,compress",
             "id": "ZKgZeBAAACEAfpCr",
             "edit": {
               "x": 0,
@@ -182,7 +182,7 @@
               },
               "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
               "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=0,188,4000,1875&w=3200&h=1500",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=format,compress",
               "id": "ZKgZeBAAACEAfpCr",
               "edit": {
                 "x": 0,
@@ -198,7 +198,7 @@
               },
               "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
               "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=format,compress",
               "id": "ZKgZeBAAACEAfpCr",
               "edit": {
                 "x": 0,
@@ -214,7 +214,7 @@
               },
               "alt": "Photograph of an art installation in gallery space. It's a dark space with black glossy floors and walls. A large parachute suspended from the ceiling which is lit with vibrant pink and orange light. Two visitors are looking at the instillation.",
               "copyright": "From the Collection: For What It’s Worth, 2023. Jess Dobkin |  Gallery photo: Steven Pocock | | | CC-BY-NC | |",
-              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=compress,format&rect=1361,0,2250,2250&w=3200&h=3200",
+              "url": "https://images.prismic.io/wellcomecollection/3e1ef5ca-cf7f-40e5-b1dc-0730a5e11225_EP_002225_007-full.jpg?auto=format,compress",
               "id": "ZKgZeBAAACEAfpCr",
               "edit": {
                 "x": -1935,
@@ -239,9 +239,9 @@
           "type": "event-series",
           "tags": [],
           "lang": "en-gb",
-          "slug": "perspective-tours",
+          "slug": "-",
           "first_publication_date": "2018-01-10T13:24:40+0000",
-          "last_publication_date": "2018-08-13T08:33:55+0000",
+          "last_publication_date": "2024-05-07T14:24:39+0000",
           "data": {
             "title": [
               {

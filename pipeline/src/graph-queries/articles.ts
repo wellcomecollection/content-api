@@ -2,13 +2,21 @@ const query = `articles {
     title
     body {
       ...on text {
-        non-repeat {
-          text
+        variation {
+          ... on default {
+            primary {
+              text
+            }
+          }
         }
       }
       ...on standfirst {
-        non-repeat {
-          text
+        variation {
+          ...on default {
+            primary {
+              text
+            }
+          }
         }
       }
     }

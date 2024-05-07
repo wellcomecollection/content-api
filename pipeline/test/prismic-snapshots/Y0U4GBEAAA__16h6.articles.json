@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zfly5xgAACYAlauO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-18T09:00:00+0000",
   "last_publication_date": "2023-10-11T07:54:45+0000",
@@ -41,6 +41,9 @@
     },
     "body": [
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -56,9 +59,9 @@
                     "type": "books",
                     "tags": [],
                     "lang": "en-gb",
-                    "slug": "the-book-of-phobias-and-manias",
+                    "slug": "-",
                     "first_publication_date": "2022-08-16T14:28:47+0000",
-                    "last_publication_date": "2024-01-10T08:35:58+0000",
+                    "last_publication_date": "2024-05-07T12:36:00+0000",
                     "link_type": "Document",
                     "isBroken": false
                   }
@@ -67,12 +70,14 @@
             }
           ]
         },
-        "items": [],
         "id": "standfirst$d6dbe6ea-3984-4aa7-ae59-baeba69130bc",
         "slice_type": "standfirst",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -82,12 +87,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$eeeb1760-9e50-4733-a5c2-4ef5daae0028",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -97,12 +104,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$ea382230-8bbd-4234-b209-b3dd98e3fb05",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -112,12 +121,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$c6eea27c-824a-4eec-91ff-9c9d87d2fac0",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -127,12 +138,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$6b12984d-d674-4248-aec7-dacad20a0f8b",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -142,12 +155,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$ba31ab17-9e4f-4fd1-a5fc-6a587b4a4d66",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -157,12 +172,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$f7d89c09-ec65-46cd-ad28-59cc79fb619c",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -172,12 +189,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$03fd207b-8258-40f4-8640-b0ffa8e08022",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -187,12 +206,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$7d746ba7-857e-49b3-9baa-8c6b9091b6f2",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -202,12 +223,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$4654e79f-b6f8-46d7-a5f7-ce5c2beea50c",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -217,12 +240,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$60c3e1ae-8bb0-4593-a009-2f0c292047c3",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -232,12 +257,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$12c46a9c-a493-425b-aa51-66036b6cb132",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -247,12 +274,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$57fe6367-9a8a-4c45-9188-a2ba07dab0b5",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -262,12 +291,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$44b29dbf-adfe-4887-b80f-325448e92a13",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -277,12 +308,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$367bfc8b-2e68-44bb-9a9a-d0421caa492a",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -292,12 +325,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$d3077588-10d8-4ae9-a52a-550916c6df18",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -307,12 +342,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$2e1c25b3-a6f9-477f-bcec-27624a36c6bc",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -322,12 +359,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$ca59a68a-85ab-4e7e-9cce-0649a73f4620",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -337,12 +376,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$2587438e-947c-4f24-9c10-1296c115cff8",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -352,12 +393,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$e47541ef-18ca-4fd7-aa92-907daa172a84",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -367,12 +410,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$82a7718f-0260-4a02-9b9a-8a7d2ae5a3c7",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -382,12 +427,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$7d4bf714-69ae-4907-94ea-9778ef291f7d",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -397,12 +444,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$0fb976b9-035c-4b71-9bda-8831c4023496",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -412,12 +461,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$d71b6273-01c8-4126-a657-51e09f0a6254",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -427,12 +478,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$310761bc-bc2d-405c-9ba8-d5602ffc9294",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -442,12 +495,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$708e6d20-9aab-46ba-98a6-4332b8457a9f",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -457,12 +512,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$d61022aa-5f3b-47ff-b94c-aedd7a2db074",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -472,12 +529,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$afd77046-7c87-43b6-b4a7-db412ccfe69f",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -487,12 +546,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$f5985666-de04-4ce4-8f15-051e20a1862b",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -502,12 +563,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$4c886aa9-4e37-4c05-9432-85b212f27199",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -517,12 +580,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$89b72eb0-a089-43a2-afaa-1ef0bb7c6491",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -532,7 +597,6 @@
             }
           ]
         },
-        "items": [],
         "id": "text$477c562e-ec15-4884-93f4-7083b2a307c3",
         "slice_type": "text",
         "slice_label": null

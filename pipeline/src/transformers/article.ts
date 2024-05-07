@@ -109,7 +109,10 @@ export const transformArticle = (
 
   const queryBody = data.body
     ?.map((slice) => {
-      if (["text", "quoteV2", "standfirst"].includes(slice.slice_type)) {
+      if (
+        ["text", "quoteV2", "quote", "standfirst"].includes(slice.slice_type)
+      ) {
+        // quoteV2 can be removed once the slice Machine migration has completed
         return slice.primary.text.map((text) => text.text);
       } else {
         return [];
