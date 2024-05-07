@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zfly5xgAACYAlauO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2017-10-11T08:30:00+0000",
   "last_publication_date": "2023-06-09T09:26:33+0000",
@@ -24,6 +24,9 @@
     },
     "body": [
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -53,12 +56,14 @@
             }
           ]
         },
-        "items": [],
         "id": "standfirst$9047697a-092e-48fd-83bd-7a12e6a2f070",
         "slice_type": "standfirst",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -68,12 +73,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$d3725960-7d73-4dd8-be46-b71b77f3529f",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -88,12 +95,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$c24c6604-f922-4d4e-a3a1-adc6223994ce",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -113,12 +122,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$e308e482-cb0b-4aee-abd4-7852818b3098",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -143,12 +154,14 @@
             }
           ]
         },
-        "items": [],
         "id": "text$07b584bb-9c7e-4ee6-b91a-144581ed6e22",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": [
             {
@@ -464,16 +477,17 @@
             }
           ]
         },
-        "items": [],
         "id": "text$b2432e90-66bb-462d-86e8-6fb50931a8fe",
         "slice_type": "text",
         "slice_label": null
       },
       {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
         "primary": {
           "text": []
         },
-        "items": [],
         "id": "text$0c710892-a0e2-4808-b8f6-3e4c19b856b2",
         "slice_type": "text",
         "slice_label": null
@@ -569,9 +583,9 @@
           "type": "series",
           "tags": [],
           "lang": "en-gb",
-          "slug": "memory-objects",
+          "slug": "-",
           "first_publication_date": "2017-10-02T13:40:48+0000",
-          "last_publication_date": "2018-10-12T12:26:23+0000",
+          "last_publication_date": "2024-05-07T14:31:38+0000",
           "data": {
             "title": [
               {
