@@ -1,5 +1,6 @@
 const query = `articles {
     title
+    publishDate
     body {
       ...on text {
         variation {

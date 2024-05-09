@@ -3,7 +3,7 @@
   "uid": null,
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjo7bBIAACIA1j6N&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2023-12-14T15:45:07+0000",
@@ -29,9 +29,9 @@
           "type": "places",
           "tags": [],
           "lang": "en-gb",
-          "slug": "gallery-1",
+          "slug": "-",
           "first_publication_date": "2018-03-20T14:54:36+0000",
-          "last_publication_date": "2022-10-26T09:17:33+0000",
+          "last_publication_date": "2024-05-07T16:35:17+0000",
           "data": {
             "title": [
               {
