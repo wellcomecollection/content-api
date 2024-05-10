@@ -22,6 +22,7 @@ const articleDocumentIds = [
   "XUGruhEAACYASyJh", // webcomics - Footpath
   "XK9p2RIAAO1vQn__", // webcomics - Groan
   "YvtXgxAAACMA9j5d", // people - Kate Summerscale
+  "WXInvioAABlsbLHu", // articles - Ken’s ten: looking back at ten years of Wellcome Collection
 ];
 
 const eventDocumentIds = [

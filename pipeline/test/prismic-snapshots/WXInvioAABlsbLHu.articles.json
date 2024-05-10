@@ -1,0 +1,626 @@
+{
+  "id": "WXInvioAABlsbLHu",
+  "uid": null,
+  "url": null,
+  "type": "articles",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WXInvioAABlsbLHu%22%29+%5D%5D",
+  "tags": ["delist"],
+  "first_publication_date": "2024-05-07T15:46:28+0000",
+  "last_publication_date": "2024-05-09T15:13:21+0000",
+  "slugs": ["kens-ten-looking-back-at-ten-years-of-wellcome-collection"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Ken’s ten: looking back at ten years of Wellcome Collection",
+        "spans": []
+      }
+    ],
+    "format": {
+      "link_type": "Document"
+    },
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
+              "spans": []
+            }
+          ]
+        },
+        "id": "standfirst$883a3498-7157-4d49-85bc-aae864b1293a",
+        "slice_type": "standfirst",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": " 1. Jennifer Sutton’s ‘old’ heart",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 33,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$79fc5ddb-a193-47ae-8176-4c61f2a363b0",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "This was shown in our first exhibition  - The Heart - in 2007. Jennifer Sutton was a transplant patient, who amazingly came in to visit the show and look at her own heart, removed and replaced with a transplanted one only a few months before. ",
+              "spans": [
+                {
+                  "start": 42,
+                  "end": 51,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/heart"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$0139035c-80ac-481c-ad58-d67340c5162f",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "2. Stuffed Shrew",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 16,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$7d36e536-d293-4749-8427-da7a6df9d57b",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The stuffed shrew was also shown in the Heart exhibition. I think I’m right in saying that shrews have one of the smallest and fastest-beating hearts among mammals. We bought this one online and, after the show was over, I kept it for the cabinet of curiosities I’ve gathered over the years. ",
+              "spans": []
+            }
+          ]
+        },
+        "id": "text$2347ca1c-c463-4011-877e-efb5d9869bc8",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "3. Sleep Patterns of a New-Born Baby",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 36,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$5e69c0da-958a-4150-ba53-ea9a85791c52",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "We displayed an image of sleep patterns in the Sleeping and Dreaming exhibition. Most parents who remember those first few alarming weeks of sleep madness would empathise with the seeming randomness indicating when a baby decides it’s time to wake and feed. The more settled patterns that shows up in later months provides some sort of compensation I guess.",
+              "spans": [
+                {
+                  "start": 47,
+                  "end": 68,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/sleeping-dreaming"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$741e16b3-5de5-47ae-b81d-7cf0ce966501",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "4. Images of Spiders' Webs",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 26,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$557ea310-d62c-4545-9fc5-366d87b926c1",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The spiders were under the influence of caffeine, alcohol and other mind-altering drugs when they made the webs. These images were shown in our High Society exhibition. The caffeine one seemed particularly inspired in a free-form sort of way.",
+              "spans": [
+                {
+                  "start": 144,
+                  "end": 156,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/high-society"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$541539a7-08e9-4f5f-a40d-9c957aee75ad",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "5. An ‘awake craniotomy’",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 24,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$aa85e133-0c14-47e2-b6fc-c0b696afe135",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "This was part of a collaboration with Channel 4 for a 'live surgery’ series. The audience in our auditorium that evening mostly sat in awed silence as we watched a patient still awake talking to the surgeon who was carefully removing parts of his brain. The images were beamed live to Wellcome Collection from a hospital in Southampton. Mind blowing in every sense of the term.",
+              "spans": []
+            }
+          ]
+        },
+        "id": "text$09bbdaf5-6ffd-4584-bfd8-b6103737ba70",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "6. Forensic Doll's House",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 24,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$d1cc0b95-be91-4f2f-8463-35d9693d8f44",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "In the 1940s and 1950s Frances Glessner Lee, nicknamed “the mother of forensic investigation”, made miniature models based on crime scene information to investigate how they happened, and crucially who did it. We borrowed one from America for our Forensics: the anatomy of crime show. Though beguilingly beautiful and seemingly an ideal children’s toy, visitors who looked at it with care gradually gathered that it was in fact a crucial tool in the comprehension of a gruesome case of murder. ",
+              "spans": [
+                {
+                  "start": 246,
+                  "end": 278,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/forensics"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$1860a6e7-a31e-42aa-83b6-5839c0bbd487",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "7. Skeleton With a Green Skull",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 30,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$a691879f-5622-4675-b028-46a9725c38b5",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "The skull is green because it was buried underneath the mint in London and the leaching  of copper from the coinage turned it that colour. This exhibit from the Skeletons exhibition can currently be seen in Bristol where the show is touring – an exhibition where some wandering London skeletons have met up with others from the West Country, and between them show the wide variety of insights that groups of researchers can reveal by studying the bones of our ancestors.",
+              "spans": [
+                {
+                  "start": 161,
+                  "end": 170,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/skeletons-london%E2%80%99s-buried-bones"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$71891d9c-47b5-48c8-b0ef-2a4ea32663b7",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "8. Make a Piano in Spain",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 24,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$1cc5dbf1-2923-46c8-babe-49629a6b4d18",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "We worked with the artist John Newling who asked people in the Euston area what they did to make themselves feel better. He collected hundreds of wildly different answers to this seemingly simple question that he then analysed, pulled apart, and then put back together in new sentences with an eye to mystery and poetry as well as well-being (hence ‘making a piano in Spain’). He read out all the answers verbatim at a performance and also published a yellow artist's book.",
+              "spans": []
+            }
+          ]
+        },
+        "id": "text$77961f50-8018-47be-86c3-47dce5112c4a",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "9. Sex Related Devices",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 22,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$2ab98ca5-274e-4783-8a70-3a857acbb5e3",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "Early 20th century Japanese sex aids are displayed next to a 19th century British anti-masturbation device in our permanent exhibition - Medicine Man, and well, the juxtaposition says a lot doesn’t it…",
+              "spans": [
+                {
+                  "start": 137,
+                  "end": 149,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/medicine-man"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$5d3b237a-ebe2-4bdd-94a1-a5435c401249",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "10. Neil Bartlett's Sex Survey",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 30,
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$25e0f278-f69f-480d-af19-c890d215b466",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "And sticking to the subject of sex, my last item would be the new sex survey that artist and playwright Neil Bartlett created for our Institute of Sexology exhibition. The key ‘tool’ for those studying sex is the questionnaire. So we asked Neil to make a new one and his response was to set out a form with the last question requesting new questions from visitors. His questionnaire changed throughout the show, with its final version being based purely on visitors' own questions. The thousands of forms filled in generated fascinating results and a real depth of research interest. They’ve been archived in the Wellcome Library for researchers to use in the future.",
+              "spans": [
+                {
+                  "start": 134,
+                  "end": 155,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/institute-sexology"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$0d9617f7-032b-42e9-a03a-c35ae7c8fcbd",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
+    "contributors": [
+      {
+        "role": {
+          "link_type": "Document"
+        },
+        "contributor": {
+          "id": "WXoU9yoAADqyj5ft",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "ken-arnold",
+          "first_publication_date": "2017-08-03T14:55:50+0000",
+          "last_publication_date": "2019-01-16T16:18:08+0000",
+          "data": {
+            "name": "Ken Arnold"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection founder Ken Arnold picks his favourite exhibits.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 1600,
+              "height": 900
+            },
+            "alt": null,
+            "copyright": null,
+            "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+            "id": "WXiuMSoAAPowiXmg",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+              "id": "WXiuMSoAAPowiXmg",
+              "edit": {
+                "x": 0,
+                "y": -150,
+                "zoom": 2,
+                "background": "#fff"
+              }
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+              "id": "WXiuMSoAAPowiXmg",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 2,
+                "background": "#fff"
+              }
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+              "id": "WXiuMSoAAPowiXmg",
+              "edit": {
+                "x": -1244,
+                "y": 0,
+                "zoom": 3.555555582046509,
+                "background": "#fff"
+              }
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$320ca390-2dd1-4fe1-a158-e00ff9ab4a9c",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ],
+    "series": [
+      {
+        "series": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "publishDate": "2017-08-07T23:00:01+0000"
+  }
+}
