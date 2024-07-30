@@ -47,9 +47,13 @@ function addDays(date: Date, days: number): Date {
 }
 
 function getDayName(date: Date) {
-  return date
-    .toLocaleString("en-gb", { weekday: "long" })
-    .toLowerCase() as DayOfWeek;
+  return (
+    date
+      // .toLocaleString("en-gb", { weekday: "long", timeZone: "UTC" })
+      .toLocaleString("en-gb", { weekday: "long", timeZone: "Europe/London" })
+
+      .toLowerCase() as DayOfWeek
+  );
 }
 
 // format date as DD/MM/YYYY
