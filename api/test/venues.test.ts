@@ -16,13 +16,6 @@ describe("GET /venues", () => {
       nextOpeningDates: expectedNextOpeningDates,
     });
   });
-
-  it("returns a 404 if no document for the given ID exists", async () => {
-    const api = mockedApi([]);
-
-    const response = await api.get(`/articles/123`);
-    expect(response.statusCode).toBe(404);
-  });
 });
 
 const regularOpeningDays = [
@@ -72,26 +65,26 @@ const regularOpeningDays = [
 
 const exceptionalClosedDays = [
   {
-    overrideDate: "2024-01-01T00:00:00.000Z",
-    type: "Christmas and New Year",
+    overrideDate: "2024-04-05T00:00:00.000Z",
+    type: "Free bank holiday weekend!",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
-    overrideDate: "2024-03-29T00:00:00.000Z",
-    type: "Easter",
+    overrideDate: "2024-04-06T00:00:00.000Z",
+    type: "Free bank holiday weekend!",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
-    overrideDate: "2024-03-30T00:00:00.000Z",
-    type: "Easter",
+    overrideDate: "2024-04-08T00:00:00.000Z",
+    type: "Free bank holiday weekend!",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
   {
-    overrideDate: "2024-03-31T23:00:00.000Z",
-    type: "Easter",
+    overrideDate: "2024-04-30T23:00:00.000Z",
+    type: "Fête du travail",
     startDateTime: "00:00",
     endDateTime: "00:00",
   },
@@ -122,18 +115,6 @@ const expectedNextOpeningDates = [
   {
     open: "2024-04-04T09:00:00.000Z",
     close: "2024-04-04T19:00:00.000Z",
-  },
-  {
-    open: "2024-04-05T09:00:00.000Z",
-    close: "2024-04-05T17:00:00.000Z",
-  },
-  {
-    open: "2024-04-06T09:00:00.000Z",
-    close: "2024-04-06T15:00:00.000Z",
-  },
-  {
-    open: "2024-04-08T09:00:00.000Z",
-    close: "2024-04-08T17:00:00.000Z",
   },
   {
     open: "2024-04-09T09:00:00.000Z",
@@ -182,5 +163,49 @@ const expectedNextOpeningDates = [
   {
     open: "2024-04-22T09:00:00.000Z",
     close: "2024-04-22T17:00:00.000Z",
+  },
+  {
+    close: "2024-04-23T17:00:00.000Z",
+    open: "2024-04-23T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-24T17:00:00.000Z",
+    open: "2024-04-24T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-25T19:00:00.000Z",
+    open: "2024-04-25T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-26T17:00:00.000Z",
+    open: "2024-04-26T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-27T15:00:00.000Z",
+    open: "2024-04-27T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-29T17:00:00.000Z",
+    open: "2024-04-29T09:00:00.000Z",
+  },
+  {
+    close: "2024-04-30T17:00:00.000Z",
+    open: "2024-04-30T09:00:00.000Z",
+  },
+  {
+    close: "2024-05-02T19:00:00.000Z",
+    open: "2024-05-02T09:00:00.000Z",
+  },
+  {
+    close: "2024-05-03T17:00:00.000Z",
+    open: "2024-05-03T09:00:00.000Z",
+  },
+  {
+    close: "2024-05-04T15:00:00.000Z",
+    open: "2024-05-04T09:00:00.000Z",
+  },
+  {
+    close: "2024-05-06T17:00:00.000Z",
+    open: "2024-05-06T09:00:00.000Z",
   },
 ];
