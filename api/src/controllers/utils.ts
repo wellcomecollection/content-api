@@ -10,8 +10,9 @@ export function getNextOpeningDates(
   regularOpeningDays: RegularOpeningDay[],
   exceptionalClosedDays: ExceptionalClosedDay[]
 ): NextOpeningDate[] {
-  // create a dateList of 21 consecutive days starting tomorrow
-  // 21 is arbitrary, we just need to have at least 12 once all the closed days have been removed
+  // create a dateList of 35 consecutive days starting today
+  // 35 is somewhat arbitrary,
+  // we just need to have at least 12 once all the closed days and/or delivery time have been removed
   const dateNow = new Date();
   const dateList = [...Array(35).keys()].map((day) => addDays(dateNow, day));
 
