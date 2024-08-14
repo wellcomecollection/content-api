@@ -20,6 +20,4 @@ permissions:
 
 jobs:
   stale:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: wellcomecollection/.github/.github/workflows/stale.yml@make-stalePR-workflow-reusable
+    uses: wellcomecollection/.github/.github/workflows/stale.yml@make-stalePR-workflow-reusable
