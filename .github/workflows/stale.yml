@@ -15,4 +15,4 @@ permissions:
 
 jobs:
   stale:
-    uses: wellcomecollection/.github/.github/workflows/stale.yml@make-stalePR-workflow-reusable
+    uses: wellcomecollection/.github/.github/workflows/stale.yml@main
