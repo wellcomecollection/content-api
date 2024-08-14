@@ -4,20 +4,15 @@
 # Shamelessly copied from https://github.com/guardian/.github/blob/main/workflow-templates/stale.yml
 name: "Stale PR Handler"
 
-# on:
-#   schedule:
-#     # Check for Stale PRs every Monday to Thursday morning
-#     # Don't check on Fridays as it wouldn't be very nice to have a bot mark your PR as Stale on Friday and then close it on Monday morning!
-#     - cron: "0 6 * * MON-THU"
-
 on:
   schedule:
-    # Check for Stale PRs every 5 minutes - temporary, for testing, then revert to the above
-    - cron: "*/5 * * * *"
+    # Check for Stale PRs every Monday to Thursday morning
+    # Don't check on Fridays as it wouldn't be very nice to have a bot mark your PR as Stale on Friday and then close it on Monday morning!
+    - cron: "0 6 * * MON-THU"
 
 permissions:
   pull-requests: write
 
 jobs:
   stale:
-    uses: wellcomecollection/.github/.github/workflows/stale.yml@make-stalePR-workflow-reusable
+    uses: wellcomecollection/.github/.github/workflows/stale.yml@main
