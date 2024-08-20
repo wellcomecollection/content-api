@@ -1,3 +1,4 @@
+// Venue related types are in /common as they're used by both the pipeline and the API
 export type ElasticsearchVenue = {
   id: string;
   display: Venue;

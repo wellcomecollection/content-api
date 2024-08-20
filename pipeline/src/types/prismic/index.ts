@@ -8,6 +8,7 @@ export {
   WithLocations,
   WithInterpretations,
 } from "./eventDocuments";
+export { VenuePrismicDocument } from "./venues";
 export { Contributors, WithContributors } from "./contributors";
 export { ContentType, PrismicFormat, ArticleFormatId } from "./formats";
 export { PrismicImage } from "./images";

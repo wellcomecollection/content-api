@@ -8,19 +8,6 @@ const query = `{
         title
       }
     }
-    contributors {
-      role {
-        title
-      }
-      contributor {
-        ... on people {
-          name
-        }
-        ... on organisations {
-          name
-        }
-      }
-    }
     interpretations {
       interpretationType {
         title

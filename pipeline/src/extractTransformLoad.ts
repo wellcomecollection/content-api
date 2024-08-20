@@ -56,7 +56,7 @@ export const createETLPipeline =
     const [initialParentDocuments, otherDocuments] = partition(
       paginator((after?: string) =>
         getPrismicDocuments(clients.prismic, {
-          publicationWindow: toBoundedWindow(event),
+          publicationWindow: window,
           graphQuery: etlParameters.graphQuery,
           after,
         })
@@ -69,7 +69,7 @@ export const createETLPipeline =
     let parentsWithUpdatedChildren = 0;
     const remainingParentDocuments = otherDocuments.pipe(
       // Query elasticsearch for (parent) documents that contain these child document IDs
-      // The field name is mapped in `indices/articles.ts` and populated by the transformer
+      // The field name is mapped in `indices/<index-name>.ts` and populated by the transformer
       getParentDocumentIDs(clients.elastic, {
         index: etlParameters.indexConfig.index,
         identifiersField: "query.linkedIdentifiers",
