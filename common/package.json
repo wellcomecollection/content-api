@@ -9,7 +9,7 @@
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.301.0",
     "@elastic/elasticsearch": "^8.6.0",
-    "elastic-apm-node": "^3.43.0",
+    "elastic-apm-node": "^4.7.3",
     "winston": "^3.8.2",
     "zod": "^3.21.4"
   },
