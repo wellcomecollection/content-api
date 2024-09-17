@@ -31,12 +31,12 @@ export const toBoundedWindow = (event: WindowEvent): TimeWindow => {
     if (start) {
       return {
         start,
-        end: new Date(start.getTime() + durationMs),
+        end: new Date(start.getTime() + (durationMs || 0)),
       };
     }
     if (end) {
       return {
-        start: new Date(end.getTime() - durationMs),
+        start: new Date(end.getTime() - (durationMs || 0)),
         end,
       };
     }
