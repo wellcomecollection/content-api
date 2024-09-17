@@ -20,7 +20,7 @@ describe("ensureIndexExists", () => {
     } as unknown as ElasticClient;
 
     await ensureIndexExists(client, { index: "test" });
-    expect(createIndex).toHaveBeenCalledOnceWith({ index: "test" });
+    expect(createIndex).toHaveBeenCalledExactlyOnceWith({ index: "test" });
   });
 
   it("updates the mapping if the index already exists", async () => {
@@ -48,11 +48,11 @@ describe("ensureIndexExists", () => {
       mappings: testMapping,
     });
 
-    expect(createIndex).toHaveBeenCalledOnceWith({
+    expect(createIndex).toHaveBeenCalledExactlyOnceWith({
       index: "test",
       mappings: testMapping,
     });
-    expect(putMapping).toHaveBeenCalledOnceWith({
+    expect(putMapping).toHaveBeenCalledExactlyOnceWith({
       index: "test",
       ...testMapping,
     });
