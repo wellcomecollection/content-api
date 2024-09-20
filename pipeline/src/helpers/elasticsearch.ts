@@ -51,7 +51,7 @@ export type HasIdentifier = {
   id: string;
 };
 
-type BulkIndexResult<Doc> = {
+type BulkIndexResult = {
   successfulIds: Set<string>;
   time: number;
 };
@@ -60,7 +60,7 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
   index: string,
   documents: Observable<T>,
-): Promise<BulkIndexResult<T>> => {
+): Promise<BulkIndexResult> => {
   const datasource = observableToStream(documents);
   const successfulIds = new Set<string>();
   const failed: T[] = [];

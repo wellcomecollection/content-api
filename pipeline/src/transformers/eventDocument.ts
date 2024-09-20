@@ -1,8 +1,5 @@
 import { PrismicDocument, TimestampField, asDate } from "@prismicio/client";
-import {
-  defaultEventFormat,
-  onlineLocation,
-} from "@weco/content-common/data/defaultValues";
+import { defaultEventFormat } from "@weco/content-common/data/defaultValues";
 import {
   EventPrismicDocument,
   WithEventFormat,
@@ -28,7 +25,7 @@ import {
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 function transformFormat(
-  document: PrismicDocument<WithEventFormat>
+  document: PrismicDocument<WithEventFormat>,
 ): EventDocumentFormat {
   const { data } = document;
   return isFilledLinkToDocumentWithData(data.format)
@@ -41,7 +38,7 @@ function transformFormat(
 }
 
 const transformLocations = (
-  document: PrismicDocument<WithLocations>
+  document: PrismicDocument<WithLocations>,
 ): EventDocumentLocations => {
   const { data } = document;
 
@@ -83,7 +80,7 @@ const transformLocations = (
 };
 
 const transformInterpretations = (
-  document: PrismicDocument<WithInterpretations>
+  document: PrismicDocument<WithInterpretations>,
 ) => {
   const { data } = document;
 
@@ -137,7 +134,7 @@ const transformTimes = (times: {
 };
 
 export const transformEventDocument = (
-  document: EventPrismicDocument
+  document: EventPrismicDocument,
 ): ElasticsearchEventDocument => {
   const {
     data: { title, promo, times, availableOnline },

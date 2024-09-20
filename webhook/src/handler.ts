@@ -23,7 +23,7 @@ type Config = {
 
 export const createHandler =
   (clients: Clients, config: Config): APIGatewayProxyHandlerV2 =>
-  async (event, context) => {
+  async (event) => {
     if (event.requestContext.http.method !== "POST") {
       return response({
         status: 405,
@@ -87,7 +87,7 @@ export const createHandler =
             Source: "prismic-webhook",
           },
         ],
-      })
+      }),
     );
 
     if (publishResult.FailedEntryCount !== 0) {

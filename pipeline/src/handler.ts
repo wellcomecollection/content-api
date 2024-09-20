@@ -38,7 +38,7 @@ const loadVenues = createETLPipeline({
 
 export const createHandler =
   (clients: Clients): Handler<WindowEvent> =>
-  async (event, context) => {
+  async (event) => {
     if (!event.contentType) {
       throw new Error("Event contentType must be specified!");
     }

@@ -8,7 +8,7 @@ const config = getConfig();
 
 const articlesUnpublisher = createUnpublisher(config.indices.articlesIndex);
 const eventDocumentsUnpublisher = createUnpublisher(
-  config.indices.eventdocumentsIndex
+  config.indices.eventdocumentsIndex,
 );
 
 type Clients = {
@@ -17,9 +17,9 @@ type Clients = {
 
 export const createHandler =
   (
-    clients: Clients
+    clients: Clients,
   ): EventBridgeHandler<"document-unpublish", WebhookBodyAPIUpdate, void> =>
-  async (event, context) => {
+  async (event) => {
     const unpublishedDocuments = event.detail.documents;
 
     await articlesUnpublisher(clients, unpublishedDocuments);

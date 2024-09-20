@@ -1,7 +1,6 @@
 import { argv } from "node:process";
 import { Context } from "aws-lambda";
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
-import { getSecret } from "@weco/content-common/services/aws";
 import { createHandler } from "./handler";
 import { eventBridgePrismicEvent } from "./event";
 

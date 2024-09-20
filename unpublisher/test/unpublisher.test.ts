@@ -2,7 +2,6 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { eventBridgePrismicEvent } from "../src/event";
 import { createUnpublisher } from "../src/unpublisher";
 
 const testIndex = "test-index";
@@ -18,15 +17,15 @@ describe("content unpublisher", () => {
 
     await testUnpublisher(
       { elastic: mockElasticClient as unknown as ElasticClient },
-      documents
+      documents,
     );
 
     expect(mockElasticClient.delete).toHaveBeenCalledTimes(2);
     expect(
-      mockElasticClient.delete.mock.calls.map(([arg]) => arg.index)
+      mockElasticClient.delete.mock.calls.map(([arg]) => arg.index),
     ).toSatisfyAll((idx) => idx === testIndex);
     expect(
-      mockElasticClient.delete.mock.calls.map(([arg]) => arg.id)
+      mockElasticClient.delete.mock.calls.map(([arg]) => arg.id),
     ).toIncludeAllMembers(documents);
   });
 
@@ -37,7 +36,7 @@ describe("content unpublisher", () => {
           meta: {} as any,
           warnings: [],
           statusCode: 404,
-        })
+        }),
       ),
     };
 
@@ -46,8 +45,8 @@ describe("content unpublisher", () => {
     return expect(
       testUnpublisher(
         { elastic: mockElasticClient as unknown as ElasticClient },
-        documents
-      )
+        documents,
+      ),
     ).resolves;
   });
 
@@ -58,7 +57,7 @@ describe("content unpublisher", () => {
           meta: {} as any,
           warnings: [],
           statusCode: 400,
-        })
+        }),
       ),
     };
     const testUnpublisher = createUnpublisher(testIndex);
@@ -66,8 +65,8 @@ describe("content unpublisher", () => {
     return expect(
       testUnpublisher(
         { elastic: mockElasticClient as unknown as ElasticClient },
-        documents
-      )
+        documents,
+      ),
     ).rejects.toBeInstanceOf(elasticErrors.ResponseError);
   });
 });
