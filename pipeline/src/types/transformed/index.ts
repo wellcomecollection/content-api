@@ -28,11 +28,11 @@ export type Contributor = {
   };
 };
 
-export type Series = Array<{
+export type Series = {
   id: string;
   title?: string;
   contributors?: string[];
-}>;
+}[];
 
 export type { Article, ArticleFormat };
 

@@ -71,11 +71,10 @@ const isAvailableOnlineValidator = queryValidator({
 const paramsValidator = (params: QueryParams): QueryParams => {
   const { isAvailableOnline, ...rest } = params;
 
-  params["location"]
-    ? locationsValidator({
-        location: params["location"],
-      })
-    : undefined;
+  if (params.location)
+    locationsValidator({
+      location: params.location,
+    });
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
@@ -102,17 +101,17 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       sort === "times.startDateTime" ? "query.times.startDateTime" : "_score";
 
     const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
-      pick(eventsAggregations, requestedAggs)
+      pick(eventsAggregations, requestedAggs),
     );
 
     const postFilters = pickFiltersFromQuery(
       ["format", "audience", "interpretation", "location", "isAvailableOnline"],
       validParams,
-      eventsFilter
+      eventsFilter,
     );
 
     const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
-      rewriteAggregationsForFacets(aggs, postFilters)
+      rewriteAggregationsForFacets(aggs, postFilters),
     );
 
     try {

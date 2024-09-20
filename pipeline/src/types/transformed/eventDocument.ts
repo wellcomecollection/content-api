@@ -1,5 +1,4 @@
-import { Image } from ".";
-import { Series } from ".";
+import { Image, Series } from ".";
 
 export type EventDocument = {
   type: "Event";
