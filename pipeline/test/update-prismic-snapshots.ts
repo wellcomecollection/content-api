@@ -1,6 +1,6 @@
 import { EOL } from "node:os";
-import fs from "node:fs/promises";
-import path from "node:path";
+import { promises as fs } from "fs";
+import * as path from "path";
 import { Client, PrismicDocument } from "@prismicio/client";
 import { createPrismicClient } from "../src/services/prismic";
 import { asTitle, asText } from "../src/helpers/type-guards";

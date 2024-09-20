@@ -1,3 +1,4 @@
+# TODO use node:20 and test
 FROM public.ecr.aws/docker/library/node:18
 
 # Install Terraform (for formatting)

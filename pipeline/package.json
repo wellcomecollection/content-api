@@ -9,7 +9,7 @@
     "reindex-articles": "ts-node src/local.ts articles",
     "reindex-events": "ts-node src/local.ts events",
     "reindex-venues": "ts-node src/local.ts venues",
-    "update-prismic-snapshots": "ts-node test/update-prismic-snapshots.ts",
+    "update-prismic-snapshots": "tsc --noEmit test/update-prismic-snapshots.ts && tsx test/update-prismic-snapshots.ts",
     "test": "jest"
   },
   "dependencies": {
@@ -26,10 +26,11 @@
     "@types/node": "^20.16.5",
     "@types/node-fetch": "^2.6.2",
     "esbuild": "^0.17.17",
-    "jest": "^29.7.0",
-    "jest-extended": "^4.0.2",
-    "ts-jest": "^29.2.5",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.6.2"
+    "jest": "^29.5.0",
+    "jest-extended": "^3.2.4",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "tsx": "^3.14.0"
   }
 }
