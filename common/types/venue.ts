@@ -12,7 +12,7 @@ export type ElasticsearchVenue = {
 };
 
 export type Venue = {
-  type: "Venue";
+  type: 'Venue';
   id: string;
   title: string;
   regularOpeningDays: RegularOpeningDay[];
@@ -39,10 +39,10 @@ export type NextOpeningDate = {
 };
 
 export type DayOfWeek =
-  | "monday"
-  | "tuesday"
-  | "wednesday"
-  | "thursday"
-  | "friday"
-  | "saturday"
-  | "sunday";
+  | 'monday'
+  | 'tuesday'
+  | 'wednesday'
+  | 'thursday'
+  | 'friday'
+  | 'saturday'
+  | 'sunday';

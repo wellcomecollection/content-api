@@ -1,9 +1,9 @@
-import { linkedDocumentIdentifiers } from "@weco/content-pipeline/src/transformers/utils";
+import { linkedDocumentIdentifiers } from '@weco/content-pipeline/src/transformers/utils';
 
-describe("linkedDocumentIdentifiers", () => {
-  it("extracts linked document identifier where the document has data", () => {
+describe('linkedDocumentIdentifiers', () => {
+  it('extracts linked document identifier where the document has data', () => {
     const document = {
-      apples: "pears",
+      apples: 'pears',
       things: [1, 2, 3],
       answer: 42,
       deeply: {
@@ -11,37 +11,37 @@ describe("linkedDocumentIdentifiers", () => {
         bits: {
           and: {
             pieces: {
-              link_type: "Document",
-              id: "abc",
+              link_type: 'Document',
+              id: 'abc',
               data: {
-                name: "wellcome",
+                name: 'wellcome',
               },
             },
           },
         },
-        another: "property",
+        another: 'property',
       },
       stuff: [
         {
           thing: {
-            link_type: "Document",
-            id: "def",
+            link_type: 'Document',
+            id: 'def',
             data: {
-              name: "henry",
+              name: 'henry',
             },
           },
         },
       ],
     };
     const identifiers = linkedDocumentIdentifiers(document);
-    expect(identifiers).toIncludeSameMembers(["abc", "def"]);
+    expect(identifiers).toIncludeSameMembers(['abc', 'def']);
   });
 
-  it("ignores linked documents without data", async () => {
+  it('ignores linked documents without data', async () => {
     const document = {
       thing: {
-        link_type: "Document",
-        id: "abc",
+        link_type: 'Document',
+        id: 'abc',
       },
     };
     const identifiers = linkedDocumentIdentifiers(document);

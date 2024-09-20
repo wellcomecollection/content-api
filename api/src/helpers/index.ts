@@ -6,7 +6,7 @@ export const isInSet =
 
 export const ifDefined = <T, R>(
   maybeParam: T | undefined,
-  func: (param: T) => R,
+  func: (param: T) => R
 ): R | undefined => (maybeParam !== undefined ? func(maybeParam) : undefined);
 
 export const isNotUndefined = <T>(val: T | undefined): val is T =>
@@ -14,15 +14,15 @@ export const isNotUndefined = <T>(val: T | undefined): val is T =>
 
 export const pick = <T extends object, K extends keyof T>(
   obj: T,
-  keys: K[],
+  keys: K[]
 ): Pick<T, K> =>
   Object.fromEntries(
-    keys.filter((key) => key in obj).map((key) => [key, obj[key]]),
+    keys.filter(key => key in obj).map(key => [key, obj[key]])
   ) as Pick<T, K>;
 
 export const not =
   <T extends any[]>( // eslint-disable-line @typescript-eslint/no-explicit-any
-    f: (...params: T) => boolean,
+    f: (...params: T) => boolean
   ) =>
   (...params: T) =>
     !f(...params);

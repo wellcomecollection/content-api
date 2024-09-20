@@ -1,38 +1,38 @@
-import { asDate, PrismicDocument, TimestampField } from "@prismicio/client";
+import { asDate, PrismicDocument, TimestampField } from '@prismicio/client';
 
-import { defaultEventFormat } from "@weco/content-common/data/defaultValues";
+import { defaultEventFormat } from '@weco/content-common/data/defaultValues';
 import {
   asText,
   asTitle,
   isFilledLinkToDocumentWithData,
   isImageLink,
   isNotUndefined,
-} from "@weco/content-pipeline/src/helpers/type-guards";
+} from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   EventPrismicDocument,
   WithAudiences,
   WithEventFormat,
   WithInterpretations,
   WithLocations,
-} from "@weco/content-pipeline/src/types/prismic/eventDocuments";
-import { ElasticsearchEventDocument } from "@weco/content-pipeline/src/types/transformed";
+} from '@weco/content-pipeline/src/types/prismic/eventDocuments';
+import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
   EventDocumentAudience,
   EventDocumentFormat,
   EventDocumentInterpretation,
   EventDocumentLocations,
   EventDocumentPlace,
-} from "@weco/content-pipeline/src/types/transformed/eventDocument";
+} from '@weco/content-pipeline/src/types/transformed/eventDocument';
 
-import { linkedDocumentIdentifiers, transformSeries } from "./utils";
+import { linkedDocumentIdentifiers, transformSeries } from './utils';
 
 function transformFormat(
-  document: PrismicDocument<WithEventFormat>,
+  document: PrismicDocument<WithEventFormat>
 ): EventDocumentFormat {
   const { data } = document;
   return isFilledLinkToDocumentWithData(data.format)
     ? {
-        type: "EventFormat",
+        type: 'EventFormat',
         id: data.format.id,
         label: asText(data.format.data.title),
       }
@@ -40,7 +40,7 @@ function transformFormat(
 }
 
 const transformLocations = (
-  document: PrismicDocument<WithLocations>,
+  document: PrismicDocument<WithLocations>
 ): EventDocumentLocations => {
   const { data } = document;
 
@@ -52,29 +52,29 @@ const transformLocations = (
         ? {
             id: l.location.id,
             label: asText(l.location.data.title),
-            type: "EventPlace",
+            type: 'EventPlace',
           }
         : undefined;
     })
     .filter(isNotUndefined);
 
   return {
-    type: "EventLocations",
+    type: 'EventLocations',
     isOnline,
     places: physicalLocations.length > 0 ? physicalLocations : undefined,
     attendance: [
       isOnline
         ? {
-            id: "online" as const,
-            label: "Online" as const,
-            type: "EventAttendance" as const,
+            id: 'online' as const,
+            label: 'Online' as const,
+            type: 'EventAttendance' as const,
           }
         : undefined,
       physicalLocations.length > 0
         ? {
-            id: "in-our-building" as const,
-            label: "In our building" as const,
-            type: "EventAttendance" as const,
+            id: 'in-our-building' as const,
+            label: 'In our building' as const,
+            type: 'EventAttendance' as const,
           }
         : undefined,
     ].filter(isNotUndefined),
@@ -82,7 +82,7 @@ const transformLocations = (
 };
 
 const transformInterpretations = (
-  document: PrismicDocument<WithInterpretations>,
+  document: PrismicDocument<WithInterpretations>
 ) => {
   const { data } = document;
 
@@ -90,7 +90,7 @@ const transformInterpretations = (
     .map((i): EventDocumentInterpretation | undefined => {
       return isFilledLinkToDocumentWithData(i.interpretationType)
         ? {
-            type: "EventInterpretation",
+            type: 'EventInterpretation',
             id: i.interpretationType.id,
             label: asText(i.interpretationType.data.title),
           }
@@ -106,7 +106,7 @@ const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
     .map((i): EventDocumentAudience | undefined => {
       return isFilledLinkToDocumentWithData(i.audience)
         ? {
-            type: "EventAudience",
+            type: 'EventAudience',
             id: i.audience.id,
             label: asText(i.audience.data.title),
           }
@@ -118,8 +118,8 @@ const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
 const transformTimes = (times: {
   startDateTime: TimestampField;
   endDateTime: TimestampField;
-  isFullyBooked: "yes" | null;
-  onlineIsFullyBooked: "yes" | null;
+  isFullyBooked: 'yes' | null;
+  onlineIsFullyBooked: 'yes' | null;
 }): {
   startDateTime: Date | undefined;
   endDateTime: Date | undefined;
@@ -136,7 +136,7 @@ const transformTimes = (times: {
 };
 
 export const transformEventDocument = (
-  document: EventPrismicDocument,
+  document: EventPrismicDocument
 ): ElasticsearchEventDocument => {
   const {
     data: { title, promo, times, availableOnline },
@@ -149,7 +149,7 @@ export const transformEventDocument = (
   const primaryImage = promo?.[0]?.primary;
   const image =
     primaryImage && isImageLink(primaryImage.image)
-      ? { type: "PrismicImage" as const, ...primaryImage.image }
+      ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
   const format = transformFormat(document);
@@ -166,9 +166,9 @@ export const transformEventDocument = (
 
   return {
     id,
-    ...(tags.includes("delist") && { isChildScheduledEvent: true }),
+    ...(tags.includes('delist') && { isChildScheduledEvent: true }),
     display: {
-      type: "Event",
+      type: 'Event',
       id,
       title: asTitle(title),
       image,
@@ -187,26 +187,26 @@ export const transformEventDocument = (
       series: transformSeries(document),
       times: {
         startDateTime: documentTimes
-          .map((time) => time.startDateTime)
+          .map(time => time.startDateTime)
           .filter(isNotUndefined),
       },
     },
     filter: {
       formatId: format.id,
-      interpretationIds: interpretations.map((i) => i.id),
-      audienceIds: audiences.map((a) => a.id),
-      locationIds: locations.attendance.map((l) => l.id),
+      interpretationIds: interpretations.map(i => i.id),
+      audienceIds: audiences.map(a => a.id),
+      locationIds: locations.attendance.map(l => l.id),
       isAvailableOnline,
     },
     aggregatableValues: {
       format: JSON.stringify(format),
-      interpretations: interpretations.map((i) => JSON.stringify(i)),
-      audiences: audiences.map((a) => JSON.stringify(a)),
-      locations: locations.attendance.map((l) => JSON.stringify(l)),
+      interpretations: interpretations.map(i => JSON.stringify(i)),
+      audiences: audiences.map(a => JSON.stringify(a)),
+      locations: locations.attendance.map(l => JSON.stringify(l)),
       isAvailableOnline: JSON.stringify({
-        type: "OnlineAvailabilityBoolean",
+        type: 'OnlineAvailabilityBoolean',
         value: isAvailableOnline,
-        label: "Catch-up event",
+        label: 'Catch-up event',
       }),
     },
   };

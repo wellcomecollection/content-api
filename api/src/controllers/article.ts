@@ -1,17 +1,17 @@
-import { errors as elasticErrors } from "@elastic/elasticsearch";
-import { RequestHandler } from "express";
-import asyncHandler from "express-async-handler";
+import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { RequestHandler } from 'express';
+import asyncHandler from 'express-async-handler';
 
-import { Config } from "@weco/content-api/config";
-import { Clients, Displayable } from "@weco/content-api/src/types";
+import { Config } from '@weco/content-api/config';
+import { Clients, Displayable } from '@weco/content-api/src/types';
 
-import { HttpError } from "./error";
+import { HttpError } from './error';
 
 type PathParams = { id: string };
 
 const articleController = (
   clients: Clients,
-  config: Config,
+  config: Config
 ): RequestHandler<PathParams> => {
   const index = config.articlesIndex;
 
@@ -21,7 +21,7 @@ const articleController = (
       const getResponse = await clients.elastic.get<Displayable>({
         index,
         id,
-        _source: ["display"],
+        _source: ['display'],
       });
 
       res.status(200).json(getResponse._source!.display);
@@ -30,7 +30,7 @@ const articleController = (
         if (error.statusCode === 404) {
           throw new HttpError({
             status: 404,
-            label: "Not Found",
+            label: 'Not Found',
             description: `Article not found for identifier ${id}`,
           });
         }

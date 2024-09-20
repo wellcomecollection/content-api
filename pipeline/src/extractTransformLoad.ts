@@ -1,22 +1,22 @@
-import * as prismic from "@prismicio/client";
-import { concat, filter, map, partition, tap } from "rxjs";
+import * as prismic from '@prismicio/client';
+import { concat, filter, map, partition, tap } from 'rxjs';
 
-import log from "@weco/content-common/services/logging";
+import log from '@weco/content-common/services/logging';
 
-import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
+import { describeWindow, toBoundedWindow, WindowEvent } from './event';
 import {
   bulkIndexDocuments,
   ensureIndexExists,
   getParentDocumentIDs,
   HasIdentifier,
   IndexConfig,
-} from "./helpers/elasticsearch";
+} from './helpers/elasticsearch';
 import {
   getDocumentsByID,
   getPrismicDocuments,
   paginator,
-} from "./helpers/prismic";
-import { Clients } from "./types";
+} from './helpers/prismic';
+import { Clients } from './types';
 
 type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;
@@ -30,7 +30,7 @@ export const createETLPipeline =
     PrismicDocument extends prismic.PrismicDocument,
     ElasticsearchDocument extends HasIdentifier,
   >(
-    etlParameters: ETLParameters<PrismicDocument, ElasticsearchDocument>,
+    etlParameters: ETLParameters<PrismicDocument, ElasticsearchDocument>
   ) =>
   async (clients: Clients, event: WindowEvent) => {
     // 0. Create index if necessary
@@ -41,7 +41,7 @@ export const createETLPipeline =
     log.info(
       `Fetching ${
         etlParameters.indexConfig.index
-      } last published ${describeWindow(window)}`,
+      } last published ${describeWindow(window)}`
     );
 
     // 2. Fetch all documents published in the given window and partition them into
@@ -50,7 +50,7 @@ export const createETLPipeline =
     // We also tap the observable to keep track of documents that we've seen, so as
     // to reduce duplicate work later on.
     const isParentDocument = (
-      doc: prismic.PrismicDocument,
+      doc: prismic.PrismicDocument
     ): doc is PrismicDocument =>
       etlParameters.parentDocumentTypes.has(doc.type);
     const seenIds = new Set<string>();
@@ -60,9 +60,9 @@ export const createETLPipeline =
           publicationWindow: toBoundedWindow(event),
           graphQuery: etlParameters.graphQuery,
           after,
-        }),
-      ).pipe(tap((document) => seenIds.add(document.id))),
-      isParentDocument,
+        })
+      ).pipe(tap(document => seenIds.add(document.id))),
+      isParentDocument
     );
 
     // 3. Find parent documents which were not changed but have child documents that
@@ -73,11 +73,11 @@ export const createETLPipeline =
       // The field name is mapped in `indices/articles.ts` and populated by the transformer
       getParentDocumentIDs(clients.elastic, {
         index: etlParameters.indexConfig.index,
-        identifiersField: "query.linkedIdentifiers",
+        identifiersField: 'query.linkedIdentifiers',
       }),
       // We don't need to update parent documents that we already got in this window
       // as their latest version was fetched above
-      filter((parentId) => !seenIds.has(parentId)),
+      filter(parentId => !seenIds.has(parentId)),
       // Fetch the latest version of all the parent documents including the denormalised data
       // from the child document: while we do have all the information for both the parent (from ES)
       // and the child (from the initial Prismic query), we don't want to have to know how to
@@ -87,17 +87,17 @@ export const createETLPipeline =
       }),
       tap(() => {
         parentsWithUpdatedChildren += 1;
-      }),
+      })
     );
 
     const nextIndex = await bulkIndexDocuments(
       clients.elastic,
       etlParameters.indexConfig.index,
       concat(initialParentDocuments, remainingParentDocuments).pipe(
-        map(etlParameters.transformer),
-      ),
+        map(etlParameters.transformer)
+      )
     );
     log.info(
-      `Indexed ${nextIndex.successfulIds.size} documents in ${nextIndex.time}ms (${parentsWithUpdatedChildren} had updates from linked documents)`,
+      `Indexed ${nextIndex.successfulIds.size} documents in ${nextIndex.time}ms (${parentsWithUpdatedChildren} had updates from linked documents)`
     );
   };

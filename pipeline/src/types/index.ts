@@ -1,5 +1,5 @@
-import { Client as ElasticClient } from "@elastic/elasticsearch";
-import * as prismic from "@prismicio/client";
+import { Client as ElasticClient } from '@elastic/elasticsearch';
+import * as prismic from '@prismicio/client';
 
 // Generic types
 

@@ -1,16 +1,16 @@
-import { PrismicImage } from "@weco/content-pipeline/src/types/prismic";
+import { PrismicImage } from '@weco/content-pipeline/src/types/prismic';
 
-import { Article, ArticleFormat } from "./article";
+import { Article, ArticleFormat } from './article';
 import {
   EventDocument,
   EventDocumentFormat,
   EventDocumentInterpretation,
   EventDocumentLocations,
-} from "./eventDocument";
+} from './eventDocument';
 
 // Image
 export type Image = PrismicImage & {
-  type: "PrismicImage";
+  type: 'PrismicImage';
 };
 
 // Contributors (e.g. author, photographer)
@@ -20,12 +20,12 @@ type BasicContributorInformation = {
 };
 
 export type Contributor = {
-  type: "Contributor";
+  type: 'Contributor';
   contributor?: BasicContributorInformation & {
-    type: "Person" | "Organisation";
+    type: 'Person' | 'Organisation';
   };
   role?: BasicContributorInformation & {
-    type: "EditorialContributorRole";
+    type: 'EditorialContributorRole';
   };
 };
 

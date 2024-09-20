@@ -1,7 +1,7 @@
-import { Filter } from "@weco/content-api/src/queries/common";
-import { StringLiteral } from "@weco/content-api/src/types";
+import { Filter } from '@weco/content-api/src/queries/common';
+import { StringLiteral } from '@weco/content-api/src/types';
 
-import { ifDefined } from "./index";
+import { ifDefined } from './index';
 
 // Given an object of query parameters, and one with the same keys
 // of functions that create filter objects, apply all those functions
@@ -15,14 +15,14 @@ export const pickFiltersFromQuery = <
 >(
   filterNames: readonly StringLiteral<Name>[],
   query: Query,
-  filters: Filters,
+  filters: Filters
 ): Record<Name, Filter> =>
   Object.fromEntries(
-    filterNames.flatMap((filterName) => {
+    filterNames.flatMap(filterName => {
       const maybeFilter = ifDefined(
-        query[filterName]?.split(","),
-        filters[filterName],
+        query[filterName]?.split(','),
+        filters[filterName]
       );
       return maybeFilter ? [[filterName, maybeFilter]] : [];
-    }),
+    })
   ) as Record<Name, Filter>;

@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const environmentSchema = z.object({
   PIPELINE_DATE: z.string(),

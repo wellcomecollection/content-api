@@ -1,21 +1,21 @@
-import { URL } from "url";
+import { URL } from 'url';
 
-import { HttpError } from "@weco/content-api/src/controllers/error";
+import { HttpError } from '@weco/content-api/src/controllers/error';
 import {
   paginationElasticBody,
   paginationResponseGetter,
-} from "@weco/content-api/src/controllers/pagination";
+} from '@weco/content-api/src/controllers/pagination';
 
-describe("pagination tools", () => {
-  describe("paginationElasticBody", () => {
-    it("returns a `size` and `from` value", () => {
+describe('pagination tools', () => {
+  describe('paginationElasticBody', () => {
+    it('returns a `size` and `from` value', () => {
       const { size, from } = paginationElasticBody({ page: 12, pageSize: 55 });
 
       expect(size).toBe(55);
       expect(from).toBe(11 * 55);
     });
 
-    it("clamps the page size as per the global limit", () => {
+    it('clamps the page size as per the global limit', () => {
       const { size, from } = paginationElasticBody({ page: 10, pageSize: 333 });
 
       expect(size).toBe(100);
@@ -23,15 +23,15 @@ describe("pagination tools", () => {
     });
   });
 
-  describe("getPaginationResponse", () => {
-    const publicRootUrl = "https://test.public.url/root";
+  describe('getPaginationResponse', () => {
+    const publicRootUrl = 'https://test.public.url/root';
     const getPaginationResponse = paginationResponseGetter(
-      new URL(publicRootUrl),
+      new URL(publicRootUrl)
     );
 
-    it("returns appropriate links to prev/next pages if they exist", () => {
+    it('returns appropriate links to prev/next pages if they exist', () => {
       const requestUrl = new URL(
-        "https://test.private:123/docs?page=4&pageSize=25",
+        'https://test.private:123/docs?page=4&pageSize=25'
       );
       const totalResults = 100;
       const response = getPaginationResponse({ requestUrl, totalResults });
@@ -41,12 +41,12 @@ describe("pagination tools", () => {
       expect(response.totalResults).toBe(totalResults);
       expect(response.nextPage).toBeUndefined();
       expect(response.prevPage).toBe(
-        `${publicRootUrl}/docs?page=3&pageSize=25`,
+        `${publicRootUrl}/docs?page=3&pageSize=25`
       );
     });
 
-    it("uses defaults where appropriate", () => {
-      const requestUrl = new URL("https://test.private:123/docs");
+    it('uses defaults where appropriate', () => {
+      const requestUrl = new URL('https://test.private:123/docs');
       const totalResults = 100;
       const response = getPaginationResponse({ requestUrl, totalResults });
 
@@ -54,21 +54,21 @@ describe("pagination tools", () => {
       expect(response.nextPage).toBe(`${publicRootUrl}/docs?page=2`);
     });
 
-    it("returns an error if the requested page size exceeds the limits", () => {
-      const requestUrl = new URL("https://test.private:123/docs?pageSize=101");
+    it('returns an error if the requested page size exceeds the limits', () => {
+      const requestUrl = new URL('https://test.private:123/docs?pageSize=101');
       const totalResults = 200;
 
       expect(() => getPaginationResponse({ requestUrl, totalResults })).toThrow(
-        HttpError,
+        HttpError
       );
     });
 
-    it("evaluates the page size limits inclusively", () => {
-      const requestUrl = new URL("https://test.private:123/docs?&pageSize=100");
+    it('evaluates the page size limits inclusively', () => {
+      const requestUrl = new URL('https://test.private:123/docs?&pageSize=100');
       const totalResults = 200;
 
       expect(() =>
-        getPaginationResponse({ requestUrl, totalResults }),
+        getPaginationResponse({ requestUrl, totalResults })
       ).not.toThrow();
     });
   });

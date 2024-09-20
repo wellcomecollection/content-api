@@ -1,5 +1,5 @@
-import { BulkHelperOptions } from "@elastic/elasticsearch/lib/helpers";
-import { Readable } from "node:stream";
+import { BulkHelperOptions } from '@elastic/elasticsearch/lib/helpers';
+import { Readable } from 'node:stream';
 
 export const createElasticBulkHelper = (): [
   jest.Mock<Promise<{ time: number; successful: number }>, [BulkHelperOptions]>,
@@ -28,7 +28,7 @@ export const createElasticBulkHelper = (): [
 };
 
 export const createElasticScrollDocuments = <T extends { id: string }>(
-  docs: T[],
+  docs: T[]
 ): jest.Mock<AsyncGenerator<T, void>> =>
   jest.fn(async function* () {
     for (const doc of docs) {

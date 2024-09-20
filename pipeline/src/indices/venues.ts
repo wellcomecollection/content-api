@@ -1,47 +1,47 @@
-export const index = "venues";
+export const index = 'venues';
 
 export const mappings = {
-  dynamic: "strict",
+  dynamic: 'strict',
   properties: {
     id: {
-      type: "keyword",
+      type: 'keyword',
     },
     display: {
-      type: "object",
+      type: 'object',
       enabled: false,
     },
     data: {
-      type: "object",
+      type: 'object',
       properties: {
         exceptionalClosedDays: {
           properties: {
             endDateTime: {
-              type: "text",
+              type: 'text',
             },
             overrideDate: {
-              type: "date",
+              type: 'date',
             },
             startDateTime: {
-              type: "text",
+              type: 'text',
             },
             type: {
-              type: "text",
+              type: 'text',
             },
           },
         },
         regularOpeningDays: {
           properties: {
             closes: {
-              type: "text",
+              type: 'text',
             },
             dayOfWeek: {
-              type: "text",
+              type: 'text',
             },
             isClosed: {
-              type: "boolean",
+              type: 'boolean',
             },
             opens: {
-              type: "text",
+              type: 'text',
             },
           },
         },
@@ -50,10 +50,10 @@ export const mappings = {
     filter: {
       properties: {
         id: {
-          type: "keyword",
+          type: 'keyword',
         },
         title: {
-          type: "keyword",
+          type: 'keyword',
         },
       },
     },

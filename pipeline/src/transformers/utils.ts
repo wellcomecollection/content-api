@@ -1,12 +1,12 @@
-import { PrismicDocument } from "@prismicio/client";
+import { PrismicDocument } from '@prismicio/client';
 
 import {
   asText,
   isFilledLinkToDocumentWithData,
   isNotUndefined,
-} from "@weco/content-pipeline/src/helpers/type-guards";
-import { WithSeries } from "@weco/content-pipeline/src/types/prismic/series";
-import { Series } from "@weco/content-pipeline/src/types/transformed";
+} from '@weco/content-pipeline/src/helpers/type-guards';
+import { WithSeries } from '@weco/content-pipeline/src/types/prismic/series';
+import { Series } from '@weco/content-pipeline/src/types/transformed';
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];
@@ -15,7 +15,7 @@ type JsonObject = { [Key in string]: JsonValue } & {
 };
 
 type LinkedDocumentWithData = {
-  link_type: "Document";
+  link_type: 'Document';
   id: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
@@ -24,24 +24,22 @@ type LinkedDocumentWithData = {
 // We want to extract IDs only from linked documents (not slices) from which
 // we have denormalised some `data`
 const isLinkedDocumentWithData = (
-  obj: JsonObject,
+  obj: JsonObject
 ): obj is LinkedDocumentWithData =>
-  obj.link_type === "Document" && "id" in obj && "data" in obj;
+  obj.link_type === 'Document' && 'id' in obj && 'data' in obj;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
   const getLinkedIdentifiers = (
     root: JsonValue,
-    identifiers: Set<string>,
+    identifiers: Set<string>
   ): Set<string> => {
     const descend = (arr: JsonValue[]) =>
       new Set(
-        ...arr.flatMap((nextRoot) =>
-          getLinkedIdentifiers(nextRoot, identifiers),
-        ),
+        ...arr.flatMap(nextRoot => getLinkedIdentifiers(nextRoot, identifiers))
       );
 
-    if (typeof root === "object") {
+    if (typeof root === 'object') {
       if (root === null) {
         return identifiers;
       } else if (Array.isArray(root)) {
@@ -60,7 +58,7 @@ export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
 };
 
 export const transformSeries = (
-  document: PrismicDocument<WithSeries>,
+  document: PrismicDocument<WithSeries>
 ): Series => {
   return document.data.series.flatMap(({ series }) =>
     isFilledLinkToDocumentWithData(series)
@@ -72,11 +70,11 @@ export const transformSeries = (
                 .flatMap(({ contributor }) =>
                   isFilledLinkToDocumentWithData(contributor)
                     ? asText(contributor.data.name)
-                    : [],
+                    : []
                 )
                 .filter(isNotUndefined)
             : [],
         }
-      : [],
+      : []
   );
 };

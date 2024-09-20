@@ -1,4 +1,4 @@
-import * as prismic from "@prismicio/client";
+import * as prismic from '@prismicio/client';
 
 type ImageDimensions = {
   width?: number;
@@ -12,11 +12,11 @@ type ThumbnailedImageField<Thumbnails extends Record<string, ImageDimensions>> =
   };
 
 export type PrismicImage = ThumbnailedImageField<{
-  "32:15": {
+  '32:15': {
     width: 3200;
     height: 1500;
   };
-  "16:9": {
+  '16:9': {
     width: 3200;
     height: 1800;
   };

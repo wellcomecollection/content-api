@@ -1,7 +1,7 @@
-import { Image, Series } from ".";
+import { Image, Series } from '.';
 
 export type EventDocument = {
-  type: "Event";
+  type: 'Event';
   id: string;
   title: string;
   image?: Image;
@@ -19,43 +19,43 @@ export type EventDocument = {
 };
 
 export type EventDocumentFormat = {
-  type: "EventFormat";
+  type: 'EventFormat';
   id: string;
   label?: string;
 };
 
 type OnlineAttendance = {
-  id: "online";
-  label: "Online";
+  id: 'online';
+  label: 'Online';
 };
 type BuildingAttendance = {
-  id: "in-our-building";
-  label: "In our building";
+  id: 'in-our-building';
+  label: 'In our building';
 };
 
 export type EventDocumentLocations = {
   isOnline: boolean;
   places?: EventDocumentPlace[];
   attendance: ((BuildingAttendance | OnlineAttendance) & {
-    type: "EventAttendance";
+    type: 'EventAttendance';
   })[];
-  type: "EventLocations";
+  type: 'EventLocations';
 };
 
 export type EventDocumentPlace = {
-  type: "EventPlace";
+  type: 'EventPlace';
   id: string;
   label?: string;
 };
 
 export type EventDocumentInterpretation = {
-  type: "EventInterpretation";
+  type: 'EventInterpretation';
   id: string;
   label?: string;
 };
 
 export type EventDocumentAudience = {
-  type: "EventAudience";
+  type: 'EventAudience';
   id: string;
   label?: string;
 };

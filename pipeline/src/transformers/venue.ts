@@ -1,19 +1,19 @@
-import { asDate, TimestampField } from "@prismicio/client";
+import { asDate, TimestampField } from '@prismicio/client';
 
 import {
   DayOfWeek,
   ElasticsearchVenue,
   ExceptionalClosedDay,
   RegularOpeningDay,
-} from "@weco/content-common/types/venue";
+} from '@weco/content-common/types/venue';
 import {
   PrismicExceptionalOpeningDays,
   PrismicRegularOpeningDay,
   VenuePrismicDocument,
-} from "@weco/content-pipeline/src/types/prismic/venues";
+} from '@weco/content-pipeline/src/types/prismic/venues';
 
 export const transformVenue = (
-  document: VenuePrismicDocument,
+  document: VenuePrismicDocument
 ): ElasticsearchVenue => {
   const {
     data: {
@@ -32,14 +32,14 @@ export const transformVenue = (
 
   const formatRegularOpeningDay = (
     day: DayOfWeek,
-    openingTimes: PrismicRegularOpeningDay,
+    openingTimes: PrismicRegularOpeningDay
   ): RegularOpeningDay => {
     const formatTime = (time: TimestampField | undefined): string => {
       return time
         ? `${asDate(time).getHours()}:${String(
-            asDate(time).getMinutes(),
-          ).padStart(2, "0")}`
-        : "00:00";
+            asDate(time).getMinutes()
+          ).padStart(2, '0')}`
+        : '00:00';
     };
 
     return {
@@ -51,40 +51,40 @@ export const transformVenue = (
   };
 
   const formatExceptionalClosedDays = (
-    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays,
+    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays
   ): ExceptionalClosedDay[] => {
-    return modifiedDayOpeningTimes.map((day) => {
+    return modifiedDayOpeningTimes.map(day => {
       if (!asDate(day.overrideDate)) {
-        throw new Error("Date for modified opening time is not valid");
+        throw new Error('Date for modified opening time is not valid');
       }
 
       return {
         overrideDate: asDate(day.overrideDate)?.toISOString(),
         type: day.type,
-        startDateTime: "00:00",
-        endDateTime: "00:00",
+        startDateTime: '00:00',
+        endDateTime: '00:00',
       };
     });
   };
 
   const regularOpeningDays = [
-    formatRegularOpeningDay("monday", monday),
-    formatRegularOpeningDay("tuesday", tuesday),
-    formatRegularOpeningDay("wednesday", wednesday),
-    formatRegularOpeningDay("thursday", thursday),
-    formatRegularOpeningDay("friday", friday),
-    formatRegularOpeningDay("saturday", saturday),
-    formatRegularOpeningDay("sunday", sunday),
+    formatRegularOpeningDay('monday', monday),
+    formatRegularOpeningDay('tuesday', tuesday),
+    formatRegularOpeningDay('wednesday', wednesday),
+    formatRegularOpeningDay('thursday', thursday),
+    formatRegularOpeningDay('friday', friday),
+    formatRegularOpeningDay('saturday', saturday),
+    formatRegularOpeningDay('sunday', sunday),
   ];
 
   const exceptionalClosedDays = formatExceptionalClosedDays(
-    modifiedDayOpeningTimes,
+    modifiedDayOpeningTimes
   );
 
   return {
     id,
     display: {
-      type: "Venue",
+      type: 'Venue',
       id,
       title,
       regularOpeningDays,
@@ -99,8 +99,8 @@ export const transformVenue = (
         title,
         title
           .toLowerCase()
-          .replace(/[èéêë]/g, "e")
-          .replace(/\s+/g, "-"),
+          .replace(/[èéêë]/g, 'e')
+          .replace(/\s+/g, '-'),
       ],
       id,
     },

@@ -1,7 +1,7 @@
-import path from "path";
-import { URL, URLSearchParams } from "url";
+import path from 'path';
+import { URL, URLSearchParams } from 'url';
 
-import { HttpError } from "./error";
+import { HttpError } from './error';
 
 const limits = {
   minSize: 1,
@@ -38,7 +38,7 @@ export const paginationElasticBody = ({
 
 const parseNumberParam = (
   key: string,
-  params: URLSearchParams,
+  params: URLSearchParams
 ): number | undefined => {
   const value = params.get(key);
   if (value === null) {
@@ -48,16 +48,16 @@ const parseNumberParam = (
 };
 
 const parsePaginationQueryParameters = (
-  params: URLSearchParams,
+  params: URLSearchParams
 ): PaginationQueryParameters => {
-  const page = parseNumberParam("page", params);
-  const pageSize = parseNumberParam("pageSize", params);
+  const page = parseNumberParam('page', params);
+  const pageSize = parseNumberParam('pageSize', params);
 
   if (page !== undefined && (page < 1 || isNaN(page))) {
     throw new HttpError({
       status: 400,
-      label: "Bad Request",
-      description: "page: must be a number greater than 1",
+      label: 'Bad Request',
+      description: 'page: must be a number greater than 1',
     });
   }
   if (
@@ -66,7 +66,7 @@ const parsePaginationQueryParameters = (
   ) {
     throw new HttpError({
       status: 400,
-      label: "Bad request",
+      label: 'Bad request',
       description: `pageSize: must be a number between ${limits.minSize} and ${limits.maxSize}`,
     });
   }
@@ -90,11 +90,11 @@ const pageLink = (
   page: number,
   totalPages: number,
   requestUrl: URL,
-  publicRootUrl: URL,
+  publicRootUrl: URL
 ): string | undefined => {
   if (pageExists(page, totalPages)) {
     const linkUrl = extractPublicUrl(requestUrl, publicRootUrl);
-    linkUrl.searchParams.set("page", page.toString());
+    linkUrl.searchParams.set('page', page.toString());
     return linkUrl.href;
   }
 };

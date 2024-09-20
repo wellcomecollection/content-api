@@ -1,5 +1,5 @@
-import { Readable } from "node:stream";
-import { Observable, Subscription } from "rxjs";
+import { Readable } from 'node:stream';
+import { Observable, Subscription } from 'rxjs';
 
 // Copied from https://github.com/greguz/rxdable/tree/master
 // In that package it is called getStreamByObservable
@@ -12,11 +12,11 @@ export function observableToStream<T>(observable: Observable<T>): Readable {
     read() {
       if (!subscription) {
         subscription = observable.subscribe({
-          next: (value) => {
+          next: value => {
             this.push(value);
           },
-          error: (error) => {
-            process.nextTick(() => this.emit("error", error));
+          error: error => {
+            process.nextTick(() => this.emit('error', error));
           },
           complete: () => {
             this.push(null);

@@ -1,15 +1,15 @@
 import {
   Client as ElasticClient,
   errors as elasticErrors,
-} from "@elastic/elasticsearch";
+} from '@elastic/elasticsearch';
 
-import { createUnpublisher } from "@weco/content-unpublisher/src/unpublisher";
+import { createUnpublisher } from '@weco/content-unpublisher/src/unpublisher';
 
-const testIndex = "test-index";
-const documents = ["test-1", "test-2"];
+const testIndex = 'test-index';
+const documents = ['test-1', 'test-2'];
 
-describe("content unpublisher", () => {
-  it("deletes all the documents in the event from the index", async () => {
+describe('content unpublisher', () => {
+  it('deletes all the documents in the event from the index', async () => {
     const mockElasticClient = {
       delete: jest.fn().mockResolvedValue({}),
     };
@@ -18,19 +18,19 @@ describe("content unpublisher", () => {
 
     await testUnpublisher(
       { elastic: mockElasticClient as unknown as ElasticClient },
-      documents,
+      documents
     );
 
     expect(mockElasticClient.delete).toHaveBeenCalledTimes(2);
     expect(
-      mockElasticClient.delete.mock.calls.map(([arg]) => arg.index),
-    ).toSatisfyAll((idx) => idx === testIndex);
+      mockElasticClient.delete.mock.calls.map(([arg]) => arg.index)
+    ).toSatisfyAll(idx => idx === testIndex);
     expect(
-      mockElasticClient.delete.mock.calls.map(([arg]) => arg.id),
+      mockElasticClient.delete.mock.calls.map(([arg]) => arg.id)
     ).toIncludeAllMembers(documents);
   });
 
-  it("does not error if a document is not found", async () => {
+  it('does not error if a document is not found', async () => {
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
@@ -38,7 +38,7 @@ describe("content unpublisher", () => {
           meta: {} as any,
           warnings: [],
           statusCode: 404,
-        }),
+        })
       ),
     };
 
@@ -47,12 +47,12 @@ describe("content unpublisher", () => {
     return expect(
       testUnpublisher(
         { elastic: mockElasticClient as unknown as ElasticClient },
-        documents,
-      ),
+        documents
+      )
     ).resolves;
   });
 
-  it("fails when Elasticsearch returns an unexpected error", async () => {
+  it('fails when Elasticsearch returns an unexpected error', async () => {
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
@@ -60,7 +60,7 @@ describe("content unpublisher", () => {
           meta: {} as any,
           warnings: [],
           statusCode: 400,
-        }),
+        })
       ),
     };
     const testUnpublisher = createUnpublisher(testIndex);
@@ -68,8 +68,8 @@ describe("content unpublisher", () => {
     return expect(
       testUnpublisher(
         { elastic: mockElasticClient as unknown as ElasticClient },
-        documents,
-      ),
+        documents
+      )
     ).rejects.toBeInstanceOf(elasticErrors.ResponseError);
   });
 });

@@ -1,10 +1,10 @@
 import {
   Client as ElasticClient,
   errors as elasticErrors,
-} from "@elastic/elasticsearch";
-import { Result } from "@elastic/elasticsearch/lib/api/types";
+} from '@elastic/elasticsearch';
+import { Result } from '@elastic/elasticsearch/lib/api/types';
 
-import log from "@weco/content-common/services/logging";
+import log from '@weco/content-common/services/logging';
 
 type Clients = {
   elastic: ElasticClient;
@@ -19,7 +19,7 @@ export const createUnpublisher =
     // See https://prismic.io/docs/webhooks#a-document-is-unpublished
     const deletedDocuments = Object.fromEntries<Result>(
       await Promise.all(
-        unpublishedDocuments.map(async (id) => {
+        unpublishedDocuments.map(async id => {
           try {
             const response = await clients.elastic.delete({
               index,
@@ -29,13 +29,13 @@ export const createUnpublisher =
           } catch (e) {
             if (e instanceof elasticErrors.ResponseError) {
               if (e.statusCode === 404) {
-                return [id, "not_found"] as const;
+                return [id, 'not_found'] as const;
               }
             }
             throw e;
           }
-        }),
-      ),
+        })
+      )
     );
     log.info(`${Object.keys(deletedDocuments).length} deletions complete: `);
     log.info(JSON.stringify(deletedDocuments));

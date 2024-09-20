@@ -1,14 +1,14 @@
-import { RequestHandler } from "express";
-import asyncHandler from "express-async-handler";
+import { RequestHandler } from 'express';
+import asyncHandler from 'express-async-handler';
 
-import { Config } from "@weco/content-api/config";
+import { Config } from '@weco/content-api/config';
 
 type PathParams = { id: string };
 
 const healthcheckController = (config: Config): RequestHandler<PathParams> => {
   return asyncHandler(async (req, res) => {
     res.status(200).json({
-      status: "ok",
+      status: 'ok',
       config,
     });
   });

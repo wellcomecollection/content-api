@@ -1,24 +1,24 @@
-import { errors as elasticErrors } from "@elastic/elasticsearch";
-import { RequestHandler } from "express";
-import asyncHandler from "express-async-handler";
+import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { RequestHandler } from 'express';
+import asyncHandler from 'express-async-handler';
 
-import { Config } from "@weco/content-api/config";
-import { ifDefined, pick } from "@weco/content-api/src/helpers";
-import { pickFiltersFromQuery } from "@weco/content-api/src/helpers/requests";
-import { resultListResponse } from "@weco/content-api/src/helpers/responses";
-import { esQuery } from "@weco/content-api/src/queries/common";
+import { Config } from '@weco/content-api/config';
+import { ifDefined, pick } from '@weco/content-api/src/helpers';
+import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
+import { resultListResponse } from '@weco/content-api/src/helpers/responses';
+import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   eventsAggregations,
   eventsFilter,
   eventsQuery,
-} from "@weco/content-api/src/queries/events";
-import { rewriteAggregationsForFacets } from "@weco/content-api/src/queries/faceting";
-import { Clients, Displayable } from "@weco/content-api/src/types";
-import { ResultList } from "@weco/content-api/src/types/responses";
+} from '@weco/content-api/src/queries/events';
+import { rewriteAggregationsForFacets } from '@weco/content-api/src/queries/faceting';
+import { Clients, Displayable } from '@weco/content-api/src/types';
+import { ResultList } from '@weco/content-api/src/types/responses';
 
-import { HttpError } from "./error";
-import { paginationElasticBody, PaginationQueryParameters } from "./pagination";
-import { queryValidator } from "./validation";
+import { HttpError } from './error';
+import { paginationElasticBody, PaginationQueryParameters } from './pagination';
+import { queryValidator } from './validation';
 
 type QueryParams = {
   query?: string;
@@ -35,38 +35,38 @@ type QueryParams = {
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
 const sortValidator = queryValidator({
-  name: "sort",
-  defaultValue: "relevance",
-  allowed: ["relevance", "times.startDateTime"],
+  name: 'sort',
+  defaultValue: 'relevance',
+  allowed: ['relevance', 'times.startDateTime'],
   singleValue: true,
 });
 
 const sortOrderValidator = queryValidator({
-  name: "sortOrder",
-  defaultValue: "desc",
-  allowed: ["asc", "desc"],
+  name: 'sortOrder',
+  defaultValue: 'desc',
+  allowed: ['asc', 'desc'],
   singleValue: true,
 });
 
 const aggregationsValidator = queryValidator({
-  name: "aggregations",
+  name: 'aggregations',
   allowed: [
-    "format",
-    "audience",
-    "interpretation",
-    "location",
-    "isAvailableOnline",
+    'format',
+    'audience',
+    'interpretation',
+    'location',
+    'isAvailableOnline',
   ],
 });
 
 const locationsValidator = queryValidator({
-  name: "location",
-  allowed: ["online", "in-our-building"],
+  name: 'location',
+  allowed: ['online', 'in-our-building'],
 });
 
 const isAvailableOnlineValidator = queryValidator({
-  name: "isAvailableOnline",
-  allowed: ["true"],
+  name: 'isAvailableOnline',
+  allowed: ['true'],
   singleValue: true,
 });
 
@@ -100,26 +100,26 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const aggregations = aggregationsValidator(params);
     const validParams = paramsValidator(params);
     const sortKey =
-      sort === "times.startDateTime" ? "query.times.startDateTime" : "_score";
+      sort === 'times.startDateTime' ? 'query.times.startDateTime' : '_score';
 
-    const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
-      pick(eventsAggregations, requestedAggs),
+    const initialAggregations = ifDefined(aggregations, requestedAggs =>
+      pick(eventsAggregations, requestedAggs)
     );
 
     const postFilters = pickFiltersFromQuery(
-      ["format", "audience", "interpretation", "location", "isAvailableOnline"],
+      ['format', 'audience', 'interpretation', 'location', 'isAvailableOnline'],
       validParams,
-      eventsFilter,
+      eventsFilter
     );
 
-    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
-      rewriteAggregationsForFacets(aggs, postFilters),
+    const facetedAggregations = ifDefined(initialAggregations, aggs =>
+      rewriteAggregationsForFacets(aggs, postFilters)
     );
 
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
-        _source: ["display"],
+        _source: ['display'],
         aggregations: facetedAggregations,
         query: {
           bool: {
@@ -141,7 +141,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         sort: [
           { [sortKey]: { order: sortOrder } },
           // Use recency as a "tie-breaker" sort
-          { "query.times.startDateTime": { order: "desc" } },
+          { 'query.times.startDateTime': { order: 'desc' } },
         ],
         ...paginationElasticBody(req.query),
       });
@@ -150,14 +150,14 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     } catch (error) {
       if (
         error instanceof elasticErrors.ResponseError &&
-        error.message.includes("too_many_nested_clauses") &&
-        encodeURIComponent(queryString || "").length > 2000
+        error.message.includes('too_many_nested_clauses') &&
+        encodeURIComponent(queryString || '').length > 2000
       ) {
         throw new HttpError({
           status: 400,
-          label: "Bad Request",
+          label: 'Bad Request',
           description:
-            "Your query contained too many terms, please try again with a simpler query",
+            'Your query contained too many terms, please try again with a simpler query',
         });
       }
       throw error;

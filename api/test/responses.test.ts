@@ -1,7 +1,7 @@
-import { mapAggregations } from "@weco/content-api/src/helpers/responses";
+import { mapAggregations } from '@weco/content-api/src/helpers/responses';
 
-describe("mapAggregations", () => {
-  it("maps aggregations responses from ES to our expected response format", () => {
+describe('mapAggregations', () => {
+  it('maps aggregations responses from ES to our expected response format', () => {
     const elasticAggregations = {
       format: {
         doc_count_error_upper_bound: 0,
@@ -52,12 +52,12 @@ describe("mapAggregations", () => {
     };
     const mappedAggregations = mapAggregations(elasticAggregations);
     expect(mappedAggregations.format.buckets).toHaveLength(
-      elasticAggregations.format.buckets.length,
+      elasticAggregations.format.buckets.length
     );
     expect(mappedAggregations).toMatchSnapshot();
   });
 
-  it("gets buckets from a terms sub-aggregation if the top level aggregation is a single-bucket filter aggregation", () => {
+  it('gets buckets from a terms sub-aggregation if the top level aggregation is a single-bucket filter aggregation', () => {
     const elasticAggregations = {
       format: {
         doc_count: 19,
@@ -79,14 +79,14 @@ describe("mapAggregations", () => {
     };
     const mappedAggregations = mapAggregations(elasticAggregations);
     expect(mappedAggregations.format.buckets[0].count).toBe(
-      elasticAggregations.format.terms.buckets[0].doc_count,
+      elasticAggregations.format.terms.buckets[0].doc_count
     );
     expect(mappedAggregations.format.buckets[1].count).toBe(
-      elasticAggregations.format.terms.buckets[1].doc_count,
+      elasticAggregations.format.terms.buckets[1].doc_count
     );
   });
 
-  it("adds self-filter buckets to the list", () => {
+  it('adds self-filter buckets to the list', () => {
     const elasticAggregations = {
       format: {
         doc_count: 7,
@@ -125,24 +125,24 @@ describe("mapAggregations", () => {
     expect(mappedAggregations.format.buckets).toContainEqual({
       count: 0,
       data: {
-        id: "ZBH6PRQAAIrrFirA",
-        label: "Short film",
-        type: "ArticleFormat",
+        id: 'ZBH6PRQAAIrrFirA',
+        label: 'Short film',
+        type: 'ArticleFormat',
       },
-      type: "AggregationBucket",
+      type: 'AggregationBucket',
     });
     expect(mappedAggregations.format.buckets).toContainEqual({
       count: 1,
       data: {
-        id: "W7d_ghAAALWY3Ujc",
-        label: "Comic",
-        type: "ArticleFormat",
+        id: 'W7d_ghAAALWY3Ujc',
+        label: 'Comic',
+        type: 'ArticleFormat',
       },
-      type: "AggregationBucket",
+      type: 'AggregationBucket',
     });
   });
 
-  it("does not duplicate self-filter buckets", () => {
+  it('does not duplicate self-filter buckets', () => {
     const elasticAggregations = {
       format: {
         doc_count: 19,
@@ -177,13 +177,13 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    const bucketKeys = mappedAggregations.format.buckets.map((b) => b.data);
+    const bucketKeys = mappedAggregations.format.buckets.map(b => b.data);
     expect(new Set(bucketKeys).size).toBe(bucketKeys.length);
   });
 
-  it("returns buckets in descending order of count and ascending order of ID", () => {
+  it('returns buckets in descending order of count and ascending order of ID', () => {
     const elasticAggregations = {
-      "contributors.contributor": {
+      'contributors.contributor': {
         doc_count: 37,
         terms: {
           doc_count_error_upper_bound: 0,
@@ -288,12 +288,12 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    const buckets = mappedAggregations["contributors.contributor"].buckets;
+    const buckets = mappedAggregations['contributors.contributor'].buckets;
     for (let i = 0; i < buckets.length - 1; i++) {
       expect(buckets[i].count).toBeGreaterThanOrEqual(buckets[i + 1].count);
       if (buckets[i].count === buckets[i + 1].count) {
         expect(
-          buckets[i].data.id.localeCompare(buckets[i + 1].data.id),
+          buckets[i].data.id.localeCompare(buckets[i + 1].data.id)
         ).toBeLessThanOrEqual(0);
       }
     }

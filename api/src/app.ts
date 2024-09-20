@@ -1,8 +1,8 @@
-import express from "express";
-import morgan from "morgan";
+import express from 'express';
+import morgan from 'morgan';
 
-import { Config } from "@weco/content-api/config";
-import { logStream } from "@weco/content-common/services/logging";
+import { Config } from '@weco/content-api/config';
+import { logStream } from '@weco/content-common/services/logging';
 
 import {
   articleController,
@@ -12,20 +12,20 @@ import {
   eventsController,
   healthcheckController,
   venuesController,
-} from "./controllers";
-import { Clients } from "./types";
+} from './controllers';
+import { Clients } from './types';
 
 const createApp = (clients: Clients, config: Config) => {
   const app = express();
 
-  app.use(morgan("short", { stream: logStream("http") }));
+  app.use(morgan('short', { stream: logStream('http') }));
 
-  app.get("/articles", articlesController(clients, config));
-  app.get("/articles/:id", articleController(clients, config));
-  app.get("/events", eventsController(clients, config));
-  app.get("/events/:id", eventController(clients, config));
-  app.get("/venues", venuesController(clients, config));
-  app.get("/management/healthcheck", healthcheckController(config));
+  app.get('/articles', articlesController(clients, config));
+  app.get('/articles/:id', articleController(clients, config));
+  app.get('/events', eventsController(clients, config));
+  app.get('/events/:id', eventController(clients, config));
+  app.get('/venues', venuesController(clients, config));
+  app.get('/management/healthcheck', healthcheckController(config));
 
   app.use(errorHandler);
 

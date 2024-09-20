@@ -1,64 +1,64 @@
-import { errors as elasticErrors } from "@elastic/elasticsearch";
-import { AggregationsAggregate } from "@elastic/elasticsearch/lib/api/types";
-import { RequestHandler } from "express";
-import asyncHandler from "express-async-handler";
+import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { AggregationsAggregate } from '@elastic/elasticsearch/lib/api/types';
+import { RequestHandler } from 'express';
+import asyncHandler from 'express-async-handler';
 
-import { Config } from "@weco/content-api/config";
-import { ifDefined, pick } from "@weco/content-api/src/helpers";
-import { pickFiltersFromQuery } from "@weco/content-api/src/helpers/requests";
-import { resultListResponse } from "@weco/content-api/src/helpers/responses";
+import { Config } from '@weco/content-api/config';
+import { ifDefined, pick } from '@weco/content-api/src/helpers';
+import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
+import { resultListResponse } from '@weco/content-api/src/helpers/responses';
 import {
   articlesAggregations,
   articlesFilter,
   articlesQuery,
-} from "@weco/content-api/src/queries/articles";
-import { esQuery } from "@weco/content-api/src/queries/common";
+} from '@weco/content-api/src/queries/articles';
+import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
-} from "@weco/content-api/src/queries/faceting";
-import { Clients, Displayable } from "@weco/content-api/src/types";
-import { ResultList } from "@weco/content-api/src/types/responses";
+} from '@weco/content-api/src/queries/faceting';
+import { Clients, Displayable } from '@weco/content-api/src/types';
+import { ResultList } from '@weco/content-api/src/types/responses';
 
-import { HttpError } from "./error";
-import { paginationElasticBody, PaginationQueryParameters } from "./pagination";
-import { queryValidator, validateDate } from "./validation";
+import { HttpError } from './error';
+import { paginationElasticBody, PaginationQueryParameters } from './pagination';
+import { queryValidator, validateDate } from './validation';
 
 type QueryParams = {
   query?: string;
   sort?: string;
   sortOrder?: string;
   aggregations?: string;
-  "contributors.contributor"?: string;
-  "publicationDate.from"?: string;
-  "publicationDate.to"?: string;
+  'contributors.contributor'?: string;
+  'publicationDate.from'?: string;
+  'publicationDate.to'?: string;
   format?: string;
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
 const sortValidator = queryValidator({
-  name: "sort",
-  defaultValue: "relevance",
-  allowed: ["relevance", "publicationDate"],
+  name: 'sort',
+  defaultValue: 'relevance',
+  allowed: ['relevance', 'publicationDate'],
   singleValue: true,
 });
 
 const sortOrderValidator = queryValidator({
-  name: "sortOrder",
-  defaultValue: "desc",
-  allowed: ["asc", "desc"],
+  name: 'sortOrder',
+  defaultValue: 'desc',
+  allowed: ['asc', 'desc'],
   singleValue: true,
 });
 
 const aggregationsValidator = queryValidator({
-  name: "aggregations",
-  allowed: ["contributors.contributor", "format"],
+  name: 'aggregations',
+  allowed: ['contributors.contributor', 'format'],
 });
 
 const articlesController = (
   clients: Clients,
-  config: Config,
+  config: Config
 ): ArticlesHandler => {
   const index = config.articlesIndex;
   const resultList = resultListResponse(config);
@@ -70,34 +70,34 @@ const articlesController = (
     const aggregations = aggregationsValidator(params);
 
     const sortKey =
-      sort === "publicationDate" ? "query.publicationDate" : "_score";
+      sort === 'publicationDate' ? 'query.publicationDate' : '_score';
 
-    const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
-      pick(articlesAggregations, requestedAggs),
+    const initialAggregations = ifDefined(aggregations, requestedAggs =>
+      pick(articlesAggregations, requestedAggs)
     );
     const initialFilters = pickFiltersFromQuery(
-      ["contributors.contributor", "format"],
+      ['contributors.contributor', 'format'],
       params,
-      articlesFilter,
+      articlesFilter
     );
 
     // See comments in `queries/faceting.ts` for some explanation of what's going on here
     const { postFilters, queryFilters } = partitionFiltersForFacets(
       initialAggregations ?? {},
-      initialFilters,
+      initialFilters
     );
-    const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
-      rewriteAggregationsForFacets(aggs, postFilters),
+    const facetedAggregations = ifDefined(initialAggregations, aggs =>
+      rewriteAggregationsForFacets(aggs, postFilters)
     );
 
     // The date filter is a special case because 2 parameters filter 1 field,
     // and it doesn't (currently) have a corresponding aggregation.
     const dateFilters =
-      params["publicationDate.from"] || params["publicationDate.to"]
+      params['publicationDate.from'] || params['publicationDate.to']
         ? [
             articlesFilter.publicationDate(
-              ifDefined(params["publicationDate.from"], validateDate),
-              ifDefined(params["publicationDate.to"], validateDate),
+              ifDefined(params['publicationDate.from'], validateDate),
+              ifDefined(params['publicationDate.to'], validateDate)
             ),
           ]
         : [];
@@ -110,7 +110,7 @@ const articlesController = (
         >
       >({
         index,
-        _source: ["display"],
+        _source: ['display'],
         aggregations: facetedAggregations,
         query: {
           bool: {
@@ -129,7 +129,7 @@ const articlesController = (
         sort: [
           { [sortKey]: { order: sortOrder } },
           // Use recency as a "tie-breaker" sort
-          { "query.publicationDate": { order: "desc" } },
+          { 'query.publicationDate': { order: 'desc' } },
         ],
         ...paginationElasticBody(req.query),
       });
@@ -142,14 +142,14 @@ const articlesController = (
         // many many terms and so overwhelm the multi_match query. The check
         // for length is a heuristic so that if we get legitimate `too_many_nested_clauses`
         // errors, we're still alerted to them
-        e.message.includes("too_many_nested_clauses") &&
-        encodeURIComponent(queryString || "").length > 2000
+        e.message.includes('too_many_nested_clauses') &&
+        encodeURIComponent(queryString || '').length > 2000
       ) {
         throw new HttpError({
           status: 400,
-          label: "Bad Request",
+          label: 'Bad Request',
           description:
-            "Your query contained too many terms, please try again with a simpler query",
+            'Your query contained too many terms, please try again with a simpler query',
         });
       }
       throw e;

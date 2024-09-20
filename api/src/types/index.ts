@@ -1,4 +1,4 @@
-import { Client as ElasticClient } from "@elastic/elasticsearch";
+import { Client as ElasticClient } from '@elastic/elasticsearch';
 
 export type Displayable = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

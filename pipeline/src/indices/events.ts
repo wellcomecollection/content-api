@@ -1,133 +1,133 @@
-import { IndicesIndexSettings } from "@elastic/elasticsearch/lib/api/types";
+import { IndicesIndexSettings } from '@elastic/elasticsearch/lib/api/types';
 
-export const index = "events";
+export const index = 'events';
 
 export const mappings = {
-  dynamic: "strict",
+  dynamic: 'strict',
   properties: {
     id: {
-      type: "keyword",
+      type: 'keyword',
     },
     isChildScheduledEvent: {
-      type: "boolean",
+      type: 'boolean',
     },
     display: {
-      type: "object",
+      type: 'object',
       enabled: false,
     },
     query: {
       properties: {
         linkedIdentifiers: {
-          type: "keyword",
+          type: 'keyword',
         },
         title: {
-          type: "text",
+          type: 'text',
           fields: {
             shingles: {
-              type: "text",
-              analyzer: "english_shingle_analyzer",
+              type: 'text',
+              analyzer: 'english_shingle_analyzer',
             },
             cased: {
-              type: "text",
-              analyzer: "english_cased_analyzer",
+              type: 'text',
+              analyzer: 'english_cased_analyzer',
             },
             keyword: {
-              type: "keyword",
-              normalizer: "keyword_lowercase",
+              type: 'keyword',
+              normalizer: 'keyword_lowercase',
             },
           },
         },
         caption: {
-          type: "text",
+          type: 'text',
           fields: {
             shingles: {
-              type: "text",
-              analyzer: "english_shingle_analyzer",
+              type: 'text',
+              analyzer: 'english_shingle_analyzer',
             },
             cased: {
-              type: "text",
-              analyzer: "english_cased_analyzer",
+              type: 'text',
+              analyzer: 'english_cased_analyzer',
             },
           },
         },
         series: {
           properties: {
             id: {
-              type: "keyword",
+              type: 'keyword',
             },
             title: {
-              type: "text",
+              type: 'text',
               fields: {
                 shingles: {
-                  type: "text",
-                  analyzer: "english_shingle_analyzer",
+                  type: 'text',
+                  analyzer: 'english_shingle_analyzer',
                 },
                 cased: {
-                  type: "text",
-                  analyzer: "english_cased_analyzer",
+                  type: 'text',
+                  analyzer: 'english_cased_analyzer',
                 },
                 keyword: {
-                  type: "keyword",
-                  normalizer: "keyword_lowercase",
+                  type: 'keyword',
+                  normalizer: 'keyword_lowercase',
                 },
               },
             },
             contributors: {
-              type: "text",
+              type: 'text',
               fields: {
                 shingles: {
-                  type: "text",
-                  analyzer: "english_shingle_analyzer",
+                  type: 'text',
+                  analyzer: 'english_shingle_analyzer',
                 },
                 keyword: {
-                  type: "keyword",
-                  normalizer: "keyword_lowercase",
+                  type: 'keyword',
+                  normalizer: 'keyword_lowercase',
                 },
               },
             },
           },
         },
-        "times.startDateTime": {
-          type: "date",
-          format: "date_optional_time",
+        'times.startDateTime': {
+          type: 'date',
+          format: 'date_optional_time',
         },
       },
     },
     filter: {
       properties: {
         formatId: {
-          type: "keyword",
+          type: 'keyword',
         },
         interpretationIds: {
-          type: "keyword",
+          type: 'keyword',
         },
         audienceIds: {
-          type: "keyword",
+          type: 'keyword',
         },
         locationIds: {
-          type: "keyword",
+          type: 'keyword',
         },
         isAvailableOnline: {
-          type: "boolean",
+          type: 'boolean',
         },
       },
     },
     aggregatableValues: {
       properties: {
         format: {
-          type: "keyword",
+          type: 'keyword',
         },
         interpretations: {
-          type: "keyword",
+          type: 'keyword',
         },
         audiences: {
-          type: "keyword",
+          type: 'keyword',
         },
         locations: {
-          type: "keyword",
+          type: 'keyword',
         },
         isAvailableOnline: {
-          type: "keyword",
+          type: 'keyword',
         },
       },
     },
@@ -138,53 +138,53 @@ export const settings = {
   analysis: {
     normalizer: {
       keyword_lowercase: {
-        type: "custom",
-        filter: ["lowercase"],
+        type: 'custom',
+        filter: ['lowercase'],
       },
     },
     filter: {
       shingle_filter: {
-        type: "shingle",
+        type: 'shingle',
         min_shingle_size: 2,
         max_shingle_size: 4,
         output_unigrams: true,
       },
       english_stemmer: {
-        type: "stemmer",
-        language: "english",
+        type: 'stemmer',
+        language: 'english',
       },
       english_possessive_stemmer: {
-        type: "stemmer",
-        language: "possessive_english",
+        type: 'stemmer',
+        language: 'possessive_english',
       },
       punctuation_token_filter: {
-        type: "pattern_replace",
-        pattern: "[^0-9\\p{L}\\s]",
-        replacement: "",
+        type: 'pattern_replace',
+        pattern: '[^0-9\\p{L}\\s]',
+        replacement: '',
       },
     },
     analyzer: {
       english_shingle_analyzer: {
         filter: [
-          "lowercase",
-          "asciifolding",
-          "english_stemmer",
-          "english_possessive_stemmer",
-          "punctuation_token_filter",
-          "shingle_filter",
+          'lowercase',
+          'asciifolding',
+          'english_stemmer',
+          'english_possessive_stemmer',
+          'punctuation_token_filter',
+          'shingle_filter',
         ],
-        type: "custom",
-        tokenizer: "standard",
+        type: 'custom',
+        tokenizer: 'standard',
       },
       english_cased_analyzer: {
         filter: [
-          "asciifolding",
-          "english_stemmer",
-          "english_possessive_stemmer",
-          "punctuation_token_filter",
+          'asciifolding',
+          'english_stemmer',
+          'english_possessive_stemmer',
+          'punctuation_token_filter',
         ],
-        type: "custom",
-        tokenizer: "standard",
+        type: 'custom',
+        tokenizer: 'standard',
       },
     },
   },
