@@ -12,7 +12,7 @@ export const pickFiltersFromQuery = <
     [key in Name]: (params: string[]) => Filter;
   },
 >(
-  filterNames: ReadonlyArray<StringLiteral<Name>>,
+  filterNames: readonly StringLiteral<Name>[],
   query: Query,
   filters: Filters,
 ): Record<Name, Filter> =>

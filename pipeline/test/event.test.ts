@@ -11,8 +11,8 @@ describe("time window events", () => {
       const result = toBoundedWindow(event);
 
       expect(result.end).toBeDefined();
-      expect(result.end?.getTime()! - result.start?.getTime()!).toBe(
-        60 * 60 * 1000
+      expect(result.end!.getTime() - result.start!.getTime()).toBe(
+        60 * 60 * 1000,
       );
     });
 
@@ -25,7 +25,7 @@ describe("time window events", () => {
       const result = toBoundedWindow(event);
 
       expect(result.start).toBeDefined();
-      expect(result.end?.getTime()! - result.start?.getTime()!).toBe(60 * 1000);
+      expect(result.end!.getTime() - result.start!.getTime()).toBe(60 * 1000);
     });
 
     it("errors when a duration is given without a start or end", () => {
@@ -35,7 +35,7 @@ describe("time window events", () => {
       } as const;
 
       expect(() => toBoundedWindow(event)).toThrowErrorMatchingInlineSnapshot(
-        `"Window duration must be specified alongside a start or end time"`
+        `"Window duration must be specified alongside a start or end time"`,
       );
     });
 
@@ -43,7 +43,7 @@ describe("time window events", () => {
       expect(
         toBoundedWindow({
           contentType: "all",
-        })
+        }),
       ).toEqual({
         start: undefined,
         end: undefined,
@@ -52,10 +52,13 @@ describe("time window events", () => {
         toBoundedWindow({
           start: "2022-02-22T22:22:22.222Z",
           contentType: "all",
-        })
+        }),
       ).not.toThrow();
       expect(() =>
-        toBoundedWindow({ end: "2022-02-22T22:22:22.222Z", contentType: "all" })
+        toBoundedWindow({
+          end: "2022-02-22T22:22:22.222Z",
+          contentType: "all",
+        }),
       ).not.toThrow();
     });
 

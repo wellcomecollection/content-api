@@ -37,7 +37,7 @@ describe("linkedDocumentIdentifiers", () => {
     expect(identifiers).toIncludeSameMembers(["abc", "def"]);
   });
 
-  it("ignores linked documents without data", () => {
+  it("ignores linked documents without data", async () => {
     const document = {
       thing: {
         link_type: "Document",
@@ -45,6 +45,6 @@ describe("linkedDocumentIdentifiers", () => {
       },
     };
     const identifiers = linkedDocumentIdentifiers(document);
-    expect(identifiers).toBeEmpty();
+    await expect(identifiers).toBeEmpty();
   });
 });
