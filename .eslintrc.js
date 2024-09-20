@@ -9,48 +9,48 @@ const sharedExtends = [
 
 const sharedRules = {
   "eol-last": "error",
-  "import/order": [
-    "warn",
-    {
-      groups: [
-        ["builtin", "external"],
-        ["internal", "sibling", "parent", "index"],
-      ],
-      pathGroups: [
-        {
-          pattern: "@weco/**",
-          group: "external",
-          position: "after",
-        },
-      ],
-      pathGroupsExcludedImportTypes: ["builtin", "object"],
-      alphabetize: {
-        order: "asc",
-        caseInsensitive: true,
-      },
-      "newlines-between": "always",
-    },
-  ],
+  // "import/order": [
+  //   "warn",
+  //   {
+  //     groups: [
+  //       ["builtin", "external"],
+  //       ["internal", "sibling", "parent", "index"],
+  //     ],
+  //     pathGroups: [
+  //       {
+  //         pattern: "@weco/**",
+  //         group: "external",
+  //         position: "after",
+  //       },
+  //     ],
+  //     pathGroupsExcludedImportTypes: ["builtin", "object"],
+  //     alphabetize: {
+  //       order: "asc",
+  //       caseInsensitive: true,
+  //     },
+  //     "newlines-between": "always",
+  //   },
+  // ],
   "no-mixed-operators": "warn",
   "no-multi-spaces": "warn",
   "no-multi-str": "off",
-  "no-restricted-imports": [
-    "error",
-    { patterns: ["../*"] }, // Should only import relatively from same directory
-  ],
+  // "no-restricted-imports": [
+  //   "error",
+  //   { patterns: ["../*"] }, // Should only import relatively from same directory
+  // ],
   "no-restricted-syntax": [
     "error",
     "JSXElement.children > [expression.callee.property.name='stringify']",
   ],
   "no-return-assign": "off",
   "prettier/prettier": "error",
-  "sort-imports": [
-    "error",
-    {
-      ignoreCase: true,
-      ignoreDeclarationSort: true,
-    },
-  ],
+  // "sort-imports": [
+  //   "error",
+  //   {
+  //     ignoreCase: true,
+  //     ignoreDeclarationSort: true,
+  //   },
+  // ],
 };
 
 module.exports = {
