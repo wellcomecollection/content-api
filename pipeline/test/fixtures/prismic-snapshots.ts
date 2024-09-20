@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { test } from "@jest/globals";
 import type { Global as JestGlobal } from "@jest/types";
-import { ContentType } from "../../src/types/prismic";
+import { ContentType } from "@weco/content-pipeline/src/types/prismic";
 import * as prismic from "@prismicio/client";
 
 // For prismic types which we do not make addressable but are included in our other documents

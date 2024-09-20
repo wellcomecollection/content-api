@@ -1,4 +1,4 @@
-import { getNextOpeningDates } from "../src/controllers/utils";
+import { getNextOpeningDates } from "@weco/content-api/src/controllers/utils";
 import { RegularOpeningDay } from "@weco/content-common/types/venue";
 
 const regularOpeningDays = [

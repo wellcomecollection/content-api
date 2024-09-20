@@ -3,7 +3,7 @@ import {
   VenuePrismicDocument,
   PrismicRegularOpeningDay,
   PrismicExceptionalOpeningDays,
-} from "../types/prismic/venues";
+} from "@weco/content-pipeline/src/types/prismic/venues";
 import {
   DayOfWeek,
   RegularOpeningDay,

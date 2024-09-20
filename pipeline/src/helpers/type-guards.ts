@@ -1,5 +1,8 @@
 import * as prismic from "@prismicio/client";
-import { DataInterface, PrismicImage } from "../types/prismic";
+import {
+  DataInterface,
+  PrismicImage,
+} from "@weco/content-pipeline/src/types/prismic";
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
   return typeof val !== "undefined";

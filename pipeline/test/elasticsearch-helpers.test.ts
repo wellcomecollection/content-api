@@ -6,7 +6,7 @@ import { lastValueFrom, from } from "rxjs";
 import {
   ensureIndexExists,
   getParentDocumentIDs,
-} from "../src/helpers/elasticsearch";
+} from "@weco/content-pipeline/src/helpers/elasticsearch";
 import { identifiedDocuments } from "./fixtures/generators";
 import { createElasticScrollDocuments } from "./fixtures/elastic";
 

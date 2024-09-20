@@ -3,8 +3,8 @@ import {
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
 import supertest from "supertest";
-import { Displayable } from "../../src/types";
-import createApp from "../../src/app";
+import { Displayable } from "@weco/content-api/src/types";
+import createApp from "@weco/content-api/src/app";
 import { URL } from "url";
 
 type Identified = {

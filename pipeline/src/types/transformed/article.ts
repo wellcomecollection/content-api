@@ -1,4 +1,4 @@
-import { ArticleFormatId } from "../prismic";
+import { ArticleFormatId } from "@weco/content-pipeline/src/types/prismic";
 import { Contributor, Image } from ".";
 
 // Main article type

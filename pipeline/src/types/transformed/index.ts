@@ -1,4 +1,4 @@
-import { PrismicImage } from "../prismic";
+import { PrismicImage } from "@weco/content-pipeline/src/types/prismic";
 import { Article, ArticleFormat } from "./article";
 import {
   EventDocument,

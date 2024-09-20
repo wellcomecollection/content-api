@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Config } from "../../config";
+import { Config } from "@weco/content-api/config";
 
 type PathParams = { id: string };
 

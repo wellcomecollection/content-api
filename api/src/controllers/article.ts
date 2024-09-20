@@ -1,8 +1,8 @@
 import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients, Displayable } from "../types";
-import { Config } from "../../config";
+import { Clients, Displayable } from "@weco/content-api/src/types";
+import { Config } from "@weco/content-api/config";
 import { HttpError } from "./error";
 
 type PathParams = { id: string };

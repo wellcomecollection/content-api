@@ -34,10 +34,10 @@ const sharedRules = {
   "no-mixed-operators": "warn",
   "no-multi-spaces": "warn",
   "no-multi-str": "off",
-  // "no-restricted-imports": [
-  //   "error",
-  //   { patterns: ["../*"] }, // Should only import relatively from same directory
-  // ],
+  "no-restricted-imports": [
+    "error",
+    { patterns: ["../*"] }, // Should only import relatively from same directory
+  ],
   "no-restricted-syntax": [
     "error",
     "JSXElement.children > [expression.callee.property.name='stringify']",
@@ -94,6 +94,14 @@ module.exports = {
           "error",
           { additionalTestBlockFunctions: ["each.test"] },
         ],
+      },
+    },
+    // Some directories don't have an absolute import equivalent so ignoring
+    // import rules for them.
+    {
+      files: ["webhook/**"],
+      rules: {
+        "no-restricted-imports": "off",
       },
     },
   ],

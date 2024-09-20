@@ -2,7 +2,7 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { createUnpublisher } from "../src/unpublisher";
+import { createUnpublisher } from "@weco/content-unpublisher/src/unpublisher";
 
 const testIndex = "test-index";
 const documents = ["test-1", "test-2"];

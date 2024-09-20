@@ -1,4 +1,7 @@
-import { queryValidator, validateDate } from "../src/controllers/validation";
+import {
+  queryValidator,
+  validateDate,
+} from "@weco/content-api/src/controllers/validation";
 
 describe("query validator", () => {
   const testValidator = queryValidator({

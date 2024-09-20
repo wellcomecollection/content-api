@@ -1,4 +1,4 @@
-import { toBoundedWindow } from "../src/event";
+import { toBoundedWindow } from "@weco/content-pipeline/src/event";
 
 describe("time window events", () => {
   describe("toBoundedWindow", () => {

@@ -4,19 +4,19 @@ import {
   ArticlePrismicDocument,
   WithArticleFormat,
   WithContributors,
-} from "../types/prismic";
+} from "@weco/content-pipeline/src/types/prismic";
 import {
   ElasticsearchArticle,
   Contributor,
   ArticleFormat,
-} from "../types/transformed";
+} from "@weco/content-pipeline/src/types/transformed";
 import {
   isFilledLinkToDocumentWithData,
   isImageLink,
   asText,
   asTitle,
   isNotUndefined,
-} from "../helpers/type-guards";
+} from "@weco/content-pipeline/src/helpers/type-guards";
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 const getContributors = (

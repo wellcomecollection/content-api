@@ -1,5 +1,5 @@
 import * as prismic from "@prismicio/client";
-import { TimeWindow } from "../event";
+import { TimeWindow } from "@weco/content-pipeline/src/event";
 import {
   bufferCount,
   concatMap,

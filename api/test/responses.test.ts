@@ -1,4 +1,4 @@
-import { mapAggregations } from "../src/helpers/responses";
+import { mapAggregations } from "@weco/content-api/src/helpers/responses";
 
 describe("mapAggregations", () => {
   it("maps aggregations responses from ES to our expected response format", () => {

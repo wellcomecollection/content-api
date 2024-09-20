@@ -1,6 +1,6 @@
-import { forEachPrismicSnapshot } from "../fixtures/prismic-snapshots";
-import { transformEventDocument } from "../../src/transformers/eventDocument";
-import { EventPrismicDocument } from "../../src/types/prismic/eventDocuments";
+import { forEachPrismicSnapshot } from "@weco/content-pipeline/test/fixtures/prismic-snapshots";
+import { transformEventDocument } from "@weco/content-pipeline/src/transformers/eventDocument";
+import { EventPrismicDocument } from "@weco/content-pipeline/src/types/prismic/eventDocuments";
 
 describe("eventDocument transformer", () => {
   forEachPrismicSnapshot<EventPrismicDocument>("events")(

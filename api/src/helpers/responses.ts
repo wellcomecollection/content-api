@@ -4,14 +4,14 @@ import {
   AggregationsStringTermsBucket,
   SearchResponse,
 } from "@elastic/elasticsearch/lib/api/types";
-import { Displayable } from "../types";
+import { Displayable } from "@weco/content-api/src/types";
 import {
   AggregationBucket,
   Aggregations,
   ResultList,
-} from "../types/responses";
-import { Config } from "../../config";
-import { paginationResponseGetter } from "../controllers/pagination";
+} from "@weco/content-api/src/types/responses";
+import { Config } from "@weco/content-api/config";
+import { paginationResponseGetter } from "@weco/content-api/src/controllers/pagination";
 import { isNotUndefined } from "./index";
 
 const mapBucket = (

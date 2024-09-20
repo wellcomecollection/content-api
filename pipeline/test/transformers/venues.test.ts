@@ -1,6 +1,6 @@
-import { forEachPrismicSnapshot } from "../fixtures/prismic-snapshots";
-import { transformVenue } from "../../src/transformers/venue";
-import { VenuePrismicDocument } from "../../src/types/prismic/venues";
+import { forEachPrismicSnapshot } from "@weco/content-pipeline/test/fixtures/prismic-snapshots";
+import { transformVenue } from "@weco/content-pipeline/src/transformers/venue";
+import { VenuePrismicDocument } from "@weco/content-pipeline/src/types/prismic/venues";
 
 describe("eventDocument transformer", () => {
   forEachPrismicSnapshot<VenuePrismicDocument>("collection-venue")(

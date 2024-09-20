@@ -2,8 +2,11 @@ import { EOL } from "node:os";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Client, PrismicDocument } from "@prismicio/client";
-import { createPrismicClient } from "../src/services/prismic";
-import { asTitle, asText } from "../src/helpers/type-guards";
+import { createPrismicClient } from "@weco/content-pipeline/src/services/prismic";
+import {
+  asTitle,
+  asText,
+} from "@weco/content-pipeline/src/helpers/type-guards";
 import { Writable } from "stream";
 import {
   articlesQuery,
@@ -11,7 +14,7 @@ import {
   wrapQueries,
   eventDocumentsQuery,
   venueQuery,
-} from "../src/graph-queries";
+} from "@weco/content-pipeline/src/graph-queries";
 
 const dataDir = path.resolve(__dirname, "prismic-snapshots");
 

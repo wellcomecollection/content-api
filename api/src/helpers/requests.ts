@@ -1,6 +1,6 @@
-import { StringLiteral } from "../types";
+import { StringLiteral } from "@weco/content-api/src/types";
 import { ifDefined } from "./index";
-import { Filter } from "../queries/common";
+import { Filter } from "@weco/content-api/src/queries/common";
 
 // Given an object of query parameters, and one with the same keys
 // of functions that create filter objects, apply all those functions

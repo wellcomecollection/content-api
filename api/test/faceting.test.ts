@@ -1,8 +1,11 @@
-import { articlesAggregations, articlesFilter } from "../src/queries/articles";
+import {
+  articlesAggregations,
+  articlesFilter,
+} from "@weco/content-api/src/queries/articles";
 import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
-} from "../src/queries/faceting";
+} from "@weco/content-api/src/queries/faceting";
 
 describe("rewriteAggregationsForFacets", () => {
   it("rewrites aggregations correctly", () => {

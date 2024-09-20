@@ -1,4 +1,4 @@
-import { linkedDocumentIdentifiers } from "../../src/transformers/utils";
+import { linkedDocumentIdentifiers } from "@weco/content-pipeline/src/transformers/utils";
 
 describe("linkedDocumentIdentifiers", () => {
   it("extracts linked document identifier where the document has data", () => {

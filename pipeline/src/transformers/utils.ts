@@ -3,9 +3,9 @@ import {
   isFilledLinkToDocumentWithData,
   asText,
   isNotUndefined,
-} from "../helpers/type-guards";
-import { WithSeries } from "../types/prismic/series";
-import { Series } from "../types/transformed";
+} from "@weco/content-pipeline/src/helpers/type-guards";
+import { WithSeries } from "@weco/content-pipeline/src/types/prismic/series";
+import { Series } from "@weco/content-pipeline/src/types/transformed";
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];

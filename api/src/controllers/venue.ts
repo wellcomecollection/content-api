@@ -1,10 +1,10 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients } from "../types";
-import { Config } from "../../config";
-import { venuesFilter } from "../queries/venues";
-import { pickFiltersFromQuery } from "../helpers/requests";
-import { esQuery } from "../queries/common";
+import { Clients } from "@weco/content-api/src/types";
+import { Config } from "@weco/content-api/config";
+import { venuesFilter } from "@weco/content-api/src/queries/venues";
+import { pickFiltersFromQuery } from "@weco/content-api/src/helpers/requests";
+import { esQuery } from "@weco/content-api/src/queries/common";
 import {
   ElasticsearchVenue,
   Venue,

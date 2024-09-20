@@ -6,22 +6,22 @@ import {
   WithLocations,
   WithInterpretations,
   WithAudiences,
-} from "../types/prismic/eventDocuments";
+} from "@weco/content-pipeline/src/types/prismic/eventDocuments";
 import {
   EventDocumentFormat,
   EventDocumentLocations,
   EventDocumentInterpretation,
   EventDocumentAudience,
   EventDocumentPlace,
-} from "../types/transformed/eventDocument";
-import { ElasticsearchEventDocument } from "../types/transformed";
+} from "@weco/content-pipeline/src/types/transformed/eventDocument";
+import { ElasticsearchEventDocument } from "@weco/content-pipeline/src/types/transformed";
 import {
   isFilledLinkToDocumentWithData,
   isImageLink,
   asText,
   asTitle,
   isNotUndefined,
-} from "../helpers/type-guards";
+} from "@weco/content-pipeline/src/helpers/type-guards";
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 function transformFormat(

@@ -10,7 +10,7 @@ import {
   healthcheckController,
   venuesController,
 } from "./controllers";
-import { Config } from "../config";
+import { Config } from "@weco/content-api/config";
 import { Clients } from "./types";
 
 const createApp = (clients: Clients, config: Config) => {

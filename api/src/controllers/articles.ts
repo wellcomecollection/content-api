@@ -1,26 +1,26 @@
 import { errors as elasticErrors } from "@elastic/elasticsearch";
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients, Displayable } from "../types";
+import { Clients, Displayable } from "@weco/content-api/src/types";
 import { PaginationQueryParameters, paginationElasticBody } from "./pagination";
-import { Config } from "../../config";
+import { Config } from "@weco/content-api/config";
 import {
   articlesAggregations,
   articlesFilter,
   articlesQuery,
-} from "../queries/articles";
+} from "@weco/content-api/src/queries/articles";
 import { queryValidator, validateDate } from "./validation";
-import { ifDefined, pick } from "../helpers";
+import { ifDefined, pick } from "@weco/content-api/src/helpers";
 import { HttpError } from "./error";
-import { ResultList } from "../types/responses";
-import { resultListResponse } from "../helpers/responses";
+import { ResultList } from "@weco/content-api/src/types/responses";
+import { resultListResponse } from "@weco/content-api/src/helpers/responses";
 import { AggregationsAggregate } from "@elastic/elasticsearch/lib/api/types";
 import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
-} from "../queries/faceting";
-import { esQuery } from "../queries/common";
-import { pickFiltersFromQuery } from "../helpers/requests";
+} from "@weco/content-api/src/queries/faceting";
+import { esQuery } from "@weco/content-api/src/queries/common";
+import { pickFiltersFromQuery } from "@weco/content-api/src/helpers/requests";
 
 type QueryParams = {
   query?: string;
