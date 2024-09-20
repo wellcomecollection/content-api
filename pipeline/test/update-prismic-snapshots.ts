@@ -39,20 +39,6 @@ const venueIds = [
   "WsuS_R8AACS1Nwlx", // collection-venue - Library
 ];
 
-const main = async () => {
-  const client = createPrismicClient();
-  const articleDocs = await updateArticleSnapshots(client);
-  const eventDocs = await updateEventDocumentSnapshots(client);
-  const venueDocs = await updateVenueSnapshots(client);
-
-  console.log("Done saving snapshots.");
-
-  console.log("Adding comments to update script...");
-  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
-
-  console.log("Done.");
-};
-
 const updateArticleSnapshots = async (client: Client) => {
   console.log("Updating prismic snapshots for the following articles:");
   console.log(articleDocumentIds.join("\n"));
@@ -65,9 +51,9 @@ const updateArticleSnapshots = async (client: Client) => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
-        docJson
+        docJson,
       );
-    })
+    }),
   );
   return docs;
 };
@@ -84,9 +70,9 @@ const updateEventDocumentSnapshots = async (client: Client) => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
-        docJson
+        docJson,
       );
-    })
+    }),
   );
   return docs;
 };
@@ -103,12 +89,15 @@ const updateVenueSnapshots = async (client: Client) => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
-        docJson
+        docJson,
       );
-    })
+    }),
   );
   return docs;
 };
+
+const lineWriter = (stream: Writable) => (line: string) =>
+  new Promise((resolve) => stream.write(line + EOL, "utf-8", resolve));
 
 const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
   const comments = new Map(
@@ -127,7 +116,7 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
             `${doc.type} - ${asTitle(doc.data.title) || asText(doc.data.name)}`,
           ];
       }
-    })
+    }),
   );
   const tmpFile = `${__filename}.tmp`;
   const thisScript = await fs.open(__filename, "r");
@@ -141,8 +130,8 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
     const stringArrayItemLine =
       /^(?<indent>\s*)"(?<id>.+)",(?<comment>\s*\/\/.*)?$/.exec(line);
     if (stringArrayItemLine) {
-      const id = stringArrayItemLine.groups?.["id"];
-      const indent = stringArrayItemLine.groups?.["indent"];
+      const id = stringArrayItemLine.groups?.id;
+      const indent = stringArrayItemLine.groups?.indent;
       const uncommentedLine = `${indent}"${id}",`;
       if (id && comments.has(id)) {
         await writeLine(uncommentedLine + ` // ${comments.get(id)}`);
@@ -154,8 +143,18 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
 
   await fs.rename(tmpFile, __filename);
 };
+const main = async () => {
+  const client = createPrismicClient();
+  const articleDocs = await updateArticleSnapshots(client);
+  const eventDocs = await updateEventDocumentSnapshots(client);
+  const venueDocs = await updateVenueSnapshots(client);
 
-const lineWriter = (stream: Writable) => (line: string) =>
-  new Promise((resolve) => stream.write(line + EOL, "utf-8", resolve));
+  console.log("Done saving snapshots.");
+
+  console.log("Adding comments to update script...");
+  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
+
+  console.log("Done.");
+};
 
 main();

@@ -35,8 +35,19 @@ export const paginationElasticBody = ({
   };
 };
 
+const parseNumberParam = (
+  key: string,
+  params: URLSearchParams,
+): number | undefined => {
+  const value = params.get(key);
+  if (value === null) {
+    return undefined;
+  }
+  return parseInt(value);
+};
+
 const parsePaginationQueryParameters = (
-  params: URLSearchParams
+  params: URLSearchParams,
 ): PaginationQueryParameters => {
   const page = parseNumberParam("page", params);
   const pageSize = parseNumberParam("pageSize", params);
@@ -62,6 +73,31 @@ const parsePaginationQueryParameters = (
   return { page, pageSize };
 };
 
+const extractPublicUrl = (requestUrl: URL, publicRootUrl: URL): URL => {
+  const publicUrl = new URL(requestUrl.href);
+  publicUrl.host = publicRootUrl.host;
+  publicUrl.port = publicRootUrl.port;
+  publicUrl.protocol = publicRootUrl.protocol;
+  publicUrl.pathname = path.join(publicRootUrl.pathname, requestUrl.pathname);
+  return publicUrl;
+};
+
+const pageExists = (page: number, totalPages: number): boolean =>
+  page > 0 && page <= totalPages;
+
+const pageLink = (
+  page: number,
+  totalPages: number,
+  requestUrl: URL,
+  publicRootUrl: URL,
+): string | undefined => {
+  if (pageExists(page, totalPages)) {
+    const linkUrl = extractPublicUrl(requestUrl, publicRootUrl);
+    linkUrl.searchParams.set("page", page.toString());
+    return linkUrl.href;
+  }
+};
+
 export const paginationResponseGetter =
   (publicRootUrl: URL) =>
   ({
@@ -82,39 +118,3 @@ export const paginationResponseGetter =
       nextPage: pageLink(page + 1, totalPages, requestUrl, publicRootUrl),
     };
   };
-
-const pageLink = (
-  page: number,
-  totalPages: number,
-  requestUrl: URL,
-  publicRootUrl: URL
-): string | undefined => {
-  if (pageExists(page, totalPages)) {
-    const linkUrl = extractPublicUrl(requestUrl, publicRootUrl);
-    linkUrl.searchParams.set("page", page.toString());
-    return linkUrl.href;
-  }
-};
-
-const parseNumberParam = (
-  key: string,
-  params: URLSearchParams
-): number | undefined => {
-  const value = params.get(key);
-  if (value === null) {
-    return undefined;
-  }
-  return parseInt(value);
-};
-
-const extractPublicUrl = (requestUrl: URL, publicRootUrl: URL): URL => {
-  const publicUrl = new URL(requestUrl.href);
-  publicUrl.host = publicRootUrl.host;
-  publicUrl.port = publicRootUrl.port;
-  publicUrl.protocol = publicRootUrl.protocol;
-  publicUrl.pathname = path.join(publicRootUrl.pathname, requestUrl.pathname);
-  return publicUrl;
-};
-
-const pageExists = (page: number, totalPages: number): boolean =>
-  page > 0 && page <= totalPages;

@@ -4,6 +4,25 @@ import supertest from "supertest";
 import createApp from "../src/app";
 import { URL, URLSearchParams } from "url";
 
+const elasticsearchRequestForURL = async (
+  url: string,
+): Promise<SearchRequest> => {
+  const searchSpy = jest.fn();
+  const app = createApp(
+    { elastic: { search: searchSpy } as unknown as ElasticClient },
+    {
+      pipelineDate: "2222-22-22",
+      articlesIndex: "test-articles",
+      eventsIndex: "test-events",
+      venuesIndex: "test-venues",
+      publicRootUrl: new URL("http://test.test/test"),
+    },
+  );
+  const api = supertest.agent(app);
+  await api.get(url);
+  return searchSpy.mock.lastCall[0] as SearchRequest;
+};
+
 describe("articles query", () => {
   // The purpose of this test is as a smoke test for the question,
   // "do we understand how we map a given query into an ES request?"
@@ -32,7 +51,7 @@ describe("articles query", () => {
       "contributors.contributor": contributor,
     } as unknown as Record<string, string>);
     const esRequest = await elasticsearchRequestForURL(
-      `/articles?${params.toString()}`
+      `/articles?${params.toString()}`,
     );
 
     expect(esRequest.from).toBe((page - 1) * pageSize);
@@ -43,10 +62,10 @@ describe("articles query", () => {
     expect(JSON.stringify(esRequest.query?.bool?.filter)).toInclude(dateFrom);
     expect(JSON.stringify(esRequest.query?.bool?.filter)).toInclude(dateTo);
     expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
-      contributor
+      contributor,
     );
     expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
-      format
+      format,
     );
 
     expect(esRequest).toMatchSnapshot();
@@ -75,7 +94,7 @@ describe("events query", () => {
       query,
     } as unknown as Record<string, string>);
     const esRequest = await elasticsearchRequestForURL(
-      `/events?${params.toString()}`
+      `/events?${params.toString()}`,
     );
 
     expect(esRequest.from).toBe((page - 1) * pageSize);
@@ -84,31 +103,12 @@ describe("events query", () => {
 
     expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
     expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
-      interpretation
+      interpretation,
     );
     expect(JSON.stringify(esRequest.post_filter?.bool?.filter)).toInclude(
-      format
+      format,
     );
 
     expect(esRequest).toMatchSnapshot();
   });
 });
-
-const elasticsearchRequestForURL = async (
-  url: string
-): Promise<SearchRequest> => {
-  const searchSpy = jest.fn();
-  const app = createApp(
-    { elastic: { search: searchSpy } as unknown as ElasticClient },
-    {
-      pipelineDate: "2222-22-22",
-      articlesIndex: "test-articles",
-      eventsIndex: "test-events",
-      venuesIndex: "test-venues",
-      publicRootUrl: new URL("http://test.test/test"),
-    }
-  );
-  const api = supertest.agent(app);
-  await api.get(url);
-  return searchSpy.mock.lastCall[0] as SearchRequest;
-};

@@ -1,23 +1,5 @@
 import { mockedApi } from "./fixtures/api";
 
-describe("GET /venues", () => {
-  it("returns a venue with added nextOpeningDates", async () => {
-    jest.useFakeTimers().setSystemTime(new Date("2024-04-02T08:00:00.000Z"));
-
-    const testId = "123";
-    const api = mockedApi([
-      { id: testId, display: venueDisplay, data: venueData },
-    ]);
-
-    const response = await api.get(`/venues`);
-    expect(response.statusCode).toBe(200);
-    expect(response.body.results[0]).toEqual({
-      ...venueDisplay,
-      nextOpeningDates: expectedNextOpeningDates,
-    });
-  });
-});
-
 const regularOpeningDays = [
   {
     dayOfWeek: "monday",
@@ -209,3 +191,21 @@ const expectedNextOpeningDates = [
     open: "2024-05-06T09:00:00.000Z",
   },
 ];
+
+describe("GET /venues", () => {
+  it("returns a venue with added nextOpeningDates", async () => {
+    jest.useFakeTimers().setSystemTime(new Date("2024-04-02T08:00:00.000Z"));
+
+    const testId = "123";
+    const api = mockedApi([
+      { id: testId, display: venueDisplay, data: venueData },
+    ]);
+
+    const response = await api.get(`/venues`);
+    expect(response.statusCode).toBe(200);
+    expect(response.body.results[0]).toEqual({
+      ...venueDisplay,
+      nextOpeningDates: expectedNextOpeningDates,
+    });
+  });
+});
