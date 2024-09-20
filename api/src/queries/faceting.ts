@@ -14,6 +14,7 @@ const excludeValue = <T>(
 ): T[] =>
   Object.entries(record)
     .filter(([key]) => key !== keyToExclude)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .map(([_, value]) => value);
 
 // Modifies a terms aggregation in order to (a) include empty buckets and (b) only include values from a given filter

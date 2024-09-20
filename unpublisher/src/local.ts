@@ -4,6 +4,7 @@ import { getElasticClient } from "@weco/content-common/services/elasticsearch";
 import { createHandler } from "./handler";
 import { eventBridgePrismicEvent } from "./event";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [_1, _2, ...deletionIds] = argv;
 
 getElasticClient({
