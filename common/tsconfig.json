@@ -2,6 +2,8 @@
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
+    "moduleResolution": "node",
+    "module": "esnext",
     "outDir": "lib",
     "forceConsistentCasingInFileNames": true
   }
