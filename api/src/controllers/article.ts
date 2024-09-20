@@ -9,7 +9,7 @@ type PathParams = { id: string };
 
 const articleController = (
   clients: Clients,
-  config: Config
+  config: Config,
 ): RequestHandler<PathParams> => {
   const index = config.articlesIndex;
 

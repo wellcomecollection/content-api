@@ -16,7 +16,7 @@ describe("rewriteAggregationsForFacets", () => {
     };
     const facetedAggregations = rewriteAggregationsForFacets(
       aggregations,
-      filters
+      filters,
     );
 
     const rewrittenFormatAgg = facetedAggregations.format;
@@ -41,7 +41,7 @@ describe("partitionFiltersForFacets", () => {
 
     const { postFilters, queryFilters } = partitionFiltersForFacets(
       aggregations,
-      filters
+      filters,
     );
     expect(postFilters).toContainAllValues([filters.format]);
     expect(queryFilters).toContainAllValues([

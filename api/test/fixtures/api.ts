@@ -20,7 +20,7 @@ const elastic404 = () =>
   });
 
 export const mockedApi = <T extends Displayable & Identified>(
-  documents: T[]
+  documents: T[],
 ) => {
   const testArticlesIndex = "test-article-index";
   const testEventsIndex = "test-event-index";
@@ -42,7 +42,7 @@ export const mockedApi = <T extends Displayable & Identified>(
       } else {
         throw elastic404();
       }
-    }
+    },
   );
 
   const elasticClientSearch = jest.fn(
@@ -63,7 +63,7 @@ export const mockedApi = <T extends Displayable & Identified>(
       } else {
         throw elastic404();
       }
-    }
+    },
   );
 
   const app = createApp(
@@ -79,7 +79,7 @@ export const mockedApi = <T extends Displayable & Identified>(
       eventsIndex: testEventsIndex,
       venuesIndex: testVenuesIndex,
       publicRootUrl: new URL("http://test.test/test"),
-    }
+    },
   );
 
   return supertest.agent(app);

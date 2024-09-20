@@ -27,9 +27,9 @@ type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
 export const createETLPipeline =
   <
     PrismicDocument extends prismic.PrismicDocument,
-    ElasticsearchDocument extends HasIdentifier
+    ElasticsearchDocument extends HasIdentifier,
   >(
-    etlParameters: ETLParameters<PrismicDocument, ElasticsearchDocument>
+    etlParameters: ETLParameters<PrismicDocument, ElasticsearchDocument>,
   ) =>
   async (clients: Clients, event: WindowEvent) => {
     // 0. Create index if necessary
@@ -40,7 +40,7 @@ export const createETLPipeline =
     log.info(
       `Fetching ${
         etlParameters.indexConfig.index
-      } last published ${describeWindow(window)}`
+      } last published ${describeWindow(window)}`,
     );
 
     // 2. Fetch all documents published in the given window and partition them into
@@ -49,7 +49,7 @@ export const createETLPipeline =
     // We also tap the observable to keep track of documents that we've seen, so as
     // to reduce duplicate work later on.
     const isParentDocument = (
-      doc: prismic.PrismicDocument
+      doc: prismic.PrismicDocument,
     ): doc is PrismicDocument =>
       etlParameters.parentDocumentTypes.has(doc.type);
     const seenIds = new Set<string>();
@@ -59,9 +59,9 @@ export const createETLPipeline =
           publicationWindow: toBoundedWindow(event),
           graphQuery: etlParameters.graphQuery,
           after,
-        })
+        }),
       ).pipe(tap((document) => seenIds.add(document.id))),
-      isParentDocument
+      isParentDocument,
     );
 
     // 3. Find parent documents which were not changed but have child documents that
@@ -86,17 +86,17 @@ export const createETLPipeline =
       }),
       tap(() => {
         parentsWithUpdatedChildren += 1;
-      })
+      }),
     );
 
     const nextIndex = await bulkIndexDocuments(
       clients.elastic,
       etlParameters.indexConfig.index,
       concat(initialParentDocuments, remainingParentDocuments).pipe(
-        map(etlParameters.transformer)
-      )
+        map(etlParameters.transformer),
+      ),
     );
     log.info(
-      `Indexed ${nextIndex.successfulIds.size} documents in ${nextIndex.time}ms (${parentsWithUpdatedChildren} had updates from linked documents)`
+      `Indexed ${nextIndex.successfulIds.size} documents in ${nextIndex.time}ms (${parentsWithUpdatedChildren} had updates from linked documents)`,
     );
   };

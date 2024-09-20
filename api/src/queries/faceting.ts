@@ -10,7 +10,7 @@ import { esQuery, Filter, isTermsFilter } from "./common";
 
 const excludeValue = <T>(
   record: Record<string, T>,
-  keyToExclude: string
+  keyToExclude: string,
 ): T[] =>
   Object.entries(record)
     .filter(([key]) => key !== keyToExclude)
@@ -19,7 +19,7 @@ const excludeValue = <T>(
 // Modifies a terms aggregation in order to (a) include empty buckets and (b) only include values from a given filter
 const includeEmptyFilterValues = (
   aggregation: AggregationsAggregationContainer,
-  filter: Filter
+  filter: Filter,
 ): AggregationsAggregationContainer =>
   "terms" in aggregation && isTermsFilter(filter)
     ? {
@@ -39,7 +39,7 @@ export const rewriteAggregationsForFacets = (
   // aggregations are present and so require finer-grained application to individual aggregations,
   // in order to (a) avoid applying them to their corresponding aggregation and (b) make sure they _are_
   // applied to all other aggregations.
-  postFilters: Record<string, Filter>
+  postFilters: Record<string, Filter>,
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
@@ -65,7 +65,7 @@ export const rewriteAggregationsForFacets = (
       }
 
       return [name, filteredAgg];
-    })
+    }),
   );
 
 // While we do want all requested filters to apply to our search results, we don't
@@ -78,7 +78,7 @@ export const rewriteAggregationsForFacets = (
 // (to be used in the normal `query`).
 export const partitionFiltersForFacets = (
   aggregations: Record<string, AggregationsAggregationContainer>,
-  filters: Record<string, Filter>
+  filters: Record<string, Filter>,
 ) => {
   const postFilters: Record<string, Filter> = {};
   const queryFilters: Record<string, Filter> = {};

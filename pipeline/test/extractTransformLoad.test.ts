@@ -48,7 +48,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     await eventPipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "events" }
+      { contentType: "events" },
     );
 
     expect(elasticIndexCreator).toHaveBeenCalled();
@@ -56,7 +56,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     const indexedDocs = getIndexedDocuments();
     expect(indexedDocs.map((doc) => doc.id)).toIncludeSameMembers(
-      allDocs.map((doc) => doc.id)
+      allDocs.map((doc) => doc.id),
     );
   });
 
@@ -67,8 +67,8 @@ describe("Extract, transform and load eventDocuments", () => {
       eventFormats.some(
         (eventFormat) =>
           isFilledLinkToDocument(event.data.format) &&
-          eventFormat.id === event.data.format.id
-      )
+          eventFormat.id === event.data.format.id,
+      ),
     );
 
     const prismicGetByIDs = jest.fn().mockResolvedValue({
@@ -101,7 +101,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     await eventPipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "events" }
+      { contentType: "events" },
     );
 
     const parentIds = parentArticles.map((doc) => doc.id);
@@ -110,7 +110,7 @@ describe("Extract, transform and load eventDocuments", () => {
 
     const finalIndexedDocuments = getIndexedDocuments();
     expect(finalIndexedDocuments.map((doc) => doc.id)).toIncludeSameMembers(
-      parentIds
+      parentIds,
     );
   });
 });
@@ -143,14 +143,14 @@ describe("Extract, transform and load articles", () => {
 
     await articlePipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "articles" }
+      { contentType: "articles" },
     );
     expect(elasticIndexCreator).toHaveBeenCalled();
     expect(elasticBulkHelper).toHaveBeenCalled();
 
     const indexedDocs = getIndexedDocuments();
     expect(indexedDocs.map((doc) => doc.id)).toIncludeSameMembers(
-      allDocs.map((doc) => doc.id)
+      allDocs.map((doc) => doc.id),
     );
   });
 
@@ -159,15 +159,15 @@ describe("Extract, transform and load articles", () => {
     // Any articles/webcomics which contain any of the `contributors`
     const parentArticles = getSnapshots<ArticlePrismicDocument>(
       "articles",
-      "webcomics"
+      "webcomics",
     ).filter((article) =>
       contributors.some((contributor) =>
         article.data.contributors.some(
           (articleContributor) =>
             isFilledLinkToDocument(articleContributor.contributor) &&
-            articleContributor.contributor.id === contributor.id
-        )
-      )
+            articleContributor.contributor.id === contributor.id,
+        ),
+      ),
     );
 
     const prismicGetByIDs = jest.fn().mockResolvedValue({
@@ -200,7 +200,7 @@ describe("Extract, transform and load articles", () => {
 
     await articlePipeline(
       { elastic: elasticClient, prismic: prismicClient },
-      { contentType: "articles" }
+      { contentType: "articles" },
     );
     expect(elasticIndexCreator).toHaveBeenCalled();
     expect(elasticBulkHelper).toHaveBeenCalled();
@@ -211,7 +211,7 @@ describe("Extract, transform and load articles", () => {
 
     const finalIndexedDocuments = getIndexedDocuments();
     expect(finalIndexedDocuments.map((doc) => doc.id)).toIncludeSameMembers(
-      parentIds
+      parentIds,
     );
   });
 });

@@ -13,9 +13,9 @@ describe("query validator", () => {
 
   it("rejects values which are not in the allowlist", () => {
     expect(() =>
-      testValidator({ test: "123" })
+      testValidator({ test: "123" }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Bad Request: test: '123' is not a valid value. Please choose one of 'a' or 'b'"`
+      `"Bad Request: test: '123' is not a valid value. Please choose one of 'a' or 'b'"`,
     );
   });
 
@@ -35,9 +35,9 @@ describe("query validator", () => {
       singleValue: true,
     });
     expect(() =>
-      testValidatorSingle({ test: "a,b" })
+      testValidatorSingle({ test: "a,b" }),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Bad Request: Only 1 value can be specified for test"`
+      `"Bad Request: Only 1 value can be specified for test"`,
     );
   });
 });
@@ -49,9 +49,9 @@ describe("validateDate", () => {
 
   it("rejects dates that can't be parsed", () => {
     expect(() =>
-      validateDate("A few weeks ago")
+      validateDate("A few weeks ago"),
     ).toThrowErrorMatchingInlineSnapshot(
-      `"Bad Request: 'A few weeks ago' is not a valid date. Please specify a date or datetime in ISO 8601 format."`
+      `"Bad Request: 'A few weeks ago' is not a valid date. Please specify a date or datetime in ISO 8601 format."`,
     );
   });
 });

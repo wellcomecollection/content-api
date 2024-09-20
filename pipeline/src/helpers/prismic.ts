@@ -33,7 +33,7 @@ const fields = {
 
 export const getPrismicDocuments = async (
   client: prismic.Client,
-  { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams
+  { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams,
 ): Promise<PrismicPage<prismic.PrismicDocument>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
@@ -67,23 +67,23 @@ export const getPrismicDocuments = async (
 };
 
 export const paginator = <T extends prismic.PrismicDocument>(
-  nextPage: (after?: string) => Promise<PrismicPage<T>>
+  nextPage: (after?: string) => Promise<PrismicPage<T>>,
 ): Observable<T> =>
   from(nextPage()).pipe(
     expand((res) => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
-    concatMap((page) => page.docs)
+    concatMap((page) => page.docs),
   );
 
 export const getDocumentsByID = <T extends prismic.PrismicDocument>(
   client: prismic.Client,
-  { graphQuery }: { graphQuery?: string } = {}
+  { graphQuery }: { graphQuery?: string } = {},
 ): OperatorFunction<string, T> =>
   pipe(
     bufferCount(PRISMIC_MAX_PAGE_SIZE),
     mergeMap((ids) =>
       client.getByIDs<T>(ids, {
         graphQuery,
-      })
+      }),
     ),
-    mergeMap((query) => query.results)
+    mergeMap((query) => query.results),
   );

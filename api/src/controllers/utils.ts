@@ -8,7 +8,7 @@ import {
 
 export function getNextOpeningDates(
   regularOpeningDays: RegularOpeningDay[],
-  exceptionalClosedDays: ExceptionalClosedDay[]
+  exceptionalClosedDays: ExceptionalClosedDay[],
 ): NextOpeningDate[] {
   // create a dateList of 35 consecutive days starting today
   // 35 is somewhat arbitrary,
@@ -30,12 +30,13 @@ export function getNextOpeningDates(
 
   // remove regular closed days from our dateList
   const upcomingRegularOpenDays = dateList.filter(
-    (date) => !regularClosedDays.includes(getDayName(date))
+    (date) => !regularClosedDays.includes(getDayName(date)),
   );
 
   // now remove exceptional closed days from the above filtered list
   const upcomingOpenDays = upcomingRegularOpenDays.filter(
-    (date) => !upcomingExceptionalClosedDates.includes(getDateWithoutTime(date))
+    (date) =>
+      !upcomingExceptionalClosedDates.includes(getDateWithoutTime(date)),
   );
 
   // we only care about dates until now, when we add opening times/hours
@@ -63,11 +64,11 @@ function getDateWithoutTime(date: Date): string {
 
 function addOpeningHours(
   upcomingOpenDays: Date[],
-  regularOpeningDays: RegularOpeningDay[]
+  regularOpeningDays: RegularOpeningDay[],
 ): NextOpeningDate[] {
   return upcomingOpenDays.map((date) => {
     const regularOpeningDay = regularOpeningDays.find(
-      (day) => day.dayOfWeek === getDayName(date)
+      (day) => day.dayOfWeek === getDayName(date),
     );
     const openingHour = regularOpeningDay?.opens
       ? regularOpeningDay.opens

@@ -30,11 +30,10 @@ export type DataInterface = Record<
  *     ContentRelationshipField<'formats', 'en-gb', DataInterface>
  *
  */
-export type InferDataInterface<T> = T extends prismic.PrismicDocument<
-  infer DataInterface
->
-  ? DataInterface
-  : never;
+export type InferDataInterface<T> =
+  T extends prismic.PrismicDocument<infer DataInterface>
+    ? DataInterface
+    : never;
 
 type Promo = { caption: prismic.RichTextField; image: PrismicImage };
 export type PromoSliceZone = prismic.SliceZone<

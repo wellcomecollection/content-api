@@ -2,7 +2,7 @@ import { EventBridgeEvent } from "aws-lambda";
 import { WebhookBodyAPIUpdate } from "@prismicio/types";
 
 export const eventBridgePrismicEvent = (
-  documents: string[]
+  documents: string[],
 ): EventBridgeEvent<"document-unpublish", WebhookBodyAPIUpdate> => ({
   account: "",
   id: "",

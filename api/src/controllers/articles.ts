@@ -56,7 +56,7 @@ const aggregationsValidator = queryValidator({
 
 const articlesController = (
   clients: Clients,
-  config: Config
+  config: Config,
 ): ArticlesHandler => {
   const index = config.articlesIndex;
   const resultList = resultListResponse(config);
@@ -71,21 +71,21 @@ const articlesController = (
       sort === "publicationDate" ? "query.publicationDate" : "_score";
 
     const initialAggregations = ifDefined(aggregations, (requestedAggs) =>
-      pick(articlesAggregations, requestedAggs)
+      pick(articlesAggregations, requestedAggs),
     );
     const initialFilters = pickFiltersFromQuery(
       ["contributors.contributor", "format"],
       params,
-      articlesFilter
+      articlesFilter,
     );
 
     // See comments in `queries/faceting.ts` for some explanation of what's going on here
     const { postFilters, queryFilters } = partitionFiltersForFacets(
       initialAggregations ?? {},
-      initialFilters
+      initialFilters,
     );
     const facetedAggregations = ifDefined(initialAggregations, (aggs) =>
-      rewriteAggregationsForFacets(aggs, postFilters)
+      rewriteAggregationsForFacets(aggs, postFilters),
     );
 
     // The date filter is a special case because 2 parameters filter 1 field,
@@ -95,7 +95,7 @@ const articlesController = (
         ? [
             articlesFilter.publicationDate(
               ifDefined(params["publicationDate.from"], validateDate),
-              ifDefined(params["publicationDate.to"], validateDate)
+              ifDefined(params["publicationDate.to"], validateDate),
             ),
           ]
         : [];

@@ -90,7 +90,7 @@ describe("getNextOpeningDates", () => {
       };
 
       expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
-        expectedStart
+        expectedStart,
       );
     });
 
@@ -131,7 +131,7 @@ describe("getNextOpeningDates", () => {
       ];
 
       expect(getNextOpeningDates(regularOpeningDays, [])).toStrictEqual(
-        expectedNextOpeningDates
+        expectedNextOpeningDates,
       );
     });
 
@@ -169,7 +169,7 @@ describe("getNextOpeningDates", () => {
       ];
 
       expect(
-        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays)
+        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays),
       ).toStrictEqual(expectedNextOpeningDates);
     });
   });
@@ -184,7 +184,7 @@ describe("getNextOpeningDates", () => {
       };
 
       expect(getNextOpeningDates(regularOpeningDays, [])[0]).toEqual(
-        expectedStart
+        expectedStart,
       );
     });
 
@@ -225,7 +225,7 @@ describe("getNextOpeningDates", () => {
       ];
 
       expect(getNextOpeningDates(regularOpeningDays, [])).toStrictEqual(
-        expectedNextOpeningDates
+        expectedNextOpeningDates,
       );
     });
 
@@ -265,7 +265,7 @@ describe("getNextOpeningDates", () => {
       ];
 
       expect(
-        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays)
+        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays),
       ).toStrictEqual(expectedNextOpeningDates);
     });
 
@@ -306,7 +306,7 @@ describe("getNextOpeningDates", () => {
       ];
 
       expect(
-        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays)
+        getNextOpeningDates(regularOpeningDays, exceptionalClosedDays),
       ).toStrictEqual(expectedNextOpeningDates);
     });
   });

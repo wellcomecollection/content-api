@@ -25,12 +25,12 @@ describe("pagination tools", () => {
   describe("getPaginationResponse", () => {
     const publicRootUrl = "https://test.public.url/root";
     const getPaginationResponse = paginationResponseGetter(
-      new URL(publicRootUrl)
+      new URL(publicRootUrl),
     );
 
     it("returns appropriate links to prev/next pages if they exist", () => {
       const requestUrl = new URL(
-        "https://test.private:123/docs?page=4&pageSize=25"
+        "https://test.private:123/docs?page=4&pageSize=25",
       );
       const totalResults = 100;
       const response = getPaginationResponse({ requestUrl, totalResults });
@@ -40,7 +40,7 @@ describe("pagination tools", () => {
       expect(response.totalResults).toBe(totalResults);
       expect(response.nextPage).toBeUndefined();
       expect(response.prevPage).toBe(
-        `${publicRootUrl}/docs?page=3&pageSize=25`
+        `${publicRootUrl}/docs?page=3&pageSize=25`,
       );
     });
 
@@ -58,7 +58,7 @@ describe("pagination tools", () => {
       const totalResults = 200;
 
       expect(() => getPaginationResponse({ requestUrl, totalResults })).toThrow(
-        HttpError
+        HttpError,
       );
     });
 
@@ -67,7 +67,7 @@ describe("pagination tools", () => {
       const totalResults = 200;
 
       expect(() =>
-        getPaginationResponse({ requestUrl, totalResults })
+        getPaginationResponse({ requestUrl, totalResults }),
       ).not.toThrow();
     });
   });

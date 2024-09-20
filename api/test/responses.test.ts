@@ -52,7 +52,7 @@ describe("mapAggregations", () => {
     };
     const mappedAggregations = mapAggregations(elasticAggregations);
     expect(mappedAggregations.format.buckets).toHaveLength(
-      elasticAggregations.format.buckets.length
+      elasticAggregations.format.buckets.length,
     );
     expect(mappedAggregations).toMatchSnapshot();
   });
@@ -79,10 +79,10 @@ describe("mapAggregations", () => {
     };
     const mappedAggregations = mapAggregations(elasticAggregations);
     expect(mappedAggregations.format.buckets[0].count).toBe(
-      elasticAggregations.format.terms.buckets[0].doc_count
+      elasticAggregations.format.terms.buckets[0].doc_count,
     );
     expect(mappedAggregations.format.buckets[1].count).toBe(
-      elasticAggregations.format.terms.buckets[1].doc_count
+      elasticAggregations.format.terms.buckets[1].doc_count,
     );
   });
 
@@ -293,7 +293,7 @@ describe("mapAggregations", () => {
       expect(buckets[i].count).toBeGreaterThanOrEqual(buckets[i + 1].count);
       if (buckets[i].count === buckets[i + 1].count) {
         expect(
-          buckets[i].data.id.localeCompare(buckets[i + 1].data.id)
+          buckets[i].data.id.localeCompare(buckets[i + 1].data.id),
         ).toBeLessThanOrEqual(0);
       }
     }

@@ -9,7 +9,7 @@ type PathParams = { id: string };
 
 const eventController = (
   clients: Clients,
-  config: Config
+  config: Config,
 ): RequestHandler<PathParams> => {
   const index = config.eventsIndex;
 

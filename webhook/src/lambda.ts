@@ -19,7 +19,7 @@ const initialiseHandler = async () => {
     {
       ...config,
       secret,
-    }
+    },
   );
 };
 

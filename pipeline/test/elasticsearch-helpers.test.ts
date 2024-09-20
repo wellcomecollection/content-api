@@ -31,8 +31,9 @@ describe("ensureIndexExists", () => {
           type: "resource_already_exists_exception",
         },
         warnings: [],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         meta: {} as any,
-      })
+      }),
     );
     const putMapping = jest.fn().mockResolvedValue(true);
     const client = {
@@ -77,9 +78,9 @@ describe("getParentDocumentIDs", () => {
         getParentDocumentIDs(testClient, {
           index: "test",
           identifiersField: "childIds",
-          batchSize: batchSize,
-        })
-      )
+          batchSize,
+        }),
+      ),
     );
 
     expect(elasticScrollDocuments).toHaveBeenCalledTimes(totalDocs / batchSize);

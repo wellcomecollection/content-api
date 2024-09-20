@@ -14,16 +14,16 @@ describe("Event handling", () => {
   };
   const testHandler = createHandler(
     { eventBridge: testEventBridgeClient },
-    testConfig
+    testConfig,
   );
 
   const status = async (
-    event: MockEventConfig
+    event: MockEventConfig,
   ): Promise<number | undefined> => {
     const result = (await testHandler(
       mockEvent(event),
       {} as Context,
-      () => {}
+      () => {},
     )) as unknown as APIGatewayProxyStructuredResultV2;
     return result.statusCode;
   };
@@ -41,7 +41,7 @@ describe("Event handling", () => {
       await status({
         method: "POST",
         webhook: mockWebhook(),
-      })
+      }),
     ).toBe(400);
   });
 
@@ -51,7 +51,7 @@ describe("Event handling", () => {
         method: "POST",
         webhook: mockWebhook(),
         headers: { "x-weco-prismic-trigger": testConfig.trigger },
-      })
+      }),
     ).toBe(401);
   });
 
@@ -61,7 +61,7 @@ describe("Event handling", () => {
         method: "POST",
         webhook: mockWebhook({ secret: "wrong-secret" }),
         headers: { "x-weco-prismic-trigger": testConfig.trigger },
-      })
+      }),
     ).toBe(403);
   });
 
@@ -74,7 +74,7 @@ describe("Event handling", () => {
           type: "test-trigger",
         }),
         headers: { "x-weco-prismic-trigger": testConfig.trigger },
-      })
+      }),
     ).toBe(200);
   });
 
@@ -87,7 +87,7 @@ describe("Event handling", () => {
           type: "api-update",
         }),
         headers: { "x-weco-prismic-trigger": testConfig.trigger },
-      })
+      }),
     ).toBe(202);
   });
 
@@ -101,12 +101,12 @@ describe("Event handling", () => {
         method: "POST",
         headers: { "x-weco-prismic-trigger": testConfig.trigger },
         webhook,
-      })
+      }),
     ).toBe(202);
 
     const lastCall = (testEventBridgeClient.send as jest.Mock).mock.lastCall[0];
     expect(lastCall.input.Entries[0].EventBusName).toEqual(
-      testConfig.eventBusName
+      testConfig.eventBusName,
     );
     expect(lastCall.input.Entries[0].DetailType).toBe(testConfig.trigger);
     expect(JSON.parse(lastCall.input.Entries[0].Detail)).toEqual({

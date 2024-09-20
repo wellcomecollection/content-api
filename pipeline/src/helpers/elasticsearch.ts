@@ -25,7 +25,7 @@ export type IndexConfig = {
 
 export const ensureIndexExists = async (
   elasticClient: Client,
-  indexConfig: IndexConfig
+  indexConfig: IndexConfig,
 ): Promise<void> => {
   try {
     await elasticClient.indices.create(indexConfig);
@@ -59,7 +59,7 @@ type BulkIndexResult<Doc> = {
 export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
   index: string,
-  documents: Observable<T>
+  documents: Observable<T>,
 ): Promise<BulkIndexResult<T>> => {
   const datasource = observableToStream(documents);
   const successfulIds = new Set<string>();
@@ -74,7 +74,7 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
     },
     onDrop(failureObject) {
       log.warn(
-        `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`
+        `${failureObject.document.id} was dropped during the bulk import: ${failureObject.error?.reason}`,
       );
       successfulIds.delete(failureObject.document.id);
       failed.push(failureObject.document);
@@ -103,7 +103,7 @@ export const getParentDocumentIDs = <T extends { id: string }>(
     index,
     identifiersField,
     batchSize = BULK_BATCH_SIZE,
-  }: ParentDocumentIdsConfig
+  }: ParentDocumentIdsConfig,
 ): OperatorFunction<T, string> =>
   pipe(
     map((doc) => doc.id),
@@ -123,5 +123,5 @@ export const getParentDocumentIDs = <T extends { id: string }>(
       });
 
       return from(scroll).pipe(map((doc) => doc.id));
-    })
+    }),
   );

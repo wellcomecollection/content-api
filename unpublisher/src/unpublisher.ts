@@ -33,8 +33,8 @@ export const createUnpublisher =
             }
             throw e;
           }
-        })
-      )
+        }),
+      ),
     );
     log.info(`${Object.keys(deletedDocuments).length} deletions complete: `);
     log.info(JSON.stringify(deletedDocuments));

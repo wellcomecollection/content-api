@@ -41,7 +41,7 @@ export const toBoundedWindow = (event: WindowEvent): TimeWindow => {
       };
     }
     throw new Error(
-      "Window duration must be specified alongside a start or end time"
+      "Window duration must be specified alongside a start or end time",
     );
   }
 

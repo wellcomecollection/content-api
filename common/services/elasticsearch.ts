@@ -28,7 +28,7 @@ const getElasticClientConfig = async ({
   };
 };
 export const getElasticClient = async (
-  params: ClientParameters
+  params: ClientParameters,
 ): Promise<Client> => {
   const config = await getElasticClientConfig(params);
   return new Client(config);

@@ -12,7 +12,7 @@ import {
 } from "@weco/content-common/types/venue";
 
 export const transformVenue = (
-  document: VenuePrismicDocument
+  document: VenuePrismicDocument,
 ): ElasticsearchVenue => {
   const {
     data: {
@@ -31,12 +31,12 @@ export const transformVenue = (
 
   const formatRegularOpeningDay = (
     day: DayOfWeek,
-    openingTimes: PrismicRegularOpeningDay
+    openingTimes: PrismicRegularOpeningDay,
   ): RegularOpeningDay => {
     const formatTime = (time: TimestampField | undefined): string => {
       return time
         ? `${asDate(time).getHours()}:${String(
-            asDate(time).getMinutes()
+            asDate(time).getMinutes(),
           ).padStart(2, "0")}`
         : "00:00";
     };
@@ -50,7 +50,7 @@ export const transformVenue = (
   };
 
   const formatExceptionalClosedDays = (
-    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays
+    modifiedDayOpeningTimes: PrismicExceptionalOpeningDays,
   ): ExceptionalClosedDay[] => {
     return modifiedDayOpeningTimes.map((day) => {
       if (!asDate(day.overrideDate)) {
@@ -77,7 +77,7 @@ export const transformVenue = (
   ];
 
   const exceptionalClosedDays = formatExceptionalClosedDays(
-    modifiedDayOpeningTimes
+    modifiedDayOpeningTimes,
   );
 
   return {

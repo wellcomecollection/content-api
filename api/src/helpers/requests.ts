@@ -10,18 +10,18 @@ export const pickFiltersFromQuery = <
   Query extends { [key in Name]?: string },
   Filters extends {
     [key in Name]: (params: string[]) => Filter;
-  }
+  },
 >(
   filterNames: ReadonlyArray<StringLiteral<Name>>,
   query: Query,
-  filters: Filters
+  filters: Filters,
 ): Record<Name, Filter> =>
   Object.fromEntries(
     filterNames.flatMap((filterName) => {
       const maybeFilter = ifDefined(
         query[filterName]?.split(","),
-        filters[filterName]
+        filters[filterName],
       );
       return maybeFilter ? [[filterName, maybeFilter]] : [];
-    })
+    }),
   ) as Record<Name, Filter>;

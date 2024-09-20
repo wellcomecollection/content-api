@@ -10,7 +10,7 @@ const formatter = format.combine(
       log += "\n" + stack;
     }
     return log;
-  })
+  }),
 );
 
 const logger = createLogger({
