@@ -1,24 +1,25 @@
 import type { Client as ElasticClient } from "@elastic/elasticsearch";
 import * as prismic from "@prismicio/client";
-import { getSnapshots } from "./fixtures/prismic-snapshots";
+
+import { createETLPipeline } from "@weco/content-pipeline/src/extractTransformLoad";
+import {
+  articlesQuery,
+  eventDocumentsQuery,
+  webcomicsQuery,
+  wrapQueries,
+} from "@weco/content-pipeline/src/graph-queries";
 import { isFilledLinkToDocument } from "@weco/content-pipeline/src/helpers/type-guards";
+import { articles, events } from "@weco/content-pipeline/src/indices";
+import { transformArticle } from "@weco/content-pipeline/src/transformers/article";
+import { transformEventDocument } from "@weco/content-pipeline/src/transformers/eventDocument";
+import { ArticlePrismicDocument } from "@weco/content-pipeline/src/types/prismic";
+
 import {
   createElasticBulkHelper,
   createElasticScrollDocuments,
 } from "./fixtures/elastic";
 import { prismicGet } from "./fixtures/prismic";
-import { createETLPipeline } from "@weco/content-pipeline/src/extractTransformLoad";
-
-import {
-  articlesQuery,
-  webcomicsQuery,
-  wrapQueries,
-  eventDocumentsQuery,
-} from "@weco/content-pipeline/src/graph-queries";
-import { articles, events } from "@weco/content-pipeline/src/indices";
-import { transformArticle } from "@weco/content-pipeline/src/transformers/article";
-import { transformEventDocument } from "@weco/content-pipeline/src/transformers/eventDocument";
-import { ArticlePrismicDocument } from "@weco/content-pipeline/src/types/prismic";
+import { getSnapshots } from "./fixtures/prismic-snapshots";
 
 describe("Extract, transform and load eventDocuments", () => {
   it("fetches eventDocuments from prismic and indexes them into ES", async () => {

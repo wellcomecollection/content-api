@@ -1,8 +1,10 @@
-import { argv } from "node:process";
 import { Context } from "aws-lambda";
+import { argv } from "node:process";
+
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
-import { createHandler } from "./handler";
+
 import { eventBridgePrismicEvent } from "./event";
+import { createHandler } from "./handler";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [_1, _2, ...deletionIds] = argv;

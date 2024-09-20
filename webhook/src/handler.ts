@@ -3,13 +3,15 @@ import {
   PutEventsCommand,
 } from "@aws-sdk/client-eventbridge";
 import { APIGatewayProxyHandlerV2 } from "aws-lambda";
-import { response } from "./responses";
+
+import log from "@weco/content-common/services/logging";
+
 import {
   isPrismicApiUpdate,
   isPrismicWebhookPayload,
   wecoPrismicTrigger,
 } from "./requests";
-import log from "@weco/content-common/services/logging";
+import { response } from "./responses";
 
 type Clients = {
   eventBridge: EventBridgeClient;

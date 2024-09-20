@@ -1,7 +1,8 @@
 import { PrismicDocument } from "@prismicio/client";
+
 import {
-  isFilledLinkToDocumentWithData,
   asText,
+  isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from "@weco/content-pipeline/src/helpers/type-guards";
 import { WithSeries } from "@weco/content-pipeline/src/types/prismic/series";

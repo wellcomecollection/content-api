@@ -1,19 +1,19 @@
 import { Handler } from "aws-lambda";
 
-import { Clients } from "./types";
 import { WindowEvent } from "./event";
 import { createETLPipeline } from "./extractTransformLoad";
 import {
   articlesQuery,
-  webcomicsQuery,
-  wrapQueries,
   eventDocumentsQuery,
   venueQuery,
+  webcomicsQuery,
+  wrapQueries,
 } from "./graph-queries";
 import { articles, events, venues } from "./indices";
 import { transformArticle } from "./transformers/article";
 import { transformEventDocument } from "./transformers/eventDocument";
 import { transformVenue } from "./transformers/venue";
+import { Clients } from "./types";
 
 const loadArticles = createETLPipeline({
   graphQuery: wrapQueries(articlesQuery, webcomicsQuery),

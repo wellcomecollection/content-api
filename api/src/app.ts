@@ -1,16 +1,18 @@
 import express from "express";
 import morgan from "morgan";
+
+import { Config } from "@weco/content-api/config";
 import { logStream } from "@weco/content-common/services/logging";
+
 import {
-  errorHandler,
-  articlesController,
   articleController,
+  articlesController,
+  errorHandler,
   eventController,
   eventsController,
   healthcheckController,
   venuesController,
 } from "./controllers";
-import { Config } from "@weco/content-api/config";
 import { Clients } from "./types";
 
 const createApp = (clients: Clients, config: Config) => {

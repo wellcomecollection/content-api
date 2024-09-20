@@ -1,8 +1,9 @@
-import { EventBridgeHandler } from "aws-lambda";
 import { Client as ElasticClient } from "@elastic/elasticsearch";
 import { WebhookBodyAPIUpdate } from "@prismicio/types";
-import { createUnpublisher } from "./unpublisher";
+import { EventBridgeHandler } from "aws-lambda";
+
 import { getConfig } from "./config";
+import { createUnpublisher } from "./unpublisher";
 
 const config = getConfig();
 

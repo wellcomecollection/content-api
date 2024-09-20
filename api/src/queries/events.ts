@@ -1,4 +1,5 @@
 import { QueryDslQueryContainer } from "@elastic/elasticsearch/lib/api/types";
+
 import { TermsFilter } from "./common";
 
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({

@@ -1,6 +1,6 @@
-import { forEachPrismicSnapshot } from "@weco/content-pipeline/test/fixtures/prismic-snapshots";
 import { transformArticle } from "@weco/content-pipeline/src/transformers/article";
 import { ArticlePrismicDocument } from "@weco/content-pipeline/src/types/prismic";
+import { forEachPrismicSnapshot } from "@weco/content-pipeline/test/fixtures/prismic-snapshots";
 
 describe("article transformer", () => {
   forEachPrismicSnapshot<ArticlePrismicDocument>("articles")(

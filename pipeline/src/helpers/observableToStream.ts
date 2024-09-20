@@ -1,5 +1,5 @@
-import { Observable, Subscription } from "rxjs";
 import { Readable } from "node:stream";
+import { Observable, Subscription } from "rxjs";
 
 // Copied from https://github.com/greguz/rxdable/tree/master
 // In that package it is called getStreamByObservable

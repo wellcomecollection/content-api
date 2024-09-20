@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+
 import { WithContributors } from "./contributors";
 
 export type WithSeries = {

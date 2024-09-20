@@ -1,5 +1,5 @@
-import { APIGatewayProxyEventV2 } from "aws-lambda/trigger/api-gateway-proxy";
 import { WebhookBody } from "@prismicio/types";
+import { APIGatewayProxyEventV2 } from "aws-lambda/trigger/api-gateway-proxy";
 
 export type MockEventConfig = {
   method?: string;

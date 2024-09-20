@@ -1,5 +1,4 @@
 import * as prismic from "@prismicio/client";
-import { TimeWindow } from "@weco/content-pipeline/src/event";
 import {
   bufferCount,
   concatMap,
@@ -11,6 +10,8 @@ import {
   OperatorFunction,
   pipe,
 } from "rxjs";
+
+import { TimeWindow } from "@weco/content-pipeline/src/event";
 
 // https://prismic.io/docs/technical-reference/prismicio-client#params-object
 const PRISMIC_MAX_PAGE_SIZE = 100;

@@ -1,7 +1,8 @@
 import * as prismic from "@prismicio/client";
-import { InferDataInterface, CommonPrismicFields, PrismicFormat } from ".";
-import { WithContributors } from "./contributors";
+
+import { CommonPrismicFields, InferDataInterface, PrismicFormat } from ".";
 import { WithBody } from "./body";
+import { WithContributors } from "./contributors";
 import { WithSeries } from "./series";
 
 export type WithArticleFormat = {

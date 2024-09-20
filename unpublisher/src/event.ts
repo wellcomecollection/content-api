@@ -1,5 +1,5 @@
-import { EventBridgeEvent } from "aws-lambda";
 import { WebhookBodyAPIUpdate } from "@prismicio/types";
+import { EventBridgeEvent } from "aws-lambda";
 
 export const eventBridgePrismicEvent = (
   documents: string[],

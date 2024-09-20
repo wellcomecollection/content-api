@@ -1,21 +1,22 @@
 import * as prismic from "@prismicio/client";
-import { map, partition, filter, tap, concat } from "rxjs";
+import { concat, filter, map, partition, tap } from "rxjs";
+
 import log from "@weco/content-common/services/logging";
 
-import { Clients } from "./types";
+import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
 import {
-  ensureIndexExists,
   bulkIndexDocuments,
+  ensureIndexExists,
   getParentDocumentIDs,
-  IndexConfig,
   HasIdentifier,
+  IndexConfig,
 } from "./helpers/elasticsearch";
 import {
   getDocumentsByID,
   getPrismicDocuments,
   paginator,
 } from "./helpers/prismic";
-import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
+import { Clients } from "./types";
 
 type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;

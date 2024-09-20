@@ -1,9 +1,9 @@
-import articlesController from "./articles";
 import articleController from "./article";
+import articlesController from "./articles";
 import eventController from "./event";
 import eventsController from "./events";
-import venuesController from "./venue";
 import healthcheckController from "./healthcheck";
+import venuesController from "./venue";
 
 export { errorHandler } from "./error";
 export {

@@ -1,8 +1,9 @@
 import { Client as ElasticClient } from "@elastic/elasticsearch";
 import { SearchRequest } from "@elastic/elasticsearch/lib/api/types";
 import supertest from "supertest";
-import createApp from "@weco/content-api/src/app";
 import { URL, URLSearchParams } from "url";
+
+import createApp from "@weco/content-api/src/app";
 
 const elasticsearchRequestForURL = async (
   url: string,

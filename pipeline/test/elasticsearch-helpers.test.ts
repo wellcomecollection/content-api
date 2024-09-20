@@ -2,13 +2,15 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import { lastValueFrom, from } from "rxjs";
+import { from, lastValueFrom } from "rxjs";
+
 import {
   ensureIndexExists,
   getParentDocumentIDs,
 } from "@weco/content-pipeline/src/helpers/elasticsearch";
-import { identifiedDocuments } from "./fixtures/generators";
+
 import { createElasticScrollDocuments } from "./fixtures/elastic";
+import { identifiedDocuments } from "./fixtures/generators";
 
 describe("ensureIndexExists", () => {
   it("creates an index", async () => {

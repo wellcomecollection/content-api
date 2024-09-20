@@ -1,6 +1,7 @@
-import { HttpError } from "./error";
 import { isInSet, not } from "@weco/content-api/src/helpers";
 import { StringLiteral } from "@weco/content-api/src/types";
+
+import { HttpError } from "./error";
 
 type NonEmptyArray<T> = [T, ...T[]];
 

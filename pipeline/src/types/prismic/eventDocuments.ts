@@ -1,5 +1,6 @@
 import * as prismic from "@prismicio/client";
-import { InferDataInterface, CommonPrismicFields, PrismicFormat } from ".";
+
+import { CommonPrismicFields, InferDataInterface, PrismicFormat } from ".";
 import { WithSeries } from "./series";
 
 export type WithEventFormat = {

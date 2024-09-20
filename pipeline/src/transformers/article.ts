@@ -1,22 +1,24 @@
 import * as prismic from "@prismicio/client";
+
 import { defaultArticleFormat } from "@weco/content-common/data/defaultValues";
+import {
+  asText,
+  asTitle,
+  isFilledLinkToDocumentWithData,
+  isImageLink,
+  isNotUndefined,
+} from "@weco/content-pipeline/src/helpers/type-guards";
 import {
   ArticlePrismicDocument,
   WithArticleFormat,
   WithContributors,
 } from "@weco/content-pipeline/src/types/prismic";
 import {
-  ElasticsearchArticle,
-  Contributor,
   ArticleFormat,
+  Contributor,
+  ElasticsearchArticle,
 } from "@weco/content-pipeline/src/types/transformed";
-import {
-  isFilledLinkToDocumentWithData,
-  isImageLink,
-  asText,
-  asTitle,
-  isNotUndefined,
-} from "@weco/content-pipeline/src/helpers/type-guards";
+
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 const getContributors = (

@@ -12,7 +12,9 @@ import {
   OperatorFunction,
   pipe,
 } from "rxjs";
+
 import log from "@weco/content-common/services/logging";
+
 import { observableToStream } from "./observableToStream";
 
 const BULK_BATCH_SIZE = 1000;

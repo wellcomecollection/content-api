@@ -1,7 +1,8 @@
 import type { EventBridgeClient } from "@aws-sdk/client-eventbridge";
-import { createHandler } from "../src/handler";
-import { mockEvent, MockEventConfig, mockWebhook } from "./mock-event";
 import { APIGatewayProxyStructuredResultV2, Context } from "aws-lambda";
+
+import { mockEvent, MockEventConfig, mockWebhook } from "./mock-event";
+import { createHandler } from "../src/handler";
 
 describe("Event handling", () => {
   const testEventBridgeClient = {

@@ -1,11 +1,13 @@
 // This must be the first import in the app!
 import "@weco/content-common/services/init-apm";
 
+import { Handler } from "aws-lambda";
+
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
+
+import { getConfig } from "./config";
 import { createHandler } from "./handler";
 import { createPrismicClient } from "./services/prismic";
-import { Handler } from "aws-lambda";
-import { getConfig } from "./config";
 
 const config = getConfig();
 

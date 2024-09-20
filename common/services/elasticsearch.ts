@@ -1,4 +1,5 @@
 import { Client, ClientOptions } from "@elastic/elasticsearch";
+
 import { getSecret } from "./aws";
 import log from "./logging";
 

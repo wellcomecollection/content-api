@@ -1,15 +1,17 @@
 import { RequestHandler } from "express";
 import asyncHandler from "express-async-handler";
-import { Clients } from "@weco/content-api/src/types";
+
 import { Config } from "@weco/content-api/config";
-import { venuesFilter } from "@weco/content-api/src/queries/venues";
 import { pickFiltersFromQuery } from "@weco/content-api/src/helpers/requests";
 import { esQuery } from "@weco/content-api/src/queries/common";
+import { venuesFilter } from "@weco/content-api/src/queries/venues";
+import { Clients } from "@weco/content-api/src/types";
 import {
   ElasticsearchVenue,
-  Venue,
   NextOpeningDate,
+  Venue,
 } from "@weco/content-common/types/venue";
+
 import { getNextOpeningDates } from "./utils";
 
 type QueryParams = {

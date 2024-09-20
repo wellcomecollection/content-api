@@ -1,9 +1,10 @@
 import { DateTime } from "luxon";
+
 import {
   DayOfWeek,
-  RegularOpeningDay,
   ExceptionalClosedDay,
   NextOpeningDate,
+  RegularOpeningDay,
 } from "@weco/content-common/types/venue";
 
 export function getNextOpeningDates(

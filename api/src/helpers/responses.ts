@@ -1,17 +1,19 @@
-import { Request } from "express";
 import {
   AggregationsAggregate,
   AggregationsStringTermsBucket,
   SearchResponse,
 } from "@elastic/elasticsearch/lib/api/types";
+import { Request } from "express";
+
+import { Config } from "@weco/content-api/config";
+import { paginationResponseGetter } from "@weco/content-api/src/controllers/pagination";
 import { Displayable } from "@weco/content-api/src/types";
 import {
   AggregationBucket,
   Aggregations,
   ResultList,
 } from "@weco/content-api/src/types/responses";
-import { Config } from "@weco/content-api/config";
-import { paginationResponseGetter } from "@weco/content-api/src/controllers/pagination";
+
 import { isNotUndefined } from "./index";
 
 const mapBucket = (

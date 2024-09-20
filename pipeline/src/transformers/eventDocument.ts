@@ -1,27 +1,29 @@
-import { PrismicDocument, TimestampField, asDate } from "@prismicio/client";
+import { asDate, PrismicDocument, TimestampField } from "@prismicio/client";
+
 import { defaultEventFormat } from "@weco/content-common/data/defaultValues";
 import {
-  EventPrismicDocument,
-  WithEventFormat,
-  WithLocations,
-  WithInterpretations,
-  WithAudiences,
-} from "@weco/content-pipeline/src/types/prismic/eventDocuments";
-import {
-  EventDocumentFormat,
-  EventDocumentLocations,
-  EventDocumentInterpretation,
-  EventDocumentAudience,
-  EventDocumentPlace,
-} from "@weco/content-pipeline/src/types/transformed/eventDocument";
-import { ElasticsearchEventDocument } from "@weco/content-pipeline/src/types/transformed";
-import {
-  isFilledLinkToDocumentWithData,
-  isImageLink,
   asText,
   asTitle,
+  isFilledLinkToDocumentWithData,
+  isImageLink,
   isNotUndefined,
 } from "@weco/content-pipeline/src/helpers/type-guards";
+import {
+  EventPrismicDocument,
+  WithAudiences,
+  WithEventFormat,
+  WithInterpretations,
+  WithLocations,
+} from "@weco/content-pipeline/src/types/prismic/eventDocuments";
+import { ElasticsearchEventDocument } from "@weco/content-pipeline/src/types/transformed";
+import {
+  EventDocumentAudience,
+  EventDocumentFormat,
+  EventDocumentInterpretation,
+  EventDocumentLocations,
+  EventDocumentPlace,
+} from "@weco/content-pipeline/src/types/transformed/eventDocument";
+
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 function transformFormat(

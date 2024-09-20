@@ -1,4 +1,4 @@
-import { createLogger, transports, format } from "winston";
+import { createLogger, format, transports } from "winston";
 
 // This roughly matches the logback config used by the Scala apps
 const formatter = format.combine(

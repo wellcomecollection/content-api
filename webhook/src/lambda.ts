@@ -1,8 +1,10 @@
 import { EventBridgeClient } from "@aws-sdk/client-eventbridge";
+import { Handler } from "aws-lambda";
+
 import { getSecret } from "@weco/content-common/services/aws";
+
 import { getConfig } from "./config";
 import { createHandler } from "./handler";
-import { Handler } from "aws-lambda";
 
 const { secretName, ...config } = getConfig();
 

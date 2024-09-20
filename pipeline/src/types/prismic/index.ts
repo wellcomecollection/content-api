@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+
 import { PrismicImage } from "./images";
 
 export { ArticlePrismicDocument, WithArticleFormat } from "./articles";

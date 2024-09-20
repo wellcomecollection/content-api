@@ -1,7 +1,9 @@
 import { Handler } from "aws-lambda";
+
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
-import { createHandler } from "./handler";
+
 import { getConfig } from "./config";
+import { createHandler } from "./handler";
 
 const config = getConfig();
 

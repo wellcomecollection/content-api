@@ -2,8 +2,9 @@ import {
   Client as ElasticClient,
   errors as elasticErrors,
 } from "@elastic/elasticsearch";
-import log from "@weco/content-common/services/logging";
 import { Result } from "@elastic/elasticsearch/lib/api/types";
+
+import log from "@weco/content-common/services/logging";
 
 type Clients = {
   elastic: ElasticClient;

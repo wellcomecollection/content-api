@@ -1,6 +1,7 @@
-import { ErrorRequestHandler } from "express";
-import log from "@weco/content-common/services/logging";
 import apm from "elastic-apm-node";
+import { ErrorRequestHandler } from "express";
+
+import log from "@weco/content-common/services/logging";
 
 export type ErrorResponse = {
   type: "Error";

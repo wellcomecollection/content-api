@@ -1,7 +1,8 @@
 import {
-  SecretsManagerClient,
   GetSecretValueCommand,
+  SecretsManagerClient,
 } from "@aws-sdk/client-secrets-manager";
+
 import log from "./logging";
 
 const client = new SecretsManagerClient({});

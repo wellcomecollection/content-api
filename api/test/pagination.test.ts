@@ -1,9 +1,10 @@
 import { URL } from "url";
-import {
-  paginationResponseGetter,
-  paginationElasticBody,
-} from "@weco/content-api/src/controllers/pagination";
+
 import { HttpError } from "@weco/content-api/src/controllers/error";
+import {
+  paginationElasticBody,
+  paginationResponseGetter,
+} from "@weco/content-api/src/controllers/pagination";
 
 describe("pagination tools", () => {
   describe("paginationElasticBody", () => {

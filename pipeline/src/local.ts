@@ -1,8 +1,10 @@
 import { Context } from "aws-lambda";
+
 import { getElasticClient } from "@weco/content-common/services/elasticsearch";
+
+import { WindowEvent } from "./event";
 import { createHandler } from "./handler";
 import { createPrismicClient } from "./services/prismic";
-import { WindowEvent } from "./event";
 
 const prismicClient = createPrismicClient();
 
