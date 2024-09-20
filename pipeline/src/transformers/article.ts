@@ -20,7 +20,7 @@ import {
 import { linkedDocumentIdentifiers, transformSeries } from "./utils";
 
 const getContributors = (
-  document: prismic.PrismicDocument<WithContributors>
+  document: prismic.PrismicDocument<WithContributors>,
 ): Contributor[] => {
   const { data } = document;
 
@@ -69,7 +69,7 @@ const getContributors = (
 };
 
 function transformLabelType(
-  document: prismic.PrismicDocument<WithArticleFormat>
+  document: prismic.PrismicDocument<WithArticleFormat>,
 ): ArticleFormat {
   const { data } = document;
   return isFilledLinkToDocumentWithData(data.format)
@@ -82,9 +82,9 @@ function transformLabelType(
 }
 
 export const transformArticle = (
-  document: ArticlePrismicDocument
+  document: ArticlePrismicDocument,
 ): ElasticsearchArticle => {
-  const { data, id, first_publication_date } = document;
+  const { data, id, first_publication_date: firstPublicationDate } = document;
   const primaryImage = data.promo?.[0]?.primary;
 
   const image =
@@ -99,7 +99,7 @@ export const transformArticle = (
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display
   // value and does not affect ordering.
-  const datePublished = data.publishDate || first_publication_date;
+  const datePublished = data.publishDate || firstPublicationDate;
 
   const contributors = getContributors(document);
 
