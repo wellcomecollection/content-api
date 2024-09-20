@@ -33,6 +33,7 @@ describe("content unpublisher", () => {
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           meta: {} as any,
           warnings: [],
           statusCode: 404,
@@ -54,6 +55,7 @@ describe("content unpublisher", () => {
     const mockElasticClient = {
       delete: jest.fn().mockRejectedValue(
         new elasticErrors.ResponseError({
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           meta: {} as any,
           warnings: [],
           statusCode: 400,

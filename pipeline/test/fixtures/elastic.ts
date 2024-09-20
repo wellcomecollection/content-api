@@ -3,8 +3,10 @@ import { Readable } from "node:stream";
 
 export const createElasticBulkHelper = (): [
   jest.Mock<Promise<{ time: number; successful: number }>, [BulkHelperOptions]>,
-  () => any[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  () => any[],
 ] => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const indexedDocuments: any[] = [];
   const mock = jest.fn(async (params: BulkHelperOptions) => {
     // We have to consume the Readable here, which means it can't be read again,
@@ -26,7 +28,7 @@ export const createElasticBulkHelper = (): [
 };
 
 export const createElasticScrollDocuments = <T extends { id: string }>(
-  docs: T[]
+  docs: T[],
 ): jest.Mock<AsyncGenerator<T, void>> =>
   jest.fn(async function* () {
     for (const doc of docs) {

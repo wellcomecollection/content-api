@@ -10,6 +10,7 @@ type NonAddressableContentType = "people";
 type PrismicType = ContentType | NonAddressableContentType;
 
 // Hold snapshots in memory rather than reading from the filesystem for every test
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const snapshotCache = new Map<string, any>();
 const prismicypesCache = new Map<PrismicType, string[]>();
 
@@ -20,7 +21,7 @@ const getSnapshot = <T>(name: string): T => {
     return snapshotCache.get(name);
   }
   return JSON.parse(
-    fs.readFileSync(path.resolve(dataDir, name), { encoding: "utf-8" })
+    fs.readFileSync(path.resolve(dataDir, name), { encoding: "utf-8" }),
   );
 };
 
@@ -38,6 +39,6 @@ export const forEachPrismicSnapshot = <T extends prismic.PrismicDocument>(
   const snapshots = getSnapshots<T>(...prismicypes);
   return <EachFn extends JestGlobal.TestFn | JestGlobal.BlockFn>(
     description: string,
-    testCase: (snapshot: T) => ReturnType<EachFn>
+    testCase: (snapshot: T) => ReturnType<EachFn>,
   ) => test.each(snapshots)(`${description} (document: $type/$id)`, testCase);
 };

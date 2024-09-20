@@ -15,6 +15,7 @@ const elastic404 = () =>
   new elasticErrors.ResponseError({
     statusCode: 404,
     body: undefined,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     meta: {} as any,
     warnings: [],
   });

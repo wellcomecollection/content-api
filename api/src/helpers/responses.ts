@@ -55,6 +55,7 @@ export const mapAggregations = (
 export const resultListResponse = (config: Config) => {
   const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return <R extends Request<any, any, any, any>>(
     req: R,
     searchResponse: SearchResponse<Displayable>,

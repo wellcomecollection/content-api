@@ -5,7 +5,7 @@ export function isNotUndefined<T>(val: T | undefined): val is T {
   return typeof val !== "undefined";
 }
 
-function isString(v: any): v is string {
+function isString(v: unknown): v is string {
   return typeof v === "string";
 }
 
@@ -17,7 +17,7 @@ function isString(v: any): v is string {
  * they add extra validation steps, e.g. removing stray whitespace or null values.
  */
 export function asText(
-  field: prismic.KeyTextField | prismic.RichTextField
+  field: prismic.KeyTextField | prismic.RichTextField,
 ): string | undefined {
   if (isString(field)) {
     // KeyTextField
@@ -36,13 +36,13 @@ export function asTitle(title: prismic.RichTextField): string {
 }
 
 export function isFilledLinkToDocument<T, L, D extends DataInterface>(
-  field: prismic.ContentRelationshipField<T, L, D> | undefined
+  field: prismic.ContentRelationshipField<T, L, D> | undefined,
 ): field is prismic.FilledContentRelationshipField<T, L, D> {
   return isNotUndefined(field) && "id" in field && field.isBroken === false;
 }
 
 export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
-  field: prismic.ContentRelationshipField<T, L, D> | undefined
+  field: prismic.ContentRelationshipField<T, L, D> | undefined,
 ): field is prismic.FilledContentRelationshipField<T, L, D> & {
   data: DataInterface;
 } {
@@ -52,7 +52,7 @@ export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
 // When the Prismic image field is empty (of type EmptyImageFieldImage),
 // it does not have a dimensions object.
 export function isImageLink(
-  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined
+  maybeImage: prismic.EmptyImageFieldImage | PrismicImage | undefined,
 ): maybeImage is PrismicImage {
   return Boolean(maybeImage && maybeImage.dimensions);
 }

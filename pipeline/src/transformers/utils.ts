@@ -16,26 +16,28 @@ type JsonObject = { [Key in string]: JsonValue } & {
 type LinkedDocumentWithData = {
   link_type: "Document";
   id: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any;
 };
 
 // We want to extract IDs only from linked documents (not slices) from which
 // we have denormalised some `data`
 const isLinkedDocumentWithData = (
-  obj: JsonObject
+  obj: JsonObject,
 ): obj is LinkedDocumentWithData =>
-  obj["link_type"] === "Document" && "id" in obj && "data" in obj;
+  obj.link_type === "Document" && "id" in obj && "data" in obj;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
   const getLinkedIdentifiers = (
     root: JsonValue,
-    identifiers: Set<string>
+    identifiers: Set<string>,
   ): Set<string> => {
     const descend = (arr: JsonValue[]) =>
       new Set(
         ...arr.flatMap((nextRoot) =>
-          getLinkedIdentifiers(nextRoot, identifiers)
-        )
+          getLinkedIdentifiers(nextRoot, identifiers),
+        ),
       );
 
     if (typeof root === "object") {
@@ -57,7 +59,7 @@ export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
 };
 
 export const transformSeries = (
-  document: PrismicDocument<WithSeries>
+  document: PrismicDocument<WithSeries>,
 ): Series => {
   return document.data.series.flatMap(({ series }) =>
     isFilledLinkToDocumentWithData(series)
@@ -69,11 +71,11 @@ export const transformSeries = (
                 .flatMap(({ contributor }) =>
                   isFilledLinkToDocumentWithData(contributor)
                     ? asText(contributor.data.name)
-                    : []
+                    : [],
                 )
                 .filter(isNotUndefined)
             : [],
         }
-      : []
+      : [],
   );
 };
