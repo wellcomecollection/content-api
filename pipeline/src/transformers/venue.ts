@@ -98,7 +98,7 @@ export const transformVenue = (
         title,
         title
           .toLowerCase()
-          .replace(new RegExp(/[èéêë]/g), "e")
+          .replace(/[èéêë]/g, "e")
           .replace(/\s+/g, "-"),
       ],
       id,
