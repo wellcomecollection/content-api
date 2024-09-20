@@ -6,10 +6,29 @@ type NonEmptyArray<T> = [T, ...T[]];
 
 type QueryValidatorConfig<Name, AllowedValue> = {
   name: StringLiteral<Name>;
-  allowed: ReadonlyArray<StringLiteral<AllowedValue>>;
+  allowed: readonly StringLiteral<AllowedValue>[];
   defaultValue?: Readonly<StringLiteral<AllowedValue>>;
   singleValue?: boolean;
 };
+
+const quoted = (str: string) => `'${str}'`;
+
+// For listing items (no Oxford comma)
+const readableList = (
+  arr: readonly string[],
+  conjunction: "and" | "or" = "and",
+): string => {
+  if (arr.length === 0) {
+    return "";
+  }
+  const quotes = arr.map(quoted);
+  return arr.length > 1
+    ? `${quotes.slice(0, -1).join(", ")} ${conjunction} ${
+        quotes[quotes.length - 1]
+      }`
+    : quotes[0];
+};
+
 export const queryValidator = <Name, AllowedValue>({
   name,
   allowed,
@@ -18,7 +37,7 @@ export const queryValidator = <Name, AllowedValue>({
 }: QueryValidatorConfig<Name, AllowedValue>) => {
   const allowedSet = new Set(allowed);
   return <Query extends { [key in typeof name]?: string }>(
-    query: Query
+    query: Query,
   ): NonEmptyArray<AllowedValue> | undefined => {
     const providedValues = query[name]?.split(",");
     if (providedValues === undefined) {
@@ -39,10 +58,10 @@ export const queryValidator = <Name, AllowedValue>({
         status: 400,
         label: "Bad Request",
         description: `${name}: ${readableList(
-          invalidValues
+          invalidValues,
         )} ${invalidMessage}. Please choose one of ${readableList(
           allowed,
-          "or"
+          "or",
         )}`,
       });
     }
@@ -66,27 +85,9 @@ export const validateDate = (input: string): Date => {
       status: 400,
       label: "Bad Request",
       description: `${quoted(
-        input
+        input,
       )} is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
     });
   }
   return date;
-};
-
-const quoted = (str: string) => `'${str}'`;
-
-// For listing items (no Oxford comma)
-const readableList = (
-  arr: readonly string[],
-  conjunction: "and" | "or" = "and"
-): string => {
-  if (arr.length === 0) {
-    return "";
-  }
-  const quotes = arr.map(quoted);
-  return arr.length > 1
-    ? `${quotes.slice(0, -1).join(", ")} ${conjunction} ${
-        quotes[quotes.length - 1]
-      }`
-    : quotes[0];
 };
