@@ -1,18 +1,20 @@
-import { Request } from "express";
 import {
   AggregationsAggregate,
   AggregationsStringTermsBucket,
   SearchResponse,
-} from "@elastic/elasticsearch/lib/api/types";
-import { Displayable } from "../types";
+} from '@elastic/elasticsearch/lib/api/types';
+import { Request } from 'express';
+
+import { Config } from '@weco/content-api/config';
+import { paginationResponseGetter } from '@weco/content-api/src/controllers/pagination';
+import { Displayable } from '@weco/content-api/src/types';
 import {
   AggregationBucket,
   Aggregations,
   ResultList,
-} from "../types/responses";
-import { Config } from "../../config";
-import { paginationResponseGetter } from "../controllers/pagination";
-import { isNotUndefined } from "./index";
+} from '@weco/content-api/src/types/responses';
+
+import { isNotUndefined } from './index';
 
 const mapBucket = (
   bucket: AggregationsStringTermsBucket
@@ -22,12 +24,12 @@ const mapBucket = (
   // should know about it
   data: JSON.parse(bucket.key),
   count: bucket.doc_count,
-  type: "AggregationBucket",
+  type: 'AggregationBucket',
 });
 
 // Sort by count (descending) and then by ID (ascending)
 const compareBucket = (a: AggregationBucket, b: AggregationBucket) =>
-  b.count - a.count || (a.data.id ?? "").localeCompare(b.data.id ?? "");
+  b.count - a.count || (a.data.id ?? '').localeCompare(b.data.id ?? '');
 
 export const mapAggregations = (
   elasticAggs: AggregationsAggregate
@@ -41,25 +43,26 @@ export const mapAggregations = (
 
       const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
       const allBuckets = [...buckets, ...selfFilterBuckets]
-        .filter((b) => {
+        .filter(b => {
           const result = isNotUndefined(b) && !bucketKeys.has(b.key);
           bucketKeys.add(b?.key);
           return result;
         })
         .map(mapBucket)
         .sort(compareBucket);
-      return [[name, { buckets: allBuckets, type: "Aggregation" }]];
+      return [[name, { buckets: allBuckets, type: 'Aggregation' }]];
     })
   );
 
 export const resultListResponse = (config: Config) => {
   const getPaginationResponse = paginationResponseGetter(config.publicRootUrl);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return <R extends Request<any, any, any, any>>(
     req: R,
     searchResponse: SearchResponse<Displayable>
   ): ResultList => {
-    const results = searchResponse.hits.hits.flatMap((hit) =>
+    const results = searchResponse.hits.hits.flatMap(hit =>
       hit._source ? [hit._source.display] : []
     );
 
@@ -73,9 +76,9 @@ export const resultListResponse = (config: Config) => {
     );
 
     const totalResults =
-      typeof searchResponse.hits.total === "number"
+      typeof searchResponse.hits.total === 'number'
         ? searchResponse.hits.total
-        : searchResponse.hits.total?.value ?? 0;
+        : (searchResponse.hits.total?.value ?? 0);
 
     const paginationResponse = getPaginationResponse({
       requestUrl,
@@ -83,7 +86,7 @@ export const resultListResponse = (config: Config) => {
     });
 
     return {
-      type: "ResultList",
+      type: 'ResultList',
       results,
       aggregations,
       ...paginationResponse,

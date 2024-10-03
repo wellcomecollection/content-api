@@ -1,9 +1,9 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const environmentSchema = z.object({
   SECRET_NAME: z.string(),
   EVENT_BUS_NAME: z.string(),
-  EVENT_TRIGGER: z.string().optional().default("document-unpublish"),
+  EVENT_TRIGGER: z.string().optional().default('document-unpublish'),
 });
 const environment = environmentSchema.parse(process.env);
 

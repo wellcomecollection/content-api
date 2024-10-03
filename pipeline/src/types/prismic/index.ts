@@ -1,17 +1,18 @@
-import * as prismic from "@prismicio/client";
-import { PrismicImage } from "./images";
+import * as prismic from '@prismicio/client';
 
-export { ArticlePrismicDocument, WithArticleFormat } from "./articles";
+import { PrismicImage } from './images';
+
+export { ArticlePrismicDocument, WithArticleFormat } from './articles';
 export {
   EventPrismicDocument,
   WithEventFormat,
   WithLocations,
   WithInterpretations,
-} from "./eventDocuments";
-export { Contributors, WithContributors } from "./contributors";
-export { ContentType, PrismicFormat, ArticleFormatId } from "./formats";
-export { PrismicImage } from "./images";
-export { WithSeries } from "./series";
+} from './eventDocuments';
+export { Contributors, WithContributors } from './contributors';
+export { ContentType, PrismicFormat, ArticleFormatId } from './formats';
+export { PrismicImage } from './images';
+export { WithSeries } from './series';
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client
@@ -30,15 +31,14 @@ export type DataInterface = Record<
  *     ContentRelationshipField<'formats', 'en-gb', DataInterface>
  *
  */
-export type InferDataInterface<T> = T extends prismic.PrismicDocument<
-  infer DataInterface
->
-  ? DataInterface
-  : never;
+export type InferDataInterface<T> =
+  T extends prismic.PrismicDocument<infer DataInterface>
+    ? DataInterface
+    : never;
 
 type Promo = { caption: prismic.RichTextField; image: PrismicImage };
 export type PromoSliceZone = prismic.SliceZone<
-  prismic.Slice<"editorialImage", Promo>
+  prismic.Slice<'editorialImage', Promo>
 >;
 
 export type CommonPrismicFields = {

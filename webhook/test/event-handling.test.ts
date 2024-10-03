@@ -1,16 +1,17 @@
-import type { EventBridgeClient } from "@aws-sdk/client-eventbridge";
-import { createHandler } from "../src/handler";
-import { mockEvent, MockEventConfig, mockWebhook } from "./mock-event";
-import { APIGatewayProxyStructuredResultV2, Context } from "aws-lambda";
+import type { EventBridgeClient } from '@aws-sdk/client-eventbridge';
+import { APIGatewayProxyStructuredResultV2, Context } from 'aws-lambda';
 
-describe("Event handling", () => {
+import { mockEvent, MockEventConfig, mockWebhook } from './mock-event';
+import { createHandler } from '../src/handler';
+
+describe('Event handling', () => {
   const testEventBridgeClient = {
     send: jest.fn().mockResolvedValue({ FailedEntryCount: 0 }),
   } as unknown as EventBridgeClient;
   const testConfig = {
-    secret: "test-secret",
-    eventBusName: "test-bus",
-    trigger: "test-trigger",
+    secret: 'test-secret',
+    eventBusName: 'test-bus',
+    trigger: 'test-trigger',
   };
   const testHandler = createHandler(
     { eventBridge: testEventBridgeClient },
@@ -28,78 +29,78 @@ describe("Event handling", () => {
     return result.statusCode;
   };
 
-  it("Rejects non-POST requests", async () => {
-    expect(await status({ method: "GET" })).toBe(405);
+  it('Rejects non-POST requests', async () => {
+    expect(await status({ method: 'GET' })).toBe(405);
   });
 
-  it("Rejects requests with a body that is not a valid Prismic webhook type", async () => {
-    expect(await status({ method: "POST", body: "beep-boop" })).toBe(400);
+  it('Rejects requests with a body that is not a valid Prismic webhook type', async () => {
+    expect(await status({ method: 'POST', body: 'beep-boop' })).toBe(400);
   });
 
   it("Rejects requests that don't contain a header specifying their trigger", async () => {
     expect(
       await status({
-        method: "POST",
+        method: 'POST',
         webhook: mockWebhook(),
       })
     ).toBe(400);
   });
 
-  it("Rejects requests without a secret", async () => {
+  it('Rejects requests without a secret', async () => {
     expect(
       await status({
-        method: "POST",
+        method: 'POST',
         webhook: mockWebhook(),
-        headers: { "x-weco-prismic-trigger": testConfig.trigger },
+        headers: { 'x-weco-prismic-trigger': testConfig.trigger },
       })
     ).toBe(401);
   });
 
-  it("Rejects requests with an invalid secret", async () => {
+  it('Rejects requests with an invalid secret', async () => {
     expect(
       await status({
-        method: "POST",
-        webhook: mockWebhook({ secret: "wrong-secret" }),
-        headers: { "x-weco-prismic-trigger": testConfig.trigger },
+        method: 'POST',
+        webhook: mockWebhook({ secret: 'wrong-secret' }),
+        headers: { 'x-weco-prismic-trigger': testConfig.trigger },
       })
     ).toBe(403);
   });
 
-  it("Accepts test webhook requests", async () => {
+  it('Accepts test webhook requests', async () => {
     expect(
       await status({
-        method: "POST",
+        method: 'POST',
         webhook: mockWebhook({
           secret: testConfig.secret,
-          type: "test-trigger",
+          type: 'test-trigger',
         }),
-        headers: { "x-weco-prismic-trigger": testConfig.trigger },
+        headers: { 'x-weco-prismic-trigger': testConfig.trigger },
       })
     ).toBe(200);
   });
 
-  it("Accepts API update webhook requests", async () => {
+  it('Accepts API update webhook requests', async () => {
     expect(
       await status({
-        method: "POST",
+        method: 'POST',
         webhook: mockWebhook({
           secret: testConfig.secret,
-          type: "api-update",
+          type: 'api-update',
         }),
-        headers: { "x-weco-prismic-trigger": testConfig.trigger },
+        headers: { 'x-weco-prismic-trigger': testConfig.trigger },
       })
     ).toBe(202);
   });
 
-  it("Publishes API update webhook requests to EventBridge", async () => {
+  it('Publishes API update webhook requests to EventBridge', async () => {
     const webhook = mockWebhook({
       secret: testConfig.secret,
-      type: "api-update",
+      type: 'api-update',
     });
     expect(
       await status({
-        method: "POST",
-        headers: { "x-weco-prismic-trigger": testConfig.trigger },
+        method: 'POST',
+        headers: { 'x-weco-prismic-trigger': testConfig.trigger },
         webhook,
       })
     ).toBe(202);
@@ -111,7 +112,7 @@ describe("Event handling", () => {
     expect(lastCall.input.Entries[0].DetailType).toBe(testConfig.trigger);
     expect(JSON.parse(lastCall.input.Entries[0].Detail)).toEqual({
       ...webhook,
-      secret: "<sensitive>",
+      secret: '<sensitive>',
     });
   });
 });

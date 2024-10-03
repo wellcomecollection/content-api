@@ -1,4 +1,4 @@
-import * as prismic from "@prismicio/client";
+import * as prismic from '@prismicio/client';
 
 export type PrismicRegularOpeningDay = prismic.GroupField<{
   startDateTime: prismic.TimestampField | null;

@@ -1,11 +1,11 @@
-import { TermsFilter } from "./common";
+import { TermsFilter } from './common';
 
 export const venuesFilter = {
   title: (titles: string[]): TermsFilter => ({
     values: titles,
     esQuery: {
       terms: {
-        "filter.title": titles,
+        'filter.title': titles,
       },
     },
   }),
@@ -13,7 +13,7 @@ export const venuesFilter = {
     values: ids,
     esQuery: {
       terms: {
-        "filter.id": ids,
+        'filter.id': ids,
       },
     },
   }),

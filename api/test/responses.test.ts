@@ -1,7 +1,7 @@
-import { mapAggregations } from "../src/helpers/responses";
+import { mapAggregations } from '@weco/content-api/src/helpers/responses';
 
-describe("mapAggregations", () => {
-  it("maps aggregations responses from ES to our expected response format", () => {
+describe('mapAggregations', () => {
+  it('maps aggregations responses from ES to our expected response format', () => {
     const elasticAggregations = {
       format: {
         doc_count_error_upper_bound: 0,
@@ -57,7 +57,7 @@ describe("mapAggregations", () => {
     expect(mappedAggregations).toMatchSnapshot();
   });
 
-  it("gets buckets from a terms sub-aggregation if the top level aggregation is a single-bucket filter aggregation", () => {
+  it('gets buckets from a terms sub-aggregation if the top level aggregation is a single-bucket filter aggregation', () => {
     const elasticAggregations = {
       format: {
         doc_count: 19,
@@ -86,7 +86,7 @@ describe("mapAggregations", () => {
     );
   });
 
-  it("adds self-filter buckets to the list", () => {
+  it('adds self-filter buckets to the list', () => {
     const elasticAggregations = {
       format: {
         doc_count: 7,
@@ -125,24 +125,24 @@ describe("mapAggregations", () => {
     expect(mappedAggregations.format.buckets).toContainEqual({
       count: 0,
       data: {
-        id: "ZBH6PRQAAIrrFirA",
-        label: "Short film",
-        type: "ArticleFormat",
+        id: 'ZBH6PRQAAIrrFirA',
+        label: 'Short film',
+        type: 'ArticleFormat',
       },
-      type: "AggregationBucket",
+      type: 'AggregationBucket',
     });
     expect(mappedAggregations.format.buckets).toContainEqual({
       count: 1,
       data: {
-        id: "W7d_ghAAALWY3Ujc",
-        label: "Comic",
-        type: "ArticleFormat",
+        id: 'W7d_ghAAALWY3Ujc',
+        label: 'Comic',
+        type: 'ArticleFormat',
       },
-      type: "AggregationBucket",
+      type: 'AggregationBucket',
     });
   });
 
-  it("does not duplicate self-filter buckets", () => {
+  it('does not duplicate self-filter buckets', () => {
     const elasticAggregations = {
       format: {
         doc_count: 19,
@@ -177,13 +177,13 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    const bucketKeys = mappedAggregations.format.buckets.map((b) => b.data);
+    const bucketKeys = mappedAggregations.format.buckets.map(b => b.data);
     expect(new Set(bucketKeys).size).toBe(bucketKeys.length);
   });
 
-  it("returns buckets in descending order of count and ascending order of ID", () => {
+  it('returns buckets in descending order of count and ascending order of ID', () => {
     const elasticAggregations = {
-      "contributors.contributor": {
+      'contributors.contributor': {
         doc_count: 37,
         terms: {
           doc_count_error_upper_bound: 0,
@@ -194,12 +194,12 @@ describe("mapAggregations", () => {
               doc_count: 6,
             },
             {
-              key: '{"type":"Person","id":"Ynz5MBAAAJ-4L-MU","label":"Nicole Coffield"}',
-              doc_count: 6,
+              key: '{"type":"Person","id":"XS260xAAACUAEfA6","label":"Niven Govinden"}',
+              doc_count: 1,
             },
             {
-              key: '{"type":"Person","id":"XFMf5hUAAPGIqj79","label":"Thomas S G Farnetti"}',
-              doc_count: 4,
+              key: '{"type":"Person","id":"Ynz5MBAAAJ-4L-MU","label":"Nicole Coffield"}',
+              doc_count: 6,
             },
             {
               key: '{"type":"Person","id":"W5e9vyYAACYAMqhi","label":"Elena Carter"}',
@@ -210,63 +210,23 @@ describe("mapAggregations", () => {
               doc_count: 3,
             },
             {
-              key: '{"type":"Person","id":"XA5EPBEAAMr9xwoh","label":"Kate Wilkinson"}',
-              doc_count: 2,
-            },
-            {
-              key: '{"type":"Person","id":"XBvc8RAAAEpjoYeX","label":"Benjamin Gilbert"}',
-              doc_count: 2,
-            },
-            {
-              key: '{"type":"Person","id":"XF1PQhAAAJIpjoT7","label":"Camilla Greenwell"}',
-              doc_count: 2,
+              key: '{"type":"Person","id":"W6ooGxIAACMAoWGo","label":"Taras Young"}',
+              doc_count: 1,
             },
             {
               key: '{"type":"Person","id":"W-VbKhEAAJWKgZDR","label":"Stevyn Colgan"}',
               doc_count: 1,
             },
             {
-              key: '{"type":"Person","id":"W18yKyYAACUAz3oo","label":"Jamie Hale"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W1crUiYAACYArC-y","label":"Sarifa Patel"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W2lv4yYAACQAXk5G","label":"Kristin Hohenadel"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W2q3eCkAACkA7XGA","label":"Lil Sullivan"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W6ooGxIAACMAoWGo","label":"Taras Young"}',
-              doc_count: 1,
-            },
-            {
               key: '{"type":"Person","id":"W8RPPBEAAE8Eu8Gj","label":"Ken Hollings"}',
-              doc_count: 1,
+              doc_count: 2,
             },
             {
-              key: '{"type":"Person","id":"WSQ9rygAAA9xtwgQ","label":"Elissavet Ntoulia"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"WSRjBCgAAKpwt6w9","label":"Helen Babbs"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"WT5y6S0AACwAdxSL","label":"Anna Faherty"}',
-              doc_count: 1,
+              key: '{"type":"Person","id":"XFMf5hUAAPGIqj79","label":"Thomas S G Farnetti"}',
+              doc_count: 4,
             },
             {
               key: '{"type":"Person","id":"XII-5hAAACrBKerK","label":"Giovanni Tiso"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"XS260xAAACUAEfA6","label":"Niven Govinden"}',
               doc_count: 1,
             },
           ],
@@ -288,14 +248,13 @@ describe("mapAggregations", () => {
     };
 
     const mappedAggregations = mapAggregations(elasticAggregations);
-    const buckets = mappedAggregations["contributors.contributor"].buckets;
+    const buckets = mappedAggregations['contributors.contributor'].buckets;
     for (let i = 0; i < buckets.length - 1; i++) {
       expect(buckets[i].count).toBeGreaterThanOrEqual(buckets[i + 1].count);
-      if (buckets[i].count === buckets[i + 1].count) {
-        expect(
-          buckets[i].data.id.localeCompare(buckets[i + 1].data.id)
-        ).toBeLessThanOrEqual(0);
-      }
     }
+    // 1st and 2nd buckets have same count, testing that they're correctly sorted based on their id
+    expect(
+      buckets[0].data.id.localeCompare(buckets[1].data.id)
+    ).toBeLessThanOrEqual(0);
   });
 });

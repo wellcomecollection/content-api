@@ -1,17 +1,19 @@
 import {
   Client as ElasticClient,
   errors as elasticErrors,
-} from "@elastic/elasticsearch";
-import { lastValueFrom, from } from "rxjs";
+} from '@elastic/elasticsearch';
+import { from, lastValueFrom } from 'rxjs';
+
 import {
   ensureIndexExists,
   getParentDocumentIDs,
-} from "../src/helpers/elasticsearch";
-import { identifiedDocuments } from "./fixtures/generators";
-import { createElasticScrollDocuments } from "./fixtures/elastic";
+} from '@weco/content-pipeline/src/helpers/elasticsearch';
 
-describe("ensureIndexExists", () => {
-  it("creates an index", async () => {
+import { createElasticScrollDocuments } from './fixtures/elastic';
+import { identifiedDocuments } from './fixtures/generators';
+
+describe('ensureIndexExists', () => {
+  it('creates an index', async () => {
     const createIndex = jest.fn().mockResolvedValue(true);
     const client = {
       indices: {
@@ -19,18 +21,19 @@ describe("ensureIndexExists", () => {
       },
     } as unknown as ElasticClient;
 
-    await ensureIndexExists(client, { index: "test" });
-    expect(createIndex).toHaveBeenCalledOnceWith({ index: "test" });
+    await ensureIndexExists(client, { index: 'test' });
+    expect(createIndex).toHaveBeenCalledOnceWith({ index: 'test' });
   });
 
-  it("updates the mapping if the index already exists", async () => {
+  it('updates the mapping if the index already exists', async () => {
     const createIndex = jest.fn().mockRejectedValue(
       new elasticErrors.ResponseError({
         statusCode: 400,
         body: {
-          type: "resource_already_exists_exception",
+          type: 'resource_already_exists_exception',
         },
         warnings: [],
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         meta: {} as any,
       })
     );
@@ -42,25 +45,25 @@ describe("ensureIndexExists", () => {
       },
     } as unknown as ElasticClient;
 
-    const testMapping = { properties: { field: { type: "keyword" } } } as const;
+    const testMapping = { properties: { field: { type: 'keyword' } } } as const;
     await ensureIndexExists(client, {
-      index: "test",
+      index: 'test',
       mappings: testMapping,
     });
 
     expect(createIndex).toHaveBeenCalledOnceWith({
-      index: "test",
+      index: 'test',
       mappings: testMapping,
     });
     expect(putMapping).toHaveBeenCalledOnceWith({
-      index: "test",
+      index: 'test',
       ...testMapping,
     });
   });
 });
 
-describe("getParentDocumentIDs", () => {
-  it("queries for batches of potential child document IDs", async () => {
+describe('getParentDocumentIDs', () => {
+  it('queries for batches of potential child document IDs', async () => {
     const totalDocs = 100;
     const batchSize = 10;
 
@@ -75,9 +78,9 @@ describe("getParentDocumentIDs", () => {
     const finalDocumentId = await lastValueFrom(
       from(documents).pipe(
         getParentDocumentIDs(testClient, {
-          index: "test",
-          identifiersField: "childIds",
-          batchSize: batchSize,
+          index: 'test',
+          identifiersField: 'childIds',
+          batchSize,
         })
       )
     );

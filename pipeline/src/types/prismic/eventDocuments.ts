@@ -1,11 +1,12 @@
-import * as prismic from "@prismicio/client";
-import { InferDataInterface, CommonPrismicFields, PrismicFormat } from ".";
-import { WithSeries } from "./series";
+import * as prismic from '@prismicio/client';
+
+import { CommonPrismicFields, InferDataInterface, PrismicFormat } from '.';
+import { WithSeries } from './series';
 
 export type WithEventFormat = {
   format: prismic.ContentRelationshipField<
-    "event-formats",
-    "en-gb",
+    'event-formats',
+    'en-gb',
     InferDataInterface<PrismicFormat>
   >;
 };
@@ -14,8 +15,8 @@ export type WithLocations = {
   isOnline: boolean;
   locations: prismic.GroupField<{
     location: prismic.ContentRelationshipField<
-      "places",
-      "en-gb",
+      'places',
+      'en-gb',
       { title: prismic.RichTextField }
     >;
   }>;
@@ -24,8 +25,8 @@ export type WithLocations = {
 export type WithInterpretations = {
   interpretations: prismic.GroupField<{
     interpretationType: prismic.ContentRelationshipField<
-      "interpretation-types",
-      "en-gb",
+      'interpretation-types',
+      'en-gb',
       { title: prismic.RichTextField }
     >;
   }>;
@@ -34,8 +35,8 @@ export type WithInterpretations = {
 export type WithAudiences = {
   audiences: prismic.GroupField<{
     audience: prismic.ContentRelationshipField<
-      "audience",
-      "en-gb",
+      'audience',
+      'en-gb',
       { title: prismic.RichTextField }
     >;
   }>;
@@ -46,8 +47,8 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     times: prismic.GroupField<{
       startDateTime: prismic.TimestampField;
       endDateTime: prismic.TimestampField;
-      isFullyBooked: "yes" | null;
-      onlineIsFullyBooked: "yes" | null;
+      isFullyBooked: 'yes' | null;
+      onlineIsFullyBooked: 'yes' | null;
     }>;
     availableOnline: boolean;
   } & WithEventFormat &
@@ -56,5 +57,5 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     WithSeries &
     WithAudiences &
     CommonPrismicFields,
-  "events"
+  'events'
 >;

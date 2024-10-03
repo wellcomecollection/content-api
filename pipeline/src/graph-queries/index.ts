@@ -1,10 +1,10 @@
-import articlesQuery from "./articles";
-import webcomicsQuery from "./webcomics";
-import eventDocumentsQuery from "./eventDocuments";
-import venueQuery from "./venues";
+import articlesQuery from './articles';
+import eventDocumentsQuery from './eventDocuments';
+import venueQuery from './venues';
+import webcomicsQuery from './webcomics';
 
 export const wrapQueries = (...queries: string[]) => `{
-  ${queries.join("\n")}
+  ${queries.join('\n')}
 }`;
 
 export { articlesQuery, webcomicsQuery, eventDocumentsQuery, venueQuery };
