@@ -2,7 +2,6 @@ const sharedPlugins = ['import', 'jest', 'prettier', 'standard'];
 
 const sharedExtends = [
   'standard',
-  'plugin:jest-playwright/recommended',
   'prettier',
   'plugin:prettier/recommended', // Should be the last extension https://github.com/prettier/eslint-plugin-prettier#recommended-configuration
 ];
@@ -70,14 +69,14 @@ module.exports = {
   },
   overrides: [
     {
+      files: ['*test.ts', '*test.tsx'],
+      extends: ['plugin:jest/recommended'],
+    },
+    {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       plugins: [...sharedPlugins, '@typescript-eslint'],
-      extends: [
-        ...sharedExtends,
-        'plugin:@typescript-eslint/recommended',
-        'plugin:jest-playwright/recommended',
-      ],
+      extends: [...sharedExtends, 'plugin:@typescript-eslint/recommended'],
       rules: {
         ...sharedRules,
         'no-use-before-define': 'off',

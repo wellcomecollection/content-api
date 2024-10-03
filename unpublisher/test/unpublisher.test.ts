@@ -44,12 +44,12 @@ describe('content unpublisher', () => {
 
     const testUnpublisher = createUnpublisher(testIndex);
 
-    return expect(
+    await expect(
       testUnpublisher(
         { elastic: mockElasticClient as unknown as ElasticClient },
         documents
       )
-    ).resolves;
+    ).toResolve();
   });
 
   it('fails when Elasticsearch returns an unexpected error', async () => {

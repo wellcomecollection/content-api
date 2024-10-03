@@ -194,12 +194,12 @@ describe('mapAggregations', () => {
               doc_count: 6,
             },
             {
-              key: '{"type":"Person","id":"Ynz5MBAAAJ-4L-MU","label":"Nicole Coffield"}',
-              doc_count: 6,
+              key: '{"type":"Person","id":"XS260xAAACUAEfA6","label":"Niven Govinden"}',
+              doc_count: 1,
             },
             {
-              key: '{"type":"Person","id":"XFMf5hUAAPGIqj79","label":"Thomas S G Farnetti"}',
-              doc_count: 4,
+              key: '{"type":"Person","id":"Ynz5MBAAAJ-4L-MU","label":"Nicole Coffield"}',
+              doc_count: 6,
             },
             {
               key: '{"type":"Person","id":"W5e9vyYAACYAMqhi","label":"Elena Carter"}',
@@ -210,63 +210,23 @@ describe('mapAggregations', () => {
               doc_count: 3,
             },
             {
-              key: '{"type":"Person","id":"XA5EPBEAAMr9xwoh","label":"Kate Wilkinson"}',
-              doc_count: 2,
-            },
-            {
-              key: '{"type":"Person","id":"XBvc8RAAAEpjoYeX","label":"Benjamin Gilbert"}',
-              doc_count: 2,
-            },
-            {
-              key: '{"type":"Person","id":"XF1PQhAAAJIpjoT7","label":"Camilla Greenwell"}',
-              doc_count: 2,
+              key: '{"type":"Person","id":"W6ooGxIAACMAoWGo","label":"Taras Young"}',
+              doc_count: 1,
             },
             {
               key: '{"type":"Person","id":"W-VbKhEAAJWKgZDR","label":"Stevyn Colgan"}',
               doc_count: 1,
             },
             {
-              key: '{"type":"Person","id":"W18yKyYAACUAz3oo","label":"Jamie Hale"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W1crUiYAACYArC-y","label":"Sarifa Patel"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W2lv4yYAACQAXk5G","label":"Kristin Hohenadel"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W2q3eCkAACkA7XGA","label":"Lil Sullivan"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"W6ooGxIAACMAoWGo","label":"Taras Young"}',
-              doc_count: 1,
-            },
-            {
               key: '{"type":"Person","id":"W8RPPBEAAE8Eu8Gj","label":"Ken Hollings"}',
-              doc_count: 1,
+              doc_count: 2,
             },
             {
-              key: '{"type":"Person","id":"WSQ9rygAAA9xtwgQ","label":"Elissavet Ntoulia"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"WSRjBCgAAKpwt6w9","label":"Helen Babbs"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"WT5y6S0AACwAdxSL","label":"Anna Faherty"}',
-              doc_count: 1,
+              key: '{"type":"Person","id":"XFMf5hUAAPGIqj79","label":"Thomas S G Farnetti"}',
+              doc_count: 4,
             },
             {
               key: '{"type":"Person","id":"XII-5hAAACrBKerK","label":"Giovanni Tiso"}',
-              doc_count: 1,
-            },
-            {
-              key: '{"type":"Person","id":"XS260xAAACUAEfA6","label":"Niven Govinden"}',
               doc_count: 1,
             },
           ],
@@ -291,11 +251,10 @@ describe('mapAggregations', () => {
     const buckets = mappedAggregations['contributors.contributor'].buckets;
     for (let i = 0; i < buckets.length - 1; i++) {
       expect(buckets[i].count).toBeGreaterThanOrEqual(buckets[i + 1].count);
-      if (buckets[i].count === buckets[i + 1].count) {
-        expect(
-          buckets[i].data.id.localeCompare(buckets[i + 1].data.id)
-        ).toBeLessThanOrEqual(0);
-      }
     }
+    // 1st and 2nd buckets have same count, testing that they're correctly sorted based on their id
+    expect(
+      buckets[0].data.id.localeCompare(buckets[1].data.id)
+    ).toBeLessThanOrEqual(0);
   });
 });
