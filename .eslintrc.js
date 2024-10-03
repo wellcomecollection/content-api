@@ -52,6 +52,14 @@ const sharedRules = {
   ],
 };
 
+const ignorePatterns = [
+  '/**/node_modules/',
+  '/**/libs/',
+  '/**/lib/',
+  '/**/_next/',
+  '/**/dist/',
+];
+
 module.exports = {
   parser: '@babel/eslint-parser',
   plugins: sharedPlugins,
@@ -59,6 +67,7 @@ module.exports = {
     'jest/globals': true,
   },
   extends: sharedExtends,
+  ignorePatterns,
   rules: sharedRules,
   reportUnusedDisableDirectives: true,
   parserOptions: {
@@ -71,11 +80,11 @@ module.exports = {
     {
       // we have non-test files in the pipeline/test directory
       // this ensures the jest rules only apply to test files
-      files: ['*test.ts', '*test.tsx'],
+      files: ['*test.ts'],
       extends: ['plugin:jest/recommended'],
     },
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts'],
       parser: '@typescript-eslint/parser',
       plugins: [...sharedPlugins, '@typescript-eslint'],
       extends: [...sharedExtends, 'plugin:@typescript-eslint/recommended'],
