@@ -1,8 +1,8 @@
-import { Client, errors as elasticErrors } from "@elastic/elasticsearch";
+import { Client, errors as elasticErrors } from '@elastic/elasticsearch';
 import {
   IndicesIndexSettings,
   MappingTypeMapping,
-} from "@elastic/elasticsearch/lib/api/types";
+} from '@elastic/elasticsearch/lib/api/types';
 import {
   bufferCount,
   from,
@@ -11,9 +11,11 @@ import {
   Observable,
   OperatorFunction,
   pipe,
-} from "rxjs";
-import log from "@weco/content-common/services/logging";
-import { observableToStream } from "./observableToStream";
+} from 'rxjs';
+
+import log from '@weco/content-common/services/logging';
+
+import { observableToStream } from './observableToStream';
 
 const BULK_BATCH_SIZE = 1000;
 
@@ -33,7 +35,7 @@ export const ensureIndexExists = async (
   } catch (e) {
     if (
       e instanceof elasticErrors.ResponseError &&
-      e.message.includes("resource_already_exists_exception")
+      e.message.includes('resource_already_exists_exception')
     ) {
       log.info(`Index '${indexConfig.index}' already exists`);
       // make sure the index mapping is up-to-date
@@ -51,7 +53,7 @@ export type HasIdentifier = {
   id: string;
 };
 
-type BulkIndexResult<Doc> = {
+type BulkIndexResult = {
   successfulIds: Set<string>;
   time: number;
 };
@@ -60,7 +62,7 @@ export const bulkIndexDocuments = async <T extends HasIdentifier>(
   elasticClient: Client,
   index: string,
   documents: Observable<T>
-): Promise<BulkIndexResult<T>> => {
+): Promise<BulkIndexResult> => {
   const datasource = observableToStream(documents);
   const successfulIds = new Set<string>();
   const failed: T[] = [];
@@ -106,15 +108,15 @@ export const getParentDocumentIDs = <T extends { id: string }>(
   }: ParentDocumentIdsConfig
 ): OperatorFunction<T, string> =>
   pipe(
-    map((doc) => doc.id),
+    map(doc => doc.id),
     bufferCount(batchSize),
-    mergeMap((maybeChildIds) => {
+    mergeMap(maybeChildIds => {
       const scroll = elasticClient.helpers.scrollDocuments<HasIdentifier>({
         index,
         // If _source is falsy, which should work from a pure ES perspective, the helper returns
         // an empty iterable: as we're already stating that we're scrolling `HasIdentifier`s, we're
         // safe to specify that the documents have `id`s in their sources.
-        _source: ["id"],
+        _source: ['id'],
         query: {
           terms: {
             [identifiersField]: maybeChildIds,
@@ -122,6 +124,6 @@ export const getParentDocumentIDs = <T extends { id: string }>(
         },
       });
 
-      return from(scroll).pipe(map((doc) => doc.id));
+      return from(scroll).pipe(map(doc => doc.id));
     })
   );

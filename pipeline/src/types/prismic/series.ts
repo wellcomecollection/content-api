@@ -1,5 +1,6 @@
-import * as prismic from "@prismicio/client";
-import { WithContributors } from "./contributors";
+import * as prismic from '@prismicio/client';
+
+import { WithContributors } from './contributors';
 
 export type WithSeries = {
   series: Series;
@@ -10,7 +11,7 @@ type Series = prismic.GroupField<{
 }>;
 
 type PrismicSeries = prismic.ContentRelationshipField<
-  "webcomic-series" | "series",
-  "en-gb",
+  'webcomic-series' | 'series',
+  'en-gb',
   { title: prismic.RichTextField } & WithContributors
 >;

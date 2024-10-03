@@ -1,9 +1,9 @@
-import { mockedApi } from "./fixtures/api";
+import { mockedApi } from './fixtures/api';
 
-describe("GET /articles/:id", () => {
-  it("returns a document for the given ID", async () => {
-    const testId = "123";
-    const testDoc = { title: "test-article" };
+describe('GET /articles/:id', () => {
+  it('returns a document for the given ID', async () => {
+    const testId = '123';
+    const testDoc = { title: 'test-article' };
     const api = mockedApi([{ id: testId, display: testDoc }]);
 
     const response = await api.get(`/articles/${testId}`);
@@ -11,7 +11,7 @@ describe("GET /articles/:id", () => {
     expect(response.body).toStrictEqual(testDoc);
   });
 
-  it("returns a 404 if no document for the given ID exists", async () => {
+  it('returns a 404 if no document for the given ID exists', async () => {
     const api = mockedApi([]);
 
     const response = await api.get(`/articles/123`);

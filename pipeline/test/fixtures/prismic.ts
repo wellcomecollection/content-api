@@ -1,4 +1,4 @@
-import * as prismic from "@prismicio/client";
+import * as prismic from '@prismicio/client';
 
 export const prismicGet = <T extends prismic.PrismicDocument>(docs: T[]) =>
   jest

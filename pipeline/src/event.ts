@@ -1,7 +1,7 @@
-import parseDuration from "parse-duration";
+import parseDuration from 'parse-duration';
 
 export type WindowEvent = {
-  contentType: "articles" | "events" | "venues" | "all";
+  contentType: 'articles' | 'events' | 'venues' | 'all';
   start?: string;
   end?: string;
   duration?: string;
@@ -42,7 +42,7 @@ export const toBoundedWindow = (event: WindowEvent): TimeWindow => {
       };
     }
     throw new Error(
-      "Window duration must be specified alongside a start or end time"
+      'Window duration must be specified alongside a start or end time'
     );
   }
 
@@ -59,5 +59,5 @@ export const describeWindow = ({ start, end }: TimeWindow): string => {
   if (end) {
     return `before ${end?.toISOString()}`;
   }
-  return "at any time";
+  return 'at any time';
 };

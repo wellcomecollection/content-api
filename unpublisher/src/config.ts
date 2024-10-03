@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 const environmentSchema = z.object({
   PIPELINE_DATE: z.string(),
@@ -7,8 +7,8 @@ const environment = environmentSchema.parse(process.env);
 
 const config = {
   indices: {
-    articlesIndex: "articles",
-    eventdocumentsIndex: "events",
+    articlesIndex: 'articles',
+    eventdocumentsIndex: 'events',
   },
   pipelineDate: environment.PIPELINE_DATE,
 };

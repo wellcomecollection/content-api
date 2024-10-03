@@ -1,9 +1,10 @@
-import { ArticleFormatId } from "../prismic";
-import { Contributor, Image } from ".";
+import { ArticleFormatId } from '@weco/content-pipeline/src/types/prismic';
+
+import { Contributor, Image } from '.';
 
 // Main article type
 export type Article = {
-  type: "Article";
+  type: 'Article';
   id: string;
   title: string;
   publicationDate: string;
@@ -15,7 +16,7 @@ export type Article = {
 
 // Article formats (e.g. webcomics, podcast, interview)
 export type ArticleFormat = {
-  type: "ArticleFormat";
+  type: 'ArticleFormat';
   id: ArticleFormatId;
   label: string;
 };

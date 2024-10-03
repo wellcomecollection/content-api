@@ -1,5 +1,6 @@
-import { AggregationsAggregationContainer } from "@elastic/elasticsearch/lib/api/types";
-import { esQuery, Filter, isTermsFilter } from "./common";
+import { AggregationsAggregationContainer } from '@elastic/elasticsearch/lib/api/types';
+
+import { esQuery, Filter, isTermsFilter } from './common';
 
 // This file contains functions to rewrite terms aggregations and filters
 // in order to fulfil the requirements of a faceting interface as documented
@@ -14,6 +15,7 @@ const excludeValue = <T>(
 ): T[] =>
   Object.entries(record)
     .filter(([key]) => key !== keyToExclude)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .map(([_, value]) => value);
 
 // Modifies a terms aggregation in order to (a) include empty buckets and (b) only include values from a given filter
@@ -21,13 +23,13 @@ const includeEmptyFilterValues = (
   aggregation: AggregationsAggregationContainer,
   filter: Filter
 ): AggregationsAggregationContainer =>
-  "terms" in aggregation && isTermsFilter(filter)
+  'terms' in aggregation && isTermsFilter(filter)
     ? {
         ...aggregation,
         terms: {
           ...aggregation.terms,
           min_doc_count: 0,
-          include: filter.values.map((val) => `.*${val}.*`).join("|"),
+          include: filter.values.map(val => `.*${val}.*`).join('|'),
         },
       }
     : aggregation;

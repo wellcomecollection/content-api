@@ -1,17 +1,19 @@
-import { argv } from "node:process";
-import { Context } from "aws-lambda";
-import { getElasticClient } from "@weco/content-common/services/elasticsearch";
-import { getSecret } from "@weco/content-common/services/aws";
-import { createHandler } from "./handler";
-import { eventBridgePrismicEvent } from "./event";
+import { Context } from 'aws-lambda';
+import { argv } from 'node:process';
 
+import { getElasticClient } from '@weco/content-common/services/elasticsearch';
+
+import { eventBridgePrismicEvent } from './event';
+import { createHandler } from './handler';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const [_1, _2, ...deletionIds] = argv;
 
 getElasticClient({
-  pipelineDate: "2023-03-24",
-  serviceName: "unpublisher",
-  hostEndpointAccess: "public",
-}).then(async (elasticClient) => {
+  pipelineDate: '2023-03-24',
+  serviceName: 'unpublisher',
+  hostEndpointAccess: 'public',
+}).then(async elasticClient => {
   const handler = createHandler({ elastic: elasticClient });
   await handler(eventBridgePrismicEvent(deletionIds), {} as Context, () => {});
 });

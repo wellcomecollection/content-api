@@ -1,8 +1,8 @@
 env:
-  LIVE_PIPELINE: "2023-03-24"
+  LIVE_PIPELINE: '2023-03-24'
 steps:
-  - label: "autoformat"
-    command: ".buildkite/scripts/autoformat.sh"
+  - label: 'autoformat'
+    command: '.buildkite/scripts/autoformat.sh'
     plugins:
       - docker-compose#v4.11.0:
           run: tooling
@@ -10,37 +10,37 @@ steps:
           mount-buildkite-agent: true
           propagate-environment: true
 
-  - label: "test: API"
+  - label: 'test: API'
     plugins:
       - docker-compose#v4.11.0:
           run: api
-          command: ["yarn", "test"]
+          command: ['yarn', 'test']
 
-  - label: "test: ETL pipeline"
+  - label: 'test: ETL pipeline'
     plugins:
       - docker-compose#v4.11.0:
           run: pipeline
-          command: ["yarn", "test"]
+          command: ['yarn', 'test']
 
-  - label: "test: webhook"
+  - label: 'test: webhook'
     plugins:
       - docker-compose#v4.11.0:
           run: webhook
-          command: ["yarn", "test"]
+          command: ['yarn', 'test']
 
-  - label: "test: unpublisher"
+  - label: 'test: unpublisher'
     plugins:
       - docker-compose#v4.11.0:
           run: unpublisher
-          command: ["yarn", "test"]
+          command: ['yarn', 'test']
 
   - wait
 
-  - label: "publish: API"
-    branches: "main"
+  - label: 'publish: API'
+    branches: 'main'
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
       - ecr#v2.1.1:
           login: true
       - docker-compose#v4.11.0:
@@ -49,8 +49,8 @@ steps:
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:ref.${BUILDKITE_COMMIT}
             - api:756629837203.dkr.ecr.eu-west-1.amazonaws.com/weco/content-api:latest
 
-  - label: "publish: pipeline & unpublisher ($LIVE_PIPELINE)"
-    branches: "main"
+  - label: 'publish: pipeline & unpublisher ($LIVE_PIPELINE)'
+    branches: 'main'
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/content-pipeline run package
@@ -59,7 +59,7 @@ steps:
       .buildkite/scripts/upload_lambda_package.sh content-unpublisher-$LIVE_PIPELINE ./unpublisher/package.zip
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
       - docker-compose#v4.11.0:
           run: tooling
           mount-ssh-agent: true
@@ -70,15 +70,15 @@ steps:
             - AWS_SECRET_ACCESS_KEY
             - AWS_SESSION_TOKEN
 
-  - label: "publish: webhook"
-    branches: "main"
+  - label: 'publish: webhook'
+    branches: 'main'
     command: |
       yarn install --frozen-lockfile
       yarn workspace @weco/prismic-webhook run package
       .buildkite/scripts/upload_lambda_package.sh content-prismic-webhook ./webhook/package.zip
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
       - docker-compose#v4.11.0:
           run: tooling
           mount-ssh-agent: true
@@ -91,31 +91,31 @@ steps:
 
   - wait
 
-  - label: "deploy: live pipeline & unpublisher"
-    branches: "main"
+  - label: 'deploy: live pipeline & unpublisher'
+    branches: 'main'
     concurrency: 1
-    concurrency_group: "content-pipeline/deploy-stage"
+    concurrency_group: 'content-pipeline/deploy-stage'
     command: |
       .buildkite/scripts/deploy_lambda.sh content-unpublisher-$LIVE_PIPELINE ref.$BUILDKITE_COMMIT
       .buildkite/scripts/deploy_lambda.sh content-pipeline-$LIVE_PIPELINE ref.$BUILDKITE_COMMIT
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
 
-  - label: "deploy: webhook"
-    branches: "main"
+  - label: 'deploy: webhook'
+    branches: 'main'
     concurrency: 1
-    concurrency_group: "content-webhook/deploy"
+    concurrency_group: 'content-webhook/deploy'
     command: |
       .buildkite/scripts/deploy_lambda.sh content-prismic-webhook ref.$BUILDKITE_COMMIT
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
 
-  - label: "deploy: API stage"
-    branches: "main"
+  - label: 'deploy: API stage'
+    branches: 'main'
     concurrency: 1
-    concurrency_group: "content-api/deploy-stage"
+    concurrency_group: 'content-api/deploy-stage'
     command: |
       ENV_TAG="env.stage" ./builds/update_ecr_image_tag.sh weco/content-api
       CLUSTER="content-api" ./builds/deploy_ecs_services.sh content-api-stage
@@ -123,15 +123,15 @@ steps:
       queue: nano
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'
 
-  - block: ":rocket: deploy to prod"
-    branches: "main"
+  - block: ':rocket: deploy to prod'
+    branches: 'main'
 
-  - label: "deploy: API prod"
-    branches: "main"
+  - label: 'deploy: API prod'
+    branches: 'main'
     concurrency: 1
-    concurrency_group: "content-api/deploy-prod"
+    concurrency_group: 'content-api/deploy-prod'
     command: |
       ENV_TAG="env.prod" ./builds/update_ecr_image_tag.sh weco/content-api
       CLUSTER="content-api" ./builds/deploy_ecs_services.sh content-api-prod
@@ -139,4 +139,4 @@ steps:
       queue: nano
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
-          role: "arn:aws:iam::756629837203:role/catalogue-ci"
+          role: 'arn:aws:iam::756629837203:role/catalogue-ci'

@@ -1,17 +1,22 @@
-import * as prismic from "@prismicio/client";
-import { lastValueFrom, of } from "rxjs";
-import { getDocumentsByID, paginator } from "../src/helpers/prismic";
-import { identifiedDocuments } from "./fixtures/generators";
+import * as prismic from '@prismicio/client';
+import { lastValueFrom, of } from 'rxjs';
 
-describe("paginator", () => {
-  it("continues returning next pages until no documents are returned", async () => {
+import {
+  getDocumentsByID,
+  paginator,
+} from '@weco/content-pipeline/src/helpers/prismic';
+
+import { identifiedDocuments } from './fixtures/generators';
+
+describe('paginator', () => {
+  it('continues returning next pages until no documents are returned', async () => {
     const totalDocs = 100;
     const pageSize = 10;
     const allThings = identifiedDocuments(
       totalDocs
     ) as unknown as prismic.PrismicDocument[];
     const nextPage = jest.fn((after?: string) => {
-      const idx = after ? allThings.findIndex((doc) => doc.id === after) : 0;
+      const idx = after ? allThings.findIndex(doc => doc.id === after) : 0;
       return Promise.resolve({
         docs: allThings.slice(idx),
         lastDocId: allThings[idx + pageSize]?.id,
@@ -24,8 +29,8 @@ describe("paginator", () => {
   });
 });
 
-describe("getDocumentsByID", () => {
-  it("queries for batches of document IDs", async () => {
+describe('getDocumentsByID', () => {
+  it('queries for batches of document IDs', async () => {
     const allDocuments = identifiedDocuments(100);
     const prismicGetByIDs = jest
       .fn()

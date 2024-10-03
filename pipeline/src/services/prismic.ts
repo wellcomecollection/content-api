@@ -1,8 +1,4 @@
-// Worth noting that we can't update node-fetch to its latest version (v3)
-// as its currently unsupported by Prismic.
-// As we're going to move away from this later on, we'll be using v2.
-import fetch from "node-fetch";
-import * as prismic from "@prismicio/client";
+import * as prismic from '@prismicio/client';
 
 export const createPrismicClient = (): prismic.Client => {
   // We use an access token for Prismic in prod to avoid certain classes of
@@ -24,14 +20,14 @@ export const createPrismicClient = (): prismic.Client => {
   const accessToken = process.env.PRISMIC_ACCESS_TOKEN;
 
   if (
-    typeof accessToken === "undefined" &&
-    process.env.NODE_ENV === "production"
+    typeof accessToken === 'undefined' &&
+    process.env.NODE_ENV === 'production'
   ) {
-    console.warn("No access token specified for Prismic client");
+    console.warn('No access token specified for Prismic client');
   }
 
-  const endpoint = prismic.getRepositoryEndpoint("wellcomecollection");
-  const client = prismic.createClient(endpoint, { fetch, accessToken });
+  const endpoint = prismic.getRepositoryEndpoint('wellcomecollection');
+  const client = prismic.createClient(endpoint, { accessToken });
 
   return client;
 };
