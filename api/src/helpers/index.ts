@@ -12,15 +12,17 @@ export const ifDefined = <T, R>(
 export const isNotUndefined = <T>(val: T | undefined): val is T =>
   val !== undefined;
 
-export const pick = <T extends {}, K extends keyof T>(
+export const pick = <T extends object, K extends keyof T>(
   obj: T,
   keys: K[]
 ): Pick<T, K> =>
   Object.fromEntries(
-    keys.filter((key) => key in obj).map((key) => [key, obj[key]])
+    keys.filter(key => key in obj).map(key => [key, obj[key]])
   ) as Pick<T, K>;
 
 export const not =
-  <T extends any[]>(f: (...params: T) => boolean) =>
+  <T extends any[]>( // eslint-disable-line @typescript-eslint/no-explicit-any
+    f: (...params: T) => boolean
+  ) =>
   (...params: T) =>
     !f(...params);

@@ -1,13 +1,14 @@
-import { ErrorRequestHandler } from "express";
-import log from "@weco/content-common/services/logging";
-import apm from "elastic-apm-node";
+import apm from 'elastic-apm-node';
+import { ErrorRequestHandler } from 'express';
+
+import log from '@weco/content-common/services/logging';
 
 export type ErrorResponse = {
-  type: "Error";
+  type: 'Error';
   httpStatus: number;
   label: string;
   description?: string;
-  errorType: "http";
+  errorType: 'http';
 };
 
 export class HttpError extends Error {
@@ -34,16 +35,16 @@ export class HttpError extends Error {
 
   get responseJson(): ErrorResponse {
     return {
-      type: "Error",
+      type: 'Error',
       httpStatus: this.status,
       label: this.label,
       description: this.description,
-      errorType: "http",
+      errorType: 'http',
     };
   }
 }
 
-export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+export const errorHandler: ErrorRequestHandler = (err, req, res) => {
   if (err instanceof HttpError) {
     res.status(err.status).json(err.responseJson);
   } else {
@@ -54,7 +55,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
     }
     const httpError = new HttpError({
       status: 500,
-      label: "Server Error",
+      label: 'Server Error',
     });
     res.status(httpError.status).json(httpError.responseJson);
   }

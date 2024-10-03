@@ -1,23 +1,25 @@
-import * as prismic from "@prismicio/client";
-import { defaultArticleFormat } from "@weco/content-common/data/defaultValues";
+import * as prismic from '@prismicio/client';
+
+import { defaultArticleFormat } from '@weco/content-common/data/defaultValues';
+import {
+  asText,
+  asTitle,
+  isFilledLinkToDocumentWithData,
+  isImageLink,
+  isNotUndefined,
+} from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   ArticlePrismicDocument,
   WithArticleFormat,
   WithContributors,
-} from "../types/prismic";
+} from '@weco/content-pipeline/src/types/prismic';
 import {
-  ElasticsearchArticle,
-  Contributor,
   ArticleFormat,
-} from "../types/transformed";
-import {
-  isFilledLinkToDocumentWithData,
-  isImageLink,
-  asText,
-  asTitle,
-  isNotUndefined,
-} from "../helpers/type-guards";
-import { linkedDocumentIdentifiers, transformSeries } from "./utils";
+  Contributor,
+  ElasticsearchArticle,
+} from '@weco/content-pipeline/src/types/transformed';
+
+import { linkedDocumentIdentifiers, transformSeries } from './utils';
 
 const getContributors = (
   document: prismic.PrismicDocument<WithContributors>
@@ -33,7 +35,7 @@ const getContributors = (
 
       const role = roleDocument
         ? {
-            type: "EditorialContributorRole" as const,
+            type: 'EditorialContributorRole' as const,
             id: roleDocument.id as string,
             label: asText(roleDocument.data.title),
           }
@@ -47,9 +49,9 @@ const getContributors = (
       const contributor = contributorDocument
         ? {
             type:
-              contributorDocument.type === "people"
-                ? ("Person" as const)
-                : ("Organisation" as const),
+              contributorDocument.type === 'people'
+                ? ('Person' as const)
+                : ('Organisation' as const),
             id: contributorDocument.id as string,
             label: asText(contributorDocument.data.name),
           }
@@ -57,7 +59,7 @@ const getContributors = (
 
       return contributor || role
         ? {
-            type: "Contributor",
+            type: 'Contributor',
             contributor,
             role,
           }
@@ -74,7 +76,7 @@ function transformLabelType(
   const { data } = document;
   return isFilledLinkToDocumentWithData(data.format)
     ? {
-        type: "ArticleFormat",
+        type: 'ArticleFormat',
         id: data.format.id,
         label: asText(data.format.data.title) as string,
       }
@@ -84,12 +86,12 @@ function transformLabelType(
 export const transformArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchArticle => {
-  const { data, id, first_publication_date } = document;
+  const { data, id, first_publication_date: firstPublicationDate } = document;
   const primaryImage = data.promo?.[0]?.primary;
 
   const image =
     primaryImage && isImageLink(primaryImage.image)
-      ? { type: "PrismicImage" as const, ...primaryImage.image }
+      ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
   const caption = primaryImage?.caption && asText(primaryImage.caption);
@@ -99,36 +101,36 @@ export const transformArticle = (
   // When we imported data into Prismic from the Wordpress blog some content
   // needed to have its original publication date displayed. It is purely a display
   // value and does not affect ordering.
-  const datePublished = data.publishDate || first_publication_date;
+  const datePublished = data.publishDate || firstPublicationDate;
 
   const contributors = getContributors(document);
 
   const queryContributors = contributors
-    .map((c) => c.contributor?.label)
+    .map(c => c.contributor?.label)
     .filter(isNotUndefined);
 
   const queryBody = data.body
-    ?.map((slice) => {
+    ?.map(slice => {
       if (
-        ["text", "quoteV2", "quote", "standfirst"].includes(slice.slice_type)
+        ['text', 'quoteV2', 'quote', 'standfirst'].includes(slice.slice_type)
       ) {
         // quoteV2 can be removed once the slice Machine migration has completed
-        return slice.primary.text.map((text) => text.text);
+        return slice.primary.text.map(text => text.text);
       } else {
         return [];
       }
     })
     .flat();
 
-  const queryStandfirst = data.body?.find((b) => b.slice_type === "standfirst")
+  const queryStandfirst = data.body?.find(b => b.slice_type === 'standfirst')
     ?.primary.text[0].text;
 
-  const flatContributors = contributors.flatMap((c) => c.contributor ?? []);
+  const flatContributors = contributors.flatMap(c => c.contributor ?? []);
 
   return {
     id,
     display: {
-      type: "Article",
+      type: 'Article',
       id,
       title: asTitle(data.title),
       caption,
@@ -148,12 +150,12 @@ export const transformArticle = (
       series: transformSeries(document),
     },
     filter: {
-      contributorIds: flatContributors.map((c) => c.id),
+      contributorIds: flatContributors.map(c => c.id),
       formatId: format.id,
       publicationDate: new Date(datePublished),
     },
     aggregatableValues: {
-      contributors: flatContributors.map((c) => JSON.stringify(c)),
+      contributors: flatContributors.map(c => JSON.stringify(c)),
       format: JSON.stringify(format),
     },
   };

@@ -1,12 +1,16 @@
-import * as prismic from "@prismicio/client";
-import { DataInterface, PrismicImage } from "../types/prismic";
+import * as prismic from '@prismicio/client';
+
+import {
+  DataInterface,
+  PrismicImage,
+} from '@weco/content-pipeline/src/types/prismic';
 
 export function isNotUndefined<T>(val: T | undefined): val is T {
-  return typeof val !== "undefined";
+  return typeof val !== 'undefined';
 }
 
-function isString(v: any): v is string {
-  return typeof v === "string";
+function isString(v: unknown): v is string {
+  return typeof v === 'string';
 }
 
 // Prismic often returns empty RichText fields as `[]`, this filters them out
@@ -32,13 +36,13 @@ export function asText(
 
 export function asTitle(title: prismic.RichTextField): string {
   // We always need a title - blunt validation, but validation none the less
-  return asText(title) || "";
+  return asText(title) || '';
 }
 
 export function isFilledLinkToDocument<T, L, D extends DataInterface>(
   field: prismic.ContentRelationshipField<T, L, D> | undefined
 ): field is prismic.FilledContentRelationshipField<T, L, D> {
-  return isNotUndefined(field) && "id" in field && field.isBroken === false;
+  return isNotUndefined(field) && 'id' in field && field.isBroken === false;
 }
 
 export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
@@ -46,7 +50,7 @@ export function isFilledLinkToDocumentWithData<T, L, D extends DataInterface>(
 ): field is prismic.FilledContentRelationshipField<T, L, D> & {
   data: DataInterface;
 } {
-  return isFilledLinkToDocument(field) && "data" in field;
+  return isFilledLinkToDocument(field) && 'data' in field;
 }
 
 // When the Prismic image field is empty (of type EmptyImageFieldImage),

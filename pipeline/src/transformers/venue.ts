@@ -1,15 +1,16 @@
-import { TimestampField, asDate } from "@prismicio/client";
-import {
-  VenuePrismicDocument,
-  PrismicRegularOpeningDay,
-  PrismicExceptionalOpeningDays,
-} from "../types/prismic/venues";
+import { asDate, TimestampField } from '@prismicio/client';
+
 import {
   DayOfWeek,
-  RegularOpeningDay,
-  ExceptionalClosedDay,
   ElasticsearchVenue,
-} from "@weco/content-common/types/venue";
+  ExceptionalClosedDay,
+  RegularOpeningDay,
+} from '@weco/content-common/types/venue';
+import {
+  PrismicExceptionalOpeningDays,
+  PrismicRegularOpeningDay,
+  VenuePrismicDocument,
+} from '@weco/content-pipeline/src/types/prismic/venues';
 
 export const transformVenue = (
   document: VenuePrismicDocument
@@ -37,8 +38,8 @@ export const transformVenue = (
       return time
         ? `${asDate(time).getHours()}:${String(
             asDate(time).getMinutes()
-          ).padStart(2, "0")}`
-        : "00:00";
+          ).padStart(2, '0')}`
+        : '00:00';
     };
 
     return {
@@ -52,28 +53,28 @@ export const transformVenue = (
   const formatExceptionalClosedDays = (
     modifiedDayOpeningTimes: PrismicExceptionalOpeningDays
   ): ExceptionalClosedDay[] => {
-    return modifiedDayOpeningTimes.map((day) => {
+    return modifiedDayOpeningTimes.map(day => {
       if (!asDate(day.overrideDate)) {
-        throw new Error("Date for modified opening time is not valid");
+        throw new Error('Date for modified opening time is not valid');
       }
 
       return {
         overrideDate: asDate(day.overrideDate)?.toISOString(),
         type: day.type,
-        startDateTime: "00:00",
-        endDateTime: "00:00",
+        startDateTime: '00:00',
+        endDateTime: '00:00',
       };
     });
   };
 
   const regularOpeningDays = [
-    formatRegularOpeningDay("monday", monday),
-    formatRegularOpeningDay("tuesday", tuesday),
-    formatRegularOpeningDay("wednesday", wednesday),
-    formatRegularOpeningDay("thursday", thursday),
-    formatRegularOpeningDay("friday", friday),
-    formatRegularOpeningDay("saturday", saturday),
-    formatRegularOpeningDay("sunday", sunday),
+    formatRegularOpeningDay('monday', monday),
+    formatRegularOpeningDay('tuesday', tuesday),
+    formatRegularOpeningDay('wednesday', wednesday),
+    formatRegularOpeningDay('thursday', thursday),
+    formatRegularOpeningDay('friday', friday),
+    formatRegularOpeningDay('saturday', saturday),
+    formatRegularOpeningDay('sunday', sunday),
   ];
 
   const exceptionalClosedDays = formatExceptionalClosedDays(
@@ -83,7 +84,7 @@ export const transformVenue = (
   return {
     id,
     display: {
-      type: "Venue",
+      type: 'Venue',
       id,
       title,
       regularOpeningDays,
@@ -98,8 +99,8 @@ export const transformVenue = (
         title,
         title
           .toLowerCase()
-          .replace(new RegExp(/[èéêë]/g), "e")
-          .replace(/\s+/g, "-"),
+          .replace(/[èéêë]/g, 'e')
+          .replace(/\s+/g, '-'),
       ],
       id,
     },

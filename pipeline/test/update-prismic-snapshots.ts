@@ -1,67 +1,57 @@
-import { EOL } from "node:os";
-import { promises as fs } from "fs";
-import * as path from "path";
-import { Client, PrismicDocument } from "@prismicio/client";
-import { createPrismicClient } from "../src/services/prismic";
-import { asTitle, asText } from "../src/helpers/type-guards";
-import { Writable } from "stream";
+import { Client, PrismicDocument } from '@prismicio/client';
+import { promises as fs } from 'fs';
+import { EOL } from 'node:os';
+import * as path from 'path';
+import { Writable } from 'stream';
+
 import {
   articlesQuery,
-  webcomicsQuery,
-  wrapQueries,
   eventDocumentsQuery,
   venueQuery,
-} from "../src/graph-queries";
+  webcomicsQuery,
+  wrapQueries,
+} from '@weco/content-pipeline/src/graph-queries';
+import {
+  asText,
+  asTitle,
+} from '@weco/content-pipeline/src/helpers/type-guards';
+import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 
-const dataDir = path.resolve(__dirname, "prismic-snapshots");
+const dataDir = path.resolve(__dirname, 'prismic-snapshots');
 
 const articleDocumentIds = [
-  "YbjAThEAACEAcPYF", // articles - The enigma of the medieval folding almanac
-  "Y0U4GBEAAA__16h6", // articles - Tracing the roots of our fears and fixations
-  "WcvPmSsAAG5B5-ox", // articles - The Key to Memory: Follow your nose
-  "XUGruhEAACYASyJh", // webcomics - Footpath
-  "XK9p2RIAAO1vQn__", // webcomics - Groan
-  "YvtXgxAAACMA9j5d", // people - Kate Summerscale
-  "WXInvioAABlsbLHu", // articles - Ken’s ten: looking back at ten years of Wellcome Collection
+  'YbjAThEAACEAcPYF', // articles - The enigma of the medieval folding almanac
+  'Y0U4GBEAAA__16h6', // articles - Tracing the roots of our fears and fixations
+  'WcvPmSsAAG5B5-ox', // articles - The Key to Memory: Follow your nose
+  'XUGruhEAACYASyJh', // webcomics - Footpath
+  'XK9p2RIAAO1vQn__', // webcomics - Groan
+  'YvtXgxAAACMA9j5d', // people - Kate Summerscale
+  'WXInvioAABlsbLHu', // articles - Ken’s ten: looking back at ten years of Wellcome Collection
 ];
 
 const eventDocumentIds = [
-  "ZSPXJBAAACIAiERm", // discussion - Recipes for early modern beauty
-  "ZQgdkREAAAbr6cRR", // Format undefined - Lights Up on The Cult of Beauty
-  "ZTevFxAAACQAyHEk", // workshop - Sexing Up the Internet
-  "ZJLZoRAAACIARz42", // gallery-tour - Perspective Tour With Jess Dobkin
-  "ZFt0WhQAAHnPEH7P", // festival - Land Body Ecologies Festival Day Two
-  "ZRrijRIAAJNSARgG", // performance - Standards, My Right to Beauty
-  "Wn3Q3SoAACsAIeFI", // event-formats - Performance
+  'ZSPXJBAAACIAiERm', // discussion - Recipes for Early Modern Beauty
+  'ZQgdkREAAAbr6cRR', // Format undefined - Lights Up on The Cult of Beauty
+  'ZTevFxAAACQAyHEk', // workshop - Sexing Up the Internet
+  'ZJLZoRAAACIARz42', // gallery-tour - Perspective Tour With Jess Dobkin
+  'ZFt0WhQAAHnPEH7P', // festival - Land Body Ecologies Festival Day Two
+  'ZRrijRIAAJNSARgG', // performance - Standards, My Right to Beauty
+  'Wn3Q3SoAACsAIeFI', // event-formats - Performance
 ];
 
 const venueIds = [
-  "WsuS_R8AACS1Nwlx", // collection-venue - Library
+  'WsuS_R8AACS1Nwlx', // collection-venue - Library
 ];
 
-const main = async () => {
-  const client = createPrismicClient();
-  const articleDocs = await updateArticleSnapshots(client);
-  const eventDocs = await updateEventDocumentSnapshots(client);
-  const venueDocs = await updateVenueSnapshots(client);
-
-  console.log("Done saving snapshots.");
-
-  console.log("Adding comments to update script...");
-  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
-
-  console.log("Done.");
-};
-
 const updateArticleSnapshots = async (client: Client) => {
-  console.log("Updating prismic snapshots for the following articles:");
-  console.log(articleDocumentIds.join("\n"));
+  console.log('Updating prismic snapshots for the following articles:');
+  console.log(articleDocumentIds.join('\n'));
   const docs = await client.getAllByIDs(articleDocumentIds, {
     graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
   });
 
   await Promise.all(
-    docs.map((doc) => {
+    docs.map(doc => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
@@ -73,14 +63,14 @@ const updateArticleSnapshots = async (client: Client) => {
 };
 
 const updateEventDocumentSnapshots = async (client: Client) => {
-  console.log("Updating prismic snapshots for the following eventDocuments:");
-  console.log(eventDocumentIds.join("\n"));
+  console.log('Updating prismic snapshots for the following eventDocuments:');
+  console.log(eventDocumentIds.join('\n'));
   const docs = await client.getAllByIDs(eventDocumentIds, {
     graphQuery: eventDocumentsQuery,
   });
 
   await Promise.all(
-    docs.map((doc) => {
+    docs.map(doc => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
@@ -92,14 +82,14 @@ const updateEventDocumentSnapshots = async (client: Client) => {
 };
 
 const updateVenueSnapshots = async (client: Client) => {
-  console.log("Updating prismic snapshots for the following venues:");
-  console.log(venueIds.join("\n"));
+  console.log('Updating prismic snapshots for the following venues:');
+  console.log(venueIds.join('\n'));
   const docs = await client.getAllByIDs(venueIds, {
     graphQuery: venueQuery,
   });
 
   await Promise.all(
-    docs.map((doc) => {
+    docs.map(doc => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
         path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
@@ -110,14 +100,17 @@ const updateVenueSnapshots = async (client: Client) => {
   return docs;
 };
 
+const lineWriter = (stream: Writable) => (line: string) =>
+  new Promise(resolve => stream.write(line + EOL, 'utf-8', resolve));
+
 const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
   const comments = new Map(
-    docs.map((doc) => {
+    docs.map(doc => {
       switch (doc.type) {
-        case "events":
+        case 'events':
           return [
             doc.id,
-            `${doc.data.format?.slug || "Format undefined"} - ${
+            `${doc.data.format?.slug || 'Format undefined'} - ${
               asTitle(doc.data.title) || asText(doc.data.name)
             }`,
           ];
@@ -130,8 +123,8 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
     })
   );
   const tmpFile = `${__filename}.tmp`;
-  const thisScript = await fs.open(__filename, "r");
-  const newScript = await fs.open(tmpFile, "w");
+  const thisScript = await fs.open(__filename, 'r');
+  const newScript = await fs.open(tmpFile, 'w');
   const writeStream = newScript.createWriteStream();
   const writeLine = lineWriter(writeStream);
   for await (const line of thisScript.readLines()) {
@@ -141,8 +134,8 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
     const stringArrayItemLine =
       /^(?<indent>\s*)"(?<id>.+)",(?<comment>\s*\/\/.*)?$/.exec(line);
     if (stringArrayItemLine) {
-      const id = stringArrayItemLine.groups?.["id"];
-      const indent = stringArrayItemLine.groups?.["indent"];
+      const id = stringArrayItemLine.groups?.id;
+      const indent = stringArrayItemLine.groups?.indent;
       const uncommentedLine = `${indent}"${id}",`;
       if (id && comments.has(id)) {
         await writeLine(uncommentedLine + ` // ${comments.get(id)}`);
@@ -154,8 +147,18 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
 
   await fs.rename(tmpFile, __filename);
 };
+const main = async () => {
+  const client = createPrismicClient();
+  const articleDocs = await updateArticleSnapshots(client);
+  const eventDocs = await updateEventDocumentSnapshots(client);
+  const venueDocs = await updateVenueSnapshots(client);
 
-const lineWriter = (stream: Writable) => (line: string) =>
-  new Promise((resolve) => stream.write(line + EOL, "utf-8", resolve));
+  console.log('Done saving snapshots.');
+
+  console.log('Adding comments to update script...');
+  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
+
+  console.log('Done.');
+};
 
 main();

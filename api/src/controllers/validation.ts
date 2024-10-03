@@ -1,15 +1,35 @@
-import { HttpError } from "./error";
-import { isInSet, not } from "../helpers";
-import { StringLiteral } from "../types";
+import { isInSet, not } from '@weco/content-api/src/helpers';
+import { StringLiteral } from '@weco/content-api/src/types';
+
+import { HttpError } from './error';
 
 type NonEmptyArray<T> = [T, ...T[]];
 
 type QueryValidatorConfig<Name, AllowedValue> = {
   name: StringLiteral<Name>;
-  allowed: ReadonlyArray<StringLiteral<AllowedValue>>;
+  allowed: readonly StringLiteral<AllowedValue>[];
   defaultValue?: Readonly<StringLiteral<AllowedValue>>;
   singleValue?: boolean;
 };
+
+const quoted = (str: string) => `'${str}'`;
+
+// For listing items (no Oxford comma)
+const readableList = (
+  arr: readonly string[],
+  conjunction: 'and' | 'or' = 'and'
+): string => {
+  if (arr.length === 0) {
+    return '';
+  }
+  const quotes = arr.map(quoted);
+  return arr.length > 1
+    ? `${quotes.slice(0, -1).join(', ')} ${conjunction} ${
+        quotes[quotes.length - 1]
+      }`
+    : quotes[0];
+};
+
 export const queryValidator = <Name, AllowedValue>({
   name,
   allowed,
@@ -20,7 +40,7 @@ export const queryValidator = <Name, AllowedValue>({
   return <Query extends { [key in typeof name]?: string }>(
     query: Query
   ): NonEmptyArray<AllowedValue> | undefined => {
-    const providedValues = query[name]?.split(",");
+    const providedValues = query[name]?.split(',');
     if (providedValues === undefined) {
       return defaultValue === undefined ? undefined : [defaultValue];
     }
@@ -33,16 +53,16 @@ export const queryValidator = <Name, AllowedValue>({
       const invalidValues = providedValues.filter(not(isInSet(allowedSet)));
       const invalidMessage =
         invalidValues.length === 1
-          ? "is not a valid value"
-          : "are not valid values";
+          ? 'is not a valid value'
+          : 'are not valid values';
       throw new HttpError({
         status: 400,
-        label: "Bad Request",
+        label: 'Bad Request',
         description: `${name}: ${readableList(
           invalidValues
         )} ${invalidMessage}. Please choose one of ${readableList(
           allowed,
-          "or"
+          'or'
         )}`,
       });
     }
@@ -50,7 +70,7 @@ export const queryValidator = <Name, AllowedValue>({
     if (singleValue && validValues.length > 1) {
       throw new HttpError({
         status: 400,
-        label: "Bad Request",
+        label: 'Bad Request',
         description: `Only 1 value can be specified for ${name}`,
       });
     }
@@ -64,29 +84,11 @@ export const validateDate = (input: string): Date => {
   if (isNaN(date.getTime())) {
     throw new HttpError({
       status: 400,
-      label: "Bad Request",
+      label: 'Bad Request',
       description: `${quoted(
         input
       )} is not a valid date. Please specify a date or datetime in ISO 8601 format.`,
     });
   }
   return date;
-};
-
-const quoted = (str: string) => `'${str}'`;
-
-// For listing items (no Oxford comma)
-const readableList = (
-  arr: readonly string[],
-  conjunction: "and" | "or" = "and"
-): string => {
-  if (arr.length === 0) {
-    return "";
-  }
-  const quotes = arr.map(quoted);
-  return arr.length > 1
-    ? `${quotes.slice(0, -1).join(", ")} ${conjunction} ${
-        quotes[quotes.length - 1]
-      }`
-    : quotes[0];
 };

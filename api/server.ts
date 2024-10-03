@@ -1,20 +1,21 @@
 // This must be the first import in the app!
-import "@weco/content-common/services/init-apm";
+import '@weco/content-common/services/init-apm';
 
-import createApp from "./src/app";
-import { getConfig } from "./config";
-import log from "@weco/content-common/services/logging";
-import { getElasticClient } from "@weco/content-common/services/elasticsearch";
+import { getElasticClient } from '@weco/content-common/services/elasticsearch';
+import log from '@weco/content-common/services/logging';
+
+import { getConfig } from './config';
+import createApp from './src/app';
 
 const config = getConfig();
 
-const isRunningInECS = "ECS_CONTAINER_METADATA_URI_V4" in process.env;
+const isRunningInECS = 'ECS_CONTAINER_METADATA_URI_V4' in process.env;
 
 getElasticClient({
-  serviceName: "api",
+  serviceName: 'api',
   pipelineDate: config.pipelineDate,
-  hostEndpointAccess: isRunningInECS ? "private" : "public",
-}).then(async (elasticClient) => {
+  hostEndpointAccess: isRunningInECS ? 'private' : 'public',
+}).then(async elasticClient => {
   const app = createApp({ elastic: elasticClient }, config);
   const port = process.env.PORT ?? 3000;
   app.listen(port, () => {

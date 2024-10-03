@@ -1,10 +1,11 @@
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
+
 import {
   DayOfWeek,
-  RegularOpeningDay,
   ExceptionalClosedDay,
   NextOpeningDate,
-} from "@weco/content-common/types/venue";
+  RegularOpeningDay,
+} from '@weco/content-common/types/venue';
 
 export function getNextOpeningDates(
   regularOpeningDays: RegularOpeningDay[],
@@ -14,28 +15,28 @@ export function getNextOpeningDates(
   // 35 is somewhat arbitrary,
   // we just need to have at least 12 once all the closed days and/or delivery time have been removed
   const dateNow = new Date();
-  const dateList = [...Array(35).keys()].map((day) => addDays(dateNow, day));
+  const dateList = [...Array(35).keys()].map(day => addDays(dateNow, day));
 
   // day(s) of the week when the venue is normally closed, as ["monday", "sunday", ...]
   const regularClosedDays = regularOpeningDays
-    .filter((day) => day.isClosed)
-    .map((day) => day.dayOfWeek);
+    .filter(day => day.isClosed)
+    .map(day => day.dayOfWeek);
 
   // we don't care about exceptionalClosedDays that are past
   // format them as DD/MM/YYYY for easy comparison later
   const upcomingExceptionalClosedDates = exceptionalClosedDays
-    .map((date) => date.overrideDate && new Date(date.overrideDate))
-    .filter((date) => date && date > dateNow)
-    .map((date) => date && getDateWithoutTime(date));
+    .map(date => date.overrideDate && new Date(date.overrideDate))
+    .filter(date => date && date > dateNow)
+    .map(date => date && getDateWithoutTime(date));
 
   // remove regular closed days from our dateList
   const upcomingRegularOpenDays = dateList.filter(
-    (date) => !regularClosedDays.includes(getDayName(date))
+    date => !regularClosedDays.includes(getDayName(date))
   );
 
   // now remove exceptional closed days from the above filtered list
   const upcomingOpenDays = upcomingRegularOpenDays.filter(
-    (date) => !upcomingExceptionalClosedDates.includes(getDateWithoutTime(date))
+    date => !upcomingExceptionalClosedDates.includes(getDateWithoutTime(date))
   );
 
   // we only care about dates until now, when we add opening times/hours
@@ -49,7 +50,7 @@ function addDays(date: Date, days: number): Date {
 
 function getDayName(date: Date) {
   return date
-    .toLocaleString("en-gb", { weekday: "long", timeZone: "Europe/London" })
+    .toLocaleString('en-gb', { weekday: 'long', timeZone: 'Europe/London' })
     .toLowerCase() as DayOfWeek;
 }
 
@@ -58,23 +59,23 @@ function getDayName(date: Date) {
 // that means overrideDate of 2024-03-31T23:00:00.000Z actually means the venue is closed on 2024-04-01
 // we force the zone to Europe/London so as to get the correct day
 function getDateWithoutTime(date: Date): string {
-  return DateTime.fromJSDate(date).setZone("Europe/London").toLocaleString();
+  return DateTime.fromJSDate(date).setZone('Europe/London').toLocaleString();
 }
 
 function addOpeningHours(
   upcomingOpenDays: Date[],
   regularOpeningDays: RegularOpeningDay[]
 ): NextOpeningDate[] {
-  return upcomingOpenDays.map((date) => {
+  return upcomingOpenDays.map(date => {
     const regularOpeningDay = regularOpeningDays.find(
-      (day) => day.dayOfWeek === getDayName(date)
+      day => day.dayOfWeek === getDayName(date)
     );
     const openingHour = regularOpeningDay?.opens
       ? regularOpeningDay.opens
-      : "00:00";
+      : '00:00';
     const closingHour = regularOpeningDay?.closes
       ? regularOpeningDay.closes
-      : "00:00";
+      : '00:00';
 
     return {
       open: setHourAndMinute(date, openingHour),
@@ -87,10 +88,10 @@ function addOpeningHours(
 // we need to explicitly set the timezone to Europe/London before setting the hours and minute for the nextOpeningDates
 function setHourAndMinute(date: Date, time: string): string | undefined {
   const dateInLondonTimezone =
-    DateTime.fromJSDate(date).setZone("Europe/London");
+    DateTime.fromJSDate(date).setZone('Europe/London');
   const withHourAndMinute = dateInLondonTimezone.set({
-    hour: Number(time.split(":")[0]),
-    minute: Number(time.split(":")[1]),
+    hour: Number(time.split(':')[0]),
+    minute: Number(time.split(':')[1]),
     second: 0,
     millisecond: 0,
   });

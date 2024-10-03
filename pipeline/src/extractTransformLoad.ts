@@ -1,21 +1,22 @@
-import * as prismic from "@prismicio/client";
-import { map, partition, filter, tap, concat } from "rxjs";
-import log from "@weco/content-common/services/logging";
+import * as prismic from '@prismicio/client';
+import { concat, filter, map, partition, tap } from 'rxjs';
 
-import { Clients } from "./types";
+import log from '@weco/content-common/services/logging';
+
+import { describeWindow, toBoundedWindow, WindowEvent } from './event';
 import {
-  ensureIndexExists,
   bulkIndexDocuments,
+  ensureIndexExists,
   getParentDocumentIDs,
-  IndexConfig,
   HasIdentifier,
-} from "./helpers/elasticsearch";
+  IndexConfig,
+} from './helpers/elasticsearch';
 import {
   getDocumentsByID,
   getPrismicDocuments,
   paginator,
-} from "./helpers/prismic";
-import { describeWindow, toBoundedWindow, WindowEvent } from "./event";
+} from './helpers/prismic';
+import { Clients } from './types';
 
 type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;
@@ -27,7 +28,7 @@ type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
 export const createETLPipeline =
   <
     PrismicDocument extends prismic.PrismicDocument,
-    ElasticsearchDocument extends HasIdentifier
+    ElasticsearchDocument extends HasIdentifier,
   >(
     etlParameters: ETLParameters<PrismicDocument, ElasticsearchDocument>
   ) =>
@@ -60,7 +61,7 @@ export const createETLPipeline =
           graphQuery: etlParameters.graphQuery,
           after,
         })
-      ).pipe(tap((document) => seenIds.add(document.id))),
+      ).pipe(tap(document => seenIds.add(document.id))),
       isParentDocument
     );
 
@@ -72,11 +73,11 @@ export const createETLPipeline =
       // The field name is mapped in `indices/articles.ts` and populated by the transformer
       getParentDocumentIDs(clients.elastic, {
         index: etlParameters.indexConfig.index,
-        identifiersField: "query.linkedIdentifiers",
+        identifiersField: 'query.linkedIdentifiers',
       }),
       // We don't need to update parent documents that we already got in this window
       // as their latest version was fetched above
-      filter((parentId) => !seenIds.has(parentId)),
+      filter(parentId => !seenIds.has(parentId)),
       // Fetch the latest version of all the parent documents including the denormalised data
       // from the child document: while we do have all the information for both the parent (from ES)
       // and the child (from the initial Prismic query), we don't want to have to know how to

@@ -1,17 +1,20 @@
-import { articlesAggregations, articlesFilter } from "../src/queries/articles";
+import {
+  articlesAggregations,
+  articlesFilter,
+} from '@weco/content-api/src/queries/articles';
 import {
   partitionFiltersForFacets,
   rewriteAggregationsForFacets,
-} from "../src/queries/faceting";
+} from '@weco/content-api/src/queries/faceting';
 
-describe("rewriteAggregationsForFacets", () => {
-  it("rewrites aggregations correctly", () => {
+describe('rewriteAggregationsForFacets', () => {
+  it('rewrites aggregations correctly', () => {
     const { format } = articlesAggregations;
     const aggregations = { format };
     const filters = {
-      format: articlesFilter.format(["test"]),
-      "contributors.contributor": articlesFilter["contributors.contributor"]([
-        "test",
+      format: articlesFilter.format(['test']),
+      'contributors.contributor': articlesFilter['contributors.contributor']([
+        'test',
       ]),
     };
     const facetedAggregations = rewriteAggregationsForFacets(
@@ -22,20 +25,20 @@ describe("rewriteAggregationsForFacets", () => {
     const rewrittenFormatAgg = facetedAggregations.format;
     expect(rewrittenFormatAgg.filter).toBeDefined();
     expect(rewrittenFormatAgg.filter?.bool?.filter).toIncludeAnyMembers([
-      filters["contributors.contributor"].esQuery,
+      filters['contributors.contributor'].esQuery,
     ]);
     expect(rewrittenFormatAgg.aggs?.terms).toEqual(aggregations.format);
   });
 });
 
-describe("partitionFiltersForFacets", () => {
-  it("separates filters correctly depending on whether a corresponding aggregation is present", () => {
+describe('partitionFiltersForFacets', () => {
+  it('separates filters correctly depending on whether a corresponding aggregation is present', () => {
     const { format } = articlesAggregations;
     const aggregations = { format };
     const filters = {
-      format: articlesFilter.format(["test"]),
-      "contributors.contributor": articlesFilter["contributors.contributor"]([
-        "test",
+      format: articlesFilter.format(['test']),
+      'contributors.contributor': articlesFilter['contributors.contributor']([
+        'test',
       ]),
     };
 
@@ -45,7 +48,7 @@ describe("partitionFiltersForFacets", () => {
     );
     expect(postFilters).toContainAllValues([filters.format]);
     expect(queryFilters).toContainAllValues([
-      filters["contributors.contributor"],
+      filters['contributors.contributor'],
     ]);
   });
 });

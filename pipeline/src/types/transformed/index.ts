@@ -1,15 +1,16 @@
-import { PrismicImage } from "../prismic";
-import { Article, ArticleFormat } from "./article";
+import { PrismicImage } from '@weco/content-pipeline/src/types/prismic';
+
+import { Article, ArticleFormat } from './article';
 import {
   EventDocument,
   EventDocumentFormat,
-  EventDocumentLocations,
   EventDocumentInterpretation,
-} from "./eventDocument";
+  EventDocumentLocations,
+} from './eventDocument';
 
 // Image
 export type Image = PrismicImage & {
-  type: "PrismicImage";
+  type: 'PrismicImage';
 };
 
 // Contributors (e.g. author, photographer)
@@ -19,20 +20,20 @@ type BasicContributorInformation = {
 };
 
 export type Contributor = {
-  type: "Contributor";
+  type: 'Contributor';
   contributor?: BasicContributorInformation & {
-    type: "Person" | "Organisation";
+    type: 'Person' | 'Organisation';
   };
   role?: BasicContributorInformation & {
-    type: "EditorialContributorRole";
+    type: 'EditorialContributorRole';
   };
 };
 
-export type Series = Array<{
+export type Series = {
   id: string;
   title?: string;
   contributors?: string[];
-}>;
+}[];
 
 export type { Article, ArticleFormat };
 

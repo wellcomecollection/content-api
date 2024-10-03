@@ -1,5 +1,4 @@
-import * as prismic from "@prismicio/client";
-import { TimeWindow } from "../event";
+import * as prismic from '@prismicio/client';
 import {
   bufferCount,
   concatMap,
@@ -10,7 +9,9 @@ import {
   Observable,
   OperatorFunction,
   pipe,
-} from "rxjs";
+} from 'rxjs';
+
+import { TimeWindow } from '@weco/content-pipeline/src/event';
 
 // https://prismic.io/docs/technical-reference/prismicio-client#params-object
 const PRISMIC_MAX_PAGE_SIZE = 100;
@@ -27,8 +28,8 @@ export type PrismicPage<T> = {
 };
 
 const fields = {
-  documentType: "document.type",
-  lastPublicationDate: "document.last_publication_date",
+  documentType: 'document.type',
+  lastPublicationDate: 'document.last_publication_date',
 } as const;
 
 export const getPrismicDocuments = async (
@@ -39,7 +40,7 @@ export const getPrismicDocuments = async (
   const endDate = publicationWindow.end;
   const docs = await client.get({
     // Pre-emptive removal of whitespace as requests to the Prismic Rest API are limited to 2048 characters
-    graphQuery: graphQuery.replace(/\n(\s+)/g, "\n"),
+    graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
     filters: [
       startDate
         ? prismic.filter.dateAfter(fields.lastPublicationDate, startDate)
@@ -50,7 +51,7 @@ export const getPrismicDocuments = async (
     ].flat(),
     orderings: {
       field: fields.lastPublicationDate,
-      direction: "desc",
+      direction: 'desc',
     },
     pageSize: PRISMIC_MAX_PAGE_SIZE,
     after,
@@ -70,8 +71,8 @@ export const paginator = <T extends prismic.PrismicDocument>(
   nextPage: (after?: string) => Promise<PrismicPage<T>>
 ): Observable<T> =>
   from(nextPage()).pipe(
-    expand((res) => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
-    concatMap((page) => page.docs)
+    expand(res => (res.lastDocId ? nextPage(res.lastDocId) : EMPTY)),
+    concatMap(page => page.docs)
   );
 
 export const getDocumentsByID = <T extends prismic.PrismicDocument>(
@@ -80,10 +81,10 @@ export const getDocumentsByID = <T extends prismic.PrismicDocument>(
 ): OperatorFunction<string, T> =>
   pipe(
     bufferCount(PRISMIC_MAX_PAGE_SIZE),
-    mergeMap((ids) =>
+    mergeMap(ids =>
       client.getByIDs<T>(ids, {
         graphQuery,
       })
     ),
-    mergeMap((query) => query.results)
+    mergeMap(query => query.results)
   );
