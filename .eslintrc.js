@@ -69,6 +69,8 @@ module.exports = {
   },
   overrides: [
     {
+      // we have non-test files in the pipeline/test directory
+      // this ensures the jest rules only apply to test files
       files: ['*test.ts', '*test.tsx'],
       extends: ['plugin:jest/recommended'],
     },
