@@ -17,7 +17,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "lint": "eslint \"**/*.{js,ts}\""
+    "lint": "eslint \"**/*.{js,ts}\" --noEmit"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.9",
