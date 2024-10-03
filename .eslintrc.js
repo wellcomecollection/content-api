@@ -52,6 +52,14 @@ const sharedRules = {
   ],
 };
 
+const ignorePatterns = [
+  '/**/node_modules/',
+  '/**/libs/',
+  '/**/lib/',
+  '/**/_next/',
+  '/**/dist/',
+];
+
 module.exports = {
   parser: '@babel/eslint-parser',
   plugins: sharedPlugins,
@@ -59,6 +67,7 @@ module.exports = {
     'jest/globals': true,
   },
   extends: sharedExtends,
+  ignorePatterns,
   rules: sharedRules,
   reportUnusedDisableDirectives: true,
   parserOptions: {
