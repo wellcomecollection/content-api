@@ -26,7 +26,7 @@ const articleDocumentIds = [
 ];
 
 const eventDocumentIds = [
-  "ZSPXJBAAACIAiERm", // discussion - Recipes for Early Modern Beauty
+  "ZSPXJBAAACIAiERm", // discussion - Recipes for early modern beauty
   "ZQgdkREAAAbr6cRR", // Format undefined - Lights Up on The Cult of Beauty
   "ZTevFxAAACQAyHEk", // workshop - Sexing Up the Internet
   "ZJLZoRAAACIARz42", // gallery-tour - Perspective Tour With Jess Dobkin

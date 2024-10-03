@@ -1,13 +1,13 @@
 {
   "id": "XUGruhEAACYASyJh",
-  "uid": null,
+  "uid": "footpath",
   "url": null,
   "type": "webcomics",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XUGruhEAACYASyJh%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zv5oMxAAACAANcnq&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XUGruhEAACYASyJh%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2019-08-02T09:00:00+0000",
-  "last_publication_date": "2024-05-07T16:48:29+0000",
-  "slugs": [],
+  "last_publication_date": "2024-07-22T13:25:01+0000",
+  "slugs": ["footpath"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -168,7 +168,8 @@
           "lang": "en-gb",
           "slug": "body-squabbles",
           "first_publication_date": "2018-01-11T16:25:07+0000",
-          "last_publication_date": "2018-10-22T09:48:54+0000",
+          "last_publication_date": "2024-07-22T13:15:05+0000",
+          "uid": "body-squabbles",
           "data": {
             "title": [
               {

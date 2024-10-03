@@ -9,7 +9,7 @@
     "reindex-articles": "ts-node src/local.ts articles",
     "reindex-events": "ts-node src/local.ts events",
     "reindex-venues": "ts-node src/local.ts venues",
-    "update-prismic-snapshots": "tsc --noEmit test/update-prismic-snapshots.ts && tsx test/update-prismic-snapshots.ts",
+    "update-prismic-snapshots": "tsx test/update-prismic-snapshots.ts",
     "test": "jest"
   },
   "dependencies": {
