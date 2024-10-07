@@ -99,6 +99,7 @@ exports[`article transformer also works for webcomics (document: webcomics/XK9p2
     "publicationDate": "2019-04-12T09:00:00+0000",
     "title": "Groan",
     "type": "Article",
+    "uid": "groan",
   },
   "filter": {
     "contributorIds": [
@@ -131,6 +132,7 @@ exports[`article transformer also works for webcomics (document: webcomics/XK9p2
     "standfirst": undefined,
     "title": "Groan",
   },
+  "uid": "groan",
 }
 `;
 
@@ -233,6 +235,7 @@ exports[`article transformer also works for webcomics (document: webcomics/XUGru
     "publicationDate": "2019-08-02T09:00:00+0000",
     "title": "Footpath",
     "type": "Article",
+    "uid": "footpath",
   },
   "filter": {
     "contributorIds": [
@@ -265,6 +268,7 @@ exports[`article transformer also works for webcomics (document: webcomics/XUGru
     "standfirst": undefined,
     "title": "Footpath",
   },
+  "uid": "footpath",
 }
 `;
 
@@ -363,6 +367,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "publicationDate": "2017-08-07T23:00:01+0000",
     "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
     "type": "Article",
+    "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
   },
   "filter": {
     "contributorIds": [
@@ -408,6 +413,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "standfirst": "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
     "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
   },
+  "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
 }
 `;
 
@@ -494,6 +500,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "publicationDate": "2017-10-11T08:30:00+0000",
     "title": "The Key to Memory: Follow your nose",
     "type": "Article",
+    "uid": "the-key-to-memory--follow-your-nose",
   },
   "filter": {
     "contributorIds": [],
@@ -557,12 +564,13 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       {
         "contributors": [],
         "id": "WdJB3CcAAIE-RlQp",
-        "title": "Memory Objects",
+        "title": "Memory objects",
       },
     ],
     "standfirst": "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
     "title": "The Key to Memory: Follow your nose",
   },
+  "uid": "the-key-to-memory--follow-your-nose",
 }
 `;
 
@@ -679,6 +687,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "publicationDate": "2022-10-18T09:00:00+0000",
     "title": "Tracing the roots of our fears and fixations",
     "type": "Article",
+    "uid": "tracing-the-roots-of-our-fears-and-fixations",
   },
   "filter": {
     "contributorIds": [
@@ -735,12 +744,20 @@ exports[`article transformer transforms articles from Prismic to the expected fo
       "YvtXgxAAACMA9j5d",
       "XVQa_xMAACMAqbwo",
       "Yz07IxEAAA__s9BR",
+      "W-XBJxEAAKmng1TG",
     ],
     "publicationDate": 2022-10-18T09:00:00.000Z,
-    "series": [],
+    "series": [
+      {
+        "contributors": [],
+        "id": "W-XBJxEAAKmng1TG",
+        "title": "Inside our books",
+      },
+    ],
     "standfirst": "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
     "title": "Tracing the roots of our fears and fixations",
   },
+  "uid": "tracing-the-roots-of-our-fears-and-fixations",
 }
 `;
 
@@ -843,6 +860,7 @@ exports[`article transformer transforms articles from Prismic to the expected fo
     "publicationDate": "2022-01-10T10:59:43+0000",
     "title": "The enigma of the medieval folding almanac",
     "type": "Article",
+    "uid": "the-enigma-of-the-medieval-folding-almanac",
   },
   "filter": {
     "contributorIds": [
@@ -891,16 +909,17 @@ exports[`article transformer transforms articles from Prismic to the expected fo
           "Lalita Kaplish",
         ],
         "id": "Ybi9HREAACIAcOar",
-        "title": "Modern Encounters With a Medieval Almanac",
+        "title": "Modern encounters with a medieval almanac",
       },
       {
         "contributors": [],
         "id": "WsSUrR8AAL3KGFPF",
-        "title": "Inside Our Collections",
+        "title": "Inside our collections",
       },
     ],
     "standfirst": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
     "title": "The enigma of the medieval folding almanac",
   },
+  "uid": "the-enigma-of-the-medieval-folding-almanac",
 }
 `;

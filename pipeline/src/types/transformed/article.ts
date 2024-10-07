@@ -6,6 +6,7 @@ import { Contributor, Image } from '.';
 export type Article = {
   type: 'Article';
   id: string;
+  uid: string | null;
   title: string;
   publicationDate: string;
   contributors: Contributor[];

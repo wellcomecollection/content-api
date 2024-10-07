@@ -46,6 +46,7 @@ export type {
 
 export type ElasticsearchArticle = {
   id: string;
+  uid: string | null;
   display: Article;
   query: {
     linkedIdentifiers: string[];
@@ -70,6 +71,7 @@ export type ElasticsearchArticle = {
 
 export type ElasticsearchEventDocument = {
   id: string;
+  uid: string | null;
   isChildScheduledEvent?: boolean;
   display: EventDocument;
   query: {

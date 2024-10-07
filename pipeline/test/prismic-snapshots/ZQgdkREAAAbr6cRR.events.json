@@ -1,13 +1,17 @@
 {
   "id": "ZQgdkREAAAbr6cRR",
-  "uid": null,
+  "uid": "lights-up-on-the-cult-of-beauty-11",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
-  "tags": ["LightsUpBeauty"],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zv_zqxAAACEAOBwz&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "tags": [
+    "LightsUpBeauty"
+  ],
   "first_publication_date": "2023-10-26T15:00:00+0000",
-  "last_publication_date": "2023-12-14T15:45:07+0000",
-  "slugs": ["lights-up-on-the-cult-of-beauty"],
+  "last_publication_date": "2024-09-10T15:32:56+0000",
+  "slugs": [
+    "lights-up-on-the-cult-of-beauty"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -75,11 +79,15 @@
         "event": {
           "id": "ZQgi7hIAACQAN2QG",
           "type": "events",
-          "tags": ["delist", "LightsUpBeauty"],
+          "tags": [
+            "delist",
+            "LightsUpBeauty"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-09-18T10:19:01+0000",
-          "last_publication_date": "2024-05-07T14:05:35+0000",
+          "last_publication_date": "2024-07-23T11:03:58+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-23",
           "data": {
             "title": [
               {
@@ -102,13 +110,17 @@
       },
       {
         "event": {
-          "id": "ZQghdREAAEnw6cr1",
+          "id": "ZuBl7REAAB4AgarD",
           "type": "events",
-          "tags": ["delist", "LightsUpBeauty"],
+          "tags": [
+            "delist",
+            "LightsUpBeauty"
+          ],
           "lang": "en-gb",
-          "slug": "-",
-          "first_publication_date": "2023-09-18T10:13:48+0000",
-          "last_publication_date": "2024-05-07T14:05:32+0000",
+          "slug": "ad-tour-of-the-cult-of-beauty",
+          "first_publication_date": "2024-09-10T15:32:30+0000",
+          "last_publication_date": "2024-09-10T15:32:30+0000",
+          "uid": "ad-tour-of-beauty-23-november",
           "data": {
             "title": [
               {
@@ -133,11 +145,15 @@
         "event": {
           "id": "ZQgkIRIAACIAN2X1",
           "type": "events",
-          "tags": ["delist", "LightsUpBeauty"],
+          "tags": [
+            "delist",
+            "LightsUpBeauty"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-09-18T10:20:01+0000",
-          "last_publication_date": "2024-05-07T14:05:37+0000",
+          "last_publication_date": "2024-07-22T14:03:45+0000",
+          "uid": "lights-up-on-the-cult-of-beauty",
           "data": {
             "title": [
               {
@@ -162,11 +178,15 @@
         "event": {
           "id": "ZQgiFxYAACcAYG_6",
           "type": "events",
-          "tags": ["delist", "LightsUpBeauty"],
+          "tags": [
+            "delist",
+            "LightsUpBeauty"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-09-18T10:12:27+0000",
-          "last_publication_date": "2024-05-07T14:05:31+0000",
+          "last_publication_date": "2024-07-23T09:16:32+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-16-1130",
           "data": {
             "title": [
               {
@@ -191,11 +211,15 @@
         "event": {
           "id": "ZXmjzxAAACMAX3kD",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-12-13T12:49:41+0000",
-          "last_publication_date": "2024-05-07T14:05:48+0000",
+          "last_publication_date": "2024-09-10T10:53:28+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-9-2",
           "data": {
             "title": [
               {
@@ -220,11 +244,15 @@
         "event": {
           "id": "ZXmj5xAAACMAX3l2",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-12-14T12:04:29+0000",
-          "last_publication_date": "2024-05-07T14:05:50+0000",
+          "last_publication_date": "2024-07-23T08:30:48+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-330",
           "data": {
             "title": [
               {
@@ -249,11 +277,15 @@
         "event": {
           "id": "ZXmj-xAAACEAX3nP",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-12-13T12:49:33+0000",
-          "last_publication_date": "2024-05-07T14:05:49+0000",
+          "last_publication_date": "2024-07-23T09:38:22+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-1",
           "data": {
             "title": [
               {
@@ -278,11 +310,15 @@
         "event": {
           "id": "ZXmkMxAAACEAX3rQ",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-12-14T12:04:33+0000",
-          "last_publication_date": "2024-05-07T14:05:51+0000",
+          "last_publication_date": "2024-07-22T13:48:32+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-1730",
           "data": {
             "title": [
               {
@@ -307,11 +343,15 @@
         "event": {
           "id": "ZXmkXhAAACEAX3uY",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-12-13T12:49:27+0000",
-          "last_publication_date": "2024-05-07T14:05:49+0000",
+          "last_publication_date": "2024-07-23T09:37:19+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-24",
           "data": {
             "title": [
               {
@@ -336,11 +376,15 @@
         "event": {
           "id": "ZXmkgBAAACIAX3w8",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-12-14T12:04:36+0000",
-          "last_publication_date": "2024-05-07T14:05:51+0000",
+          "last_publication_date": "2024-07-23T09:08:42+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-24-1130",
           "data": {
             "title": [
               {
@@ -365,11 +409,15 @@
         "event": {
           "id": "ZXmkoBAAACIAX3zL",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-12-13T12:49:21+0000",
-          "last_publication_date": "2024-05-07T14:05:49+0000",
+          "last_publication_date": "2024-07-23T09:31:56+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-19-2",
           "data": {
             "title": [
               {
@@ -394,11 +442,15 @@
         "event": {
           "id": "ZXmkwRAAACEAX31l",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-12-14T12:04:40+0000",
-          "last_publication_date": "2024-05-07T14:05:50+0000",
+          "last_publication_date": "2024-07-23T09:09:37+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-19-330",
           "data": {
             "title": [
               {
@@ -423,11 +475,15 @@
         "event": {
           "id": "ZXmk3BAAACAAX33g",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "lights-up-on-the-cult-of-beauty",
           "first_publication_date": "2023-12-13T12:49:15+0000",
-          "last_publication_date": "2024-05-07T14:05:48+0000",
+          "last_publication_date": "2024-07-23T10:49:29+0000",
+          "uid": "lights-up-on-the-cult-of-beauty-114",
           "data": {
             "title": [
               {
@@ -452,11 +508,15 @@
         "event": {
           "id": "ZXmk8hAAACIAX35E",
           "type": "events",
-          "tags": ["LightsUpBeauty", "delist"],
+          "tags": [
+            "LightsUpBeauty",
+            "delist"
+          ],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "ad-tour-of-the-cult-of-beauty",
           "first_publication_date": "2023-12-14T12:04:44+0000",
-          "last_publication_date": "2024-05-07T14:05:51+0000",
+          "last_publication_date": "2024-07-22T13:45:48+0000",
+          "uid": "ad-tour-of-the-cult-of-beauty-530",
           "data": {
             "title": [
               {

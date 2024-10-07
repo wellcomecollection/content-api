@@ -1,13 +1,15 @@
 {
   "id": "ZJLZoRAAACIARz42",
-  "uid": null,
+  "uid": "perspective-tour-with-jess-dobkin",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zv_zqxAAACEAOBwz&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-07-27T15:00:00+0000",
-  "last_publication_date": "2024-05-07T14:05:30+0000",
-  "slugs": [],
+  "last_publication_date": "2024-07-22T15:13:26+0000",
+  "slugs": [
+    "perspective-tour-with-jess-dobkin"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -82,7 +84,7 @@
           "lang": "en-gb",
           "slug": "british-sign-language",
           "first_publication_date": "2020-02-10T15:44:36+0000",
-          "last_publication_date": "2022-10-10T18:27:10+0000",
+          "last_publication_date": "2024-09-10T14:33:57+0000",
           "data": {
             "title": [
               {
@@ -239,9 +241,10 @@
           "type": "event-series",
           "tags": [],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "perspective-tours",
           "first_publication_date": "2018-01-10T13:24:40+0000",
-          "last_publication_date": "2024-05-07T14:24:39+0000",
+          "last_publication_date": "2024-07-22T10:36:00+0000",
+          "uid": "perspective-tours",
           "data": {
             "title": [
               {

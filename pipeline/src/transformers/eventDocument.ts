@@ -141,6 +141,7 @@ export const transformEventDocument = (
   const {
     data: { title, promo, times, availableOnline },
     id,
+    uid,
     tags,
   } = document;
 
@@ -166,6 +167,7 @@ export const transformEventDocument = (
 
   return {
     id,
+    uid,
     ...(tags.includes('delist') && { isChildScheduledEvent: true }),
     display: {
       type: 'Event',

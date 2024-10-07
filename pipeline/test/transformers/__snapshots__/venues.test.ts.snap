@@ -58,6 +58,12 @@ exports[`eventDocument transformer transforms venues from Prismic to the expecte
         "startDateTime": "00:00",
         "type": "Christmas and New Year",
       },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-11-04T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "other",
+      },
     ],
     "regularOpeningDays": [
       {
@@ -159,6 +165,12 @@ exports[`eventDocument transformer transforms venues from Prismic to the expecte
         "overrideDate": "2024-12-30T00:00:00.000Z",
         "startDateTime": "00:00",
         "type": "Christmas and New Year",
+      },
+      {
+        "endDateTime": "00:00",
+        "overrideDate": "2024-11-04T00:00:00.000Z",
+        "startDateTime": "00:00",
+        "type": "other",
       },
     ],
     "id": "WsuS_R8AACS1Nwlx",

@@ -188,6 +188,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Land Body Ecologies Festival Day Two",
   },
+  "uid": "land-body-ecologies-festival-day-two",
 }
 `;
 
@@ -359,6 +360,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Perspective Tour With Jess Dobkin",
   },
+  "uid": "perspective-tour-with-jess-dobkin",
 }
 `;
 
@@ -495,7 +497,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "linkedIdentifiers": [
       "WrEgqSAAACAAPEw7",
       "ZQgi7hIAACQAN2QG",
-      "ZQghdREAAEnw6cr1",
+      "ZuBl7REAAB4AgarD",
       "ZQgkIRIAACIAN2X1",
       "ZQgiFxYAACcAYG_6",
       "ZXmjzxAAACMAX3kD",
@@ -517,6 +519,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Lights Up on The Cult of Beauty",
   },
+  "uid": "lights-up-on-the-cult-of-beauty-11",
 }
 `;
 
@@ -695,6 +698,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Standards, My Right to Beauty",
   },
+  "uid": "standards--my-right-to-beauty",
 }
 `;
 
@@ -704,7 +708,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "audiences": [],
     "format": "{"type":"EventFormat","id":"Wd-QYCcAACcAoiJS","label":"Discussion"}",
     "interpretations": [
-      "{"type":"EventInterpretation","id":"YzGD9hEAAEAKfx0E","label":"Captioned (online)"}",
+      "{"type":"EventInterpretation","id":"X2jPiRMAACIA8Vzo","label":"Auto-captioned"}",
     ],
     "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":true,"label":"Catch-up event"}",
     "locations": [
@@ -786,8 +790,8 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "interpretations": [
       {
-        "id": "YzGD9hEAAEAKfx0E",
-        "label": "Captioned (online)",
+        "id": "X2jPiRMAACIA8Vzo",
+        "label": "Auto-captioned",
         "type": "EventInterpretation",
       },
     ],
@@ -808,7 +812,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       {
         "contributors": [],
         "id": "W5Zj_CYAACQALK5B",
-        "title": "Exploring Research",
+        "title": "Exploring research",
       },
     ],
     "times": [
@@ -821,14 +825,14 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         "startDateTime": 2023-11-14T15:00:00.000Z,
       },
     ],
-    "title": "Recipes for Early Modern Beauty",
+    "title": "Recipes for early modern beauty",
     "type": "Event",
   },
   "filter": {
     "audienceIds": [],
     "formatId": "Wd-QYCcAACcAoiJS",
     "interpretationIds": [
-      "YzGD9hEAAEAKfx0E",
+      "X2jPiRMAACIA8Vzo",
     ],
     "isAvailableOnline": true,
     "locationIds": [
@@ -840,7 +844,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     "caption": "Join an online conversation about early modern health and beauty routines, and what they reveal about western European women’s lives.",
     "linkedIdentifiers": [
       "Wd-QYCcAACcAoiJS",
-      "YzGD9hEAAEAKfx0E",
+      "X2jPiRMAACIA8Vzo",
       "Wyu-rCoAACsACpm_",
       "ZIAyLRAAACEAANjv",
       "ZSP5ThAAACIAiMsF",
@@ -853,7 +857,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       {
         "contributors": [],
         "id": "W5Zj_CYAACQALK5B",
-        "title": "Exploring Research",
+        "title": "Exploring research",
       },
     ],
     "times": {
@@ -861,8 +865,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         2023-11-14T15:00:00.000Z,
       ],
     },
-    "title": "Recipes for Early Modern Beauty",
+    "title": "Recipes for early modern beauty",
   },
+  "uid": "recipes-for-early-modern-beauty",
 }
 `;
 
@@ -1013,5 +1018,6 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Sexing Up the Internet",
   },
+  "uid": "sexing-up-the-internet",
 }
 `;
