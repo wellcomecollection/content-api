@@ -141,9 +141,9 @@ export const transformEventDocument = (
   const {
     data: { title, promo, times, availableOnline },
     id,
-    uid,
     tags,
   } = document;
+  const uid = document.uid || undefined;
 
   const documentTimes = times.map(transformTimes);
 

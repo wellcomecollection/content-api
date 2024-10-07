@@ -86,12 +86,8 @@ function transformLabelType(
 export const transformArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchArticle => {
-  const {
-    data,
-    id,
-    uid,
-    first_publication_date: firstPublicationDate,
-  } = document;
+  const { data, id, first_publication_date: firstPublicationDate } = document;
+  const uid = document.uid || undefined;
   const primaryImage = data.promo?.[0]?.primary;
 
   const image =
