@@ -172,6 +172,7 @@ export const transformEventDocument = (
     display: {
       type: 'Event',
       id,
+      uid,
       title: asTitle(title),
       image,
       times: times.map(transformTimes),
