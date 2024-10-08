@@ -1,8 +1,4 @@
-// Worth noting that we can't update node-fetch to its latest version (v3)
-// as its currently unsupported by Prismic.
-// As we're going to move away from this later on, we'll be using v2.
 import * as prismic from '@prismicio/client';
-import fetch from 'node-fetch';
 
 export const createPrismicClient = (): prismic.Client => {
   // We use an access token for Prismic in prod to avoid certain classes of
@@ -31,7 +27,7 @@ export const createPrismicClient = (): prismic.Client => {
   }
 
   const endpoint = prismic.getRepositoryEndpoint('wellcomecollection');
-  const client = prismic.createClient(endpoint, { fetch, accessToken });
+  const client = prismic.createClient(endpoint, { accessToken });
 
   return client;
 };

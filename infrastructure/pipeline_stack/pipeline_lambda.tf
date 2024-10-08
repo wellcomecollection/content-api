@@ -6,7 +6,7 @@ module "pipeline_lambda" {
   source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
 
   name    = local.pipeline_lambda_name
-  runtime = "nodejs18.x"
+  runtime = "nodejs20.x"
   handler = "lambda.handler"
 
   filename    = data.archive_file.empty_zip.output_path

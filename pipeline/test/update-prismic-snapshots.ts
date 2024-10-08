@@ -1,7 +1,7 @@
 import { Client, PrismicDocument } from '@prismicio/client';
-import fs from 'node:fs/promises';
+import { promises as fs } from 'fs';
 import { EOL } from 'node:os';
-import path from 'node:path';
+import * as path from 'path';
 import { Writable } from 'stream';
 
 import {

@@ -5,31 +5,29 @@
   "license": "MIT",
   "scripts": {
     "package": "./package.sh",
-    "reindex": "ts-node src/local.ts all",
-    "reindex-articles": "ts-node src/local.ts articles",
-    "reindex-events": "ts-node src/local.ts events",
-    "reindex-venues": "ts-node src/local.ts venues",
-    "update-prismic-snapshots": "ts-node test/update-prismic-snapshots.ts",
+    "reindex": "tsx src/local.ts all",
+    "reindex-articles": "tsx src/local.ts articles",
+    "reindex-events": "tsx src/local.ts events",
+    "reindex-venues": "tsx src/local.ts venues",
+    "update-prismic-snapshots": "tsx test/update-prismic-snapshots.ts",
     "test": "jest"
   },
   "dependencies": {
     "@prismicio/client": "^7.3.1",
     "@weco/content-common": "*",
-    "node-fetch": "^2.6.1",
     "parse-duration": "^1.0.3",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^1.0.1",
+    "@tsconfig/node20": "20.1.4",
     "@types/aws-lambda": "^8.10.114",
-    "@types/jest": "^29.5.0",
-    "@types/node": "^18.15.5",
-    "@types/node-fetch": "^2.6.2",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^20.16.5",
     "esbuild": "^0.17.17",
     "jest": "^29.5.0",
     "jest-extended": "^3.2.4",
     "ts-jest": "^29.0.5",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.6.2",
+    "tsx": "^3.14.0"
   }
 }

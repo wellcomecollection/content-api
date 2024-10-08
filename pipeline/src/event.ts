@@ -27,7 +27,8 @@ export const toBoundedWindow = (event: WindowEvent): TimeWindow => {
   const start = dateOrUndefined(event.start);
   const end = dateOrUndefined(event.end);
   if (event.duration) {
-    const durationMs = parseDuration(event.duration);
+    // 900000 is the default duration as defined in infrastructure/pipeline_stack/scheduled_window_event.tf
+    const durationMs = parseDuration(event.duration) || 900000;
     if (start) {
       return {
         start,

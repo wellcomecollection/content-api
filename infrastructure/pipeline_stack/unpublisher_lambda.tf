@@ -7,7 +7,7 @@ module "unpublisher_lambda" {
 
   name        = local.unpublisher_lambda_name
   description = "Handle any documents which are 'unpublished' (deleted) in Prismic"
-  runtime     = "nodejs18.x"
+  runtime     = "nodejs20.x"
   handler     = "lambda.handler"
 
   filename    = data.archive_file.empty_zip.output_path
