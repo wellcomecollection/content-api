@@ -1,13 +1,13 @@
 {
   "id": "ZSPXJBAAACIAiERm",
-  "uid": null,
+  "uid": "recipes-for-early-modern-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zjzt5xIAACAA2kvu&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Zv5oMxAAACAANcnq&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
-  "last_publication_date": "2024-05-07T14:05:41+0000",
-  "slugs": [],
+  "last_publication_date": "2024-09-17T14:29:34+0000",
+  "slugs": ["recipes-for-early-modern-beauty"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -15,8 +15,9 @@
     "title": [
       {
         "type": "heading1",
-        "text": "Recipes for Early Modern Beauty",
-        "spans": []
+        "text": "Recipes for early modern beauty",
+        "spans": [],
+        "direction": "ltr"
       }
     ],
     "format": {
@@ -59,18 +60,18 @@
     "interpretations": [
       {
         "interpretationType": {
-          "id": "YzGD9hEAAEAKfx0E",
+          "id": "X2jPiRMAACIA8Vzo",
           "type": "interpretation-types",
           "tags": [],
           "lang": "en-gb",
-          "slug": "captioned-online",
-          "first_publication_date": "2022-09-26T10:52:38+0000",
-          "last_publication_date": "2022-09-26T12:53:59+0000",
+          "slug": "auto-captioned",
+          "first_publication_date": "2020-09-23T10:36:41+0000",
+          "last_publication_date": "2023-10-02T10:33:32+0000",
           "data": {
             "title": [
               {
                 "type": "heading1",
-                "text": "Captioned (online)",
+                "text": "Auto-captioned",
                 "spans": []
               }
             ]
@@ -330,15 +331,17 @@
           "type": "event-series",
           "tags": [],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "exploring-research",
           "first_publication_date": "2018-09-13T14:08:30+0000",
-          "last_publication_date": "2024-05-07T14:24:43+0000",
+          "last_publication_date": "2024-09-17T14:29:50+0000",
+          "uid": "exploring-research",
           "data": {
             "title": [
               {
                 "type": "heading1",
-                "text": "Exploring Research",
-                "spans": []
+                "text": "Exploring research",
+                "spans": [],
+                "direction": "ltr"
               }
             ],
             "contributors": [
