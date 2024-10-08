@@ -136,6 +136,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Land Body Ecologies Festival Day Two",
     "type": "Event",
+    "uid": "land-body-ecologies-festival-day-two",
   },
   "filter": {
     "audienceIds": [],
@@ -188,6 +189,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Land Body Ecologies Festival Day Two",
   },
+  "uid": "land-body-ecologies-festival-day-two",
 }
 `;
 
@@ -322,6 +324,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Perspective Tour With Jess Dobkin",
     "type": "Event",
+    "uid": "perspective-tour-with-jess-dobkin",
   },
   "filter": {
     "audienceIds": [],
@@ -359,6 +362,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Perspective Tour With Jess Dobkin",
   },
+  "uid": "perspective-tour-with-jess-dobkin",
 }
 `;
 
@@ -479,6 +483,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Lights Up on The Cult of Beauty",
     "type": "Event",
+    "uid": "lights-up-on-the-cult-of-beauty-11",
   },
   "filter": {
     "audienceIds": [],
@@ -517,6 +522,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Lights Up on The Cult of Beauty",
   },
+  "uid": "lights-up-on-the-cult-of-beauty-11",
 }
 `;
 
@@ -659,6 +665,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Standards, My Right to Beauty",
     "type": "Event",
+    "uid": "standards--my-right-to-beauty",
   },
   "filter": {
     "audienceIds": [
@@ -695,6 +702,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Standards, My Right to Beauty",
   },
+  "uid": "standards--my-right-to-beauty",
 }
 `;
 
@@ -823,6 +831,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Recipes for early modern beauty",
     "type": "Event",
+    "uid": "recipes-for-early-modern-beauty",
   },
   "filter": {
     "audienceIds": [],
@@ -863,6 +872,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Recipes for early modern beauty",
   },
+  "uid": "recipes-for-early-modern-beauty",
 }
 `;
 
@@ -983,6 +993,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     ],
     "title": "Sexing Up the Internet",
     "type": "Event",
+    "uid": "sexing-up-the-internet",
   },
   "filter": {
     "audienceIds": [],
@@ -1013,5 +1024,6 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "title": "Sexing Up the Internet",
   },
+  "uid": "sexing-up-the-internet",
 }
 `;

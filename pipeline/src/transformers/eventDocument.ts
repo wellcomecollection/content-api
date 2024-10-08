@@ -143,6 +143,7 @@ export const transformEventDocument = (
     id,
     tags,
   } = document;
+  const uid = document.uid || undefined;
 
   const documentTimes = times.map(transformTimes);
 
@@ -166,10 +167,12 @@ export const transformEventDocument = (
 
   return {
     id,
+    uid,
     ...(tags.includes('delist') && { isChildScheduledEvent: true }),
     display: {
       type: 'Event',
       id,
+      uid,
       title: asTitle(title),
       image,
       times: times.map(transformTimes),
