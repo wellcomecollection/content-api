@@ -128,7 +128,7 @@ export const transformArticle = (
 
   const flatContributors = contributors.flatMap(c => c.contributor ?? []);
   const series = transformSeries(document);
-  const seriesTitle = series?.[0].title;
+  const seriesTitle = series?.[0]?.title;
 
   return {
     id,
