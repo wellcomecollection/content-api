@@ -127,6 +127,8 @@ export const transformArticle = (
     ?.primary.text[0].text;
 
   const flatContributors = contributors.flatMap(c => c.contributor ?? []);
+  const series = transformSeries(document);
+  const seriesTitle = series?.[0]?.title;
 
   return {
     id,
@@ -141,6 +143,7 @@ export const transformArticle = (
       publicationDate: datePublished,
       contributors,
       image,
+      seriesTitle,
     },
     query: {
       linkedIdentifiers: linkedDocumentIdentifiers(document),
@@ -150,7 +153,7 @@ export const transformArticle = (
       caption,
       body: queryBody,
       standfirst: queryStandfirst,
-      series: transformSeries(document),
+      series,
     },
     filter: {
       contributorIds: flatContributors.map(c => c.id),
