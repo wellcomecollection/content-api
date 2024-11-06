@@ -13,6 +13,7 @@ export type Article = {
   format: ArticleFormat;
   image?: Image;
   caption?: string;
+  series: string[];
 };
 
 // Article formats (e.g. webcomics, podcast, interview)
