@@ -16,7 +16,6 @@ It will then fetch documents between a given start and end, or for a duration be
 
 ![generic-ETL](https://github.com/user-attachments/assets/ed1f6fd7-4111-4829-9f51-802fc77b742f)
 
-
 ## Tests
 
 The tests use snapshots of real Prismic data, and also save [Jest snapshots](https://jestjs.io/docs/snapshot-testing) of the expected output.
