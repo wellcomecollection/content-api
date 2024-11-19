@@ -1,8 +1,8 @@
-const query = `books {
+const query = `
+  events {
     title
-    subtitle
     body {
-      ...on text {
+      ...on standfirst {
         variation {
           ...on default {
             primary {
@@ -12,6 +12,9 @@ const query = `books {
         }
       }
     }
+    format {
+      title
+    }
     promo {
       ...on editorialImage {
         non-repeat {
@@ -19,12 +22,19 @@ const query = `books {
         }
       }
     }
+    times {
+      startDateTime
+      endDateTime
+    }
     contributors {
       role {
         title
       }
       contributor {
         ...on people {
+          name
+        }
+        ...on organisations {
           name
         }
       }
