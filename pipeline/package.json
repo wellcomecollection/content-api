@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "package": "./package.sh",
+    "graphQueryTest": "tsx src/scripts/testGraphQuery",
     "reindex": "tsx src/local.ts all",
     "reindex-articles": "tsx src/local.ts articles",
     "reindex-events": "tsx src/local.ts events",
@@ -28,6 +29,7 @@
     "jest-extended": "^3.2.4",
     "ts-jest": "^29.0.5",
     "typescript": "^5.6.2",
-    "tsx": "^3.14.0"
+    "tsx": "^3.14.0",
+    "yargs": "^17.7.2"
   }
 }
