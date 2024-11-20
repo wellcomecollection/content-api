@@ -7,6 +7,18 @@ import {
   venueQuery,
   webcomicsQuery,
 } from './../graph-queries';
+import {
+  addressablesArticlesQuery,
+  addressablesBooksQuery,
+  addressablesEventsQuery,
+  addressablesExhibitionsQuery,
+  addressablesExhibitionTextsQuery,
+  addressablesHighlightToursQuery,
+  addressablesPagesQuery,
+  addressablesProjectsQuery,
+  addressablesSeasonsQuery,
+  addressablesVisualStoriesQuery,
+} from './../graph-queries/addressables';
 import { createPrismicClient } from './../services/prismic';
 
 const { type, isAddressable, id } = yargs(process.argv.slice(2))
@@ -46,7 +58,9 @@ async function main() {
       case 'article':
         return {
           graphQuery: isAddressable
-            ? ''
+            ? `{
+            ${addressablesArticlesQuery}
+          }`
             : `{
             ${articlesQuery}
           }`,
@@ -63,7 +77,11 @@ async function main() {
         };
       case 'event':
         return {
-          graphQuery: isAddressable ? '' : eventDocumentsQuery,
+          graphQuery: isAddressable
+            ? `{
+            ${addressablesEventsQuery}
+          }`
+            : eventDocumentsQuery,
           id: id || 'ZfhSyxgAACQAkLPZ',
         };
       case 'venue':
@@ -72,21 +90,77 @@ async function main() {
           id: id || 'Wsttgx8AAJeSNmJ4',
         };
       case 'exhibition':
-        return { graphQuery: '', id: id || 'Yzv9ChEAABfUrkVp' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+          ${addressablesExhibitionsQuery}
+          }`
+            : '',
+          id: id || 'Yzv9ChEAABfUrkVp',
+        };
       case 'book':
-        return { graphQuery: '', id: id || 'ZijgihEAACMAtL-k' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+            ${addressablesBooksQuery}
+          }`
+            : '',
+          id: id || 'ZijgihEAACMAtL-k',
+        };
       case 'page':
-        return { graphQuery: '', id: id || 'YdXSvhAAAIAW7YXQ' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+          ${addressablesPagesQuery}
+          }`
+            : '',
+          id: id || 'YdXSvhAAAIAW7YXQ',
+        };
       case 'visual-story':
-        return { graphQuery: '', id: id || 'Zs8EuRAAAB4APxrA' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+          ${addressablesVisualStoriesQuery}
+          }`
+            : '',
+          id: id || 'Zs8EuRAAAB4APxrA',
+        };
       case 'exhibition-text':
-        return { graphQuery: '', id: id || 'Zs8mohAAAB4AP4sc' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+            ${addressablesExhibitionTextsQuery}
+          }`
+            : '',
+          id: id || 'Zs8mohAAAB4AP4sc',
+        };
       case 'highlight-tour':
-        return { graphQuery: '', id: id || 'ZthrZRIAACQALvCC' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+          ${addressablesHighlightToursQuery}
+          }`
+            : '',
+          id: id || 'ZthrZRIAACQALvCC',
+        };
       case 'project':
-        return { graphQuery: '', id: id || 'Ys1-OxEAACEAguyS' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+        ${addressablesProjectsQuery}
+        }`
+            : '',
+          id: id || 'Ys1-OxEAACEAguyS',
+        };
       case 'season':
-        return { graphQuery: '', id: id || 'X84FvhIAACUAqiqp' };
+        return {
+          graphQuery: isAddressable
+            ? `{
+          ${addressablesSeasonsQuery}
+          }`
+            : '',
+          id: id || 'X84FvhIAACUAqiqp',
+        };
       default:
         console.error(`Allowed types are ${allowedTypes.join(', ')}.`);
         process.exit(1);

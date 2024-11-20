@@ -1,26 +1,38 @@
 import { wrapQueries } from '..';
-import articlesQuery from './articles';
-import booksQuery from './books';
-import eventsQuery from './events';
-import exhibitionsQuery from './exhibitions';
-import exhibitionTextsQuery from './exhibitionTexts';
-import highlightToursQuery from './highlightTours';
-import pagesQuery from './pages';
-import projectsQuery from './projects';
-import seasonsQuery from './seasons';
-import visualStoriesQuery from './visualStories';
+import addressablesArticlesQuery from './articles';
+import addressablesBooksQuery from './books';
+import addressablesEventsQuery from './events';
+import addressablesExhibitionsQuery from './exhibitions';
+import addressablesExhibitionTextsQuery from './exhibitionTexts';
+import addressablesHighlightToursQuery from './highlightTours';
+import addressablesPagesQuery from './pages';
+import addressablesProjectsQuery from './projects';
+import addressablesSeasonsQuery from './seasons';
+import addressablesVisualStoriesQuery from './visualStories';
 
 const addressablesQuery = wrapQueries(
-  articlesQuery,
-  booksQuery,
-  eventsQuery,
-  exhibitionsQuery,
-  exhibitionTextsQuery,
-  highlightToursQuery,
-  pagesQuery,
-  projectsQuery,
-  seasonsQuery,
-  visualStoriesQuery
+  addressablesArticlesQuery,
+  addressablesBooksQuery,
+  addressablesEventsQuery,
+  addressablesExhibitionsQuery,
+  addressablesExhibitionTextsQuery,
+  addressablesHighlightToursQuery,
+  addressablesPagesQuery,
+  addressablesProjectsQuery,
+  addressablesSeasonsQuery,
+  addressablesVisualStoriesQuery
 );
 
-export { addressablesQuery };
+export {
+  addressablesQuery,
+  addressablesArticlesQuery,
+  addressablesBooksQuery,
+  addressablesEventsQuery,
+  addressablesExhibitionsQuery,
+  addressablesExhibitionTextsQuery,
+  addressablesHighlightToursQuery,
+  addressablesPagesQuery,
+  addressablesProjectsQuery,
+  addressablesSeasonsQuery,
+  addressablesVisualStoriesQuery,
+};
