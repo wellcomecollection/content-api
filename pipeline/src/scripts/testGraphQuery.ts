@@ -68,7 +68,7 @@ async function main() {
         };
       case 'venue':
         return {
-          graphQuery: isAddressable ? '' : venueQuery,
+          graphQuery: venueQuery,
           id: id || 'Wsttgx8AAJeSNmJ4',
         };
       case 'exhibition':
@@ -109,15 +109,6 @@ async function main() {
   console.log(
     util.inspect(doc, { showHidden: false, depth: null, colors: true })
   );
-
-  // TODO later
-  // consologs the transformed document
-  // switch transformer and type
-  // to suit whichever type of Prismic doc you're fetching above
-
-  // console.log(util.inspect(transformArticle(doc as ArticlePrismicDocument), { showHidden: false, depth: null, colors: true }))
-  // console.log(util.inspect(transformEventDocument(doc as EventPrismicDocument), { showHidden: false, depth: null, colors: true }))
-  // console.log(util.inspect(transformVenue(doc as VenuePrismicDocument), { showHidden: false, depth: null, colors: true }))
 }
 
 main();
