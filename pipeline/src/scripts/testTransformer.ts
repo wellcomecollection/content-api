@@ -17,11 +17,11 @@ import {
 } from './../types/prismic';
 import { VenuePrismicDocument } from './../types/prismic/venues';
 
-const { type, isAddressable, id } = yargs(process.argv.slice(2))
-  .usage('Usage: $0 --type [string] --isAddressable [boolean] --id [string]')
+const { type, isDetailed, id } = yargs(process.argv.slice(2))
+  .usage('Usage: $0 --type [string] --isDetailed [boolean] --id [string]')
   .options({
     type: { type: 'string' },
-    isAddressable: { type: 'boolean' },
+    isDetailed: { type: 'boolean' },
     id: { type: 'string' },
   })
   .parseSync();
@@ -51,45 +51,45 @@ async function main() {
 
   const client = createPrismicClient();
 
+  let transformerName;
   const transformDocument = async () => {
     switch (type) {
       case 'article': {
         const doc = await client.getByID(id || 'ZdSMbREAACQA3j30', {
-          graphQuery: (isAddressable
-            ? ''
-            : `{
+          graphQuery: (isDetailed
+            ? `{
               ${articlesQuery}
             }`
+            : ''
           ).replace(/\n(\s+)/g, '\n'),
         });
 
-        // TODO add isAddressable check
+        // TODO add isDetailed check
+        transformerName = 'transformArticle';
         return transformArticle(doc as ArticlePrismicDocument);
       }
 
       case 'webcomic': {
         const doc = await client.getByID(id || 'XkV9dREAAAPkNP0b', {
-          graphQuery: (isAddressable
-            ? ''
-            : `{
-            ${webcomicsQuery}
-          }`
-          ).replace(/\n(\s+)/g, '\n'),
+          graphQuery: `{
+              ${webcomicsQuery}
+            }`.replace(/\n(\s+)/g, '\n'),
         });
 
-        // TODO add isAddressable check
+        transformerName = 'transformArticle';
         return transformArticle(doc as ArticlePrismicDocument);
       }
 
       case 'event': {
         const doc = await client.getByID(id || 'ZfhSyxgAACQAkLPZ', {
-          graphQuery: (isAddressable ? '' : eventDocumentsQuery).replace(
+          graphQuery: (isDetailed ? eventDocumentsQuery : '').replace(
             /\n(\s+)/g,
             '\n'
           ),
         });
 
-        // TODO add isAddressable check
+        // TODO add isDetailed check
+        transformerName = 'transformEventDocument';
         return transformEventDocument(doc as EventPrismicDocument);
       }
 
@@ -98,6 +98,7 @@ async function main() {
           graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
         });
 
+        transformerName = 'transformVenue';
         return transformVenue(doc as VenuePrismicDocument);
       }
 
@@ -106,6 +107,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -114,6 +116,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -122,6 +125,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -130,6 +134,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -138,6 +143,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -146,6 +152,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -154,6 +161,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -162,6 +170,7 @@ async function main() {
       //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
       //   });
 
+      //   transformerName = 'transformVenue';
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
@@ -185,6 +194,8 @@ async function main() {
       colors: true,
     })
   );
+
+  console.log(`\n\x1b[4mThis is the result from ${transformerName}.\x1b[0m\n`);
 }
 
 main();
