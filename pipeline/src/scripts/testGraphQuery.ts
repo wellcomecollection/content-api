@@ -21,11 +21,11 @@ import {
 } from './../graph-queries/addressables';
 import { createPrismicClient } from './../services/prismic';
 
-const { type, isAddressable, id } = yargs(process.argv.slice(2))
-  .usage('Usage: $0 --type [string] --isAddressable [boolean] --id [string]')
+const { type, isDetailed, id } = yargs(process.argv.slice(2))
+  .usage('Usage: $0 --type [string] --isDetailed [boolean] --id [string]')
   .options({
     type: { type: 'string' },
-    isAddressable: { type: 'boolean' },
+    isDetailed: { type: 'boolean' },
     id: { type: 'string' },
   })
   .parseSync();
@@ -53,114 +53,133 @@ async function main() {
     process.exit(1);
   }
 
+  let graphQueryName;
   const query = () => {
     switch (type) {
       case 'article':
+        graphQueryName = isDetailed
+          ? 'articlesQuery'
+          : 'addressablesArticlesQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-            ${addressablesArticlesQuery}
-          }`
-            : `{
-            ${articlesQuery}
+          graphQuery: `{
+            ${isDetailed ? articlesQuery : addressablesArticlesQuery}
           }`,
           id: id || 'ZdSMbREAACQA3j30',
         };
+
       case 'webcomic':
+        graphQueryName = 'webcomicsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? ''
-            : `{
+          graphQuery: `{
             ${webcomicsQuery}
           }`,
           id: id || 'XkV9dREAAAPkNP0b',
         };
+
       case 'event':
+        graphQueryName = isDetailed
+          ? 'eventDocumentsQuery'
+          : 'addressablesEventsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-            ${addressablesEventsQuery}
-          }`
-            : eventDocumentsQuery,
+          graphQuery: isDetailed
+            ? eventDocumentsQuery
+            : `{
+              ${addressablesEventsQuery}
+            }`,
           id: id || 'ZfhSyxgAACQAkLPZ',
         };
+
       case 'venue':
+        graphQueryName = 'venueQuery';
+
         return {
-          graphQuery: isAddressable ? '' : venueQuery,
+          graphQuery: venueQuery,
           id: id || 'Wsttgx8AAJeSNmJ4',
         };
+
       case 'exhibition':
+        graphQueryName = 'addressablesExhibitionsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-          ${addressablesExhibitionsQuery}
-          }`
-            : '',
+          graphQuery: `{
+            ${addressablesExhibitionsQuery}
+          }`,
           id: id || 'Yzv9ChEAABfUrkVp',
         };
+
       case 'book':
+        graphQueryName = 'addressablesBooksQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
+          graphQuery: `{
             ${addressablesBooksQuery}
-          }`
-            : '',
+          }`,
           id: id || 'ZijgihEAACMAtL-k',
         };
+
       case 'page':
+        graphQueryName = 'addressablesPagesQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-          ${addressablesPagesQuery}
-          }`
-            : '',
+          graphQuery: `{
+            ${addressablesPagesQuery}
+          }`,
           id: id || 'YdXSvhAAAIAW7YXQ',
         };
+
       case 'visual-story':
+        graphQueryName = 'addressablesVisualStoriesQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-          ${addressablesVisualStoriesQuery}
-          }`
-            : '',
+          graphQuery: `{
+            ${addressablesVisualStoriesQuery}
+          }`,
           id: id || 'Zs8EuRAAAB4APxrA',
         };
+
       case 'exhibition-text':
+        graphQueryName = 'addressablesExhibitionTextsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
+          graphQuery: `{
             ${addressablesExhibitionTextsQuery}
-          }`
-            : '',
+          }`,
           id: id || 'Zs8mohAAAB4AP4sc',
         };
+
       case 'highlight-tour':
+        graphQueryName = 'addressablesHighlightToursQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-          ${addressablesHighlightToursQuery}
-          }`
-            : '',
+          graphQuery: `{
+            ${addressablesHighlightToursQuery}
+          }`,
           id: id || 'ZthrZRIAACQALvCC',
         };
+
       case 'project':
+        graphQueryName = 'addressablesProjectsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-        ${addressablesProjectsQuery}
-        }`
-            : '',
+          graphQuery: `{
+            ${addressablesProjectsQuery}
+          }`,
           id: id || 'Ys1-OxEAACEAguyS',
         };
+
       case 'season':
+        graphQueryName = 'addressablesSeasonsQuery';
+
         return {
-          graphQuery: isAddressable
-            ? `{
-          ${addressablesSeasonsQuery}
-          }`
-            : '',
+          graphQuery: `{
+            ${addressablesSeasonsQuery}
+          }`,
           id: id || 'X84FvhIAACUAqiqp',
         };
+
       default:
         console.error(`Allowed types are ${allowedTypes.join(', ')}.`);
         process.exit(1);
@@ -183,15 +202,7 @@ async function main() {
   console.log(
     util.inspect(doc, { showHidden: false, depth: null, colors: true })
   );
-
-  // TODO later
-  // consologs the transformed document
-  // switch transformer and type
-  // to suit whichever type of Prismic doc you're fetching above
-
-  // console.log(util.inspect(transformArticle(doc as ArticlePrismicDocument), { showHidden: false, depth: null, colors: true }))
-  // console.log(util.inspect(transformEventDocument(doc as EventPrismicDocument), { showHidden: false, depth: null, colors: true }))
-  // console.log(util.inspect(transformVenue(doc as VenuePrismicDocument), { showHidden: false, depth: null, colors: true }))
+  console.log(`\n\x1b[4mThis is the result from ${graphQueryName}.\x1b[0m\n`);
 }
 
 main();
