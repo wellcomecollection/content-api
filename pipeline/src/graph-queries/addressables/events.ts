@@ -27,9 +27,6 @@ const query = `
       endDateTime
     }
     contributors {
-      role {
-        title
-      }
       contributor {
         ...on people {
           name

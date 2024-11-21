@@ -14,9 +14,6 @@ const query = `
     start
     end
     contributors {
-      role {
-        title
-      }
       contributor {
         ...on people {
           name

@@ -5,9 +5,6 @@ const query = `
       title
     }
     contributors {
-      role {
-        title
-      }
       contributor {
         ...on people {
           name

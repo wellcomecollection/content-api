@@ -23,9 +23,6 @@ const query = `
       }
     }
     contributors {
-      role {
-        title
-      }
       contributor {
         ...on people {
           name
