@@ -5,11 +5,12 @@
   "license": "MIT",
   "scripts": {
     "package": "./package.sh",
-    "graphQueryTest": "tsx src/scripts/testGraphQuery",
     "reindex": "tsx src/local.ts all",
     "reindex-articles": "tsx src/local.ts articles",
     "reindex-events": "tsx src/local.ts events",
     "reindex-venues": "tsx src/local.ts venues",
+    "testGraphQuery": "tsx src/scripts/testGraphQuery",
+    "testTransformer": "tsx src/scripts/testTransformer",
     "update-prismic-snapshots": "tsx test/update-prismic-snapshots.ts",
     "test": "jest"
   },
