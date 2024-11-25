@@ -22,7 +22,8 @@ export const transformAddressableBook = (
         ? asText(c.contributor?.data.name)
         : undefined;
     })
-    .filter(isNotUndefined);
+    .filter(isNotUndefined)
+    .join(', ');
 
   const body = data.body
     ?.map(s => {

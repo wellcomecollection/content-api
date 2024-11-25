@@ -106,13 +106,13 @@ export type ElasticsearchAddressableBook = {
     uid?: string;
     title: string;
     description?: string;
-    contributors: string[];
+    contributors: string;
   };
   query: {
     type: 'Book';
     title: string;
     description?: string;
-    contributors: string[];
-    body?: string[] | string;
+    contributors: string;
+    body?: string;
   };
 };
