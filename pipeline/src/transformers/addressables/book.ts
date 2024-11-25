@@ -4,11 +4,11 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { BooksPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
+import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
 import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/transformed';
 
 export const transformAddressableBook = (
-  document: BooksPrismicDocument
+  document: BookPrismicDocument
 ): ElasticsearchAddressableBook => {
   const { data, id, uid } = document;
   const primaryImage = data.promo?.[0]?.primary;
@@ -45,10 +45,9 @@ export const transformAddressableBook = (
     query: {
       type: 'Book',
       title,
-      subtitle,
       description,
-      contributors,
       body,
+      contributors,
     },
   };
 };

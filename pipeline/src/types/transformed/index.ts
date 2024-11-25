@@ -111,10 +111,8 @@ export type ElasticsearchAddressableBook = {
   query: {
     type: 'Book';
     title: string;
-    subtitle?: string;
     description?: string;
     contributors: string[];
-    caption?: string;
     body?: string[] | string;
   };
 };

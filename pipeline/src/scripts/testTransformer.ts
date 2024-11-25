@@ -9,6 +9,7 @@ import {
 } from './../graph-queries';
 import { addressablesBooksQuery } from './../graph-queries/addressables';
 import { createPrismicClient } from './../services/prismic';
+import { transformAddressableBook } from './../transformers/addressables/book';
 import { transformArticle } from './../transformers/article';
 import { transformEventDocument } from './../transformers/eventDocument';
 import { transformVenue } from './../transformers/venue';
@@ -16,6 +17,7 @@ import {
   ArticlePrismicDocument,
   EventPrismicDocument,
 } from './../types/prismic';
+import { BookPrismicDocument } from './../types/prismic/books';
 import { VenuePrismicDocument } from './../types/prismic/venues';
 
 const { type, isDetailed, id } = yargs(process.argv.slice(2))
@@ -114,11 +116,15 @@ async function main() {
 
       case 'book': {
         const doc = await client.getByID(id || 'ZijgihEAACMAtL-k', {
-          graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
+          graphQuery: isDetailed
+            ? ''
+            : `{
+            ${addressablesBooksQuery}
+          }`,
         });
 
-        transformerName = 'transformVenue';
-        return transformVenue(doc as VenuePrismicDocument);
+        transformerName = isDetailed ? '' : 'transformAddressableBook';
+        return transformAddressableBook(doc as BookPrismicDocument);
       }
 
       // case 'page': {
