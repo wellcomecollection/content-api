@@ -116,14 +116,12 @@ async function main() {
 
       case 'book': {
         const doc = await client.getByID(id || 'WwVK3CAAAHm5Exxr', {
-          graphQuery: isDetailed
-            ? ''
-            : `{
+          graphQuery: `{
             ${addressablesBooksQuery}
           }`,
         });
 
-        transformerName = isDetailed ? '' : 'transformAddressableBook';
+        transformerName = 'transformAddressableBook';
         return transformAddressableBook(doc as BookPrismicDocument);
       }
 
