@@ -1,12 +1,12 @@
 type AddressableType = 'Book' | 'Visual story';
 
-type AddressableBaseDisplay<T extends AddressableType, U> = {
+type AddressableBaseDisplay<T extends AddressableType> = {
   type: T;
   id: string;
   uid?: string;
   title: string;
   description?: string;
-} & U;
+};
 
 type AddressableQuery<T> = {
   type: T;
@@ -16,9 +16,12 @@ type AddressableQuery<T> = {
   contributors?: string;
 };
 
-export type ElasticsearchAddressable<T extends AddressableType, U> = {
+export type ElasticsearchAddressable<
+  T extends AddressableType,
+  U = Record<string, unknown>,
+> = {
   id: string;
   uid?: string;
-  display: AddressableBaseDisplay<T, U>;
+  display: AddressableBaseDisplay<T> & U;
   query: AddressableQuery<T>;
 };

@@ -103,7 +103,5 @@ export type ElasticsearchAddressableBook = ElasticsearchAddressable<
   { contributors: string }
 >;
 
-export type ElasticsearchAddressableVisualStory = ElasticsearchAddressable<
-  'Visual story',
-  object
->;
+export type ElasticsearchAddressableVisualStory =
+  ElasticsearchAddressable<'Visual story'>;
