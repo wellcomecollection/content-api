@@ -7,7 +7,9 @@ import {
   venueQuery,
   webcomicsQuery,
 } from './../graph-queries';
+import { addressablesBooksQuery } from './../graph-queries/addressables';
 import { createPrismicClient } from './../services/prismic';
+import { transformAddressableBook } from './../transformers/addressables/book';
 import { transformArticle } from './../transformers/article';
 import { transformEventDocument } from './../transformers/eventDocument';
 import { transformVenue } from './../transformers/venue';
@@ -15,6 +17,7 @@ import {
   ArticlePrismicDocument,
   EventPrismicDocument,
 } from './../types/prismic';
+import { BookPrismicDocument } from './../types/prismic/books';
 import { VenuePrismicDocument } from './../types/prismic/venues';
 
 const { type, isDetailed, id } = yargs(process.argv.slice(2))
@@ -111,14 +114,16 @@ async function main() {
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
-      // case 'book': {
-      //   const doc = await client.getByID(id || 'ZijgihEAACMAtL-k', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'book': {
+        const doc = await client.getByID(id || 'WwVK3CAAAHm5Exxr', {
+          graphQuery: `{
+            ${addressablesBooksQuery}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableBook';
+        return transformAddressableBook(doc as BookPrismicDocument);
+      }
 
       // case 'page': {
       //   const doc = await client.getByID(id || 'YdXSvhAAAIAW7YXQ', {
