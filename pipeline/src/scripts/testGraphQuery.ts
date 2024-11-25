@@ -121,10 +121,10 @@ async function main() {
   const graphInfo = getGraphInfo({ type, isDetailed, id });
   const graphQuery = getGraphQuery({ type, isDetailed });
 
-  if (!graphInfo || graphQuery) {
+  if (!graphInfo || !graphQuery) {
     console.error('Something went wrong with queryResult', {
       graphInfo,
-      graphQuery,
+      hasGraphQuery: !!graphQuery,
     });
     process.exit(1);
   }
