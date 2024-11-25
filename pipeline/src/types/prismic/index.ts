@@ -3,6 +3,7 @@ import * as prismic from '@prismicio/client';
 import { PrismicImage } from './images';
 
 export { ArticlePrismicDocument, WithArticleFormat } from './articles';
+export { BookPrismicDocument } from './books';
 export {
   EventPrismicDocument,
   WithEventFormat,
@@ -13,6 +14,7 @@ export { Contributors, WithContributors } from './contributors';
 export { ContentType, PrismicFormat, ArticleFormatId } from './formats';
 export { PrismicImage } from './images';
 export { WithSeries } from './series';
+export { VisualStoryPrismicDocument } from './visualStory';
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client
