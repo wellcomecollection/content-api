@@ -5,7 +5,7 @@ import { WithBody } from '@weco/content-pipeline/src/types/prismic/body';
 import { WithContributors } from '@weco/content-pipeline/src/types/prismic/contributors';
 
 export type BookPrismicDocument = prismic.PrismicDocument<
-  { subtitle: prismic.RichTextField } & WithContributors &
+  { subtitle?: prismic.RichTextField } & WithContributors &
     WithBody &
     CommonPrismicFields,
   'books'
