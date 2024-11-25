@@ -3,10 +3,10 @@
   "uid": "recipes-for-early-modern-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZwQMYRAAAJvKPfl1&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
-  "last_publication_date": "2024-09-17T14:29:34+0000",
+  "last_publication_date": "2024-10-23T12:53:49+0000",
   "slugs": ["recipes-for-early-modern-beauty"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -66,7 +66,7 @@
           "lang": "en-gb",
           "slug": "auto-captioned",
           "first_publication_date": "2020-09-23T10:36:41+0000",
-          "last_publication_date": "2023-10-02T10:33:32+0000",
+          "last_publication_date": "2024-10-10T15:57:41+0000",
           "data": {
             "title": [
               {
@@ -274,7 +274,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,120,2560,1200&w=3200&h=1500",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": 0,
@@ -290,7 +290,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=0,0,2560,1440&w=3200&h=1800",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": 0,
@@ -306,7 +306,7 @@
               },
               "alt": "An laptop sitting on a desk, on the laptop screen is an etching from a 17th-century book where a woman is applying cream to her face while looking at a mirror.",
               "copyright": "Exploring Research Seminar | Photo: Kathleen Arundell. Image on screen: from the frontispiece to The Accomplished Ladies Delight, Hannah Woolley, 1675|  Wellcome Collection | | CC-BY | |",
-              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/48caaf01-f243-4117-a4af-36c386acd345_EP_002514_001.jpg?auto=compress,format&rect=560,0,1440,1440&w=3200&h=3200",
               "id": "ZSamWhAAACAAlKe0",
               "edit": {
                 "x": -1244,
@@ -333,7 +333,7 @@
           "lang": "en-gb",
           "slug": "exploring-research",
           "first_publication_date": "2018-09-13T14:08:30+0000",
-          "last_publication_date": "2024-09-17T14:29:50+0000",
+          "last_publication_date": "2024-10-22T15:55:15+0000",
           "uid": "exploring-research",
           "data": {
             "title": [

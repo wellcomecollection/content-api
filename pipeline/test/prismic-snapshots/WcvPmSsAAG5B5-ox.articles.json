@@ -3,10 +3,10 @@
   "uid": "the-key-to-memory--follow-your-nose",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZwQMYRAAAJvKPfl1&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2017-10-11T08:30:00+0000",
-  "last_publication_date": "2024-07-22T16:13:04+0000",
+  "last_publication_date": "2024-10-23T14:36:08+0000",
   "slugs": ["the-key-to-memory-follow-your-nose"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -585,7 +585,7 @@
           "lang": "en-gb",
           "slug": "memory-objects",
           "first_publication_date": "2017-10-02T13:40:48+0000",
-          "last_publication_date": "2024-09-24T13:27:17+0000",
+          "last_publication_date": "2024-10-23T08:50:24+0000",
           "uid": "memory-objects",
           "data": {
             "title": [

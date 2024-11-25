@@ -16,6 +16,9 @@ export const contentTypes = [
   'exhibition-guides',
   'stories-landing',
   'collection-venue',
+  'visual-stories',
+  'exhibition-texts',
+  'exhibition-highlight-tours',
 ] as const;
 
 export const articleFormatIds = {

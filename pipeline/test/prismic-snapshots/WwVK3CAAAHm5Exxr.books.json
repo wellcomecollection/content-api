@@ -1,0 +1,116 @@
+{
+  "id": "WwVK3CAAAHm5Exxr",
+  "uid": "brains",
+  "url": null,
+  "type": "books",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WwVK3CAAAHm5Exxr%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2018-05-24T13:12:21+0000",
+  "last_publication_date": "2024-07-22T11:06:39+0000",
+  "slugs": ["brains"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Brains",
+        "spans": []
+      }
+    ],
+    "subtitle": [
+      {
+        "type": "paragraph",
+        "text": "The mind as matter",
+        "spans": []
+      }
+    ],
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "'Brains' asks not what brains do to us, but what we have done to brains, focusing on the bodily presence of the organ rather than investigating the neuroscience of the mind.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "This fully illustrated and fascinating exploration of the brain has been published to accompany  Wellcome Collection's ‘Brains’ exhibition. The brain is a unique and enigmatic organ. It cannot be transplanted, and is one of the most complex entities in the known universe. ‘Brains’ explores the ways that we have sought to understand and classify the brain over the centuries.",
+              "spans": [
+                {
+                  "start": 120,
+                  "end": 126,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/brains-mind-matter"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$38dcd490-f123-4760-afed-561087451d54",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "W4ejax4AACEAg6MZ",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "marius-kwint",
+          "first_publication_date": "2018-08-30T07:57:36+0000",
+          "last_publication_date": "2019-01-16T16:17:51+0000",
+          "data": {
+            "name": "Marius Kwint"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "W4ejSB4AAB8Ag6J9",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "richard-wingate",
+          "first_publication_date": "2018-08-30T07:57:03+0000",
+          "last_publication_date": "2019-01-16T16:17:51+0000",
+          "data": {
+            "name": "Richard Wingate"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "A fully illustrated and fascinating exploration of the brain.",
+              "spans": []
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$2b8ee605-c969-4597-91d3-065434f851f9",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}
