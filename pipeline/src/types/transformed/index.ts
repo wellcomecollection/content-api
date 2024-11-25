@@ -1,5 +1,6 @@
 import { PrismicImage } from '@weco/content-pipeline/src/types/prismic';
 
+import { ElasticsearchAddressable } from './addressables';
 import { Article, ArticleFormat } from './article';
 import {
   EventDocument,
@@ -97,22 +98,12 @@ export type ElasticsearchEventDocument = {
   };
 };
 
-export type ElasticsearchAddressableBook = {
-  id: string;
-  uid?: string;
-  display: {
-    type: 'Book';
-    id: string;
-    uid?: string;
-    title: string;
-    description?: string;
-    contributors: string;
-  };
-  query: {
-    type: 'Book';
-    title: string;
-    description?: string;
-    contributors: string;
-    body?: string;
-  };
-};
+export type ElasticsearchAddressableBook = ElasticsearchAddressable<
+  'Book',
+  { contributors: string }
+>;
+
+export type ElasticsearchAddressableVisualStory = ElasticsearchAddressable<
+  'Visual story',
+  object
+>;

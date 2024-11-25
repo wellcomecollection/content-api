@@ -6,19 +6,24 @@ import {
   eventDocumentsQuery,
   venueQuery,
   webcomicsQuery,
-} from './../graph-queries';
-import { addressablesBooksQuery } from './../graph-queries/addressables';
-import { createPrismicClient } from './../services/prismic';
-import { transformAddressableBook } from './../transformers/addressables/book';
-import { transformArticle } from './../transformers/article';
-import { transformEventDocument } from './../transformers/eventDocument';
-import { transformVenue } from './../transformers/venue';
+} from '@weco/content-pipeline/src/graph-queries';
+import {
+  addressablesBooksQuery,
+  addressablesVisualStoriesQuery,
+} from '@weco/content-pipeline/src/graph-queries/addressables';
+import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
+import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
+import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
+import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
+import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
+import { transformVenue } from '@weco/content-pipeline/src/transformers/venue';
 import {
   ArticlePrismicDocument,
   EventPrismicDocument,
-} from './../types/prismic';
-import { BookPrismicDocument } from './../types/prismic/books';
-import { VenuePrismicDocument } from './../types/prismic/venues';
+  VisualStoryPrismicDocument,
+} from '@weco/content-pipeline/src/types/prismic';
+import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
+import { VenuePrismicDocument } from '@weco/content-pipeline/src/types/prismic/venues';
 
 const { type, isDetailed, id } = yargs(process.argv.slice(2))
   .usage('Usage: $0 --type [string] --isDetailed [boolean] --id [string]')
@@ -117,7 +122,7 @@ async function main() {
       case 'book': {
         const doc = await client.getByID(id || 'WwVK3CAAAHm5Exxr', {
           graphQuery: `{
-            ${addressablesBooksQuery}
+            ${addressablesBooksQuery.replace(/\n(\s+)/g, '\n')}
           }`,
         });
 
@@ -134,14 +139,18 @@ async function main() {
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
-      // case 'visual-story': {
-      //   const doc = await client.getByID(id || 'Zs8EuRAAAB4APxrA', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'visual-story': {
+        const doc = await client.getByID(id || 'Zs8EuRAAAB4APxrA', {
+          graphQuery: `{
+            ${addressablesVisualStoriesQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableVisualStory';
+        return transformAddressableVisualStory(
+          doc as VisualStoryPrismicDocument
+        );
+      }
 
       // case 'exhibition-text': {
       //   const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
