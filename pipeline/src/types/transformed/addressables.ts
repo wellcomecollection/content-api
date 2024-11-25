@@ -18,7 +18,7 @@ type AddressableQuery<T> = {
 
 export type ElasticsearchAddressable<
   T extends AddressableType,
-  U = Record<string, unknown>,
+  U extends Record<string, unknown> = Record<string, unknown>,
 > = {
   id: string;
   uid?: string;
