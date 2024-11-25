@@ -11,6 +11,7 @@ import {
 } from './graph-queries';
 // import { addressablesQuery } from './graph-queries/addressables';
 import { articles, events, venues } from './indices';
+// import { transformAddressable } from './transformers/addressables';
 import { transformArticle } from './transformers/article';
 import { transformEventDocument } from './transformers/eventDocument';
 import { transformVenue } from './transformers/venue';
@@ -31,7 +32,7 @@ import { Clients } from './types';
 //     'seasons',
 //     'visual-stories',
 //   ]),
-//   transformer: transformAddressables,
+//   transformer: transformAddressable,
 // });
 
 const loadArticles = createETLPipeline({
