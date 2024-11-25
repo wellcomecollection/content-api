@@ -13,7 +13,7 @@ type AddressableQuery<T> = {
   title: string;
   description?: string;
   body?: string;
-  contributors?: string[];
+  contributors?: string;
 };
 
 export type ElasticsearchAddressable<T extends AddressableType, U> = {
