@@ -7,6 +7,7 @@ import {
   venueQuery,
   webcomicsQuery,
 } from './../graph-queries';
+import { addressablesBooksQuery } from './../graph-queries/addressables';
 import { createPrismicClient } from './../services/prismic';
 import { transformArticle } from './../transformers/article';
 import { transformEventDocument } from './../transformers/eventDocument';
@@ -111,14 +112,14 @@ async function main() {
       //   return transformVenue(doc as VenuePrismicDocument);
       // }
 
-      // case 'book': {
-      //   const doc = await client.getByID(id || 'ZijgihEAACMAtL-k', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'book': {
+        const doc = await client.getByID(id || 'ZijgihEAACMAtL-k', {
+          graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformVenue';
+        return transformVenue(doc as VenuePrismicDocument);
+      }
 
       // case 'page': {
       //   const doc = await client.getByID(id || 'YdXSvhAAAIAW7YXQ', {

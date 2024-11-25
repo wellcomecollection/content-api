@@ -96,3 +96,25 @@ export type ElasticsearchEventDocument = {
     isAvailableOnline: string;
   };
 };
+
+export type ElasticsearchAddressableBook = {
+  id: string;
+  uid?: string;
+  display: {
+    type: 'Book';
+    id: string;
+    uid?: string;
+    title: string;
+    description?: string;
+    contributors: string[];
+  };
+  query: {
+    type: 'Book';
+    title: string;
+    subtitle?: string;
+    description?: string;
+    contributors: string[];
+    caption?: string;
+    body?: string[] | string;
+  };
+};

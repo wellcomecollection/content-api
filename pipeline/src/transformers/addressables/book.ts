@@ -1,17 +1,21 @@
 import {
   asText,
+  asTitle,
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { BooksAddressablePrismicDocument } from '@weco/content-pipeline/src/types/prismic/addressables/books';
+import { BooksPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
+import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/transformed';
 
 export const transformAddressableBook = (
-  document: BooksAddressablePrismicDocument
-) => {
+  document: BooksPrismicDocument
+): ElasticsearchAddressableBook => {
   const { data, id, uid } = document;
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
-  const titleSubtitle = `${asText(data.title)} ${asText(data.subtitle)}`;
+  const title = asTitle(data.title);
+  const subtitle = data.subtitle ? asText(data.subtitle) : undefined;
+  const titleSubtitle = `${title}${subtitle ? `: ${subtitle}` : ''}`;
   const contributors = (data.contributors ?? [])
     .map(c => {
       return isFilledLinkToDocumentWithData(c.contributor)
@@ -29,17 +33,19 @@ export const transformAddressableBook = (
 
   return {
     id,
-    uid,
+    uid: uid || undefined,
     display: {
       type: 'Book',
       id,
-      uid,
-      title: asText(data.title),
+      uid: uid || undefined,
+      title: titleSubtitle,
       description,
+      contributors,
     },
     query: {
       type: 'Book',
-      title: titleSubtitle,
+      title,
+      subtitle,
       description,
       contributors,
       body,
