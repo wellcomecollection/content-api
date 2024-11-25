@@ -44,7 +44,7 @@ export const transformAddressableBook = (
     },
     query: {
       type: 'Book',
-      title,
+      title: titleSubtitle,
       description,
       body,
       contributors,
