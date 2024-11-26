@@ -9,10 +9,12 @@ import {
 } from '@weco/content-pipeline/src/graph-queries';
 import {
   addressablesBooksQuery,
+  addressablesEventsQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
+import { transformAddressableEvent } from '@weco/content-pipeline/src/transformers/addressables/event';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
@@ -90,15 +92,20 @@ async function main() {
 
       case 'event': {
         const doc = await client.getByID(id || 'ZfhSyxgAACQAkLPZ', {
-          graphQuery: (isDetailed ? eventDocumentsQuery : '').replace(
-            /\n(\s+)/g,
-            '\n'
-          ),
+          graphQuery: (isDetailed
+            ? eventDocumentsQuery
+            : `{
+              ${addressablesEventsQuery}
+            }`
+          ).replace(/\n(\s+)/g, '\n'),
         });
 
-        // TODO add isDetailed check
-        transformerName = 'transformEventDocument';
-        return transformEventDocument(doc as EventPrismicDocument);
+        transformerName = isDetailed
+          ? 'transformEventDocument'
+          : 'transformAddressableEvent';
+        return isDetailed
+          ? transformEventDocument(doc as EventPrismicDocument)
+          : transformAddressableEvent(doc as EventPrismicDocument);
       }
 
       case 'venue': {

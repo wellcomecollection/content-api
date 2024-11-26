@@ -1,4 +1,4 @@
-import { asDate } from '@prismicio/client/*';
+import { asDate } from '@prismicio/client';
 
 import {
   asText,
