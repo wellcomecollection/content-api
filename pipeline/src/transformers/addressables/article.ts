@@ -4,7 +4,6 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { transformLabelType } from '@weco/content-pipeline/src/transformers/utils';
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/types/transformed';
 
@@ -18,7 +17,9 @@ export const transformAddressableArticle = (
   const title = asTitle(data.title);
   const uid = documentUid || undefined;
 
-  const format = transformLabelType(document)?.label;
+  const format = isFilledLinkToDocumentWithData(data.format)
+    ? asText(data.format.data.title)
+    : undefined;
 
   const contributors = (data.contributors ?? [])
     .map(c => {

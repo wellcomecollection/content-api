@@ -1,17 +1,12 @@
-import * as prismic from '@prismicio/client';
+import { PrismicDocument } from '@prismicio/client';
 
-import { defaultArticleFormat } from '@weco/content-common/data/defaultValues';
 import {
   asText,
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { WithArticleFormat } from '@weco/content-pipeline/src/types/prismic';
 import { WithSeries } from '@weco/content-pipeline/src/types/prismic/series';
-import {
-  ArticleFormat,
-  Series,
-} from '@weco/content-pipeline/src/types/transformed';
+import { Series } from '@weco/content-pipeline/src/types/transformed';
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];
@@ -63,7 +58,7 @@ export const linkedDocumentIdentifiers = (rootDocument: any): string[] => {
 };
 
 export const transformSeries = (
-  document: prismic.PrismicDocument<WithSeries>
+  document: PrismicDocument<WithSeries>
 ): Series => {
   return document.data.series.flatMap(({ series }) =>
     isFilledLinkToDocumentWithData(series)
@@ -83,17 +78,3 @@ export const transformSeries = (
       : []
   );
 };
-
-// Article formats
-export function transformLabelType(
-  document: prismic.PrismicDocument<WithArticleFormat>
-): ArticleFormat {
-  const { data } = document;
-  return isFilledLinkToDocumentWithData(data.format)
-    ? {
-        type: 'ArticleFormat',
-        id: data.format.id,
-        label: asText(data.format.data.title) as string,
-      }
-    : (defaultArticleFormat as ArticleFormat);
-}
