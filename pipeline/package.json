@@ -6,6 +6,7 @@
   "scripts": {
     "package": "./package.sh",
     "reindex": "tsx src/local.ts all",
+    "reindex-addressables": "tsx src/local.ts addressables",
     "reindex-articles": "tsx src/local.ts articles",
     "reindex-events": "tsx src/local.ts events",
     "reindex-venues": "tsx src/local.ts venues",

@@ -1,7 +1,7 @@
 import parseDuration from 'parse-duration';
 
 export type WindowEvent = {
-  contentType: 'articles' | 'events' | 'venues' | 'all';
+  contentType: 'addressables' | 'articles' | 'events' | 'venues' | 'all';
   start?: string;
   end?: string;
   duration?: string;

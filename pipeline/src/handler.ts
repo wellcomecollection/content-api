@@ -9,11 +9,31 @@ import {
   webcomicsQuery,
   wrapQueries,
 } from './graph-queries';
+// import { addressablesQuery } from './graph-queries/addressables';
 import { articles, events, venues } from './indices';
+// import { transformAddressable } from './transformers/addressables';
 import { transformArticle } from './transformers/article';
 import { transformEventDocument } from './transformers/eventDocument';
 import { transformVenue } from './transformers/venue';
 import { Clients } from './types';
+
+// const loadAddressables = createETLPipeline({
+//   graphQuery: addressablesQuery,
+//   indexConfig: addressables,
+//   parentDocumentTypes: new Set([
+//     'articles',
+//     'books',
+//     'events',
+//     'exhibitions',
+//     'exhibition-texts',
+//     'exhibition-highlight-tours',
+//     'pages',
+//     'projects',
+//     'seasons',
+//     'visual-stories',
+//   ]),
+//   transformer: transformAddressable,
+// });
 
 const loadArticles = createETLPipeline({
   graphQuery: wrapQueries(articlesQuery, webcomicsQuery),
@@ -42,6 +62,9 @@ export const createHandler =
     if (!event.contentType) {
       throw new Error('Event contentType must be specified!');
     }
+    // if (event.contentType === 'all' || event.contentType === 'addressables') {
+    //   await loadAddressables(clients, event);
+    // }
     if (event.contentType === 'all' || event.contentType === 'articles') {
       await loadArticles(clients, event);
     }
