@@ -98,6 +98,9 @@ export type ElasticsearchEventDocument = {
   };
 };
 
+export type ElasticsearchAddressableArticle =
+  ElasticsearchAddressable<'Article'>;
+
 export type ElasticsearchAddressableBook = ElasticsearchAddressable<
   'Book',
   { contributors: string }

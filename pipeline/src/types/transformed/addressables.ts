@@ -1,4 +1,4 @@
-type AddressableType = 'Book' | 'Visual story';
+type AddressableType = 'Article' | 'Book' | 'Visual story';
 
 type AddressableBaseDisplay<T extends AddressableType> = {
   type: T;
@@ -11,8 +11,8 @@ type AddressableBaseDisplay<T extends AddressableType> = {
 type AddressableQuery<T> = {
   type: T;
   title: string;
-  description?: string;
-  body?: string;
+  description?: string[] | string;
+  body?: string[] | string;
   contributors?: string;
 };
 

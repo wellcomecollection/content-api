@@ -1,6 +1,5 @@
 import * as prismic from '@prismicio/client';
 
-import { defaultArticleFormat } from '@weco/content-common/data/defaultValues';
 import {
   asText,
   asTitle,
@@ -10,16 +9,18 @@ import {
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   ArticlePrismicDocument,
-  WithArticleFormat,
   WithContributors,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
-  ArticleFormat,
   Contributor,
   ElasticsearchArticle,
 } from '@weco/content-pipeline/src/types/transformed';
 
-import { linkedDocumentIdentifiers, transformSeries } from './utils';
+import {
+  linkedDocumentIdentifiers,
+  transformLabelType,
+  transformSeries,
+} from './utils';
 
 const getContributors = (
   document: prismic.PrismicDocument<WithContributors>
@@ -70,19 +71,6 @@ const getContributors = (
   return contributors;
 };
 
-function transformLabelType(
-  document: prismic.PrismicDocument<WithArticleFormat>
-): ArticleFormat {
-  const { data } = document;
-  return isFilledLinkToDocumentWithData(data.format)
-    ? {
-        type: 'ArticleFormat',
-        id: data.format.id,
-        label: asText(data.format.data.title) as string,
-      }
-    : (defaultArticleFormat as ArticleFormat);
-}
-
 export const transformArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchArticle => {
@@ -112,10 +100,7 @@ export const transformArticle = (
 
   const queryBody = data.body
     ?.map(slice => {
-      if (
-        ['text', 'quoteV2', 'quote', 'standfirst'].includes(slice.slice_type)
-      ) {
-        // quoteV2 can be removed once the slice Machine migration has completed
+      if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
         return slice.primary.text.map(text => text.text);
       } else {
         return [];
