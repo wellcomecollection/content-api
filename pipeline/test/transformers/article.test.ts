@@ -3,7 +3,7 @@ import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 describe('article transformer', () => {
-  forEachPrismicSnapshot<ArticlePrismicDocument>('articles')(
+  forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'])(
     'transforms articles from Prismic to the expected format',
     prismicDocument => {
       const transformed = transformArticle(prismicDocument);
@@ -13,7 +13,7 @@ describe('article transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ArticlePrismicDocument>('webcomics')(
+  forEachPrismicSnapshot<ArticlePrismicDocument>(['webcomics'])(
     'also works for webcomics',
     prismicDocument => {
       const transformed = transformArticle(prismicDocument);

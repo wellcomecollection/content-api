@@ -45,8 +45,9 @@ const venueIds = [
 ];
 
 const addressableIds = {
-  'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
+  article: 'ZdSMbREAACQA3j30', // The stuck tampon
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
+  'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
 };
 
 const updateArticleSnapshots = async (client: Client) => {
@@ -130,7 +131,7 @@ const updateAddressablesSnapshots = async (client: Client) => {
     docs.map(doc => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
-        path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
+        path.resolve(dataDir, `addressables/${doc.id}.${doc.type}.json`),
         docJson
       );
     })

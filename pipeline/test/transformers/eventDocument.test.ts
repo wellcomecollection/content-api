@@ -3,7 +3,7 @@ import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic/e
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 describe('eventDocument transformer', () => {
-  forEachPrismicSnapshot<EventPrismicDocument>('events')(
+  forEachPrismicSnapshot<EventPrismicDocument>(['events'])(
     'transforms events from Prismic to the expected format',
     prismicDocument => {
       const transformed = transformEventDocument(prismicDocument);

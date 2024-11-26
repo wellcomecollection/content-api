@@ -22,7 +22,6 @@ export const transformAddressableArticle = (
 
   const contributors = (data.contributors ?? [])
     .map(c => {
-      console.log(c.contributor);
       return isFilledLinkToDocumentWithData(c.contributor)
         ? asText(c.contributor?.data.name)
         : undefined;
