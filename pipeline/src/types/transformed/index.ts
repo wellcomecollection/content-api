@@ -105,3 +105,5 @@ export type ElasticsearchAddressableBook = ElasticsearchAddressable<
 
 export type ElasticsearchAddressableVisualStory =
   ElasticsearchAddressable<'Visual story'>;
+
+export type ElasticsearchAddressableEvent = ElasticsearchAddressable<'Event'>;
