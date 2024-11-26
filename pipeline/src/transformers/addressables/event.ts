@@ -30,10 +30,13 @@ export const transformAddressableEvent = (
   const firstStart = startEnd?.at(0)?.start;
   const lastEnd = startEnd?.at(-1)?.end;
 
-  const times = {
-    start: firstStart,
-    end: lastEnd,
-  };
+  const times =
+    firstStart && lastEnd
+      ? {
+          start: firstStart,
+          end: lastEnd,
+        }
+      : undefined;
 
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
