@@ -3,10 +3,10 @@
   "uid": "tracing-the-roots-of-our-fears-and-fixations",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZwQMYRAAAJvKPfl1&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-18T09:00:00+0000",
-  "last_publication_date": "2024-09-25T10:38:16+0000",
+  "last_publication_date": "2024-10-23T14:38:42+0000",
   "slugs": ["tracing-the-roots-of-our-fears-and-fixations"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -709,7 +709,7 @@
               },
               "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
               "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500",
               "id": "Y0WZMhEAAImM2WpE",
               "edit": {
                 "x": 0,
@@ -725,7 +725,7 @@
               },
               "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
               "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
               "id": "Y0WZMhEAAImM2WpE",
               "edit": {
                 "x": 0,
@@ -741,7 +741,7 @@
               },
               "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
               "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,2250,2250&w=3200&h=3200",
               "id": "Y0WZMhEAAImM2WpE",
               "edit": {
                 "x": 0,
@@ -768,7 +768,7 @@
           "lang": "en-gb",
           "slug": "inside-our-books",
           "first_publication_date": "2018-12-17T11:45:08+0000",
-          "last_publication_date": "2024-09-24T13:28:57+0000",
+          "last_publication_date": "2024-10-23T08:50:28+0000",
           "uid": "inside-our-books",
           "data": {
             "title": [

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addressables transformer transforms books from Prismic to the expected format (document: books/WwVK3CAAAHm5Exxr) 1`] = `
+{
+  "display": {
+    "contributors": "Marius Kwint, Richard Wingate",
+    "description": "A fully illustrated and fascinating exploration of the brain.",
+    "id": "WwVK3CAAAHm5Exxr",
+    "title": "Brains: The mind as matter",
+    "type": "Book",
+    "uid": "brains",
+  },
+  "id": "WwVK3CAAAHm5Exxr",
+  "query": {
+    "body": "'Brains' asks not what brains do to us, but what we have done to brains, focusing on the bodily presence of the organ rather than investigating the neuroscience of the mind. This fully illustrated and fascinating exploration of the brain has been published to accompany  Wellcome Collection's ‘Brains’ exhibition. The brain is a unique and enigmatic organ. It cannot be transplanted, and is one of the most complex entities in the known universe. ‘Brains’ explores the ways that we have sought to understand and classify the brain over the centuries.",
+    "contributors": "Marius Kwint, Richard Wingate",
+    "description": "A fully illustrated and fascinating exploration of the brain.",
+    "title": "Brains: The mind as matter",
+    "type": "Book",
+  },
+  "uid": "brains",
+}
+`;
+
+exports[`addressables transformer transforms visual stories from Prismic to the expected format (document: visual-stories/Zs8EuRAAAB4APxrA) 1`] = `
+{
+  "display": {
+    "description": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+    "id": "Zs8EuRAAAB4APxrA",
+    "title": "Hard Graft: Work, Health and Rights visual story",
+    "type": "Visual story",
+    "uid": "hard-graft",
+  },
+  "id": "Zs8EuRAAAB4APxrA",
+  "query": {
+    "description": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+    "title": "Hard Graft: Work, Health and Rights visual story",
+    "type": "Visual story",
+  },
+  "uid": "hard-graft",
+}
+`;

@@ -2,24 +2,10 @@ import util from 'util';
 import yargs from 'yargs';
 
 import {
-  articlesQuery,
-  eventDocumentsQuery,
-  venueQuery,
-  webcomicsQuery,
-} from './../graph-queries';
-import {
-  addressablesArticlesQuery,
-  addressablesBooksQuery,
-  addressablesEventsQuery,
-  addressablesExhibitionsQuery,
-  addressablesExhibitionTextsQuery,
-  addressablesHighlightToursQuery,
-  addressablesPagesQuery,
-  addressablesProjectsQuery,
-  addressablesSeasonsQuery,
-  addressablesVisualStoriesQuery,
-} from './../graph-queries/addressables';
-import { createPrismicClient } from './../services/prismic';
+  allowedTypes,
+  getGraphQuery,
+} from '@weco/content-pipeline/src/helpers/getGraphQuery';
+import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 
 const { type, isDetailed, id } = yargs(process.argv.slice(2))
   .usage('Usage: $0 --type [string] --isDetailed [boolean] --id [string]')
@@ -30,21 +16,6 @@ const { type, isDetailed, id } = yargs(process.argv.slice(2))
   })
   .parseSync();
 
-const allowedTypes = [
-  'article',
-  'webcomic',
-  'event',
-  'venue',
-  'exhibition',
-  'book',
-  'page',
-  'exhibition-text',
-  'highlight-tour',
-  'visual-story',
-  'project',
-  'season',
-];
-
 async function main() {
   if (!type) {
     console.error(
@@ -53,130 +24,91 @@ async function main() {
     process.exit(1);
   }
 
-  let graphQueryName;
-  const query = () => {
+  const client = createPrismicClient();
+
+  const getGraphInfo = ({
+    type,
+    isDetailed,
+    id,
+  }: {
+    type: (typeof allowedTypes)[number];
+    isDetailed?: boolean;
+    id?: string;
+  }) => {
     switch (type) {
       case 'article':
-        graphQueryName = isDetailed
-          ? 'articlesQuery'
-          : 'addressablesArticlesQuery';
-
         return {
-          graphQuery: `{
-            ${isDetailed ? articlesQuery : addressablesArticlesQuery}
-          }`,
+          graphQueryName: isDetailed
+            ? 'articlesQuery'
+            : 'addressablesArticlesQuery',
           id: id || 'ZdSMbREAACQA3j30',
         };
 
       case 'webcomic':
-        graphQueryName = 'webcomicsQuery';
-
         return {
-          graphQuery: `{
-            ${webcomicsQuery}
-          }`,
+          graphQueryName: 'webcomicsQuery',
           id: id || 'XkV9dREAAAPkNP0b',
         };
 
       case 'event':
-        graphQueryName = isDetailed
-          ? 'eventDocumentsQuery'
-          : 'addressablesEventsQuery';
-
         return {
-          graphQuery: isDetailed
-            ? eventDocumentsQuery
-            : `{
-              ${addressablesEventsQuery}
-            }`,
+          graphQueryName: isDetailed
+            ? 'eventDocumentsQuery'
+            : 'addressablesEventsQuery',
           id: id || 'ZfhSyxgAACQAkLPZ',
         };
 
       case 'venue':
-        graphQueryName = 'venueQuery';
-
         return {
-          graphQuery: venueQuery,
+          graphQueryName: 'venueQuery',
           id: id || 'Wsttgx8AAJeSNmJ4',
         };
 
       case 'exhibition':
-        graphQueryName = 'addressablesExhibitionsQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesExhibitionsQuery}
-          }`,
+          graphQueryName: 'addressablesExhibitionsQuery',
           id: id || 'Yzv9ChEAABfUrkVp',
         };
 
       case 'book':
-        graphQueryName = 'addressablesBooksQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesBooksQuery}
-          }`,
+          graphQueryName: 'addressablesBooksQuery',
           id: id || 'ZijgihEAACMAtL-k',
         };
 
       case 'page':
-        graphQueryName = 'addressablesPagesQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesPagesQuery}
-          }`,
+          graphQueryName: 'addressablesPagesQuery',
           id: id || 'YdXSvhAAAIAW7YXQ',
         };
 
       case 'visual-story':
-        graphQueryName = 'addressablesVisualStoriesQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesVisualStoriesQuery}
-          }`,
+          graphQueryName: 'addressablesVisualStoriesQuery',
           id: id || 'Zs8EuRAAAB4APxrA',
         };
 
       case 'exhibition-text':
-        graphQueryName = 'addressablesExhibitionTextsQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesExhibitionTextsQuery}
-          }`,
+          graphQueryName: 'addressablesExhibitionTextsQuery',
           id: id || 'Zs8mohAAAB4AP4sc',
         };
 
       case 'highlight-tour':
-        graphQueryName = 'addressablesHighlightToursQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesHighlightToursQuery}
-          }`,
+          graphQueryName: 'addressablesHighlightToursQuery',
           id: id || 'ZthrZRIAACQALvCC',
         };
 
       case 'project':
-        graphQueryName = 'addressablesProjectsQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesProjectsQuery}
-          }`,
+          graphQueryName: 'addressablesProjectsQuery',
           id: id || 'Ys1-OxEAACEAguyS',
         };
 
       case 'season':
-        graphQueryName = 'addressablesSeasonsQuery';
-
         return {
-          graphQuery: `{
-            ${addressablesSeasonsQuery}
-          }`,
+          graphQueryName: 'addressablesSeasonsQuery',
           id: id || 'X84FvhIAACUAqiqp',
         };
 
@@ -186,23 +118,27 @@ async function main() {
     }
   };
 
-  const client = createPrismicClient();
+  const graphInfo = getGraphInfo({ type, isDetailed, id });
+  const graphQuery = getGraphQuery({ type, isDetailed });
 
-  const queryResult = query();
-
-  if (!queryResult) {
-    console.error('Something went wrong with queryResult', queryResult);
+  if (!graphInfo || !graphQuery) {
+    console.error('Something went wrong with queryResult', {
+      graphInfo,
+      hasGraphQuery: !!graphQuery,
+    });
     process.exit(1);
   }
 
-  const doc = await client.getByID(queryResult.id, {
-    graphQuery: queryResult.graphQuery.replace(/\n(\s+)/g, '\n'),
+  const doc = await client.getByID(graphInfo.id, {
+    graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
   });
 
   console.log(
     util.inspect(doc, { showHidden: false, depth: null, colors: true })
   );
-  console.log(`\n\x1b[4mThis is the result from ${graphQueryName}.\x1b[0m\n`);
+  console.log(
+    `\n\x1b[4mThis is the result from ${graphInfo.graphQueryName}.\x1b[0m\n`
+  );
 }
 
 main();

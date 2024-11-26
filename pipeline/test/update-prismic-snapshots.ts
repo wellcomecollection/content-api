@@ -11,6 +11,7 @@ import {
   webcomicsQuery,
   wrapQueries,
 } from '@weco/content-pipeline/src/graph-queries';
+import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
 import {
   asText,
   asTitle,
@@ -42,6 +43,11 @@ const eventDocumentIds = [
 const venueIds = [
   'WsuS_R8AACS1Nwlx', // collection-venue - Library
 ];
+
+const addressableIds = {
+  'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
+  book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
+};
 
 const updateArticleSnapshots = async (client: Client) => {
   console.log('Updating prismic snapshots for the following articles:');
@@ -100,6 +106,39 @@ const updateVenueSnapshots = async (client: Client) => {
   return docs;
 };
 
+const updateAddressablesSnapshots = async (client: Client) => {
+  console.log('Updating prismic snapshots for the following addressables:');
+  console.log(
+    Object.entries(addressableIds)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join('\n')
+  );
+
+  const docs = await Promise.all(
+    Object.entries(addressableIds).map(async ([key, value]) => {
+      const graphQuery = getGraphQuery({ type: key });
+
+      const newDoc = await client.getByID(value, {
+        graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
+      });
+
+      return newDoc;
+    })
+  );
+
+  await Promise.all(
+    docs.map(doc => {
+      const docJson = JSON.stringify(doc, null, 2);
+      return fs.writeFile(
+        path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
+        docJson
+      );
+    })
+  );
+
+  return docs;
+};
+
 const lineWriter = (stream: Writable) => (line: string) =>
   new Promise(resolve => stream.write(line + EOL, 'utf-8', resolve));
 
@@ -152,11 +191,17 @@ const main = async () => {
   const articleDocs = await updateArticleSnapshots(client);
   const eventDocs = await updateEventDocumentSnapshots(client);
   const venueDocs = await updateVenueSnapshots(client);
+  const addressableDocs = await updateAddressablesSnapshots(client);
 
   console.log('Done saving snapshots.');
 
   console.log('Adding comments to update script...');
-  await addCommentsToUpdateScript([...articleDocs, ...eventDocs, ...venueDocs]);
+  await addCommentsToUpdateScript([
+    ...articleDocs,
+    ...eventDocs,
+    ...venueDocs,
+    ...addressableDocs,
+  ]);
 
   console.log('Done.');
 };
