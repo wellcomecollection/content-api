@@ -3,7 +3,7 @@ import { VenuePrismicDocument } from '@weco/content-pipeline/src/types/prismic/v
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 describe('eventDocument transformer', () => {
-  forEachPrismicSnapshot<VenuePrismicDocument>('collection-venue')(
+  forEachPrismicSnapshot<VenuePrismicDocument>(['collection-venue'])(
     'transforms venues from Prismic to the expected format',
     prismicDocument => {
       jest.useFakeTimers().setSystemTime(new Date('2024-03-14T00:00:00.000Z'));

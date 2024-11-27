@@ -8,11 +8,13 @@ import {
   webcomicsQuery,
 } from '@weco/content-pipeline/src/graph-queries';
 import {
+  addressablesArticlesQuery,
   addressablesBooksQuery,
   addressablesEventsQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
+import { transformAddressableArticle } from '@weco/content-pipeline/src/transformers/addressables/article';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
 import { transformAddressableEvent } from '@weco/content-pipeline/src/transformers/addressables/event';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
@@ -66,17 +68,17 @@ async function main() {
     switch (type) {
       case 'article': {
         const doc = await client.getByID(id || 'ZdSMbREAACQA3j30', {
-          graphQuery: (isDetailed
-            ? `{
-              ${articlesQuery}
-            }`
-            : ''
-          ).replace(/\n(\s+)/g, '\n'),
+          graphQuery: `{
+              ${isDetailed ? articlesQuery : addressablesArticlesQuery}
+            }`.replace(/\n(\s+)/g, '\n'),
         });
 
-        // TODO add isDetailed check
-        transformerName = 'transformArticle';
-        return transformArticle(doc as ArticlePrismicDocument);
+        transformerName = isDetailed
+          ? 'transformArticle'
+          : 'transformAddressableArticle';
+        return isDetailed
+          ? transformArticle(doc as ArticlePrismicDocument)
+          : transformAddressableArticle(doc as ArticlePrismicDocument);
       }
 
       case 'webcomic': {

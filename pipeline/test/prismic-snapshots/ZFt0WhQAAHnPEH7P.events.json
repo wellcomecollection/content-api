@@ -3,10 +3,10 @@
   "uid": "land-body-ecologies-festival-day-two",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ZwQMYRAAAJvKPfl1&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
   "tags": ["LBEF"],
   "first_publication_date": "2023-05-25T15:00:01+0000",
-  "last_publication_date": "2024-07-22T15:00:30+0000",
+  "last_publication_date": "2024-10-23T12:52:01+0000",
   "slugs": ["land-body-ecologies-festival-day-two"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -96,7 +96,7 @@
           "lang": "en-gb",
           "slug": "boalno",
           "first_publication_date": "2023-05-10T10:15:04+0000",
-          "last_publication_date": "2024-07-22T13:38:08+0000",
+          "last_publication_date": "2024-10-23T12:50:13+0000",
           "uid": "boalno",
           "data": {
             "title": [
@@ -130,7 +130,7 @@
           "lang": "en-gb",
           "slug": "communal-meitophi",
           "first_publication_date": "2023-05-10T09:05:18+0000",
-          "last_publication_date": "2024-07-22T14:48:28+0000",
+          "last_publication_date": "2024-10-23T12:52:28+0000",
           "uid": "communal-meitophi",
           "data": {
             "title": [
@@ -160,7 +160,7 @@
           "lang": "en-gb",
           "slug": "stories-as-evidence",
           "first_publication_date": "2023-05-10T13:59:11+0000",
-          "last_publication_date": "2024-07-22T15:18:37+0000",
+          "last_publication_date": "2024-10-23T12:52:08+0000",
           "uid": "stories-as-evidence",
           "data": {
             "title": [
@@ -190,7 +190,7 @@
           "lang": "en-gb",
           "slug": "weaving-land-and-health",
           "first_publication_date": "2023-05-10T08:39:05+0000",
-          "last_publication_date": "2024-07-22T14:26:08+0000",
+          "last_publication_date": "2024-10-23T12:49:47+0000",
           "uid": "weaving-land-and-health",
           "data": {
             "title": [
@@ -220,7 +220,7 @@
           "lang": "en-gb",
           "slug": "meitau-making",
           "first_publication_date": "2023-05-10T09:04:05+0000",
-          "last_publication_date": "2024-07-22T14:13:46+0000",
+          "last_publication_date": "2024-10-23T12:50:39+0000",
           "uid": "meitau-making",
           "data": {
             "title": [
@@ -250,7 +250,7 @@
           "lang": "en-gb",
           "slug": "reimagining-conservation-policy",
           "first_publication_date": "2023-05-10T08:43:14+0000",
-          "last_publication_date": "2024-07-22T14:48:28+0000",
+          "last_publication_date": "2024-10-23T12:52:29+0000",
           "uid": "reimagining-conservation-policy",
           "data": {
             "title": [
@@ -280,7 +280,7 @@
           "lang": "en-gb",
           "slug": "in-the-end-of-this-world",
           "first_publication_date": "2023-05-17T15:17:50+0000",
-          "last_publication_date": "2024-07-22T15:18:37+0000",
+          "last_publication_date": "2024-10-23T12:52:42+0000",
           "uid": "in-the-end-of-this-world",
           "data": {
             "title": [
@@ -310,7 +310,7 @@
           "lang": "en-gb",
           "slug": "microtonal",
           "first_publication_date": "2023-05-10T10:08:54+0000",
-          "last_publication_date": "2024-07-23T10:51:56+0000",
+          "last_publication_date": "2024-10-23T12:53:21+0000",
           "uid": "microtonal-23",
           "data": {
             "title": [
@@ -340,7 +340,7 @@
           "lang": "en-gb",
           "slug": "stories-of-entanglement",
           "first_publication_date": "2023-05-10T10:03:27+0000",
-          "last_publication_date": "2024-07-23T11:01:15+0000",
+          "last_publication_date": "2024-10-23T12:53:19+0000",
           "uid": "stories-of-entanglement-23",
           "data": {
             "title": [
@@ -370,7 +370,7 @@
           "lang": "en-gb",
           "slug": "asking-the-salmon-to-return",
           "first_publication_date": "2023-05-10T10:11:06+0000",
-          "last_publication_date": "2024-07-23T09:30:38+0000",
+          "last_publication_date": "2024-10-23T12:52:53+0000",
           "uid": "asking-the-salmon-to-return-23-10",
           "data": {
             "title": [
@@ -400,7 +400,7 @@
           "lang": "en-gb",
           "slug": "virran-mukana",
           "first_publication_date": "2023-05-10T10:07:07+0000",
-          "last_publication_date": "2024-07-23T09:28:43+0000",
+          "last_publication_date": "2024-10-23T12:53:06+0000",
           "uid": "virran-mukana-23-10",
           "data": {
             "title": [
@@ -430,7 +430,7 @@
           "lang": "en-gb",
           "slug": "ovdavazzit--forewalkers",
           "first_publication_date": "2023-05-10T10:05:28+0000",
-          "last_publication_date": "2024-07-23T09:07:32+0000",
+          "last_publication_date": "2024-10-23T12:53:16+0000",
           "uid": "ovdavazzit--forewalkers",
           "data": {
             "title": [
@@ -460,7 +460,7 @@
           "lang": "en-gb",
           "slug": "chill-out-room",
           "first_publication_date": "2023-05-10T13:54:03+0000",
-          "last_publication_date": "2024-07-23T10:58:10+0000",
+          "last_publication_date": "2024-10-23T12:53:28+0000",
           "uid": "chill-out-room-23",
           "data": {
             "title": [
@@ -601,7 +601,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,232,4000,1875&w=3200&h=1500",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": 0,
@@ -617,7 +617,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": 0,
@@ -633,7 +633,7 @@
               },
               "alt": "Photograph of a farmer getting ready to harvest his organic crop of native Ragi in Kariyappanadoddi, India. Behind him are hills and a small single storey building. Interwoven into the scene is a graphic element made up of thin red drawn circular lines, which create a larger organic pattern behind the farmer.",
               "copyright": "Farmer Basavaraj in Kariyappanadoddi inspects his ragi crop before harvesting near Bannerghatta, India\n | | | | | Quicksand |",
-              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=format,compress",
+              "url": "https://images.prismic.io/wellcomecollection/0793d963-8807-4525-a3d7-e77fa4435baa_LBE+Key+Image+04.jpg?auto=compress,format&rect=1202,0,2250,2250&w=3200&h=3200",
               "id": "ZGYrjxQAADxsO9nG",
               "edit": {
                 "x": -1709,
@@ -660,7 +660,7 @@
           "lang": "en-gb",
           "slug": "land-body-ecologies-festival",
           "first_publication_date": "2023-05-16T14:46:48+0000",
-          "last_publication_date": "2024-07-22T10:35:58+0000",
+          "last_publication_date": "2024-10-22T15:55:08+0000",
           "uid": "land-body-ecologies-festival",
           "data": {
             "title": [

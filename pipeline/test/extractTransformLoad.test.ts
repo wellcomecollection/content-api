@@ -23,7 +23,7 @@ import { getSnapshots } from './fixtures/prismic-snapshots';
 
 describe('Extract, transform and load eventDocuments', () => {
   it('fetches eventDocuments from prismic and indexes them into ES', async () => {
-    const allDocs = getSnapshots('events');
+    const allDocs = getSnapshots(['events']);
 
     const elasticIndexCreator = jest.fn().mockResolvedValue(true);
     const [elasticBulkHelper, getIndexedDocuments] = createElasticBulkHelper();
@@ -62,9 +62,9 @@ describe('Extract, transform and load eventDocuments', () => {
   });
 
   it('finds parent documents of updated children and re-fetches and indexes them', async () => {
-    const eventFormats = getSnapshots('event-formats');
+    const eventFormats = getSnapshots(['event-formats']);
     // Any event which contains any of the `event-formats`
-    const parentArticles = getSnapshots('events').filter(event =>
+    const parentArticles = getSnapshots(['events']).filter(event =>
       eventFormats.some(
         eventFormat =>
           isFilledLinkToDocument(event.data.format) &&
@@ -118,7 +118,7 @@ describe('Extract, transform and load eventDocuments', () => {
 
 describe('Extract, transform and load articles', () => {
   it('fetches articles and webcomics from prismic and indexes them into ES', async () => {
-    const allDocs = getSnapshots('articles', 'webcomics');
+    const allDocs = getSnapshots(['articles', 'webcomics']);
 
     const elasticIndexCreator = jest.fn().mockResolvedValue(true);
     const [elasticBulkHelper, getIndexedDocuments] = createElasticBulkHelper();
@@ -156,12 +156,12 @@ describe('Extract, transform and load articles', () => {
   });
 
   it('finds parent documents of updated children and re-fetches and indexes them', async () => {
-    const contributors = getSnapshots('people');
+    const contributors = getSnapshots(['people']);
     // Any articles/webcomics which contain any of the `contributors`
-    const parentArticles = getSnapshots<ArticlePrismicDocument>(
+    const parentArticles = getSnapshots<ArticlePrismicDocument>([
       'articles',
-      'webcomics'
-    ).filter(article =>
+      'webcomics',
+    ]).filter(article =>
       contributors.some(contributor =>
         article.data.contributors.some(
           articleContributor =>
