@@ -29,8 +29,7 @@ export const transformAddressableBook = (
     ?.map(s => {
       return s.primary.text.map(t => t.text);
     })
-    .flat()
-    .join(' ');
+    .flat();
 
   return {
     id,

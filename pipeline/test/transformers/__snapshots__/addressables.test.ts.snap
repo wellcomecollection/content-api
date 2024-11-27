@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`addressables transformer transforms articles from Prismic to the expected format (document: articles/ZdSMbREAACQA3j30) 1`] = `
+{
+  "display": {
+    "description": "Dorothée King was on holiday when she experienced the awkward, uncomfortable and panicky situation all tampon users dread.",
+    "id": "ZdSMbREAACQA3j30",
+    "title": "The stuck tampon",
+    "type": "Article",
+    "uid": "the-stuck-tampon",
+  },
+  "id": "ZdSMbREAACQA3j30",
+  "query": {
+    "body": [
+      "Dorothée King has experienced menstrual discomfort for over 20 years, but nothing quite prepared her for when a tampon got stuck. Dorothée shares the absurd story of how she juggled her commitments as a partner and parent, on holiday abroad, while attempting to get the stuck tampon out.",
+      "Summer holidays in Amsterdam. Colin is working at the university. The kids and I are in our lovely holiday apartment. Canal views and everything. We sit at the kitchen island. My son is reading. I am playing cards with my daughter. ",
+      "I feel a puddle on my IKEA highchair. I check with my fingers and see that there is blood on my chair and my pyjamas. ",
+      "As I don’t want to disturb my card game with my daughter, I tell her that I will run to the bathroom quickly and then continue. Hastily I push a tampon up my vagina. I return to play on for another half an hour.  ",
+      "We hang out in the apartment for a while. Then we head out to meet an old friend and her family for ice cream. I enjoy myself and the nice sunny day and forget all about the tampon. It must have been the last day of my period anyway.",
+      "That evening we have a dinner party at the holiday apartment with Colin’s colleague and their family. I remember the tampon. ",
+      "I go to the bathroom. I squat, reach for the string, but nothing. I can’t find it. Anywhere. ",
+      "Only now do I realise that in my rush to get back to the card game, I must have pushed the tampon in without pulling out the string. Five minutes of fiddling around with multiple fingers in multiple positions leads to no result. ",
+      "Colin is washing the vegetables. Talking over the kitchen island, I tell him about my miserable situation. We laugh about it, and then turn towards our guests. We spend a nice evening together, eating risotto and playing with the children. Around 22:00 our guests are gone, and our kids are finally asleep. ",
+      "Tongs, tea and tampon trouble",
+      "I remember the tampon again. I go to the toilet. Another round of squatting, squeezing, pressing, trying to recall giving birth. Nothing. Colin offers his help. He feels that his hands must be clean enough after just washing the dishes. I lie down on the bed. I explain to him the approximate location of the tampon: not too high up, maybe three inches in, more to my left. ",
+      "What happens next isn't sexy or erotic. Colin moves my legs up, opens them wide, inserts two cold fingers inside my vagina and fumbles around. I feel the tampon moving further up and further left. I have never been as dry. Imagine a 12-hour-old tampon.",
+      "He can’t find the string either. He walks over to our well-equipped Airbnb kitchen and comes back with a pair of long, pointed tongs for the grill. I deny him the usage of such a tool. I decide to try the anti-inflammatory qualities of green tea instead. I almost burn myself while I try to push my hot-green-tea fingers towards what I think could be the string of the tampon.",
+      "After this further unsuccessful attempt, Colin and I begin to google words like “tampon lost”, “string nowhere to be found”, or “Dutch emergency gynaecologist with lost object expertise”. Via an online interface I book myself a 12:00 appointment for the next day at the Amsterdam expat medical-care centre and go to bed. I feel that the tampon must have quadrupled in size by now. I can’t sleep on either side of my body. ",
+      "Hide and seek",
+      "I get up at six in the morning after a restless night. Colin is already sitting at the dining-room table. He is working on his book on argumentation theory while watching the early birds on the canals. ",
+      "After one more unsuccessful attempt to press out the unwanted and overused object, I ask Colin for his help again. This time we try the living-room couch. I move my hips to the edge of the sofa as if I am lying on a gynaecologist’s chair and lift my legs high up in the air. ",
+      "I ask Colin to look up into my vagina, but even with his glasses on, it is impossible for him to peek inside my body. After another round of painful squeezing, pushing and turning with various fingers, I feel like I will never enjoy any kind of sexual interaction ever again. We give up. ",
+      "At nine o’clock the kids are enjoying their chocolate-covered cereal at the kitchen island. I call the expat/tourist medical-care centre to ask for an earlier appointment. I expect an endless please-hold-the-line experience, but instead I talk to a very friendly assistant who understands my situation instantly. She offers to move my appointment up to 10:30. She even asks if I would prefer a female assistant instead of a male doctor. I gladly agree to both. ",
+      "The kids ask about the phone call. My daughter makes a painful face. My son shrugs his shoulders and tells me to see a doctor and returns to his book. I hurry them out of the house to get to the appointment on time. ",
+      "After a 30-minute walk, we arrive at the shabby-looking medical-care centre. A woman with a headset, face mask and a lot of paperwork in her arms checks me in. I am glad they accept my health-insurance card. While I am sitting and waiting, I look at a giant vertical screen in front of me and learn a lot about rheumatism and incontinence in Dutch. ",
+      "The friendly assistant calls my name and I follow her into a tiny examination room. “So, you are the one with the tampon?” It turns out she was who I talked with earlier on the phone. She will be the one helping me to remove the tampon. ",
+      "I follow her request to take off my trousers and underwear. I lie down on the little examination table. “Are you sure there is a tampon?” she asks. “Is this your first time in Amsterdam?” She lures me into a mix of medical information and small talk. ",
+      "I trust her. I begin to relax. She pushes a huge metal object into my vagina that resembles a giant shoehorn. The next tool she gets are huge tweezers, even bigger than the kitchen tongs Colin found.",
+      "I try to remember to apply deep tummy breathing, a technique I learned once in an online breathwork course. At the same time, I squeeze the skin on my right arm with the fingers of my left hand to feel some additional pain somewhere outside my uterus. ",
+      "The shoehorn is in by now. The tips of the tweezers scratch the inner walls of my vagina. I squeak, shrink, move, and the shoehorn slaps out. The friendly assistant confirms what I feared. “The tampon is stuck.” Nonetheless, she convinces me to allow her to try again. ",
+      "Unwillingly I slip my hips forward to the edge of the table again. I restart my deep breathing, arm squeezing, and after three minutes more metal-on-flesh experience, the assistant looks up: “All done.” ",
+      "I get up and get dressed. I long to see the tampon, but don’t dare to ask. I shower my hero of the day with gratitude. I feel sore but happy. Colin picks me up in front of the medical centre while the kids wait in a café nearby. We are both relieved and enjoy a sunny kiss. ",
+      "Colin goes back to the university. I pick up the kids and take them on an afternoon trip to Rotterdam. ",
+      "The next time I get my period, I switch to pads. ",
+    ],
+    "contributors": "Dorothée King, Tracy Satchwill",
+    "description": [
+      "Dorothée King was on holiday when she experienced the awkward, uncomfortable and panicky situation all tampon users dread.",
+      "Dorothée King has experienced menstrual discomfort for over 20 years, but nothing quite prepared her for when a tampon got stuck. Dorothée shares the absurd story of how she juggled her commitments as a partner and parent, on holiday abroad, while attempting to get the stuck tampon out.",
+      "Article",
+    ],
+    "title": "The stuck tampon",
+    "type": "Article",
+  },
+  "uid": "the-stuck-tampon",
+}
+`;
+
 exports[`addressables transformer transforms books from Prismic to the expected format (document: books/WwVK3CAAAHm5Exxr) 1`] = `
 {
   "display": {
@@ -12,7 +68,10 @@ exports[`addressables transformer transforms books from Prismic to the expected 
   },
   "id": "WwVK3CAAAHm5Exxr",
   "query": {
-    "body": "'Brains' asks not what brains do to us, but what we have done to brains, focusing on the bodily presence of the organ rather than investigating the neuroscience of the mind. This fully illustrated and fascinating exploration of the brain has been published to accompany  Wellcome Collection's ‘Brains’ exhibition. The brain is a unique and enigmatic organ. It cannot be transplanted, and is one of the most complex entities in the known universe. ‘Brains’ explores the ways that we have sought to understand and classify the brain over the centuries.",
+    "body": [
+      "'Brains' asks not what brains do to us, but what we have done to brains, focusing on the bodily presence of the organ rather than investigating the neuroscience of the mind.",
+      "This fully illustrated and fascinating exploration of the brain has been published to accompany  Wellcome Collection's ‘Brains’ exhibition. The brain is a unique and enigmatic organ. It cannot be transplanted, and is one of the most complex entities in the known universe. ‘Brains’ explores the ways that we have sought to understand and classify the brain over the centuries.",
+    ],
     "contributors": "Marius Kwint, Richard Wingate",
     "description": "A fully illustrated and fascinating exploration of the brain.",
     "title": "Brains: The mind as matter",
