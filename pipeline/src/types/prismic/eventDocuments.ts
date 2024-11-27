@@ -1,6 +1,11 @@
 import * as prismic from '@prismicio/client';
 
-import { CommonPrismicFields, InferDataInterface, PrismicFormat } from '.';
+import {
+  CommonPrismicFields,
+  InferDataInterface,
+  PrismicFormat,
+  WithContributors,
+} from '.';
 import { WithSeries } from './series';
 
 export type WithEventFormat = {
@@ -56,6 +61,7 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     WithInterpretations &
     WithSeries &
     WithAudiences &
+    WithContributors &
     CommonPrismicFields,
   'events'
 >;

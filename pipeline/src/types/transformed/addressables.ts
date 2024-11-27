@@ -1,4 +1,4 @@
-type AddressableType = 'Article' | 'Book' | 'Visual story';
+type AddressableType = 'Article' | 'Book' | 'Event' | 'Visual story';
 
 type AddressableBaseDisplay<T extends AddressableType> = {
   type: T;

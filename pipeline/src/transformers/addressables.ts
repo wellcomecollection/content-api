@@ -7,11 +7,13 @@ import {
 import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
+  ElasticsearchAddressableEvent,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
 import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
+import { transformAddressableEvent } from './addressables/event';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -23,6 +25,7 @@ export const transformAddressable = (
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
+  | ElasticsearchAddressableEvent
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -35,7 +38,7 @@ export const transformAddressable = (
       transformedDocument = transformAddressableBook(document);
       break;
     case 'events':
-      // transformedDocument = transformAddressableBook(document);
+      transformedDocument = transformAddressableEvent(document);
       break;
 
     // case 'exhibitions':

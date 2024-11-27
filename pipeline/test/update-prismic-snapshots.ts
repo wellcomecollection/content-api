@@ -47,6 +47,7 @@ const venueIds = [
 const addressableIds = {
   article: 'ZdSMbREAACQA3j30', // The stuck tampon
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
+  event: 'ZfhSyxgAACQAkLPZ',
   'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
 };
 

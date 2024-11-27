@@ -1,0 +1,91 @@
+{
+  "id": "ZfhSyxgAACQAkLPZ",
+  "uid": "beauty-body-image-and-society-november-december-2024",
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0btrxAAAB8AEG22&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZfhSyxgAACQAkLPZ%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2024-04-18T15:00:00+0000",
+  "last_publication_date": "2024-11-08T18:48:08+0000",
+  "slugs": ["beauty-body-image-and-society"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Beauty, Body Image and Society",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "format": {
+      "id": "WcKmeisAALN8A8MB",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "study-day",
+      "first_publication_date": "2017-09-20T17:33:57+0000",
+      "last_publication_date": "2017-09-20T17:33:57+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Study day",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "times": [
+      {
+        "startDateTime": "2024-11-08T10:30:00+0000",
+        "endDateTime": "2024-11-08T15:00:00+0000"
+      },
+      {
+        "startDateTime": "2024-12-06T10:30:00+0000",
+        "endDateTime": "2024-12-06T15:00:00+0000"
+      }
+    ],
+    "body": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "ZQrVpRcAACQAnZ5G",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "cheyenne-eugene",
+          "first_publication_date": "2023-09-20T11:21:12+0000",
+          "last_publication_date": "2023-09-20T15:05:05+0000",
+          "data": {
+            "name": "Cheyenne Eugene"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "A study day on beauty, body image and society for students aged 14 to 19.",
+              "spans": []
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$12133372-a310-4b34-beee-cd58fc7685c6",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}
