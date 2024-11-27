@@ -1,0 +1,5589 @@
+{
+  "id": "Zs8mohAAAB4AP4sc",
+  "uid": "hard-graft-exhibition-text",
+  "url": null,
+  "type": "exhibition-texts",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
+  "tags": [
+    "hard-graft"
+  ],
+  "first_publication_date": "2024-09-12T13:07:08+0000",
+  "last_publication_date": "2024-10-01T11:49:26+0000",
+  "slugs": [
+    "hard-graft"
+  ],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Hard Graft ",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "related_exhibition": {
+      "id": "ZpE1ghAAACQAgRSg",
+      "type": "exhibitions",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "hard-graft-work-health-and-rights",
+      "first_publication_date": "2024-07-26T10:59:56+0000",
+      "last_publication_date": "2024-10-22T16:04:04+0000",
+      "uid": "hard-graft-work-health-and-rights",
+      "data": {
+        "promo": [
+          {
+            "primary": {
+              "caption": [
+                {
+                  "type": "paragraph",
+                  "text": "Explore the profound impact of physical work on health and the enduring fight for workers’ rights through our new major exhibition.",
+                  "spans": [],
+                  "direction": "ltr"
+                }
+              ],
+              "link": null
+            },
+            "items": [],
+            "id": "editorialImage$9c7b8a0a-d370-438f-99cc-85401f420d51",
+            "slice_type": "editorialImage",
+            "slice_label": null
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "intro_text": [],
+    "slices": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Gestures of Labour",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Adelita Husni Bey",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2009",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Super 8 film transferred to video, silent",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "5 minutes 39 seconds",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Laveronica Arte Contemporanea",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This silent video was produced in the kampungs of Jakarta, Indonesia. Kampungs are neighbourhoods occupied by newly arrived migrants in which small, informal cooperatives are set up to provide basic necessities, including housing, education and work.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The film concentrates on the rhythmic repetition of the migrant workers’ hand gestures, showing the body as the predominant machine in the production of everyday objects.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$80daef69-b37c-4d5f-a037-6cb226f1b194",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Our Lives and Our Struggles",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Bouba Touré",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1980 – 2000 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Bouba Touré Archive",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Bouba Touré (1948 – 2022) was a Franco-Malian film projectionist, photographer, writer and farmer. He documented the everyday lives of migrants and migrant workers’ movements, such as les sans-papiers (without papers) in Paris. These photographs show street gatherings of citizens from France’s former colonial territories fighting for freedom of movement. Touré honours the migrant-led movements that led to the improvement of workers’ rights and the recognition of thousands of undocumented migrants despite the ongoing rise of hostile immigration laws in France.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$a706ab22-3016-4f6a-975f-cbade3fdb074",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Ministry of Labour officials interviewing Jamaican immigrants at the Labour Exchange, Clapham, London, 23 June 1948",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "TopFoto",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1948 / 2020",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Silver gelatin photograph",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$63be8683-1fa8-489c-8f55-b182da26dc85",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Immigrants from the West Indies arrive at Southampton, England, 1 May 1954",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "TopFoto",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1954 / 2020",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Silver gelatin photograph",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Collection of Autograph, London",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Following the Second World War, thousands of people from Commonwealth countries in the Caribbean were asked by the British government to relocate to the UK to help with labour shortages. They are often referred to as the Windrush generation, after the ship HMT Empire Windrush on which the first group arrived in 1948. They have made a fundamental contribution to key British infrastructure, with many working as bus drivers, sanitation workers, cleaners and nurses in the National Health Service.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ccf26cf7-77ec-4dcc-9a69-8c35f7e30e87",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Practical rules for the management and medical treatment of Negro slaves, in the sugar colonies",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Dr [David] Collins",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1803",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "King’s College London, Foyle Special Collections Library, The Foreign, Commonwealth & Development Office Historical Collection, R473 COL",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This book shows how Western medicine was used to sustain plantation economies by justifying the importance of slavery in the West Indies. Dr Collins wrote that plantation owners should view medical treatment for enslaved people as an investment. Keeping the workforce ‘healthy’ would lead to an increase in productivity and wealth. The book includes treatments for various infectious diseases, such as yaws and pox, as well as instructions on the management of enslaved people’s housing, food and labour, demonstrating the extreme level of control over their lives.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$722af3a1-e7b3-487a-ba0a-baa170a3e864",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Slaves on a hillside coffee farm in the Paraíba Valley region ",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Escravos em terreiro de uma fazenda de café na região do Vale do Paraíba)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 74,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Marc Ferrez",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "c. 1882 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Marc Ferrez / Gilberto Ferrez Collection / Instituto Moreira Salles",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "The Brazilian photographer Marc Ferrez (1843– 1923) documented the rapid transformation of Brazil’s modern urban development and landscapes. He focused on the coffee fazenda, or plantation, that was responsible for the growth of the Brazilian Empire’s wealth in the early 19th century. Fazendas were highly profitable due to their fast production, ideal weather conditions and the rise of migrant labour in the country. This photograph was commissioned by the plantation owner and the Centre for Farming and Commerce to promote coffee production in international exhibitions. The violence of slavery is concealed in this calm scene depicting discipline, order, power and wealth on the plantation.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$48bfdee9-1025-4a17-b69b-aee53dffee6e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "A tea plantation in China: workers tread down congou tea into chests",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Unknown artist",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "19th century",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Lithograph print with watercolour",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 25238i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This print, from a series of 12, shows tea plantation work in China. Each print depicts different steps in the production of tea, including sowing, cultivation, drying and its exportation from China to Europe. This scene outlines the power dynamics involved in how the work was performed. The authoritarian, symmetrical space reflects the hierarchical relationship between workers’ occupations. These are ordered according to their position, clothing and the striking difference in the physical endurance required for each job.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2e848907-7c96-40dd-b4eb-d1512abc4bae",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Dark Garden",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Md Fazla Rabbi Fatiq",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2021 – ongoing / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on Hahnemühle paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Tea gardens were created in the Bangladeshi region of Sylhet in 1854 by British merchants. People from different parts of India migrated to the region with the promise of decent work. Today, workers do not have the right to own land and most work informally, earning an average daily wage of US $1.42 (£1.13). The beautiful landscape conceals the harsh and unsafe working conditions for tea workers. Md Fazla Rabbi Fatiq’s photographs reveal a worker’s hand crushed by a machine for processing tea leaves and an eye injured by harmful pesticides.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$390a6ec4-d13f-42ed-a486-17467887add2",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "General history of the insects of Suriname and all of Europe, containing their descriptions, their figures, their different metamorphoses, as well as descriptions of the plants, flowers and fruits on which they feed… with some details on toads, lizards, snakes, spiders… from Suriname ",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Histoire générale des insectes de Surinam et de toute l’Europe, contenant leurs descriptions, leurs figures, leurs differentes metamorphoses, de même que les descriptions des plantes, fleurs et fruits, dont ils se nourissent… avec quelques détails sur les crapauds, lézards, serpents, araignées… de Surinam)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 308,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Maria Sibylla Merian",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1705 / 1771",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Early printed book with leather binding",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPB/F/980.v1",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "German naturalist Maria Sibylla Merian (1647 –  1717) researched the rich fauna and flora in Suriname, a former Dutch colony on the northeast coast of South America. She produced one of the first and most compelling botanicals made by a woman. It includes over 60 colour drawings of plants and their interdependent ecosystem of insects and animals. Merian’s descriptions of each plant’s properties and usage was heavily influenced by the knowledge of the enslaved women she was introduced to by the owner of a sugar plantation.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This page shows the Caesalpinia pulcherrima, also known as the peacock flower, used by enslaved women to abort unwanted pregnancies and resist bearing a child that would be born into enslavement.",
+              "spans": [
+                {
+                  "start": 20,
+                  "end": 43,
+                  "type": "em"
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$43d62a06-1f7f-4a66-b82f-ea13b5e0a16e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Matriarch I",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2021, Graphite, colour pencil, watercolour, gum, \nink and Reckitt’s Blue on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Leeds Museums and Galleries Purchased with Art Fund\nand Leeds Art Fund support LEEAG.2022.0067",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$8e339976-7000-4a99-937e-ece09a44415b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Warrior’s Way: Safeguarding the natural history of Jamaica",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2023, Graphite, Blue Mountain coffee, colour pencil, watercolour and ink on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "British Museum, 2023,7004.1",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2e6c5db8-a68c-42e9-b7b0-f7ed533e460a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Still Waters",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2023, Terracotta, neoprene fabric, brass, copper, raffia palm, raw flax and tinctures",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ceba1332-305b-4582-97fd-6e463f886346",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Warrior’s Way: Seeds for cultivating the timeless",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2023, Coffee, water-soluble graphite, pencil, watercolour and ink on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$63dd9484-cdbe-4d51-921f-4d97dbc071b8",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Warrior Builds Strength: From all who came before",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2023, Coffee, water-soluble graphite, pencil, watercolour and ink on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6af8c72b-27ea-48a3-946a-a1482e99c567",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Warrior’s Way: Honouring ancient traditions",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "2023, Coffee, water-soluble graphite, pencil, watercolour and ink on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$912467d1-717e-465a-b90e-890ceb167047",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Book of Landscapes",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Livro da Paisagens)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 20,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Maria Floriza Veríssimo",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2020 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Prints on Tyvek paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Maria Floriza Veríssimo",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Maria Floriza Veríssimo is a quilombola who lives in the Quilombo Ausente in the Municipality of Serro in Minas Gerais, in Brazil. Quilombos are settlements created by enslaved Indigenous and African people who escaped the plantation system that date as far back as 400 years ago. Hundreds of quilombos still exist and continue to be inhabited by enslaved people’s descendants and other low-income families. This installation presents 12 pages of her notebook about plants that grow in a communal creole garden by her home. The garden has sustained and nourished generations in their quest for liberation. Quilombos are a symbol of resistance, healing and autonomy, sustaining new structures of work and life away from the inhumanity of forced labour.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ca8dffe9-070e-4022-a6ef-16a3c2f889fd",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Daybreak – A Time to Rest",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Jacob Lawrence",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1967",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Tempera on hardboard",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "National Gallery of Art, Washington, Anonymous Gift 1973.8.1",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This painting is one in a series of panel paintings by Jacob Lawrence (1917 – 2000) that tells the story of abolitionist Harriet Tubman (1822 – 1913). Tubman founded the Underground Railroad, a fragile network of safe houses along the routes that allowed thousands of enslaved people to escape from Southern plantations to the Northern states of the USA. Plants found in the landscapes were fundamental during the escapes. Here, Tubman is pictured resting. She holds a rifle, lying on the hard ground beside a couple and their baby. The hard lines delineating her toes and muscles emphasise the arduous journeys she has made.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$f268f4c5-e6d5-4f16-a05c-185782fdb0f3",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Umbanda",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Maria Auxiliadora da Silva",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1968",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Oil paint on canvas",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Museu de Arte de São Paulo Assis Chateaubriand",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Gift Lais H Zogbi Porto e Telmo Giolito Porto in the context of the Afro-Atlantic Histories exhibition, 2018 — MASP.10732",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Maria Auxiliadora da Silva (1935 – 74) depicted the everyday lives of Afro-Brazilians. This painting represents the Afro-Brazilian religion Umbanda, comprised of a combination of Spiritism, Shamanism, Catholicism and African religions. Enslaved people converted Catholic saints to their own pantheon of gods named orixás. At the rear of the temple, images of Saint Sebastian, the orixá of the forests and hunting, and Saint Lazarus, the orixá of health and healing, conceal the African and Indigenous traditions of Umbanda. Afro-Brazilian religions are, and continue to be, persecuted by the state. These hidden references protect their existence.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1ebabb98-e71d-4778-b6f7-d9336ecc343a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Voyage to Suriname. Description of Dutch possessions in Guiana",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Voyage à Surinam. Description des possessions néerlandaises dans la Guyane)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 76,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Pierre Jacques Benoit",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1839",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Early printed book with leather binding",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPB/F/1006",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$7f8817b5-8297-4ec2-b9a3-1e85cd458420",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "An African song or chant from Barbados",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Unidentified authors, transcribed by Granville Sharp from information provided by Dr William Dickson",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Late 18th century, ink on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Henry Lloyd-Baker and Gloucestershire Archives, D3549/13/3/27",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This song narrates the harsh treatment of enslaved people on a plantation in a direct message to their owners. It was transcribed by British abolitionist Granville Sharp (1735 – 1813) based on information from Scottish abolitionist Dr William Dickson (1751 – 1823), who heard the song while in Barbados. Storytelling through collective singing was an act of survival. Though forbidden to talk while working, enslaved people were permitted to sing in unison, as it was deemed productive by plantation owners and supervisors. Using rhythm and voice, songs contained coded meanings that preserved and shared knowledge and culture from generation to generation.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$cad1289c-5d49-4cd2-9523-6fbfdce5ebaa",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "If toxic air is a monument to slavery, how do we take it down?",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Forensic Architecture",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2021",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Digital video, 35 minutes 4 seconds",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Forensic Architecture\n",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Along the Mississippi River between Baton Rouge and New Orleans in the US state of Louisiana, a heavily industrialised ‘Petrochemical Corridor’ overlays a territory formerly known as ‘Plantation Country’. In the region’s majority-Black communities, residents – descendants of people historically enslaved on the same land – breathe some of the most toxic air in the country and suffer one of the highest risks of cancer and other serious health conditions, yielding the regional name ‘Death Alley’. As industrial development pollutes their air, it also threatens the burial grounds of their ancestors, exposing the continuum of environmental racism in the region. This project seeks to offer new tools to local residents and their allies to protect their history and future from industrial erasure, and to support their vision of a new cultural economy that honours the dead and uplifts the living.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Credits: Forensic Architecture Team",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 35,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Project Coordinators: Imani Jacqueline Brown, Samaneh Moafi, Eyal Weizman",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 20,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Project Supervision: Dimitra Andritsou, Olukoye Akinkugbe, Omar Ferwati, Ariel Caine, Kishan San, Nicholas Masterton, Nour Abuzaid, Sanjana Varghese, Ayana Enomoto-Hurst, Ana Lopez Sanchez-Vegazo, Caterina Selva, Jacob Bertilsson, Sam Blair, Robert Trafford, Elizabeth Breiner, Sarah Nankivell",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 21,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Extended Team: Dr Salvador Navarro-Martinez (Imperial College London)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Collaborators: Center for Constitutional Rights (CCR), Center for International Environmental Law (CIEL), The Descendants Project, Earthworks, Healthy Gulf, Imperial College London, Louisiana Bucket Brigade, The Human Rights Advocacy Project (HRAP), Loyola New Orleans College of Law, The Ethel and Herman L Midlo Center for New Orleans Studies, Louisiana Museum of African American History, Whitney Plantation Museum",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "In partnership with RISE St James",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Thanks to: Sharon Lavigne, August “AJ” Gomez, Milton Cayette, Chasity White, Jo Banner, Joy Banner, Jordan Brewington, Leon A Waters, Don Hunter, D Ryan Gray, Devin Ngetich, Mary N Mitchell, Ludovico Palmeri, Bryan C Lee, Jr, Jeremy Blum, Tammie Mills, Alahna Moore, Stephanie Cooper",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 9,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$cf56a191-d994-42ce-a676-42b358b2d4c4",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Mosquito Shrine",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Templo do Mosquito)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 20,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Vivian Caccuri",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2018",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Mosquito net, cotton thread, aluminium and slate",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Collection Adriana Varejão",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "In her work, Vivian Caccuri focuses on the figure of the mosquito, an insect that carries deadly infectious diseases. In the 16th century the mosquito was transported on slave ships from Africa to Brazil and has since spread across the Americas. In this embroidered work, mosquitoes take on a human scale, thriving in the human-made plantation landscape. In Brazil today, rapid deforestation has led to the return of yellow fever. Here, Caccuri invites us to reconsider our relationship with the mosquito, as an insect also affected by histories of colonialism.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$cc4d11a8-3119-4abb-b4bf-bf2f07421443",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Postage stamps promoting the World Health Organization’s Global Malaria Eradication Programme",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "1962 – 63",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Stamps and envelope",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPH718B (Pakistan 156), EPH713 (Dubai 39), EPH715 (Haiti 824), EPH714 (Gaza 120), EPH719A (Solomon Islands 341), EPH718B (Nigeria 116), EPH719A (Sierra Leone 241), EPH719A (Suriname 508), EPH719A (Sudan 167), EPH713 (Dominican Republic 853), EPH719A (Sharjah 22), EPH715 (Guinea 239), EPH715 (Guinea Republic 299), EPH713 (Dubai 34), EPH713A (Ethiopia 533), EPH714 (Somalia 460), EPH714 (Gabon 185)",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$91eb9198-4575-41f1-92cc-7230f98c665a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Prisons: Slave Ships on Dry Land",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Andalusia K Soloff",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2004 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$39ead7f7-6e3d-44c2-8e1c-ad3b01ba22cf",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Poster for the Committee to Abolish Prison Slavery",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Luis Gonzalez of the Royal Chicano Air Force",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1977 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and the Center for the Study of Political Graphics",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$0c01af20-b2a1-4b6c-ac03-6c495d9aa21c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Jail is just a kind of warehouse for poor people",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Peg Averill",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1976",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Lithograph poster",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The Victoria and Albert Museum. Gift of the American Friends of the V&A; gift to the American Friends by Leslie, Judith and Gabri Schreyer and Alice Schreyer Batko. E.343-2004",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1e2c3e42-c282-488b-8fcf-f81fc3879208",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Inmates at Work: prisoners harnessed to a wheel grinding or crushing rocks, surveilled by a guard",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Captain Lewis",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1870 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "© Science Museum Group, 1987-5180",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b2e5b6e3-eb6d-4c5d-89ab-22d5e52e09f9",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Prisoners on a treadwheel at Pentonville Prison",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Unknown author",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1895 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The National Archives, UK, COPY1-420",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$d9bfc1a6-ec21-4dae-9ce6-814fab7f5b3b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Woking Convict Invalid Prison: women prisoners working the fire pump",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "1889",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Process print after Paul Renouard",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 37860i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$bf53b449-95c2-4fcc-a639-4aada837989b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Report of the Surveyor-General of Prisons on the construction, ventilation, and details of Pentonville Prison: Ground Plan of the Pentonville Prison for 520 Prisoners on the Separate System",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Joshua Jebb",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1844",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPB/B/25525",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "In the 19th century, the American model of the separate system was introduced to Britain and informed the construction of the HM Prison Pentonville, built in 1842 in Islington, London.\nIt was initially built with a capacity of 520 isolated cells. Communal spaces such as exercise courtyards and chapels were also separated to discourage social contact among prisoners, causing high rates of depression. Today, Pentonville is overcrowded, with over 1,200 prisoners.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$71fb40da-2dad-464e-aa4a-8909dcb62bc1",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Slide rule for calculation of treadmill labour",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Robert Brettell Bate",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1823",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wood, paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Science Museum Group, on behalf of King’s College London, \n1927-1526",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "The treadwheel was originally used to generate power for pumping water or manufacturing. In the 19th century it was used as a method of punishment, discipline and unnecessary productivity. This controversial tool enabled prison governors to set daily productivity targets for the number of steps per prisoner per hour. The slide rule encouraged prison authorities to adopt a more uniform system of treadwheel use, as the severity of labour practices varied greatly between prisons.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$64ad51ef-13c2-4e95-9643-cc23bc2bab04",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Site / Unseen: The Prison-Industrial Complex",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Sheila Pinkel",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1998 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on paper boards",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This work is part of long-term research by prison activist and artist Sheila Pinkel, denouncing the growth of the mass incarceration system in the USA. In 2001, Pinkel found a catalogue of items made by prisoners in California prisons, ranging from utilitarian objects to office furniture. In some US states, universities and government offices are required by law to purchase equipment produced by low-paid prison workers. The work shows the proximity of prison labour to everyday life.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": [
+            {
+              "type": "paragraph",
+              "text": "No photography",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_text_item$137fc49c-bc2e-4efd-a4e7-264fd05c5577",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Looking Inside – Portraits of Women Serving Life Sentences",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Sara Bennett",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Clockwise from top left: Assia, Linda, Taylor and Elizabeth",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2018 – 19 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on Hahnemühle paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Sara Bennett is a former public defender who photographs women with life sentences to draw attention to the problems of mass incarceration in the USA, where over 200,000 people are serving life sentences. The women – all convicted of homicide – are documented at their place of work in prison. Sara Bennett asked the women, “What do you want to say to the outside world?” The portraits and accompanying words reveal the women’s experience and humanity, and challenge the viewer to think about the laws and policies that lock people up, sometimes for ever.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$9d6a47ab-0c2f-4843-a795-4aac1dbab192",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Personal growth and collective pockets of freedom on the inside",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Chance Bleu-Montgomery",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Sound, 6 minutes 53 seconds",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Chance Bleu-Montgomery",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Chance Bleu-Montgomery was formerly incarcerated in London. In this recording, he narrates his personal journey of growth, inspired by his experience inside and outside of prison. He describes how he improved his and his peers’ living conditions, from cooking nutritious meals with very little, using DIY homeware, sharing recipes for food and drinks, to inventing ways of communicating while isolated in a cell. He describes how ingenuity and innovation can manifest themselves in the toughest moments in life. This motto has inspired his work as a social changemaker today.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$19cebaea-9513-42b3-8e8a-486f00d64ca7",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Pain Relief Drawings",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Ibrahim El-Salahi",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2016 – 18",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Pen and ink on the back of medicine packets",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Ibrahim El-Salahi and Vigo Gallery",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Drawn on medicine packets, these three drawings express the importance of meditative art-making to relieve Ibrahim El-Salahi’s chronic pain caused by sciatica and Parkinson’s disease. In 1975, he spent six months and eight days as a political prisoner at the Kober prison in Khartoum, Sudan, which holds colonial ties to Britain. While in prison, he drew on the paper bags that wrapped the food his family brought him. Drawing put him at risk of punishment or execution, but was an essential way for him to survive the isolation of imprisonment and ease his mental and physical chronic pain.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "These recent drawings reference those El-Salahi made during his time in prison, and feature recurring symbols from his practice: a bird and tree that represent freedom, rebirth, personal growth and peace, coupled with Sufi spirituality.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$65a734b5-59b4-4d80-8b96-6127cb856080",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Street Life in London",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "John Thomson and Adolphe Smith",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1877",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, ZOI.43.AA8",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "‘Street Life in London’ is an early example of social documentary photography. The aim of the book was “to bring before the public some account of the present condition of the London street folk, and to supply a series of faithful pictures of the people themselves”. The subjects include flower sellers, chimney sweeps, dustmen and locksmiths, as well as street doctors and public disinfectors.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b694994e-7068-4e56-8777-07224b1317ef",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "London labour and the London poor: A cyclopaedia of the condition and earnings of those that will work, those that cannot work, and those that will not work",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Henry Mayhew",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1851",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, M16281",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2c73cd39-886d-4b75-b1d9-52e0a1d06785",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "A street vendor selling an assortment of items",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Unknown artist",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1840",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Gouache on mica",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 580799i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$3c302a3d-0437-4bf4-b8d3-30c2d90f8e1e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "I Am a Man: Sanitation Workers’ Strike, Memphis, Tennessee, March 28th, 1968",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Ernest C Withers",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1968 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "© Dr Ernest C Withers, Sr, courtesy of the WITHERS FAMILY TRUST",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "The tragic deaths of Echol Cole and Robert Walker, who were crushed to death by a garbage truck while at work, sparked this historical strike in Memphis in the USA. Black sanitation workers weren’t allowed to join unions and suffered from poor treatment and unequal pay in contrast to their white counterparts. The placard held by the strikers became a symbol of dignity, freedom and resistance. The strike resulted in an agreement for the city to improve its working conditions.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$f05a9176-3182-4d08-ba7c-d74ffd0b2d4b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Sweeping",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Vikram Divecha",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2016",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on wooden boards",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Sharjah Art Foundation",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Sweeping was a daily artistic performance that Vikram Divecha developed with five migrant sweepers in Sharjah in the United Arab Emirates. Their daily routes were replotted so that they deposited a row of green rubbish-filled bags in front of the Sharjah Art Museum during their working hours. It drew attention to the dirt and the labour involved in sanitation work, while recognising the vital contributions of overlooked workers.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This map is made on a photocopy of the sector map of the Al Shuweihean neighbourhood, which surrounds the museum. Using a different coloured pen to represent each sweeper, the drawings trace the remapped routes. The images document the performance while highlighting their repetitive and low-paid labour, as well as moments of respite.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Made with the support of Bee’ah Sharjah Environment Company LLC\nParticipating Sweepers: Assainar Akkaparambil, Khayyum Shaik, Rafique Ahmed I Wagle, Altaf So Gulab Ali and Shaikh Afzal Shaikh\nInspector Assistant: Mohmed Babumiya\nSector Supervisor Waste Management: \nHussam Mohammed Faraj\nPhotography: Shanavas Jamaluddin and Vikram Divecha",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 25,
+                  "type": "strong"
+                },
+                {
+                  "start": 64,
+                  "end": 88,
+                  "type": "strong"
+                },
+                {
+                  "start": 192,
+                  "end": 213,
+                  "type": "strong"
+                },
+                {
+                  "start": 229,
+                  "end": 265,
+                  "type": "strong"
+                },
+                {
+                  "start": 288,
+                  "end": 301,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$5f4e6ee3-6364-46c3-a194-5f25d0965c23",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Waste Superheroes",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "(Lxs Rifadxs de la Basura)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 26,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Women in Informal Employment: Globalizing and Organizing (WIEGO) in collaboration with Creatura",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2023",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Digital video, 14 minutes 42 seconds",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artists",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "While Mexico City’s solid-waste management system is unionised, at least 10,000 waste pickers are unpaid ‘volunteers’, relying on tips as they collect waste and recyclable materials to resell. Despite having no contracts or social protection, the government heavily relies on this free labour and profits from renting uniforms and tools to workers. Waste pickers put their own health at risk, a situation that worsened during the Covid-19 pandemic, to maintain their income and the health of residents and the city.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$234f814d-9dc6-4b1e-bdb8-cb0863ce748e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Djibouti: waste disposal and its effects on health",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Islamic Educational, Scientific and Cultural Organization",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "c. 2000",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Colour lithograph poster",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 751899i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c5ba561b-60c9-4031-b5e1-58ce356c46a3",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "A woman carrying buckets of night-soil in Fuzhou, Fuijan",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "heading2",
+              "text": "province, China",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "John Thomson",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1869 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 19725i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$7363c604-f401-4f7a-83bb-9c341a443c2c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Prostitutes in Bern (Berne) being punished by collecting night-soil in the streets",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Charles Turner Warren",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "c. 1790",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Engraving",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 27974i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$962d83a9-2a19-47fb-b61f-b37e5811253a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Prostitutes with their names and charges",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Clockwise from top left:",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Luci M, Betsy Ch, Flo A, Phy J, Mug, Sop, Cy, Elia F",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "After Wenceslaus Hollar",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "c. 1800 – 09",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Etchings",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, 27938i, 27939i, 27943i, 27941i, 27937i, 27944i, 27940i, 27933i",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$263f2090-d133-4a78-8f4d-93108d1671c4",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Prostitution in London: with a comparative view of that of Paris and New York, as illustrative of the capitals and large towns of all countries: and proving moral deprivation to be the most fertile source of crime and of personal and social misery: with an account of the nature and treatment of the various diseases caused by the abuses of the reproductive function: illustrated by numerous plates",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Michael Ryan",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1839",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPB/A/45278",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Prostitution was often associated with lower-class women without social status. In this book, Michael Ryan consulted public hygiene reports, city maps and police files to demonstrate the immorality of sex work, with a focus on the spread of contagious disease. Taking a compassionate approach to men’s health, while associating sex workers’ bodies with depravation, the book reveals 19th-century society’s moral judgements on sex work and sex workers, which continue today.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$73a37532-b2a0-4699-958a-f5d4b0197f13",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Money Makes The World Go Round",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Lindsey Mendick",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Glazed ceramic sculptures and tiles, ceramic decals, stained glass, sleeping bags, neon, reclaimed wood",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Carl Freedman Gallery",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Commissioned by Wellcome Collection",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Money Makes The World Go Round is a new commission by artist Lindsey Mendick that honours a global history of sex work, revealing historical, contemporary, personal and collective narratives that too often remain unknown. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Being heard is an ongoing and urgent demand for sex workers. This work has been developed through a process of listening and collaboration with SWARM members Juno and Polly and the author Mendez.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Two symbolic acts of resistance by sex workers formed the starting point for the work: the 1975 Saint-Nizier church occupation by over 100 sex workers in Lyon, France and the 12-day occupation of the Holy Cross Church in King’s Cross, London in 1982 by the English Collective of Prostitutes and their allies.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Here, the architecture of the church creates a shelter for community support and solidarity for global sex workers. The ceramic money boxes refer to the income that sex work provides – the predominant reason that people do this work. These ceramic sculptures, Mendez’s filmed sermon and the stained glass windows each refer to different histories of sex work from antiquity to today, celebrating those who continue to speak up for the existence, rights and struggles of sex workers.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Made in collaboration with: SWARM Collective members Polly Blake and Juno Mac and author and actor Mendez",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 28,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Set Designer: Elouise Farley",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 13,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Stained Glass: Claire Orme",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Filmmaker: Guy Oliver",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 10,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Lindsey Mendick’s Studio: Samuel Vilanova and Bryony Rose, HEKATE (Dominic Lauren, Vaso Papadopoulou, Aristea Rellou)",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 26,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Scenic Painter: Zoé Parsons",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 16,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Seamstress: Mum Mendick",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 12,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$79dc05d9-5e64-4014-9379-665dc337a17d",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Sistaaz of the Castle",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Jan Hoek and Sistaaz Collective",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2015 – ongoing / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on dibond",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This project is the outcome of an ongoing collaboration between the first South African trans sex worker support organisation SistaazHood, fashion designer Duran Lantink and photographer Jan Hoek. The Sistaaz are, in their own words, “fierce activists who are proud to be trans and sex workers”. Most workers in the SistaazHood collective are homeless, and live under a bridge near the Castle of Good Hope fort in Cape Town.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Gabby’s dream is to run a luxurious design brothel called Lady Marmalade and Joan Collins, the eldest member of the collective worked as a male nurse in the daytime and as a female sex worker at night. The series celebrate the Sistaaz’s lives, dreams and successes. They also recognise their struggles, as sex workers fight to access basic rights to healthcare, housing and other forms of work.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6eda3f56-728c-4539-848e-ffa011babdd4",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Self disgust in 100 percent humidity",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Cassi Namoda",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2022",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Oil, charcoal and gesso on cotton canvas",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Xavier Hufkens, Brussels",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$456ad8a0-b79b-4c19-8c25-a86c5b006aec",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Sex Work Still Life",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Hannah ‘Hanecdote’ Hill",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2020",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Textile with embroidery",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2f66500b-46c1-40ea-9254-9f88943ac827",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Like an orgy, it only works if there’s a lot of us",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "United Strippers of the World",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2018",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "SWARM Collective/Bishopsgate Institute, SWARM/5/1",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$d7733a63-ca86-4772-93f2-b31abfc4145e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Prostitutes: Our Life and Rights, 1981.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$928682cf-9928-413d-bd3e-676206623c29",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Photographs from the 12-day Holy Cross Church occupation in King’s Cross, London, 1985.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$65209836-b140-498a-815b-b60ed5ec955a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Daily Star, Sanctuary, 19 November 1982.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b457fca3-7496-4e35-a832-0d6ca55dae20",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Sun, Masked vice girls take over church, 19 November 1982.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$12634d8c-7f51-4b10-9c74-efe21ed7e43b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Conference for the launch of the book ‘Une Vie de Putain’ (‘Prostitutes, Our Life’) including Anne Neale, Wilmette Brown, Selma James and Ulla, a sex worker from the Lyon church occupation, France, 1980.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$71e92d7a-b31f-426d-8fdb-f73915b07e93",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Protection of Prostitutes bill flyer, 1979.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$e6d9f6cc-965c-406f-8336-a1a57facfc2a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Daily Express article about Maureen Colquhoun, the first openly lesbian MP, who presented the bill, date unknown.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$875448f6-9650-4fc8-b35c-6d0d14ceeb98",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, ‘Guide to the Rules of the Game – A–Z for Working Girls’, 1981.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$0833b192-9474-410a-8f18-96cc83f8df40",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Leeds launch of ‘Guide to the Rules of the Game – A–Z for Working Girls’, Leeds, 1981.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$925ef1c9-5c3e-4dbc-aac8-f866f4cdcfaa",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Network newspaper, double issue Nos. 2 & 3, June 1984.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1f5e811e-2d11-4aa7-8b6f-1458e683f0ed",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Three cartoons by ECP member Gigi Turner, 1984.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$96a31828-3add-447d-9dcf-76269c0d820b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Bartle Bogle Hegarty (designer) for ECP, ‘Practising safe sex can get you arrested’ flyer, 1992.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$3425a1c0-7c04-49a9-966a-0b34f64f6597",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Independent, ‘Prostitutes put faith in posters’ article, 11 November 1992.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2ee97b73-55b6-4a5a-abe5-f5fca7679c58",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Photograph of Nina Lopez and Niki Adams, 1992.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ee3dd4f2-6f91-49b5-a98d-1f0b9a6a67de",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, ‘10 things police have said to sex workers’ flyer, January 2022.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$51ff15ee-0f0e-4ced-839e-190954a28910",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP badges, 1980 – 90.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$50c46af8-bae4-45e8-9e2b-64e58e9d97a7",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP protest in support of Lindi St Clair, taken to court for £100k unpaid taxes by Inland Revenue, Employment Appeal Tribune in St James’s Square, London, 1993.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$709ed238-165b-4b00-9b37-988809ee7e9b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP and Women Against Rape protest against the murder of 13 women by Peter Sutcliffe, the Yorkshire Ripper, 1981.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$3d5feeab-a83c-4c41-9022-789b5b39980a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Metro, Sex hits red light in Soho protest, 9, March 2000.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2fd11d96-5a4c-4a68-a339-422a50eb4901",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Guardian, Rupert Everett in defence of prostitutes: ‘There is a land grab going on’, January 2014.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b32a8b2b-1f36-4f3b-bf6d-c8b82734fb5c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "ECP, Soho Fights magazine, 2019.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$28457d34-a771-4a53-a508-4aa0cd082c6b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "SWARM, Sex Workers’ Rights Festival poster, April 2024.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$45a7338f-33ce-4841-9f7e-cba5eb3d634d",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Juno Mac from SWARM",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$a2bd4722-b02d-4ec6-90b0-38d00b5293a1",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "International Day to End Violence Against Sex Workers, London, 2021",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b22dba7f-ed16-48f5-86fc-1bbcfb6064b3",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "‘Sex Workers’ march on International Women’s Day, 2018",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$05f3bf1e-46e9-4464-98bb-e62758e4c629",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "International Women’s Day, London, 2024",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$79d3c76d-84b0-4db5-a941-f645ef70f504",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "International Women’s Day, London, 2020",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$9652ced4-54d6-4b37-81af-dad76e5c1f28",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Sex workers’ rights protest at the International AIDS Conference, including South African sex worker activist Dudu Dlamini from SWEAT (Sex Workers Education and Advocacy Taskforce) and activists from EMPOWER Foundation Thailand, Amsterdam, 2018.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$15bd750b-37d2-406f-bebf-66a92add7029",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "English Collective of Prostitutes gather for a protest outside the Stop Porn Culture conference, London 2014.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$9f53e4dd-0493-4637-a253-ea5d79622364",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "TAMPEP, European Network for promotion of Rights and Health among Migrant Sex Workers, Migrant sex workers don’t ask for more, date unknown.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$152aeebc-3edb-4adc-9d1f-302cdcf1d7c4",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "SWARM, Women’s Strike, Sex / Work Strike poster, 2019.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$b86cb5aa-b476-4067-8860-110cbc85005c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "SWARM badges, 2018.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$13f55cb2-6242-498f-a179-e74836fea24e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Courtesy of Bishopsgate Institute: SWARM/2/4/3, SWARM/2/6 and SWARM/3/13/1, SWARM/3/13/2, SWARM/3/13/4",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6a7a02a7-4e4d-4a6b-a00c-66e19da6940a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Sex worker advertising cards",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "1980s – 2000s, Printed paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, EPH/ 596/:68, EPH/ 598/:161, EPH/ 594/:104; EPH/ 605/:27; EPH/ 595/:142; EPH/ 609 uncatalogued; EPH/ 607/:75; EPH/594/:54; EPH/ 596/:87; EPH/ 601/:95; EPH/ 595/:137; EPH/ 595/:82; EPH/ 595/:118; EPH/ 604/:133; EPH/609A/8",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$4969d0ef-15cc-4389-a2b4-97b70bd3fa85",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Sex worker advertising cards and personal papers",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Stickyboy",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1990 – 95, Printed paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, PP/BOY/1",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c8092544-7b14-4c13-88be-b904abfd5b8f",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Typescript letter from Saint Pancras Borough Council to Hunter Street Police Station, subject line ‘Tottenham Court Road and Euston Station, Disorderly Women’, 25 November 1901.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "C Barrett (?), Saint Pancras Borough Council, London",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1901, Printed paper \nThe National Archives, UK, MEPO 2/293",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$a2946fb2-6484-4a13-aa7d-9c4552b3a72c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Typescript letter from the Metropolitan Police to the City Police, Bristol, sent to accompany the Metropolitan Police’s ‘Album of Foreign Born Prostitutes and Associates’, 15 February 1937. ",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Metropolitan Police",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1937, Printed paper \nThe National Archives, UK, MEPO 3/988",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6760272c-2bbc-4cd1-ad1b-9af99f313c42",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "No one screws more prostitutes than the government. In 1990 prostitutes were fined £1/2 million",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Bartle Bogle Hegarty (designer) for English Collective of Prostitutes",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1992",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Colour lithograph poster",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Victoria and Albert Museum. Given by Bartle Bogle Hegarty.\nE.450-1993",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This large-scale poster was produced by the English Collective of Prostitutes in collaboration with the leading advertising agency Bartle Bogle Hegarty as part of the campaign to repeal the 1956 Sexual Offences Act and 1959 Street Offences Act. It exposes the hypocrisy of sex workers’ treatment by the criminal justice system, while boldly advocating for the existence of sex workers’ rights.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$73c71b31-63d0-414a-b172-c0e6bcefa248",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Femme Maison",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Louise Bourgeois",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1984 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "© The Easton Foundation/VAGA at ARS, NY and DACS, London 2024; photograph © 2024 Museum of Fine Arts, Boston",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This print is part of a major series called ‘Femme Maison’, which Louise Bourgeois (1911 – 2010) began in the mid-1940s while looking after her three young sons. In the work she explores women’s relationship with the domestic space. Depicting a woman whose head is trapped in a house while her nude body is revealed, Bourgeois presents the home as both an oppressive and exposing environment.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$94066645-ab80-4246-85f4-8edff0f986c5",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Washerwoman",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Shannon Alonzo",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2018",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Beeswax, resin, brown cotton, wire, clothes pegs, \nmetal basin and water, found objects",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Inspired by a portrait taken by the photographer J W Cleary in Jamaica in 1890, Shannon Alonzo produced this work in her grandmother’s house in Trinidad. She reflects on the hidden histories of her ancestors’ work as washerwomen and its impact on the body. The materials of the sculpture depict the effects of hot water and harsh soap on her hands, while the body’s decay mirrors the disappearance of the occupation itself.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c87af768-21a5-4fea-b5e3-9d68f4b82936",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Maids Rooms: La Encantada, Artadi Architects",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "heading2",
+              "text": "Maids Rooms: La Planicie, Doblado Architects",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Daniela Ortiz",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2012 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on Hahnemühle paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Laveronica Arte Contemporanea",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "In a project that features over 16 homes, Daniela Ortiz compares the size of domestic workers’ rooms with other rooms in luxurious upper-class houses in Lima, Peru. Using complete construction plans from architectural magazines and the firms that develop these homes, the work outlines the reality of “service architecture”, the living space provided for domestic workers. Daniela Ortiz highlights the difference between the size of the rooms cared for by the domestic workers and the space in which they live. The work reveals the oppressive and colonial nature of the workers’ relationship with their employers, reinforced by the architect’s design.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$8daaf714-8bc8-45fc-ad1e-e868cf514c18",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "‘The maid’s room’, Johannesburg, Transvaal (Gauteng), 24 July 1969",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "David Goldblatt",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1969 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée print on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": " ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the Goldblatt Legacy Trust and Goodman Gallery",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$43d59bb6-c3d4-43d1-b2ec-a56b644e1ac3",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wages for Housework New York flyer: notice to all governments, 1975.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$75e2e8b4-8358-4622-9478-bc469f4a28a8",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Selma James, Women the Unions and Work and The Perspective of Winning, Falling Wall Press, 1972.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1e28dbb3-7bce-4499-be1f-cb7ed8937b69",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wages for Housework Campaign badges, 1970s – 1980s.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$857850d8-a4a8-4e55-9032-52a6372f729a",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wages for Housework Campaign, Wages Due Song, Women Speak Out: May Day Rally Toronto, 1975.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$909053f5-8a89-485c-95bb-7e72bef48de6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Power of Women, Vol. 1, No. 1, Power of Women Collective. July / August 1974.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$673b29d0-f254-470b-a90e-736343a6593b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Power of Women, No. 5. Wages for Housework Campaign, 1976.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$8fe09adb-7406-4a04-9555-dd0abb54d946",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Race Today, Power to the sisters and therefore to the class, January 1974.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2ed48851-57b0-4357-9bbe-ba9dd9865ae2",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wages for Housework Campaign, Taking What’s Ours, 1977.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$8a6e6a00-ef38-4129-b188-4fabd64d8b97",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Black Women for Wages for Housework, Safire, Vol. 1, No. 1, 1977.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c2f160b8-a020-4999-93f8-acec0a7bd109",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wilmette Brown, Black Women & The Peace Movement, Falling Wall Press, 1984.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c4caa12c-6acb-47b9-8e43-a9de3ad3b3ba",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Crossroads Audio Visual Collective, photograph of Clotil Walcott (1925 – 2007), founder of the National Union of Domestic Employees (NUDE), Trinidad and Tobago, date unknown.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ae1691f5-83b9-4315-97d5-1da4880a99e6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Bringing It All Back Home conference flyer, Housewives in Dialogue, 1982.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6f6a5f5a-6365-47fe-bb0d-181c92e8b53b",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Margaret Prescod speaking at launch of Black Women Bringing it All Back Home, 1980.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$822ab4fb-a5f0-4274-904f-5ae79656c77d",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Selma James, Strangers & Sisters: Women, \nRace & Immigration, Falling Wall Press, 1985.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$8d5b9631-ab68-4e6c-8e41-6f69c9eed180",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Photograph of IWFHC delegation to Beijing Conference, Women Count – Count Women’s Work, 1995.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$684bbb16-a1c9-4dfe-b2e5-be9343b5f8a7",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Measuring and valuing unwaged work, Beijing Conference, 1995.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$88defb6d-f564-4cea-8270-ee7b49e45113",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Photographs at Women Count Delegation Press conference including from left to right: Andaiye, Anne Neale, Margaret Prescod, Selma James, Phoebe Jones, 1995.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1f750103-637e-4f43-9cd2-62c086d21af5",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Refusing Nuclear Housework, Wages for Housework Campaign, 1988.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6154e275-cd63-47a4-adda-c9510c9fefb3",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Photograph of the End of Decade Conference with Krishna Ahooja-Patel from the International Labour Organization, Nairobi, 1985.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$7f2c8feb-e0a9-4456-8103-bfcbf5b5b506",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Crossroads Audio Visual Collective, photograph of panellists at Time Off For Women international conference: Discovering Women 1492 – 1992, left to right: Selma James (UK), Manju Gardia (India), Andaiye (Guyana), Sylvia Salley (Tlingit Nation, US), 1992.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$0166f67d-ffe0-4ac6-9a93-30aea64ea36c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Pink Paper, ‘Caring not killing: Gay protestors lead the anti-war calls’, 2 November 2001.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$887613d6-bc9d-4ce5-a348-fe9922022271",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Wages Due Lesbians, Policing the Bedroom and how to refuse it, Crossroads Books, 1991.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$6dc99fc0-c952-402f-a468-1aa43a7b36f0",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Queer Strike collective, Pride is a Protest: Pride, 2016.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$5a8b7636-84cd-4242-9397-b062849fa9ec",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The Weekly Journal, African babies in controversial Aids experiment article, July 1993.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$da6b688f-6643-4d90-9a1f-04788849817f",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Crossroads Audio Visual Collective, photograph of Nina Lopez at the Standing Conference on AZT Malpractice, June 1993.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$24c27fe2-d5d5-4900-a5e3-f468462c0aa1",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Crossroads Audio Visual Collective, photograph of picket line at the Medical Research Council protest as part of the campaign against AZT, 1994.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$4321056c-d368-41da-bd03-9fc2fe588ccf",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Winvisible, two photographs from Disabled People Demand UK-wide protest in Parliament Square, 18 July 2024.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$637428e0-b79f-4445-95e5-883cd579fabd",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Payday Leaflet – Men are supporting the 2nd Global Women’s Strike, 2001.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$a44f6409-4ab8-4340-96eb-b3ffbe833633",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Bouba Touré, photograph by Madjiguène Cissé, 30 March 1996, Paris.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$7b35a911-f3af-4396-a0f9-a8020e70a9f6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Madjiguène Cissé, The Sans-Papiers: A Woman Draws the First Lesson, Crossroads Books, 1997.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$34c282c1-4f05-4ae0-b0ee-daff81f1f5b6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Crossroads Audio Visual Collective, photograph of Selma James speaking at the International Pan African Women’s Day at Parliament Square Peace Camp, 31 July 2004.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$2899b74c-9b5c-4171-81fa-8140cacb227c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "‘Disablement benefit: How it works’ in Hazards Bulletin 39",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Women and Work Hazards Group, British Society \nfor Social Responsibility in Science",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1984",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Broadsheet",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, S8092",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$ff10f0b5-4f29-4844-846c-cb442d9a4867",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "‘Work and home hazards hit Black people hardest’ in The Daily Hazard, No. 10",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "The London Hazards Centre",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1986",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Broadsheet",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, SA/BSR/B/14/3",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$4895c7bf-47a7-4cdc-93f5-23b63e5d5bf5",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Women’s Health in History Shift Work Health Hazards Health Hazards and Homework Home Helps Women and Work Hazards Group, British Society for Social Responsibility in Science",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "1977–90",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Broadsheet",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, SA/BSR/B/14/3, SA/BSR/B/14/2",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$47d7ce44-3cb0-4701-8580-76f385cb56b6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The book of household mana­gement: comprising information for the mistress, housekeeper, cook, kitchen-maid, butler, footman, coachman, valet, upper and under house-maids, lady’s maid, maid-of-all-work, laundry-maid, nurse and nurse-maid, monthly, wet, and sick nurses, etc. etc. also, sanitary, medical, & legal memoranda with a history of the origin, properties, and uses of all things connected with home life and comfort.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Isabella Beeton",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1861",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, M15444",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$703bc1a3-d018-4769-9ca2-86593377f9a9",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Household engineering: scientific management in the home. \nA correspondence course on the application of the principles of efficiency engineering and scientific management to the every day tasks of housekeeping.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Christine Frederick",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1919",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, K21926",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$e2bd3df0-531f-45b1-8397-be925addbbfc",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Home nursing manual: with chapters on personal hygiene and care of infants",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Cecil Frank Wightman",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "1912",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Hardcover book",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": " ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wellcome Collection, K51207",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$1d1644fe-3179-4467-847e-dbb598b64441",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Metal Handkerchiefs",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Lubaina Himid",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2019",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Acrylic paint on metal",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": " ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Hollybush Gardens",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$4b7ed523-e5f9-4b96-bf20-705547f4c3a6",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Reduce the Time Spent Holding",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Magda Stawarska",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2019",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Digital audio composition, 8 minutes",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist and Yamamoto Keiko Rochaix, London",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "These paintings are inspired by words found in British health-and-safety manuals combined with the patterns of East African Kanga fabrics. These manuals are intended to protect workers, but also to control them. For Lubaina Himid, this desire for regulation echoes British colonial control. In Magda Stawarska’s accompanying soundtrack, Himid echoes the manual’s words against a background of construction-work sounds.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$c98f2879-a6ed-474d-9fc7-dcc66bec5c9c",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Women of Ibis Batignolles",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "• Sore backs, sore feet, you have to pay! (tendinitis by Rachel Keke)",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Rubbing, rubbing, here you have to pay (picket line)",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Subcontracting means abuse (canteen ticket)",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Slavery, it’s over (ghosts)",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Louise Rocabert",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2020 / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on paper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "From 2019 to 2021, over 40 chambermaids at the Ibis Batignolles hotel in Paris went on strike to demand better working conditions and pay. These photographs document their long fight and highlight the collective action that led them to victory. Dressed in white sheets to represent their invisible labour, the women revealed injuries caused by repetitive physical work, and denounced the racial discrimination they faced.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$25bb9689-3e6f-4763-87f3-1f4abfd0abd8",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "No Rest for the Wicked",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "• Cleaner No. 01",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Three Generations of Work CV (Paid and Unpaid Labour)",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Cleaner No. 02",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Nana’s Back and Bra",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Cigarette Break",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Mum",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "• Domestic Labour Film Strip",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Kelly O’Brien",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2022 – ongoing / 2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Giclée prints on dibond and woodchip wallpaper",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "In her work, Kelly O’Brien documents the working-class women in her family, playfully exploring the performance of low-paid cleaning work. Moving from intimate portraits to staged photography of her mother and grandmother, she also explores her own identity as a third-generation Irish immigrant. Concerned with class, politics and gender, O’Brien’s work questions the effect of work and working-class life on the body.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$54371433-e853-4ff7-a148-0a2efd6d3207",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Our Journey",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Dr Joyce Jiang",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Tassia Kobylinska",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The Voice of Domestic Workers",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2019",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Digital video, 16 minutes 13 seconds",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artists and The Voice of Domestic Workers",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "This participatory film was made with migrant domestic workers in the UK and documents the hard and exploitative work they endure in private homes across the country. Real-life testimonies are interspersed with hidden footage taken while at work. They are seen scrubbing the floor, hoovering, washing and cleaning repeatedly, exposing the exhausting nature of their work. ‘Our Journey’ also reveals the physical and psychological abuse they face. The Voice of Domestic Workers is an education and support group calling for justice and rights for migrant domestic workers in the UK.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": []
+        },
+        "id": "guide_text_item$047fe016-7f3f-4e9c-a93c-f7c20ea81b59",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Care Chains (Love Will Continue To Resonate)",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "tombstone": [
+            {
+              "type": "paragraph",
+              "text": "Moi Tran",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "2024",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Multimedia installation",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Courtesy of the artist",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Commissioned by Wellcome Collection",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Each year over 23,000 people migrate to the UK to work as domestic workers in private households. ‘Care Chains (Love will continue to resonate)’ asks us to consider how giving care is more than just a physical act, but is one that requires emotional labour and compassion.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Care work impacts people’s lives in many ways, both physical and invisible, but also creates a resonance that connects people.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Moi Tran investigates the body as an instrument of communicating care. The installation features footage of 12 women who are domestic workers. Through their percussive body movements, they channel love, joy, healing, the release of tension and collective resistance. The multisensory installation uses synchronised film, light, sound and vibration to create a moment to reflect on universal practices of care.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Made in collaboration with:",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 27,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Performers: Ann Margaret, Darleen, Florence Carol, Foulera, Georgina, Ghie Ghie, Grace, Lovely Joy, MayBelen, Sahara, Vangi, Yolly from The Voice of Domestic Workers with support from Marissa Begonia, Ximena Ruiz Del Rio, Louise Shelley, Dotty, Joy, Precious and Lhyne.",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 11,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Co-composer / Co-workshop facilitator: \nNatasha Lohan",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 39,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Co-composer / trombonist: Rosie Turton",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 25,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Co-composer / cellist: Zosia Jagodzinska",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 22,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Sound design: Michael Picknett",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 14,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Body percussionist: Emma King",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 19,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Movement collaborator: Anouk Jouanne",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 22,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Sound collaborator: Mengting Zhuo",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 20,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Recording: Ricardo Barbosa, Marco Carini, Ben Harvey, Joshua Hurley, Ollie Isaac, Joshua McCrow, Justin Margovan, Michael Picknett, Thea Stevenson, Lewis Sellars and Antonina Stulova with programming by Lewis Sellars",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 10,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Editing: Ricardo Barbosa",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 9,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Costume design: Khanh Brice Nguyen with Maria Silva",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 15,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Lighting design: Satu Streatfield, Paul Simson",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 17,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Artist assistant: Adelina Hess",
+              "spans": [
+                {
+                  "start": 0,
+                  "end": 17,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            }
+          ],
+          "additional_notes": [
+            {
+              "type": "paragraph",
+              "text": "Please touch the table to experience the vibration",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_text_item$a390bfb0-5f72-4e4f-ba06-bbd6a0f24f7e",
+        "slice_type": "guide_text_item",
+        "slice_label": null
+      }
+    ]
+  }
+}

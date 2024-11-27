@@ -109,6 +109,27 @@ exports[`addressables transformer transforms events from Prismic to the expected
 }
 `;
 
+exports[`addressables transformer transforms exhibition texts from Prismic to the expected format (document: exhibition-texts/Zs8mohAAAB4AP4sc) 1`] = `
+{
+  "display": {
+    "description": "Explore the profound impact of physical work on health and the enduring fight for workers’ rights through our new major exhibition.",
+    "id": "Zs8mohAAAB4AP4sc",
+    "title": "Hard Graft",
+    "type": "Exhibition text",
+    "uid": "hard-graft-exhibition-text",
+  },
+  "id": "Zs8mohAAAB4AP4sc",
+  "query": {
+    "description": [
+      "Explore the profound impact of physical work on health and the enduring fight for workers’ rights through our new major exhibition.",
+    ],
+    "title": "Hard Graft",
+    "type": "Exhibition text",
+  },
+  "uid": "hard-graft-exhibition-text",
+}
+`;
+
 exports[`addressables transformer transforms visual stories from Prismic to the expected format (document: visual-stories/Zs8EuRAAAB4APxrA) 1`] = `
 {
   "display": {
