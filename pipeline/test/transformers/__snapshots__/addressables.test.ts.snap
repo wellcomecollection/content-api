@@ -81,6 +81,34 @@ exports[`addressables transformer transforms books from Prismic to the expected 
 }
 `;
 
+exports[`addressables transformer transforms events from Prismic to the expected format (document: events/ZfhSyxgAACQAkLPZ) 1`] = `
+{
+  "display": {
+    "description": "A study day on beauty, body image and society for students aged 14 to 19.",
+    "format": "Study day",
+    "id": "ZfhSyxgAACQAkLPZ",
+    "times": {
+      "end": 2024-12-06T15:00:00.000Z,
+      "start": 2024-11-08T10:30:00.000Z,
+    },
+    "title": "Beauty, Body Image and Society",
+    "type": "Event",
+    "uid": "beauty-body-image-and-society-november-december-2024",
+  },
+  "id": "ZfhSyxgAACQAkLPZ",
+  "query": {
+    "contributors": "Cheyenne Eugene",
+    "description": [
+      "A study day on beauty, body image and society for students aged 14 to 19.",
+      "Study day",
+    ],
+    "title": "Beauty, Body Image and Society",
+    "type": "Event",
+  },
+  "uid": "beauty-body-image-and-society-november-december-2024",
+}
+`;
+
 exports[`addressables transformer transforms visual stories from Prismic to the expected format (document: visual-stories/Zs8EuRAAAB4APxrA) 1`] = `
 {
   "display": {

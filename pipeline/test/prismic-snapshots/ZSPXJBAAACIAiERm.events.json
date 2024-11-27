@@ -3,11 +3,13 @@
   "uid": "recipes-for-early-modern-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0btrxAAAB8AEG22&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:49+0000",
-  "slugs": ["recipes-for-early-modern-beauty"],
+  "slugs": [
+    "recipes-for-early-modern-beauty"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

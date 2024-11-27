@@ -3,11 +3,13 @@
   "uid": "the-enigma-of-the-medieval-folding-almanac",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0btrxAAAB8AEG22&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-01-10T10:59:43+0000",
   "last_publication_date": "2024-10-23T14:35:21+0000",
-  "slugs": ["the-enigma-of-the-medieval-folding-almanac"],
+  "slugs": [
+    "the-enigma-of-the-medieval-folding-almanac"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

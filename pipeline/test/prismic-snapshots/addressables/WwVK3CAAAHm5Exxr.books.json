@@ -3,11 +3,13 @@
   "uid": "brains",
   "url": null,
   "type": "books",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WwVK3CAAAHm5Exxr%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0btrxAAAB8AEG22&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WwVK3CAAAHm5Exxr%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2018-05-24T13:12:21+0000",
   "last_publication_date": "2024-07-22T11:06:39+0000",
-  "slugs": ["brains"],
+  "slugs": [
+    "brains"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
