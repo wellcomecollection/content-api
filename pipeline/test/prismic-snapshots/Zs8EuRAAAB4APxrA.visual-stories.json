@@ -1,0 +1,43 @@
+{
+  "id": "Zs8EuRAAAB4APxrA",
+  "uid": "hard-graft",
+  "url": null,
+  "type": "visual-stories",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0RloBAAAB8ADKKG&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8EuRAAAB4APxrA%22%29+%5D%5D",
+  "tags": ["hard-graft"],
+  "first_publication_date": "2024-10-23T11:49:18+0000",
+  "last_publication_date": "2024-11-15T09:44:44+0000",
+  "slugs": ["hard-graft-work-health-and-rights-visual-story"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Hard Graft: Work, Health and Rights visual story",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$8b933c9c-8c4b-4da2-a5f6-2f6b1318f091",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}
