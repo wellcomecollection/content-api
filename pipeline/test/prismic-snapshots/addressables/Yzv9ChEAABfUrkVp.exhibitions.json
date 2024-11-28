@@ -1,0 +1,66 @@
+{
+  "id": "Yzv9ChEAABfUrkVp",
+  "uid": "the-healing-pavilion",
+  "url": null,
+  "type": "exhibitions",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2022-10-12T11:11:45+0000",
+  "last_publication_date": "2024-10-31T15:26:35+0000",
+  "slugs": [
+    "the-healing-pavilion"
+  ],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "format": {
+      "link_type": "Document"
+    },
+    "title": [
+      {
+        "type": "heading1",
+        "text": "The Healing Pavilion",
+        "spans": []
+      }
+    ],
+    "start": "2022-11-24T00:00:00+0000",
+    "end": "2023-04-22T23:00:00+0000",
+    "contributors": [
+      {
+        "contributor": {
+          "id": "Yzv-ThEAAA__rki5",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "grace-ndiritu",
+          "first_publication_date": "2022-10-04T09:35:23+0000",
+          "last_publication_date": "2022-11-30T11:32:17+0000",
+          "data": {
+            "name": "Grace Ndiritu"
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
+              "spans": []
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$4ee142b3-f655-471b-8691-030583f9f3ed",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}
