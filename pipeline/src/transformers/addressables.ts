@@ -2,18 +2,21 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionTextPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
+  ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
 import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
+import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -21,11 +24,13 @@ export const transformAddressable = (
     | ArticlePrismicDocument
     | BookPrismicDocument
     | EventPrismicDocument
+    | ExhibitionTextPrismicDocument
     | VisualStoryPrismicDocument
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
+  | ElasticsearchAddressableExhibitionText
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -45,9 +50,9 @@ export const transformAddressable = (
     //   transformedDocument = transformAddressableBook(document);
     //   break;
 
-    // case 'exhibitions-texts':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibition-texts':
+      transformedDocument = transformAddressableExhibitionText(document);
+      break;
 
     // case 'exhibitions-highlight-tours':
     //   transformedDocument = transformAddressableBook(document);

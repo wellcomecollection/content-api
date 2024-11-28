@@ -11,12 +11,14 @@ import {
   addressablesArticlesQuery,
   addressablesBooksQuery,
   addressablesEventsQuery,
+  addressablesExhibitionTextsQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 import { transformAddressableArticle } from '@weco/content-pipeline/src/transformers/addressables/article';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
 import { transformAddressableEvent } from '@weco/content-pipeline/src/transformers/addressables/event';
+import { transformAddressableExhibitionText } from '@weco/content-pipeline/src/transformers/addressables/exhibitionText';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
@@ -24,6 +26,7 @@ import { transformVenue } from '@weco/content-pipeline/src/transformers/venue';
 import {
   ArticlePrismicDocument,
   EventPrismicDocument,
+  ExhibitionTextPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
@@ -161,14 +164,18 @@ async function main() {
         );
       }
 
-      // case 'exhibition-text': {
-      //   const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'exhibition-text': {
+        const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
+          graphQuery: `{
+            ${addressablesExhibitionTextsQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableExhibitionText';
+        return transformAddressableExhibitionText(
+          doc as ExhibitionTextPrismicDocument
+        );
+      }
 
       // case 'highlight-tour': {
       //   const doc = await client.getByID(id || 'ZthrZRIAACQALvCC', {
