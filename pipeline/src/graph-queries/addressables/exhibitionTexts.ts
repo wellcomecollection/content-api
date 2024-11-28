@@ -3,6 +3,7 @@ const query = `
     title
     intro_text
     related_exhibition {
+      title
       promo {
         ...on editorialImage {
           non-repeat {

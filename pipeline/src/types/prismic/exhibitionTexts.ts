@@ -7,14 +7,28 @@ import {
 
 import { ExhibitionPrismicDocument } from './exhibitions';
 
+type PrismicSlices = {
+  primary: {
+    title?: { text: string }[];
+    caption?: { text: string }[];
+    tombstone?: { text: string }[];
+  };
+  slice_type: string;
+};
+
+type WithExhibitionTextSlices = {
+  slices?: prismic.GroupField<PrismicSlices>;
+};
+
 export type ExhibitionTextPrismicDocument = prismic.PrismicDocument<
   {
     related_exhibition: prismic.ContentRelationshipField<
       ExhibitionPrismicDocument,
       'en-gb',
-      { promo: PromoSliceZone }
+      { title: prismic.RichTextField; promo: PromoSliceZone }
     >;
     intro_text?: prismic.RichTextField;
-  } & CommonPrismicFields,
+  } & CommonPrismicFields &
+    WithExhibitionTextSlices,
   'exhibition-texts'
 >;
