@@ -685,6 +685,7 @@ exports[`addressables transformer transforms exhibitions from Prismic to the exp
   },
   "id": "Yzv9ChEAABfUrkVp",
   "query": {
+    "contributors": "Grace Ndiritu",
     "description": [
       "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
       "Exhibition",
