@@ -111,6 +111,9 @@ export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
   { format?: string; times?: { start: Date; end: Date } }
 >;
 
+export type ElasticsearchAddressableExhibition =
+  ElasticsearchAddressable<'Exhibition'>;
+
 export type ElasticsearchAddressableExhibitionText =
   ElasticsearchAddressable<'Exhibition text'>;
 

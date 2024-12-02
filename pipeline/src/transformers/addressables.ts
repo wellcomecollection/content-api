@@ -2,6 +2,7 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
@@ -9,6 +10,7 @@ import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
+  ElasticsearchAddressableExhibition,
   ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
@@ -16,6 +18,7 @@ import {
 import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
+import { transformAddressableExhibition } from './addressables/exhibition';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
@@ -24,12 +27,14 @@ export const transformAddressable = (
     | ArticlePrismicDocument
     | BookPrismicDocument
     | EventPrismicDocument
+    | ExhibitionPrismicDocument
     | ExhibitionTextPrismicDocument
     | VisualStoryPrismicDocument
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
+  | ElasticsearchAddressableExhibition
   | ElasticsearchAddressableExhibitionText
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
@@ -46,9 +51,9 @@ export const transformAddressable = (
       transformedDocument = transformAddressableEvent(document);
       break;
 
-    // case 'exhibitions':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibitions':
+      transformedDocument = transformAddressableExhibition(document);
+      break;
 
     case 'exhibition-texts':
       transformedDocument = transformAddressableExhibitionText(document);

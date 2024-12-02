@@ -1,8 +1,26 @@
 import * as prismic from '@prismicio/client';
 
-import { CommonPrismicFields } from '@weco/content-pipeline/src/types/prismic/';
+import {
+  CommonPrismicFields,
+  InferDataInterface,
+  PrismicFormat,
+  WithContributors,
+} from '.';
+
+type WithExhibitionFormat = {
+  format: prismic.ContentRelationshipField<
+    'exhibition-formats',
+    'en-gb',
+    InferDataInterface<PrismicFormat>
+  >;
+};
 
 export type ExhibitionPrismicDocument = prismic.PrismicDocument<
-  CommonPrismicFields,
+  {
+    start: prismic.TimestampField;
+    end: prismic.TimestampField;
+  } & WithContributors &
+    WithExhibitionFormat &
+    CommonPrismicFields,
   'exhibitions'
 >;

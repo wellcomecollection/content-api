@@ -41,6 +41,19 @@ describe('addressables transformer', () => {
   );
 
   forEachPrismicSnapshot<ExhibitionTextPrismicDocument>(
+    ['exhibitions'],
+    isAddressable
+  )(
+    'transforms exhibitions from Prismic to the expected format',
+    prismicDocument => {
+      const transformed = transformAddressable(prismicDocument);
+      // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(transformed).toMatchSnapshot();
+    }
+  );
+
+  forEachPrismicSnapshot<ExhibitionTextPrismicDocument>(
     ['exhibition-texts'],
     isAddressable
   )(

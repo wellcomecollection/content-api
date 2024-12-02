@@ -16,6 +16,7 @@ export { PrismicImage } from './images';
 export { WithSeries } from './series';
 export { VisualStoryPrismicDocument } from './visualStory';
 export { ExhibitionTextPrismicDocument } from './exhibitionTexts';
+export { ExhibitionPrismicDocument } from './exhibitions';
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client

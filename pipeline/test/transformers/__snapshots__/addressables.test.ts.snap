@@ -669,6 +669,34 @@ Natasha Lohan",
 }
 `;
 
+exports[`addressables transformer transforms exhibitions from Prismic to the expected format (document: exhibitions/Yzv9ChEAABfUrkVp) 1`] = `
+{
+  "display": {
+    "dates": {
+      "end": "2023-04-22T23:00:00+0000",
+      "start": "2022-11-24T00:00:00+0000",
+    },
+    "description": "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
+    "format": "Exhibition",
+    "id": "Yzv9ChEAABfUrkVp",
+    "title": "The Healing Pavilion",
+    "type": "Exhibition",
+    "uid": "the-healing-pavilion",
+  },
+  "id": "Yzv9ChEAABfUrkVp",
+  "query": {
+    "contributors": "Grace Ndiritu",
+    "description": [
+      "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
+      "Exhibition",
+    ],
+    "title": "The Healing Pavilion",
+    "type": "Exhibition",
+  },
+  "uid": "the-healing-pavilion",
+}
+`;
+
 exports[`addressables transformer transforms visual stories from Prismic to the expected format (document: visual-stories/Zs8EuRAAAB4APxrA) 1`] = `
 {
   "display": {

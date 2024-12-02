@@ -2,6 +2,7 @@ type AddressableType =
   | 'Article'
   | 'Book'
   | 'Event'
+  | 'Exhibition'
   | 'Exhibition text'
   | 'Visual story';
 
