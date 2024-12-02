@@ -25,6 +25,14 @@ export const transformAddressableExhibition = (
   const queryDescription = [description, format].filter(isNotUndefined);
   const title = asTitle(data.title);
   const uid = documentUid || undefined;
+  const contributors = (data.contributors ?? [])
+    .map(c => {
+      return isFilledLinkToDocumentWithData(c.contributor)
+        ? asText(c.contributor?.data.name)
+        : undefined;
+    })
+    .filter(isNotUndefined)
+    .join(', ');
 
   return {
     id,
@@ -41,6 +49,7 @@ export const transformAddressableExhibition = (
     query: {
       type: 'Exhibition',
       title,
+      contributors,
       description: queryDescription,
     },
   };
