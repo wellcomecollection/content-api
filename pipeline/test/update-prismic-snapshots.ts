@@ -49,6 +49,7 @@ const addressableIds = {
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
   event: 'ZfhSyxgAACQAkLPZ',
   exhibition: 'Yzv9ChEAABfUrkVp',
+  'exhibition-highlight-tour': 'ZthrZRIAACQALvCC',
   'exhibition-text': 'Zs8mohAAAB4AP4sc',
   'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
 };

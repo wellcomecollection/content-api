@@ -3,6 +3,7 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionHighlightTourPrismicDocument,
   ExhibitionTextPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
@@ -58,6 +59,19 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms exhibition texts from Prismic to the expected format',
+    prismicDocument => {
+      const transformed = transformAddressable(prismicDocument);
+      // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(transformed).toMatchSnapshot();
+    }
+  );
+
+  forEachPrismicSnapshot<ExhibitionHighlightTourPrismicDocument>(
+    ['exhibition-highlight-tours'],
+    isAddressable
+  )(
+    'transforms exhibition highlight tours from Prismic to the expected format',
     prismicDocument => {
       const transformed = transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`

@@ -1,0 +1,814 @@
+{
+  "id": "ZthrZRIAACQALvCC",
+  "uid": "jason-and-the-adventure-of-254",
+  "url": null,
+  "type": "exhibition-highlight-tours",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z02CrhAAACEAGdeE&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZthrZRIAACQALvCC%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2024-09-16T13:19:23+0000",
+  "last_publication_date": "2024-11-20T09:43:33+0000",
+  "slugs": [
+    "jason-and-the-adventure-of-254"
+  ],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Jason and the Adventure of 254",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "related_exhibition": {
+      "id": "ZZP8BxAAALeD00jo",
+      "type": "exhibitions",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "jason-and-the-adventure-of-254",
+      "first_publication_date": "2024-01-10T10:55:30+0000",
+      "last_publication_date": "2024-10-22T16:04:03+0000",
+      "uid": "jason-and-the-adventure-of-254",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Jason and the Adventure of 254",
+            "spans": []
+          }
+        ],
+        "promo": [
+          {
+            "primary": {
+              "caption": [
+                {
+                  "type": "paragraph",
+                  "text": "Showcasing Jason Wilsher-Mills’ largest and most personal commission to date, this exhibition is a joyful exploration of the body, drawing on the artist’s experience of becoming disabled as a child. ",
+                  "spans": []
+                }
+              ],
+              "link": null
+            },
+            "items": [],
+            "id": "editorialImage$b9d76ab3-c9a5-4b79-adef-d994487803bc",
+            "slice_type": "editorialImage",
+            "slice_label": null
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "intro_text": [],
+    "slices": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Digital guide",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "Hello and welcome to the first stop of this guide to ‘Jason and the Adventure of 254.’ This is Jason Wilsher-Mills’ most monumental and personal exhibition to date. My name is Shamita Sharmacharja, I am the curator of the show and I am going to explain how this guide works.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There are ten stops, each three to five minutes long. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This first stop provides some useful practical information. To skip to information about the exhibition go to stop 2, which is an introduction to the show and the artist Jason Wilsher-Mills.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "In stops 3 to 10 Jason talks about his life and the inspirations behind some of his work. This is combined with some visual description of the artworks.  Everything in the gallery – including the artworks – can be touched.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "A white tactile floor line is designed to support wayfinding between the stops. It takes you round the gallery in a clockwise direction. When you arrive at an artwork which has a stop, this is indicated on the floor by a white square with raised dots.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "You will find a tactile QR code and stop number within arm's reach of the white square. The QR code is roughly the size of a side plate, and numbers are tactile and located either on the wall, on a dark orange metal stand next to the work or on the work itself.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "If you need any assistance, there is a member of the Visitor Experience team in the gallery, wearing a Wellcome Collection t-shirt.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The large brightly coloured gallery is 32 metres long and nine metres wide, with walls four metres high. The floor line from the main entrance brings you in halfway along a soft pink wall. This first stop is at the dark orange pick-up station, which is to your left as you enter. You can also pick up a large-print guide here.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There is a long yellow wall opposite the entrance, covered with large drawings and texts. The flooring is smooth light wood. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "At the left end of this pick-up station you will find a screen with BSL interpretation and pale pink large-print guides at the right end. The large-print guides include a map of the floor line, as well as a list of all the digital guide stops. You will also find a dark blue Visual Story booklet. This provides pre-visit information about the exhibition, using images, symbols and short written explanations. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "With your back to the pick-up station, there are three benches in the middle of the gallery. These have arms and backs.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The tactile floor line will finish at Stop 10, close to the main entrance where we started. This is also an exit, so there will be visitors moving in both directions. You are of course free to stay and explore.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This is the end of Stop 1. Stop 2 is an introduction to the exhibition and gives information about the artist. With the pick-up station on your left, follow the tactile floor line to the tactile square for Stop 2, which is a couple of metres further on. ",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$05ddc03b-01f2-45c6-a1b7-090a300f5026",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The 254",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "Hi, my name is Shamita, I’m the curator of this exhibition. In this stop I’m going to tell you a bit more about the artist and what you’ll find in the show.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Jason Wilsher-Mills is an artist from Wakefield, in West Yorkshire in the UK. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "On the 1st August 1980, at 2.54pm at Pinderfields Hospital, Wakefield, Wilsher-Mills witnessed his parents being told of his diagnosis of the autoimmune condition which paralysed him from the neck down between the ages of 11 and 16. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Unable to move, Jason’s interior world became inhabited by characters from comic strips and TV shows, entwined with his experiences of life both before and during his hospitalisation. Rather than remembering it as a time of trauma or loss, he sees it as the awakening of his creative life as an artist. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The installation in this colourful gallery is a dream-like distillation of Jason’s childhood memories of what was happening inside and outside of his body and within his imagination during this transformative time. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The long wall opposite the entrance is covered in a bright yellow wallpaper, bordered top and bottom in orange. The wallpaper features ten two-metre-high characters. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "They’re hybrid creatures in a bold cartoonish style, part human, part medical machine or Dalek. Some have huge feet, multiple limbs, or they’re just a head with one bulging eye. They wear steampunk-style superhero masks, and have speech and thought bubbles. Lettering indicates sounds – for example a line of Zs for snoring.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Wilsher-Mills is the youngest of eight children from a working-class family. Family occupies a central importance in his life and was a key connection to the outside world while he was in hospital. Through the hospital school he also gained new educational experiences which he credits as being instrumental in his path to becoming an artist.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "In his work Jason explores narratives of disability, health and identity, using playful humour and colourful magic realism. Taking inspiration from sources as diverse as The Beano and Charles Dickens, and making reference to the ancient Greek hero after who he was named, Wilsher-Mills creates new ways of storytelling that reflect the social model of disability – that people are disabled by social, economic and physical barriers.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The gallery is a riot of colour, packed with an array of playful and sometimes irreverent characters and objects. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Red and purple inflatable ‘viruses’ hang over our heads. They’re beach-ball sized and covered with sucker-like appendages. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Three sculptures occupy the central floor space – an enormous pair of lavishly decorated calliper boots over two metres high, an athlete with a giant telly for a head, and a huge figure lying in a four-metre-long hospital bed. Jason talks about these sculptures in stops 3, 4 and 5. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There are coloured fairground lights on the figure which light up when you press a button.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Placed on the floor in between are ten models of green toy soldiers, about 60cm high. Like everything else in the gallery, these can be touched. They’re mid stride, wearing helmets and each carries a virus under their arm. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Against the gallery walls are nine two-metre-high, brightly coloured cabinets. The cabinets are reminiscent of the penny arcade machines Wilsher-Mills remembers from family holidays at the seaside resort of Withernsea in Yorkshire and Humber. They’re made of a smooth material, etched with patterns in a contrasting colour, on the top and bottom panels. They have a window in the top half which contains a diorama, a three-dimensional scene constructed of cut-outs, spaced out from front to back, like a miniature toy theatre. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The softly lit diorama scenes are richly decorated with colour, complex patterns, and packed with detail.  Jason talks about some of these dioramas in stops 6 to 10. They act as windows into Jason’s childhood memories before and during his hospitalisation. They are not straightforward depictions but are infused with a dream-like magic realism where myth and memory become merged. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "They are rich in symbolism and denote stages of transformation in his life, from childhood, through puberty, to changes in his health, and his creative journey. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Each diorama has a lit-up coloured button just under the window, which you can press to brighten the lights on the scene inside, illuminating these glimpses into Jason’s inner world.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Everything in the gallery can be touched, so feel free to explore and enjoy.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Stop 3 is the calliper boots. Follow the tactile floor line to arrive there.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$8ab3ae77-2558-4d5a-b30e-2b5082b2e25a",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Calliper Boots",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "These giant calliper boots are over two metres high, and reference the humour of Monty Python and the many cartoons and children’s TV shows which I loved as a child in the 1970s. They’re both left-footed, to demonstrate my neurological condition, and that feeling that something isn’t quite right. They stand side by side, one slightly forward of the other, with a narrow space between them.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The boots are painted with 1970s psychedelic cellular shapes, with bursts of pinks, greens, oranges and purples, and star motifs on the heels and toes. They’ve got thick soles and laces up the front. A Union Jack is on the sides of the boots, a connection with the 1980 Olympic Games, which was an important time for me, when Seb Coe ran in the Moscow Olympics – more about that when we get to the next sculpture.  ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I had to wear calliper boots to stop my legs and ankles from turning in, but they were the implements of torture. They were made of the finest Italian leather, and were absolutely made to measure, so they fitted my feet perfectly. But they had no decoration and were purely functional. They came in two colours – black or brown. They were large and unwieldy. I used to call them my Frankenstein boots, as they were so big and ugly. I fantasised about wearing Doc Martens, 21-holed “bad boy” boots, as they were cool. I thought it would be wonderful to have decorated boots.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "My calliper boots had slots in the outer soles where the iron callipers were inserted. These ran up either side of my legs, to just under my knees, where a leather strap was attached to keep them in place. The straps would rub and cause sores. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "On my sculpture I’ve decorated the callipers and the strap with cheerful bright patterns in purple, turquoise, yellow and green. The bit of bare leg showing between the top of the boot and the strap is flesh-pink, with a pattern of blobs and bubbles in soft pinks and yellows.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I associated the callipers with the negative depictions of disability which surrounded me, such as the charity boxes that were outside shops, showing young children wearing callipers. So through this sculpture I decided to reclaim the boots as my own avatar, as a reclamation of these instruments of torture. I’ve claimed them as a positive depiction of how I feel about my disability. The boots are now bright, beautiful and full of colour.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$e69f95bf-573d-45b6-9ed1-445c81c3360b",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Seb Coe",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "This sculpture depicts the athlete Seb Coe, about to run the men’s 1500-metre race on 1st August 1980 – at the Moscow Olympics. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The life-sized figure is crouched on a vermilion rectangular plinth, about the height of a low step. He wears a sports vest, shorts, long socks and running shoes. The kit is white, with red and blue stripes – which depicts the Great Britain Olympics kit.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Seb Coe is pointing to my bed sculpture, which is directly in front of him, and the figure in the bed is pointing back at him. Virus soldiers occupy the space between them. Seb Coe’s outstretched arm is urging the virus soldiers on to ‘attack’ the figure in the bed.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Seb Coe’s vest, front and back, has his race number of 254 – in large, darkly coloured numbers; this number is very important. His body is highly decorated and painted with psychedelic cellular patterns in flesh pink and other soft colours. He also has sharp defining lines of cross-hatching over the whole surface of the sculpture. These are the lines of shading from the original pen drawings.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I’ve replaced Seb Coe’s head with a large 1970s television set, which back then were big box shapes, not flat like now. Inside the television there’s a diorama of the 1980 Olympic race, frozen in time, and this is how I experienced it myself, via a TV set which was directly in front of my hospital bed. The TV was always on.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The 1st August 1980 is such an important date, as it was when the consultant told my mum and dad that I would be in a wheelchair for life and that I would be lucky to live beyond the age of 16. I remember this dramatic news so well, as it coincided with this huge race, which was the men’s 1500-metre final. There had been a huge media focus on the two favourites, Seb Coe and Steve Ovett. It was on all the newspaper front pages and was the headline of the TV news.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Whilst all that drama was going on around my bed, I watched the race, but overheard the doctor talking to Mum and Dad, who were obviously very upset.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The importance of the shirt number is that it corresponds with the time I was diagnosed. I know this, as visiting times were 2.30 to 3.30pm – which was the same time my consultant was doing his ward rounds. The race started at 2.50pm and I was watching it as the consultant was giving Mum and Dad the news. I was more interested in the race than the life-changing news which was unfolding around me. So the number 254 is an important number to me, as it’s the time when my life changed. But it was the drama off-screen that makes the time, date and shirt number so important.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$f3b7b541-0e10-4787-8a34-3be3a059c013",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Figure in the Bed",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "This huge 4.5-metre-long sculpture shows a stylised version of 11-year-old me, at the point on 1st August 1980, at 2.54pm, when I was diagnosed by my consultant. The figure is in a hospital bed, ‘dressed’ in medical paraphernalia such as a surgical collar, which I wore because I couldn’t hold my head up, a spinal brace and hand splints. There’s a small bedside table with a bowl of fruit on it.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The figure proudly wears 1970s purple-and-yellow Y-front underpants. I didn’t have any body privacy in hospital, so this is my way of taking this back and owning it. I see it as an act of rebellion, with me finally deciding that I can share this intimate aspect of myself, and see the humour of the situation I found myself in.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "He’s pointing with both hands straight ahead at the sculpture of Seb Coe. Seb Coe is pointing back at him, urging on the virus soldiers in the space between them, towards the figure in the bed. His feet are oversized because my neurological condition caused me to experience heightened sensations – so sometimes I would get a sense that my feet were on fire, or they might have been the only part of my body I could feel. His toenails and fingernails are bright red. He wears a mask, like a superhero would wear, on the top part of his head. This is a tribute to Mum, who used to paint and decorate my face, as this was the only part of my body which I could feel. I see this as a total act of love and portray this in all my work.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "As a tribute to the ‘Operation Game’ from the 1970s, in which the player had to remove bones and organs with tweezers, I’ve included windows into the inside of my body, so aspects of the internal battle can be seen and touched. You can feel the ribs and the colon, a shin bone, an elbow joint, and some of his skull and brain.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The surface of the body is littered with other details, such as fairground lights, which are used to demonstrate how the messages from my brain to my body were disrupted, because of the polyneuropathy, to the point where I could only move my head. The lights move up and down the body and initially light up in order to illustrate that messages are being sent from my brain successfully, but then this is disrupted, as the lights don’t come on in order and randomly light up to demonstrate my neurological condition. You can make the lights come on by pressing the button on the side of the bed.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There are virus soldiers all over my body, who are trying to get in and deliver the virus. The body is highly decorated with psychedelic patterns, which reflect the war which was going on inside my body at the time. He’s also got tattoos, which represent aspects of my life as an 11-year-old boy experiencing puberty without having any body sensations. ",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$4447e8d2-e2a7-45fc-84b5-cb62dc3f9a3b",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Fruit and the Pee",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "‘The Fruit and the Pee’ diorama depicts my life in hospital in 1980 as an 11-year-old boy. It’s in a blue cabinet with green details. At the top and bottom it has a carved green pattern in a kind of half-wheel shape. These are like the giant viruses that are all around the gallery. The scene inside the cabinet shows a hospital room and a figure in a bed. Around the front edges are broken-off blue bricks. It’s like we’re looking through a hole which has been punched in a wall. Behind the bricks there’s a narrow bed, the end of it closest to us. Big bare feet are sticking up. The bed at Pinderfields Hospital in Wakefield became my home for a year. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The figure in the bed has a large head wrapped in a bandage, and he’s looking to the right, towards the bedside table. It has a fruit bowl on it, and a urine bottle half full of pee. I saw the world go by from that bed.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Because I couldn’t move, I yearned for any opportunity to carry out small acts of rebellion. I was a cheeky chappie, and the new disability and lack of mobility had done nothing to stop that. In fact, it had somewhat enhanced my spirit of rebellion.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The twice-daily visits from family was the only thing that stopped me from being bored. These visiting times were wonderful, because I laughed and was able to be part of my family. They never treated me any differently. So, on one such visit, it was the turn of my sister Linda and her husband Ernest to come and visit me. Ernest was a bit of a cheeky chap himself and had a habit of helping himself to the fruit in the bowl beside my bed. On this occasion he made his move for the greenest apple at the top. But what he didn’t know was that an hour before visiting time, my urine bottle had been spilt all over it. So I watched Ernest whilst he tucked into the apple. He was loving it.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I waited until he finished and then very quietly said, “The nurse spilt my bottle of urine over that apple.” ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "That tiny incident is still spoken about and has become part of family folklore. It proved that I was still able to be mischievous and it was a small act of rebellion against my ‘internment’ in the hospital bed.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I’ve added a big colourful hand on the top-right corner, which is pointing down at the urine bottle. It’s got “This way” written on it. There’s another hand in the bottom left, pointing up at me in the bed. It says “Welcome”. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There’s a lot going on in that room. Pink and green jellyfish and blobby green viruses are floating around, and a green soldier is standing on the bricks in the bottom right-hand corner. He’s giving us a salute.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$ec2053fb-5a34-4e10-b7ad-e3004988ab6b",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Mum as a Mermaid",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "This diorama is in a green casing with contrasting blue details. The scene inside is a rich dark blue, filled with glowing pink, purple and green jellyfish, wavy green grasses, and jagged blue stars. In the centre is a mermaid. There’s a large fish next to her on the left, floating upright. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "As a child who grew up on a council estate, in a Northern, industrial, working-class city, I dreamed and yearned for the times when we went away for a week’s holiday. Because money was very tight, we would all go to a small seaside town on the east coast of Yorkshire called Withernsea. Withernsea was on the North Sea, so was usually cold, wet, with little to do other than play on the beach and visit the arcades. We stayed in a tiny chalet which had three rooms. This slept at least six of us and wasn’t much bigger than a large garden shed. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "To me it was the most magical place. This was somewhat emphasised by our nocturnal visits to the beach. Mum was a shy lady who loved to swim but didn’t like anybody watching her. So we would all go down to the beach when it was dark. We had to go down a steep, rickety set of metal stairs which had been built on the cliff face. Once on the beach, we would be greeted by hundreds of jellyfish which were glowing in the dark. Their luminosity was like magic, and Mum became a mermaid in this scene, as she swam amongst the jellyfish and they lit up the night just for her. The sand glistened by the moonlight and the whole scene was alive and vivid. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "My Mum the mermaid has short brown hair, a swimsuit in a cheerful blue pattern, and from the waist down she’s got a shimmering green-and-red fish’s tail. She’s got one arm lifted, the other arm swinging across her body, her forefingers pointed like a disco-dancing queen. In my vivid imagination I like to think of the whole sea coming to life and the North Sea cod wanting to dance in the water with Mum – the mermaid – so for that one moment we were part of the greatest celebration of this extraordinary working-class woman, who just happened to be my mum. On those nights Mum was truly beautiful, and the jellyfish were like angels, welcoming her to the sea. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Of course, as the years went by, I’ve enhanced my memories, so the North Sea cod became a magical creature, much like Mum and the jellyfish. The fish’s body is covered in multicoloured patterns in purples, blues and turquoise. He’s got bright red lips, neat white teeth, and as he’s on his side; only one heavily lidded eye is shown. But because he came out of my imagination, he’s disabled, because in a way he’s foreshadowing what was to come. A crutch is wedged under his fin, and a tracheotomy tube sticks out from the front of his chest, with “tracky” written on it. He has a scar near his tail, sewn up with bright red stitches. Even the magical, psychedelic jellyfish have come to represent the virus which would ultimately lead to my disability.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$4561536c-3c6c-4010-8427-2031c997bc0d",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Uncle Dennis and the Inseminoids",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "The idea for this diorama came from a story that my uncle Dennis used to tell me when he came to visit me in hospital.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "My hospital bed was my world for one year. It was boring and drab in that bed, but I lived via my vivid imagination and the family visits, which were for an hour, twice a day. It was difficult for Mum and Dad, so other members of the extended family would take turns to visit, such as brothers, sisters and uncles and aunts. One family member that I particularly loved to see was my uncle Dennis and auntie Nora.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Not only was Uncle Dennis funny and very entertaining, he was the first person in the family to have a video recorder, so he could watch films at home that I had never heard of. Uncle Dennis was able to have this expensive piece of equipment because he had an insurance job for a London company, which, as he said, meant, “A London job with a London wage.” So I used to ask Uncle Dennis about these films he’d seen – which was always exciting, as he was a great storyteller, and he would take time to paint a picture for me with words. I would ask him, “What films have you seen lately, Uncle Dennis?” And it would start off with mainstream films like ‘Close Encounters of the Third Kind’, which was all well and good, but eventually he would start telling me about other films he had seen, such as ‘The Inseminoid’. As an 11-year-old lad with an active imagination, the title of this unknown film really captured my attention. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "“What’s ‘The Inseminoid’, Uncle Dennis?” I asked. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Uncle Dennis was a great storyteller, so he laid out the story in all of its gory details, which basically came down to alien monsters getting bikini-clad women pregnant. Now, I was a young lad who was entering puberty, so this film really played on my mind. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "In the intervening years I revisited the story and decided to create my tribute to Uncle Dennis and Auntie Nora, and all those who visited me in hospital. I decided to make my own Inseminoid – even though I’ve never actually seen the film. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The diorama’s in a green cabinet with a yellow pattern carved on the panel at the bottom. Inside there are two figures looking at each other.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The monster on the left, a kind of exotic, one-eyed cactus creature, is not threatening. It’s got two thick spiky branches, one like the body, with a big eye on top. The other branch sticks out stiffly, curving up. The whole thing is like an 11-year-old lad in a costume – his red calliper boots sticking out at the bottom. My Inseminoid is on the right, and represents what my illness was doing to me. The Inseminoid is literally see-through, with translucent pink skin. All the colourful things going on inside are visible. It’s got green bones, pink viruses and tiny red soldiers climbing around. The Inseminoid is grinning, showing all its teeth. It’s reaching out to the prickly cactus, touching its stiff, curving branch with a forefinger. There are pink jellyfish and green stars all around them, and the whole scene has a cheerful jagged red frame.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$05f9dc64-f085-450e-8ad6-76fd7234e682",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "The Hippo Scare",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "This diorama is in a blue cabinet, with red vertical bars on the bottom and top panels. Inside is a hippo with wings in a cage.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "In the early 1970s I have a very vivid memory of visiting Belle Vue Zoo, which was just outside Manchester. I must have been about five years old, as the zoo closed in 1976. Because money was so tight, we didn’t go on many day trips, so when we did, it was a huge event. It was a Victorian zoo, so it was very dark and imposing, with Gothic architecture and huge enclosures.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The diorama is colourful, but it’s also quite dark. There are red bricks around the edges, and they’re covered in dark brown patterns. The bricks are uneven, as if a hole’s been made in the wall of the zoo, so we can look into the hippo’s cage.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I remember going into a very dark and ominous building, which had lots of animal enclosures. One of the enclosures was basically a huge tank of very dark brown water. I could see a dark shape moving inside, and its size was beyond anything I could ever imagine. The dark shape moved, until its head was above water and all I saw was this giant, gaping mouth with teeth like tombstones sticking out. It was a hippopotamus. It terrified me, at that moment, in that space. My reaction to the hippo was extreme, and on reflection I can now see that this was because it represented something so big and extraordinary.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "It was an extreme reaction of both fear and the sublime, as I now know that this experience was linked directly to my creativity being stimulated, and these feelings [were] like those I’ve subsequently felt when I’m being creative, or have an idea for a new piece of work. I can reconnect with my younger self and access that feeling once more.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The hippo is no longer scary, but it’s now beautiful and angelic. So in this diorama it has a pair of white wings sprouting from its back. Its big brown body is covered in black ink patterns. It’s looking to the right, with one chunky tooth poking up between its smiling lips. The grey bars of the cage are behind it. I depict my younger self with my sister looking through the bars at the hippo. We’re both wearing swimming costumes as if we’re on the beach. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There’s another character which the children gaze upon, and that’s a mysterious figure on the right. Its face is covered by the head of a hippo. The figure represents my illness, which is trying to disguise itself. He serves as a metaphor for what is to come. There are windows cut in the arms and legs, showing the bones inside. One of its arms has a wrist brace, decorated with a small pink heart. He’s got four legs and two of his large bare feet are sticking out in front, taking a step nearer to the angelic hippo, and he’s pointing at it. The hippo is my creativity, which is ready to fly.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "As timelines merge and interact, the green jellyfish illuminate the scene. They’re floating in front of the red bricks at the edges, and there are more of them behind the children looking through the bars. The future is the past and the past is the future.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$7ac7a238-922d-430c-9c41-28abb22107a5",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "title": [
+            {
+              "type": "heading2",
+              "text": "Painting with My Mouth",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "transcript": [
+            {
+              "type": "paragraph",
+              "text": "This is a very brightly coloured diorama. It’s in an orange cabinet with a blue pattern at the bottom that looks like paintbrushes. It shows a figure painting a picture on an easel, holding a paintbrush in his mouth. Lots of small figures are floating around him.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Whilst in hospital I started to attend Pinderfields Hospital Special School in Wakefield. The classroom was just at the end of D Ward. This was to prove a huge moment for me, as education was made available and a new world of possibilities opened up. I was just like my favourite fictional character, Pip from ‘Great Expectations’, who came from lowly beginnings but wanted to be a gentleman.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "It was at school that I was taught to paint with my mouth. This was such a huge, momentous thing, as my energies now went into creating new worlds. I wasn’t limited to just living in my head; I could externalise my imagination in a very real way. I filled up many sketchbooks and started to create characters. It was the start of my journey as an artist.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "To ensure that I could paint, my whole body had to have external adaptations added. I had a surgical collar, which was made from thick leather and covered most of my neck, chest and head. I had a spinal brace to keep me upright, and a series of straps to keep me straight in the wheelchair. On my legs I had callipers and huge boots. I had arm callipers which kept my arms straight and were meant to move on a pivot on the wheelchair, but I was unable to do this, as I had no movement in my arms. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "The paintbrush and pencil were attached to a device which looked like a surgical tooth brace. It was all wire and plastic with a tube attached, through which the paintbrush or pencils could be placed. My wheelchair had a high back so my head wouldn’t fall back. I felt almost robotic, as there was not a part of my body which did not have some kind of attachment to it. This is why I’ve depicted my bottom half as a Dalek from ‘Doctor Who’. (I love Tom Baker – he was my favourite Doctor.) ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "I’ve given myself one big eye, which is bulging out towards the canvas. I’m surrounded by characters from my other artworks. They include things like a hippo with wings, which is high up on the left. A cockerel with a man’s head, which is in the top-right corner, and there’s a mermaid lower down. A face with red lips and a beard is grinning from the bottom-right corner. This is an influence from an illustration of Charles Dickens, where he’s sitting surrounded by all of his creations. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This is a bright, celebratory scene, as I’m finding my true vocation as an artist. And my imagination can’t be contained. It’s been set free, and my characters are real, and a source of comfort to me in that difficult time.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "On the canvas I’m working on, there’s a ‘pin-up’ of a scantily clad young woman in high heels. She’s sitting on the closed lid of a toilet, kicking out a leg with a calliper. This ties in with those feelings I had as a young lad, trying to deal with both my disability and the onset of puberty. It was such a complete mystery to me, as it was happening to a body which I couldn’t feel or experience.",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This is the end of the last stop of the audio guide. You are now close to the main entrance where we started. Please note that this is also an exit, so there will be visitors moving in both directions. You are of course free to stay and explore. There is an alternative exit via the lobby in the corner, which takes you down a spiral staircase. In the lobby there is a filmed interview with Jason and replicas of his sketchbooks which can be touched.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "guide_stop$cf6716bf-f813-4330-8d1f-6c2c7229e3ed",
+        "slice_type": "guide_stop",
+        "slice_label": null
+      }
+    ]
+  }
+}
