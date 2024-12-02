@@ -68,7 +68,7 @@ export const transformAddressableExhibitionHighlightTour = (
     },
     query: {
       type: 'Exhibition highlight tour' as const,
-      description,
+      description: introText,
     },
   };
 
