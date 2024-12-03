@@ -1,6 +1,16 @@
 const query = `
   exhibition-highlight-tours {
     title
+    related_exhibition {
+      title
+      promo {
+        ...on editorialImage {
+          non-repeat {
+            caption
+          }
+        }
+      }
+    }
     intro_text
     slices {
       ...on guide_stop {
@@ -9,6 +19,7 @@ const query = `
             primary {
               title
               transcript
+              subtitles
             }
           }
         }

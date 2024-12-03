@@ -11,6 +11,9 @@ import {
   addressablesArticlesQuery,
   addressablesBooksQuery,
   addressablesEventsQuery,
+  addressablesExhibitionHighlightToursQuery,
+  addressablesExhibitionsQuery,
+  addressablesExhibitionTextsQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
@@ -18,6 +21,9 @@ import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic
 import { transformAddressableArticle } from '@weco/content-pipeline/src/transformers/addressables/article';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
 import { transformAddressableEvent } from '@weco/content-pipeline/src/transformers/addressables/event';
+import { transformAddressableExhibition } from '@weco/content-pipeline/src/transformers/addressables/exhibition';
+import { transformAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/transformers/addressables/exhibitionHighlightTour';
+import { transformAddressableExhibitionText } from '@weco/content-pipeline/src/transformers/addressables/exhibitionText';
 import { transformAddressableProject } from '@weco/content-pipeline/src/transformers/addressables/project';
 import { transformAddressableSeason } from '@weco/content-pipeline/src/transformers/addressables/season';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
@@ -27,6 +33,9 @@ import { transformVenue } from '@weco/content-pipeline/src/transformers/venue';
 import {
   ArticlePrismicDocument,
   EventPrismicDocument,
+  ExhibitionHighlightTourPrismicDocument,
+  ExhibitionPrismicDocument,
+  ExhibitionTextPrismicDocument,
   ProjectPrismicDocument,
   SeasonPrismicDocument,
   VisualStoryPrismicDocument,
@@ -52,7 +61,7 @@ const allowedTypes = [
   'book',
   'page',
   'exhibition-text',
-  'highlight-tour',
+  'exhibition-highlight-tour',
   'visual-story',
   'project',
   'season',
@@ -124,14 +133,16 @@ async function main() {
         return transformVenue(doc as VenuePrismicDocument);
       }
 
-      // case 'exhibition': {
-      //   const doc = await client.getByID(id || 'Yzv9ChEAABfUrkVp', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'exhibition': {
+        const doc = await client.getByID(id || 'Yzv9ChEAABfUrkVp', {
+          graphQuery: `{
+            ${addressablesExhibitionsQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableExhibition';
+        return transformAddressableExhibition(doc as ExhibitionPrismicDocument);
+      }
 
       case 'book': {
         const doc = await client.getByID(id || 'WwVK3CAAAHm5Exxr', {
@@ -166,23 +177,31 @@ async function main() {
         );
       }
 
-      // case 'exhibition-text': {
-      //   const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'exhibition-text': {
+        const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
+          graphQuery: `{
+            ${addressablesExhibitionTextsQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableExhibitionText';
+        return transformAddressableExhibitionText(
+          doc as ExhibitionTextPrismicDocument
+        );
+      }
 
-      // case 'highlight-tour': {
-      //   const doc = await client.getByID(id || 'ZthrZRIAACQALvCC', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'exhibition-highlight-tour': {
+        const doc = await client.getByID(id || 'ZthrZRIAACQALvCC', {
+          graphQuery: `{
+            ${addressablesExhibitionHighlightToursQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressableExhibitionHighlightTour';
+        return transformAddressableExhibitionHighlightTour(
+          doc as ExhibitionHighlightTourPrismicDocument
+        );
+      }
 
       case 'project': {
         const graphQuery = getGraphQuery({ type: 'project' });

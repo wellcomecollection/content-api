@@ -106,9 +106,6 @@ export type ElasticsearchAddressableBook = ElasticsearchAddressable<
   { contributors: string }
 >;
 
-export type ElasticsearchAddressableVisualStory =
-  ElasticsearchAddressable<'Visual story'>;
-
 export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
   'Event',
   { format?: string; times?: { start: Date; end: Date } }
@@ -118,3 +115,15 @@ export type ElasticsearchAddressableProject =
   ElasticsearchAddressable<'Project'>;
 
 export type ElasticsearchAddressableSeason = ElasticsearchAddressable<'Season'>;
+
+export type ElasticsearchAddressableExhibition =
+  ElasticsearchAddressable<'Exhibition'>;
+
+export type ElasticsearchAddressableExhibitionHighlightTour =
+  ElasticsearchAddressable<'Exhibition highlight tour'>;
+
+export type ElasticsearchAddressableExhibitionText =
+  ElasticsearchAddressable<'Exhibition text'>;
+
+export type ElasticsearchAddressableVisualStory =
+  ElasticsearchAddressable<'Visual story'>;

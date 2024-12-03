@@ -8,9 +8,9 @@ import {
   addressablesArticlesQuery,
   addressablesBooksQuery,
   addressablesEventsQuery,
+  addressablesExhibitionHighlightToursQuery,
   addressablesExhibitionsQuery,
   addressablesExhibitionTextsQuery,
-  addressablesHighlightToursQuery,
   addressablesPagesQuery,
   addressablesProjectsQuery,
   addressablesSeasonsQuery,
@@ -26,7 +26,7 @@ export const allowedTypes = [
   'book',
   'page',
   'exhibition-text',
-  'highlight-tour',
+  'exhibition-highlight-tour',
   'visual-story',
   'project',
   'season',
@@ -85,9 +85,9 @@ export const getGraphQuery = ({
           ${addressablesExhibitionTextsQuery}
         }`;
 
-    case 'highlight-tour':
+    case 'exhibition-highlight-tour':
       return `{
-          ${addressablesHighlightToursQuery}
+          ${addressablesExhibitionHighlightToursQuery}
         }`;
 
     case 'project':

@@ -2,9 +2,9 @@ import { wrapQueries } from '..';
 import addressablesArticlesQuery from './articles';
 import addressablesBooksQuery from './books';
 import addressablesEventsQuery from './events';
+import addressablesExhibitionHighlightToursQuery from './exhibitionHighlightTours';
 import addressablesExhibitionsQuery from './exhibitions';
 import addressablesExhibitionTextsQuery from './exhibitionTexts';
-import addressablesHighlightToursQuery from './highlightTours';
 import addressablesPagesQuery from './pages';
 import addressablesProjectsQuery from './projects';
 import addressablesSeasonsQuery from './seasons';
@@ -16,7 +16,7 @@ const addressablesQuery = wrapQueries(
   addressablesEventsQuery,
   addressablesExhibitionsQuery,
   addressablesExhibitionTextsQuery,
-  addressablesHighlightToursQuery,
+  addressablesExhibitionHighlightToursQuery,
   addressablesPagesQuery,
   addressablesProjectsQuery,
   addressablesSeasonsQuery,
@@ -30,7 +30,7 @@ export {
   addressablesEventsQuery,
   addressablesExhibitionsQuery,
   addressablesExhibitionTextsQuery,
-  addressablesHighlightToursQuery,
+  addressablesExhibitionHighlightToursQuery,
   addressablesPagesQuery,
   addressablesProjectsQuery,
   addressablesSeasonsQuery,

@@ -2,6 +2,9 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionHighlightTourPrismicDocument,
+  ExhibitionPrismicDocument,
+  ExhibitionTextPrismicDocument,
   ProjectPrismicDocument,
   SeasonPrismicDocument,
   VisualStoryPrismicDocument,
@@ -10,6 +13,9 @@ import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
+  ElasticsearchAddressableExhibition,
+  ElasticsearchAddressableExhibitionHighlightTour,
+  ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressableProject,
   ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
@@ -18,6 +24,9 @@ import {
 import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
+import { transformAddressableExhibition } from './addressables/exhibition';
+import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
+import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressableProject } from './addressables/project';
 import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
@@ -27,6 +36,9 @@ export const transformAddressable = (
     | ArticlePrismicDocument
     | BookPrismicDocument
     | EventPrismicDocument
+    | ExhibitionPrismicDocument
+    | ExhibitionHighlightTourPrismicDocument
+    | ExhibitionTextPrismicDocument
     | VisualStoryPrismicDocument
     | ProjectPrismicDocument
     | SeasonPrismicDocument
@@ -36,6 +48,9 @@ export const transformAddressable = (
   | ElasticsearchAddressableEvent
   | ElasticsearchAddressableProject
   | ElasticsearchAddressableSeason
+  | ElasticsearchAddressableExhibition
+  | ElasticsearchAddressableExhibitionHighlightTour[]
+  | ElasticsearchAddressableExhibitionText
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -51,17 +66,18 @@ export const transformAddressable = (
       transformedDocument = transformAddressableEvent(document);
       break;
 
-    // case 'exhibitions':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibitions':
+      transformedDocument = transformAddressableExhibition(document);
+      break;
 
-    // case 'exhibitions-texts':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibition-texts':
+      transformedDocument = transformAddressableExhibitionText(document);
+      break;
 
-    // case 'exhibitions-highlight-tours':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibition-highlight-tours':
+      transformedDocument =
+        transformAddressableExhibitionHighlightTour(document);
+      break;
 
     // case 'pages':
     //   transformedDocument = transformAddressableBook(document);

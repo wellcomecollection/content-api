@@ -2,6 +2,16 @@ const query = `
   exhibition-texts {
     title
     intro_text
+    related_exhibition {
+      title
+      promo {
+        ...on editorialImage {
+          non-repeat {
+            caption
+          }
+        }
+      }
+    }
     slices {
       ...on guide_text_item {
         variation {

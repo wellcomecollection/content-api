@@ -4,6 +4,9 @@ type AddressableType =
   | 'Event'
   | 'Project'
   | 'Season'
+  | 'Exhibition'
+  | 'Exhibition highlight tour'
+  | 'Exhibition text'
   | 'Visual story';
 
 type AddressableBaseDisplay<T extends AddressableType> = {
