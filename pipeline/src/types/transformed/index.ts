@@ -113,3 +113,8 @@ export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
   'Event',
   { format?: string; times?: { start: Date; end: Date } }
 >;
+
+export type ElasticsearchAddressableProject =
+  ElasticsearchAddressable<'Project'>;
+
+export type ElasticsearchAddressableSeason = ElasticsearchAddressable<'Season'>;
