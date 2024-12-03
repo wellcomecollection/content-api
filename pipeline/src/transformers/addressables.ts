@@ -2,18 +2,24 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
+  ElasticsearchAddressableProject,
+  ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
 import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
+import { transformAddressableProject } from './addressables/project';
+import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -22,10 +28,14 @@ export const transformAddressable = (
     | BookPrismicDocument
     | EventPrismicDocument
     | VisualStoryPrismicDocument
+    | ProjectPrismicDocument
+    | SeasonPrismicDocument
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
+  | ElasticsearchAddressableProject
+  | ElasticsearchAddressableSeason
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -57,13 +67,13 @@ export const transformAddressable = (
     //   transformedDocument = transformAddressableBook(document);
     //   break;
 
-    // case 'projects':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'projects':
+      transformedDocument = transformAddressableProject(document);
+      break;
 
-    // case 'seasons':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'seasons':
+      transformedDocument = transformAddressableSeason(document);
+      break;
 
     case 'visual-stories':
       transformedDocument = transformAddressableVisualStory(document);
