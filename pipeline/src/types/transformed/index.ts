@@ -120,5 +120,7 @@ export type ElasticsearchAddressableExhibitionHighlightTour =
 export type ElasticsearchAddressableExhibitionText =
   ElasticsearchAddressable<'Exhibition text'>;
 
+export type ElasticsearchAddressablePage = ElasticsearchAddressable<'Page'>;
+
 export type ElasticsearchAddressableVisualStory =
   ElasticsearchAddressable<'Visual story'>;

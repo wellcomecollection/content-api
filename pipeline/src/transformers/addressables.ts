@@ -5,6 +5,7 @@ import {
   ExhibitionHighlightTourPrismicDocument,
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
+  PagePrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
@@ -14,6 +15,7 @@ import {
   ElasticsearchAddressableExhibition,
   ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
+  ElasticsearchAddressablePage,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
@@ -23,6 +25,7 @@ import { transformAddressableEvent } from './addressables/event';
 import { transformAddressableExhibition } from './addressables/exhibition';
 import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
+import { transformAddressablePage } from './addressables/page';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -33,6 +36,7 @@ export const transformAddressable = (
     | ExhibitionPrismicDocument
     | ExhibitionHighlightTourPrismicDocument
     | ExhibitionTextPrismicDocument
+    | PagePrismicDocument
     | VisualStoryPrismicDocument
 ):
   | ElasticsearchAddressableArticle
@@ -41,6 +45,7 @@ export const transformAddressable = (
   | ElasticsearchAddressableExhibition
   | ElasticsearchAddressableExhibitionHighlightTour[]
   | ElasticsearchAddressableExhibitionText
+  | ElasticsearchAddressablePage
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -69,9 +74,9 @@ export const transformAddressable = (
         transformAddressableExhibitionHighlightTour(document);
       break;
 
-    // case 'pages':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'pages':
+      transformedDocument = transformAddressablePage(document);
+      break;
 
     // case 'projects':
     //   transformedDocument = transformAddressableBook(document);

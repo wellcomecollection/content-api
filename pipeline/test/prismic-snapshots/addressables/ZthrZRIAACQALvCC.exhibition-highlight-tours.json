@@ -7,7 +7,9 @@
   "tags": [],
   "first_publication_date": "2024-09-16T13:19:23+0000",
   "last_publication_date": "2024-11-20T09:43:33+0000",
-  "slugs": ["jason-and-the-adventure-of-254"],
+  "slugs": [
+    "jason-and-the-adventure-of-254"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -153,7 +155,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$05ddc03b-01f2-45c6-a1b7-090a300f5026",
         "slice_type": "guide_stop",
@@ -293,7 +296,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$8ab3ae77-2558-4d5a-b30e-2b5082b2e25a",
         "slice_type": "guide_stop",
@@ -349,7 +353,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$e69f95bf-573d-45b6-9ed1-445c81c3360b",
         "slice_type": "guide_stop",
@@ -417,7 +422,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$f3b7b541-0e10-4787-8a34-3be3a059c013",
         "slice_type": "guide_stop",
@@ -473,7 +479,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$4447e8d2-e2a7-45fc-84b5-cb62dc3f9a3b",
         "slice_type": "guide_stop",
@@ -541,7 +548,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$ec2053fb-5a34-4e10-b7ad-e3004988ab6b",
         "slice_type": "guide_stop",
@@ -591,7 +599,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$4561536c-3c6c-4010-8427-2031c997bc0d",
         "slice_type": "guide_stop",
@@ -659,7 +668,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$05f9dc64-f085-450e-8ad6-76fd7234e682",
         "slice_type": "guide_stop",
@@ -727,7 +737,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$7ac7a238-922d-430c-9c41-28abb22107a5",
         "slice_type": "guide_stop",
@@ -801,7 +812,8 @@
               "spans": [],
               "direction": "ltr"
             }
-          ]
+          ],
+          "subtitles": []
         },
         "id": "guide_stop$cf6716bf-f813-4330-8d1f-6c2c7229e3ed",
         "slice_type": "guide_stop",

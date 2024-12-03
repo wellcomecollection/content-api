@@ -18,6 +18,7 @@ export { VisualStoryPrismicDocument } from './visualStory';
 export { ExhibitionTextPrismicDocument } from './exhibitionTexts';
 export { ExhibitionHighlightTourPrismicDocument } from './exhibitionHighlightTours';
 export { ExhibitionPrismicDocument } from './exhibitions';
+export { PagePrismicDocument } from './pages';
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client
