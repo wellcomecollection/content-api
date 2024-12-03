@@ -109,6 +109,59 @@ exports[`addressables transformer transforms events from Prismic to the expected
 }
 `;
 
+exports[`addressables transformer transforms projects from Prismic to the expected format (document: projects/YLokOhAAACQAf8Hd) 1`] = `
+{
+  "display": {
+    "description": "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
+    "id": "YLokOhAAACQAf8Hd",
+    "title": "Updating Happiness",
+    "type": "Project",
+    "uid": "updating-happiness",
+  },
+  "id": "YLokOhAAACQAf8Hd",
+  "query": {
+    "body": [
+      "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
+      "You can take part in our venue, or online by visiting the Updating Happiness website.
+Share your quote online using #updatinghappiness.",
+    ],
+    "contributors": "",
+    "description": [
+      "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
+      "Art commission",
+    ],
+    "title": "Updating Happiness",
+    "type": "Project",
+  },
+  "uid": "updating-happiness",
+}
+`;
+
+exports[`addressables transformer transforms seasons from Prismic to the expected format (document: seasons/X84FvhIAACUAqiqp) 1`] = `
+{
+  "display": {
+    "description": "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
+    "id": "X84FvhIAACUAqiqp",
+    "title": "What does it mean to be human, now?",
+    "type": "Season",
+    "uid": "what-does-it-mean-to-be-human--now-",
+  },
+  "id": "X84FvhIAACUAqiqp",
+  "query": {
+    "body": [
+      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
+    ],
+    "description": [
+      "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
+      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
+    ],
+    "title": "What does it mean to be human, now?",
+    "type": "Season",
+  },
+  "uid": "what-does-it-mean-to-be-human--now-",
+}
+`;
+
 exports[`addressables transformer transforms visual stories from Prismic to the expected format (document: visual-stories/Zs8EuRAAAB4APxrA) 1`] = `
 {
   "display": {
