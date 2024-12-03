@@ -1,0 +1,123 @@
+{
+  "id": "YLokOhAAACQAf8Hd",
+  "uid": "updating-happiness",
+  "url": null,
+  "type": "projects",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z02CrhAAACEAGdeE&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YLokOhAAACQAf8Hd%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2021-06-08T09:50:40+0000",
+  "last_publication_date": "2024-10-22T15:40:26+0000",
+  "slugs": ["updating-happiness"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Updating Happiness",
+        "spans": []
+      }
+    ],
+    "format": {
+      "id": "X_yIyREAACIAYB5T",
+      "type": "project-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "art-commission",
+      "first_publication_date": "2021-01-11T17:20:15+0000",
+      "last_publication_date": "2021-01-11T17:20:15+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Art commission",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "isBroken": false
+    },
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
+              "spans": []
+            }
+          ]
+        },
+        "id": "text$bb50866f-4776-4e2f-afe1-be7de9415ce0",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "You can take part in our venue, or online by visiting the Updating Happiness website.\nShare your quote online using #updatinghappiness.",
+              "spans": [
+                {
+                  "start": 54,
+                  "end": 84,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "http://updatinghappiness.com/"
+                  }
+                },
+                {
+                  "start": 116,
+                  "end": 134,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://www.instagram.com/explore/tags/updatinghappiness/"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "id": "text$0d76d193-f899-4c2c-9939-2de5ff10014e",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
+    "contributors": [
+      {
+        "contributor": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote. ",
+              "spans": []
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$f29a5734-76b6-42d3-98f1-6aee82648b2b",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}
