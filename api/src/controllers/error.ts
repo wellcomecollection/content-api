@@ -44,7 +44,9 @@ export class HttpError extends Error {
   }
 }
 
-export const errorHandler: ErrorRequestHandler = (err, req, res) => {
+// unused var: https://github.com/ladjs/supertest/issues/416#issuecomment-514508137
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof HttpError) {
     res.status(err.status).json(err.responseJson);
   } else {
