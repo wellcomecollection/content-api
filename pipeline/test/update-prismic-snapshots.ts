@@ -49,6 +49,8 @@ const addressableIds = {
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
   event: 'ZfhSyxgAACQAkLPZ',
   'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
+  project: 'YLokOhAAACQAf8Hd',
+  season: 'X84FvhIAACUAqiqp', // What does it mean to be human, now?
 };
 
 const updateArticleSnapshots = async (client: Client) => {
