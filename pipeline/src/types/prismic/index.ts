@@ -16,6 +16,7 @@ export { PrismicImage } from './images';
 export { WithSeries } from './series';
 export { VisualStoryPrismicDocument } from './visualStory';
 export { ExhibitionTextPrismicDocument } from './exhibitionTexts';
+export { ExhibitionHighlightTourPrismicDocument } from './exhibitionHighlightTours';
 export { ExhibitionPrismicDocument } from './exhibitions';
 
 /**

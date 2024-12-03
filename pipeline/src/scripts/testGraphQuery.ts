@@ -94,9 +94,9 @@ async function main() {
           id: id || 'Zs8mohAAAB4AP4sc',
         };
 
-      case 'highlight-tour':
+      case 'exhibition-highlight-tour':
         return {
-          graphQueryName: 'addressablesHighlightToursQuery',
+          graphQueryName: 'addressablesExhibitionHighlightToursQuery',
           id: id || 'ZthrZRIAACQALvCC',
         };
 

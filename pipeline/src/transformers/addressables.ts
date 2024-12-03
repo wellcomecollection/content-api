@@ -2,6 +2,7 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionHighlightTourPrismicDocument,
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
   VisualStoryPrismicDocument,
@@ -11,6 +12,7 @@ import {
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
   ElasticsearchAddressableExhibition,
+  ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
@@ -19,6 +21,7 @@ import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
 import { transformAddressableExhibition } from './addressables/exhibition';
+import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
@@ -28,6 +31,7 @@ export const transformAddressable = (
     | BookPrismicDocument
     | EventPrismicDocument
     | ExhibitionPrismicDocument
+    | ExhibitionHighlightTourPrismicDocument
     | ExhibitionTextPrismicDocument
     | VisualStoryPrismicDocument
 ):
@@ -35,6 +39,7 @@ export const transformAddressable = (
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
   | ElasticsearchAddressableExhibition
+  | ElasticsearchAddressableExhibitionHighlightTour[]
   | ElasticsearchAddressableExhibitionText
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
@@ -59,9 +64,10 @@ export const transformAddressable = (
       transformedDocument = transformAddressableExhibitionText(document);
       break;
 
-    // case 'exhibitions-highlight-tours':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibition-highlight-tours':
+      transformedDocument =
+        transformAddressableExhibitionHighlightTour(document);
+      break;
 
     // case 'pages':
     //   transformedDocument = transformAddressableBook(document);

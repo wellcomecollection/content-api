@@ -114,6 +114,9 @@ export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
 export type ElasticsearchAddressableExhibition =
   ElasticsearchAddressable<'Exhibition'>;
 
+export type ElasticsearchAddressableExhibitionHighlightTour =
+  ElasticsearchAddressable<'Exhibition highlight tour'>;
+
 export type ElasticsearchAddressableExhibitionText =
   ElasticsearchAddressable<'Exhibition text'>;
 

@@ -3,6 +3,7 @@ type AddressableType =
   | 'Book'
   | 'Event'
   | 'Exhibition'
+  | 'Exhibition highlight tour'
   | 'Exhibition text'
   | 'Visual story';
 
