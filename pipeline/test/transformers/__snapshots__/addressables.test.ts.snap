@@ -109,57 +109,6 @@ exports[`addressables transformer transforms events from Prismic to the expected
 }
 `;
 
-exports[`addressables transformer transforms projects from Prismic to the expected format (document: projects/YLokOhAAACQAf8Hd) 1`] = `
-{
-  "display": {
-    "description": "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
-    "id": "YLokOhAAACQAf8Hd",
-    "title": "Updating Happiness",
-    "type": "Project",
-    "uid": "updating-happiness",
-  },
-  "id": "YLokOhAAACQAf8Hd",
-  "query": {
-    "body": [
-      "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
-      "You can take part in our venue, or online by visiting the Updating Happiness website.
-Share your quote online using #updatinghappiness.",
-    ],
-    "contributors": "",
-    "description": [
-      "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
-      "Art commission",
-    ],
-    "title": "Updating Happiness",
-    "type": "Project",
-  },
-  "uid": "updating-happiness",
-}
-`;
-
-exports[`addressables transformer transforms seasons from Prismic to the expected format (document: seasons/X84FvhIAACUAqiqp) 1`] = `
-{
-  "display": {
-    "description": "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
-    "id": "X84FvhIAACUAqiqp",
-    "title": "What does it mean to be human, now?",
-    "type": "Season",
-    "uid": "what-does-it-mean-to-be-human--now-",
-  },
-  "id": "X84FvhIAACUAqiqp",
-  "query": {
-    "body": [
-      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
-    ],
-    "description": [
-      "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
-      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
-    ],
-    "title": "What does it mean to be human, now?",
-    "type": "Season",
-  },
-  "uid": "what-does-it-mean-to-be-human--now-",
-
 exports[`addressables transformer transforms exhibition highlight tours from Prismic to the expected format (document: exhibition-highlight-tours/ZthrZRIAACQALvCC) 1`] = `
 [
   {
@@ -473,7 +422,7 @@ exports[`addressables transformer transforms exhibition texts from Prismic to th
       "German naturalist Maria Sibylla Merian (1647 –  1717) researched the rich fauna and flora in Suriname, a former Dutch colony on the northeast coast of South America. She produced one of the first and most compelling botanicals made by a woman. It includes over 60 colour drawings of plants and their interdependent ecosystem of insects and animals. Merian’s descriptions of each plant’s properties and usage was heavily influenced by the knowledge of the enslaved women she was introduced to by the owner of a sugar plantation.",
       "This page shows the Caesalpinia pulcherrima, also known as the peacock flower, used by enslaved women to abort unwanted pregnancies and resist bearing a child that would be born into enslavement.",
       "The Matriarch I",
-      "2021, Graphite, colour pencil, watercolour, gum,
+      "2021, Graphite, colour pencil, watercolour, gum, 
 ink and Reckitt’s Blue on paper",
       "Leeds Museums and Galleries Purchased with Art Fund
 and Leeds Art Fund support LEEAG.2022.0067",
@@ -588,7 +537,7 @@ It was initially built with a capacity of 520 isolated cells. Communal spaces su
       "Robert Brettell Bate",
       "1823",
       "Wood, paper",
-      "Science Museum Group, on behalf of King’s College London,
+      "Science Museum Group, on behalf of King’s College London, 
 1927-1526",
       "The treadwheel was originally used to generate power for pumping water or manufacturing. In the 19th century it was used as a method of punishment, discipline and unnecessary productivity. This controversial tool enabled prison governors to set daily productivity targets for the number of steps per prisoner per hour. The slide rule encouraged prison authorities to adopt a more uniform system of treadwheel use, as the severity of labour practices varied greatly between prisons.",
       "Site / Unseen: The Prison-Industrial Complex",
@@ -649,7 +598,7 @@ It was initially built with a capacity of 520 isolated cells. Communal spaces su
       "Made with the support of Bee’ah Sharjah Environment Company LLC
 Participating Sweepers: Assainar Akkaparambil, Khayyum Shaik, Rafique Ahmed I Wagle, Altaf So Gulab Ali and Shaikh Afzal Shaikh
 Inspector Assistant: Mohmed Babumiya
-Sector Supervisor Waste Management:
+Sector Supervisor Waste Management: 
 Hussam Mohammed Faraj
 Photography: Shanavas Jamaluddin and Vikram Divecha",
       "Waste Superheroes",
@@ -782,11 +731,11 @@ Photography: Shanavas Jamaluddin and Vikram Divecha",
       "Wellcome Collection, PP/BOY/1",
       "Typescript letter from Saint Pancras Borough Council to Hunter Street Police Station, subject line ‘Tottenham Court Road and Euston Station, Disorderly Women’, 25 November 1901.",
       "C Barrett (?), Saint Pancras Borough Council, London",
-      "1901, Printed paper
+      "1901, Printed paper 
 The National Archives, UK, MEPO 2/293",
       "Typescript letter from the Metropolitan Police to the City Police, Bristol, sent to accompany the Metropolitan Police’s ‘Album of Foreign Born Prostitutes and Associates’, 15 February 1937. ",
       "Metropolitan Police",
-      "1937, Printed paper
+      "1937, Printed paper 
 The National Archives, UK, MEPO 3/988",
       "No one screws more prostitutes than the government. In 1990 prostitutes were fined £1/2 million",
       "Bartle Bogle Hegarty (designer) for English Collective of Prostitutes",
@@ -804,7 +753,7 @@ E.450-1993",
       "Washerwoman",
       "Shannon Alonzo",
       "2018",
-      "Beeswax, resin, brown cotton, wire, clothes pegs,
+      "Beeswax, resin, brown cotton, wire, clothes pegs, 
 metal basin and water, found objects",
       "Courtesy of the artist",
       "Inspired by a portrait taken by the photographer J W Cleary in Jamaica in 1890, Shannon Alonzo produced this work in her grandmother’s house in Trinidad. She reflects on the hidden histories of her ancestors’ work as washerwomen and its impact on the body. The materials of the sculpture depict the effects of hot water and harsh soap on her hands, while the body’s decay mirrors the disappearance of the occupation itself.",
@@ -834,7 +783,7 @@ metal basin and water, found objects",
       "Crossroads Audio Visual Collective, photograph of Clotil Walcott (1925 – 2007), founder of the National Union of Domestic Employees (NUDE), Trinidad and Tobago, date unknown.",
       "Bringing It All Back Home conference flyer, Housewives in Dialogue, 1982.",
       "Margaret Prescod speaking at launch of Black Women Bringing it All Back Home, 1980.",
-      "Selma James, Strangers & Sisters: Women,
+      "Selma James, Strangers & Sisters: Women, 
 Race & Immigration, Falling Wall Press, 1985.",
       "Photograph of IWFHC delegation to Beijing Conference, Women Count – Count Women’s Work, 1995.",
       "Measuring and valuing unwaged work, Beijing Conference, 1995.",
@@ -854,7 +803,7 @@ Race & Immigration, Falling Wall Press, 1985.",
       "Madjiguène Cissé, The Sans-Papiers: A Woman Draws the First Lesson, Crossroads Books, 1997.",
       "Crossroads Audio Visual Collective, photograph of Selma James speaking at the International Pan African Women’s Day at Parliament Square Peace Camp, 31 July 2004.",
       "‘Disablement benefit: How it works’ in Hazards Bulletin 39",
-      "Women and Work Hazards Group, British Society
+      "Women and Work Hazards Group, British Society 
 for Social Responsibility in Science",
       "1984",
       "Broadsheet",
@@ -873,7 +822,7 @@ for Social Responsibility in Science",
       "1861",
       "Hardcover book",
       "Wellcome Collection, M15444",
-      "Household engineering: scientific management in the home.
+      "Household engineering: scientific management in the home. 
 A correspondence course on the application of the principles of efficiency engineering and scientific management to the every day tasks of housekeeping.",
       "Christine Frederick",
       "1919",
@@ -939,7 +888,7 @@ A correspondence course on the application of the principles of efficiency engin
       "Moi Tran investigates the body as an instrument of communicating care. The installation features footage of 12 women who are domestic workers. Through their percussive body movements, they channel love, joy, healing, the release of tension and collective resistance. The multisensory installation uses synchronised film, light, sound and vibration to create a moment to reflect on universal practices of care.",
       "Made in collaboration with:",
       "Performers: Ann Margaret, Darleen, Florence Carol, Foulera, Georgina, Ghie Ghie, Grace, Lovely Joy, MayBelen, Sahara, Vangi, Yolly from The Voice of Domestic Workers with support from Marissa Begonia, Ximena Ruiz Del Rio, Louise Shelley, Dotty, Joy, Precious and Lhyne.",
-      "Co-composer / Co-workshop facilitator:
+      "Co-composer / Co-workshop facilitator: 
 Natasha Lohan",
       "Co-composer / trombonist: Rosie Turton",
       "Co-composer / cellist: Zosia Jagodzinska",
@@ -988,6 +937,59 @@ exports[`addressables transformer transforms exhibitions from Prismic to the exp
     "type": "Exhibition",
   },
   "uid": "the-healing-pavilion",
+}
+`;
+
+exports[`addressables transformer transforms projects from Prismic to the expected format (document: projects/YLokOhAAACQAf8Hd) 1`] = `
+{
+  "display": {
+    "description": "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
+    "id": "YLokOhAAACQAf8Hd",
+    "title": "Updating Happiness",
+    "type": "Project",
+    "uid": "updating-happiness",
+  },
+  "id": "YLokOhAAACQAf8Hd",
+  "query": {
+    "body": [
+      "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
+      "You can take part in our venue, or online by visiting the Updating Happiness website.
+Share your quote online using #updatinghappiness.",
+    ],
+    "contributors": "",
+    "description": [
+      "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
+      "Art commission",
+    ],
+    "title": "Updating Happiness",
+    "type": "Project",
+  },
+  "uid": "updating-happiness",
+}
+`;
+
+exports[`addressables transformer transforms seasons from Prismic to the expected format (document: seasons/X84FvhIAACUAqiqp) 1`] = `
+{
+  "display": {
+    "description": "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
+    "id": "X84FvhIAACUAqiqp",
+    "title": "What does it mean to be human, now?",
+    "type": "Season",
+    "uid": "what-does-it-mean-to-be-human--now-",
+  },
+  "id": "X84FvhIAACUAqiqp",
+  "query": {
+    "body": [
+      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
+    ],
+    "description": [
+      "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
+      "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
+    ],
+    "title": "What does it mean to be human, now?",
+    "type": "Season",
+  },
+  "uid": "what-does-it-mean-to-be-human--now-",
 }
 `;
 
