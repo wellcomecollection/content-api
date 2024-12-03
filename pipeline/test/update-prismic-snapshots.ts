@@ -51,6 +51,7 @@ const addressableIds = {
   exhibition: 'Yzv9ChEAABfUrkVp',
   'exhibition-highlight-tour': 'ZthrZRIAACQALvCC',
   'exhibition-text': 'Zs8mohAAAB4AP4sc',
+  page: 'YdXSvhAAAIAW7YXQ',
   'visual-story': 'Zs8EuRAAAB4APxrA', // Hard Graft: Work, Health and Rights visual story
   project: 'YLokOhAAACQAf8Hd',
   season: 'X84FvhIAACUAqiqp', // What does it mean to be human, now?

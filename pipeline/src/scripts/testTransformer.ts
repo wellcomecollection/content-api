@@ -14,6 +14,7 @@ import {
   addressablesExhibitionHighlightToursQuery,
   addressablesExhibitionsQuery,
   addressablesExhibitionTextsQuery,
+  addressablesPagesQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
@@ -24,6 +25,7 @@ import { transformAddressableEvent } from '@weco/content-pipeline/src/transforme
 import { transformAddressableExhibition } from '@weco/content-pipeline/src/transformers/addressables/exhibition';
 import { transformAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/transformers/addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from '@weco/content-pipeline/src/transformers/addressables/exhibitionText';
+import { transformAddressablePage } from '@weco/content-pipeline/src/transformers/addressables/page';
 import { transformAddressableProject } from '@weco/content-pipeline/src/transformers/addressables/project';
 import { transformAddressableSeason } from '@weco/content-pipeline/src/transformers/addressables/season';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
@@ -36,6 +38,7 @@ import {
   ExhibitionHighlightTourPrismicDocument,
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
+  PagePrismicDocument,
   ProjectPrismicDocument,
   SeasonPrismicDocument,
   VisualStoryPrismicDocument,
@@ -155,14 +158,16 @@ async function main() {
         return transformAddressableBook(doc as BookPrismicDocument);
       }
 
-      // case 'page': {
-      //   const doc = await client.getByID(id || 'YdXSvhAAAIAW7YXQ', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'page': {
+        const doc = await client.getByID(id || 'YdXSvhAAAIAW7YXQ', {
+          graphQuery: `{
+            ${addressablesPagesQuery.replace(/\n(\s+)/g, '\n')}
+          }`,
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformAddressablePage';
+        return transformAddressablePage(doc as PagePrismicDocument);
+      }
 
       case 'visual-story': {
         const doc = await client.getByID(id || 'Zs8EuRAAAB4APxrA', {

@@ -5,6 +5,7 @@ import {
   ExhibitionHighlightTourPrismicDocument,
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
+  PagePrismicDocument,
   ProjectPrismicDocument,
   SeasonPrismicDocument,
   VisualStoryPrismicDocument,
@@ -16,6 +17,7 @@ import {
   ElasticsearchAddressableExhibition,
   ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
+  ElasticsearchAddressablePage,
   ElasticsearchAddressableProject,
   ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
@@ -27,6 +29,7 @@ import { transformAddressableEvent } from './addressables/event';
 import { transformAddressableExhibition } from './addressables/exhibition';
 import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
+import { transformAddressablePage } from './addressables/page';
 import { transformAddressableProject } from './addressables/project';
 import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
@@ -39,6 +42,7 @@ export const transformAddressable = (
     | ExhibitionPrismicDocument
     | ExhibitionHighlightTourPrismicDocument
     | ExhibitionTextPrismicDocument
+    | PagePrismicDocument
     | VisualStoryPrismicDocument
     | ProjectPrismicDocument
     | SeasonPrismicDocument
@@ -51,6 +55,7 @@ export const transformAddressable = (
   | ElasticsearchAddressableExhibition
   | ElasticsearchAddressableExhibitionHighlightTour[]
   | ElasticsearchAddressableExhibitionText
+  | ElasticsearchAddressablePage
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -79,9 +84,9 @@ export const transformAddressable = (
         transformAddressableExhibitionHighlightTour(document);
       break;
 
-    // case 'pages':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'pages':
+      transformedDocument = transformAddressablePage(document);
+      break;
 
     case 'projects':
       transformedDocument = transformAddressableProject(document);

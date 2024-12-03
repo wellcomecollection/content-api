@@ -5,6 +5,7 @@ import {
   EventPrismicDocument,
   ExhibitionHighlightTourPrismicDocument,
   ExhibitionTextPrismicDocument,
+  PagePrismicDocument,
   ProjectPrismicDocument,
   SeasonPrismicDocument,
   VisualStoryPrismicDocument,
@@ -74,6 +75,16 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms exhibition highlight tours from Prismic to the expected format',
+    prismicDocument => {
+      const transformed = transformAddressable(prismicDocument);
+      // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(transformed).toMatchSnapshot();
+    }
+  );
+
+  forEachPrismicSnapshot<PagePrismicDocument>(['pages'], isAddressable)(
+    'transforms pages from Prismic to the expected format',
     prismicDocument => {
       const transformed = transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
