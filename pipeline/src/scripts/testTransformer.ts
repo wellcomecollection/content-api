@@ -160,7 +160,7 @@ async function main() {
           }`,
         });
 
-        transformerName = 'transformPage';
+        transformerName = 'transformAddressablePage';
         return transformAddressablePage(doc as PagePrismicDocument);
       }
 
