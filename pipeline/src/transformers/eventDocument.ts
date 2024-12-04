@@ -137,7 +137,7 @@ const transformTimes = (times: {
 
 export const transformEventDocument = (
   document: EventPrismicDocument
-): ElasticsearchEventDocument => {
+): ElasticsearchEventDocument[] => {
   const {
     data: { title, promo, times, availableOnline },
     id,
@@ -165,52 +165,54 @@ export const transformEventDocument = (
   // They should be considered as false
   const isAvailableOnline = !!availableOnline;
 
-  return {
-    id,
-    uid,
-    ...(tags.includes('delist') && { isChildScheduledEvent: true }),
-    display: {
-      type: 'Event',
+  return [
+    {
       id,
       uid,
-      title: asTitle(title),
-      image,
-      times: times.map(transformTimes),
-      format,
-      locations,
-      interpretations,
-      audiences,
-      series: transformSeries(document),
-      isAvailableOnline,
-    },
-    query: {
-      linkedIdentifiers: linkedDocumentIdentifiers(document),
-      title: asTitle(title),
-      caption: primaryImage?.caption && asText(primaryImage.caption),
-      series: transformSeries(document),
-      times: {
-        startDateTime: documentTimes
-          .map(time => time.startDateTime)
-          .filter(isNotUndefined),
+      ...(tags.includes('delist') && { isChildScheduledEvent: true }),
+      display: {
+        type: 'Event',
+        id,
+        uid,
+        title: asTitle(title),
+        image,
+        times: times.map(transformTimes),
+        format,
+        locations,
+        interpretations,
+        audiences,
+        series: transformSeries(document),
+        isAvailableOnline,
+      },
+      query: {
+        linkedIdentifiers: linkedDocumentIdentifiers(document),
+        title: asTitle(title),
+        caption: primaryImage?.caption && asText(primaryImage.caption),
+        series: transformSeries(document),
+        times: {
+          startDateTime: documentTimes
+            .map(time => time.startDateTime)
+            .filter(isNotUndefined),
+        },
+      },
+      filter: {
+        formatId: format.id,
+        interpretationIds: interpretations.map(i => i.id),
+        audienceIds: audiences.map(a => a.id),
+        locationIds: locations.attendance.map(l => l.id),
+        isAvailableOnline,
+      },
+      aggregatableValues: {
+        format: JSON.stringify(format),
+        interpretations: interpretations.map(i => JSON.stringify(i)),
+        audiences: audiences.map(a => JSON.stringify(a)),
+        locations: locations.attendance.map(l => JSON.stringify(l)),
+        isAvailableOnline: JSON.stringify({
+          type: 'OnlineAvailabilityBoolean',
+          value: isAvailableOnline,
+          label: 'Catch-up event',
+        }),
       },
     },
-    filter: {
-      formatId: format.id,
-      interpretationIds: interpretations.map(i => i.id),
-      audienceIds: audiences.map(a => a.id),
-      locationIds: locations.attendance.map(l => l.id),
-      isAvailableOnline,
-    },
-    aggregatableValues: {
-      format: JSON.stringify(format),
-      interpretations: interpretations.map(i => JSON.stringify(i)),
-      audiences: audiences.map(a => JSON.stringify(a)),
-      locations: locations.attendance.map(l => JSON.stringify(l)),
-      isAvailableOnline: JSON.stringify({
-        type: 'OnlineAvailabilityBoolean',
-        value: isAvailableOnline,
-        label: 'Catch-up event',
-      }),
-    },
-  };
+  ];
 };

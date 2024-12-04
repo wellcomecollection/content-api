@@ -1,5 +1,5 @@
 import * as prismic from '@prismicio/client';
-import { concat, filter, map, partition, tap } from 'rxjs';
+import { concat, filter, mergeMap, partition, tap } from 'rxjs';
 
 import log from '@weco/content-common/services/logging';
 
@@ -22,7 +22,7 @@ type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;
   graphQuery: string;
   parentDocumentTypes: Set<string>;
-  transformer: (prismicDoc: PrismicDocument) => ElasticsearchDocument;
+  transformer: (prismicDoc: PrismicDocument) => ElasticsearchDocument[];
 };
 
 export const createETLPipeline =
@@ -94,7 +94,7 @@ export const createETLPipeline =
       clients.elastic,
       etlParameters.indexConfig.index,
       concat(initialParentDocuments, remainingParentDocuments).pipe(
-        map(etlParameters.transformer)
+        mergeMap(etlParameters.transformer)
       )
     );
     log.info(

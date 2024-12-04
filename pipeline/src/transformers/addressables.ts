@@ -28,7 +28,31 @@ import { transformAddressableExhibitionText } from './addressables/exhibitionTex
 import { transformAddressablePage } from './addressables/page';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
-export const transformAddressable = (
+export function transformAddressable(
+  document: ArticlePrismicDocument
+): ElasticsearchAddressableArticle[];
+export function transformAddressable(
+  document: BookPrismicDocument
+): ElasticsearchAddressableBook[];
+export function transformAddressable(
+  document: EventPrismicDocument
+): ElasticsearchAddressableEvent[];
+export function transformAddressable(
+  document: ExhibitionPrismicDocument
+): ElasticsearchAddressableExhibition[];
+export function transformAddressable(
+  document: ExhibitionHighlightTourPrismicDocument
+): ElasticsearchAddressableExhibitionHighlightTour[];
+export function transformAddressable(
+  document: ExhibitionTextPrismicDocument
+): ElasticsearchAddressableExhibitionText[];
+export function transformAddressable(
+  document: PagePrismicDocument
+): ElasticsearchAddressablePage[];
+export function transformAddressable(
+  document: VisualStoryPrismicDocument
+): ElasticsearchAddressableVisualStory[];
+export function transformAddressable(
   document:
     | ArticlePrismicDocument
     | BookPrismicDocument
@@ -38,18 +62,11 @@ export const transformAddressable = (
     | ExhibitionTextPrismicDocument
     | PagePrismicDocument
     | VisualStoryPrismicDocument
-):
-  | ElasticsearchAddressableArticle
-  | ElasticsearchAddressableBook
-  | ElasticsearchAddressableEvent
-  | ElasticsearchAddressableExhibition
-  | ElasticsearchAddressableExhibitionHighlightTour[]
-  | ElasticsearchAddressableExhibitionText
-  | ElasticsearchAddressablePage
-  | ElasticsearchAddressableVisualStory => {
+) {
   const { type } = document;
 
   let transformedDocument;
+
   switch (type) {
     case 'articles':
       transformedDocument = transformAddressableArticle(document);
@@ -96,4 +113,4 @@ export const transformAddressable = (
   } else {
     throw new Error(`Type did not match any known addressable: ${type}`);
   }
-};
+}

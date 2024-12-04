@@ -7,7 +7,7 @@ import { ElasticsearchAddressableVisualStory } from '@weco/content-pipeline/src/
 
 export const transformAddressableVisualStory = (
   document: VisualStoryPrismicDocument
-): ElasticsearchAddressableVisualStory => {
+): ElasticsearchAddressableVisualStory[] => {
   const { data, id, uid: documentUid } = document;
 
   const primaryImage = data.promo?.[0]?.primary;
@@ -15,20 +15,22 @@ export const transformAddressableVisualStory = (
   const title = asTitle(data.title);
   const uid = documentUid || undefined;
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Visual story',
+  return [
+    {
       id,
       uid,
-      title,
-      description,
+      display: {
+        type: 'Visual story',
+        id,
+        uid,
+        title,
+        description,
+      },
+      query: {
+        type: 'Visual story',
+        title,
+        description,
+      },
     },
-    query: {
-      type: 'Visual story',
-      title,
-      description,
-    },
-  };
+  ];
 };

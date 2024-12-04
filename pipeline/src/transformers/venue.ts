@@ -14,7 +14,7 @@ import {
 
 export const transformVenue = (
   document: VenuePrismicDocument
-): ElasticsearchVenue => {
+): ElasticsearchVenue[] => {
   const {
     data: {
       title,
@@ -81,28 +81,30 @@ export const transformVenue = (
     modifiedDayOpeningTimes
   );
 
-  return {
-    id,
-    display: {
-      type: 'Venue',
+  return [
+    {
       id,
-      title,
-      regularOpeningDays,
-      exceptionalClosedDays,
-    },
-    data: {
-      regularOpeningDays,
-      exceptionalClosedDays,
-    },
-    filter: {
-      title: [
+      display: {
+        type: 'Venue',
+        id,
         title,
-        title
-          .toLowerCase()
-          .replace(/[èéêë]/g, 'e')
-          .replace(/\s+/g, '-'),
-      ],
-      id,
+        regularOpeningDays,
+        exceptionalClosedDays,
+      },
+      data: {
+        regularOpeningDays,
+        exceptionalClosedDays,
+      },
+      filter: {
+        title: [
+          title,
+          title
+            .toLowerCase()
+            .replace(/[èéêë]/g, 'e')
+            .replace(/\s+/g, '-'),
+        ],
+        id,
+      },
     },
-  };
+  ];
 };
