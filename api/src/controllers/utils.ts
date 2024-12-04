@@ -26,7 +26,6 @@ export function getNextOpeningDates(
   // format them as DD/MM/YYYY for easy comparison later
   const upcomingExceptionalClosedDates = exceptionalClosedDays
     .map(date => date.overrideDate && new Date(date.overrideDate))
-    .filter(date => date && date > dateNow)
     .map(date => date && getDateWithoutTime(date));
 
   // remove regular closed days from our dateList
