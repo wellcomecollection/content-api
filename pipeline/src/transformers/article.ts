@@ -85,7 +85,7 @@ function transformLabelType(
 
 export const transformArticle = (
   document: ArticlePrismicDocument
-): ElasticsearchArticle => {
+): ElasticsearchArticle[] => {
   const { data, id, first_publication_date: firstPublicationDate } = document;
   const uid = document.uid || undefined;
   const primaryImage = data.promo?.[0]?.primary;
@@ -127,39 +127,41 @@ export const transformArticle = (
   const series = transformSeries(document);
   const seriesTitle = series?.[0]?.title;
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Article',
+  return [
+    {
       id,
       uid,
-      title: asTitle(data.title),
-      caption,
-      format,
-      publicationDate: datePublished,
-      contributors,
-      image,
-      seriesTitle,
+      display: {
+        type: 'Article',
+        id,
+        uid,
+        title: asTitle(data.title),
+        caption,
+        format,
+        publicationDate: datePublished,
+        contributors,
+        image,
+        seriesTitle,
+      },
+      query: {
+        linkedIdentifiers: linkedDocumentIdentifiers(document),
+        title: asTitle(data.title),
+        publicationDate: new Date(datePublished),
+        contributors: queryContributors,
+        caption,
+        body: queryBody,
+        standfirst: queryStandfirst,
+        series,
+      },
+      filter: {
+        contributorIds: flatContributors.map(c => c.id),
+        formatId: format.id,
+        publicationDate: new Date(datePublished),
+      },
+      aggregatableValues: {
+        contributors: flatContributors.map(c => JSON.stringify(c)),
+        format: JSON.stringify(format),
+      },
     },
-    query: {
-      linkedIdentifiers: linkedDocumentIdentifiers(document),
-      title: asTitle(data.title),
-      publicationDate: new Date(datePublished),
-      contributors: queryContributors,
-      caption,
-      body: queryBody,
-      standfirst: queryStandfirst,
-      series,
-    },
-    filter: {
-      contributorIds: flatContributors.map(c => c.id),
-      formatId: format.id,
-      publicationDate: new Date(datePublished),
-    },
-    aggregatableValues: {
-      contributors: flatContributors.map(c => JSON.stringify(c)),
-      format: JSON.stringify(format),
-    },
-  };
+  ];
 };
