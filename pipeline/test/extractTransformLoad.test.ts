@@ -284,12 +284,9 @@ describe('Extract, transform and load addressables', () => {
     const expectedIdsFromAllDocs = allDocs
       .map(d => {
         if (d.type === 'exhibition-highlight-tours') {
-          return [
-            `${d.id}-${d.type}-audio`,
-              `${d.id}-${d.type}-bsl`,
-          ];
+          return [`${d.id}-${d.type}-audio`, `${d.id}-${d.type}-bsl`];
         } else {
-          return `${d.id}-${d.type};
+          return `${d.id}-${d.type}`;
         }
       })
       .flat();
