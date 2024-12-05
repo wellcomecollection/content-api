@@ -2,6 +2,8 @@ type AddressableType =
   | 'Article'
   | 'Book'
   | 'Event'
+  | 'Project'
+  | 'Season'
   | 'Exhibition'
   | 'Exhibition highlight tour'
   | 'Exhibition text'

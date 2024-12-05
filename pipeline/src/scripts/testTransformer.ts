@@ -17,6 +17,7 @@ import {
   addressablesPagesQuery,
   addressablesVisualStoriesQuery,
 } from '@weco/content-pipeline/src/graph-queries/addressables';
+import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
 import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 import { transformAddressableArticle } from '@weco/content-pipeline/src/transformers/addressables/article';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
@@ -25,6 +26,8 @@ import { transformAddressableExhibition } from '@weco/content-pipeline/src/trans
 import { transformAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/transformers/addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from '@weco/content-pipeline/src/transformers/addressables/exhibitionText';
 import { transformAddressablePage } from '@weco/content-pipeline/src/transformers/addressables/page';
+import { transformAddressableProject } from '@weco/content-pipeline/src/transformers/addressables/project';
+import { transformAddressableSeason } from '@weco/content-pipeline/src/transformers/addressables/season';
 import { transformAddressableVisualStory } from '@weco/content-pipeline/src/transformers/addressables/visualStory';
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
@@ -36,6 +39,8 @@ import {
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
   PagePrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
@@ -203,23 +208,25 @@ async function main() {
         );
       }
 
-      // case 'project': {
-      //   const doc = await client.getByID(id || 'Ys1-OxEAACEAguyS', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'project': {
+        const graphQuery = getGraphQuery({ type: 'project' });
+        const doc = await client.getByID(id || 'YLokOhAAACQAf8Hd', {
+          graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformProject';
+        return transformAddressableProject(doc as ProjectPrismicDocument);
+      }
 
-      // case 'season': {
-      //   const doc = await client.getByID(id || 'X84FvhIAACUAqiqp', {
-      //     graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-      //   });
+      case 'season': {
+        const graphQuery = getGraphQuery({ type: 'season' });
+        const doc = await client.getByID(id || 'X84FvhIAACUAqiqp', {
+          graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
+        });
 
-      //   transformerName = 'transformVenue';
-      //   return transformVenue(doc as VenuePrismicDocument);
-      // }
+        transformerName = 'transformSeason';
+        return transformAddressableSeason(doc as SeasonPrismicDocument);
+      }
 
       default:
         console.error(`Allowed types are ${allowedTypes.join(', ')}.`);
