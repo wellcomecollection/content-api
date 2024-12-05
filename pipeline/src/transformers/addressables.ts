@@ -6,6 +6,8 @@ import {
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
   PagePrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
@@ -16,6 +18,8 @@ import {
   ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressablePage,
+  ElasticsearchAddressableProject,
+  ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
@@ -26,6 +30,8 @@ import { transformAddressableExhibition } from './addressables/exhibition';
 import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressablePage } from './addressables/page';
+import { transformAddressableProject } from './addressables/project';
+import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -38,10 +44,14 @@ export const transformAddressable = (
     | ExhibitionTextPrismicDocument
     | PagePrismicDocument
     | VisualStoryPrismicDocument
+    | ProjectPrismicDocument
+    | SeasonPrismicDocument
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
+  | ElasticsearchAddressableProject
+  | ElasticsearchAddressableSeason
   | ElasticsearchAddressableExhibition
   | ElasticsearchAddressableExhibitionHighlightTour[]
   | ElasticsearchAddressableExhibitionText
@@ -78,13 +88,13 @@ export const transformAddressable = (
       transformedDocument = transformAddressablePage(document);
       break;
 
-    // case 'projects':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'projects':
+      transformedDocument = transformAddressableProject(document);
+      break;
 
-    // case 'seasons':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'seasons':
+      transformedDocument = transformAddressableSeason(document);
+      break;
 
     case 'visual-stories':
       transformedDocument = transformAddressableVisualStory(document);
