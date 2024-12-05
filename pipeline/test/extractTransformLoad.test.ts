@@ -224,7 +224,7 @@ describe('Extract, transform and load articles', () => {
 });
 
 describe('Extract, transform and load addressables', () => {
-  it.only('fetches addressables from prismic and indexes them into ES', async () => {
+  it('fetches addressables from prismic and indexes them into ES', async () => {
     const allDocs = getSnapshots(
       [
         'articles',
