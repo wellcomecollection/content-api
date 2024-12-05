@@ -47,6 +47,7 @@ export const transformAddressableProject = (
       id,
       uid,
       title,
+      format,
       description: displayDescription,
     },
     query: {
