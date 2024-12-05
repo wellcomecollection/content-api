@@ -8,8 +8,14 @@ import {
   webcomicsQuery,
   wrapQueries,
 } from '@weco/content-pipeline/src/graph-queries';
+import { addressablesQuery } from '@weco/content-pipeline/src/graph-queries/addressables';
 import { isFilledLinkToDocument } from '@weco/content-pipeline/src/helpers/type-guards';
-import { articles, events } from '@weco/content-pipeline/src/indices';
+import {
+  addressables,
+  articles,
+  events,
+} from '@weco/content-pipeline/src/indices';
+import { transformAddressable } from '@weco/content-pipeline/src/transformers/addressables';
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
@@ -214,5 +220,82 @@ describe('Extract, transform and load articles', () => {
     expect(finalIndexedDocuments.map(doc => doc.id)).toIncludeSameMembers(
       parentIds
     );
+  });
+});
+
+describe('Extract, transform and load addressables', () => {
+  it.only('fetches addressables from prismic and indexes them into ES', async () => {
+    const allDocs = getSnapshots(
+      [
+        'articles',
+        'books',
+        'events',
+        'exhibition-highlight-tours',
+        'exhibitions',
+        'exhibition-texts',
+        'pages',
+        'projects',
+        'seasons',
+        'visual-stories',
+      ],
+      true
+    );
+
+    const elasticIndexCreator = jest.fn().mockResolvedValue(true);
+    const [elasticBulkHelper, getIndexedDocuments] = createElasticBulkHelper();
+    const elasticClient = {
+      indices: {
+        create: elasticIndexCreator,
+      },
+      helpers: {
+        bulk: elasticBulkHelper,
+      },
+    } as unknown as ElasticClient;
+
+    const prismicClient = {
+      get: prismicGet(allDocs),
+    } as unknown as prismic.Client;
+
+    const addressablePipeline = createETLPipeline({
+      indexConfig: addressables,
+      graphQuery: addressablesQuery,
+      parentDocumentTypes: new Set([
+        'articles',
+        'books',
+        'events',
+        'exhibition-highlight-tours',
+        'exhibitions',
+        'exhibition-texts',
+        'pages',
+        'projects',
+        'seasons',
+        'visual-stories',
+      ]),
+      transformer: transformAddressable,
+    });
+
+    await addressablePipeline(
+      { elastic: elasticClient, prismic: prismicClient },
+      { contentType: 'addressables' }
+    );
+    expect(elasticIndexCreator).toHaveBeenCalled();
+    expect(elasticBulkHelper).toHaveBeenCalled();
+
+    const expectedIdsFromAllDocs = allDocs
+      .map(d => {
+        if (d.type === 'exhibition-highlight-tours') {
+          return [
+            `${d.id}-${d.type}-audio`,
+              `${d.id}-${d.type}-bsl`,
+          ];
+        } else {
+          return `${d.id}-${d.type};
+        }
+      })
+      .flat();
+    const indexedDocs = getIndexedDocuments();
+    const indexedIds = indexedDocs.map(d => d.id);
+
+    expect(indexedIds).toIncludeSameMembers(expectedIdsFromAllDocs);
   });
 });
