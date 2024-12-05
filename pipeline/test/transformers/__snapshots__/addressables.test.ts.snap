@@ -1072,6 +1072,7 @@ exports[`addressables transformer transforms projects from Prismic to the expect
 {
   "display": {
     "description": "An emotional check-in device by poetic data designer Stefanie Posavec. Complete a questionnaire and in return receive your own uniquely designed quote.",
+    "format": "Art commission",
     "id": "YLokOhAAACQAf8Hd",
     "title": "Updating Happiness",
     "type": "Project",
