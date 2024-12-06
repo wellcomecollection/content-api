@@ -6,6 +6,8 @@ import {
   ExhibitionHighlightTourPrismicDocument,
   ExhibitionTextPrismicDocument,
   PagePrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
@@ -96,6 +98,26 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms visual stories from Prismic to the expected format',
+    prismicDocument => {
+      const transformed = transformAddressable(prismicDocument);
+      // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(transformed).toMatchSnapshot();
+    }
+  );
+
+  forEachPrismicSnapshot<ProjectPrismicDocument>(['projects'], isAddressable)(
+    'transforms projects from Prismic to the expected format',
+    prismicDocument => {
+      const transformed = transformAddressable(prismicDocument);
+      // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(transformed).toMatchSnapshot();
+    }
+  );
+
+  forEachPrismicSnapshot<SeasonPrismicDocument>(['seasons'], isAddressable)(
+    'transforms seasons from Prismic to the expected format',
     prismicDocument => {
       const transformed = transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
