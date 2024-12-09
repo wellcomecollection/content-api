@@ -9,7 +9,7 @@ import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/t
 
 export const transformAddressableBook = (
   document: BookPrismicDocument
-): ElasticsearchAddressableBook => {
+): ElasticsearchAddressableBook[] => {
   const { data, id, uid } = document;
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
@@ -31,23 +31,25 @@ export const transformAddressableBook = (
     })
     .flat();
 
-  return {
-    id,
-    uid: uid || undefined,
-    display: {
-      type: 'Book',
+  return [
+    {
       id,
       uid: uid || undefined,
-      title: titleSubtitle,
-      description,
-      contributors,
+      display: {
+        type: 'Book',
+        id,
+        uid: uid || undefined,
+        title: titleSubtitle,
+        description,
+        contributors,
+      },
+      query: {
+        type: 'Book',
+        title: titleSubtitle,
+        description,
+        body,
+        contributors,
+      },
     },
-    query: {
-      type: 'Book',
-      title: titleSubtitle,
-      description,
-      body,
-      contributors,
-    },
-  };
+  ];
 };
