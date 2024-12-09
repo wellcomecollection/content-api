@@ -1091,7 +1091,7 @@ exports[`addressables transformer transforms projects from Prismic to the expect
       "type": "Project",
       "uid": "updating-happiness",
     },
-    "id": "YLokOhAAACQAf8Hd",
+    "id": "YLokOhAAACQAf8Hd-projects",
     "query": {
       "body": [
         "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
@@ -1121,7 +1121,7 @@ exports[`addressables transformer transforms seasons from Prismic to the expecte
       "type": "Season",
       "uid": "what-does-it-mean-to-be-human--now-",
     },
-    "id": "X84FvhIAACUAqiqp",
+    "id": "X84FvhIAACUAqiqp-seasons",
     "query": {
       "body": [
         "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
