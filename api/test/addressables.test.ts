@@ -12,7 +12,6 @@ describe('GET /all', () => {
 
     const response = await api.get(`/all`);
     expect(response.statusCode).toBe(200);
-    console.log(response.body.results);
     expect(response.body.results).toStrictEqual(docs.map(d => d.display));
   });
 });
