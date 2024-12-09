@@ -1,931 +1,943 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`article transformer also works for webcomics (document: webcomics/XK9p2RIAAO1vQn__) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [
-      "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
-    ],
-    "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
-  },
-  "display": {
-    "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
-    "contributors": [
-      {
-        "contributor": {
-          "id": "WSQ9rygAAA9xtwfy",
-          "label": "Rob Bidder",
-          "type": "Person",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [
+        "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
+      ],
+      "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
+    },
+    "display": {
+      "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
+      "contributors": [
+        {
+          "contributor": {
+            "id": "WSQ9rygAAA9xtwfy",
+            "label": "Rob Bidder",
+            "type": "Person",
+          },
+          "role": {
+            "id": "Wux6DyIAAO5n3lzk",
+            "label": "Artist",
+            "type": "EditorialContributorRole",
+          },
+          "type": "Contributor",
         },
-        "role": {
-          "id": "Wux6DyIAAO5n3lzk",
-          "label": "Artist",
-          "type": "EditorialContributorRole",
-        },
-        "type": "Contributor",
+      ],
+      "format": {
+        "id": "W7d_ghAAALWY3Ujc",
+        "label": "Comic",
+        "type": "ArticleFormat",
       },
-    ],
-    "format": {
-      "id": "W7d_ghAAALWY3Ujc",
-      "label": "Comic",
-      "type": "ArticleFormat",
+      "id": "XK9p2RIAAO1vQn__",
+      "image": {
+        "16:9": {
+          "alt": "Groan comic by Rob Bidder (detail)",
+          "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 2,
+          },
+          "id": "XK9ofhIAAOA9QnrN",
+          "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800",
+        },
+        "32:15": {
+          "alt": "Groan comic by Rob Bidder (detail)",
+          "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -150,
+            "zoom": 2,
+          },
+          "id": "XK9ofhIAAOA9QnrN",
+          "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500",
+        },
+        "alt": "Groan comic by Rob Bidder (detail)",
+        "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
+        "dimensions": {
+          "height": 900,
+          "width": 1600,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "XK9ofhIAAOA9QnrN",
+        "square": {
+          "alt": "Groan comic by Rob Bidder (detail)",
+          "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -1244,
+            "y": 0,
+            "zoom": 3.555555582046509,
+          },
+          "id": "XK9ofhIAAOA9QnrN",
+          "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=format,compress",
+      },
+      "publicationDate": "2019-04-12T09:00:00+0000",
+      "seriesTitle": "Body Squabbles",
+      "title": "Groan",
+      "type": "Article",
+      "uid": "groan",
+    },
+    "filter": {
+      "contributorIds": [
+        "WSQ9rygAAA9xtwfy",
+      ],
+      "formatId": "W7d_ghAAALWY3Ujc",
+      "publicationDate": 2019-04-12T09:00:00.000Z,
     },
     "id": "XK9p2RIAAO1vQn__",
-    "image": {
-      "16:9": {
-        "alt": "Groan comic by Rob Bidder (detail)",
-        "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
+    "query": {
+      "body": undefined,
+      "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
+      "contributors": [
+        "Rob Bidder",
+      ],
+      "linkedIdentifiers": [
+        "W7d_ghAAALWY3Ujc",
+        "Wux6DyIAAO5n3lzk",
+        "WSQ9rygAAA9xtwfy",
+        "WleP3iQAACUAYEoN",
+      ],
+      "publicationDate": 2019-04-12T09:00:00.000Z,
+      "series": [
+        {
+          "contributors": [],
+          "id": "WleP3iQAACUAYEoN",
+          "title": "Body Squabbles",
         },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 2,
-        },
-        "id": "XK9ofhIAAOA9QnrN",
-        "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800",
-      },
-      "32:15": {
-        "alt": "Groan comic by Rob Bidder (detail)",
-        "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -150,
-          "zoom": 2,
-        },
-        "id": "XK9ofhIAAOA9QnrN",
-        "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500",
-      },
-      "alt": "Groan comic by Rob Bidder (detail)",
-      "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-      "dimensions": {
-        "height": 900,
-        "width": 1600,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "XK9ofhIAAOA9QnrN",
-      "square": {
-        "alt": "Groan comic by Rob Bidder (detail)",
-        "copyright": "Groan|Rob Bidder|||CC-BY-NC|Rob Bidder| ",
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": -1244,
-          "y": 0,
-          "zoom": 3.555555582046509,
-        },
-        "id": "XK9ofhIAAOA9QnrN",
-        "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection%2F6c8b776e-7f41-41eb-82e7-3b6dfb3eedee_groan_promo.jpg?auto=format,compress",
+      ],
+      "standfirst": undefined,
+      "title": "Groan",
     },
-    "publicationDate": "2019-04-12T09:00:00+0000",
-    "seriesTitle": "Body Squabbles",
-    "title": "Groan",
-    "type": "Article",
     "uid": "groan",
   },
-  "filter": {
-    "contributorIds": [
-      "WSQ9rygAAA9xtwfy",
-    ],
-    "formatId": "W7d_ghAAALWY3Ujc",
-    "publicationDate": 2019-04-12T09:00:00.000Z,
-  },
-  "id": "XK9p2RIAAO1vQn__",
-  "query": {
-    "body": undefined,
-    "caption": "Groans are to our primitive nature what language is to civilization. Uggggghhhh.",
-    "contributors": [
-      "Rob Bidder",
-    ],
-    "linkedIdentifiers": [
-      "W7d_ghAAALWY3Ujc",
-      "Wux6DyIAAO5n3lzk",
-      "WSQ9rygAAA9xtwfy",
-      "WleP3iQAACUAYEoN",
-    ],
-    "publicationDate": 2019-04-12T09:00:00.000Z,
-    "series": [
-      {
-        "contributors": [],
-        "id": "WleP3iQAACUAYEoN",
-        "title": "Body Squabbles",
-      },
-    ],
-    "standfirst": undefined,
-    "title": "Groan",
-  },
-  "uid": "groan",
-}
+]
 `;
 
 exports[`article transformer also works for webcomics (document: webcomics/XUGruhEAACYASyJh) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [
-      "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
-    ],
-    "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
-  },
-  "display": {
-    "caption": "They drew it with their feet, one step at a time",
-    "contributors": [
-      {
-        "contributor": {
-          "id": "WSQ9rygAAA9xtwfy",
-          "label": "Rob Bidder",
-          "type": "Person",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [
+        "{"type":"Person","id":"WSQ9rygAAA9xtwfy","label":"Rob Bidder"}",
+      ],
+      "format": "{"type":"ArticleFormat","id":"W7d_ghAAALWY3Ujc","label":"Comic"}",
+    },
+    "display": {
+      "caption": "They drew it with their feet, one step at a time",
+      "contributors": [
+        {
+          "contributor": {
+            "id": "WSQ9rygAAA9xtwfy",
+            "label": "Rob Bidder",
+            "type": "Person",
+          },
+          "role": {
+            "id": "Wux6DyIAAO5n3lzk",
+            "label": "Artist",
+            "type": "EditorialContributorRole",
+          },
+          "type": "Contributor",
         },
-        "role": {
-          "id": "Wux6DyIAAO5n3lzk",
-          "label": "Artist",
-          "type": "EditorialContributorRole",
-        },
-        "type": "Contributor",
+      ],
+      "format": {
+        "id": "W7d_ghAAALWY3Ujc",
+        "label": "Comic",
+        "type": "ArticleFormat",
       },
-    ],
-    "format": {
-      "id": "W7d_ghAAALWY3Ujc",
-      "label": "Comic",
-      "type": "ArticleFormat",
+      "id": "XUGruhEAACYASyJh",
+      "image": {
+        "16:9": {
+          "alt": "Footpath comic by Rob Bidder (detail)",
+          "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 2,
+          },
+          "id": "XUP2ahEAACAAtd4J",
+          "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800",
+        },
+        "32:15": {
+          "alt": "Footpath comic by Rob Bidder (detail)",
+          "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -150,
+            "zoom": 2,
+          },
+          "id": "XUP2ahEAACAAtd4J",
+          "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500",
+        },
+        "alt": "Footpath comic by Rob Bidder (detail)",
+        "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
+        "dimensions": {
+          "height": 900,
+          "width": 1600,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "XUP2ahEAACAAtd4J",
+        "square": {
+          "alt": "Footpath comic by Rob Bidder (detail)",
+          "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -1244,
+            "y": 0,
+            "zoom": 3.555555582046509,
+          },
+          "id": "XUP2ahEAACAAtd4J",
+          "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=format,compress",
+      },
+      "publicationDate": "2019-08-02T09:00:00+0000",
+      "seriesTitle": "Body Squabbles",
+      "title": "Footpath",
+      "type": "Article",
+      "uid": "footpath",
+    },
+    "filter": {
+      "contributorIds": [
+        "WSQ9rygAAA9xtwfy",
+      ],
+      "formatId": "W7d_ghAAALWY3Ujc",
+      "publicationDate": 2019-08-02T09:00:00.000Z,
     },
     "id": "XUGruhEAACYASyJh",
-    "image": {
-      "16:9": {
-        "alt": "Footpath comic by Rob Bidder (detail)",
-        "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
+    "query": {
+      "body": undefined,
+      "caption": "They drew it with their feet, one step at a time",
+      "contributors": [
+        "Rob Bidder",
+      ],
+      "linkedIdentifiers": [
+        "W7d_ghAAALWY3Ujc",
+        "Wux6DyIAAO5n3lzk",
+        "WSQ9rygAAA9xtwfy",
+        "WleP3iQAACUAYEoN",
+      ],
+      "publicationDate": 2019-08-02T09:00:00.000Z,
+      "series": [
+        {
+          "contributors": [],
+          "id": "WleP3iQAACUAYEoN",
+          "title": "Body Squabbles",
         },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 2,
-        },
-        "id": "XUP2ahEAACAAtd4J",
-        "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=0,0,1600,900&w=3200&h=1800",
-      },
-      "32:15": {
-        "alt": "Footpath comic by Rob Bidder (detail)",
-        "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -150,
-          "zoom": 2,
-        },
-        "id": "XUP2ahEAACAAtd4J",
-        "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=0,75,1600,750&w=3200&h=1500",
-      },
-      "alt": "Footpath comic by Rob Bidder (detail)",
-      "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-      "dimensions": {
-        "height": 900,
-        "width": 1600,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "XUP2ahEAACAAtd4J",
-      "square": {
-        "alt": "Footpath comic by Rob Bidder (detail)",
-        "copyright": "Footpath, Rob Bidder | | | | CC-BY-NC | Rob Bidder |",
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": -1244,
-          "y": 0,
-          "zoom": 3.555555582046509,
-        },
-        "id": "XUP2ahEAACAAtd4J",
-        "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=compress,format&rect=350,0,900,900&w=3200&h=3200",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection%2Fe427f062-73a8-43a0-b7c4-92e36528df8e_footpathpromo.jpg?auto=format,compress",
+      ],
+      "standfirst": undefined,
+      "title": "Footpath",
     },
-    "publicationDate": "2019-08-02T09:00:00+0000",
-    "seriesTitle": "Body Squabbles",
-    "title": "Footpath",
-    "type": "Article",
     "uid": "footpath",
   },
-  "filter": {
-    "contributorIds": [
-      "WSQ9rygAAA9xtwfy",
-    ],
-    "formatId": "W7d_ghAAALWY3Ujc",
-    "publicationDate": 2019-08-02T09:00:00.000Z,
-  },
-  "id": "XUGruhEAACYASyJh",
-  "query": {
-    "body": undefined,
-    "caption": "They drew it with their feet, one step at a time",
-    "contributors": [
-      "Rob Bidder",
-    ],
-    "linkedIdentifiers": [
-      "W7d_ghAAALWY3Ujc",
-      "Wux6DyIAAO5n3lzk",
-      "WSQ9rygAAA9xtwfy",
-      "WleP3iQAACUAYEoN",
-    ],
-    "publicationDate": 2019-08-02T09:00:00.000Z,
-    "series": [
-      {
-        "contributors": [],
-        "id": "WleP3iQAACUAYEoN",
-        "title": "Body Squabbles",
-      },
-    ],
-    "standfirst": undefined,
-    "title": "Footpath",
-  },
-  "uid": "footpath",
-}
+]
 `;
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/WXInvioAABlsbLHu) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [
-      "{"type":"Person","id":"WXoU9yoAADqyj5ft","label":"Ken Arnold"}",
-    ],
-    "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
-  },
-  "display": {
-    "caption": "Wellcome Collection founder Ken Arnold picks his favourite exhibits.",
-    "contributors": [
-      {
-        "contributor": {
-          "id": "WXoU9yoAADqyj5ft",
-          "label": "Ken Arnold",
-          "type": "Person",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [
+        "{"type":"Person","id":"WXoU9yoAADqyj5ft","label":"Ken Arnold"}",
+      ],
+      "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
+    },
+    "display": {
+      "caption": "Wellcome Collection founder Ken Arnold picks his favourite exhibits.",
+      "contributors": [
+        {
+          "contributor": {
+            "id": "WXoU9yoAADqyj5ft",
+            "label": "Ken Arnold",
+            "type": "Person",
+          },
+          "role": undefined,
+          "type": "Contributor",
         },
-        "role": undefined,
-        "type": "Contributor",
+      ],
+      "format": {
+        "id": "W7TfJRAAAJ1D0eLK",
+        "label": "Article",
+        "type": "ArticleFormat",
       },
-    ],
-    "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
-      "type": "ArticleFormat",
+      "id": "WXInvioAABlsbLHu",
+      "image": {
+        "16:9": {
+          "alt": null,
+          "copyright": null,
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 2,
+          },
+          "id": "WXiuMSoAAPowiXmg",
+          "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+        },
+        "32:15": {
+          "alt": null,
+          "copyright": null,
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -150,
+            "zoom": 2,
+          },
+          "id": "WXiuMSoAAPowiXmg",
+          "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+        },
+        "alt": null,
+        "copyright": null,
+        "dimensions": {
+          "height": 900,
+          "width": 1600,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "WXiuMSoAAPowiXmg",
+        "square": {
+          "alt": null,
+          "copyright": null,
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -1244,
+            "y": 0,
+            "zoom": 3.555555582046509,
+          },
+          "id": "WXiuMSoAAPowiXmg",
+          "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+      },
+      "publicationDate": "2017-08-07T23:00:01+0000",
+      "seriesTitle": undefined,
+      "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
+      "type": "Article",
+      "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
+    },
+    "filter": {
+      "contributorIds": [
+        "WXoU9yoAADqyj5ft",
+      ],
+      "formatId": "W7TfJRAAAJ1D0eLK",
+      "publicationDate": 2017-08-07T23:00:01.000Z,
     },
     "id": "WXInvioAABlsbLHu",
-    "image": {
-      "16:9": {
-        "alt": null,
-        "copyright": null,
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 2,
-        },
-        "id": "WXiuMSoAAPowiXmg",
-        "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
-      },
-      "32:15": {
-        "alt": null,
-        "copyright": null,
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -150,
-          "zoom": 2,
-        },
-        "id": "WXiuMSoAAPowiXmg",
-        "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
-      },
-      "alt": null,
-      "copyright": null,
-      "dimensions": {
-        "height": 900,
-        "width": 1600,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "WXiuMSoAAPowiXmg",
-      "square": {
-        "alt": null,
-        "copyright": null,
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": -1244,
-          "y": 0,
-          "zoom": 3.555555582046509,
-        },
-        "id": "WXiuMSoAAPowiXmg",
-        "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection%2F2927805a-5aba-4147-a0dd-94bcf97e5e10_kenarnold.jpg?auto=format,compress",
+    "query": {
+      "body": [
+        "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
+        " 1. Jennifer Sutton’s ‘old’ heart",
+        "This was shown in our first exhibition  - The Heart - in 2007. Jennifer Sutton was a transplant patient, who amazingly came in to visit the show and look at her own heart, removed and replaced with a transplanted one only a few months before. ",
+        "2. Stuffed Shrew",
+        "The stuffed shrew was also shown in the Heart exhibition. I think I’m right in saying that shrews have one of the smallest and fastest-beating hearts among mammals. We bought this one online and, after the show was over, I kept it for the cabinet of curiosities I’ve gathered over the years. ",
+        "3. Sleep Patterns of a New-Born Baby",
+        "We displayed an image of sleep patterns in the Sleeping and Dreaming exhibition. Most parents who remember those first few alarming weeks of sleep madness would empathise with the seeming randomness indicating when a baby decides it’s time to wake and feed. The more settled patterns that shows up in later months provides some sort of compensation I guess.",
+        "4. Images of Spiders' Webs",
+        "The spiders were under the influence of caffeine, alcohol and other mind-altering drugs when they made the webs. These images were shown in our High Society exhibition. The caffeine one seemed particularly inspired in a free-form sort of way.",
+        "5. An ‘awake craniotomy’",
+        "This was part of a collaboration with Channel 4 for a 'live surgery’ series. The audience in our auditorium that evening mostly sat in awed silence as we watched a patient still awake talking to the surgeon who was carefully removing parts of his brain. The images were beamed live to Wellcome Collection from a hospital in Southampton. Mind blowing in every sense of the term.",
+        "6. Forensic Doll's House",
+        "In the 1940s and 1950s Frances Glessner Lee, nicknamed “the mother of forensic investigation”, made miniature models based on crime scene information to investigate how they happened, and crucially who did it. We borrowed one from America for our Forensics: the anatomy of crime show. Though beguilingly beautiful and seemingly an ideal children’s toy, visitors who looked at it with care gradually gathered that it was in fact a crucial tool in the comprehension of a gruesome case of murder. ",
+        "7. Skeleton With a Green Skull",
+        "The skull is green because it was buried underneath the mint in London and the leaching  of copper from the coinage turned it that colour. This exhibit from the Skeletons exhibition can currently be seen in Bristol where the show is touring – an exhibition where some wandering London skeletons have met up with others from the West Country, and between them show the wide variety of insights that groups of researchers can reveal by studying the bones of our ancestors.",
+        "8. Make a Piano in Spain",
+        "We worked with the artist John Newling who asked people in the Euston area what they did to make themselves feel better. He collected hundreds of wildly different answers to this seemingly simple question that he then analysed, pulled apart, and then put back together in new sentences with an eye to mystery and poetry as well as well-being (hence ‘making a piano in Spain’). He read out all the answers verbatim at a performance and also published a yellow artist's book.",
+        "9. Sex Related Devices",
+        "Early 20th century Japanese sex aids are displayed next to a 19th century British anti-masturbation device in our permanent exhibition - Medicine Man, and well, the juxtaposition says a lot doesn’t it…",
+        "10. Neil Bartlett's Sex Survey",
+        "And sticking to the subject of sex, my last item would be the new sex survey that artist and playwright Neil Bartlett created for our Institute of Sexology exhibition. The key ‘tool’ for those studying sex is the questionnaire. So we asked Neil to make a new one and his response was to set out a form with the last question requesting new questions from visitors. His questionnaire changed throughout the show, with its final version being based purely on visitors' own questions. The thousands of forms filled in generated fascinating results and a real depth of research interest. They’ve been archived in the Wellcome Library for researchers to use in the future.",
+      ],
+      "caption": "Wellcome Collection founder Ken Arnold picks his favourite exhibits.",
+      "contributors": [
+        "Ken Arnold",
+      ],
+      "linkedIdentifiers": [
+        "WXoU9yoAADqyj5ft",
+      ],
+      "publicationDate": 2017-08-07T23:00:01.000Z,
+      "series": [],
+      "standfirst": "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
+      "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
     },
-    "publicationDate": "2017-08-07T23:00:01+0000",
-    "seriesTitle": undefined,
-    "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
-    "type": "Article",
     "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
   },
-  "filter": {
-    "contributorIds": [
-      "WXoU9yoAADqyj5ft",
-    ],
-    "formatId": "W7TfJRAAAJ1D0eLK",
-    "publicationDate": 2017-08-07T23:00:01.000Z,
-  },
-  "id": "WXInvioAABlsbLHu",
-  "query": {
-    "body": [
-      "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
-      " 1. Jennifer Sutton’s ‘old’ heart",
-      "This was shown in our first exhibition  - The Heart - in 2007. Jennifer Sutton was a transplant patient, who amazingly came in to visit the show and look at her own heart, removed and replaced with a transplanted one only a few months before. ",
-      "2. Stuffed Shrew",
-      "The stuffed shrew was also shown in the Heart exhibition. I think I’m right in saying that shrews have one of the smallest and fastest-beating hearts among mammals. We bought this one online and, after the show was over, I kept it for the cabinet of curiosities I’ve gathered over the years. ",
-      "3. Sleep Patterns of a New-Born Baby",
-      "We displayed an image of sleep patterns in the Sleeping and Dreaming exhibition. Most parents who remember those first few alarming weeks of sleep madness would empathise with the seeming randomness indicating when a baby decides it’s time to wake and feed. The more settled patterns that shows up in later months provides some sort of compensation I guess.",
-      "4. Images of Spiders' Webs",
-      "The spiders were under the influence of caffeine, alcohol and other mind-altering drugs when they made the webs. These images were shown in our High Society exhibition. The caffeine one seemed particularly inspired in a free-form sort of way.",
-      "5. An ‘awake craniotomy’",
-      "This was part of a collaboration with Channel 4 for a 'live surgery’ series. The audience in our auditorium that evening mostly sat in awed silence as we watched a patient still awake talking to the surgeon who was carefully removing parts of his brain. The images were beamed live to Wellcome Collection from a hospital in Southampton. Mind blowing in every sense of the term.",
-      "6. Forensic Doll's House",
-      "In the 1940s and 1950s Frances Glessner Lee, nicknamed “the mother of forensic investigation”, made miniature models based on crime scene information to investigate how they happened, and crucially who did it. We borrowed one from America for our Forensics: the anatomy of crime show. Though beguilingly beautiful and seemingly an ideal children’s toy, visitors who looked at it with care gradually gathered that it was in fact a crucial tool in the comprehension of a gruesome case of murder. ",
-      "7. Skeleton With a Green Skull",
-      "The skull is green because it was buried underneath the mint in London and the leaching  of copper from the coinage turned it that colour. This exhibit from the Skeletons exhibition can currently be seen in Bristol where the show is touring – an exhibition where some wandering London skeletons have met up with others from the West Country, and between them show the wide variety of insights that groups of researchers can reveal by studying the bones of our ancestors.",
-      "8. Make a Piano in Spain",
-      "We worked with the artist John Newling who asked people in the Euston area what they did to make themselves feel better. He collected hundreds of wildly different answers to this seemingly simple question that he then analysed, pulled apart, and then put back together in new sentences with an eye to mystery and poetry as well as well-being (hence ‘making a piano in Spain’). He read out all the answers verbatim at a performance and also published a yellow artist's book.",
-      "9. Sex Related Devices",
-      "Early 20th century Japanese sex aids are displayed next to a 19th century British anti-masturbation device in our permanent exhibition - Medicine Man, and well, the juxtaposition says a lot doesn’t it…",
-      "10. Neil Bartlett's Sex Survey",
-      "And sticking to the subject of sex, my last item would be the new sex survey that artist and playwright Neil Bartlett created for our Institute of Sexology exhibition. The key ‘tool’ for those studying sex is the questionnaire. So we asked Neil to make a new one and his response was to set out a form with the last question requesting new questions from visitors. His questionnaire changed throughout the show, with its final version being based purely on visitors' own questions. The thousands of forms filled in generated fascinating results and a real depth of research interest. They’ve been archived in the Wellcome Library for researchers to use in the future.",
-    ],
-    "caption": "Wellcome Collection founder Ken Arnold picks his favourite exhibits.",
-    "contributors": [
-      "Ken Arnold",
-    ],
-    "linkedIdentifiers": [
-      "WXoU9yoAADqyj5ft",
-    ],
-    "publicationDate": 2017-08-07T23:00:01.000Z,
-    "series": [],
-    "standfirst": "Ken Arnold led the team that established Wellcome Collection in 2007. As Head of Public Programmes for much of the past decade, he’s had a unique view of the exhibitions, live events and activities on offer. Here he shares 10 of his most memorable exhibits and events. ",
-    "title": "Ken’s ten: looking back at ten years of Wellcome Collection",
-  },
-  "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
-}
+]
 `;
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/WcvPmSsAAG5B5-ox) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [],
-    "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
-  },
-  "display": {
-    "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
-    "contributors": [],
-    "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
-      "type": "ArticleFormat",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [],
+      "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
+    },
+    "display": {
+      "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
+      "contributors": [],
+      "format": {
+        "id": "W7TfJRAAAJ1D0eLK",
+        "label": "Article",
+        "type": "ArticleFormat",
+      },
+      "id": "WcvPmSsAAG5B5-ox",
+      "image": {
+        "16:9": {
+          "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+          "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 2,
+          },
+          "id": "WdUZCCkAACgAoVoq",
+          "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
+        },
+        "32:15": {
+          "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+          "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -150,
+            "zoom": 2,
+          },
+          "id": "WdUZCCkAACgAoVoq",
+          "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
+        },
+        "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+        "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+        "dimensions": {
+          "height": 900,
+          "width": 1600,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "WdUZCCkAACgAoVoq",
+        "square": {
+          "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
+          "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -1244,
+            "y": 0,
+            "zoom": 3.555555582046509,
+          },
+          "id": "WdUZCCkAACgAoVoq",
+          "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
+      },
+      "publicationDate": "2017-10-11T08:30:00+0000",
+      "seriesTitle": "Memory objects",
+      "title": "The Key to Memory: Follow your nose",
+      "type": "Article",
+      "uid": "the-key-to-memory--follow-your-nose",
+    },
+    "filter": {
+      "contributorIds": [],
+      "formatId": "W7TfJRAAAJ1D0eLK",
+      "publicationDate": 2017-10-11T08:30:00.000Z,
     },
     "id": "WcvPmSsAAG5B5-ox",
-    "image": {
-      "16:9": {
-        "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
-        "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
+    "query": {
+      "body": [
+        "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
+        "Listen",
+        "Take a look",
+        "",
+        "A pomander is a little bit like a locket, except it's designed to be filled with smells rather than pictures. The pair on display in our Medicine Man gallery date from the 17th century, and the interactive images below let you give them both a spin. The brass-coloured pomander is shaped like a snail, while the silvery one looks like a book. ",
+        "Photography by Ben Gilbert and Thomas Farnetti for Wellcome Collection. Audio produced by Freya Hellier in collaboration with BBC Radio 3. Why Music? The Key to Memory takes places from 13-15 October 2017.",
+        "Full audio transcript",
+        "[they are standing outside the Medicine Man gallery]",
+        "Georgia Mann: You basically want me to smell some shoe polish?",
+        "Elissavet Ntoulia: Yeah sorry.",
+        "[Georgia pops open a tin]",
+        "Georgia Mann: See, I actually really enjoy that, weirdly. If anything transports me to a mildly miserable Sunday, it’s shoe polish.",
+        "[she closes the lid]",
+        "Now what?",
+        "Elissavet Ntoulia: So I have a bit of rosemary.",
+        "Georgia Mann: Nice. ",
+        "[sniffs] ",
+        "Rosemary, which has that wonderful fresh smell that just brings me straight into the kitchen. So thank you for that.",
+        "Elissavet Ntoulia: You’re welcome.",
+        "Georgia Mann: I feel olfactorily refreshed. Let’s pop inside the Medicine Man gallery now because there’s an object in there which is all to do with smell, health and memory that you’re going to show me.",
+        "Elissavet Ntoulia: Yes, exactly.",
+        "Georgia Mann: Thanks Elissavet, let’s go.",
+        "[music, they walk into the gallery]",
+        "So we’re looking at these two tiny little things, which look like lockets, they look like pieces of jewellery. One’s in the shape of a shell, the other one looks like a little mini book, and a sort of filigree metalwork on the front of it. But they aren’t lockets, what are they?",
+        "Elissavet Ntoulia: They’re called pomanders, and the idea was that they will protect you, literally protect you from the plague. So they would contain aromatic spices and you would carry them with you because you wanted these sweet-smelling aromas surrounding you in order to counteract what they said was miasma. Basically, bad, smelly air.",
+        "[music]",
+        "Georgia Mann: How would you have got your pomander to a sort of Yves Saint Laurent like level of aroma, what was in here?",
+        "Elissavet Ntoulia: Anything that has a very very strong smell that comes from nature. So what you smelled before, rosemary, was one that, it was kind of easily available to most people.",
+        "Georgia Mann: I was sniffing that rosemary before and it was taking me back to my mum’s dinners, but there is in fact a bit of science backing up that link between rosemary and being transported memory wise, isn’t there?",
+        "Elissavet Ntoulia: Yes absolutely, and also, it’s been believed since ancient times it can improve your performance when you’re trying to recall something.",
+        "Georgia Mann: And then more recently I think, there’s been quite solid science suggesting that it can aid memory?",
+        "Elissavet Ntoulia: This is from a team at the University of Northumbria, and they put some students in a room to perform an exam and the room was filled with rosemary essential oil. And they found out that their performance was improved up to seven per cent. ",
+        "[music]",
+        "Georgia Mann: Elissavet, there’s that very famous Proust moment where he uses a madeleine, it’s probably the most famous bit of cake eating in literary history. A character eats a madeleine and it transports them very vividly to a moment, and there is in fact some scientific back-up for the connection between smell and memory.",
+        "Elissavet Ntoulia: Yes, actually, I think today scientists are calling it the Proustian memory. ",
+        "[music]",
+        "Memories that are evoked from smell, they are very emotionally charged because apparently, how we process smell in our brain goes through a part of our brain that is called amygdala and hippocampus, they process emotion and memory. There is definitely research, especially being done around dementia and Alzheimer’s to find out how smell loss can affect memory loss. ",
+        "Georgia Mann: So perhaps we could have a bit of a come back from the pomander for those of us who struggle to remember their own child’s middle name, as happened to me yesterday! ",
+        "[laughter]",
+        "Elissavet Ntoulia, thank you so much.",
+        "Elissavet Ntoulia: Thank you.",
+        "Georgia Mann: They should give these out on the tube can I just say. ",
+        "[laughter]",
+      ],
+      "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
+      "contributors": [],
+      "linkedIdentifiers": [
+        "WdJB3CcAAIE-RlQp",
+      ],
+      "publicationDate": 2017-10-11T08:30:00.000Z,
+      "series": [
+        {
+          "contributors": [],
+          "id": "WdJB3CcAAIE-RlQp",
+          "title": "Memory objects",
         },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 2,
-        },
-        "id": "WdUZCCkAACgAoVoq",
-        "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
-      },
-      "32:15": {
-        "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
-        "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -150,
-          "zoom": 2,
-        },
-        "id": "WdUZCCkAACgAoVoq",
-        "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
-      },
-      "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
-      "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-      "dimensions": {
-        "height": 900,
-        "width": 1600,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "WdUZCCkAACgAoVoq",
-      "square": {
-        "alt": "Two pomanders photographed against a white background; one is gold coloured and snail shaped, the other is silver coloured and book shaped.",
-        "copyright": "Photo by Thomas Farnetti. Wellcome Collection",
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": -1244,
-          "y": 0,
-          "zoom": 3.555555582046509,
-        },
-        "id": "WdUZCCkAACgAoVoq",
-        "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection%2Fdd8fdba4-8f8c-4790-b5b0-330ac9d62526_pomander+pair_featured+image_1600x900.jpg?auto=format,compress",
+      ],
+      "standfirst": "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
+      "title": "The Key to Memory: Follow your nose",
     },
-    "publicationDate": "2017-10-11T08:30:00+0000",
-    "seriesTitle": "Memory objects",
-    "title": "The Key to Memory: Follow your nose",
-    "type": "Article",
     "uid": "the-key-to-memory--follow-your-nose",
   },
-  "filter": {
-    "contributorIds": [],
-    "formatId": "W7TfJRAAAJ1D0eLK",
-    "publicationDate": 2017-10-11T08:30:00.000Z,
-  },
-  "id": "WcvPmSsAAG5B5-ox",
-  "query": {
-    "body": [
-      "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
-      "Listen",
-      "Take a look",
-      "",
-      "A pomander is a little bit like a locket, except it's designed to be filled with smells rather than pictures. The pair on display in our Medicine Man gallery date from the 17th century, and the interactive images below let you give them both a spin. The brass-coloured pomander is shaped like a snail, while the silvery one looks like a book. ",
-      "Photography by Ben Gilbert and Thomas Farnetti for Wellcome Collection. Audio produced by Freya Hellier in collaboration with BBC Radio 3. Why Music? The Key to Memory takes places from 13-15 October 2017.",
-      "Full audio transcript",
-      "[they are standing outside the Medicine Man gallery]",
-      "Georgia Mann: You basically want me to smell some shoe polish?",
-      "Elissavet Ntoulia: Yeah sorry.",
-      "[Georgia pops open a tin]",
-      "Georgia Mann: See, I actually really enjoy that, weirdly. If anything transports me to a mildly miserable Sunday, it’s shoe polish.",
-      "[she closes the lid]",
-      "Now what?",
-      "Elissavet Ntoulia: So I have a bit of rosemary.",
-      "Georgia Mann: Nice. ",
-      "[sniffs] ",
-      "Rosemary, which has that wonderful fresh smell that just brings me straight into the kitchen. So thank you for that.",
-      "Elissavet Ntoulia: You’re welcome.",
-      "Georgia Mann: I feel olfactorily refreshed. Let’s pop inside the Medicine Man gallery now because there’s an object in there which is all to do with smell, health and memory that you’re going to show me.",
-      "Elissavet Ntoulia: Yes, exactly.",
-      "Georgia Mann: Thanks Elissavet, let’s go.",
-      "[music, they walk into the gallery]",
-      "So we’re looking at these two tiny little things, which look like lockets, they look like pieces of jewellery. One’s in the shape of a shell, the other one looks like a little mini book, and a sort of filigree metalwork on the front of it. But they aren’t lockets, what are they?",
-      "Elissavet Ntoulia: They’re called pomanders, and the idea was that they will protect you, literally protect you from the plague. So they would contain aromatic spices and you would carry them with you because you wanted these sweet-smelling aromas surrounding you in order to counteract what they said was miasma. Basically, bad, smelly air.",
-      "[music]",
-      "Georgia Mann: How would you have got your pomander to a sort of Yves Saint Laurent like level of aroma, what was in here?",
-      "Elissavet Ntoulia: Anything that has a very very strong smell that comes from nature. So what you smelled before, rosemary, was one that, it was kind of easily available to most people.",
-      "Georgia Mann: I was sniffing that rosemary before and it was taking me back to my mum’s dinners, but there is in fact a bit of science backing up that link between rosemary and being transported memory wise, isn’t there?",
-      "Elissavet Ntoulia: Yes absolutely, and also, it’s been believed since ancient times it can improve your performance when you’re trying to recall something.",
-      "Georgia Mann: And then more recently I think, there’s been quite solid science suggesting that it can aid memory?",
-      "Elissavet Ntoulia: This is from a team at the University of Northumbria, and they put some students in a room to perform an exam and the room was filled with rosemary essential oil. And they found out that their performance was improved up to seven per cent. ",
-      "[music]",
-      "Georgia Mann: Elissavet, there’s that very famous Proust moment where he uses a madeleine, it’s probably the most famous bit of cake eating in literary history. A character eats a madeleine and it transports them very vividly to a moment, and there is in fact some scientific back-up for the connection between smell and memory.",
-      "Elissavet Ntoulia: Yes, actually, I think today scientists are calling it the Proustian memory. ",
-      "[music]",
-      "Memories that are evoked from smell, they are very emotionally charged because apparently, how we process smell in our brain goes through a part of our brain that is called amygdala and hippocampus, they process emotion and memory. There is definitely research, especially being done around dementia and Alzheimer’s to find out how smell loss can affect memory loss. ",
-      "Georgia Mann: So perhaps we could have a bit of a come back from the pomander for those of us who struggle to remember their own child’s middle name, as happened to me yesterday! ",
-      "[laughter]",
-      "Elissavet Ntoulia, thank you so much.",
-      "Elissavet Ntoulia: Thank you.",
-      "Georgia Mann: They should give these out on the tube can I just say. ",
-      "[laughter]",
-    ],
-    "caption": "Elissavet Ntoulia explores what a pair of pomanders can tell us about how and why we remember.",
-    "contributors": [],
-    "linkedIdentifiers": [
-      "WdJB3CcAAIE-RlQp",
-    ],
-    "publicationDate": 2017-10-11T08:30:00.000Z,
-    "series": [
-      {
-        "contributors": [],
-        "id": "WdJB3CcAAIE-RlQp",
-        "title": "Memory objects",
-      },
-    ],
-    "standfirst": "For Why Music? The Key to Memory, a partnership with BBC Radio 3, we’re exploring  what four objects from our collection can tell us about how we remember. Take a look as Elissavet Ntoulia tells Georgia Mann why a pair of pomanders holds a key to memory.",
-    "title": "The Key to Memory: Follow your nose",
-  },
-  "uid": "the-key-to-memory--follow-your-nose",
-}
+]
 `;
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/Y0U4GBEAAA__16h6) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [
-      "{"type":"Person","id":"YvtXgxAAACMA9j5d","label":"Kate Summerscale"}",
-      "{"type":"Person","id":"Yz07IxEAAA__s9BR","label":"Tim Robinson"}",
-    ],
-    "format": "{"type":"ArticleFormat","id":"W8CbPhEAAB8Nq4aG","label":"Book extract"}",
-  },
-  "display": {
-    "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
-    "contributors": [
-      {
-        "contributor": {
-          "id": "YvtXgxAAACMA9j5d",
-          "label": "Kate Summerscale",
-          "type": "Person",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [
+        "{"type":"Person","id":"YvtXgxAAACMA9j5d","label":"Kate Summerscale"}",
+        "{"type":"Person","id":"Yz07IxEAAA__s9BR","label":"Tim Robinson"}",
+      ],
+      "format": "{"type":"ArticleFormat","id":"W8CbPhEAAB8Nq4aG","label":"Book extract"}",
+    },
+    "display": {
+      "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
+      "contributors": [
+        {
+          "contributor": {
+            "id": "YvtXgxAAACMA9j5d",
+            "label": "Kate Summerscale",
+            "type": "Person",
+          },
+          "role": {
+            "id": "WcUWeCgAAFws-nGh",
+            "label": "Author",
+            "type": "EditorialContributorRole",
+          },
+          "type": "Contributor",
         },
-        "role": {
-          "id": "WcUWeCgAAFws-nGh",
-          "label": "Author",
-          "type": "EditorialContributorRole",
+        {
+          "contributor": {
+            "id": "Yz07IxEAAA__s9BR",
+            "label": "Tim Robinson",
+            "type": "Person",
+          },
+          "role": {
+            "id": "XVQa_xMAACMAqbwo",
+            "label": "Illustrator",
+            "type": "EditorialContributorRole",
+          },
+          "type": "Contributor",
         },
-        "type": "Contributor",
+      ],
+      "format": {
+        "id": "W8CbPhEAAB8Nq4aG",
+        "label": "Book extract",
+        "type": "ArticleFormat",
       },
-      {
-        "contributor": {
-          "id": "Yz07IxEAAA__s9BR",
-          "label": "Tim Robinson",
-          "type": "Person",
+      "id": "Y0U4GBEAAA__16h6",
+      "image": {
+        "16:9": {
+          "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+          "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 0.8,
+          },
+          "id": "Y0WZMhEAAImM2WpE",
+          "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
         },
-        "role": {
-          "id": "XVQa_xMAACMAqbwo",
-          "label": "Illustrator",
-          "type": "EditorialContributorRole",
+        "32:15": {
+          "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+          "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 0.8,
+          },
+          "id": "Y0WZMhEAAImM2WpE",
+          "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500",
         },
-        "type": "Contributor",
+        "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+        "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+        "dimensions": {
+          "height": 2250,
+          "width": 4000,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "Y0WZMhEAAImM2WpE",
+        "square": {
+          "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
+          "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": 0,
+            "zoom": 1.4222222222222223,
+          },
+          "id": "Y0WZMhEAAImM2WpE",
+          "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,2250,2250&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=format,compress",
       },
-    ],
-    "format": {
-      "id": "W8CbPhEAAB8Nq4aG",
-      "label": "Book extract",
-      "type": "ArticleFormat",
+      "publicationDate": "2022-10-18T09:00:00+0000",
+      "seriesTitle": "Inside our books",
+      "title": "Tracing the roots of our fears and fixations",
+      "type": "Article",
+      "uid": "tracing-the-roots-of-our-fears-and-fixations",
+    },
+    "filter": {
+      "contributorIds": [
+        "YvtXgxAAACMA9j5d",
+        "Yz07IxEAAA__s9BR",
+      ],
+      "formatId": "W8CbPhEAAB8Nq4aG",
+      "publicationDate": 2022-10-18T09:00:00.000Z,
     },
     "id": "Y0U4GBEAAA__16h6",
-    "image": {
-      "16:9": {
-        "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
-        "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
+    "query": {
+      "body": [
+        "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
+        "We are all driven by our fears and desires, and sometimes we are in thrall to them. Benjamin Rush, a Founding Father of the United States, kicked off the craze for naming such fixations in 1786. Until then, the word ‘phobia’ (which is derived from Phobos, the Greek god of panic and terror) had been applied only to symptoms of physical disease, and the word ‘mania’ (from the Greek for ‘madness’) to social fashions. Rush recast both as psychological phenomena. ",
+        "“I shall define phobia to be a fear of an imaginary evil,” he wrote, “or an undue fear of a real one.” He listed 18 phobias, among them terrors of dirt, ghosts, doctors and rats, and 26 new manias, including ‘gaming-mania’, ‘military-mania’ and ‘liberty-mania’. ",
+        "Rush adopted a lightly comic tone – ‘home phobia’, he said, afflicted gentlemen who felt compelled to stop off at the tavern after work – but over the next century, psychiatrists developed a more complex understanding of these traits. They came to see phobias and manias as lurid traces of our evolutionary and personal histories, manifestations both of submerged animal instincts and of desires that we had repressed. ",
+        "A string of manias was added to Rush’s list in the early part of the 19th century, and a great flurry of phobias and manias at the century’s close. The phobias included irrational fears of public spaces, small spaces, blushing and being buried alive (agoraphobia, claustrophobia, erythrophobia, taphephobia). The manias included compulsions to dance, to wander, to count and to pluck hair (choreomania, dromomania, arithmomania, trichotillomania). ",
+        "And we have continued to discover new anxieties: nomophobia (a fear of being without a mobile phone), bambakomallophobia (a dread of cotton wool), coulrophobia (a horror of clowns), trypophobia (an aversion to clusters of holes). Many have been given more than one name – a fear of flying, for instance, is known as aerophobia, aviophobia, pteromerhanophobia and, more straightforwardly, flying phobia.",
+        "All phobias and manias are cultural creations: the moment at which each was identified – or invented – marked a change in how we thought about ourselves. A few are not psychiatric diagnoses at all, being words coined to name prejudice (homophobia, xenophobia), to mock fads or fashions (Beatlemania, tulipomania) or to make a joke (aibohphobia, hippopotomonstrosesquipediophobia, the supposed fears of palindromes and long words). ",
+        "But most describe real and sometimes tormenting conditions. Phobias and manias reveal our inner landscapes – what we recoil from or lurch towards, what we can’t get out of our heads. Collectively, they are the most common anxiety disorders of our time.",
+        "“Phobia particularises anxiety,” observes the literary scholar David Trotter, “to the point at which it can be felt and known in its particularity, and thus counteracted or got around.” A mania, too, can condense a host of fears and desires. These private obsessions are the madnesses of the sane; perhaps the madnesses that keep us sane by crystallising our frights and fancies, and allowing us to proceed as if everything else makes sense.",
+        "Anxieties, aversions and full-blown phobias",
+        "To be diagnosed as a phobia, according to the American Psychiatric Association’s Diagnostic and Statistical Manual 5 (2013), a fear must be excessive, unreasonable and have lasted for six months or more; and it must have driven the individual to avoid the feared situation or object in a way that interferes with normal functioning. ",
+        "The DSM-5 distinguishes social phobias, which are overwhelming fears of social situations, from specific phobias, which can be divided into five types: animal phobias; natural environment phobias (fears of heights, for instance, or of water); blood, injection and injury phobias; situational phobias (such as entrapment in closed spaces); and other extreme fears, such as a dread of vomiting, choking or noise.",
+        "Though specific phobias can be more responsive to treatment than any other anxious conditions, most people don’t report them, choosing instead to avoid the objects that they fear – it is thought that only one in eight people with such a phobia seeks help. This makes it difficult to measure their prevalence. ",
+        "But a review in The Lancet Psychiatry in 2018, which synthesised 25 surveys carried out between 1984 and 2014, found that 7.2 per cent of us are likely to experience a specific phobia at some point in our lives. A survey carried out by the World Health Organization in 2017, using data from 22 countries, came to very similar conclusions. ",
+        "These studies also indicated that specific phobias are much more common in children than adults, that the rates halve among the elderly, and that women are twice as phobic as men. This means that, on average, one woman in ten experiences a specific phobia, and one man in 20. National surveys suggest that a further 7 per cent of Americans and 12 per cent of Britons have social phobias.",
+        "These figures are for phobic disorders, which interfere with everyday life. Many more of us have milder aversions or dreads that we sometimes refer to as phobias: a strong dislike of public speaking or of visiting the dentist, of the sound of thunder, or the sight of spiders. In the US, more than 70 per cent of people say they have an unreasonable fear. ",
+        "When I began researching this subject, I did not think of myself as having any particular phobias – apart, perhaps, from my teenage dread of blushing and an enduring anxiety about flying – but by the time I’d finished I had talked myself into almost every one. Some terrors are no sooner imagined than felt.",
+        "The causes of these conditions are much disputed. Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs. The American psychologist Granville Stanley Hall, who catalogued 132 phobias in an essay of 1914, observed that some children developed an obsessive fear after having a fright. Shock, he wrote, was “a fertile mother of phobias”.",
+        "Sigmund Freud, who analysed phobic symptoms in two famous studies of 1909, proposed that a phobia was a suppressed fear displaced onto an external object: both an expression of anxiety and a defence against it. “Fleeing from an internal danger is a difficult enterprise,” he explained. “One can save oneself from an external danger by flight.”",
+        "Evolution or conditioning?",
+        "Evolutionary psychologists argue that many phobias are adaptive: our fears of heights and snakes are hardwired in our brains to prevent us from falling from heights or being bitten by snakes; our disgust at rats and slugs protects us from disease. Phobias of this kind may be part of our evolutionary inheritance, “biologically prepared” fears designed to shield us from external threats. ",
+        "A phobic reaction does feel like an instinctive reflex. On detecting a threatening object or situation, our primitive brains release chemicals to help us fight or flee, and our physical responses – a shudder or a flinch, a wave of heat or nausea – seem to take us over.",
+        "Evolution may help to explain why women are disproportionately phobic, especially in the years in which they are able to bear children: their heightened caution protects their offspring as well as themselves. But phobias may also seem more common in women because the social environment is more hostile to them – they have more reasons to be afraid – or because their fears are more often dismissed as irrational. ",
+        "Evolutionary accounts of phobias are based on post hoc reasoning, and they don’t account for all phobias, nor why some individuals are phobic and others are not. In 1919 the American behavioural psychologists James Broadus Watson and Rosalie Rayner devised an experiment to show that a phobia could be induced by conditioning. In the 1960s, Albert Bandura demonstrated that a phobia could also be learnt by direct exposure to the anxieties and irrational fears of someone else, such as a parent. ",
+        "Families pass on fear as much by example as by genes. Even if we are predisposed to certain anxieties, they need to be triggered by experience or education.",
+        "Acts of obsession and rebellion",
+        "If a phobia is a compulsion to avoid something, a mania is usually a compulsion to do something. The great French psychiatrist Jean-Étienne Esquirol invented the concept of monomania, or specific mania, early in the 19th century, while his countryman Pierre Janet wrote tender and attentive case studies of the men and women he treated for such conditions at the turn of the 20th century. ",
+        "Many manias are obsessive behaviours, centred on an object, action or idea – hair-plucking, for example, or hoarding. Their prevalence is hard to assess, partly because modern medicine has subsumed many into categories such as addiction, obsessive-compulsive disorder, body-focused repetitive disorder, impulse-control disorder and borderline personality disorder. ",
+        "Like phobias, they are sometimes ascribed to chemical imbalances in the brain and sometimes to difficult or forbidden feelings. Often they magnify ordinary desires – the wishes to laugh, shout, buy things, steal things, tell a lie, light a fire, have sex, get high, pick at a scab, surrender to misery, be adored.",
+        "Along with the private urges, there are several communal manias, in which people have danced, giggled, trembled or screamed together. In the 1860s, for instance, a bout of demonomania seized the Alpine town of Morzine, and in the 1960s wild laughing broke out by a lake in Tanzania. These shared convulsions can seem like rebellions, in which unacknowledged feelings surge into view, and they can occasionally force us to reconsider what is rational. ",
+        "When we decide that a particular behaviour is manic or phobic, we mark out our cultural as well as our psychological boundaries: we indicate the beliefs on which our social world is constructed. These borders shift over time, and in a moment of collective crisis – a war, a pandemic – they can change fast.",
+        "A phobia or a mania acts like a spell, endowing an object or an action with mysterious meaning and giving it the power to possess and transform us. These conditions may be oppressive, but they also enchant the world around us, making it as scary and vivid as a fairy tale. They exert a physical hold, like magic, and in doing so reveal our own strangeness.",
+      ],
+      "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
+      "contributors": [
+        "Kate Summerscale",
+        "Tim Robinson",
+      ],
+      "linkedIdentifiers": [
+        "W8CbPhEAAB8Nq4aG",
+        "WcUWeCgAAFws-nGh",
+        "YvtXgxAAACMA9j5d",
+        "XVQa_xMAACMAqbwo",
+        "Yz07IxEAAA__s9BR",
+        "W-XBJxEAAKmng1TG",
+      ],
+      "publicationDate": 2022-10-18T09:00:00.000Z,
+      "series": [
+        {
+          "contributors": [],
+          "id": "W-XBJxEAAKmng1TG",
+          "title": "Inside our books",
         },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 0.8,
-        },
-        "id": "Y0WZMhEAAImM2WpE",
-        "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,2250&w=3200&h=1800",
-      },
-      "32:15": {
-        "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
-        "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 0.8,
-        },
-        "id": "Y0WZMhEAAImM2WpE",
-        "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,4000,1875&w=3200&h=1500",
-      },
-      "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
-      "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-      "dimensions": {
-        "height": 2250,
-        "width": 4000,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "Y0WZMhEAAImM2WpE",
-      "square": {
-        "alt": "Digital montage artwork made up of archive illustrations, photographs and graphical shapes. The overall hues of the artwork are reds, yellows and blacks. There are a number of references across the artwork, some cut out, others framed in regular shapes, but all touching on the theme of phobias. There's a large spider, an aeroplane flying upside-down, a large crowd, a man trapped in a small box, a dog with a dashed white sightline coming from its head and an image of the grim reaper standing behind a man. ",
-        "copyright": "Phobias | | | | | Tim Robinson for Wellcome Collection |",
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": 0,
-          "zoom": 1.4222222222222223,
-        },
-        "id": "Y0WZMhEAAImM2WpE",
-        "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=compress,format&rect=0,0,2250,2250&w=3200&h=3200",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection/e40a5234-98be-4bae-a9fb-0d0f0d0de8fd_Phobias-WellcomeCollection-TRart9-29-22.jpg?auto=format,compress",
+      ],
+      "standfirst": "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
+      "title": "Tracing the roots of our fears and fixations",
     },
-    "publicationDate": "2022-10-18T09:00:00+0000",
-    "seriesTitle": "Inside our books",
-    "title": "Tracing the roots of our fears and fixations",
-    "type": "Article",
     "uid": "tracing-the-roots-of-our-fears-and-fixations",
   },
-  "filter": {
-    "contributorIds": [
-      "YvtXgxAAACMA9j5d",
-      "Yz07IxEAAA__s9BR",
-    ],
-    "formatId": "W8CbPhEAAB8Nq4aG",
-    "publicationDate": 2022-10-18T09:00:00.000Z,
-  },
-  "id": "Y0U4GBEAAA__16h6",
-  "query": {
-    "body": [
-      "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
-      "We are all driven by our fears and desires, and sometimes we are in thrall to them. Benjamin Rush, a Founding Father of the United States, kicked off the craze for naming such fixations in 1786. Until then, the word ‘phobia’ (which is derived from Phobos, the Greek god of panic and terror) had been applied only to symptoms of physical disease, and the word ‘mania’ (from the Greek for ‘madness’) to social fashions. Rush recast both as psychological phenomena. ",
-      "“I shall define phobia to be a fear of an imaginary evil,” he wrote, “or an undue fear of a real one.” He listed 18 phobias, among them terrors of dirt, ghosts, doctors and rats, and 26 new manias, including ‘gaming-mania’, ‘military-mania’ and ‘liberty-mania’. ",
-      "Rush adopted a lightly comic tone – ‘home phobia’, he said, afflicted gentlemen who felt compelled to stop off at the tavern after work – but over the next century, psychiatrists developed a more complex understanding of these traits. They came to see phobias and manias as lurid traces of our evolutionary and personal histories, manifestations both of submerged animal instincts and of desires that we had repressed. ",
-      "A string of manias was added to Rush’s list in the early part of the 19th century, and a great flurry of phobias and manias at the century’s close. The phobias included irrational fears of public spaces, small spaces, blushing and being buried alive (agoraphobia, claustrophobia, erythrophobia, taphephobia). The manias included compulsions to dance, to wander, to count and to pluck hair (choreomania, dromomania, arithmomania, trichotillomania). ",
-      "And we have continued to discover new anxieties: nomophobia (a fear of being without a mobile phone), bambakomallophobia (a dread of cotton wool), coulrophobia (a horror of clowns), trypophobia (an aversion to clusters of holes). Many have been given more than one name – a fear of flying, for instance, is known as aerophobia, aviophobia, pteromerhanophobia and, more straightforwardly, flying phobia.",
-      "All phobias and manias are cultural creations: the moment at which each was identified – or invented – marked a change in how we thought about ourselves. A few are not psychiatric diagnoses at all, being words coined to name prejudice (homophobia, xenophobia), to mock fads or fashions (Beatlemania, tulipomania) or to make a joke (aibohphobia, hippopotomonstrosesquipediophobia, the supposed fears of palindromes and long words). ",
-      "But most describe real and sometimes tormenting conditions. Phobias and manias reveal our inner landscapes – what we recoil from or lurch towards, what we can’t get out of our heads. Collectively, they are the most common anxiety disorders of our time.",
-      "“Phobia particularises anxiety,” observes the literary scholar David Trotter, “to the point at which it can be felt and known in its particularity, and thus counteracted or got around.” A mania, too, can condense a host of fears and desires. These private obsessions are the madnesses of the sane; perhaps the madnesses that keep us sane by crystallising our frights and fancies, and allowing us to proceed as if everything else makes sense.",
-      "Anxieties, aversions and full-blown phobias",
-      "To be diagnosed as a phobia, according to the American Psychiatric Association’s Diagnostic and Statistical Manual 5 (2013), a fear must be excessive, unreasonable and have lasted for six months or more; and it must have driven the individual to avoid the feared situation or object in a way that interferes with normal functioning. ",
-      "The DSM-5 distinguishes social phobias, which are overwhelming fears of social situations, from specific phobias, which can be divided into five types: animal phobias; natural environment phobias (fears of heights, for instance, or of water); blood, injection and injury phobias; situational phobias (such as entrapment in closed spaces); and other extreme fears, such as a dread of vomiting, choking or noise.",
-      "Though specific phobias can be more responsive to treatment than any other anxious conditions, most people don’t report them, choosing instead to avoid the objects that they fear – it is thought that only one in eight people with such a phobia seeks help. This makes it difficult to measure their prevalence. ",
-      "But a review in The Lancet Psychiatry in 2018, which synthesised 25 surveys carried out between 1984 and 2014, found that 7.2 per cent of us are likely to experience a specific phobia at some point in our lives. A survey carried out by the World Health Organization in 2017, using data from 22 countries, came to very similar conclusions. ",
-      "These studies also indicated that specific phobias are much more common in children than adults, that the rates halve among the elderly, and that women are twice as phobic as men. This means that, on average, one woman in ten experiences a specific phobia, and one man in 20. National surveys suggest that a further 7 per cent of Americans and 12 per cent of Britons have social phobias.",
-      "These figures are for phobic disorders, which interfere with everyday life. Many more of us have milder aversions or dreads that we sometimes refer to as phobias: a strong dislike of public speaking or of visiting the dentist, of the sound of thunder, or the sight of spiders. In the US, more than 70 per cent of people say they have an unreasonable fear. ",
-      "When I began researching this subject, I did not think of myself as having any particular phobias – apart, perhaps, from my teenage dread of blushing and an enduring anxiety about flying – but by the time I’d finished I had talked myself into almost every one. Some terrors are no sooner imagined than felt.",
-      "The causes of these conditions are much disputed. Phobias of specific objects, words or numbers can seem like ancient superstitions, vestiges of pagan beliefs. The American psychologist Granville Stanley Hall, who catalogued 132 phobias in an essay of 1914, observed that some children developed an obsessive fear after having a fright. Shock, he wrote, was “a fertile mother of phobias”.",
-      "Sigmund Freud, who analysed phobic symptoms in two famous studies of 1909, proposed that a phobia was a suppressed fear displaced onto an external object: both an expression of anxiety and a defence against it. “Fleeing from an internal danger is a difficult enterprise,” he explained. “One can save oneself from an external danger by flight.”",
-      "Evolution or conditioning?",
-      "Evolutionary psychologists argue that many phobias are adaptive: our fears of heights and snakes are hardwired in our brains to prevent us from falling from heights or being bitten by snakes; our disgust at rats and slugs protects us from disease. Phobias of this kind may be part of our evolutionary inheritance, “biologically prepared” fears designed to shield us from external threats. ",
-      "A phobic reaction does feel like an instinctive reflex. On detecting a threatening object or situation, our primitive brains release chemicals to help us fight or flee, and our physical responses – a shudder or a flinch, a wave of heat or nausea – seem to take us over.",
-      "Evolution may help to explain why women are disproportionately phobic, especially in the years in which they are able to bear children: their heightened caution protects their offspring as well as themselves. But phobias may also seem more common in women because the social environment is more hostile to them – they have more reasons to be afraid – or because their fears are more often dismissed as irrational. ",
-      "Evolutionary accounts of phobias are based on post hoc reasoning, and they don’t account for all phobias, nor why some individuals are phobic and others are not. In 1919 the American behavioural psychologists James Broadus Watson and Rosalie Rayner devised an experiment to show that a phobia could be induced by conditioning. In the 1960s, Albert Bandura demonstrated that a phobia could also be learnt by direct exposure to the anxieties and irrational fears of someone else, such as a parent. ",
-      "Families pass on fear as much by example as by genes. Even if we are predisposed to certain anxieties, they need to be triggered by experience or education.",
-      "Acts of obsession and rebellion",
-      "If a phobia is a compulsion to avoid something, a mania is usually a compulsion to do something. The great French psychiatrist Jean-Étienne Esquirol invented the concept of monomania, or specific mania, early in the 19th century, while his countryman Pierre Janet wrote tender and attentive case studies of the men and women he treated for such conditions at the turn of the 20th century. ",
-      "Many manias are obsessive behaviours, centred on an object, action or idea – hair-plucking, for example, or hoarding. Their prevalence is hard to assess, partly because modern medicine has subsumed many into categories such as addiction, obsessive-compulsive disorder, body-focused repetitive disorder, impulse-control disorder and borderline personality disorder. ",
-      "Like phobias, they are sometimes ascribed to chemical imbalances in the brain and sometimes to difficult or forbidden feelings. Often they magnify ordinary desires – the wishes to laugh, shout, buy things, steal things, tell a lie, light a fire, have sex, get high, pick at a scab, surrender to misery, be adored.",
-      "Along with the private urges, there are several communal manias, in which people have danced, giggled, trembled or screamed together. In the 1860s, for instance, a bout of demonomania seized the Alpine town of Morzine, and in the 1960s wild laughing broke out by a lake in Tanzania. These shared convulsions can seem like rebellions, in which unacknowledged feelings surge into view, and they can occasionally force us to reconsider what is rational. ",
-      "When we decide that a particular behaviour is manic or phobic, we mark out our cultural as well as our psychological boundaries: we indicate the beliefs on which our social world is constructed. These borders shift over time, and in a moment of collective crisis – a war, a pandemic – they can change fast.",
-      "A phobia or a mania acts like a spell, endowing an object or an action with mysterious meaning and giving it the power to possess and transform us. These conditions may be oppressive, but they also enchant the world around us, making it as scary and vivid as a fairy tale. They exert a physical hold, like magic, and in doing so reveal our own strangeness.",
-    ],
-    "caption": "Kate Summerscale explores the history of our anxieties and compulsions, and the new phobias and manias that are always emerging.",
-    "contributors": [
-      "Kate Summerscale",
-      "Tim Robinson",
-    ],
-    "linkedIdentifiers": [
-      "W8CbPhEAAB8Nq4aG",
-      "WcUWeCgAAFws-nGh",
-      "YvtXgxAAACMA9j5d",
-      "XVQa_xMAACMAqbwo",
-      "Yz07IxEAAA__s9BR",
-      "W-XBJxEAAKmng1TG",
-    ],
-    "publicationDate": 2022-10-18T09:00:00.000Z,
-    "series": [
-      {
-        "contributors": [],
-        "id": "W-XBJxEAAKmng1TG",
-        "title": "Inside our books",
-      },
-    ],
-    "standfirst": "Our obsessions are contradictory and multiple: deeply intimate, yet forged by the times we live in. In ‘The Book of Phobias and Manias’, Kate Summerscale offers an A–Z compendium of our fixations, and what they say about us and society. In this extract, she explores how the way we describe our anxieties and compulsions has developed, and the new phobias and manias that are always emerging.",
-    "title": "Tracing the roots of our fears and fixations",
-  },
-  "uid": "tracing-the-roots-of-our-fears-and-fixations",
-}
+]
 `;
 
 exports[`article transformer transforms articles from Prismic to the expected format (document: articles/YbjAThEAACEAcPYF) 1`] = `
-{
-  "aggregatableValues": {
-    "contributors": [
-      "{"type":"Person","id":"W3KvwikAACIAEFVE","label":"Elma Brenner"}",
-    ],
-    "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
-  },
-  "display": {
-    "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
-    "contributors": [
-      {
-        "contributor": {
-          "id": "W3KvwikAACIAEFVE",
-          "label": "Elma Brenner",
-          "type": "Person",
+[
+  {
+    "aggregatableValues": {
+      "contributors": [
+        "{"type":"Person","id":"W3KvwikAACIAEFVE","label":"Elma Brenner"}",
+      ],
+      "format": "{"type":"ArticleFormat","id":"W7TfJRAAAJ1D0eLK","label":"Article"}",
+    },
+    "display": {
+      "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
+      "contributors": [
+        {
+          "contributor": {
+            "id": "W3KvwikAACIAEFVE",
+            "label": "Elma Brenner",
+            "type": "Person",
+          },
+          "role": {
+            "id": "WcUWeCgAAFws-nGh",
+            "label": "Author",
+            "type": "EditorialContributorRole",
+          },
+          "type": "Contributor",
         },
-        "role": {
-          "id": "WcUWeCgAAFws-nGh",
-          "label": "Author",
-          "type": "EditorialContributorRole",
-        },
-        "type": "Contributor",
+      ],
+      "format": {
+        "id": "W7TfJRAAAJ1D0eLK",
+        "label": "Article",
+        "type": "ArticleFormat",
       },
-    ],
-    "format": {
-      "id": "W7TfJRAAAJ1D0eLK",
-      "label": "Article",
-      "type": "ArticleFormat",
+      "id": "YbjAThEAACEAcPYF",
+      "image": {
+        "16:9": {
+          "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+          "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -405,
+            "zoom": 0.8,
+          },
+          "id": "YbtigREAACIAfIIl",
+          "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,507,4000,2250&w=3200&h=1800",
+        },
+        "32:15": {
+          "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+          "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -537,
+            "zoom": 0.8,
+          },
+          "id": "YbtigREAACIAfIIl",
+          "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,672,4000,1875&w=3200&h=1500",
+        },
+        "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+        "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+        "dimensions": {
+          "height": 3105,
+          "width": 4000,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "YbtigREAACIAfIIl",
+        "square": {
+          "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
+          "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -460,
+            "y": 0,
+            "zoom": 1.0305958132045085,
+          },
+          "id": "YbtigREAACIAfIIl",
+          "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=447,0,3105,3105&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=format,compress",
+      },
+      "publicationDate": "2022-01-10T10:59:43+0000",
+      "seriesTitle": "Modern encounters with a medieval almanac",
+      "title": "The enigma of the medieval folding almanac",
+      "type": "Article",
+      "uid": "the-enigma-of-the-medieval-folding-almanac",
+    },
+    "filter": {
+      "contributorIds": [
+        "W3KvwikAACIAEFVE",
+      ],
+      "formatId": "W7TfJRAAAJ1D0eLK",
+      "publicationDate": 2022-01-10T10:59:43.000Z,
     },
     "id": "YbjAThEAACEAcPYF",
-    "image": {
-      "16:9": {
-        "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
-        "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-        "dimensions": {
-          "height": 1800,
-          "width": 3200,
+    "query": {
+      "body": [
+        "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
+        "Folding almanacs contain densely packed information connecting health, time and the heavens. They feature astrological calendars, lunar and solar tables, diagrams of the human body, and religious feast days. They were used by medical practitioners and other people with an interest in astrology, prognostication (foretelling future events) and treating illness.",
+        "As well as this relatively recent acquisition, Wellcome Collection holds two other folding almanacs from later in the 15th century, all three of them written on parchment in Latin and produced in England. This almanac stands out because of its exquisitely embroidered silk binding, and the high artistic standard of its illustration, particularly the Zodiac Man, drawn in blue, red, crimson and gold leaf.",
+        "Using a folding almanac ",
+        "The astrological features of folding almanacs are key to understanding how they were used. According to historian Hilary Carey, “The folded almanac provided the texts, tables, and diagrams required by any practitioner or patient who wished to consider the planetary hours and the place of the moon in the signs before undertaking a medical procedure. This level of practice constituted the most elementary form of medical astrology.” ",
+        "Their small size and format made them highly portable, and they could be fastened at the waist with a piece of cord. The act of using one made the user an integral part of the process of discovery, as art historian Jennifer Borland explains: “The unusual manipulation necessitated by the almanacs’ form – the repeated opening and closing of folios, the folding and unfolding of the parchment – directs the user’s experience and stimulates the senses.” ",
+        "At the same time, the practical function of almanacs, and the limited timespan of the calendars within them, suggest that most were ephemeral – readily discarded and replaced – and relatively inexpensive to produce. ",
+        "This particular almanac, however, appears to be a different kind of object. Its fine artwork, high-quality parchment and intricately embroidered binding indicate that this was a valuable and prestigious item; nonetheless, it has signs of wear, suggesting that it did see some practical use. ",
+        "The Zodiac Man ",
+        "The most striking feature of the content is a brightly painted and detailed illustration of the Zodiac Man. This figure has particular zodiac signs placed on specific parts of the body, to indicate times in the year at which it would be dangerous to practise bloodletting or perform other medical treatments on those areas. ",
+        "The Zodiac Man is a common feature of many medical almanacs and codices of the time. It’s often accompanied by the Vein Man, a diagram that shows the points on the body where blood should be let – though a Vein Man is absent from this almanac.",
+        "A beautiful and functional manuscript ",
+        "The most recent known owner of the almanac was the poet Dame Edith Sitwell (1887–1964), who received it as a gift in May 1940, but most of the 600-year history of the almanac and its owners is a mystery. ",
+        "It was probably made in an English specialist workshop in the early 15th century – notable dates in the calendar include the feast of John of Beverley, an eighth-century Yorkshire saint particularly venerated by Henry V after his victory at Agincourt in 1415. ",
+        "The owner could have commissioned a conventional codex, but I think they must have been drawn to the format as well as the content. Maybe it was the must-have object of the day, or perhaps they wanted an attractive manuscript that they could wear on their body, as well as consult on the go for its astrological information. ",
+        "It could have been commissioned by a wealthy patron, male or female, as a special object, in contrast to the more workaday almanacs that were probably produced in multiple copies. The luxurious textile binding could have been made either in the workshop, as part of the process of book production, or by an embroiderer in a domestic setting.   ",
+        "Use could have been made of its medical content within the household, as well as on the road or in encounters between medical practitioners and patients. Whatever the intention, this beautiful and intriguing example suggests that the folding almanac was a more versatile type of object than has previously been supposed, and could be a precious possession as well as a practical tool and source of information. ",
+        "Perhaps it is that unique combination of dynamic content and intricate construction in this enigmatic, jewel-like object that fascinated its original owner and continues to captivate and inspire all who encounter it today.",
+      ],
+      "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
+      "contributors": [
+        "Elma Brenner",
+      ],
+      "linkedIdentifiers": [
+        "W7TfJRAAAJ1D0eLK",
+        "WcUWeCgAAFws-nGh",
+        "W3KvwikAACIAEFVE",
+        "Ybi9HREAACIAcOar",
+        "WsSUrR8AAL3KGFPF",
+      ],
+      "publicationDate": 2022-01-10T10:59:43.000Z,
+      "series": [
+        {
+          "contributors": [
+            "Lalita Kaplish",
+          ],
+          "id": "Ybi9HREAACIAcOar",
+          "title": "Modern encounters with a medieval almanac",
         },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -405,
-          "zoom": 0.8,
+        {
+          "contributors": [],
+          "id": "WsSUrR8AAL3KGFPF",
+          "title": "Inside our collections",
         },
-        "id": "YbtigREAACIAfIIl",
-        "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,507,4000,2250&w=3200&h=1800",
-      },
-      "32:15": {
-        "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
-        "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-        "dimensions": {
-          "height": 1500,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": 0,
-          "y": -537,
-          "zoom": 0.8,
-        },
-        "id": "YbtigREAACIAfIIl",
-        "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=0,672,4000,1875&w=3200&h=1500",
-      },
-      "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
-      "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-      "dimensions": {
-        "height": 3105,
-        "width": 4000,
-      },
-      "edit": {
-        "background": "#fff",
-        "x": 0,
-        "y": 0,
-        "zoom": 1,
-      },
-      "id": "YbtigREAACIAfIIl",
-      "square": {
-        "alt": "Photograph of a fragile folding almanac from the 15th century. The almanac is spotlit on a black background. It has an intricate woven green and pink fabric cover and folded internal pages. It is rectangular in shape, but with a triangular taper on the left short end.",
-        "copyright": "English folding almanac in Latin, 1415-20 | Photo: Benjamin Gilbert | Wellcome Collection | https://wellcomecollection.org/works/a2y8zd6x | CC-BY | |",
-        "dimensions": {
-          "height": 3200,
-          "width": 3200,
-        },
-        "edit": {
-          "background": "#fff",
-          "x": -460,
-          "y": 0,
-          "zoom": 1.0305958132045085,
-        },
-        "id": "YbtigREAACIAfIIl",
-        "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=compress,format&rect=447,0,3105,3105&w=3200&h=3200",
-      },
-      "type": "PrismicImage",
-      "url": "https://images.prismic.io/wellcomecollection/51e7fe3d-6fb6-45b6-979c-9d1e0c20abd0_default09-2.jpg?auto=format,compress",
+      ],
+      "standfirst": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
+      "title": "The enigma of the medieval folding almanac",
     },
-    "publicationDate": "2022-01-10T10:59:43+0000",
-    "seriesTitle": "Modern encounters with a medieval almanac",
-    "title": "The enigma of the medieval folding almanac",
-    "type": "Article",
     "uid": "the-enigma-of-the-medieval-folding-almanac",
   },
-  "filter": {
-    "contributorIds": [
-      "W3KvwikAACIAEFVE",
-    ],
-    "formatId": "W7TfJRAAAJ1D0eLK",
-    "publicationDate": 2022-01-10T10:59:43.000Z,
-  },
-  "id": "YbjAThEAACEAcPYF",
-  "query": {
-    "body": [
-      "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
-      "Folding almanacs contain densely packed information connecting health, time and the heavens. They feature astrological calendars, lunar and solar tables, diagrams of the human body, and religious feast days. They were used by medical practitioners and other people with an interest in astrology, prognostication (foretelling future events) and treating illness.",
-      "As well as this relatively recent acquisition, Wellcome Collection holds two other folding almanacs from later in the 15th century, all three of them written on parchment in Latin and produced in England. This almanac stands out because of its exquisitely embroidered silk binding, and the high artistic standard of its illustration, particularly the Zodiac Man, drawn in blue, red, crimson and gold leaf.",
-      "Using a folding almanac ",
-      "The astrological features of folding almanacs are key to understanding how they were used. According to historian Hilary Carey, “The folded almanac provided the texts, tables, and diagrams required by any practitioner or patient who wished to consider the planetary hours and the place of the moon in the signs before undertaking a medical procedure. This level of practice constituted the most elementary form of medical astrology.” ",
-      "Their small size and format made them highly portable, and they could be fastened at the waist with a piece of cord. The act of using one made the user an integral part of the process of discovery, as art historian Jennifer Borland explains: “The unusual manipulation necessitated by the almanacs’ form – the repeated opening and closing of folios, the folding and unfolding of the parchment – directs the user’s experience and stimulates the senses.” ",
-      "At the same time, the practical function of almanacs, and the limited timespan of the calendars within them, suggest that most were ephemeral – readily discarded and replaced – and relatively inexpensive to produce. ",
-      "This particular almanac, however, appears to be a different kind of object. Its fine artwork, high-quality parchment and intricately embroidered binding indicate that this was a valuable and prestigious item; nonetheless, it has signs of wear, suggesting that it did see some practical use. ",
-      "The Zodiac Man ",
-      "The most striking feature of the content is a brightly painted and detailed illustration of the Zodiac Man. This figure has particular zodiac signs placed on specific parts of the body, to indicate times in the year at which it would be dangerous to practise bloodletting or perform other medical treatments on those areas. ",
-      "The Zodiac Man is a common feature of many medical almanacs and codices of the time. It’s often accompanied by the Vein Man, a diagram that shows the points on the body where blood should be let – though a Vein Man is absent from this almanac.",
-      "A beautiful and functional manuscript ",
-      "The most recent known owner of the almanac was the poet Dame Edith Sitwell (1887–1964), who received it as a gift in May 1940, but most of the 600-year history of the almanac and its owners is a mystery. ",
-      "It was probably made in an English specialist workshop in the early 15th century – notable dates in the calendar include the feast of John of Beverley, an eighth-century Yorkshire saint particularly venerated by Henry V after his victory at Agincourt in 1415. ",
-      "The owner could have commissioned a conventional codex, but I think they must have been drawn to the format as well as the content. Maybe it was the must-have object of the day, or perhaps they wanted an attractive manuscript that they could wear on their body, as well as consult on the go for its astrological information. ",
-      "It could have been commissioned by a wealthy patron, male or female, as a special object, in contrast to the more workaday almanacs that were probably produced in multiple copies. The luxurious textile binding could have been made either in the workshop, as part of the process of book production, or by an embroiderer in a domestic setting.   ",
-      "Use could have been made of its medical content within the household, as well as on the road or in encounters between medical practitioners and patients. Whatever the intention, this beautiful and intriguing example suggests that the folding almanac was a more versatile type of object than has previously been supposed, and could be a precious possession as well as a practical tool and source of information. ",
-      "Perhaps it is that unique combination of dynamic content and intricate construction in this enigmatic, jewel-like object that fascinated its original owner and continues to captivate and inspire all who encounter it today.",
-    ],
-    "caption": "With its combination of rich, portable data and high-end style, this folding almanac could have been the medieval equivalent of the latest iPhone.",
-    "contributors": [
-      "Elma Brenner",
-    ],
-    "linkedIdentifiers": [
-      "W7TfJRAAAJ1D0eLK",
-      "WcUWeCgAAFws-nGh",
-      "W3KvwikAACIAEFVE",
-      "Ybi9HREAACIAcOar",
-      "WsSUrR8AAL3KGFPF",
-    ],
-    "publicationDate": 2022-01-10T10:59:43.000Z,
-    "series": [
-      {
-        "contributors": [
-          "Lalita Kaplish",
-        ],
-        "id": "Ybi9HREAACIAcOar",
-        "title": "Modern encounters with a medieval almanac",
-      },
-      {
-        "contributors": [],
-        "id": "WsSUrR8AAL3KGFPF",
-        "title": "Inside our collections",
-      },
-    ],
-    "standfirst": "In our collections there’s a small, jewel-like folding almanac, which is remarkable not only for its beautiful and intricate construction but also for the detailed information it contains on the medieval connections between astrology and the human body.",
-    "title": "The enigma of the medieval folding almanac",
-  },
-  "uid": "the-enigma-of-the-medieval-folding-almanac",
-}
+]
 `;
