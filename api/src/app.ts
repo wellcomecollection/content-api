@@ -5,6 +5,7 @@ import { Config } from '@weco/content-api/config';
 import { logStream } from '@weco/content-common/services/logging';
 
 import {
+  addressablesController,
   articleController,
   articlesController,
   errorHandler,
@@ -20,6 +21,7 @@ const createApp = (clients: Clients, config: Config) => {
 
   app.use(morgan('short', { stream: logStream('http') }));
 
+  app.get('/all', addressablesController(clients, config));
   app.get('/articles', articlesController(clients, config));
   app.get('/articles/:id', articleController(clients, config));
   app.get('/events', eventsController(clients, config));
