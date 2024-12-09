@@ -21,6 +21,7 @@ import { Clients } from './types';
 type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   indexConfig: IndexConfig;
   graphQuery: string;
+  filters?: string[];
   parentDocumentTypes: Set<string>;
   transformer: (prismicDoc: PrismicDocument) => ElasticsearchDocument;
 };
@@ -59,6 +60,7 @@ export const createETLPipeline =
         getPrismicDocuments(clients.prismic, {
           publicationWindow: toBoundedWindow(event),
           graphQuery: etlParameters.graphQuery,
+          filters: etlParameters.filters,
           after,
         })
       ).pipe(tap(document => seenIds.add(document.id))),

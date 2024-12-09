@@ -19,6 +19,7 @@ const PRISMIC_MAX_PAGE_SIZE = 100;
 type GetPrismicDocumentsParams = {
   publicationWindow: TimeWindow;
   graphQuery: string;
+  filters?: string[];
   after?: string;
 };
 
@@ -34,7 +35,7 @@ const fields = {
 
 export const getPrismicDocuments = async (
   client: prismic.Client,
-  { publicationWindow, graphQuery, after }: GetPrismicDocumentsParams
+  { publicationWindow, graphQuery, after, filters }: GetPrismicDocumentsParams
 ): Promise<PrismicPage<prismic.PrismicDocument>> => {
   const startDate = publicationWindow.start;
   const endDate = publicationWindow.end;
@@ -48,7 +49,9 @@ export const getPrismicDocuments = async (
       endDate
         ? prismic.filter.dateBefore(fields.lastPublicationDate, endDate)
         : [],
-    ].flat(),
+    ]
+      .concat(filters ?? [])
+      .flat(),
     orderings: {
       field: fields.lastPublicationDate,
       direction: 'desc',
