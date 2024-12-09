@@ -6,6 +6,8 @@ import {
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
   PagePrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
@@ -16,6 +18,8 @@ import {
   ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
   ElasticsearchAddressablePage,
+  ElasticsearchAddressableProject,
+  ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
@@ -26,6 +30,8 @@ import { transformAddressableExhibition } from './addressables/exhibition';
 import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
 import { transformAddressablePage } from './addressables/page';
+import { transformAddressableProject } from './addressables/project';
+import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export function transformAddressable(
@@ -50,6 +56,12 @@ export function transformAddressable(
   document: PagePrismicDocument
 ): ElasticsearchAddressablePage[];
 export function transformAddressable(
+  document: ProjectPrismicDocument
+): ElasticsearchAddressableProject[];
+export function transformAddressable(
+  document: SeasonPrismicDocument
+): ElasticsearchAddressableSeason[];
+export function transformAddressable(
   document: VisualStoryPrismicDocument
 ): ElasticsearchAddressableVisualStory[];
 export function transformAddressable(
@@ -61,6 +73,8 @@ export function transformAddressable(
     | ExhibitionHighlightTourPrismicDocument
     | ExhibitionTextPrismicDocument
     | PagePrismicDocument
+    | ProjectPrismicDocument
+    | SeasonPrismicDocument
     | VisualStoryPrismicDocument
 ) {
   const { type } = document;
@@ -95,13 +109,13 @@ export function transformAddressable(
       transformedDocument = transformAddressablePage(document);
       break;
 
-    // case 'projects':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'projects':
+      transformedDocument = transformAddressableProject(document);
+      break;
 
-    // case 'seasons':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'seasons':
+      transformedDocument = transformAddressableSeason(document);
+      break;
 
     case 'visual-stories':
       transformedDocument = transformAddressableVisualStory(document);

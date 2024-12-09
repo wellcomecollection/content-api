@@ -3,7 +3,7 @@
   "uid": "the-key-to-memory--follow-your-nose",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z02CrhAAACEAGdeE&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WcvPmSsAAG5B5-ox%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2017-10-11T08:30:00+0000",
   "last_publication_date": "2024-10-23T14:36:08+0000",
@@ -605,6 +605,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "3f678da3-9acf-4665-aeb8-363839976378",
           "isBroken": false
         }
       }
