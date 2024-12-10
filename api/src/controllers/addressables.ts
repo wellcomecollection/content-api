@@ -14,7 +14,6 @@ import { paginationElasticBody, PaginationQueryParameters } from './pagination';
 
 type QueryParams = {
   query?: string;
-  'contributors.contributor'?: string;
 } & PaginationQueryParameters;
 
 type AddressablesHandler = RequestHandler<
