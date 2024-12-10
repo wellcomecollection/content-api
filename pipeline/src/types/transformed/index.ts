@@ -111,11 +111,21 @@ export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
   { format?: string; times?: { start: Date; end: Date } }
 >;
 
+export type ElasticsearchAddressableProject =
+  ElasticsearchAddressable<'Project'>;
+
+export type ElasticsearchAddressableSeason = ElasticsearchAddressable<'Season'>;
+
 export type ElasticsearchAddressableExhibition =
   ElasticsearchAddressable<'Exhibition'>;
 
+export type ElasticsearchAddressableExhibitionHighlightTour =
+  ElasticsearchAddressable<'Exhibition highlight tour'>;
+
 export type ElasticsearchAddressableExhibitionText =
   ElasticsearchAddressable<'Exhibition text'>;
+
+export type ElasticsearchAddressablePage = ElasticsearchAddressable<'Page'>;
 
 export type ElasticsearchAddressableVisualStory =
   ElasticsearchAddressable<'Visual story'>;

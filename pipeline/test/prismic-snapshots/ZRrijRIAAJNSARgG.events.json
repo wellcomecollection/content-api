@@ -3,7 +3,7 @@
   "uid": "standards--my-right-to-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-19T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:49:51+0000",
@@ -37,6 +37,7 @@
         ]
       },
       "link_type": "Document",
+      "key": "f8d9db9d-c5b3-434a-b2fc-7979174cdbc6",
       "isBroken": false
     },
     "locations": [
@@ -59,6 +60,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "7c4fbed4-221e-440c-a213-48ae43509299",
           "isBroken": false
         }
       }
@@ -93,6 +95,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "34f6d395-a805-412b-a90f-8903f038ff13",
           "isBroken": false
         }
       },
@@ -115,6 +118,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "3709a028-e438-41d7-9d1a-08572c42e324",
           "isBroken": false
         }
       }
@@ -139,6 +143,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "34d172fc-a796-4793-b3c6-7f1b0d26bc33",
           "isBroken": false
         }
       },
@@ -176,6 +181,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "52f319d9-8178-46ac-9700-2834e75d3947",
           "isBroken": false
         },
         "contributor": {
@@ -190,6 +196,7 @@
             "name": "Amaarah Roze"
           },
           "link_type": "Document",
+          "key": "adf9b930-4d57-4ace-87ba-5730f904fbd0",
           "isBroken": false
         }
       },
@@ -212,6 +219,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "e9240943-86f2-4aec-b03e-6b24903abd3e",
           "isBroken": false
         },
         "contributor": {
@@ -226,6 +234,7 @@
             "name": "Chiquita Delisser"
           },
           "link_type": "Document",
+          "key": "c84f3242-6b84-4e9b-9823-3c575d5a4623",
           "isBroken": false
         }
       }

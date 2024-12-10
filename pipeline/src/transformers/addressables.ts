@@ -2,8 +2,12 @@ import {
   ArticlePrismicDocument,
   BookPrismicDocument,
   EventPrismicDocument,
+  ExhibitionHighlightTourPrismicDocument,
   ExhibitionPrismicDocument,
   ExhibitionTextPrismicDocument,
+  PagePrismicDocument,
+  ProjectPrismicDocument,
+  SeasonPrismicDocument,
   VisualStoryPrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic';
 import {
@@ -11,7 +15,11 @@ import {
   ElasticsearchAddressableBook,
   ElasticsearchAddressableEvent,
   ElasticsearchAddressableExhibition,
+  ElasticsearchAddressableExhibitionHighlightTour,
   ElasticsearchAddressableExhibitionText,
+  ElasticsearchAddressablePage,
+  ElasticsearchAddressableProject,
+  ElasticsearchAddressableSeason,
   ElasticsearchAddressableVisualStory,
 } from '@weco/content-pipeline/src/types/transformed';
 
@@ -19,7 +27,11 @@ import { transformAddressableArticle } from './addressables/article';
 import { transformAddressableBook } from './addressables/book';
 import { transformAddressableEvent } from './addressables/event';
 import { transformAddressableExhibition } from './addressables/exhibition';
+import { transformAddressableExhibitionHighlightTour } from './addressables/exhibitionHighlightTour';
 import { transformAddressableExhibitionText } from './addressables/exhibitionText';
+import { transformAddressablePage } from './addressables/page';
+import { transformAddressableProject } from './addressables/project';
+import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export const transformAddressable = (
@@ -28,14 +40,22 @@ export const transformAddressable = (
     | BookPrismicDocument
     | EventPrismicDocument
     | ExhibitionPrismicDocument
+    | ExhibitionHighlightTourPrismicDocument
     | ExhibitionTextPrismicDocument
+    | PagePrismicDocument
     | VisualStoryPrismicDocument
+    | ProjectPrismicDocument
+    | SeasonPrismicDocument
 ):
   | ElasticsearchAddressableArticle
   | ElasticsearchAddressableBook
   | ElasticsearchAddressableEvent
+  | ElasticsearchAddressableProject
+  | ElasticsearchAddressableSeason
   | ElasticsearchAddressableExhibition
+  | ElasticsearchAddressableExhibitionHighlightTour[]
   | ElasticsearchAddressableExhibitionText
+  | ElasticsearchAddressablePage
   | ElasticsearchAddressableVisualStory => {
   const { type } = document;
 
@@ -59,21 +79,22 @@ export const transformAddressable = (
       transformedDocument = transformAddressableExhibitionText(document);
       break;
 
-    // case 'exhibitions-highlight-tours':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'exhibition-highlight-tours':
+      transformedDocument =
+        transformAddressableExhibitionHighlightTour(document);
+      break;
 
-    // case 'pages':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'pages':
+      transformedDocument = transformAddressablePage(document);
+      break;
 
-    // case 'projects':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'projects':
+      transformedDocument = transformAddressableProject(document);
+      break;
 
-    // case 'seasons':
-    //   transformedDocument = transformAddressableBook(document);
-    //   break;
+    case 'seasons':
+      transformedDocument = transformAddressableSeason(document);
+      break;
 
     case 'visual-stories':
       transformedDocument = transformAddressableVisualStory(document);

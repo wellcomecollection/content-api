@@ -15,8 +15,12 @@ export { ContentType, PrismicFormat, ArticleFormatId } from './formats';
 export { PrismicImage } from './images';
 export { WithSeries } from './series';
 export { VisualStoryPrismicDocument } from './visualStory';
+export { ProjectPrismicDocument } from './projects';
+export { SeasonPrismicDocument } from './seasons';
 export { ExhibitionTextPrismicDocument } from './exhibitionTexts';
+export { ExhibitionHighlightTourPrismicDocument } from './exhibitionHighlightTours';
 export { ExhibitionPrismicDocument } from './exhibitions';
+export { PagePrismicDocument } from './pages';
 
 /**
  * This is a convenience type for what the generic DataInterface type extend in @prismicio/client

@@ -3,7 +3,7 @@
   "uid": "hard-graft-exhibition-text",
   "url": null,
   "type": "exhibition-texts",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
   "tags": ["hard-graft"],
   "first_publication_date": "2024-09-12T13:07:08+0000",
   "last_publication_date": "2024-10-01T11:49:26+0000",
@@ -59,6 +59,7 @@
         ]
       },
       "link_type": "Document",
+      "key": "1b23d2f5-dc47-4f2d-823d-cb340283c8f3",
       "isBroken": false
     },
     "intro_text": [],

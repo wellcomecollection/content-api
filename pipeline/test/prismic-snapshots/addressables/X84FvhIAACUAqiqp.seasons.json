@@ -1,0 +1,60 @@
+{
+  "id": "X84FvhIAACUAqiqp",
+  "uid": "what-does-it-mean-to-be-human--now-",
+  "url": null,
+  "type": "seasons",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22X84FvhIAACUAqiqp%22%29+%5D%5D",
+  "tags": ["delist"],
+  "first_publication_date": "2020-12-07T10:37:12+0000",
+  "last_publication_date": "2024-10-22T15:27:05+0000",
+  "slugs": ["what-does-it-mean-to-be-human-now"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "What does it mean to be human, now?",
+        "spans": []
+      }
+    ],
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
+              "spans": []
+            }
+          ]
+        },
+        "id": "standfirst$53064ce6-03a9-44ca-a435-2c020922ff86",
+        "slice_type": "standfirst",
+        "slice_label": null
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "How we can care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices both into the building and across our digital platforms, based on our collecting and commissioning activities during 2020.",
+              "spans": []
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$31f5974c-dd3a-4946-88ee-fc50d5a2b915",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}

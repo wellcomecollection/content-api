@@ -3,7 +3,7 @@
   "uid": "lights-up-on-the-cult-of-beauty-11",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:39+0000",
@@ -42,6 +42,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "0b0859d8-51ce-490e-b822-18ebd584c2b9",
           "isBroken": false
         }
       }
@@ -97,6 +98,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "1d814efe-68b1-475d-9383-274350b7eeec",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -127,6 +129,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "7afd2fe0-b951-4d91-aedf-58e96636078d",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -157,6 +160,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "f0bedad9-01f8-4f6d-b79b-7b55fcc8fd8b",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -187,6 +191,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "fa454810-60f9-4d2e-8b04-710f768063d1",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -217,6 +222,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "07a4664b-99b7-4a5e-9dc6-81e5a99c57ec",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -247,6 +253,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "1c7b4127-f2dc-491b-a081-42ea5ed1dedc",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -277,6 +284,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "9c906021-faf3-4a7d-a2b0-bd6eed8a81f7",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -307,6 +315,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "b0ca7ba0-cbb5-4f73-8bec-a148987c8b29",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -337,6 +346,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "7cc191c7-7b16-4c49-812b-ab82928f5258",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -367,6 +377,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "474cf8bc-d94a-4172-920d-68ff576831f0",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -397,6 +408,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "ee79e91e-9fac-48e2-b01b-2070dcd57562",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -427,6 +439,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "e45d4343-5203-4e03-94b0-6b1db3df92ee",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -457,6 +470,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "d5d05023-8199-4b35-b7bc-f5ba466d55f6",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -487,6 +501,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "1987b4eb-7456-4bdc-995c-f4d58c23af58",
           "isBroken": false
         },
         "isNotLinked": "yes"

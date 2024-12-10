@@ -3,7 +3,7 @@
   "uid": "tracing-the-roots-of-our-fears-and-fixations",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z0dFxBAAAMUeEPYO&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-18T09:00:00+0000",
   "last_publication_date": "2024-10-23T14:38:42+0000",
@@ -37,6 +37,7 @@
         ]
       },
       "link_type": "Document",
+      "key": "41bbdd6a-c936-4bcd-942e-913def6f8e03",
       "isBroken": false
     },
     "body": [
@@ -623,6 +624,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "76b78ae2-2f12-4691-a3d7-63dc28dc82c9",
           "isBroken": false
         },
         "contributor": {
@@ -637,6 +639,7 @@
             "name": "Kate Summerscale"
           },
           "link_type": "Document",
+          "key": "1ffb40c0-8460-4239-a542-2e6819eb27c2",
           "isBroken": false
         }
       },
@@ -659,6 +662,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "fc54e204-17e3-4a9b-9485-aec8d7e4b793",
           "isBroken": false
         },
         "contributor": {
@@ -673,6 +677,7 @@
             "name": "Tim Robinson"
           },
           "link_type": "Document",
+          "key": "c3781e69-3b03-42b8-b559-f6b1eec4eb21",
           "isBroken": false
         }
       }
@@ -788,6 +793,7 @@
             ]
           },
           "link_type": "Document",
+          "key": "d4ef1c59-e47b-450c-89fe-c7e5a378c240",
           "isBroken": false
         }
       }
