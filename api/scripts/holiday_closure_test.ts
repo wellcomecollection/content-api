@@ -1,16 +1,24 @@
-// Before the end-of-year closure, we test that the date picker dropdown in the Request item dialog is going to display the correct options
-// to ensure that users can only requests items when they can be available, on a day the library is open
-// Once the Modified opening times have been added to Prismic and published,
-// set dateNow in utils.ts as the date to be tested and run this script with
-// yarn check_holiday_closures
+/* 
+Before the end-of-year closure, we test that the date picker dropdown in the Request item dialog is going to display the correct options
+to ensure that users can only requests items when they can be available, on a day the library is open
+Once the Modified opening times have been added to Prismic and published,
+set dateNow as the date to be tested and run this script with
+yarn check_holiday_closures
+*/
 
 import { DateTime } from 'luxon';
-import { getElasticClient } from '@weco/content-common/services/elasticsearch';
-import { ElasticsearchVenue, Venue } from '@weco/content-common/types/venue';
-import { getNextOpeningDates } from '@weco/content-api/src/controllers/utils';
-import { NextOpeningDate } from '@weco/content-common/types/venue';
 
-// set this to the date to be tested
+import { getNextOpeningDates } from '@weco/content-api/src/controllers/utils';
+import { getElasticClient } from '@weco/content-common/services/elasticsearch';
+import {
+  ElasticsearchVenue,
+  NextOpeningDate,
+  Venue,
+} from '@weco/content-common/types/venue';
+
+// set this to the date to be tested, here and in utils.ts
+// eg. if you want to see what the dates on the date picker will be on December 14, 2024 at 8:30am
+// const dateNow = new Date("2024-12-14T08:30:00.000Z");
 const dateNow = new Date();
 
 const formatDate = (openingDay: NextOpeningDate) =>
@@ -25,7 +33,7 @@ const compareDates = (library: NextOpeningDate, deepstore: NextOpeningDate) => {
     deepstore.open &&
     DateTime.fromJSDate(new Date(deepstore.open)).startOf('day');
   if (libraryDate === undefined || deepstoreDate === undefined) {
-    throw 'One of these dates is undefined!';
+    throw new Error('One of these dates is undefined!');
   } else {
     return libraryDate > deepstoreDate;
   }
