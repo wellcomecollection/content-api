@@ -11,6 +11,9 @@ const articlesUnpublisher = createUnpublisher(config.indices.articlesIndex);
 const eventDocumentsUnpublisher = createUnpublisher(
   config.indices.eventdocumentsIndex
 );
+const addressablesUnplublisher = createUnpublisher(
+  config.indices.addressablesIndex
+);
 
 type Clients = {
   elastic: ElasticClient;
@@ -25,4 +28,5 @@ export const createHandler =
 
     await articlesUnpublisher(clients, unpublishedDocuments);
     await eventDocumentsUnpublisher(clients, unpublishedDocuments);
+    await addressablesUnplublisher(clients, unpublishedDocuments);
   };

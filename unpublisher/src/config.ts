@@ -9,6 +9,7 @@ const config = {
   indices: {
     articlesIndex: 'articles',
     eventdocumentsIndex: 'events',
+    addressablesIndex: 'addressables',
   },
   pipelineDate: environment.PIPELINE_DATE,
 };
