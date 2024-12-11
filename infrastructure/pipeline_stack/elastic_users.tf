@@ -1,8 +1,8 @@
 locals {
   indices = {
-    articles = "articles"
-    events   = "events"
-    venues   = "venues"
+    articles     = "articles"
+    events       = "events"
+    venues       = "venues"
     addressables = "addressables"
 
   }
