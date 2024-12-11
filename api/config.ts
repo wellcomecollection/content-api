@@ -13,6 +13,7 @@ const environment = environmentSchema.parse(process.env);
 // so be careful not to expose any secrets here.
 const config = {
   pipelineDate: '2024-12-10',
+  addressablesIndex: 'addressables',
   articlesIndex: 'articles',
   eventsIndex: 'events',
   venuesIndex: 'venues',
