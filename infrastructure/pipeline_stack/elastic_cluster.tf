@@ -12,7 +12,7 @@ resource "ec_deployment" "content_cluster" {
 
   version                = data.ec_stack.latest_patch.version
   region                 = local.elastic_cloud_region
-  deployment_template_id = "aws-io-optimized-v3"
+  deployment_template_id = var.deployment_template_id
 
   elasticsearch {
     autoscale = "false"
