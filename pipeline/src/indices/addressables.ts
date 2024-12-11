@@ -19,17 +19,19 @@ export const mappings = {
       properties: {
         type: {
           type: 'text',
-          shingles: {
-            type: 'text',
-            analyzer: 'english_shingle_analyzer',
-          },
-          cased: {
-            type: 'text',
-            analyzer: 'english_cased_analyzer',
-          },
-          keyword: {
-            type: 'keyword',
-            normalizer: 'keyword_lowercase',
+          fields: {
+            shingles: {
+              type: 'text',
+              analyzer: 'english_shingle_analyzer',
+            },
+            cased: {
+              type: 'text',
+              analyzer: 'english_cased_analyzer',
+            },
+            keyword: {
+              type: 'keyword',
+              normalizer: 'keyword_lowercase',
+            },
           },
         },
         title: {

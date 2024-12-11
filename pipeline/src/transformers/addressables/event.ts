@@ -12,7 +12,7 @@ import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/
 export const transformAddressableEvent = (
   document: EventPrismicDocument
 ): ElasticsearchAddressableEvent[] => {
-  const { data, id, uid: documentUid } = document;
+  const { data, id, uid: documentUid, type } = document;
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : undefined;
@@ -54,7 +54,7 @@ export const transformAddressableEvent = (
 
   return [
     {
-      id,
+      id: `${id}-${type}`,
       uid,
       display: {
         type: 'Event',
