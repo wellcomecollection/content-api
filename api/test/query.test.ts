@@ -1,9 +1,11 @@
 import { Client as ElasticClient } from '@elastic/elasticsearch';
 import { SearchRequest } from '@elastic/elasticsearch/lib/api/types';
 import supertest from 'supertest';
-import { URL, URLSearchParams } from 'url';
+import { URLSearchParams } from 'url';
 
 import createApp from '@weco/content-api/src/app';
+
+import { mockConfig } from './fixtures/api';
 
 const elasticsearchRequestForURL = async (
   url: string
@@ -11,13 +13,7 @@ const elasticsearchRequestForURL = async (
   const searchSpy = jest.fn();
   const app = createApp(
     { elastic: { search: searchSpy } as unknown as ElasticClient },
-    {
-      pipelineDate: '2222-22-22',
-      articlesIndex: 'test-articles',
-      eventsIndex: 'test-events',
-      venuesIndex: 'test-venues',
-      publicRootUrl: new URL('http://test.test/test'),
-    }
+    mockConfig
   );
   const api = supertest.agent(app);
   await api.get(url);
