@@ -10,7 +10,7 @@ import { ElasticsearchAddressableExhibitionText } from '@weco/content-pipeline/s
 export const transformAddressableExhibitionText = (
   document: ExhibitionTextPrismicDocument
 ): ElasticsearchAddressableExhibitionText[] => {
-  const { data, id, uid: documentUid } = document;
+  const { data, id, uid: documentUid, type } = document;
   const relatedExhibition = isFilledLinkToDocumentWithData(
     data.related_exhibition
   )
@@ -49,7 +49,7 @@ export const transformAddressableExhibitionText = (
 
   return [
     {
-      id,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Exhibition text',

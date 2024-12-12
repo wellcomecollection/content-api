@@ -10,7 +10,7 @@ import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/t
 export const transformAddressableBook = (
   document: BookPrismicDocument
 ): ElasticsearchAddressableBook[] => {
-  const { data, id, uid } = document;
+  const { data, id, uid, type } = document;
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
   const title = asTitle(data.title);
@@ -33,7 +33,7 @@ export const transformAddressableBook = (
 
   return [
     {
-      id,
+      id: `${id}/${type}`,
       uid: uid || undefined,
       display: {
         type: 'Book',

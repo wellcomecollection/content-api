@@ -10,7 +10,7 @@ import { ElasticsearchAddressableExhibitionHighlightTour } from '@weco/content-p
 export const transformAddressableExhibitionHighlightTour = (
   document: ExhibitionHighlightTourPrismicDocument
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
-  const { data, id, uid: documentUid } = document;
+  const { data, id, uid: documentUid, type } = document;
   const relatedExhibition = isFilledLinkToDocumentWithData(
     data.related_exhibition
   )
@@ -58,7 +58,6 @@ export const transformAddressableExhibitionHighlightTour = (
   const uid = documentUid || undefined;
 
   const shared = {
-    id,
     uid,
     display: {
       type: 'Exhibition highlight tour' as const,
@@ -74,12 +73,14 @@ export const transformAddressableExhibitionHighlightTour = (
 
   const audio = {
     ...shared,
+    id: `${id}/${type}/audio`,
     display: { ...shared.display, title: audioTitle },
     query: { ...shared.query, title: audioTitle, body: audioBody },
   };
 
   const bsl = {
     ...shared,
+    id: `${id}/${type}/bsl`,
     display: { ...shared.display, title: bslTitle },
     query: { ...shared.query, title: bslTitle, body: bslBody },
   };

@@ -9,7 +9,7 @@ import { ElasticsearchAddressablePage } from '@weco/content-pipeline/src/types/t
 export const transformAddressablePage = (
   document: PagePrismicDocument
 ): ElasticsearchAddressablePage[] => {
-  const { data, id, uid: documentUid, tags } = document;
+  const { data, id, uid: documentUid, tags, type } = document;
 
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
@@ -25,7 +25,7 @@ export const transformAddressablePage = (
 
   return [
     {
-      id,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Page',
