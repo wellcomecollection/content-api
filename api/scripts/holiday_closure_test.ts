@@ -1,4 +1,4 @@
-/* 
+/*
 Before the end-of-year closure, we test that the date picker dropdown in the Request item dialog is going to display the correct options
 to ensure that users can only requests items when they can be available, on a day the library is open
 Once the Modified opening times have been added to Prismic and published,
@@ -69,7 +69,7 @@ const applyItemsApiDeepstoreLogic = (
 const run = async () => {
   const elasticClient = await getElasticClient({
     serviceName: 'api',
-    pipelineDate: '2023-03-24',
+    pipelineDate: '2024-12-10',
     hostEndpointAccess: 'public',
   });
 
