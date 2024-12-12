@@ -25,7 +25,7 @@ export const transformAddressablePage = (
 
   return [
     {
-      id: `${id}-${type}`,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Page',

@@ -45,7 +45,7 @@ export const transformAddressableArticle = (
 
   return [
     {
-      id: `${id}-${type}`,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Article',

@@ -36,7 +36,7 @@ export const transformAddressableExhibition = (
 
   return [
     {
-      id: `${id}-${type}`,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Exhibition',

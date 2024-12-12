@@ -73,14 +73,14 @@ export const transformAddressableExhibitionHighlightTour = (
 
   const audio = {
     ...shared,
-    id: `${id}-${type}-audio`,
+    id: `${id}/${type}/audio`,
     display: { ...shared.display, title: audioTitle },
     query: { ...shared.query, title: audioTitle, body: audioBody },
   };
 
   const bsl = {
     ...shared,
-    id: `${id}-${type}-bsl`,
+    id: `${id}/${type}/bsl`,
     display: { ...shared.display, title: bslTitle },
     query: { ...shared.query, title: bslTitle, body: bslBody },
   };

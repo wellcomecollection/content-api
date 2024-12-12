@@ -31,7 +31,7 @@ export const transformAddressableSeason = (
 
   return [
     {
-      id: `${id}-${type}`,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Season',

@@ -41,7 +41,7 @@ export const transformAddressableProject = (
 
   return [
     {
-      id: `${id}-${type}`,
+      id: `${id}/${type}`,
       uid,
       display: {
         type: 'Project',
