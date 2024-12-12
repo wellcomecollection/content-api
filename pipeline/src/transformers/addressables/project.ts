@@ -9,8 +9,8 @@ import { ElasticsearchAddressableProject } from '@weco/content-pipeline/src/type
 
 export const transformAddressableProject = (
   document: ProjectPrismicDocument
-): ElasticsearchAddressableProject => {
-  const { data, id, uid: documentUid } = document;
+): ElasticsearchAddressableProject[] => {
+  const { data, id, uid: documentUid, type } = document;
 
   const title = asTitle(data.title);
   const uid = documentUid || undefined;
@@ -39,23 +39,25 @@ export const transformAddressableProject = (
     })
     .flat();
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Project',
-      id,
+  return [
+    {
+      id: `${id}/${type}`,
       uid,
-      title,
-      format,
-      description: displayDescription,
+      display: {
+        type: 'Project',
+        id,
+        uid,
+        title,
+        format,
+        description: displayDescription,
+      },
+      query: {
+        type: 'Project',
+        title,
+        description: queryDescription,
+        contributors,
+        body: queryBody,
+      },
     },
-    query: {
-      type: 'Project',
-      title,
-      description: queryDescription,
-      contributors,
-      body: queryBody,
-    },
-  };
+  ];
 };

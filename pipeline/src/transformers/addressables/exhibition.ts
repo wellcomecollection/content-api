@@ -9,8 +9,8 @@ import { ElasticsearchAddressableExhibition } from '@weco/content-pipeline/src/t
 
 export const transformAddressableExhibition = (
   document: ExhibitionPrismicDocument
-): ElasticsearchAddressableExhibition => {
-  const { data, id, uid: documentUid } = document;
+): ElasticsearchAddressableExhibition[] => {
+  const { data, id, uid: documentUid, type } = document;
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : 'Exhibition';
@@ -34,23 +34,25 @@ export const transformAddressableExhibition = (
     .filter(isNotUndefined)
     .join(', ');
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Exhibition',
-      id,
+  return [
+    {
+      id: `${id}/${type}`,
       uid,
-      title,
-      description,
-      format,
-      dates,
+      display: {
+        type: 'Exhibition',
+        id,
+        uid,
+        title,
+        description,
+        format,
+        dates,
+      },
+      query: {
+        type: 'Exhibition',
+        title,
+        contributors,
+        description: queryDescription,
+      },
     },
-    query: {
-      type: 'Exhibition',
-      title,
-      contributors,
-      description: queryDescription,
-    },
-  };
+  ];
 };

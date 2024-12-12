@@ -9,8 +9,8 @@ import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/type
 
 export const transformAddressableArticle = (
   document: ArticlePrismicDocument
-): ElasticsearchAddressableArticle => {
-  const { data, id, uid: documentUid } = document;
+): ElasticsearchAddressableArticle[] => {
+  const { data, id, uid: documentUid, type } = document;
 
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
@@ -43,24 +43,26 @@ export const transformAddressableArticle = (
   const queryStandfirst = data.body?.find(b => b.slice_type === 'standfirst')
     ?.primary.text[0].text;
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Article',
-      id,
+  return [
+    {
+      id: `${id}/${type}`,
       uid,
-      title,
-      description,
+      display: {
+        type: 'Article',
+        id,
+        uid,
+        title,
+        description,
+      },
+      query: {
+        type: 'Article',
+        title,
+        description: [description, queryStandfirst, format].filter(
+          isNotUndefined
+        ),
+        contributors,
+        body: queryBody,
+      },
     },
-    query: {
-      type: 'Article',
-      title,
-      description: [description, queryStandfirst, format].filter(
-        isNotUndefined
-      ),
-      contributors,
-      body: queryBody,
-    },
-  };
+  ];
 };

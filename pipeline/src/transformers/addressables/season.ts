@@ -8,8 +8,8 @@ import { ElasticsearchAddressableSeason } from '@weco/content-pipeline/src/types
 
 export const transformAddressableSeason = (
   document: SeasonPrismicDocument
-): ElasticsearchAddressableSeason => {
-  const { data, id, uid: documentUid } = document;
+): ElasticsearchAddressableSeason[] => {
+  const { data, id, uid: documentUid, type } = document;
 
   const title = asTitle(data.title);
   const uid = documentUid || undefined;
@@ -29,21 +29,23 @@ export const transformAddressableSeason = (
     })
     .flat();
 
-  return {
-    id,
-    uid,
-    display: {
-      type: 'Season',
-      id,
+  return [
+    {
+      id: `${id}/${type}`,
       uid,
-      title,
-      description: displayDescription,
+      display: {
+        type: 'Season',
+        id,
+        uid,
+        title,
+        description: displayDescription,
+      },
+      query: {
+        type: 'Season',
+        title,
+        description: queryDescription,
+        body: queryBody,
+      },
     },
-    query: {
-      type: 'Season',
-      title,
-      description: queryDescription,
-      body: queryBody,
-    },
-  };
+  ];
 };
