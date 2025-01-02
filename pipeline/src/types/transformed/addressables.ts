@@ -31,7 +31,7 @@ export type ElasticsearchAddressable<
   U extends Record<string, unknown> = Record<string, unknown>,
 > = {
   id: string;
-  uid?: string;
+  uid: string;
   display: AddressableBaseDisplay<T> & U;
   query: AddressableQuery<T>;
 };
