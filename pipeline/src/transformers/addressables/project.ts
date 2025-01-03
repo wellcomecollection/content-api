@@ -10,10 +10,9 @@ import { ElasticsearchAddressableProject } from '@weco/content-pipeline/src/type
 export const transformAddressableProject = (
   document: ProjectPrismicDocument
 ): ElasticsearchAddressableProject[] => {
-  const { data, id, uid: documentUid, type } = document;
+  const { data, id, uid, type } = document;
 
   const title = asTitle(data.title);
-  const uid = documentUid || undefined;
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : undefined;

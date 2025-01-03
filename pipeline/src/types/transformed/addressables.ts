@@ -13,7 +13,7 @@ type AddressableType =
 type AddressableBaseDisplay<T extends AddressableType> = {
   type: T;
   id: string;
-  uid?: string;
+  uid: string | null;
   title: string;
   description?: string;
 };
@@ -31,7 +31,7 @@ export type ElasticsearchAddressable<
   U extends Record<string, unknown> = Record<string, unknown>,
 > = {
   id: string;
-  uid: string;
+  uid: string | null;
   display: AddressableBaseDisplay<T> & U;
   query: AddressableQuery<T>;
 };

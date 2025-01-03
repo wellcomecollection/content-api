@@ -34,11 +34,11 @@ export const transformAddressableBook = (
   return [
     {
       id: `${id}/${type}`,
-      uid: uid || undefined,
+      uid,
       display: {
         type: 'Book',
         id,
-        uid: uid || undefined,
+        uid,
         title: titleSubtitle,
         description,
         contributors,

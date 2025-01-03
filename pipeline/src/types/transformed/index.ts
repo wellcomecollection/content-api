@@ -72,7 +72,7 @@ export type ElasticsearchArticle = {
 
 export type ElasticsearchEventDocument = {
   id: string;
-  uid?: string;
+  uid: string | null;
   isChildScheduledEvent?: boolean;
   display: EventDocument;
   query: {

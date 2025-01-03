@@ -3,7 +3,7 @@ import { Image, Series } from '.';
 export type EventDocument = {
   type: 'Event';
   id: string;
-  uid?: string;
+  uid: string | null;
   title: string;
   image?: Image;
   times: {
