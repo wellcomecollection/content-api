@@ -5,6 +5,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { PromoSliceZone } from '@weco/content-pipeline/src/types/prismic';
 import { WithSeries } from '@weco/content-pipeline/src/types/prismic/series';
 import { Series } from '@weco/content-pipeline/src/types/transformed';
 
@@ -78,3 +79,8 @@ export const transformSeries = (
       : []
   );
 };
+
+export function primaryImageCaption(promo?: PromoSliceZone) {
+  const primaryImage = promo?.[0]?.primary;
+  return primaryImage?.caption && asText(primaryImage.caption);
+}

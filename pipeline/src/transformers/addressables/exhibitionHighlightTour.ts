@@ -4,6 +4,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ExhibitionHighlightTourPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/types/transformed';
 
@@ -21,11 +22,7 @@ export const transformAddressableExhibitionHighlightTour = (
     : undefined;
   const exhibitionTitle = exhibitionTitleField && asTitle(exhibitionTitleField);
   const introText = data.intro_text && asText(data.intro_text);
-  const primaryImage = relatedExhibition
-    ? relatedExhibition.data.promo?.[0]?.primary
-    : undefined;
-
-  const promoCaption = primaryImage?.caption && asText(primaryImage.caption);
+  const promoCaption = primaryImageCaption(relatedExhibition?.data.promo);
 
   const description = introText ?? promoCaption;
 
