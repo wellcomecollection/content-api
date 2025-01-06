@@ -9,10 +9,9 @@ import { ElasticsearchAddressableSeason } from '@weco/content-pipeline/src/types
 export const transformAddressableSeason = (
   document: SeasonPrismicDocument
 ): ElasticsearchAddressableSeason[] => {
-  const { data, id, uid: documentUid, type } = document;
+  const { data, id, uid, type } = document;
 
   const title = asTitle(data.title);
-  const uid = documentUid || undefined;
   const primaryImage = data.promo?.[0]?.primary;
   const promoCaption = primaryImage?.caption && asText(primaryImage.caption);
   const standfirst = data.body?.find(b => b.slice_type === 'standfirst')

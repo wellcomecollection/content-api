@@ -9,14 +9,13 @@ import { ElasticsearchAddressablePage } from '@weco/content-pipeline/src/types/t
 export const transformAddressablePage = (
   document: PagePrismicDocument
 ): ElasticsearchAddressablePage[] => {
-  const { data, id, uid: documentUid, tags, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
   const introText = data.introText && asText(data.introText);
   const queryDescription = [description, introText].filter(isNotUndefined);
   const title = asTitle(data.title);
-  const uid = documentUid || undefined;
   const body = data.body
     ?.map(s => {
       return s.primary.text.map(t => t.text);

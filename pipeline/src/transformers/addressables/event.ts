@@ -12,7 +12,7 @@ import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/
 export const transformAddressableEvent = (
   document: EventPrismicDocument
 ): ElasticsearchAddressableEvent[] => {
-  const { data, id, uid: documentUid, type } = document;
+  const { data, id, uid, type } = document;
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : undefined;
@@ -42,7 +42,6 @@ export const transformAddressableEvent = (
   const description = primaryImage?.caption && asText(primaryImage.caption);
   const queryDescription = [description, format].filter(isNotUndefined);
   const title = asTitle(data.title);
-  const uid = documentUid || undefined;
   const contributors = (data.contributors ?? [])
     .map(c => {
       return isFilledLinkToDocumentWithData(c.contributor)

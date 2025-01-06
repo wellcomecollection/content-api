@@ -10,12 +10,11 @@ import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/type
 export const transformAddressableArticle = (
   document: ArticlePrismicDocument
 ): ElasticsearchAddressableArticle[] => {
-  const { data, id, uid: documentUid, type } = document;
+  const { data, id, uid, type } = document;
 
   const primaryImage = data.promo?.[0]?.primary;
   const description = primaryImage?.caption && asText(primaryImage.caption);
   const title = asTitle(data.title);
-  const uid = documentUid || undefined;
 
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
