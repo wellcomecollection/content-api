@@ -21,9 +21,8 @@ export const transformAddressableExhibitionText = (
     ? relatedExhibition.data.title
     : undefined;
   const introText = data.intro_text && asText(data.intro_text);
-  const promoCaption = primaryImageCaption(relatedExhibition?.data.promo);
-
-  const description = introText || promoCaption || undefined;
+  const description =
+    introText ?? primaryImageCaption(relatedExhibition?.data.promo);
   const queryDescription = description ? [description] : undefined;
 
   const title = asTitle(data.title);

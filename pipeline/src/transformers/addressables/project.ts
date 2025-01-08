@@ -25,9 +25,8 @@ export const transformAddressableProject = (
     })
     .filter(isNotUndefined)
     .join(', ');
-  const promoCaption = primaryImageCaption(data.promo);
-  const displayDescription = promoCaption;
-  const queryDescription = [promoCaption, format].filter(isNotUndefined);
+  const description = primaryImageCaption(data.promo);
+  const queryDescription = [description, format].filter(isNotUndefined);
   const queryBody = data.body
     ?.map(slice => {
       if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
@@ -48,7 +47,7 @@ export const transformAddressableProject = (
         uid,
         title,
         format,
-        description: displayDescription,
+        description,
       },
       query: {
         type: 'Project',

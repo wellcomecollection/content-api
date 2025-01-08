@@ -22,9 +22,8 @@ export const transformAddressableExhibitionHighlightTour = (
     : undefined;
   const exhibitionTitle = exhibitionTitleField && asTitle(exhibitionTitleField);
   const introText = data.intro_text && asText(data.intro_text);
-  const promoCaption = primaryImageCaption(relatedExhibition?.data.promo);
-
-  const description = introText ?? promoCaption;
+  const description =
+    introText ?? primaryImageCaption(relatedExhibition?.data.promo);
 
   const audioTitle = `${exhibitionTitle} audio highlight tour`;
   const bslTitle = `${exhibitionTitle} British Sign Language tour`;

@@ -13,12 +13,11 @@ export const transformAddressableSeason = (
 
   const title = asTitle(data.title);
 
-  const promoCaption = primaryImageCaption(data.promo);
+  const description = primaryImageCaption(data.promo);
 
   const standfirst = data.body?.find(b => b.slice_type === 'standfirst')
     ?.primary.text[0].text;
-  const displayDescription = promoCaption;
-  const queryDescription = [promoCaption, standfirst].filter(isNotUndefined);
+  const queryDescription = [description, standfirst].filter(isNotUndefined);
   const queryBody = data.body
     ?.map(slice => {
       if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
@@ -38,7 +37,7 @@ export const transformAddressableSeason = (
         id,
         uid,
         title,
-        description: displayDescription,
+        description,
       },
       query: {
         type: 'Season',
