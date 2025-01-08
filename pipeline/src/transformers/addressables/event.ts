@@ -6,6 +6,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/transformed';
 
@@ -38,8 +39,7 @@ export const transformAddressableEvent = (
         }
       : undefined;
 
-  const primaryImage = data.promo?.[0]?.primary;
-  const description = primaryImage?.caption && asText(primaryImage.caption);
+  const description = primaryImageCaption(data.promo);
   const queryDescription = [description, format].filter(isNotUndefined);
   const title = asTitle(data.title);
   const contributors = (data.contributors ?? [])

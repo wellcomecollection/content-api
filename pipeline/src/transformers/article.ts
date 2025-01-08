@@ -8,6 +8,7 @@ import {
   isImageLink,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import {
   ArticlePrismicDocument,
   WithArticleFormat,
@@ -95,7 +96,7 @@ export const transformArticle = (
       ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
-  const caption = primaryImage?.caption && asText(primaryImage.caption);
+  const caption = primaryImageCaption(data.promo);
 
   const format = transformLabelType(document);
 

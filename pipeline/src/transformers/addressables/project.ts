@@ -4,6 +4,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ProjectPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableProject } from '@weco/content-pipeline/src/types/transformed';
 
@@ -24,10 +25,8 @@ export const transformAddressableProject = (
     })
     .filter(isNotUndefined)
     .join(', ');
-  const primaryImage = data.promo?.[0]?.primary;
-  const promoCaption = primaryImage?.caption && asText(primaryImage.caption);
-  const displayDescription = promoCaption;
-  const queryDescription = [promoCaption, format].filter(isNotUndefined);
+  const description = primaryImageCaption(data.promo);
+  const queryDescription = [description, format].filter(isNotUndefined);
   const queryBody = data.body
     ?.map(slice => {
       if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
@@ -48,7 +47,7 @@ export const transformAddressableProject = (
         uid,
         title,
         format,
-        description: displayDescription,
+        description,
       },
       query: {
         type: 'Project',

@@ -4,6 +4,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ExhibitionTextPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionText } from '@weco/content-pipeline/src/types/transformed';
 
@@ -20,13 +21,8 @@ export const transformAddressableExhibitionText = (
     ? relatedExhibition.data.title
     : undefined;
   const introText = data.intro_text && asText(data.intro_text);
-  const primaryImage = relatedExhibition
-    ? relatedExhibition.data.promo?.[0]?.primary
-    : undefined;
-
-  const promoCaption = primaryImage?.caption && asText(primaryImage.caption);
-
-  const description = introText || promoCaption || undefined;
+  const description =
+    introText ?? primaryImageCaption(relatedExhibition?.data.promo);
   const queryDescription = description ? [description] : undefined;
 
   const title = asTitle(data.title);
