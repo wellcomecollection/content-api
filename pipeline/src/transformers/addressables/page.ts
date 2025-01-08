@@ -3,6 +3,7 @@ import {
   asTitle,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { PagePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressablePage } from '@weco/content-pipeline/src/types/transformed';
 
@@ -11,8 +12,7 @@ export const transformAddressablePage = (
 ): ElasticsearchAddressablePage[] => {
   const { data, id, uid, tags, type } = document;
 
-  const primaryImage = data.promo?.[0]?.primary;
-  const description = primaryImage?.caption && asText(primaryImage.caption);
+  const description = primaryImageCaption(data.promo);
   const introText = data.introText && asText(data.introText);
   const queryDescription = [description, introText].filter(isNotUndefined);
   const title = asTitle(data.title);

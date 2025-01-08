@@ -4,6 +4,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
 import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/transformed';
 
@@ -11,8 +12,7 @@ export const transformAddressableBook = (
   document: BookPrismicDocument
 ): ElasticsearchAddressableBook[] => {
   const { data, id, uid, type } = document;
-  const primaryImage = data.promo?.[0]?.primary;
-  const description = primaryImage?.caption && asText(primaryImage.caption);
+  const description = primaryImageCaption(data.promo);
   const title = asTitle(data.title);
   const subtitle = data.subtitle ? asText(data.subtitle) : undefined;
   const titleSubtitle = `${title}${subtitle ? `: ${subtitle}` : ''}`;
