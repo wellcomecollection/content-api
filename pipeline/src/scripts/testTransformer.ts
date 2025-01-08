@@ -2,22 +2,9 @@ import util from 'util';
 import yargs from 'yargs';
 
 import {
-  articlesQuery,
-  eventDocumentsQuery,
-  venueQuery,
-  webcomicsQuery,
-} from '@weco/content-pipeline/src/graph-queries';
-import {
-  addressablesArticlesQuery,
-  addressablesBooksQuery,
-  addressablesEventsQuery,
-  addressablesExhibitionHighlightToursQuery,
-  addressablesExhibitionsQuery,
-  addressablesExhibitionTextsQuery,
-  addressablesPagesQuery,
-  addressablesVisualStoriesQuery,
-} from '@weco/content-pipeline/src/graph-queries/addressables';
-import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
+  getGraphQuery,
+  isAddressablesAllowedTypes,
+} from '@weco/content-pipeline/src/helpers/getGraphQuery';
 import { createPrismicClient } from '@weco/content-pipeline/src/services/prismic';
 import { transformAddressableArticle } from '@weco/content-pipeline/src/transformers/addressables/article';
 import { transformAddressableBook } from '@weco/content-pipeline/src/transformers/addressables/book';
@@ -46,6 +33,8 @@ import {
 import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
 import { VenuePrismicDocument } from '@weco/content-pipeline/src/types/prismic/venues';
 
+import { getDocumentId } from './documentIds';
+
 const { type, isDetailed, id } = yargs(process.argv.slice(2))
   .usage('Usage: $0 --type [string] --isDetailed [boolean] --id [string]')
   .options({
@@ -71,7 +60,7 @@ const allowedTypes = [
 ];
 
 async function main() {
-  if (!type) {
+  if (!isAddressablesAllowedTypes(type)) {
     console.error(
       `Please pass in the type you'd like to transform, from this list ${allowedTypes.join(', ')}.\n e.g. --type=article`
     );
@@ -82,149 +71,106 @@ async function main() {
 
   let transformerName;
   const transformDocument = async () => {
+    const documentId = getDocumentId({ type, id });
+    const graphQuery = getGraphQuery({ type, isDetailed }).replace(
+      /\n(\s+)/g,
+      '\n'
+    );
+
+    if (!documentId || !graphQuery) {
+      console.error('Something went wrong with the request', {
+        documentId,
+        hasGraphQuery: !!graphQuery,
+      });
+      process.exit(1);
+    }
+
+    const doc = await client.getByID(documentId, { graphQuery });
+
     switch (type) {
       case 'article': {
-        const doc = await client.getByID(id || 'ZdSMbREAACQA3j30', {
-          graphQuery: `{
-              ${isDetailed ? articlesQuery : addressablesArticlesQuery}
-            }`.replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = isDetailed
           ? 'transformArticle'
           : 'transformAddressableArticle';
+
         return isDetailed
           ? transformArticle(doc as ArticlePrismicDocument)
           : transformAddressableArticle(doc as ArticlePrismicDocument);
       }
 
       case 'webcomic': {
-        const doc = await client.getByID(id || 'XkV9dREAAAPkNP0b', {
-          graphQuery: `{
-              ${webcomicsQuery}
-            }`.replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = 'transformArticle';
+
         return transformArticle(doc as ArticlePrismicDocument);
       }
 
       case 'event': {
-        const doc = await client.getByID(id || 'ZfhSyxgAACQAkLPZ', {
-          graphQuery: (isDetailed
-            ? eventDocumentsQuery
-            : `{
-              ${addressablesEventsQuery}
-            }`
-          ).replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = isDetailed
           ? 'transformEventDocument'
           : 'transformAddressableEvent';
+
         return isDetailed
           ? transformEventDocument(doc as EventPrismicDocument)
           : transformAddressableEvent(doc as EventPrismicDocument);
       }
 
       case 'venue': {
-        const doc = await client.getByID(id || 'Wsttgx8AAJeSNmJ4', {
-          graphQuery: venueQuery.replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = 'transformVenue';
+
         return transformVenue(doc as VenuePrismicDocument);
       }
 
       case 'exhibition': {
-        const doc = await client.getByID(id || 'Yzv9ChEAABfUrkVp', {
-          graphQuery: `{
-            ${addressablesExhibitionsQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressableExhibition';
+
         return transformAddressableExhibition(doc as ExhibitionPrismicDocument);
       }
 
       case 'book': {
-        const doc = await client.getByID(id || 'WwVK3CAAAHm5Exxr', {
-          graphQuery: `{
-            ${addressablesBooksQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressableBook';
+
         return transformAddressableBook(doc as BookPrismicDocument);
       }
 
       case 'page': {
-        const doc = await client.getByID(id || 'YdXSvhAAAIAW7YXQ', {
-          graphQuery: `{
-            ${addressablesPagesQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressablePage';
+
         return transformAddressablePage(doc as PagePrismicDocument);
       }
 
       case 'visual-story': {
-        const doc = await client.getByID(id || 'Zs8EuRAAAB4APxrA', {
-          graphQuery: `{
-            ${addressablesVisualStoriesQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressableVisualStory';
+
         return transformAddressableVisualStory(
           doc as VisualStoryPrismicDocument
         );
       }
 
       case 'exhibition-text': {
-        const doc = await client.getByID(id || 'Zs8mohAAAB4AP4sc', {
-          graphQuery: `{
-            ${addressablesExhibitionTextsQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressableExhibitionText';
+
         return transformAddressableExhibitionText(
           doc as ExhibitionTextPrismicDocument
         );
       }
 
       case 'exhibition-highlight-tour': {
-        const doc = await client.getByID(id || 'ZthrZRIAACQALvCC', {
-          graphQuery: `{
-            ${addressablesExhibitionHighlightToursQuery.replace(/\n(\s+)/g, '\n')}
-          }`,
-        });
-
         transformerName = 'transformAddressableExhibitionHighlightTour';
+
         return transformAddressableExhibitionHighlightTour(
           doc as ExhibitionHighlightTourPrismicDocument
         );
       }
 
       case 'project': {
-        const graphQuery = getGraphQuery({ type: 'project' });
-        const doc = await client.getByID(id || 'YLokOhAAACQAf8Hd', {
-          graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = 'transformProject';
+
         return transformAddressableProject(doc as ProjectPrismicDocument);
       }
 
       case 'season': {
-        const graphQuery = getGraphQuery({ type: 'season' });
-        const doc = await client.getByID(id || 'X84FvhIAACUAqiqp', {
-          graphQuery: graphQuery.replace(/\n(\s+)/g, '\n'),
-        });
-
         transformerName = 'transformSeason';
+
         return transformAddressableSeason(doc as SeasonPrismicDocument);
       }
 

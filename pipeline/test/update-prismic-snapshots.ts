@@ -11,7 +11,11 @@ import {
   webcomicsQuery,
   wrapQueries,
 } from '@weco/content-pipeline/src/graph-queries';
-import { getGraphQuery } from '@weco/content-pipeline/src/helpers/getGraphQuery';
+import {
+  allowedTypes,
+  getGraphQuery,
+  isAddressablesAllowedTypes,
+} from '@weco/content-pipeline/src/helpers/getGraphQuery';
 import {
   asText,
   asTitle,
@@ -124,6 +128,12 @@ const updateAddressablesSnapshots = async (client: Client) => {
 
   const docs = await Promise.all(
     Object.entries(addressableIds).map(async ([key, value]) => {
+      if (!isAddressablesAllowedTypes(key)) {
+        console.error(
+          `Please pass in the type you'd like to fetch, from this list ${allowedTypes.join(', ')}.\n e.g. --type=article`
+        );
+        process.exit(1);
+      }
       const graphQuery = getGraphQuery({ type: key });
 
       const newDoc = await client.getByID(value, {
