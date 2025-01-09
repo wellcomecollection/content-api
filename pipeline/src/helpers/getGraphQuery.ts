@@ -30,13 +30,21 @@ export const allowedTypes = [
   'visual-story',
   'project',
   'season',
-];
+] as const;
+export type AddressablesAllowedTypes = (typeof allowedTypes)[number];
+
+export const isAddressablesAllowedTypes = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type: any
+): type is AddressablesAllowedTypes => {
+  return allowedTypes.includes(type);
+};
 
 export const getGraphQuery = ({
   type,
   isDetailed,
 }: {
-  type: (typeof allowedTypes)[number];
+  type: AddressablesAllowedTypes;
   isDetailed?: boolean;
 }) => {
   switch (type) {
