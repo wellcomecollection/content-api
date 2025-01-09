@@ -120,7 +120,7 @@ exports[`addressables transformer transforms exhibition highlight tours from Pri
   {
     "display": {
       "description": "Showcasing Jason Wilsher-Mills’ largest and most personal commission to date, this exhibition is a joyful exploration of the body, drawing on the artist’s experience of becoming disabled as a child.",
-      "displayType": "audio",
+      "highlightTourType": "audio",
       "id": "ZthrZRIAACQALvCC",
       "title": "Jason and the Adventure of 254 audio highlight tour",
       "type": "Exhibition highlight tour",
@@ -240,7 +240,7 @@ exports[`addressables transformer transforms exhibition highlight tours from Pri
   {
     "display": {
       "description": "Showcasing Jason Wilsher-Mills’ largest and most personal commission to date, this exhibition is a joyful exploration of the body, drawing on the artist’s experience of becoming disabled as a child.",
-      "displayType": "bsl",
+      "highlightTourType": "bsl",
       "id": "ZthrZRIAACQALvCC",
       "title": "Jason and the Adventure of 254 British Sign Language tour",
       "type": "Exhibition highlight tour",
