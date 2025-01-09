@@ -120,7 +120,10 @@ export type ElasticsearchAddressableExhibition =
   ElasticsearchAddressable<'Exhibition'>;
 
 export type ElasticsearchAddressableExhibitionHighlightTour =
-  ElasticsearchAddressable<'Exhibition highlight tour'>;
+  ElasticsearchAddressable<
+    'Exhibition highlight tour',
+    { highlightTourType: string }
+  >;
 
 export type ElasticsearchAddressableExhibitionText =
   ElasticsearchAddressable<'Exhibition text'>;

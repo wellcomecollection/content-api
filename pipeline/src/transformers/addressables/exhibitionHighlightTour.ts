@@ -61,21 +61,25 @@ export const transformAddressableExhibitionHighlightTour = (
     },
     query: {
       type: 'Exhibition highlight tour' as const,
-      description: introText,
+      description,
     },
   };
 
   const audio = {
     ...shared,
     id: `${id}/${type}/audio`,
-    display: { ...shared.display, title: audioTitle },
+    display: {
+      ...shared.display,
+      highlightTourType: 'audio',
+      title: audioTitle,
+    },
     query: { ...shared.query, title: audioTitle, body: audioBody },
   };
 
   const bsl = {
     ...shared,
     id: `${id}/${type}/bsl`,
-    display: { ...shared.display, title: bslTitle },
+    display: { ...shared.display, highlightTourType: 'bsl', title: bslTitle },
     query: { ...shared.query, title: bslTitle, body: bslBody },
   };
 
