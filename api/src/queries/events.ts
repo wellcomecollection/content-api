@@ -5,7 +5,16 @@ import { TermsFilter } from './common';
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
     query: queryString,
-    fields: ['id', 'query.title.*^100', 'query.caption.*^10'],
+    fields: [
+      'id',
+      'query.title.*^100',
+      'query.caption.*^10',
+      'query.series.*^80',
+      'query.series.contributors*^8',
+      'query.series.contributors.keyword^80',
+      'query.format.*^80',
+      'query.audiences.*^80',
+    ],
     operator: 'or',
     type: 'cross_fields',
     minimum_should_match: '-25%',

@@ -153,6 +153,8 @@ export const transformEventDocument = (
       ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
+  const series = transformSeries(document);
+
   const format = transformFormat(document);
 
   const locations = transformLocations(document);
@@ -181,14 +183,18 @@ export const transformEventDocument = (
         locations,
         interpretations,
         audiences,
-        series: transformSeries(document),
+        series,
         isAvailableOnline,
       },
       query: {
         linkedIdentifiers: linkedDocumentIdentifiers(document),
         title: asTitle(title),
         caption: primaryImage?.caption && asText(primaryImage.caption),
-        series: transformSeries(document),
+        series,
+        format: format.label,
+        audiences: audiences
+          .map(audience => audience.label)
+          .filter(isNotUndefined),
         times: {
           startDateTime: documentTimes
             .map(time => time.startDateTime)
