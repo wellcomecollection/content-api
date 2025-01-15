@@ -151,7 +151,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZFt0WhQAAHnPEH7P",
     "query": {
+      "audiences": [],
       "caption": "Explore the deep connections between mental health and ecosystem health in this four-day festival created by Land Body Ecologies (LBE), from teams across India, Uganda, Kenya, Thailand, the UK and the Arctic. Take part and experience performances, food, workshops, music, films and more.",
+      "format": "Festival",
       "linkedIdentifiers": [
         "W5fV5iYAACQAMxHb",
         "XEnJIhUAAArdgVsW",
@@ -342,7 +344,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZJLZoRAAACIARz42",
     "query": {
+      "audiences": [],
       "caption": "Join performance artist Jess Dobkin for a tour of our exhibition ‘Milk’.",
+      "format": "Gallery tour",
       "linkedIdentifiers": [
         "WmYRpCQAACUAn-Ap",
         "W22bICkAACgA-hVJ",
@@ -501,7 +505,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZQgdkREAAAbr6cRR",
     "query": {
+      "audiences": [],
       "caption": "Explore ‘The Cult of Beauty’ exhibition with brighter and more even lighting conditions across the gallery. Audio and BSL digital guides, a visual story, and large-print and braille guides are available for use at these drop-in sessions.",
+      "format": "Event",
       "linkedIdentifiers": [
         "WrEgqSAAACAAPEw7",
         "ZQgi7hIAACQAN2QG",
@@ -690,7 +696,11 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZRrijRIAAJNSARgG",
     "query": {
+      "audiences": [
+        "Youth event",
+      ],
       "caption": "Join an afternoon of performance and discussion about beauty in which the audience plays an important part, including deciding on the running order and joining in debates.",
+      "format": "Performance",
       "linkedIdentifiers": [
         "Wn3Q3SoAACsAIeFI",
         "W8XfKxEAADwYer9D",
@@ -855,7 +865,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZSPXJBAAACIAiERm",
     "query": {
+      "audiences": [],
       "caption": "Join an online conversation about early modern health and beauty routines, and what they reveal about western European women’s lives.",
+      "format": "Discussion",
       "linkedIdentifiers": [
         "Wd-QYCcAACcAoiJS",
         "X2jPiRMAACIA8Vzo",
@@ -1017,7 +1029,9 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
     },
     "id": "ZTevFxAAACQAyHEk",
     "query": {
+      "audiences": [],
       "caption": "Join Sophia and Wellcome digital editor Alice White at a Wikipedia edit-a-thon, and make your own contributions to Wikipedia pages about sexual health.",
+      "format": "Workshop",
       "linkedIdentifiers": [
         "WcKmiysAACx_A8NR",
         "XVqn7RMAACIAxvVM",
