@@ -38,6 +38,6 @@ data "aws_iam_policy_document" "ci_lambda_update" {
       "lambda:UpdateFunctionCode",
       "lambda:UpdateFunctionConfiguration",
     ]
-    resources = [module.pipeline.lambda_arn]
+    resources = ["arn:aws:lambda:eu-west-1:756629837203:function:content-pipeline-*"]
   }
 }
