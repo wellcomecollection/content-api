@@ -18,5 +18,6 @@ Once you're happy and want it to become the main pipeline, change the value of `
 
 ## Deleting pipeline
 
-1. Run a targeted destroy on the old pipeline: `terraform destroy -target module.[name]`
-2. Remove matching module from `pipeline.tf`
+1. Make sure the old pipeline is not used by the API [by looking at the config](https://github.com/wellcomecollection/content-api/blob/main/api/config.ts#L15).
+2. Run a targeted destroy on the old pipeline: `terraform destroy -target module.[name]`
+3. Remove matching module from `pipeline.tf`
