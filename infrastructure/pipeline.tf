@@ -12,7 +12,7 @@ module "pipeline_2024-12-10" {
 }
 
 module "pipeline_2025-01-20" {
-  source = "./pipeline_2025-01-20_stack"
+  source = "./pipeline_stack"
 
   pipeline_date           = "2025-01-20"
   window_duration_minutes = 15
