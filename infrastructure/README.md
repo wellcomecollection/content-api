@@ -28,7 +28,7 @@ From the project root, run command lines from the `publish: pipeline & unpublish
    - `.buildkite/scripts/deploy_lambda.sh content-unpublisher-[NEW-PIPELINE-DATE] ref.$BUILDKITE_COMMIT`
    - Your Lambdas should now have the correct code uploaded in them.
 
-5. The Elasticsearch indexes will have been created and configured, but if you want data right away, you can run reindexes, making sure you're pointing to the new one.
+5. The Elasticsearch indexes will have been created and configured, but you'll need to index them manually. The scheduler will be set but only considers the last 15 minutes of documents being published, so the inital run has to be manual (we could automate that in a different piece of work).
 
 To deploy any work locally (e.g. `reindex`), **_remember to change `pipelineDate` values locally to match your new pipeline's._**. Otherwise you'll be doing those in the live pipeline.
 
