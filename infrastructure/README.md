@@ -32,10 +32,10 @@ From the project root, run command lines from the `publish: pipeline & unpublish
 
 To deploy any work locally (e.g. `reindex`), **_remember to change `pipelineDate` values locally to match your new pipeline's._**. Otherwise you'll be doing those in the live pipeline.
 
-Once you're happy and want it to become the main pipeline, change the value of `LIVE_PIPELINE` in `.buildkite/pipeline.yml` to match the new one.
+Once you're happy and want it to become the main pipeline, change the value of `LIVE_PIPELINE` in `.buildkite/pipeline.yml` to match the new one. Also ensure that all `pipelineDate` values match the new one.
 
 ## Deleting pipeline
 
-1. Make sure the old pipeline is not used by the API [by consulting the \_elasticConfig endpoint](http://api.wellcomecollection.org/content/v0/_elasticConfig).
+1. Make sure the old pipeline is not used by the API [by consulting the /\_elasticConfig endpoint](http://api.wellcomecollection.org/content/v0/_elasticConfig).
 2. Run a targeted destroy on the old pipeline: `terraform destroy -target module.[name]`
 3. Remove matching module from `pipeline.tf`
