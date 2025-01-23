@@ -19,6 +19,8 @@ getElasticClient({
   const app = createApp({ elastic: elasticClient }, config);
   const port = process.env.PORT ?? 3000;
   app.listen(port, () => {
-    log.info(`Content API listening on port ${port}`);
+    log.info(
+      `Content API listening on port ${port}, running at http://localhost:${port}.`
+    );
   });
 });

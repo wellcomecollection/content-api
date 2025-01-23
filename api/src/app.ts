@@ -8,6 +8,7 @@ import {
   addressablesController,
   articleController,
   articlesController,
+  elasticConfigController,
   errorHandler,
   eventController,
   eventsController,
@@ -28,6 +29,7 @@ const createApp = (clients: Clients, config: Config) => {
   app.get('/events/:id', eventController(clients, config));
   app.get('/venues', venuesController(clients, config));
   app.get('/management/healthcheck', healthcheckController(config));
+  app.get('/_elasticConfig', elasticConfigController(config));
 
   app.use(errorHandler);
 
