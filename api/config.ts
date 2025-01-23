@@ -12,7 +12,7 @@ const environment = environmentSchema.parse(process.env);
 // This configuration is exposed via the public healthcheck endpoint,
 // so be careful not to expose any secrets here.
 const config = {
-  pipelineDate: '2024-12-10',
+  pipelineDate: '2025-01-20',
   addressablesIndex: 'addressables',
   articlesIndex: 'articles',
   eventsIndex: 'events',
