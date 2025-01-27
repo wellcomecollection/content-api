@@ -37,5 +37,9 @@ Once you're happy and want it to become the main pipeline, change the value of `
 ## Deleting pipeline
 
 1. Make sure the old pipeline is not used by the API [by consulting the /\_elasticConfig endpoint](http://api.wellcomecollection.org/content/v0/_elasticConfig).
-2. Run a targeted destroy on the old pipeline: `terraform destroy -target module.[name]`
-3. Remove matching module from `pipeline.tf`
+2. Run a targeted destroy on the old pipeline using the `run_terraform` script:
+   `./run_terraform.sh destroy -target module.[name]`.
+   Changes should only relate to the named pipeline, check that before you apply.
+3. Changes will take a long time to apply, think over 20 mins. Let it run. Once it's done, you can check in AWS Lambdas that it's been removed, same for Elastic Cloud.
+4. Remove matching module from `pipeline.tf`. If you run `terraform plan`, you should get `"No changes. Your infrastructure matches the configuration."`.
+5. Make a PR for the module removal to ensure `main` is up-to-date.
