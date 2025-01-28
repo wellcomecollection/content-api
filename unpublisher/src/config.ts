@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import 'dotenv/config';
 
 const environmentSchema = z.object({
   PIPELINE_DATE: z.string(),
