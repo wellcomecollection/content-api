@@ -132,7 +132,7 @@ export const mappings = {
     },
     filter: {
       properties: {
-        formatId: {
+        format: {
           type: 'keyword',
         },
         interpretations: {
