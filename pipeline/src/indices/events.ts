@@ -135,13 +135,13 @@ export const mappings = {
         formatId: {
           type: 'keyword',
         },
-        interpretationIds: {
+        interpretations: {
           type: 'keyword',
         },
-        audienceIds: {
+        audiences: {
           type: 'keyword',
         },
-        locationIds: {
+        locations: {
           type: 'keyword',
         },
         isAvailableOnline: {
