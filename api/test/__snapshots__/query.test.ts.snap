@@ -185,7 +185,7 @@ exports[`events query makes the expected query to ES for a given set of query pa
           },
           "filter": {
             "terms": {
-              "filter.formatId": [
+              "filter.format": [
                 "test-format",
               ],
             },
@@ -203,7 +203,7 @@ exports[`events query makes the expected query to ES for a given set of query pa
           "filter": [
             {
               "terms": {
-                "filter.interpretationIds": [
+                "filter.interpretations": [
                   "test-interpretation",
                 ],
               },
@@ -227,7 +227,7 @@ exports[`events query makes the expected query to ES for a given set of query pa
           },
           "filter": {
             "terms": {
-              "filter.interpretationIds": [
+              "filter.interpretations": [
                 "test-interpretation",
               ],
             },
@@ -245,7 +245,7 @@ exports[`events query makes the expected query to ES for a given set of query pa
           "filter": [
             {
               "terms": {
-                "filter.formatId": [
+                "filter.format": [
                   "test-format",
                 ],
               },
@@ -262,14 +262,14 @@ exports[`events query makes the expected query to ES for a given set of query pa
       "filter": [
         {
           "terms": {
-            "filter.formatId": [
+            "filter.format": [
               "test-format",
             ],
           },
         },
         {
           "terms": {
-            "filter.interpretationIds": [
+            "filter.interpretations": [
               "test-interpretation",
             ],
           },
