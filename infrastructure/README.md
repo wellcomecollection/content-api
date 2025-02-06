@@ -19,7 +19,7 @@ From the project root, run command lines from the `publish: pipeline & unpublish
 3. Now upload them to S3:
 
    - `./.buildkite/scripts/upload_lambda_package.sh content-pipeline-[NEW-PIPELINE-DATE] ./pipeline/package.zip`.
-   - `./.buildkite/scripts/upload_lambda_package.sh content-unpublisher-[NEW-PIPELINE-DATE] ./pipeline/package.zip`.
+   - `./.buildkite/scripts/upload_lambda_package.sh content-unpublisher-[NEW-PIPELINE-DATE] ./unpublisher/package.zip`.
    - You should now be able to see those zip files in S3.
 
 4. Then, you could either go the Lambda service and manually upload them from S3, or use the script we have for it. If so, follow the command lines from `deploy: live pipeline & unpublisher` in `pipeline.yml`:
