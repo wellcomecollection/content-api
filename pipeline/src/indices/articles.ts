@@ -134,10 +134,10 @@ export const mappings = {
     },
     filter: {
       properties: {
-        contributorIds: {
+        contributors: {
           type: 'keyword',
         },
-        formatId: {
+        format: {
           type: 'keyword',
         },
         publicationDate: {
