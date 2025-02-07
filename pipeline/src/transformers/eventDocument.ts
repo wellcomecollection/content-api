@@ -13,6 +13,7 @@ import {
   PrismicAudiences,
   PrismicInterpretations,
   PrismicLocations,
+  PrismicScheduledEvent,
   WithEventFormat,
 } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
@@ -118,6 +119,72 @@ const transformAudiences = ({
     .filter(isNotUndefined);
 };
 
+const transformSchedule = ({
+  scheduledEvents,
+}: {
+  scheduledEvents: PrismicScheduledEvent;
+}): {
+  scheduledLocations: EventDocumentLocations[];
+  scheduledAudiences: EventDocumentAudience[];
+  scheduledInterpretations: EventDocumentInterpretation[];
+} => {
+  const scheduledLocations: EventDocumentLocations[] = [];
+  const allScheduledAudiences: EventDocumentAudience[] = [];
+  const uniqueScheduledAudiences: EventDocumentAudience[] = [];
+  const allScheduledInterpretations: EventDocumentInterpretation[] = [];
+  const uniqueScheduledInterpretations: EventDocumentInterpretation[] = [];
+  // TODO type
+  // const scheduledTimes = [];
+
+  (scheduledEvents || []).forEach(i => {
+    if (isFilledLinkToDocumentWithData(i.event)) {
+      scheduledLocations.push(
+        transformLocations({
+          isOnline: i.event.data.isOnline,
+          locations: i.event.data.locations,
+        })
+      );
+
+      allScheduledAudiences.push(
+        ...transformAudiences({ audiences: i.event.data.audiences })
+      );
+
+      allScheduledInterpretations.push(
+        ...transformInterpretations({
+          interpretations: i.event.data.interpretations,
+        })
+      );
+    }
+  });
+
+  // TODO ensure scheduledLocations only returns individual values? Do we care?
+  // I'm not sure we even can because the "is Online" value differs.
+  // Should it be true for the parent if one scheduled event has it as true?
+  // console.log({ scheduledLocations });
+
+  // Ensure we only pass in each audience once
+  allScheduledAudiences.forEach(int =>
+    !uniqueScheduledAudiences.find(u => u.id === int.id)
+      ? uniqueScheduledAudiences.push(int)
+      : undefined
+  );
+
+  // Ensure we only pass in each interpetation once
+  allScheduledInterpretations.forEach(int =>
+    !uniqueScheduledInterpretations.find(u => u.id === int.id)
+      ? uniqueScheduledInterpretations.push(int)
+      : undefined
+  );
+
+  return {
+    scheduledLocations,
+    scheduledAudiences: uniqueScheduledAudiences.filter(isNotUndefined),
+    scheduledInterpretations:
+      uniqueScheduledInterpretations.filter(isNotUndefined),
+    // scheduledTimes,
+  };
+};
+
 const transformTimes = (times: {
   startDateTime: TimestampField;
   endDateTime: TimestampField;
@@ -174,6 +241,14 @@ export const transformEventDocument = (
   // Scheduled events to be treated differently, they are recognised as such
   // if they have the 'delist' tag.
   const isChildPrismicScheduledEvent = tags.includes('delist') || undefined;
+
+  // TODO
+  // If it has scheduled events, more transforming needs to be done as their data
+  // should be added as the parent's data.
+  console.log(
+    '--->',
+    transformSchedule({ scheduledEvents: document.data.schedule })
+  );
 
   return [
     {

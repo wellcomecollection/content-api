@@ -50,6 +50,21 @@ type WithAudiences = {
   audiences: PrismicAudiences;
 };
 
+export type PrismicScheduledEvent = prismic.GroupField<{
+  event: prismic.ContentRelationshipField<
+    'events',
+    'en-gb',
+    {
+      title: prismic.RichTextField;
+    } & WithLocations &
+      WithInterpretations &
+      WithAudiences
+  >;
+}>;
+type WithSchedule = {
+  schedule: PrismicScheduledEvent;
+};
+
 export type EventPrismicDocument = prismic.PrismicDocument<
   {
     times: prismic.GroupField<{
@@ -65,6 +80,7 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     WithSeries &
     WithAudiences &
     WithContributors &
+    WithSchedule &
     CommonPrismicFields,
   'events'
 >;
