@@ -29,6 +29,16 @@ import {
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
 
+const getUniqueValues = <T extends { id: string }>(allValues: T[]): T[] => {
+  const uniqueArray: T[] = [];
+
+  allValues.forEach(v =>
+    !uniqueArray.find(u => u.id === v.id) ? uniqueArray.push(v) : undefined
+  );
+
+  return uniqueArray.filter(isNotUndefined);
+};
+
 function transformFormat(
   document: PrismicDocument<WithEventFormat>
 ): EventDocumentFormat {
@@ -82,16 +92,6 @@ const transformLocations = ({
         : undefined,
     ].filter(isNotUndefined),
   };
-};
-
-const getUniqueValues = <T extends { id: string }>(allValues: T[]): T[] => {
-  const uniqueArray: T[] = [];
-
-  allValues.forEach(v =>
-    !uniqueArray.find(u => u.id === v.id) ? uniqueArray.push(v) : undefined
-  );
-
-  return uniqueArray.filter(isNotUndefined);
 };
 
 const transformInterpretations = ({
@@ -229,6 +229,7 @@ export const transformEventDocument = (
     scheduledEvents: document.data.schedule,
   });
 
+  // TODO figure out if we want to do anything special with this
   const times = [
     ...transformTimes({ times: document.data.times }),
     ...scheduledTimes,
