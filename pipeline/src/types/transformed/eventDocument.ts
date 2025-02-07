@@ -39,7 +39,9 @@ type BuildingAttendance = {
 export type EventDocumentLocations = {
   isOnline: boolean;
   places?: EventDocumentPlace[];
-  attendance: EventDocumentAttendance[];
+  attendance: ((BuildingAttendance | OnlineAttendance) & {
+    type: 'EventAttendance';
+  })[];
   type: 'EventLocations';
 };
 
@@ -47,12 +49,6 @@ export type EventDocumentPlace = {
   type: 'EventPlace';
   id: string;
   label?: string;
-};
-export type EventDocumentAttendance = (
-  | BuildingAttendance
-  | OnlineAttendance
-) & {
-  type: 'EventAttendance';
 };
 
 export type EventDocumentInterpretation = {

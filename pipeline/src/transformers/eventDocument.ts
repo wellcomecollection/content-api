@@ -19,7 +19,6 @@ import {
 } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
-  EventDocumentAttendance,
   EventDocumentAudience,
   EventDocumentFormat,
   EventDocumentInterpretation,
@@ -85,42 +84,14 @@ const transformLocations = ({
   };
 };
 
-const getUniqueLocationValues = ({
-  parentLocations,
-  scheduledLocations,
-}: {
-  parentLocations: EventDocumentLocations;
-  scheduledLocations: EventDocumentLocations[];
-}) => {
-  const places: EventDocumentPlace[] = [];
-  const attendance: EventDocumentAttendance[] = [];
+const getUniqueValues = <T extends { id: string }>(allValues: T[]): T[] => {
+  const uniqueArray: T[] = [];
 
-  const allPlaces = [
-    parentLocations.places,
-    ...scheduledLocations.map(s => s.places),
-  ].flat();
-
-  // Ensure we only pass in each places once
-  allPlaces.forEach(place =>
-    !places.find(u => u.id === place?.id) && !!place
-      ? places.push(place)
-      : undefined
+  allValues.forEach(v =>
+    !uniqueArray.find(u => u.id === v.id) ? uniqueArray.push(v) : undefined
   );
 
-  const allAttendance = [
-    parentLocations.attendance,
-    ...scheduledLocations.map(s => s.attendance),
-  ].flat();
-
-  // Ensure we only pass in each attendance once
-  allAttendance.forEach(att =>
-    !attendance.find(u => u.id === att.id) ? attendance.push(att) : undefined
-  );
-
-  return {
-    places: places.filter(isNotUndefined),
-    attendance: attendance.filter(isNotUndefined),
-  };
+  return uniqueArray.filter(isNotUndefined);
 };
 
 const transformInterpretations = ({
@@ -189,13 +160,8 @@ const transformSchedule = ({
   scheduledTimes: EventDocumentTime[];
 } => {
   const transformedScheduledLocations: EventDocumentLocations[] = [];
-
-  const allScheduledAudiences: EventDocumentAudience[] = [];
-  const uniqueScheduledAudiences: EventDocumentAudience[] = [];
-
-  const allScheduledInterpretations: EventDocumentInterpretation[] = [];
-  const uniqueScheduledInterpretations: EventDocumentInterpretation[] = [];
-
+  const scheduledAudiences: EventDocumentAudience[] = [];
+  const scheduledInterpretations: EventDocumentInterpretation[] = [];
   const scheduledTimes: EventDocumentTime[] = [];
 
   (scheduledEvents || []).forEach(i => {
@@ -207,11 +173,11 @@ const transformSchedule = ({
         })
       );
 
-      allScheduledAudiences.push(
+      scheduledAudiences.push(
         ...transformAudiences({ audiences: i.event.data.audiences })
       );
 
-      allScheduledInterpretations.push(
+      scheduledInterpretations.push(
         ...transformInterpretations({
           interpretations: i.event.data.interpretations,
         })
@@ -221,26 +187,10 @@ const transformSchedule = ({
     }
   });
 
-  // TODO move this out, we'll need to re-do it anyway when we add the parent ones, might as well only do it once.
-  // Ensure we only pass in each audience once
-  allScheduledAudiences.forEach(aud =>
-    !uniqueScheduledAudiences.find(u => u.id === aud.id)
-      ? uniqueScheduledAudiences.push(aud)
-      : undefined
-  );
-  // TODO same
-  // Ensure we only pass in each interpetation once
-  allScheduledInterpretations.forEach(int =>
-    !uniqueScheduledInterpretations.find(u => u.id === int.id)
-      ? uniqueScheduledInterpretations.push(int)
-      : undefined
-  );
-
   return {
     scheduledLocations: transformedScheduledLocations,
-    scheduledAudiences: uniqueScheduledAudiences.filter(isNotUndefined),
-    scheduledInterpretations:
-      uniqueScheduledInterpretations.filter(isNotUndefined),
+    scheduledAudiences,
+    scheduledInterpretations,
     scheduledTimes,
   };
 };
@@ -292,20 +242,30 @@ export const transformEventDocument = (
     ...parentLocations,
     isOnline:
       !!scheduledLocations.find(l => l.isOnline) && parentLocations.isOnline,
-    ...getUniqueLocationValues({ parentLocations, scheduledLocations }),
+    places: getUniqueValues(
+      [parentLocations.places, ...scheduledLocations.map(s => s.places)]
+        .filter(isNotUndefined)
+        .flat()
+    ),
+    attendance: getUniqueValues(
+      [
+        parentLocations.attendance,
+        ...scheduledLocations.map(s => s.attendance),
+      ].flat()
+    ),
   };
 
-  const interpretations = [
+  const interpretations = getUniqueValues([
     ...transformInterpretations({
       interpretations: document.data.interpretations,
     }),
     ...scheduledInterpretations,
-  ];
+  ]);
 
-  const audiences = [
+  const audiences = getUniqueValues([
     ...transformAudiences({ audiences: document.data.audiences }),
     ...scheduledAudiences,
-  ];
+  ]);
 
   // Events that existed before the field was added have `null` as a value
   // They should be considered as false

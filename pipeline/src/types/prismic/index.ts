@@ -11,6 +11,7 @@ export {
   PrismicInterpretations,
   PrismicLocations,
   PrismicScheduledEvent,
+  PrismicTimes,
 } from './eventDocuments';
 export { Contributors, WithContributors } from './contributors';
 export { ContentType, PrismicFormat, ArticleFormatId } from './formats';
