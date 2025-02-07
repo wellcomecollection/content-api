@@ -10,6 +10,7 @@ export {
   PrismicAudiences,
   PrismicInterpretations,
   PrismicLocations,
+  PrismicScheduledEvent,
 } from './eventDocuments';
 export { Contributors, WithContributors } from './contributors';
 export { ContentType, PrismicFormat, ArticleFormatId } from './formats';
