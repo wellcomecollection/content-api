@@ -10,11 +10,11 @@ import {
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   EventPrismicDocument,
-  WithAudiences,
+  PrismicAudiences,
+  PrismicInterpretations,
+  PrismicLocations,
   WithEventFormat,
-  WithInterpretations,
-  WithLocations,
-} from '@weco/content-pipeline/src/types/prismic/eventDocuments';
+} from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
   EventDocumentAudience,
@@ -22,6 +22,7 @@ import {
   EventDocumentInterpretation,
   EventDocumentLocations,
   EventDocumentPlace,
+  EventDocumentTime,
 } from '@weco/content-pipeline/src/types/transformed/eventDocument';
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
@@ -39,14 +40,14 @@ function transformFormat(
     : (defaultEventFormat as EventDocumentFormat);
 }
 
-const transformLocations = (
-  document: PrismicDocument<WithLocations>
-): EventDocumentLocations => {
-  const { data } = document;
-
-  const isOnline = !!data.isOnline;
-
-  const physicalLocations = (data.locations ?? [])
+const transformLocations = ({
+  isOnline,
+  locations,
+}: {
+  isOnline?: boolean;
+  locations: PrismicLocations;
+}): EventDocumentLocations => {
+  const physicalLocations = (locations ?? [])
     .map((l): EventDocumentPlace | undefined => {
       return isFilledLinkToDocumentWithData(l.location)
         ? {
@@ -60,7 +61,7 @@ const transformLocations = (
 
   return {
     type: 'EventLocations',
-    isOnline,
+    isOnline: !!isOnline,
     places: physicalLocations.length > 0 ? physicalLocations : undefined,
     attendance: [
       isOnline
@@ -81,12 +82,12 @@ const transformLocations = (
   };
 };
 
-const transformInterpretations = (
-  document: PrismicDocument<WithInterpretations>
-) => {
-  const { data } = document;
-
-  return (data.interpretations ?? [])
+const transformInterpretations = ({
+  interpretations,
+}: {
+  interpretations: PrismicInterpretations;
+}): EventDocumentInterpretation[] => {
+  return (interpretations ?? [])
     .map((i): EventDocumentInterpretation | undefined => {
       return isFilledLinkToDocumentWithData(i.interpretationType)
         ? {
@@ -99,10 +100,12 @@ const transformInterpretations = (
     .filter(isNotUndefined);
 };
 
-const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
-  const { data } = document;
-
-  return (data.audiences ?? [])
+const transformAudiences = ({
+  audiences,
+}: {
+  audiences: PrismicAudiences;
+}): EventDocumentAudience[] => {
+  return (audiences ?? [])
     .map((i): EventDocumentAudience | undefined => {
       return isFilledLinkToDocumentWithData(i.audience)
         ? {
@@ -120,11 +123,7 @@ const transformTimes = (times: {
   endDateTime: TimestampField;
   isFullyBooked: 'yes' | null;
   onlineIsFullyBooked: 'yes' | null;
-}): {
-  startDateTime: Date | undefined;
-  endDateTime: Date | undefined;
-  isFullyBooked: { inVenue: boolean; online: boolean };
-} => {
+}): EventDocumentTime => {
   return {
     startDateTime: asDate(times.startDateTime) || undefined,
     endDateTime: asDate(times.endDateTime) || undefined,
@@ -157,21 +156,30 @@ export const transformEventDocument = (
 
   const format = transformFormat(document);
 
-  const locations = transformLocations(document);
+  const locations = transformLocations({
+    isOnline: document.data.isOnline,
+    locations: document.data.locations,
+  });
 
-  const interpretations = transformInterpretations(document);
+  const interpretations = transformInterpretations({
+    interpretations: document.data.interpretations,
+  });
 
-  const audiences = transformAudiences(document);
+  const audiences = transformAudiences({ audiences: document.data.audiences });
 
   // Events that existed before the field was added have `null` as a value
   // They should be considered as false
   const isAvailableOnline = !!availableOnline;
 
+  // Scheduled events to be treated differently, they are recognised as such
+  // if they have the 'delist' tag.
+  const isChildPrismicScheduledEvent = tags.includes('delist') || undefined;
+
   return [
     {
       id,
       uid,
-      ...(tags.includes('delist') && { isChildScheduledEvent: true }),
+      ...(isChildPrismicScheduledEvent && { isChildPrismicScheduledEvent }),
       display: {
         type: 'Event',
         id,

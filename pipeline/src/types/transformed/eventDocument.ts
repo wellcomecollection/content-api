@@ -6,17 +6,19 @@ export type EventDocument = {
   uid: string | null;
   title: string;
   image?: Image;
-  times: {
-    startDateTime?: Date;
-    endDateTime?: Date;
-    isFullyBooked: { inVenue: boolean; online: boolean };
-  }[];
+  times: EventDocumentTime[];
   format: EventDocumentFormat;
   locations: EventDocumentLocations;
   interpretations: EventDocumentInterpretation[];
   audiences: EventDocumentAudience[];
   series: Series;
   isAvailableOnline: boolean;
+};
+
+export type EventDocumentTime = {
+  startDateTime?: Date;
+  endDateTime?: Date;
+  isFullyBooked: { inVenue: boolean; online: boolean };
 };
 
 export type EventDocumentFormat = {
