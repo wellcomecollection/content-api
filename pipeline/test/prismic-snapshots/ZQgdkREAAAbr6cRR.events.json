@@ -3,7 +3,7 @@
   "uid": "lights-up-on-the-cult-of-beauty-11",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:39+0000",
@@ -42,7 +42,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "0b0859d8-51ce-490e-b822-18ebd584c2b9",
+          "key": "8877bdd3-74de-4733-b44b-4d429705f195",
           "isBroken": false
         }
       }
@@ -83,6 +83,13 @@
           "last_publication_date": "2024-10-23T12:53:18+0000",
           "uid": "lights-up-on-the-cult-of-beauty-23",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2023-11-23T16:00:00+0000",
+                "endDateTime": "2023-11-23T20:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -90,15 +97,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2023-11-23T16:00:00+0000",
-                "endDateTime": "2023-11-23T20:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "a489b334-ea8f-4244-afd6-8b0f2a89f0cd",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "1d814efe-68b1-475d-9383-274350b7eeec",
+          "key": "71da9a62-5d2e-4511-9702-a6cbb9251183",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -114,6 +154,13 @@
           "last_publication_date": "2024-10-23T12:53:39+0000",
           "uid": "ad-tour-of-beauty-23-november",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2023-11-23T17:30:00+0000",
+                "endDateTime": "2023-11-23T18:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -121,15 +168,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2023-11-23T17:30:00+0000",
-                "endDateTime": "2023-11-23T18:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "312394cb-a73d-4839-9f57-13aed5ae51ff",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "80f2c683-2cdf-4c3e-ae11-208c1ee987b4",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "7da56438-20f6-418a-927f-2e12ecf5b720",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "7afd2fe0-b951-4d91-aedf-58e96636078d",
+          "key": "3ffa5186-ada2-4b4d-937f-746c5c80f0b0",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -145,6 +264,13 @@
           "last_publication_date": "2024-10-23T12:50:24+0000",
           "uid": "lights-up-on-the-cult-of-beauty",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2023-12-16T10:00:00+0000",
+                "endDateTime": "2023-12-16T14:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -152,15 +278,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2023-12-16T10:00:00+0000",
-                "endDateTime": "2023-12-16T14:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "36f73e73-59ee-40db-b27b-65f076a85ed8",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "f0bedad9-01f8-4f6d-b79b-7b55fcc8fd8b",
+          "key": "75c17a6f-5626-4ac3-a169-44c04255e0f6",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -176,6 +335,13 @@
           "last_publication_date": "2024-10-23T12:52:51+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-16-1130",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2023-12-16T11:30:00+0000",
+                "endDateTime": "2023-12-16T12:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -183,15 +349,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2023-12-16T11:30:00+0000",
-                "endDateTime": "2023-12-16T12:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "5b435154-17cc-4a48-9c0e-086b6cbc7ba6",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "9600fb36-f472-4931-9dc8-0425cec61299",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "7889288d-e707-43c6-bfef-c806837eaa6b",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "fa454810-60f9-4d2e-8b04-710f768063d1",
+          "key": "1bc3c388-c91e-43ab-be24-9b78a48a1caf",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -207,6 +445,13 @@
           "last_publication_date": "2024-10-23T12:53:41+0000",
           "uid": "lights-up-on-the-cult-of-beauty-9-2",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-01-09T14:00:00+0000",
+                "endDateTime": "2024-01-09T18:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -214,15 +459,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-01-09T14:00:00+0000",
-                "endDateTime": "2024-01-09T18:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "aff84cff-7f16-41f6-9fa7-e058c73d9ab1",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "07a4664b-99b7-4a5e-9dc6-81e5a99c57ec",
+          "key": "8cfbb3f2-863a-453c-8a88-1f38b9605d88",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -238,6 +516,13 @@
           "last_publication_date": "2024-10-23T12:52:50+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-330",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-01-09T15:30:00+0000",
+                "endDateTime": "2024-01-09T16:15:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -245,15 +530,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-01-09T15:30:00+0000",
-                "endDateTime": "2024-01-09T16:15:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "5728b9ce-01e5-47be-8989-02244e0f0da9",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "8f689abf-ec0f-4392-9536-38cbb9577596",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "18835dae-3634-42f1-a8ff-26570d9d1fed",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "1c7b4127-f2dc-491b-a081-42ea5ed1dedc",
+          "key": "0402046c-abf2-4245-bfa8-39df1f478af3",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -269,6 +626,13 @@
           "last_publication_date": "2024-10-23T12:53:02+0000",
           "uid": "lights-up-on-the-cult-of-beauty-1",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-02-01T16:00:00+0000",
+                "endDateTime": "2024-02-01T20:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -276,15 +640,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-02-01T16:00:00+0000",
-                "endDateTime": "2024-02-01T20:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "27f2e355-5554-49b1-902f-2d8ec5858a59",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "9c906021-faf3-4a7d-a2b0-bd6eed8a81f7",
+          "key": "40316691-c999-4794-a2b2-d4b534925fe4",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -300,6 +697,13 @@
           "last_publication_date": "2024-10-23T12:50:31+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-1730",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-02-01T17:30:00+0000",
+                "endDateTime": "2024-02-01T18:15:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -307,15 +711,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-02-01T17:30:00+0000",
-                "endDateTime": "2024-02-01T18:15:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "8d280418-64b4-4167-878d-fc01fdaf6ebf",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "e89f4d64-49f9-4768-bbef-c6953f4afc10",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "a1591223-583b-4b5e-b97e-841d1937c6a6",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "b0ca7ba0-cbb5-4f73-8bec-a148987c8b29",
+          "key": "6e094885-4021-4612-9f73-b0c20e538ab3",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -331,6 +807,13 @@
           "last_publication_date": "2024-10-23T12:53:03+0000",
           "uid": "lights-up-on-the-cult-of-beauty-24",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-02-24T10:00:00+0000",
+                "endDateTime": "2024-02-24T14:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -338,15 +821,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-02-24T10:00:00+0000",
-                "endDateTime": "2024-02-24T14:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "f33545dd-24d4-40c1-8537-a1259655670b",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "7cc191c7-7b16-4c49-812b-ab82928f5258",
+          "key": "66099c77-8e45-402c-a418-66a2d740efbd",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -362,6 +878,13 @@
           "last_publication_date": "2024-10-23T12:53:15+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-24-1130",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-02-24T11:30:00+0000",
+                "endDateTime": "2024-02-24T12:15:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -369,15 +892,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-02-24T11:30:00+0000",
-                "endDateTime": "2024-02-24T12:15:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "5eea0230-5a7a-494d-905e-93d2959be269",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "b09bd544-2acf-4e36-9701-086a6146c1fc",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "3fded66d-4515-4f27-b15f-5d73a05ed1b8",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "474cf8bc-d94a-4172-920d-68ff576831f0",
+          "key": "bb34415f-2c4b-4f19-a005-af4c3b6f8921",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -393,6 +988,13 @@
           "last_publication_date": "2024-10-23T12:53:04+0000",
           "uid": "lights-up-on-the-cult-of-beauty-19-2",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-03-19T14:00:00+0000",
+                "endDateTime": "2024-03-19T18:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -400,15 +1002,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-03-19T14:00:00+0000",
-                "endDateTime": "2024-03-19T18:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "59bd3518-fa13-4b5c-82bd-46ef42eb6ae2",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "ee79e91e-9fac-48e2-b01b-2070dcd57562",
+          "key": "5b70e850-daca-4910-9158-a848f20d0939",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -424,6 +1059,13 @@
           "last_publication_date": "2024-10-23T12:53:15+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-19-330",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-03-19T15:30:00+0000",
+                "endDateTime": "2024-03-19T16:15:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -431,15 +1073,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-03-19T15:30:00+0000",
-                "endDateTime": "2024-03-19T16:15:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "fa7f3be4-9cbf-4fc7-ac01-51e7e2cdee4b",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "9c1be458-7742-423f-b56f-6c8c067d8ff4",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "7c26d5ff-3c0e-4139-99bb-252d078ec613",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "e45d4343-5203-4e03-94b0-6b1db3df92ee",
+          "key": "2259731c-1373-419d-8cd1-50770cd20714",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -455,6 +1169,13 @@
           "last_publication_date": "2024-10-23T12:53:24+0000",
           "uid": "lights-up-on-the-cult-of-beauty-114",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-04-11T15:00:00+0000",
+                "endDateTime": "2024-04-11T19:00:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -462,15 +1183,48 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-04-11T15:00:00+0000",
-                "endDateTime": "2024-04-11T19:00:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
+              }
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "WrEgqSAAACAAPEw7",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-03-20T14:54:36+0000",
+                  "last_publication_date": "2024-05-07T16:35:17+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Gallery 1",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "cf4ef06e-8735-49f9-8950-7ceecc6c79cd",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "link_type": "Document"
+                }
               }
             ]
           },
           "link_type": "Document",
-          "key": "d5d05023-8199-4b35-b7bc-f5ba466d55f6",
+          "key": "2a1f1ebc-002b-4c4e-8475-61168be20844",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -486,6 +1240,13 @@
           "last_publication_date": "2024-10-23T12:50:28+0000",
           "uid": "ad-tour-of-the-cult-of-beauty-530",
           "data": {
+            "isOnline": false,
+            "times": [
+              {
+                "startDateTime": "2024-04-11T16:30:00+0000",
+                "endDateTime": "2024-04-11T17:15:00+0000"
+              }
+            ],
             "title": [
               {
                 "type": "heading1",
@@ -493,15 +1254,87 @@
                 "spans": []
               }
             ],
-            "times": [
+            "audiences": [
               {
-                "startDateTime": "2024-04-11T16:30:00+0000",
-                "endDateTime": "2024-04-11T17:15:00+0000"
+                "audience": {
+                  "link_type": "Document"
+                }
               }
-            ]
+            ],
+            "locations": [
+              {
+                "location": {
+                  "id": "W22bICkAACgA-hVJ",
+                  "type": "places",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "-",
+                  "first_publication_date": "2018-08-10T14:03:19+0000",
+                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Information Point",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "f5097688-6c7d-415c-8066-d19ec35f51ef",
+                  "isBroken": false
+                }
+              }
+            ],
+            "interpretations": [
+              {
+                "interpretationType": {
+                  "id": "WmXhziQAACQAnw7i",
+                  "type": "interpretation-types",
+                  "tags": [],
+                  "lang": "en-gb",
+                  "slug": "audio-described",
+                  "first_publication_date": "2018-01-22T13:06:26+0000",
+                  "last_publication_date": "2022-11-07T14:20:45+0000",
+                  "data": {
+                    "title": [
+                      {
+                        "type": "heading1",
+                        "text": "Audio described",
+                        "spans": []
+                      }
+                    ]
+                  },
+                  "link_type": "Document",
+                  "key": "71acb0a6-89b0-42bd-ae20-6c9f9635aaab",
+                  "isBroken": false
+                }
+              }
+            ],
+            "format": {
+              "id": "WmYRpCQAACUAn-Ap",
+              "type": "event-formats",
+              "tags": [],
+              "lang": "en-gb",
+              "slug": "gallery-tour",
+              "first_publication_date": "2018-01-22T16:30:31+0000",
+              "last_publication_date": "2018-01-22T16:30:31+0000",
+              "data": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "Gallery tour",
+                    "spans": []
+                  }
+                ]
+              },
+              "link_type": "Document",
+              "key": "afaa85eb-1ef2-4c22-8d88-f10f8170649c",
+              "isBroken": false
+            }
           },
           "link_type": "Document",
-          "key": "1987b4eb-7456-4bdc-995c-f4d58c23af58",
+          "key": "6638311a-c104-4822-a784-ded34edffe22",
           "isBroken": false
         },
         "isNotLinked": "yes"

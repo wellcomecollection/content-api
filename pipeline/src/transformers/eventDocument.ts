@@ -239,21 +239,23 @@ export const transformEventDocument = (
     isOnline: document.data.isOnline,
     locations: document.data.locations,
   });
+  const locationsPlaces = getUniqueValues(
+    [parentLocations.places, ...scheduledLocations.map(s => s.places)]
+      .filter(isNotUndefined)
+      .flat()
+  );
+  const locationsAttendance = getUniqueValues(
+    [
+      parentLocations.attendance,
+      ...scheduledLocations.map(s => s.attendance),
+    ].flat()
+  );
   const locations = {
     ...parentLocations,
     isOnline:
       !!scheduledLocations.find(l => l.isOnline) && parentLocations.isOnline,
-    places: getUniqueValues(
-      [parentLocations.places, ...scheduledLocations.map(s => s.places)]
-        .filter(isNotUndefined)
-        .flat()
-    ),
-    attendance: getUniqueValues(
-      [
-        parentLocations.attendance,
-        ...scheduledLocations.map(s => s.attendance),
-      ].flat()
-    ),
+    places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
+    attendance: locationsAttendance,
   };
 
   const interpretations = getUniqueValues([

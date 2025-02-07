@@ -1144,7 +1144,7 @@ exports[`addressables transformer transforms visual stories from Prismic to the 
 [
   {
     "display": {
-      "description": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+      "description": "Information to help you plan and prepare for your visit to 'Hard Graft: Work, Health and Rights'.",
       "id": "Zs8EuRAAAB4APxrA",
       "title": "Hard Graft: Work, Health and Rights visual story",
       "type": "Visual story",
@@ -1152,7 +1152,7 @@ exports[`addressables transformer transforms visual stories from Prismic to the 
     },
     "id": "Zs8EuRAAAB4APxrA/visual-stories",
     "query": {
-      "description": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+      "description": "Information to help you plan and prepare for your visit to 'Hard Graft: Work, Health and Rights'.",
       "title": "Hard Graft: Work, Health and Rights visual story",
       "type": "Visual story",
     },

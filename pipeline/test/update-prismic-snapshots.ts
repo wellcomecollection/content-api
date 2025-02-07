@@ -42,6 +42,7 @@ const eventDocumentIds = [
   'ZFt0WhQAAHnPEH7P', // festival - Land Body Ecologies Festival Day Two
   'ZRrijRIAAJNSARgG', // performance - Standards, My Right to Beauty
   'Wn3Q3SoAACsAIeFI', // event-formats - Performance
+  'XGqidxAAAOMnw0Tp', // has scheduled events - Disabled Access Day
 ];
 
 const venueIds = [

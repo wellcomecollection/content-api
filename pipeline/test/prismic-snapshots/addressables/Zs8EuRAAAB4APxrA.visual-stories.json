@@ -3,10 +3,10 @@
   "uid": "hard-graft",
   "url": null,
   "type": "visual-stories",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8EuRAAAB4APxrA%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8EuRAAAB4APxrA%22%29+%5D%5D",
   "tags": ["hard-graft"],
   "first_publication_date": "2024-10-23T11:49:18+0000",
-  "last_publication_date": "2024-11-15T09:44:44+0000",
+  "last_publication_date": "2025-02-06T15:04:26+0000",
   "slugs": ["hard-graft-work-health-and-rights-visual-story"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -26,7 +26,7 @@
           "caption": [
             {
               "type": "paragraph",
-              "text": "Information to help you plan and prepare for your visit to 'Hard Graft'.",
+              "text": "Information to help you plan and prepare for your visit to 'Hard Graft: Work, Health and Rights'.",
               "spans": [],
               "direction": "ltr"
             }

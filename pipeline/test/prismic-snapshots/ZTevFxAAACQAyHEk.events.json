@@ -3,7 +3,7 @@
   "uid": "sexing-up-the-internet",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZTevFxAAACQAyHEk%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-26T15:04:01+0000",
   "last_publication_date": "2024-10-23T12:51:41+0000",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "b86569e0-6605-4135-9f85-1c3b1fc24e5a",
+      "key": "41782323-46c7-4d79-b242-88e0fbec3ee9",
       "isBroken": false
     },
     "locations": [
@@ -60,7 +60,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "6dab3fb6-1d72-446f-a3d0-35507b53dfc0",
+          "key": "fa417acc-e74a-4061-940d-95398af206ed",
           "isBroken": false
         }
       }
@@ -117,7 +117,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "781d8dff-4561-49be-8c38-6445747c0285",
+          "key": "c938bce3-eb06-4360-941a-a2d220923cc1",
           "isBroken": false
         },
         "contributor": {
@@ -132,7 +132,7 @@
             "name": "Sophia Smith Galer"
           },
           "link_type": "Document",
-          "key": "a40fe356-d8c0-42a1-b9ac-583c0ec64143",
+          "key": "bb02cb78-3ef1-405e-a0e5-2d315b3dbaaf",
           "isBroken": false
         }
       },
@@ -155,7 +155,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "5acd1c94-8d9e-4786-ab2a-abc3d8aea99c",
+          "key": "9979a750-15ee-4e12-b8e2-c05422de4ff2",
           "isBroken": false
         },
         "contributor": {
@@ -170,7 +170,7 @@
             "name": "Alice White"
           },
           "link_type": "Document",
-          "key": "80720c9d-5da1-46ee-8c52-9c3c97a8d0ae",
+          "key": "f65e0067-7a82-44c5-b133-6a3f982a22a6",
           "isBroken": false
         }
       },
@@ -193,7 +193,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "1d2f180f-d049-4b80-88ea-6ba989ef3e77",
+          "key": "0d8d9748-6bfe-4bf0-9bcf-27980e49f174",
           "isBroken": false
         },
         "contributor": {
@@ -208,7 +208,7 @@
             "name": "Anne Philpott"
           },
           "link_type": "Document",
-          "key": "ef85aa6c-0be8-4213-9270-1ead4caa88f9",
+          "key": "d17a26ee-6ea2-45a5-ae34-0e6cffd0311e",
           "isBroken": false
         }
       }

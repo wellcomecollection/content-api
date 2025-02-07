@@ -3,10 +3,10 @@
   "uid": "the-enigma-of-the-medieval-folding-almanac",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YbjAThEAACEAcPYF%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-01-10T10:59:43+0000",
-  "last_publication_date": "2024-10-23T14:35:21+0000",
+  "last_publication_date": "2025-01-08T16:22:07+0000",
   "slugs": ["the-enigma-of-the-medieval-folding-almanac"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "d810b979-3a01-4fcf-93c2-22d453d28be2",
+      "key": "ff0a6e57-6cd5-442a-a36b-5706cedb0609",
       "isBroken": false
     },
     "body": [
@@ -318,7 +318,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "4ad9a2dd-4e21-45ec-a1b0-1f56dc135ec6",
+          "key": "567ebaa4-2c0d-40a9-a52b-3e92be49b850",
           "isBroken": false
         },
         "contributor": {
@@ -333,7 +333,7 @@
             "name": "Elma Brenner"
           },
           "link_type": "Document",
-          "key": "7c92d1ca-bbe7-45f5-b267-1d1e2f9096e4",
+          "key": "b9fc0370-2eb2-4128-8c3c-facf6e57381f",
           "isBroken": false
         }
       }
@@ -454,14 +454,14 @@
                     "name": "Lalita Kaplish"
                   },
                   "link_type": "Document",
-                  "key": "8a6af688-ca0a-486e-8326-7afe58de6b4f",
+                  "key": "295b9fb6-17fb-4992-8f70-1ad7ec47268b",
                   "isBroken": false
                 }
               }
             ]
           },
           "link_type": "Document",
-          "key": "4f64cf72-0639-4152-b491-7951dfb82c4c",
+          "key": "14d0a89c-9d47-4515-ae38-9880645460e4",
           "isBroken": false
         }
       },
@@ -493,7 +493,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "ef43223c-cf73-4aa2-8b10-bc5707fce9b9",
+          "key": "b27b6c35-e7a9-41a6-af9a-ab1adf60a623",
           "isBroken": false
         }
       }
