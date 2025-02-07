@@ -58,24 +58,30 @@ export type PrismicScheduledEvent = prismic.GroupField<{
       title: prismic.RichTextField;
     } & WithLocations &
       WithInterpretations &
-      WithAudiences
+      WithAudiences &
+      WithTimes
   >;
 }>;
 type WithSchedule = {
   schedule: PrismicScheduledEvent;
 };
 
+export type PrismicTimes = prismic.GroupField<{
+  startDateTime: prismic.TimestampField;
+  endDateTime: prismic.TimestampField;
+  isFullyBooked: 'yes' | null;
+  onlineIsFullyBooked: 'yes' | null;
+}>;
+type WithTimes = {
+  times: PrismicTimes;
+};
+
 export type EventPrismicDocument = prismic.PrismicDocument<
   {
-    times: prismic.GroupField<{
-      startDateTime: prismic.TimestampField;
-      endDateTime: prismic.TimestampField;
-      isFullyBooked: 'yes' | null;
-      onlineIsFullyBooked: 'yes' | null;
-    }>;
     availableOnline: boolean;
   } & WithEventFormat &
     WithLocations &
+    WithTimes &
     WithInterpretations &
     WithSeries &
     WithAudiences &

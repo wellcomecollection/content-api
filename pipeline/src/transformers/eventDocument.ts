@@ -1,4 +1,4 @@
-import { asDate, PrismicDocument, TimestampField } from '@prismicio/client';
+import { asDate, PrismicDocument } from '@prismicio/client';
 
 import { defaultEventFormat } from '@weco/content-common/data/defaultValues';
 import {
@@ -14,10 +14,12 @@ import {
   PrismicInterpretations,
   PrismicLocations,
   PrismicScheduledEvent,
+  PrismicTimes,
   WithEventFormat,
 } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
+  EventDocumentAttendance,
   EventDocumentAudience,
   EventDocumentFormat,
   EventDocumentInterpretation,
@@ -83,6 +85,44 @@ const transformLocations = ({
   };
 };
 
+const getUniqueLocationValues = ({
+  parentLocations,
+  scheduledLocations,
+}: {
+  parentLocations: EventDocumentLocations;
+  scheduledLocations: EventDocumentLocations[];
+}) => {
+  const places: EventDocumentPlace[] = [];
+  const attendance: EventDocumentAttendance[] = [];
+
+  const allPlaces = [
+    parentLocations.places,
+    ...scheduledLocations.map(s => s.places),
+  ].flat();
+
+  // Ensure we only pass in each places once
+  allPlaces.forEach(place =>
+    !places.find(u => u.id === place?.id) && !!place
+      ? places.push(place)
+      : undefined
+  );
+
+  const allAttendance = [
+    parentLocations.attendance,
+    ...scheduledLocations.map(s => s.attendance),
+  ].flat();
+
+  // Ensure we only pass in each attendance once
+  allAttendance.forEach(att =>
+    !attendance.find(u => u.id === att.id) ? attendance.push(att) : undefined
+  );
+
+  return {
+    places: places.filter(isNotUndefined),
+    attendance: attendance.filter(isNotUndefined),
+  };
+};
+
 const transformInterpretations = ({
   interpretations,
 }: {
@@ -119,6 +159,25 @@ const transformAudiences = ({
     .filter(isNotUndefined);
 };
 
+const transformTimes = ({
+  times,
+}: {
+  times: PrismicTimes;
+}): EventDocumentTime[] => {
+  return (times ?? [])
+    .map((time): EventDocumentTime | undefined => {
+      return {
+        startDateTime: asDate(time.startDateTime) || undefined,
+        endDateTime: asDate(time.endDateTime) || undefined,
+        isFullyBooked: {
+          inVenue: !!time.isFullyBooked,
+          online: !!time.onlineIsFullyBooked,
+        },
+      };
+    })
+    .filter(isNotUndefined);
+};
+
 const transformSchedule = ({
   scheduledEvents,
 }: {
@@ -127,18 +186,21 @@ const transformSchedule = ({
   scheduledLocations: EventDocumentLocations[];
   scheduledAudiences: EventDocumentAudience[];
   scheduledInterpretations: EventDocumentInterpretation[];
+  scheduledTimes: EventDocumentTime[];
 } => {
-  const scheduledLocations: EventDocumentLocations[] = [];
+  const transformedScheduledLocations: EventDocumentLocations[] = [];
+
   const allScheduledAudiences: EventDocumentAudience[] = [];
   const uniqueScheduledAudiences: EventDocumentAudience[] = [];
+
   const allScheduledInterpretations: EventDocumentInterpretation[] = [];
   const uniqueScheduledInterpretations: EventDocumentInterpretation[] = [];
-  // TODO type
-  // const scheduledTimes = [];
+
+  const scheduledTimes: EventDocumentTime[] = [];
 
   (scheduledEvents || []).forEach(i => {
     if (isFilledLinkToDocumentWithData(i.event)) {
-      scheduledLocations.push(
+      transformedScheduledLocations.push(
         transformLocations({
           isOnline: i.event.data.isOnline,
           locations: i.event.data.locations,
@@ -154,21 +216,19 @@ const transformSchedule = ({
           interpretations: i.event.data.interpretations,
         })
       );
+
+      scheduledTimes.push(...transformTimes({ times: i.event.data.times }));
     }
   });
 
-  // TODO ensure scheduledLocations only returns individual values? Do we care?
-  // I'm not sure we even can because the "is Online" value differs.
-  // Should it be true for the parent if one scheduled event has it as true?
-  // console.log({ scheduledLocations });
-
+  // TODO move this out, we'll need to re-do it anyway when we add the parent ones, might as well only do it once.
   // Ensure we only pass in each audience once
-  allScheduledAudiences.forEach(int =>
-    !uniqueScheduledAudiences.find(u => u.id === int.id)
-      ? uniqueScheduledAudiences.push(int)
+  allScheduledAudiences.forEach(aud =>
+    !uniqueScheduledAudiences.find(u => u.id === aud.id)
+      ? uniqueScheduledAudiences.push(aud)
       : undefined
   );
-
+  // TODO same
   // Ensure we only pass in each interpetation once
   allScheduledInterpretations.forEach(int =>
     !uniqueScheduledInterpretations.find(u => u.id === int.id)
@@ -177,27 +237,11 @@ const transformSchedule = ({
   );
 
   return {
-    scheduledLocations,
+    scheduledLocations: transformedScheduledLocations,
     scheduledAudiences: uniqueScheduledAudiences.filter(isNotUndefined),
     scheduledInterpretations:
       uniqueScheduledInterpretations.filter(isNotUndefined),
-    // scheduledTimes,
-  };
-};
-
-const transformTimes = (times: {
-  startDateTime: TimestampField;
-  endDateTime: TimestampField;
-  isFullyBooked: 'yes' | null;
-  onlineIsFullyBooked: 'yes' | null;
-}): EventDocumentTime => {
-  return {
-    startDateTime: asDate(times.startDateTime) || undefined,
-    endDateTime: asDate(times.endDateTime) || undefined,
-    isFullyBooked: {
-      inVenue: !!times.isFullyBooked,
-      online: !!times.onlineIsFullyBooked,
-    },
+    scheduledTimes,
   };
 };
 
@@ -205,13 +249,11 @@ export const transformEventDocument = (
   document: EventPrismicDocument
 ): ElasticsearchEventDocument[] => {
   const {
-    data: { title, promo, times, availableOnline },
+    data: { title, promo, availableOnline },
     id,
     uid,
     tags,
   } = document;
-
-  const documentTimes = times.map(transformTimes);
 
   const primaryImage = promo?.[0]?.primary;
   const image =
@@ -223,32 +265,51 @@ export const transformEventDocument = (
 
   const format = transformFormat(document);
 
-  const locations = transformLocations({
-    isOnline: document.data.isOnline,
-    locations: document.data.locations,
-  });
-
-  const interpretations = transformInterpretations({
-    interpretations: document.data.interpretations,
-  });
-
-  const audiences = transformAudiences({ audiences: document.data.audiences });
-
-  // Events that existed before the field was added have `null` as a value
-  // They should be considered as false
-  const isAvailableOnline = !!availableOnline;
-
   // Scheduled events to be treated differently, they are recognised as such
   // if they have the 'delist' tag.
   const isChildPrismicScheduledEvent = tags.includes('delist') || undefined;
 
-  // TODO
-  // If it has scheduled events, more transforming needs to be done as their data
-  // should be added as the parent's data.
-  console.log(
-    '--->',
-    transformSchedule({ scheduledEvents: document.data.schedule })
-  );
+  // If it has scheduled events, we get their data and ensure it's added to this event instead.
+  const {
+    scheduledLocations,
+    scheduledAudiences,
+    scheduledInterpretations,
+    scheduledTimes,
+  } = transformSchedule({
+    scheduledEvents: document.data.schedule,
+  });
+
+  const times = [
+    ...transformTimes({ times: document.data.times }),
+    ...scheduledTimes,
+  ];
+
+  const parentLocations = transformLocations({
+    isOnline: document.data.isOnline,
+    locations: document.data.locations,
+  });
+  const locations = {
+    ...parentLocations,
+    isOnline:
+      !!scheduledLocations.find(l => l.isOnline) && parentLocations.isOnline,
+    ...getUniqueLocationValues({ parentLocations, scheduledLocations }),
+  };
+
+  const interpretations = [
+    ...transformInterpretations({
+      interpretations: document.data.interpretations,
+    }),
+    ...scheduledInterpretations,
+  ];
+
+  const audiences = [
+    ...transformAudiences({ audiences: document.data.audiences }),
+    ...scheduledAudiences,
+  ];
+
+  // Events that existed before the field was added have `null` as a value
+  // They should be considered as false
+  const isAvailableOnline = !!availableOnline;
 
   return [
     {
@@ -261,7 +322,7 @@ export const transformEventDocument = (
         uid,
         title: asTitle(title),
         image,
-        times: times.map(transformTimes),
+        times,
         format,
         locations,
         interpretations,
@@ -279,7 +340,7 @@ export const transformEventDocument = (
           .map(audience => audience.label)
           .filter(isNotUndefined),
         times: {
-          startDateTime: documentTimes
+          startDateTime: times
             .map(time => time.startDateTime)
             .filter(isNotUndefined),
         },

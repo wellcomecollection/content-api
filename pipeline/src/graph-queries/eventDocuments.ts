@@ -40,6 +40,7 @@ const query = `{
     schedule {
       event {
         title
+        isOnline
         format {
           ... on event-formats {
             title
