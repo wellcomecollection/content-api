@@ -62,10 +62,3 @@ export type EventDocumentAudience = {
   id: string;
   label?: string;
 };
-
-// TODO ??
-export type EventDocumentSchedule = {
-  type: 'EventSchedule';
-  id: string;
-  label?: string;
-};

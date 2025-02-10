@@ -149,7 +149,7 @@ const transformTimes = ({
     .filter(isNotUndefined);
 };
 
-const transformSchedule = ({
+const getScheduledEventsData = ({
   scheduledEvents,
 }: {
   scheduledEvents: PrismicScheduledEvent;
@@ -225,11 +225,10 @@ export const transformEventDocument = (
     scheduledAudiences,
     scheduledInterpretations,
     scheduledTimes,
-  } = transformSchedule({
+  } = getScheduledEventsData({
     scheduledEvents: document.data.schedule,
   });
 
-  // TODO figure out if we want to do anything special with this
   const times = [
     ...transformTimes({ times: document.data.times }),
     ...scheduledTimes,
