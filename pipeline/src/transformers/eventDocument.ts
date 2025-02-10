@@ -215,10 +215,6 @@ export const transformEventDocument = (
 
   const format = transformFormat(document);
 
-  // Scheduled events to be treated differently, they are recognised as such
-  // if they have the 'delist' tag.
-  const isChildPrismicScheduledEvent = tags.includes('delist') || undefined;
-
   // If it has scheduled events, we get their data and ensure it's added to this event instead.
   const {
     scheduledLocations,
@@ -277,7 +273,8 @@ export const transformEventDocument = (
     {
       id,
       uid,
-      ...(isChildPrismicScheduledEvent && { isChildPrismicScheduledEvent }),
+      // Scheduled events to be treated differently; they are recognised as such if they have the 'delist' tag.
+      ...(tags.includes('delist') && { isChildScheduledEvent: true }),
       display: {
         type: 'Event',
         id,
