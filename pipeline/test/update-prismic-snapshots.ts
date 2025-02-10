@@ -42,7 +42,6 @@ const eventDocumentIds = [
   'ZFt0WhQAAHnPEH7P', // festival - Land Body Ecologies Festival Day Two
   'ZRrijRIAAJNSARgG', // performance - Standards, My Right to Beauty
   'Wn3Q3SoAACsAIeFI', // event-formats - Performance
-  'XGqidxAAAOMnw0Tp', // has scheduled events - Disabled Access Day
 ];
 
 const venueIds = [
@@ -207,6 +206,14 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
 };
 const main = async () => {
   const client = createPrismicClient();
+
+  // delete
+  fs.readdir(dataDir).then(result => {
+    result
+      .filter(f => /[.]json$/.test(f))
+      .map(f => fs.unlink(`${dataDir}/${f}`));
+  });
+
   const articleDocs = await updateArticleSnapshots(client);
   const eventDocs = await updateEventDocumentSnapshots(client);
   const venueDocs = await updateVenueSnapshots(client);
