@@ -253,7 +253,7 @@ export const transformEventDocument = (
   const locations = {
     ...parentLocations,
     isOnline:
-      !!scheduledLocations.find(l => l.isOnline) && parentLocations.isOnline,
+      !!scheduledLocations.find(l => l.isOnline) || parentLocations.isOnline,
     places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
     attendance: locationsAttendance,
   };

@@ -363,7 +363,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
             "type": "EventAttendance",
           },
         ],
-        "isOnline": false,
+        "isOnline": true,
         "places": [
           {
             "id": "XEnJIhUAAArdgVsW",
@@ -1405,7 +1405,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
             "type": "EventAttendance",
           },
         ],
-        "isOnline": false,
+        "isOnline": true,
         "places": undefined,
         "type": "EventLocations",
       },
