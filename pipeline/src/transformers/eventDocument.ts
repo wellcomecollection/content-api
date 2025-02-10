@@ -295,6 +295,9 @@ export const transformEventDocument = (
         caption: primaryImage?.caption && asText(primaryImage.caption),
         series,
         format: format.label,
+        interpretations: interpretations
+          .map(interpretation => interpretation.label)
+          .filter(isNotUndefined),
         audiences: audiences
           .map(audience => audience.label)
           .filter(isNotUndefined),
