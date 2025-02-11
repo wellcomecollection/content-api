@@ -29,7 +29,7 @@ export const articlesFilter = {
     values: contributors,
     esQuery: {
       terms: {
-        'filter.contributorIds': contributors,
+        'filter.contributors': contributors,
       },
     },
   }),
@@ -37,7 +37,7 @@ export const articlesFilter = {
     values: formats,
     esQuery: {
       terms: {
-        'filter.formatId': formats,
+        'filter.format': formats,
       },
     },
   }),

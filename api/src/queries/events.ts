@@ -26,7 +26,7 @@ export const eventsFilter = {
     values: formats,
     esQuery: {
       terms: {
-        'filter.formatId': formats,
+        'filter.format': formats,
       },
     },
   }),
@@ -34,7 +34,7 @@ export const eventsFilter = {
     values: interpretations,
     esQuery: {
       terms: {
-        'filter.interpretationIds': interpretations,
+        'filter.interpretations': interpretations,
       },
     },
   }),
@@ -42,7 +42,7 @@ export const eventsFilter = {
     values: audiences,
     esQuery: {
       terms: {
-        'filter.audienceIds': audiences,
+        'filter.audiences': audiences,
       },
     },
   }),
@@ -50,7 +50,7 @@ export const eventsFilter = {
     values: locations,
     esQuery: {
       terms: {
-        'filter.locationIds': locations,
+        'filter.locations': locations,
       },
     },
   }),

@@ -202,10 +202,10 @@ export const transformEventDocument = (
         },
       },
       filter: {
-        formatId: format.id,
-        interpretationIds: interpretations.map(i => i.id),
-        audienceIds: audiences.map(a => a.id),
-        locationIds: locations.attendance.map(l => l.id),
+        format: format.id,
+        interpretations: interpretations.map(i => i.id),
+        audiences: audiences.map(a => a.id),
+        locations: locations.attendance.map(l => l.id),
         isAvailableOnline,
       },
       aggregatableValues: {

@@ -140,11 +140,11 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "land-body-ecologies-festival-day-two",
     },
     "filter": {
-      "audienceIds": [],
-      "formatId": "W5fV5iYAACQAMxHb",
-      "interpretationIds": [],
+      "audiences": [],
+      "format": "W5fV5iYAACQAMxHb",
+      "interpretations": [],
       "isAvailableOnline": false,
-      "locationIds": [
+      "locations": [
         "online",
         "in-our-building",
       ],
@@ -332,13 +332,13 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "perspective-tour-with-jess-dobkin",
     },
     "filter": {
-      "audienceIds": [],
-      "formatId": "WmYRpCQAACUAn-Ap",
-      "interpretationIds": [
+      "audiences": [],
+      "format": "WmYRpCQAACUAn-Ap",
+      "interpretations": [
         "XkFGqxEAACIAIhNH",
       ],
       "isAvailableOnline": false,
-      "locationIds": [
+      "locations": [
         "in-our-building",
       ],
     },
@@ -495,11 +495,11 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "lights-up-on-the-cult-of-beauty-11",
     },
     "filter": {
-      "audienceIds": [],
-      "formatId": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
-      "interpretationIds": [],
+      "audiences": [],
+      "format": "dfc2b7f9-c362-47da-9644-b0f98212ccaa",
+      "interpretations": [],
       "isAvailableOnline": false,
-      "locationIds": [
+      "locations": [
         "in-our-building",
       ],
     },
@@ -681,16 +681,16 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "standards--my-right-to-beauty",
     },
     "filter": {
-      "audienceIds": [
+      "audiences": [
         "WlYWECQAACcAWdBf",
       ],
-      "formatId": "Wn3Q3SoAACsAIeFI",
-      "interpretationIds": [
+      "format": "Wn3Q3SoAACsAIeFI",
+      "interpretations": [
         "XkFGqxEAACIAIhNH",
         "W5JXVSYAACYAGtkh",
       ],
       "isAvailableOnline": false,
-      "locationIds": [
+      "locations": [
         "in-our-building",
       ],
     },
@@ -853,13 +853,13 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "recipes-for-early-modern-beauty",
     },
     "filter": {
-      "audienceIds": [],
-      "formatId": "Wd-QYCcAACcAoiJS",
-      "interpretationIds": [
+      "audiences": [],
+      "format": "Wd-QYCcAACcAoiJS",
+      "interpretations": [
         "X2jPiRMAACIA8Vzo",
       ],
       "isAvailableOnline": true,
-      "locationIds": [
+      "locations": [
         "online",
       ],
     },
@@ -1019,11 +1019,11 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "uid": "sexing-up-the-internet",
     },
     "filter": {
-      "audienceIds": [],
-      "formatId": "WcKmiysAACx_A8NR",
-      "interpretationIds": [],
+      "audiences": [],
+      "format": "WcKmiysAACx_A8NR",
+      "interpretations": [],
       "isAvailableOnline": false,
-      "locationIds": [
+      "locations": [
         "in-our-building",
       ],
     },

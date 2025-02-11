@@ -61,8 +61,8 @@ export type ElasticsearchArticle = {
   };
   filter: {
     publicationDate: Date;
-    contributorIds: string[];
-    formatId: string;
+    contributors: string[];
+    format: string;
   };
   aggregatableValues: {
     contributors: string[];
@@ -85,10 +85,10 @@ export type ElasticsearchEventDocument = {
     times: { startDateTime: Date[] };
   };
   filter: {
-    formatId: string;
-    interpretationIds: string[];
-    audienceIds: string[];
-    locationIds: string[];
+    format: string;
+    interpretations: string[];
+    audiences: string[];
+    locations: string[];
     isAvailableOnline: boolean;
   };
   aggregatableValues: {

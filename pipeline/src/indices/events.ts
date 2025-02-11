@@ -132,16 +132,16 @@ export const mappings = {
     },
     filter: {
       properties: {
-        formatId: {
+        format: {
           type: 'keyword',
         },
-        interpretationIds: {
+        interpretations: {
           type: 'keyword',
         },
-        audienceIds: {
+        audiences: {
           type: 'keyword',
         },
-        locationIds: {
+        locations: {
           type: 'keyword',
         },
         isAvailableOnline: {

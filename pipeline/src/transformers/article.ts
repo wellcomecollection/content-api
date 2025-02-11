@@ -155,8 +155,8 @@ export const transformArticle = (
         series,
       },
       filter: {
-        contributorIds: flatContributors.map(c => c.id),
-        formatId: format.id,
+        contributors: flatContributors.map(c => c.id),
+        format: format.id,
         publicationDate: new Date(datePublished),
       },
       aggregatableValues: {
