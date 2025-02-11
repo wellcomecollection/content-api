@@ -3,7 +3,7 @@
   "uid": "brains",
   "url": null,
   "type": "books",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WwVK3CAAAHm5Exxr%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WwVK3CAAAHm5Exxr%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2018-05-24T13:12:21+0000",
   "last_publication_date": "2024-07-22T11:06:39+0000",
@@ -74,7 +74,7 @@
             "name": "Marius Kwint"
           },
           "link_type": "Document",
-          "key": "969a52ba-221a-4cb9-a70d-96738805143a",
+          "key": "cf577606-1e17-49c7-8bb0-6973d95f408a",
           "isBroken": false
         }
       },
@@ -91,7 +91,7 @@
             "name": "Richard Wingate"
           },
           "link_type": "Document",
-          "key": "1d9ffc48-e3f3-4373-8744-7bd0b9ecd09f",
+          "key": "e336dfc7-a438-4233-a39b-f1c6d547c203",
           "isBroken": false
         }
       }

@@ -3,7 +3,7 @@
   "uid": "beauty-body-image-and-society-november-december-2024",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z08ydxAAACEAHGc3&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZfhSyxgAACQAkLPZ%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZfhSyxgAACQAkLPZ%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2024-04-18T15:00:00+0000",
   "last_publication_date": "2024-11-08T18:48:08+0000",
@@ -38,7 +38,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "b1371688-3906-4dc9-8e13-7f251058d13d",
+      "key": "2c813b95-f6eb-4bc8-b33f-ca90d22fd842",
       "isBroken": false
     },
     "times": [
@@ -66,7 +66,7 @@
             "name": "Cheyenne Eugene"
           },
           "link_type": "Document",
-          "key": "8ca41bda-3345-47cc-b776-94f479564da0",
+          "key": "c674cb1f-c2ef-41bd-ad07-609c2f133b7a",
           "isBroken": false
         }
       }

@@ -7,8 +7,11 @@ export { BookPrismicDocument } from './books';
 export {
   EventPrismicDocument,
   WithEventFormat,
-  WithLocations,
-  WithInterpretations,
+  PrismicAudiences,
+  PrismicInterpretations,
+  PrismicLocations,
+  PrismicScheduledEvent,
+  PrismicTimes,
 } from './eventDocuments';
 export { Contributors, WithContributors } from './contributors';
 export { ContentType, PrismicFormat, ArticleFormatId } from './formats';

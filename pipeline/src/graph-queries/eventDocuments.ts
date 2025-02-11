@@ -40,6 +40,27 @@ const query = `{
     schedule {
       event {
         title
+        isOnline
+        format {
+          ... on event-formats {
+            title
+          }
+        }
+        interpretations {
+          interpretationType {
+            title
+          }
+        }
+        audiences {
+          audience {
+            title
+          }
+        }
+        locations {
+          location {
+            title
+          }
+        }
         times {
           startDateTime
           endDateTime

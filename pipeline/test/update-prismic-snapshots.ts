@@ -206,6 +206,14 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
 };
 const main = async () => {
   const client = createPrismicClient();
+
+  // delete all first
+  fs.readdir(dataDir).then(result => {
+    result
+      .filter(f => /[.]json$/.test(f))
+      .map(f => fs.unlink(`${dataDir}/${f}`));
+  });
+
   const articleDocs = await updateArticleSnapshots(client);
   const eventDocs = await updateEventDocumentSnapshots(client);
   const venueDocs = await updateVenueSnapshots(client);

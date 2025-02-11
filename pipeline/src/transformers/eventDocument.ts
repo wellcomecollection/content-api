@@ -1,4 +1,4 @@
-import { asDate, PrismicDocument, TimestampField } from '@prismicio/client';
+import { asDate, PrismicDocument } from '@prismicio/client';
 
 import { defaultEventFormat } from '@weco/content-common/data/defaultValues';
 import {
@@ -10,11 +10,13 @@ import {
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   EventPrismicDocument,
-  WithAudiences,
+  PrismicAudiences,
+  PrismicInterpretations,
+  PrismicLocations,
+  PrismicScheduledEvent,
+  PrismicTimes,
   WithEventFormat,
-  WithInterpretations,
-  WithLocations,
-} from '@weco/content-pipeline/src/types/prismic/eventDocuments';
+} from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
   EventDocumentAudience,
@@ -22,9 +24,20 @@ import {
   EventDocumentInterpretation,
   EventDocumentLocations,
   EventDocumentPlace,
+  EventDocumentTime,
 } from '@weco/content-pipeline/src/types/transformed/eventDocument';
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
+
+const getUniqueValues = <T extends { id: string }>(allValues: T[]): T[] => {
+  const uniqueArray: T[] = [];
+
+  allValues.forEach(v =>
+    !uniqueArray.find(u => u.id === v.id) ? uniqueArray.push(v) : undefined
+  );
+
+  return uniqueArray.filter(isNotUndefined);
+};
 
 function transformFormat(
   document: PrismicDocument<WithEventFormat>
@@ -39,14 +52,14 @@ function transformFormat(
     : (defaultEventFormat as EventDocumentFormat);
 }
 
-const transformLocations = (
-  document: PrismicDocument<WithLocations>
-): EventDocumentLocations => {
-  const { data } = document;
-
-  const isOnline = !!data.isOnline;
-
-  const physicalLocations = (data.locations ?? [])
+const transformLocations = ({
+  isOnline,
+  locations,
+}: {
+  isOnline?: boolean;
+  locations: PrismicLocations;
+}): EventDocumentLocations => {
+  const physicalLocations = (locations ?? [])
     .map((l): EventDocumentPlace | undefined => {
       return isFilledLinkToDocumentWithData(l.location)
         ? {
@@ -60,7 +73,7 @@ const transformLocations = (
 
   return {
     type: 'EventLocations',
-    isOnline,
+    isOnline: !!isOnline,
     places: physicalLocations.length > 0 ? physicalLocations : undefined,
     attendance: [
       isOnline
@@ -81,12 +94,12 @@ const transformLocations = (
   };
 };
 
-const transformInterpretations = (
-  document: PrismicDocument<WithInterpretations>
-) => {
-  const { data } = document;
-
-  return (data.interpretations ?? [])
+const transformInterpretations = ({
+  interpretations,
+}: {
+  interpretations: PrismicInterpretations;
+}): EventDocumentInterpretation[] => {
+  return (interpretations ?? [])
     .map((i): EventDocumentInterpretation | undefined => {
       return isFilledLinkToDocumentWithData(i.interpretationType)
         ? {
@@ -99,10 +112,12 @@ const transformInterpretations = (
     .filter(isNotUndefined);
 };
 
-const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
-  const { data } = document;
-
-  return (data.audiences ?? [])
+const transformAudiences = ({
+  audiences,
+}: {
+  audiences: PrismicAudiences;
+}): EventDocumentAudience[] => {
+  return (audiences ?? [])
     .map((i): EventDocumentAudience | undefined => {
       return isFilledLinkToDocumentWithData(i.audience)
         ? {
@@ -115,23 +130,68 @@ const transformAudiences = (document: PrismicDocument<WithAudiences>) => {
     .filter(isNotUndefined);
 };
 
-const transformTimes = (times: {
-  startDateTime: TimestampField;
-  endDateTime: TimestampField;
-  isFullyBooked: 'yes' | null;
-  onlineIsFullyBooked: 'yes' | null;
+const transformTimes = ({
+  times,
+}: {
+  times: PrismicTimes;
+}): EventDocumentTime[] => {
+  return (times ?? [])
+    .map((time): EventDocumentTime | undefined => {
+      return {
+        startDateTime: asDate(time.startDateTime) || undefined,
+        endDateTime: asDate(time.endDateTime) || undefined,
+        isFullyBooked: {
+          inVenue: !!time.isFullyBooked,
+          online: !!time.onlineIsFullyBooked,
+        },
+      };
+    })
+    .filter(isNotUndefined);
+};
+
+const getScheduledEventsData = ({
+  scheduledEvents,
+}: {
+  scheduledEvents: PrismicScheduledEvent;
 }): {
-  startDateTime: Date | undefined;
-  endDateTime: Date | undefined;
-  isFullyBooked: { inVenue: boolean; online: boolean };
+  scheduledLocations: EventDocumentLocations[];
+  scheduledAudiences: EventDocumentAudience[];
+  scheduledInterpretations: EventDocumentInterpretation[];
+  scheduledTimes: EventDocumentTime[];
 } => {
+  const transformedScheduledLocations: EventDocumentLocations[] = [];
+  const scheduledAudiences: EventDocumentAudience[] = [];
+  const scheduledInterpretations: EventDocumentInterpretation[] = [];
+  const scheduledTimes: EventDocumentTime[] = [];
+
+  (scheduledEvents || []).forEach(i => {
+    if (isFilledLinkToDocumentWithData(i.event)) {
+      transformedScheduledLocations.push(
+        transformLocations({
+          isOnline: i.event.data.isOnline,
+          locations: i.event.data.locations,
+        })
+      );
+
+      scheduledAudiences.push(
+        ...transformAudiences({ audiences: i.event.data.audiences })
+      );
+
+      scheduledInterpretations.push(
+        ...transformInterpretations({
+          interpretations: i.event.data.interpretations,
+        })
+      );
+
+      scheduledTimes.push(...transformTimes({ times: i.event.data.times }));
+    }
+  });
+
   return {
-    startDateTime: asDate(times.startDateTime) || undefined,
-    endDateTime: asDate(times.endDateTime) || undefined,
-    isFullyBooked: {
-      inVenue: !!times.isFullyBooked,
-      online: !!times.onlineIsFullyBooked,
-    },
+    scheduledLocations: transformedScheduledLocations,
+    scheduledAudiences,
+    scheduledInterpretations,
+    scheduledTimes,
   };
 };
 
@@ -139,13 +199,11 @@ export const transformEventDocument = (
   document: EventPrismicDocument
 ): ElasticsearchEventDocument[] => {
   const {
-    data: { title, promo, times, availableOnline },
+    data: { title, promo, availableOnline },
     id,
     uid,
     tags,
   } = document;
-
-  const documentTimes = times.map(transformTimes);
 
   const primaryImage = promo?.[0]?.primary;
   const image =
@@ -157,11 +215,55 @@ export const transformEventDocument = (
 
   const format = transformFormat(document);
 
-  const locations = transformLocations(document);
+  // If it has scheduled events, we get their data and ensure it's added to this event instead.
+  const {
+    scheduledLocations,
+    scheduledAudiences,
+    scheduledInterpretations,
+    scheduledTimes,
+  } = getScheduledEventsData({
+    scheduledEvents: document.data.schedule,
+  });
 
-  const interpretations = transformInterpretations(document);
+  const times = [
+    ...transformTimes({ times: document.data.times }),
+    ...scheduledTimes,
+  ];
 
-  const audiences = transformAudiences(document);
+  const parentLocations = transformLocations({
+    isOnline: document.data.isOnline,
+    locations: document.data.locations,
+  });
+  const locationsPlaces = getUniqueValues(
+    [parentLocations.places, ...scheduledLocations.map(s => s.places)]
+      .filter(isNotUndefined)
+      .flat()
+  );
+  const locationsAttendance = getUniqueValues(
+    [
+      parentLocations.attendance,
+      ...scheduledLocations.map(s => s.attendance),
+    ].flat()
+  );
+  const locations = {
+    ...parentLocations,
+    isOnline:
+      !!scheduledLocations.find(l => l.isOnline) || parentLocations.isOnline,
+    places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
+    attendance: locationsAttendance,
+  };
+
+  const interpretations = getUniqueValues([
+    ...transformInterpretations({
+      interpretations: document.data.interpretations,
+    }),
+    ...scheduledInterpretations,
+  ]);
+
+  const audiences = getUniqueValues([
+    ...transformAudiences({ audiences: document.data.audiences }),
+    ...scheduledAudiences,
+  ]);
 
   // Events that existed before the field was added have `null` as a value
   // They should be considered as false
@@ -171,6 +273,7 @@ export const transformEventDocument = (
     {
       id,
       uid,
+      // Scheduled events to be treated differently; they are recognised as such if they have the 'delist' tag.
       ...(tags.includes('delist') && { isChildScheduledEvent: true }),
       display: {
         type: 'Event',
@@ -178,7 +281,7 @@ export const transformEventDocument = (
         uid,
         title: asTitle(title),
         image,
-        times: times.map(transformTimes),
+        times,
         format,
         locations,
         interpretations,
@@ -196,7 +299,7 @@ export const transformEventDocument = (
           .map(audience => audience.label)
           .filter(isNotUndefined),
         times: {
-          startDateTime: documentTimes
+          startDateTime: times
             .map(time => time.startDateTime)
             .filter(isNotUndefined),
         },
