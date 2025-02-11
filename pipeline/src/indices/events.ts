@@ -90,6 +90,23 @@ export const mappings = {
             },
           },
         },
+        interpretations: {
+          type: 'text',
+          fields: {
+            shingles: {
+              type: 'text',
+              analyzer: 'english_shingle_analyzer',
+            },
+            cased: {
+              type: 'text',
+              analyzer: 'english_cased_analyzer',
+            },
+            keyword: {
+              type: 'keyword',
+              normalizer: 'keyword_lowercase',
+            },
+          },
+        },
         audiences: {
           type: 'text',
           fields: {

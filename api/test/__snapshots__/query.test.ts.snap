@@ -290,6 +290,7 @@ exports[`events query makes the expected query to ES for a given set of query pa
             "query.series.contributors.keyword^80",
             "query.format.*^80",
             "query.audiences.*^80",
+            "query.interpretations.*^80",
           ],
           "minimum_should_match": "-25%",
           "operator": "or",

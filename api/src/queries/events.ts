@@ -14,6 +14,7 @@ export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
       'query.series.contributors.keyword^80',
       'query.format.*^80',
       'query.audiences.*^80',
+      'query.interpretations.*^80',
     ],
     operator: 'or',
     type: 'cross_fields',
