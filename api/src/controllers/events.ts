@@ -107,7 +107,14 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     );
 
     const postFilters = pickFiltersFromQuery(
-      ['format', 'audience', 'interpretation', 'location', 'isAvailableOnline'],
+      [
+        'format',
+        'audience',
+        'interpretation',
+        'location',
+        'isAvailableOnline',
+        // 'timespan',
+      ],
       validParams,
       eventsFilter
     );

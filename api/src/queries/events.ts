@@ -55,13 +55,22 @@ export const eventsFilter = {
       },
     },
   }),
-  isAvailableOnline: (): QueryDslQueryContainer => {
-    return {
-      term: {
-        'filter.isAvailableOnline': true,
-      },
-    };
-  },
+  isAvailableOnline: (): QueryDslQueryContainer => ({
+    term: {
+      'filter.isAvailableOnline': true,
+    },
+  }),
+  // TODO Is this where the logic happens? What does this do?
+  // timespan: (timespan: string): TermsFilter => {
+  //   return {
+  //     values: timespan,
+  //     esQuery: {
+  //       term: {
+  //         'filter.timespan': timespan,
+  //       },
+  //     },
+  //   };
+  // },
 };
 
 export const eventsAggregations = {
@@ -95,4 +104,11 @@ export const eventsAggregations = {
       field: 'aggregatableValues.isAvailableOnline',
     },
   },
+  // TODO
+  // timespan: {
+  //   terms: {
+  //     size: 2, // TODO figure out what this is
+  //     field: 'filter.timespan', // use filter values?
+  //   },
+  // },
 } as const;

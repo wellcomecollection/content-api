@@ -91,6 +91,10 @@ export type ElasticsearchEventDocument = {
     audiences: string[];
     locations: string[];
     isAvailableOnline: boolean;
+    times: {
+      startDateTime?: Date;
+      endDateTime?: Date;
+    }[];
   };
   aggregatableValues: {
     format: string;

@@ -313,6 +313,14 @@ export const transformEventDocument = (
         audiences: audiences.map(a => a.id),
         locations: locations.attendance.map(l => l.id),
         isAvailableOnline,
+        times: times
+          .map(({ startDateTime, endDateTime }) => {
+            return {
+              startDateTime,
+              endDateTime,
+            };
+          })
+          .filter(t => t.startDateTime || t.endDateTime),
       },
       aggregatableValues: {
         format: JSON.stringify(format),
@@ -324,6 +332,8 @@ export const transformEventDocument = (
           value: isAvailableOnline,
           label: 'Catch-up event',
         }),
+        // TODO add times - how?
+        // timespan
       },
     },
   ];
