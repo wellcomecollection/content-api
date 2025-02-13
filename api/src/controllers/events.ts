@@ -30,6 +30,7 @@ type QueryParams = {
   interpretation?: string;
   location?: string;
   isAvailableOnline?: string;
+  timespan?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -70,6 +71,38 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
+const timespans = [
+  'all',
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+] as const;
+export type Timespan = (typeof timespans)[number];
+export function isValidTimespan(type?: string | string[]): type is Timespan {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return timespans.includes(type as any);
+}
+export const timespanValidator = queryValidator({
+  name: 'timespan',
+  allowed: timespans,
+  singleValue: true,
+});
+
 const paramsValidator = (params: QueryParams): QueryParams => {
   const { isAvailableOnline, ...rest } = params;
 
@@ -83,6 +116,12 @@ const paramsValidator = (params: QueryParams): QueryParams => {
     isAvailableOnlineValidator({
       isAvailableOnline,
     });
+
+  if (params.timespan) {
+    timespanValidator({
+      timespan: params.timespan,
+    });
+  }
 
   // We are ignoring all other values passed in but "true".
   // Anything else should remove the param from the query
@@ -113,7 +152,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         'interpretation',
         'location',
         'isAvailableOnline',
-        // 'timespan',
+        'timespan',
       ],
       validParams,
       eventsFilter

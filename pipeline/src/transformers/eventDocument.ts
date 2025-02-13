@@ -332,8 +332,6 @@ export const transformEventDocument = (
           value: isAvailableOnline,
           label: 'Catch-up event',
         }),
-        // TODO add times - how?
-        // timespan
       },
     },
   ];

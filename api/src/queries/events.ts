@@ -1,5 +1,8 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
+import { isValidTimespan } from '@weco/content-api/src/controllers/events';
+import { getTimespanQuery } from '@weco/content-api/src/helpers/timespan';
+
 import { TermsFilter } from './common';
 
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
@@ -60,17 +63,16 @@ export const eventsFilter = {
       'filter.isAvailableOnline': true,
     },
   }),
-  // TODO Is this where the logic happens? What does this do?
-  // timespan: (timespan: string): TermsFilter => {
-  //   return {
-  //     values: timespan,
-  //     esQuery: {
-  //       term: {
-  //         'filter.timespan': timespan,
-  //       },
-  //     },
-  //   };
-  // },
+  timespan: (timespan: string[]): QueryDslQueryContainer => {
+    let query;
+
+    // validation on single value only gets done in timespanValidator, we can therefore
+    // asume that this array only has one value.
+    if (isValidTimespan(timespan[0])) query = getTimespanQuery(timespan[0]);
+
+    // TODO keep range?
+    return query || { range: {} };
+  },
 };
 
 export const eventsAggregations = {
@@ -104,11 +106,10 @@ export const eventsAggregations = {
       field: 'aggregatableValues.isAvailableOnline',
     },
   },
-  // TODO
-  // timespan: {
-  //   terms: {
-  //     size: 2, // TODO figure out what this is
-  //     field: 'filter.timespan', // use filter values?
-  //   },
-  // },
+  timespan: {
+    terms: {
+      size: 2, // TODO figure out what this is
+      field: 'filter.timespan', // use filter values?
+    },
+  },
 } as const;
