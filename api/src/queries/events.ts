@@ -1,7 +1,7 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
 import { isValidTimespan } from '@weco/content-api/src/controllers/events';
-import { getTimespanQuery } from '@weco/content-api/src/helpers/timespan';
+import { getTimespanRange } from '@weco/content-api/src/helpers/timespan';
 
 import { TermsFilter } from './common';
 
@@ -64,14 +64,14 @@ export const eventsFilter = {
     },
   }),
   timespan: (timespan: string[]): QueryDslQueryContainer => {
-    let query;
+    let queryRange;
 
-    // validation on single value only gets done in timespanValidator, we can therefore
-    // asume that this array only has one value.
-    if (isValidTimespan(timespan[0])) query = getTimespanQuery(timespan[0]);
+    // Validation for single value gets done in timespanValidator
+    // we can therefore assume that this array only has one value to care about.
+    if (isValidTimespan(timespan[0]))
+      queryRange = getTimespanRange(timespan[0]);
 
-    // TODO keep range?
-    return query || { range: {} };
+    return { range: queryRange || {} };
   },
 };
 
@@ -106,10 +106,11 @@ export const eventsAggregations = {
       field: 'aggregatableValues.isAvailableOnline',
     },
   },
+  // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
   timespan: {
     terms: {
-      size: 2, // TODO figure out what this is
-      field: 'filter.timespan', // use filter values?
+      size: 20, // TODO figure out what this is https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-significantterms-aggregation.html#sig-terms-shard-size
+      field: 'filter.timespan', // use filter values and not create aggregations for it
     },
   },
 } as const;

@@ -71,14 +71,7 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
-const timespans = [
-  'all',
-  'today',
-  'this-week',
-  'this-weekend',
-  'this-month',
-  'future',
-  'past',
+export const MONTHS = [
   'january',
   'february',
   'march',
@@ -91,6 +84,16 @@ const timespans = [
   'october',
   'november',
   'december',
+] as const;
+const timespans = [
+  'all',
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  ...MONTHS,
 ] as const;
 export type Timespan = (typeof timespans)[number];
 export function isValidTimespan(type?: string | string[]): type is Timespan {
