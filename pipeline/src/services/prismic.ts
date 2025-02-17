@@ -26,7 +26,14 @@ export const createPrismicClient = (): prismic.Client => {
     console.warn('No access token specified for Prismic client');
   }
 
-  const endpoint = prismic.getRepositoryEndpoint('wellcomecollection');
+  // !!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!
+  // TODO change again before merging
+  // !!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!
+  // !!!!!!!!!!!!!!!!!
+  const endpoint = prismic.getRepositoryEndpoint('wellcomecollection-stage');
   const client = prismic.createClient(endpoint, { accessToken });
 
   return client;
