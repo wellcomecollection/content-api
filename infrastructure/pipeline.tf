@@ -1,5 +1,5 @@
 module "pipeline_2025-02-06" {
-  source = "./pipeline_stack"
+  source                  = "./pipeline_stack"
   pipeline_date           = "2025-02-06"
   window_duration_minutes = 15
   deployment_template_id  = "aws-storage-optimized"
@@ -11,7 +11,7 @@ module "pipeline_2025-02-06" {
 }
 
 module "pipeline_2025-02-17" {
-  source = "./pipeline_stack"
+  source                  = "./pipeline_stack"
   pipeline_date           = "2025-02-17"
   window_duration_minutes = 15
   deployment_template_id  = "aws-storage-optimized"
