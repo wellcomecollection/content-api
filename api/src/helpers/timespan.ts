@@ -27,13 +27,14 @@ export const getTimespanRange = (
         },
       };
 
-    // Review what this weekend is as currently on the site it's FRIDAY - SUNDAY
+    // FRIDAY 5pm - SUNDAY
     // Maybe we want to pass in a different relation here? within or contain?
+    // TODO will this return Friday results still if it's Saturday? "Now" isn't being used
     case 'this-weekend':
       return {
         'query.times.startDateTime': {
-          gte: now.startOf('week').plus({ days: 5 }),
-          lte: now.startOf('week').plus({ days: 6 }).endOf('day'),
+          gte: now.startOf('week').plus({ days: 4 }).plus({ hours: 17 }), // Friday 5pm
+          lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
         },
       };
 
@@ -41,7 +42,7 @@ export const getTimespanRange = (
       return {
         'query.times.startDateTime': {
           gte: 'now',
-          lte: now.endOf('week').toISO(),
+          lt: now.plus({ days: 7 }).endOf('day'),
         },
       };
 
