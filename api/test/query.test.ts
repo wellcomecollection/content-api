@@ -80,6 +80,7 @@ describe('events query', () => {
     const page = 7;
     const sortOrder = 'asc';
     const query = 'henry wellcome';
+    const timespan = 'past';
 
     const params = new URLSearchParams({
       aggregations,
@@ -89,6 +90,7 @@ describe('events query', () => {
       pageSize,
       sortOrder,
       query,
+      timespan,
     } as unknown as Record<string, string>);
     const esRequest = await elasticsearchRequestForURL(
       `/events?${params.toString()}`
