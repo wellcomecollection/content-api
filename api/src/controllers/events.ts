@@ -176,9 +176,11 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         aggregations: facetedAggregations,
         query: {
           bool: {
-            must: eventsQuery({
-              queryString: queryString || '',
-              timespan: getDateRange(validParams.timespan),
+            ...((queryString || validParams.timespan) && {
+              must: eventsQuery({
+                queryString: queryString || '',
+                timespan: getDateRange(validParams.timespan),
+              }),
             }),
             must_not: {
               term: {
