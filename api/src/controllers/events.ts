@@ -3,10 +3,10 @@ import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
 import { Config } from '@weco/content-api/config';
+import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
-import { getTimespanRange } from '@weco/content-api/src/helpers/timespan';
 import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   eventsAggregations,

@@ -1,5 +1,7 @@
-import { getNextOpeningDates } from '@weco/content-api/src/controllers/utils';
-import { getTimespanRange } from '@weco/content-api/src/helpers/timespan';
+import {
+  getNextOpeningDates,
+  getTimespanRange,
+} from '@weco/content-api/src/controllers/utils';
 import { RegularOpeningDay } from '@weco/content-common/types/venue';
 
 const regularOpeningDays = [
@@ -269,12 +271,11 @@ describe('getTimespanRange', () => {
         {
           range: {
             'filter.times.startDateTime': {
-              gte: 'now',
               lte: 'now/d',
             },
           },
         },
-        { range: { 'filter.times.endDateTime': { lt: 'now/d' } } },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
       ]);
 
       expect(JSON.stringify(getTimespanRange('today'))).toEqual(expectedRange);
