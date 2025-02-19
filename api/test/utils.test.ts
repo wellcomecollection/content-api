@@ -292,10 +292,11 @@ describe('getTimespanRange', () => {
             'filter.times.startDateTime': {
               gte: '2022-09-09T17:00:00.000+01:00',
               lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
             },
           },
         },
-        { range: { 'filter.times.endDateTime': { lt: 'now' } } },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
       ]);
 
       expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(
@@ -312,10 +313,11 @@ describe('getTimespanRange', () => {
             'filter.times.startDateTime': {
               gte: 'now',
               lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
             },
           },
         },
-        { range: { 'filter.times.endDateTime': { lt: 'now' } } },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
       ]);
 
       expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(
@@ -332,10 +334,11 @@ describe('getTimespanRange', () => {
             'filter.times.startDateTime': {
               gte: 'now',
               lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
             },
           },
         },
-        { range: { 'filter.times.endDateTime': { lt: 'now' } } },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
       ]);
 
       expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(

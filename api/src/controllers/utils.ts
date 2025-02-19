@@ -247,8 +247,6 @@ export const getTimespanRange = (
       );
       const endOfMonth = startOfMonth.endOf('month');
 
-      console.log({ isCurrentMonth, now, startOfMonth });
-
       return [
         {
           range: {

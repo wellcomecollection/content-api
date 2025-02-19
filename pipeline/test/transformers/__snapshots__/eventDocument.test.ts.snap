@@ -329,10 +329,6 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       ],
       "times": [
         {
-          "endDateTime": 2023-06-23T17:00:00.000Z,
-          "startDateTime": 2023-06-23T09:00:00.000Z,
-        },
-        {
           "endDateTime": 2023-06-23T10:20:00.000Z,
           "startDateTime": 2023-06-23T10:00:00.000Z,
         },
@@ -600,12 +596,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "locations": [
         "in-our-building",
       ],
-      "times": [
-        {
-          "endDateTime": 2023-08-24T17:30:00.000Z,
-          "startDateTime": 2023-08-24T16:30:00.000Z,
-        },
-      ],
+      "times": [],
     },
     "id": "ZJLZoRAAACIARz42",
     "query": {
@@ -899,10 +890,6 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       ],
       "times": [
         {
-          "endDateTime": 2024-04-11T19:00:00.000Z,
-          "startDateTime": 2023-11-23T16:00:00.000Z,
-        },
-        {
           "endDateTime": 2023-11-23T20:00:00.000Z,
           "startDateTime": 2023-11-23T16:00:00.000Z,
         },
@@ -1167,12 +1154,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "locations": [
         "in-our-building",
       ],
-      "times": [
-        {
-          "endDateTime": 2023-11-18T16:00:00.000Z,
-          "startDateTime": 2023-11-18T14:00:00.000Z,
-        },
-      ],
+      "times": [],
     },
     "id": "ZRrijRIAAJNSARgG",
     "query": {
@@ -1346,12 +1328,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "locations": [
         "online",
       ],
-      "times": [
-        {
-          "endDateTime": 2023-11-14T16:30:00.000Z,
-          "startDateTime": 2023-11-14T15:00:00.000Z,
-        },
-      ],
+      "times": [],
     },
     "id": "ZSPXJBAAACIAiERm",
     "query": {
@@ -1519,12 +1496,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "locations": [
         "in-our-building",
       ],
-      "times": [
-        {
-          "endDateTime": 2023-11-22T14:00:00.000Z,
-          "startDateTime": 2023-11-22T11:00:00.000Z,
-        },
-      ],
+      "times": [],
     },
     "id": "ZTevFxAAACQAyHEk",
     "query": {
