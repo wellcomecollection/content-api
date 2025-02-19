@@ -34,12 +34,19 @@ export const getTimespanRange = (
       ];
 
     // FRIDAY 5pm - SUNDAY
-    case 'this-weekend':
+    case 'this-weekend': {
+      const friday5PM = now
+        .startOf('week')
+        .plus({ days: 4 })
+        .plus({ hours: 17 });
+
+      const isNowWeekend = now > friday5PM;
+
       return [
         {
           range: {
             'filter.times.startDateTime': {
-              gte: now.startOf('week').plus({ days: 4 }).plus({ hours: 17 }), // Friday 5pm
+              gte: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
               lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
             },
           },
@@ -52,6 +59,7 @@ export const getTimespanRange = (
           },
         },
       ];
+    }
 
     case 'this-week':
       return [
@@ -59,14 +67,14 @@ export const getTimespanRange = (
           range: {
             'filter.times.startDateTime': {
               gte: 'now',
-              lt: now.plus({ days: 7 }).endOf('day'),
+              lt: now.plus({ days: 6 }).endOf('day'),
             },
           },
         },
         {
           range: {
             'filter.times.endDateTime': {
-              gt: now,
+              gt: 'now',
             },
           },
         },
@@ -85,7 +93,7 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.endDateTime': {
-              gt: now,
+              gt: 'now',
             },
           },
         },
@@ -126,14 +134,22 @@ export const getTimespanRange = (
     case 'november':
     case 'december': {
       const monthNumber = MONTHS.indexOf(timespan) + 1;
-      const startOfMonth = DateTime.local(now.year, monthNumber);
+      const isInPast = now.month > monthNumber;
+      const isCurrentMonth = now.month === monthNumber;
+
+      const startOfMonth = DateTime.local(
+        now.year + (isInPast ? 1 : 0),
+        monthNumber
+      );
       const endOfMonth = startOfMonth.endOf('month');
+
+      console.log({ isCurrentMonth, now, startOfMonth });
 
       return [
         {
           range: {
             'filter.times.startDateTime': {
-              gte: startOfMonth,
+              gte: isCurrentMonth ? 'now' : startOfMonth,
               lte: endOfMonth,
             },
           },
