@@ -112,9 +112,10 @@ export const eventsAggregations = {
     },
   },
   // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
+  // https://github.com/wellcomecollection/content-api/issues/220
   timespan: {
     terms: {
-      size: 20, // TODO figure out what this is https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-significantterms-aggregation.html#sig-terms-shard-size
+      size: 20,
       field: 'filter.timespan', // use filter values and not create aggregations for it
     },
   },

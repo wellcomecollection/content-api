@@ -99,11 +99,6 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   return withHourAndMinute.toUTC().toISO() || undefined;
 }
 
-// TODO
-// review lt and gt vs lte and gte
-// review where should use end date vs start date
-// review the sorting order, it's opposite from what's on?
-// review relation param
 export const getTimespanRange = (
   timespan: Timespan
 ): QueryDslQueryContainer[] | undefined => {

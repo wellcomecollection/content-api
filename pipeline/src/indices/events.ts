@@ -169,9 +169,11 @@ export const mappings = {
           properties: {
             startDateTime: {
               type: 'date',
+              format: 'date_optional_time',
             },
             endDateTime: {
               type: 'date',
+              format: 'date_optional_time',
             },
           },
         },
