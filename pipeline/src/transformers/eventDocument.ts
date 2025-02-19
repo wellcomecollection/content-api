@@ -269,6 +269,9 @@ export const transformEventDocument = (
   // They should be considered as false
   const isAvailableOnline = !!availableOnline;
 
+  // If an event has scheduled times, we don't want to have the parent's time range in the filterable times.
+  const filterTimes = scheduledTimes || times;
+
   return [
     {
       id,
@@ -313,7 +316,7 @@ export const transformEventDocument = (
         audiences: audiences.map(a => a.id),
         locations: locations.attendance.map(l => l.id),
         isAvailableOnline,
-        times: times
+        times: filterTimes
           .map(({ startDateTime, endDateTime }) => {
             return {
               startDateTime,
