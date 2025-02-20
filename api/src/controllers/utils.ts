@@ -243,7 +243,8 @@ export const getTimespanRange = (
 
       const startOfMonth = DateTime.local(
         now.year + (isInPast ? 1 : 0),
-        monthNumber
+        monthNumber,
+        { zone: 'Europe/London' }
       );
       const endOfMonth = startOfMonth.endOf('month');
 
