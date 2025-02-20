@@ -1,5 +1,7 @@
+import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 import { DateTime } from 'luxon';
 
+import { MONTHS, Timespan } from '@weco/content-api/src/controllers/events';
 import {
   DayOfWeek,
   ExceptionalClosedDay,
@@ -96,3 +98,166 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   // time is set in London, we can now convert back to UTC ISO string
   return withHourAndMinute.toUTC().toISO() || undefined;
 }
+
+export const getTimespanRange = (
+  timespan: Timespan
+): QueryDslQueryContainer[] | undefined => {
+  const now = DateTime.local({ zone: 'Europe/London' });
+
+  switch (timespan) {
+    // Start date: less than end of today
+    // End date: greater than now
+    case 'today':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: 'now/d',
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    // FRIDAY 5pm - SUNDAY
+    case 'this-weekend': {
+      const friday5PM = now
+        .startOf('week')
+        .plus({ days: 4 })
+        .plus({ hours: 17 });
+
+      const isNowWeekend = now > friday5PM;
+
+      // This is wrong
+      // An event is this weekend if it occurs during the weekend, not if it starts from Friday 5pm
+      // e.g. an event that lasts 3 days and started Thursday should be included in this.
+      // Relation needed?
+      // Need to test an event that starts Thursday and ends Saturday and if queried on the Monday prior shows up as "this weekend"
+      //
+      // End date: greater than now
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
+              lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
+              relation: 'contains',
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+    }
+
+    // Same logic as this weekend might need testing; an event that started on the Sunday but ENDS on the Tuesday should show
+    // with this filter if queried on the Monday
+    //
+    // End date: greater than now
+    case 'this-week':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lt: now.plus({ days: 6 }).endOf('day'),
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'this-month':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lte: now.endOf('month').toISO(),
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'future':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'past':
+      return [
+        {
+          range: {
+            'filter.times.endDateTime': {
+              lt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'january':
+    case 'february':
+    case 'march':
+    case 'april':
+    case 'may':
+    case 'june':
+    case 'july':
+    case 'august':
+    case 'september':
+    case 'october':
+    case 'november':
+    case 'december': {
+      const monthNumber = MONTHS.indexOf(timespan) + 1;
+      const isInPast = now.month > monthNumber;
+      const isCurrentMonth = now.month === monthNumber;
+
+      const startOfMonth = DateTime.local(
+        now.year + (isInPast ? 1 : 0),
+        monthNumber,
+        { zone: 'Europe/London' }
+      );
+      const endOfMonth = startOfMonth.endOf('month');
+
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: isCurrentMonth ? 'now' : startOfMonth,
+              lte: endOfMonth,
+            },
+          },
+        },
+      ];
+    }
+  }
+};

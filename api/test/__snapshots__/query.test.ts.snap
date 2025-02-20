@@ -297,6 +297,22 @@ exports[`events query makes the expected query to ES for a given set of query pa
           "query": "henry wellcome",
           "type": "cross_fields",
         },
+        "nested": {
+          "path": "filter.times",
+          "query": {
+            "bool": {
+              "must": [
+                {
+                  "range": {
+                    "filter.times.endDateTime": {
+                      "lt": "now",
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        },
       },
       "must_not": {
         "term": {

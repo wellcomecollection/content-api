@@ -3,6 +3,7 @@ import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
 import { Config } from '@weco/content-api/config';
+import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
@@ -30,6 +31,7 @@ type QueryParams = {
   interpretation?: string;
   location?: string;
   isAvailableOnline?: string;
+  timespan?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -70,6 +72,42 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
+export const MONTHS = [
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+] as const;
+const timespans = [
+  'all',
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  ...MONTHS,
+] as const;
+export type Timespan = (typeof timespans)[number];
+export function isValidTimespan(type?: string | string[]): type is Timespan {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return timespans.includes(type as any);
+}
+
+const timespanValidator = queryValidator({
+  name: 'timespan',
+  allowed: timespans,
+  singleValue: true,
+});
+
 const paramsValidator = (params: QueryParams): QueryParams => {
   const { isAvailableOnline, ...rest } = params;
 
@@ -77,6 +115,12 @@ const paramsValidator = (params: QueryParams): QueryParams => {
     locationsValidator({
       location: params.location,
     });
+
+  if (params.timespan) {
+    timespanValidator({
+      timespan: params.timespan,
+    });
+  }
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
@@ -116,6 +160,15 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       rewriteAggregationsForFacets(aggs, postFilters)
     );
 
+    const getDateRange = (timespan?: string) => {
+      let queryRange;
+
+      if (timespan && isValidTimespan(timespan))
+        queryRange = getTimespanRange(timespan);
+
+      return queryRange || undefined;
+    };
+
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
@@ -123,7 +176,12 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         aggregations: facetedAggregations,
         query: {
           bool: {
-            must: ifDefined(queryString, eventsQuery),
+            ...((queryString || validParams.timespan) && {
+              must: eventsQuery({
+                queryString: queryString || '',
+                timespan: getDateRange(validParams.timespan),
+              }),
+            }),
             must_not: {
               term: {
                 // exclude childScheduledEvents from search

@@ -2,24 +2,42 @@ import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
 import { TermsFilter } from './common';
 
-export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
-  multi_match: {
-    query: queryString,
-    fields: [
-      'id',
-      'query.title.*^100',
-      'query.caption.*^10',
-      'query.series.*^80',
-      'query.series.contributors*^8',
-      'query.series.contributors.keyword^80',
-      'query.format.*^80',
-      'query.audiences.*^80',
-      'query.interpretations.*^80',
-    ],
-    operator: 'or',
-    type: 'cross_fields',
-    minimum_should_match: '-25%',
-  },
+export const eventsQuery = ({
+  queryString,
+  timespan,
+}: {
+  queryString?: string;
+  timespan?: QueryDslQueryContainer[];
+}): QueryDslQueryContainer => ({
+  ...(queryString && {
+    multi_match: {
+      query: queryString,
+      fields: [
+        'id',
+        'query.title.*^100',
+        'query.caption.*^10',
+        'query.series.*^80',
+        'query.series.contributors*^8',
+        'query.series.contributors.keyword^80',
+        'query.format.*^80',
+        'query.audiences.*^80',
+        'query.interpretations.*^80',
+      ],
+      operator: 'or',
+      type: 'cross_fields',
+      minimum_should_match: '-25%',
+    },
+  }),
+  ...(timespan && {
+    nested: {
+      path: 'filter.times',
+      query: {
+        bool: {
+          must: timespan,
+        },
+      },
+    },
+  }),
 });
 
 export const eventsFilter = {
@@ -55,13 +73,11 @@ export const eventsFilter = {
       },
     },
   }),
-  isAvailableOnline: (): QueryDslQueryContainer => {
-    return {
-      term: {
-        'filter.isAvailableOnline': true,
-      },
-    };
-  },
+  isAvailableOnline: (): QueryDslQueryContainer => ({
+    term: {
+      'filter.isAvailableOnline': true,
+    },
+  }),
 };
 
 export const eventsAggregations = {
@@ -93,6 +109,14 @@ export const eventsAggregations = {
     terms: {
       size: 2,
       field: 'aggregatableValues.isAvailableOnline',
+    },
+  },
+  // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
+  // https://github.com/wellcomecollection/content-api/issues/220
+  timespan: {
+    terms: {
+      size: 20,
+      field: 'filter.timespan', // use filter values and not create aggregations for it
     },
   },
 } as const;

@@ -164,6 +164,19 @@ export const mappings = {
         isAvailableOnline: {
           type: 'boolean',
         },
+        times: {
+          type: 'nested',
+          properties: {
+            startDateTime: {
+              type: 'date',
+              format: 'date_optional_time',
+            },
+            endDateTime: {
+              type: 'date',
+              format: 'date_optional_time',
+            },
+          },
+        },
       },
     },
     aggregatableValues: {

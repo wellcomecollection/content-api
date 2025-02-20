@@ -1,4 +1,7 @@
-import { getNextOpeningDates } from '@weco/content-api/src/controllers/utils';
+import {
+  getNextOpeningDates,
+  getTimespanRange,
+} from '@weco/content-api/src/controllers/utils';
 import { RegularOpeningDay } from '@weco/content-common/types/venue';
 
 const regularOpeningDays = [
@@ -247,6 +250,279 @@ describe('getNextOpeningDates', () => {
           15
         )
       ).toStrictEqual(expectedNextOpeningDates);
+    });
+  });
+});
+
+//
+//    September 2022
+// Su Mo Tu We Th Fr Sa
+//              1  2  3
+//  4  5  6  7  8  9 10
+// 11 12 13 14 15 16 17
+// 18 19 20 21 22 23 24
+//
+describe('getTimespanRange', () => {
+  describe('today', () => {
+    it('return events from today that are still ongoing or upcoming at the time of the request', () => {
+      mockDateNow('2022-09-05T14:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: 'now/d',
+            },
+          },
+        },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('today'))).toEqual(expectedRange);
+    });
+  });
+
+  describe('this-weekend', () => {
+    it("returns that weeks' weekend", () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: '2022-09-09T17:00:00.000+01:00',
+              lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
+            },
+          },
+        },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(
+        expectedRange
+      );
+    });
+
+    it('if it is the weekend, it returns results that are upcoming at the time of the request', () => {
+      mockDateNow('2022-09-10T15:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
+            },
+          },
+        },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(
+        expectedRange
+      );
+    });
+
+    it("returns that weeks' weekend until the end of the Sunday", () => {
+      mockDateNow('2022-09-11T22:59:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lte: '2022-09-11T23:59:59.999+01:00',
+              relation: 'contains',
+            },
+          },
+        },
+        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('this-weekend'))).toEqual(
+        expectedRange
+      );
+    });
+  });
+
+  describe('this-week', () => {
+    it('return events from the next seven days from the time of the request', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lt: '2022-09-11T23:59:59.999+01:00',
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': { gt: 'now' },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('this-week'))).toEqual(
+        expectedRange
+      );
+    });
+  });
+
+  describe('this-month', () => {
+    it('return events from the time of the request to the end of the named month', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lte: '2022-09-30T23:59:59.999+01:00',
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': { gt: 'now' },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('this-month'))).toEqual(
+        expectedRange
+      );
+    });
+  });
+
+  describe('future', () => {
+    it('return events from the time of the request to infinity', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('future'))).toEqual(expectedRange);
+    });
+  });
+
+  describe('past', () => {
+    it('return events that ended before the time of the request', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.endDateTime': {
+              lt: 'now',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('past'))).toEqual(expectedRange);
+    });
+  });
+
+  describe('monthly', () => {
+    it('returns events from an entire named month', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: '2022-10-01T00:00:00.000+01:00',
+              lte: '2022-10-31T23:59:59.999+00:00',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('october'))).toEqual(
+        expectedRange
+      );
+    });
+
+    it('returns events from the future only, so the year changes if a past month is requested', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: '2023-08-01T00:00:00.000+01:00',
+              lte: '2023-08-31T23:59:59.999+01:00',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('august'))).toEqual(expectedRange);
+    });
+
+    it('returns events from the next year if requested around the end of it', () => {
+      mockDateNow('2022-11-30T10:00:00.000Z');
+
+      const expectedJanuaryRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: '2023-01-01T00:00:00.000+00:00',
+              lte: '2023-01-31T23:59:59.999+00:00',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('january'))).toEqual(
+        expectedJanuaryRange
+      );
+
+      const expectedDecemberRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: '2022-12-01T00:00:00.000+00:00',
+              lte: '2022-12-31T23:59:59.999+00:00',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('december'))).toEqual(
+        expectedDecemberRange
+      );
+    });
+
+    it('if it is the current month, returns events starting at the time of the request until the end of the month', () => {
+      mockDateNow('2022-09-05T10:00:00.000Z');
+
+      const expectedRange = JSON.stringify([
+        {
+          range: {
+            'filter.times.startDateTime': {
+              gte: 'now',
+              lte: '2022-09-30T23:59:59.999+01:00',
+            },
+          },
+        },
+      ]);
+
+      expect(JSON.stringify(getTimespanRange('september'))).toEqual(
+        expectedRange
+      );
     });
   });
 });
