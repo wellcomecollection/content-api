@@ -5,7 +5,7 @@ import elasticConfigController from './elasticConfig';
 import eventController from './event';
 import eventsController from './events';
 import healthcheckController from './healthcheck';
-import venuesController from './venue';
+import venuesController from './venues';
 
 export { errorHandler } from './error';
 export {
