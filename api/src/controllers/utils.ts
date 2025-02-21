@@ -1,7 +1,9 @@
+import { errors as elasticErrors } from '@elastic/elasticsearch';
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 import { DateTime } from 'luxon';
 
 import { MONTHS, Timespan } from '@weco/content-api/src/controllers/events';
+import { Clients, Displayable } from '@weco/content-api/src/types';
 import {
   DayOfWeek,
   ExceptionalClosedDay,
@@ -98,6 +100,59 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   // time is set in London, we can now convert back to UTC ISO string
   return withHourAndMinute.toUTC().toISO() || undefined;
 }
+
+const getGalleryHours = async (
+  clients: Clients
+): Promise<
+  | {
+      regularOpeningDays: RegularOpeningDay[];
+      exceptionalClosedDays: ExceptionalClosedDay[];
+    }
+  | undefined
+> => {
+  try {
+    const getResponse = await clients.elastic.get<Displayable>({
+      index: 'venues',
+      id: 'Wsttgx8AAJeSNmJ4', // Galleries and Reading Room
+      _source: ['display.regularOpeningDays, display.exceptionalClosedDays'],
+    });
+
+    return getResponse._source!.display;
+  } catch (error) {
+    if (error instanceof elasticErrors.ResponseError) {
+      // If something fails, we'll consider the venue open.
+      if (error.statusCode === 404)
+        console.error('404: Gallery venue hours not found');
+    }
+  }
+};
+
+export const getIsClosedToday = async (clients: Clients): Promise<boolean> => {
+  const now = DateTime.local({ zone: 'Europe/London' });
+  const galleryHours = await getGalleryHours(clients);
+
+  if (galleryHours) {
+    const isClosedToday = !!galleryHours?.regularOpeningDays.find(
+      d => d.dayOfWeek === now.weekdayLong.toLowerCase()
+    )?.isClosed;
+
+    const isExceptionallyClosedToday =
+      !!galleryHours?.exceptionalClosedDays.find(d => {
+        return d.overrideDate
+          ? new Date(d.overrideDate).toLocaleDateString() ===
+              now.toLocaleString()
+          : // String(new Date('2025-01-01T00:00:00.000Z'))
+            false;
+      });
+
+    // TODO copy logic from https://github.com/wellcomecollection/wellcomecollection.org/blob/main/common/services/prismic/opening-times.ts#L340-L352
+    console.log(galleryHours, now, isClosedToday, isExceptionallyClosedToday);
+
+    return isExceptionallyClosedToday || isClosedToday;
+  }
+
+  return false;
+};
 
 export const getTimespanRange = (
   timespan: Timespan

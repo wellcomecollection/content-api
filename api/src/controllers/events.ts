@@ -3,7 +3,10 @@ import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
 import { Config } from '@weco/content-api/config';
-import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
+import {
+  getIsClosedToday,
+  getTimespanRange,
+} from '@weco/content-api/src/controllers/utils';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
@@ -145,6 +148,21 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const validParams = paramsValidator(params);
     const sortKey =
       sort === 'times.startDateTime' ? 'query.times.startDateTime' : '_score';
+
+    // If filtering by today and it's on a closure day, return no results.
+    if (validParams.timespan === 'today') {
+      const isClosedToday = await getIsClosedToday(clients);
+
+      if (isClosedToday) {
+        res.status(200).json({
+          type: 'ResultList',
+          results: [],
+          pageSize: 10,
+          totalPages: 1,
+          totalResults: 0,
+        });
+      }
+    }
 
     const initialAggregations = ifDefined(aggregations, requestedAggs =>
       pick(eventsAggregations, requestedAggs)
