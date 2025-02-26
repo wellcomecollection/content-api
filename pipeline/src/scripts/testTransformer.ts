@@ -121,9 +121,13 @@ async function main() {
       }
 
       case 'exhibition': {
-        transformerName = 'transformAddressableExhibition';
+        transformerName = isDetailed
+          ? 'transformEventDocument'
+          : 'transformAddressableExhibition';
 
-        return transformAddressableExhibition(doc as ExhibitionPrismicDocument);
+        return isDetailed
+          ? transformEventDocument(doc as ExhibitionPrismicDocument)
+          : transformAddressableExhibition(doc as ExhibitionPrismicDocument);
       }
 
       case 'book': {
