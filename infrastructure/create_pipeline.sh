@@ -20,7 +20,7 @@ fi
 echo "Creating zips for packages ..."
 yarn workspace @weco/content-pipeline run package && yarn workspace @weco/content-unpublisher run package
 
-echo Upload zips to S3
+echo "Uploading zips to S3 ..."
 bash ../.buildkite/scripts/upload_lambda_package.sh content-pipeline-$PIPELINE_DATE ../pipeline/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
 bash ../.buildkite/scripts/upload_lambda_package.sh content-unpublisher-$PIPELINE_DATE ../unpublisher/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
 
