@@ -17,7 +17,7 @@ if [[ -z $PIPELINE_DATE || -z $AWS_PROFILE || -z $BUILDKITE_COMMIT ]]; then
   exit 1;
 fi
 
-echo Create zips for packages
+echo "Creating zips for packages ..."
 yarn workspace @weco/content-pipeline run package && yarn workspace @weco/content-unpublisher run package
 
 echo Upload zips to S3
