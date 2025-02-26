@@ -270,7 +270,7 @@ export const transformEventDocument = (
   const isAvailableOnline = !!availableOnline;
 
   // If an event has scheduled times, we don't want to have the parent's time range in the filterable times.
-  const filterTimes = scheduledTimes || times;
+  const filterTimes = scheduledTimes.length > 0 ? scheduledTimes : times;
 
   return [
     {
