@@ -24,7 +24,7 @@ echo "Uploading zips to S3 ..."
 bash ../.buildkite/scripts/upload_lambda_package.sh content-pipeline-$PIPELINE_DATE ../pipeline/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
 bash ../.buildkite/scripts/upload_lambda_package.sh content-unpublisher-$PIPELINE_DATE ../unpublisher/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
 
-echo Get zips in S3 and deploy them to our Lambdas
+echo "Downloading zips from S3 and deploying Lambdas ..."
 bash ../.buildkite/scripts/deploy_lambda.sh content-pipeline-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
 bash ../.buildkite/scripts/deploy_lambda.sh content-unpublisher-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
 
