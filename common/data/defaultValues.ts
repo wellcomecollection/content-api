@@ -6,7 +6,7 @@ export const defaultArticleFormat = {
 };
 
 // using a uuid instead of Prismic ID as
-// there is no Prismic type we can use as default EventDocumentFormat or ExhiitionDocumentFormat
+// there is no Prismic type we can use as default EventDocumentFormat or ExhibitionDocumentFormat
 export const defaultEventFormat = {
   type: 'EventFormat',
   id: 'dfc2b7f9-c362-47da-9644-b0f98212ccaa',
