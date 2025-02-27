@@ -1,82 +1,17 @@
+import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
+import { DateTime } from 'luxon';
+
 import {
   getNextOpeningDates,
   getTimespanRange,
 } from '@weco/content-api/src/controllers/utils';
-import { RegularOpeningDay } from '@weco/content-common/types/venue';
+import { isNotUndefined } from '@weco/content-pipeline/src/helpers/type-guards';
 
-const regularOpeningDays = [
-  {
-    dayOfWeek: 'monday',
-    opens: '10:00',
-    closes: '18:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'tuesday',
-    opens: '10:00',
-    closes: '18:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'wednesday',
-    opens: '10:00',
-    closes: '18:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'thursday',
-    opens: '10:00',
-    closes: '20:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'friday',
-    opens: '10:00',
-    closes: '18:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'saturday',
-    opens: '10:00',
-    closes: '16:00',
-    isClosed: false,
-  },
-  {
-    dayOfWeek: 'sunday',
-    opens: '00:00',
-    closes: '00:00',
-    isClosed: true,
-  },
-] as RegularOpeningDay[];
-
-const exceptionalClosedDays = [
-  {
-    overrideDate: '2024-03-28T00:00:00.000Z',
-    type: 'Easter',
-    startDateTime: '00:00',
-    endDateTime: '00:00',
-  },
-  {
-    overrideDate: '2024-03-30T00:00:00.000Z',
-    type: 'Easter',
-    startDateTime: '00:00',
-    endDateTime: '00:00',
-  },
-  {
-    // this is during BST so 2024-03-31T23:00:00.000Z is 2024-04-01T00:00:00.BST
-    overrideDate: '2024-03-31T23:00:00.000Z',
-    type: 'Easter',
-    startDateTime: '00:00',
-    endDateTime: '00:00',
-  },
-  {
-    // this is during BST so 2024-07-28T23:00:00.000Z is 2024-07-29T00:00:00.BST
-    overrideDate: '2024-07-28T23:00:00.000Z',
-    type: 'Summer Bank Holiday',
-    startDateTime: '00:00',
-    endDateTime: '00:00',
-  },
-];
+import { mockEvents } from './fixtures/events';
+import {
+  exceptionalClosedDays,
+  regularOpeningDays,
+} from './fixtures/opening-times';
 
 const mockDateNow = (dateToMock: string) => {
   jest.useFakeTimers().setSystemTime(new Date(dateToMock));
@@ -254,6 +189,91 @@ describe('getNextOpeningDates', () => {
   });
 });
 
+const c = ['lte', 'lt', 'gt', 'gte'] as const;
+type CT = (typeof c)[number];
+type TimeCompare = {
+  [key in CT]?: string;
+};
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const getMatchingMockEvents = ({
+  now,
+  query,
+}: {
+  now: DateTime;
+  query?: QueryDslQueryContainer[];
+}) => {
+  if (!query) return mockEvents.map(me => me.title);
+
+  const transformQuery = (): { start: any; end: any } => {
+    const nowTimesReplacedQuery = JSON.parse(
+      JSON.stringify(query)
+        .replaceAll('now/d', String(now.endOf('day')))
+        .replaceAll('now', String(now))
+    );
+
+    const mergedQueries: { start: any; end: any } = {
+      start: undefined,
+      end: undefined,
+    };
+    nowTimesReplacedQuery.forEach(
+      (q: { range: { [x: string]: TimeCompare[] | undefined } }) => {
+        if (q.range?.['filter.times.startDateTime'])
+          mergedQueries.start = q.range?.['filter.times.startDateTime'];
+        if (q.range?.['filter.times.endDateTime'])
+          mergedQueries.end = q.range?.['filter.times.endDateTime'];
+      }
+    );
+
+    return mergedQueries;
+  };
+
+  const transformedQuery = transformQuery();
+
+  return mockEvents
+    .map(mockEvent => {
+      const isMatch = !!mockEvent.times?.find(time => {
+        const timeStartDate = new Date(time.startDateTime);
+        const timeEndDate = time.endDateTime
+          ? new Date(time.endDateTime)
+          : false;
+
+        return (
+          (transformedQuery.start?.lte
+            ? timeStartDate <= new Date(transformedQuery.start?.lte)
+            : true) &&
+          (transformedQuery.start?.lt
+            ? timeStartDate < new Date(transformedQuery.start?.lt)
+            : true) &&
+          (transformedQuery.start?.gt
+            ? timeStartDate > new Date(transformedQuery.start?.gt)
+            : true) &&
+          (transformedQuery.start?.gte
+            ? timeStartDate >= new Date(transformedQuery.start?.gte)
+            : true) &&
+          (time.endDateTime
+            ? (transformedQuery.end?.lte
+                ? timeEndDate <= new Date(transformedQuery.end?.lte)
+                : true) &&
+              (transformedQuery.end?.lt
+                ? timeEndDate < new Date(transformedQuery.end?.lt)
+                : true) &&
+              (transformedQuery.end?.gt
+                ? timeEndDate > new Date(transformedQuery.end?.gt)
+                : true) &&
+              (transformedQuery.end?.gte
+                ? timeEndDate >= new Date(transformedQuery.end?.gte)
+                : true)
+            : true)
+        );
+      });
+
+      return isMatch ? mockEvent.title : undefined;
+    })
+    .filter(isNotUndefined)
+    .sort();
+};
+
 //
 //    September 2022
 // Su Mo Tu We Th Fr Sa
@@ -264,21 +284,23 @@ describe('getNextOpeningDates', () => {
 //
 describe('getTimespanRange', () => {
   describe('today', () => {
-    it('return events from today that are still ongoing or upcoming at the time of the request', () => {
+    it('Returns events from today that are ongoing or upcoming at the time of the request', () => {
       mockDateNow('2022-09-05T14:00:00.000Z');
 
-      const expectedRange = JSON.stringify([
-        {
-          range: {
-            'filter.times.startDateTime': {
-              lte: 'now/d',
-            },
-          },
-        },
-        { range: { 'filter.times.endDateTime': { gt: 'now' } } },
-      ]);
+      const matches = getMatchingMockEvents({
+        now: DateTime.fromJSDate(new Date()),
+        query: getTimespanRange('today'),
+      });
 
-      expect(JSON.stringify(getTimespanRange('today'))).toEqual(expectedRange);
+      expect(matches).toEqual(
+        [
+          'May to September exhibition',
+          'May exhibition with no end time (permanent)',
+          'Today: Currently happening',
+          'Today: Not passed yet',
+        ].sort()
+      );
+      expect(matches).not.toContain('Today: in the past');
     });
   });
 
