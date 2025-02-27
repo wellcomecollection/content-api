@@ -80,7 +80,7 @@ export type ElasticsearchEventDocument = {
     title: string;
     caption?: string;
     series: Series;
-    format?: string;
+    format?: string | string[];
     interpretations?: string[];
     audiences?: string[];
     times: { startDateTime: Date[] };
