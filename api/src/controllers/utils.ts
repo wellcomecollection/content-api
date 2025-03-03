@@ -141,13 +141,14 @@ export const getTimespanRange = (
       // Need to test an event that starts Thursday and ends Saturday and if queried on the Monday prior shows up as "this weekend"
       //
       // End date: greater than now
+      // TODO: do we need an OR comparison here? Can we even test it? How do we test relation contains?
       return [
         {
           range: {
             'filter.times.startDateTime': {
               gte: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
               lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
-              relation: 'contains',
+              relation: 'within',
             },
           },
         },
@@ -170,7 +171,6 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.startDateTime': {
-              gte: 'now',
               lt: now.plus({ days: 6 }).endOf('day'),
             },
           },
@@ -189,7 +189,6 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.startDateTime': {
-              gte: 'now',
               lte: now.endOf('month').toISO(),
             },
           },
@@ -203,12 +202,13 @@ export const getTimespanRange = (
         },
       ];
 
+    // Figure this out
     case 'future':
       return [
         {
           range: {
-            'filter.times.startDateTime': {
-              gte: 'now',
+            'filter.times.endDateTime': {
+              gt: 'now',
             },
           },
         },
