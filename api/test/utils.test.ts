@@ -5,7 +5,7 @@ import {
   getNextOpeningDates,
   getTimespanRange,
 } from '@weco/content-api/src/controllers/utils';
-import { isNotUndefined } from '@weco/content-pipeline/src/helpers/type-guards';
+import { isNotUndefined } from '@weco/content-api/src/helpers';
 
 import {
   MockEvent,
@@ -315,6 +315,7 @@ describe('getTimespanRange', () => {
           'Today, 4-5pm',
         ].sort()
       );
+
       expect(
         matches.some(m =>
           ['Yesterday, 8-10am', 'Today, 8-10am', 'Tomorrow, 8-10am'].includes(m)
