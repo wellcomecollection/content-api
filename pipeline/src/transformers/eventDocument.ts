@@ -139,7 +139,7 @@ const transformTimes = ({
     .map((time): EventDocumentTime | undefined => {
       return {
         startDateTime: asDate(time.startDateTime) || undefined,
-        endDateTime: asDate(time.endDateTime) || undefined,
+        endDateTime: asDate(time.endDateTime) || new Date(2100, 1, 1),
         isFullyBooked: {
           inVenue: !!time.isFullyBooked,
           online: !!time.onlineIsFullyBooked,

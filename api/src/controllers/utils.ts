@@ -105,8 +105,6 @@ export const getTimespanRange = (
   const now = DateTime.local({ zone: 'Europe/London' });
 
   switch (timespan) {
-    // Start date: less than end of today
-    // End date: greater than now
     case 'today':
       return [
         {
@@ -125,7 +123,6 @@ export const getTimespanRange = (
         },
       ];
 
-    // FRIDAY 5pm - SUNDAY
     case 'this-weekend': {
       const friday5PM = now
         .startOf('week')
@@ -134,38 +131,24 @@ export const getTimespanRange = (
 
       const isNowWeekend = now > friday5PM;
 
-      // This is wrong
-      // An event is this weekend if it occurs during the weekend, not if it starts from Friday 5pm
-      // e.g. an event that lasts 3 days and started Thursday should be included in this.
-      // Relation needed?
-      // Need to test an event that starts Thursday and ends Saturday and if queried on the Monday prior shows up as "this weekend"
-      //
-      // End date: greater than now
-      // TODO: do we need an OR comparison here? Can we even test it? How do we test relation contains?
       return [
         {
           range: {
             'filter.times.startDateTime': {
-              gte: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
               lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
-              relation: 'within',
             },
           },
         },
         {
           range: {
             'filter.times.endDateTime': {
-              gt: 'now',
+              gt: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
             },
           },
         },
       ];
     }
 
-    // Same logic as this weekend might need testing; an event that started on the Sunday but ENDS on the Tuesday should show
-    // with this filter if queried on the Monday
-    //
-    // End date: greater than now
     case 'this-week':
       return [
         {
@@ -202,7 +185,6 @@ export const getTimespanRange = (
         },
       ];
 
-    // Figure this out
     case 'future':
       return [
         {
@@ -252,8 +234,14 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.startDateTime': {
-              gte: isCurrentMonth ? 'now' : startOfMonth,
               lte: endOfMonth,
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: isCurrentMonth ? 'now' : startOfMonth,
             },
           },
         },

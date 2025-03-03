@@ -16,11 +16,13 @@ export type MockEvent = {
 };
 
 export const mockEvents: Record<string, MockEvent> = {
-  'May exhibition with no end time (permanent)': {
-    title: 'May exhibition with no end time (permanent)',
+  // If no end time is given, our transformer creates a fake one in 2100.
+  'Permanent exhibition from May 2022 with mock end time': {
+    title: 'Permanent exhibition from May 2022 with mock end time',
     times: [
       {
         startDateTime: new Date('2022-05-22T09:00:00.000+01:00'),
+        endDateTime: new Date(2100, 1, 1),
       },
     ],
   },
@@ -36,6 +38,10 @@ export const mockEvents: Record<string, MockEvent> = {
   'Repeated event (one every month)': {
     title: 'Repeated event (one every month)',
     times: [
+      {
+        startDateTime: new Date('2022-08-22T12:00:00.000Z'),
+        endDateTime: new Date('2022-08-22T14:00:00.000Z'),
+      },
       {
         startDateTime: new Date('2022-09-22T12:00:00.000Z'),
         endDateTime: new Date('2022-09-22T14:00:00.000Z'),
@@ -111,7 +117,7 @@ export const mockEvents: Record<string, MockEvent> = {
 
 export const mockEventsForToday: MockEvent[] = [
   mockEvents['May to September exhibition'],
-  mockEvents['May exhibition with no end time (permanent)'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
   mockEvents['Yesterday, 8-10am'],
   mockEvents['Today, 8-10am'],
   mockEvents['Today, 1-3pm'],
@@ -122,7 +128,16 @@ export const mockEventsForToday: MockEvent[] = [
 export const mockEventsForThisWeekend: MockEvent[] = [
   mockEvents['Next Monday, 8-10am'],
   mockEvents['May to September exhibition'],
-  mockEvents['May exhibition with no end time (permanent)'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
+  {
+    title: 'Sunday to Monday',
+    times: [
+      {
+        startDateTime: new Date('2022-09-11T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-09-12T15:00:00.000+01:00'),
+      },
+    ],
+  },
   {
     title: 'Thursday to Saturday',
     times: [
@@ -151,20 +166,20 @@ export const mockEventsForThisWeekend: MockEvent[] = [
     ],
   },
   {
-    title: 'Saturday',
+    title: 'Saturday, 8-10am',
     times: [
       {
-        startDateTime: new Date('2022-09-10T08:00:00.000+01:00'),
-        endDateTime: new Date('2022-09-10T10:00:00.000+01:00'),
+        startDateTime: new Date('2022-09-10T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-09-10T11:00:00.000+01:00'),
       },
     ],
   },
   {
-    title: 'Sunday',
+    title: 'Sunday, 12-4pm',
     times: [
       {
-        startDateTime: new Date('2022-09-11T08:00:00.000+01:00'),
-        endDateTime: new Date('2022-09-11T10:00:00.000+01:00'),
+        startDateTime: new Date('2022-09-11T12:00:00.000+01:00'),
+        endDateTime: new Date('2022-09-11T16:00:00.000+01:00'),
       },
     ],
   },
@@ -172,7 +187,7 @@ export const mockEventsForThisWeekend: MockEvent[] = [
 
 export const mockEventsForThisWeek: MockEvent[] = [
   mockEvents['May to September exhibition'],
-  mockEvents['May exhibition with no end time (permanent)'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
   mockEvents['Yesterday, 8-10am'],
   mockEvents['Today, 8-10am'],
   mockEvents['Today, 1-3pm'],
@@ -182,7 +197,7 @@ export const mockEventsForThisWeek: MockEvent[] = [
 
 export const mockEventsForThisMonth: MockEvent[] = [
   mockEvents['May to September exhibition'],
-  mockEvents['May exhibition with no end time (permanent)'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
   mockEvents['Yesterday, 8-10am'],
   mockEvents['Today, 8-10am'],
   mockEvents['Today, 1-3pm'],
@@ -199,12 +214,80 @@ export const mockEventsForThisMonth: MockEvent[] = [
   },
 ];
 
-export const mockEventsForFuture: MockEvent[] = [
+export const mockEventsForPastAndFuture: MockEvent[] = [
   mockEvents['May to September exhibition'],
-  mockEvents['May exhibition with no end time (permanent)'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
   mockEvents['Yesterday, 8-10am'],
   mockEvents['Today, 8-10am'],
   mockEvents['Today, 1-3pm'],
   mockEvents['Today, 4-5pm'],
   mockEvents['Repeated event (one every month)'],
+];
+
+export const mockEventsForMonthlySeptember: MockEvent[] = [
+  mockEvents['May to September exhibition'],
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
+  mockEvents['Yesterday, 8-10am'],
+  mockEvents['Today, 8-10am'],
+  mockEvents['Today, 1-3pm'],
+  mockEvents['Today, 4-5pm'],
+  mockEvents['Repeated event (one every month)'],
+  {
+    title: 'August to September',
+    times: [
+      {
+        startDateTime: new Date('2022-08-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-09-29T19:00:00.000+01:00'),
+      },
+    ],
+  },
+  {
+    title: 'Next month',
+    times: [
+      {
+        startDateTime: new Date('2022-10-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-10-01T19:00:00.000+01:00'),
+      },
+    ],
+  },
+];
+
+export const mockEventsForMonthlyAugust: MockEvent[] = [
+  mockEvents['Permanent exhibition from May 2022 with mock end time'],
+  {
+    title: 'August 2022',
+    times: [
+      {
+        startDateTime: new Date('2022-08-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-08-01T19:00:00.000+01:00'),
+      },
+    ],
+  },
+  {
+    title: 'June to August 2023',
+    times: [
+      {
+        startDateTime: new Date('2023-06-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2023-08-05T19:00:00.000+01:00'),
+      },
+    ],
+  },
+  {
+    title: 'August 2023',
+    times: [
+      {
+        startDateTime: new Date('2023-08-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2023-08-01T19:00:00.000+01:00'),
+      },
+    ],
+  },
+  {
+    title: 'September 2023',
+    times: [
+      {
+        startDateTime: new Date('2022-09-01T09:00:00.000+01:00'),
+        endDateTime: new Date('2022-09-01T19:00:00.000+01:00'),
+      },
+    ],
+  },
 ];
