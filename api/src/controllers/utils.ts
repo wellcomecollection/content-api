@@ -142,7 +142,7 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.endDateTime': {
-              gt: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
+              gt: isNowWeekend ? 'now' : friday5PM,
             },
           },
         },
