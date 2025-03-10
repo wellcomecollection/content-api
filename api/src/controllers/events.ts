@@ -87,7 +87,6 @@ export const MONTHS = [
   'december',
 ] as const;
 const timespans = [
-  'all',
   'today',
   'this-week',
   'this-weekend',
