@@ -47,7 +47,7 @@ const loadArticles = createETLPipeline({
 const loadEvents = createETLPipeline({
   graphQuery: eventDocumentsQuery,
   indexConfig: events,
-  parentDocumentTypes: new Set(['events']),
+  parentDocumentTypes: new Set(['events', 'exhibitions']),
   transformer: transformEventDocument,
 });
 

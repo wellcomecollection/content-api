@@ -15,6 +15,13 @@ export type WithEventFormat = {
     InferDataInterface<PrismicFormat>
   >;
 };
+export type WithExhibitionFormat = {
+  format: prismic.ContentRelationshipField<
+    'exhibition-formats',
+    'en-gb',
+    InferDataInterface<PrismicFormat>
+  >;
+};
 
 export type PrismicLocations = prismic.GroupField<{
   location: prismic.ContentRelationshipField<
