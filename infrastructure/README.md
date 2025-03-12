@@ -16,6 +16,6 @@ Once you're happy and want it to become the main pipeline, change the value of `
 2. Run a targeted destroy on the old pipeline using the `run_terraform` script:
    `./run_terraform.sh destroy -target module.[name]`.
    Changes should only relate to the named pipeline, check that before you apply.
-3. Changes will take a long time to apply, think over 20 mins. Let it run. Once it's done, you can check in AWS Lambdas that it's been removed, same for Elastic Cloud.
-4. Remove matching module from `pipeline.tf`. If you run `terraform plan`, you should get `"No changes. Your infrastructure matches the configuration."`.
+3. Changes will take a long time to apply, think over 20 mins. Let it run. Once it's done, you can check in [AWS Lambdas](https://eu-west-1.console.aws.amazon.com/lambda/home?region=eu-west-1#/functions) that it's been removed, same for [Elastic Cloud](https://cloud.elastic.co/deployments).
+4. Remove matching module from `pipeline.tf`. If you run `./run_terraform.sh plan`, you should get `"No changes. Your infrastructure matches the configuration."`.
 5. Make a PR for the module removal to ensure `main` is up-to-date.
