@@ -115,8 +115,8 @@ export const eventsAggregations = {
   // https://github.com/wellcomecollection/content-api/issues/220
   timespan: {
     terms: {
-      size: 5,
-      field: 'filter.timespan', // use filter values and not create aggregations for it
+      size: 3,
+      field: 'filter.timespan',
     },
   },
 } as const;

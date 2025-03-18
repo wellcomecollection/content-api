@@ -36,42 +36,6 @@ type QueryParams = {
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
 
-const sortValidator = queryValidator({
-  name: 'sort',
-  defaultValue: 'relevance',
-  allowed: ['relevance', 'times.startDateTime'],
-  singleValue: true,
-});
-
-const sortOrderValidator = queryValidator({
-  name: 'sortOrder',
-  defaultValue: 'desc',
-  allowed: ['asc', 'desc'],
-  singleValue: true,
-});
-
-const aggregationsValidator = queryValidator({
-  name: 'aggregations',
-  allowed: [
-    'format',
-    'audience',
-    'interpretation',
-    'location',
-    'isAvailableOnline',
-  ],
-});
-
-const locationsValidator = queryValidator({
-  name: 'location',
-  allowed: ['online', 'in-our-building'],
-});
-
-const isAvailableOnlineValidator = queryValidator({
-  name: 'isAvailableOnline',
-  allowed: ['true'],
-  singleValue: true,
-});
-
 export const MONTHS = [
   'january',
   'february',
@@ -100,6 +64,43 @@ export function isValidTimespan(type?: string | string[]): type is Timespan {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return timespans.includes(type as any);
 }
+
+const sortValidator = queryValidator({
+  name: 'sort',
+  defaultValue: 'relevance',
+  allowed: ['relevance', 'times.startDateTime'],
+  singleValue: true,
+});
+
+const sortOrderValidator = queryValidator({
+  name: 'sortOrder',
+  defaultValue: 'desc',
+  allowed: ['asc', 'desc'],
+  singleValue: true,
+});
+
+const aggregationsValidator = queryValidator({
+  name: 'aggregations',
+  allowed: [
+    'format',
+    'audience',
+    'interpretation',
+    'location',
+    'isAvailableOnline',
+    'timespan',
+  ],
+});
+
+const locationsValidator = queryValidator({
+  name: 'location',
+  allowed: ['online', 'in-our-building'],
+});
+
+const isAvailableOnlineValidator = queryValidator({
+  name: 'isAvailableOnline',
+  allowed: ['true'],
+  singleValue: true,
+});
 
 const timespanValidator = queryValidator({
   name: 'timespan',
