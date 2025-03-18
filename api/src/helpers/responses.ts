@@ -36,21 +36,43 @@ export const mapAggregations = (
 ): Aggregations =>
   Object.fromEntries(
     Object.entries(elasticAggs).flatMap(([name, aggregation]) => {
-      const buckets: AggregationsStringTermsBucket[] =
-        aggregation.buckets ?? aggregation.terms.buckets;
-      const selfFilterBuckets: AggregationsStringTermsBucket[] =
-        aggregation.self_filter?.terms.buckets ?? [];
+      if (name !== 'timespan') {
+        const buckets: AggregationsStringTermsBucket[] =
+          aggregation.buckets ?? aggregation.terms.buckets;
+        const selfFilterBuckets: AggregationsStringTermsBucket[] =
+          aggregation.self_filter?.terms.buckets ?? [];
 
-      const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
-      const allBuckets = [...buckets, ...selfFilterBuckets]
-        .filter(b => {
-          const result = isNotUndefined(b) && !bucketKeys.has(b.key);
-          bucketKeys.add(b?.key);
-          return result;
-        })
-        .map(mapBucket)
-        .sort(compareBucket);
-      return [[name, { buckets: allBuckets, type: 'Aggregation' }]];
+        const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
+        const allBuckets = [...buckets, ...selfFilterBuckets]
+          .filter(b => {
+            const result = isNotUndefined(b) && !bucketKeys.has(b.key);
+            bucketKeys.add(b?.key);
+            return result;
+          })
+          .map(mapBucket)
+          .sort(compareBucket);
+
+        return [[name, { buckets: allBuckets, type: 'Aggregation' }]];
+      } else {
+        const transformedAgg: AggregationBucket[] = Object.keys(
+          aggregation.timespan
+        )
+          .filter(
+            key =>
+              key !== 'doc_count' && isNotUndefined(aggregation.timespan[key])
+          )
+          .map(key => ({
+            data: {
+              type: 'EventTimespan',
+              id: key,
+              label: String(key).charAt(0).toUpperCase() + String(key).slice(1),
+            },
+            count: aggregation.timespan[key].count_parent?.doc_count,
+            type: 'AggregationBucket',
+          }));
+
+        return [[name, { buckets: transformedAgg, type: 'Aggregation' }]];
+      }
     })
   );
 

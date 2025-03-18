@@ -111,12 +111,63 @@ export const eventsAggregations = {
       field: 'aggregatableValues.isAvailableOnline',
     },
   },
-  // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
-  // https://github.com/wellcomecollection/content-api/issues/220
   timespan: {
-    terms: {
-      size: 3,
-      field: 'filter.timespan',
+    nested: {
+      path: 'filter.times',
+    },
+    aggs: {
+      all: {
+        filter: {
+          bool: {
+            filter: [],
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      past: {
+        filter: {
+          bool: {
+            filter: [
+              {
+                range: {
+                  'filter.times.endDateTime': {
+                    lt: 'now',
+                  },
+                },
+              },
+            ],
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      future: {
+        filter: {
+          bool: {
+            filter: [
+              {
+                range: {
+                  'filter.times.endDateTime': {
+                    gt: 'now',
+                  },
+                },
+              },
+            ],
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
     },
   },
 } as const;

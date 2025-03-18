@@ -45,28 +45,55 @@ export const rewriteAggregationsForFacets = (
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
-      const otherFilters = excludeValue(postFilters, name);
-      const filteredAgg: AggregationsAggregationContainer = {
-        filter: {
-          bool: {
-            filter: otherFilters.map(esQuery),
+      if (name !== 'timespan') {
+        const otherFilters = excludeValue(postFilters, name);
+        // TODO add timespan consideration??
+        const filteredAgg: AggregationsAggregationContainer = {
+          filter: {
+            bool: {
+              filter: otherFilters.map(esQuery),
+            },
           },
-        },
-        aggs: {
-          terms: agg,
-        },
-      };
-
-      if (name in postFilters) {
-        filteredAgg.aggs!.self_filter = {
-          filter: esQuery(postFilters[name]),
           aggs: {
-            terms: includeEmptyFilterValues(agg, postFilters[name]),
+            terms: agg,
           },
-        } as AggregationsAggregationContainer;
-      }
+        };
 
-      return [name, filteredAgg];
+        if (name in postFilters) {
+          filteredAgg.aggs!.self_filter = {
+            filter: esQuery(postFilters[name]),
+            aggs: {
+              terms: includeEmptyFilterValues(agg, postFilters[name]),
+            },
+          } as AggregationsAggregationContainer;
+        }
+
+        return [name, filteredAgg];
+      } else {
+        const otherFilters = excludeValue(postFilters, name);
+        const filteredAgg: AggregationsAggregationContainer = {
+          filter: {
+            bool: {
+              filter: otherFilters.map(esQuery),
+            },
+          },
+          aggs: {
+            timespan: agg,
+          },
+        };
+
+        // TODO ?
+        // if (name in postFilters) {
+        //   filteredAgg.aggs!.self_filter = {
+        //     filter: esQuery(postFilters[name]),
+        //     aggs: {
+        //       terms: includeEmptyFilterValues(agg, postFilters[name]),
+        //     },
+        //   } as AggregationsAggregationContainer;
+        // }
+
+        return [name, filteredAgg];
+      }
     })
   );
 
