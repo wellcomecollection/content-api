@@ -5,7 +5,7 @@ import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
 
 import { TermsFilter } from './common';
 
-const getDateRange = (timespan?: string) => {
+const getDateRange = (timespan?: string | string[]) => {
   let queryRange;
 
   if (timespan && isValidTimespan(timespan))
@@ -77,7 +77,7 @@ export const eventsFilter = {
       path: 'filter.times',
       query: {
         bool: {
-          must: getDateRange(timespan[0]), // TODO there is always just one so... this is a bit weird
+          must: getDateRange(timespan),
         },
       },
     },
