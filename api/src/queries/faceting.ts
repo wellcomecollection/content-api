@@ -45,6 +45,8 @@ export const rewriteAggregationsForFacets = (
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
+      const isTimespan = name === 'timespan';
+
       const otherFilters = excludeValue(postFilters, name);
       const filteredAgg: AggregationsAggregationContainer = {
         filter: {
@@ -53,13 +55,12 @@ export const rewriteAggregationsForFacets = (
           },
         },
         aggs: {
-          ...(name !== 'timespan' && { terms: agg }),
-          ...(name === 'timespan' && { timespan: agg }),
+          ...(isTimespan ? { timespan: agg } : { terms: agg }),
         },
       };
 
       // We don't want timespan to self-filter as all of its options should always be visible.
-      if (name !== 'timespan') {
+      if (!isTimespan) {
         if (name in postFilters) {
           filteredAgg.aggs!.self_filter = {
             filter: esQuery(postFilters[name]),

@@ -122,9 +122,7 @@ export const eventsAggregations = {
     aggs: {
       all: {
         filter: {
-          bool: {
-            filter: [],
-          },
+          match_all: {},
         },
         aggs: {
           count_parent: {
