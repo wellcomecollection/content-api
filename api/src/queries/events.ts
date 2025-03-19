@@ -1,43 +1,37 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
+import { isValidTimespan } from '@weco/content-api/src/controllers/events';
+import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
+
 import { TermsFilter } from './common';
 
-export const eventsQuery = ({
-  queryString,
-  timespan,
-}: {
-  queryString?: string;
-  timespan?: QueryDslQueryContainer[];
-}): QueryDslQueryContainer => ({
-  ...(queryString && {
-    multi_match: {
-      query: queryString,
-      fields: [
-        'id',
-        'query.title.*^100',
-        'query.caption.*^10',
-        'query.series.*^80',
-        'query.series.contributors*^8',
-        'query.series.contributors.keyword^80',
-        'query.format.*^80',
-        'query.audiences.*^80',
-        'query.interpretations.*^80',
-      ],
-      operator: 'or',
-      type: 'cross_fields',
-      minimum_should_match: '-25%',
-    },
-  }),
-  ...(timespan && {
-    nested: {
-      path: 'filter.times',
-      query: {
-        bool: {
-          must: timespan,
-        },
-      },
-    },
-  }),
+const getDateRange = (timespan?: string) => {
+  let queryRange;
+
+  if (timespan && isValidTimespan(timespan))
+    queryRange = getTimespanRange(timespan);
+
+  return queryRange || undefined;
+};
+
+export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
+  multi_match: {
+    query: queryString,
+    fields: [
+      'id',
+      'query.title.*^100',
+      'query.caption.*^10',
+      'query.series.*^80',
+      'query.series.contributors*^8',
+      'query.series.contributors.keyword^80',
+      'query.format.*^80',
+      'query.audiences.*^80',
+      'query.interpretations.*^80',
+    ],
+    operator: 'or',
+    type: 'cross_fields',
+    minimum_should_match: '-25%',
+  },
 });
 
 export const eventsFilter = {
@@ -76,6 +70,16 @@ export const eventsFilter = {
   isAvailableOnline: (): QueryDslQueryContainer => ({
     term: {
       'filter.isAvailableOnline': true,
+    },
+  }),
+  timespan: (timespan: string[]): QueryDslQueryContainer => ({
+    nested: {
+      path: 'filter.times',
+      query: {
+        bool: {
+          must: getDateRange(timespan[0]), // TODO there is always just one so... this is a bit weird
+        },
+      },
     },
   }),
 };
@@ -131,15 +135,7 @@ export const eventsAggregations = {
       past: {
         filter: {
           bool: {
-            filter: [
-              {
-                range: {
-                  'filter.times.endDateTime': {
-                    lt: 'now',
-                  },
-                },
-              },
-            ],
+            filter: getTimespanRange('past'),
           },
         },
         aggs: {
@@ -151,15 +147,7 @@ export const eventsAggregations = {
       future: {
         filter: {
           bool: {
-            filter: [
-              {
-                range: {
-                  'filter.times.endDateTime': {
-                    gt: 'now',
-                  },
-                },
-              },
-            ],
+            filter: getTimespanRange('future'),
           },
         },
         aggs: {

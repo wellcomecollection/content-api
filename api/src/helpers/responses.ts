@@ -65,7 +65,7 @@ export const mapAggregations = (
             data: {
               type: 'EventTimespan',
               id: key,
-              label: String(key).charAt(0).toUpperCase() + String(key).slice(1),
+              label: `${String(key).charAt(0).toUpperCase() + String(key).slice(1)} events`,
             },
             count: aggregation.timespan[key].count_parent?.doc_count,
             type: 'AggregationBucket',

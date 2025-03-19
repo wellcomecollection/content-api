@@ -3,7 +3,6 @@ import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
 import { Config } from '@weco/content-api/config';
-import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
@@ -151,7 +150,14 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     );
 
     const postFilters = pickFiltersFromQuery(
-      ['format', 'audience', 'interpretation', 'location', 'isAvailableOnline'],
+      [
+        'format',
+        'audience',
+        'interpretation',
+        'location',
+        'isAvailableOnline',
+        'timespan',
+      ],
       validParams,
       eventsFilter
     );
@@ -160,15 +166,6 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       rewriteAggregationsForFacets(aggs, postFilters)
     );
 
-    const getDateRange = (timespan?: string) => {
-      let queryRange;
-
-      if (timespan && isValidTimespan(timespan))
-        queryRange = getTimespanRange(timespan);
-
-      return queryRange || undefined;
-    };
-
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
@@ -176,12 +173,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         aggregations: facetedAggregations,
         query: {
           bool: {
-            ...((queryString || validParams.timespan) && {
-              must: eventsQuery({
-                queryString: queryString || '',
-                timespan: getDateRange(validParams.timespan),
-              }),
-            }),
+            must: ifDefined(queryString, eventsQuery),
             must_not: {
               term: {
                 // exclude childScheduledEvents from search

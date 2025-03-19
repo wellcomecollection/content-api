@@ -45,20 +45,21 @@ export const rewriteAggregationsForFacets = (
 ): Record<string, AggregationsAggregationContainer> =>
   Object.fromEntries(
     Object.entries(aggregations).map(([name, agg]) => {
-      if (name !== 'timespan') {
-        const otherFilters = excludeValue(postFilters, name);
-        // TODO add timespan consideration??
-        const filteredAgg: AggregationsAggregationContainer = {
-          filter: {
-            bool: {
-              filter: otherFilters.map(esQuery),
-            },
+      const otherFilters = excludeValue(postFilters, name);
+      const filteredAgg: AggregationsAggregationContainer = {
+        filter: {
+          bool: {
+            filter: otherFilters.map(esQuery),
           },
-          aggs: {
-            terms: agg,
-          },
-        };
+        },
+        aggs: {
+          ...(name !== 'timespan' && { terms: agg }),
+          ...(name === 'timespan' && { timespan: agg }),
+        },
+      };
 
+      // We don't want timespan to self-filter as all of its options should always be visible.
+      if (name !== 'timespan') {
         if (name in postFilters) {
           filteredAgg.aggs!.self_filter = {
             filter: esQuery(postFilters[name]),
@@ -67,33 +68,9 @@ export const rewriteAggregationsForFacets = (
             },
           } as AggregationsAggregationContainer;
         }
-
-        return [name, filteredAgg];
-      } else {
-        const otherFilters = excludeValue(postFilters, name);
-        const filteredAgg: AggregationsAggregationContainer = {
-          filter: {
-            bool: {
-              filter: otherFilters.map(esQuery),
-            },
-          },
-          aggs: {
-            timespan: agg,
-          },
-        };
-
-        // TODO ?
-        // if (name in postFilters) {
-        //   filteredAgg.aggs!.self_filter = {
-        //     filter: esQuery(postFilters[name]),
-        //     aggs: {
-        //       terms: includeEmptyFilterValues(agg, postFilters[name]),
-        //     },
-        //   } as AggregationsAggregationContainer;
-        // }
-
-        return [name, filteredAgg];
       }
+
+      return [name, filteredAgg];
     })
   );
 
