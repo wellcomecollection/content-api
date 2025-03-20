@@ -1,17 +1,28 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
-import { isValidTimespan } from '@weco/content-api/src/controllers/events';
-import { getTimespanRange } from '@weco/content-api/src/controllers/utils';
+import {
+  getTimespanRange,
+  isValidTimespan,
+} from '@weco/content-api/src/controllers/utils';
 
 import { TermsFilter } from './common';
 
-const getDateRange = (timespan?: string | string[]) => {
+const getDateRange = (
+  timespan?: string | string[]
+): QueryDslQueryContainer[] | undefined => {
   let queryRange;
 
-  if (timespan && isValidTimespan(timespan))
-    queryRange = getTimespanRange(timespan);
+  if (timespan) {
+    const isArray = Array.isArray(timespan);
 
-  return queryRange || undefined;
+    if (isArray && isValidTimespan(timespan[0]))
+      queryRange = getTimespanRange(timespan[0]);
+
+    if (!isArray && isValidTimespan(timespan))
+      queryRange = getTimespanRange(timespan);
+  }
+
+  return queryRange;
 };
 
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({

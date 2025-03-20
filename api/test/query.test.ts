@@ -73,7 +73,7 @@ describe('events query', () => {
   // The purpose of this test is as a smoke test for the question,
   // "do we understand how we map a given query into an ES request?"
   it('makes the expected query to ES for a given set of query parameters', async () => {
-    const aggregations = 'format,interpretation';
+    const aggregations = 'format,interpretation,timespan';
     const format = 'test-format';
     const interpretation = 'test-interpretation';
     const pageSize = 20;
