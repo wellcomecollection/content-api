@@ -18,6 +18,7 @@ import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
+import { timespans } from './utils';
 import { queryValidator } from './validation';
 
 type QueryParams = {
@@ -34,35 +35,6 @@ type QueryParams = {
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
-
-export const MONTHS = [
-  'january',
-  'february',
-  'march',
-  'april',
-  'may',
-  'june',
-  'july',
-  'august',
-  'september',
-  'october',
-  'november',
-  'december',
-] as const;
-const timespans = [
-  'today',
-  'this-week',
-  'this-weekend',
-  'this-month',
-  'future',
-  'past',
-  ...MONTHS,
-] as const;
-export type Timespan = (typeof timespans)[number];
-export function isValidTimespan(type?: string | string[]): type is Timespan {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return timespans.includes(type as any);
-}
 
 const sortValidator = queryValidator({
   name: 'sort',
