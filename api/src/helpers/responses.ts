@@ -31,48 +31,54 @@ const mapBucket = (
 const compareBucket = (a: AggregationBucket, b: AggregationBucket) =>
   b.count - a.count || (a.data.id ?? '').localeCompare(b.data.id ?? '');
 
+const timespanAggregations = (
+  aggregation: AggregationsStringTermsBucket
+): AggregationBucket[] =>
+  Object.keys(aggregation.timespan)
+    .filter(
+      key => key !== 'doc_count' && isNotUndefined(aggregation.timespan[key])
+    )
+    .map(key => ({
+      data: {
+        type: 'EventTimespan',
+        id: key,
+        label: `${String(key).charAt(0).toUpperCase() + String(key).slice(1)} events`,
+      },
+      count: aggregation.timespan[key].count_parent?.doc_count,
+      type: 'AggregationBucket',
+    }));
+
+const termBucketAggregations = (
+  aggregation: AggregationsStringTermsBucket
+): AggregationBucket[] => {
+  const buckets: AggregationsStringTermsBucket[] =
+    aggregation.buckets ?? aggregation.terms.buckets;
+  const selfFilterBuckets: AggregationsStringTermsBucket[] =
+    aggregation.self_filter?.terms.buckets ?? [];
+
+  const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
+
+  return [...buckets, ...selfFilterBuckets]
+    .filter(b => {
+      const result = isNotUndefined(b) && !bucketKeys.has(b.key);
+      bucketKeys.add(b?.key);
+      return result;
+    })
+    .map(mapBucket)
+    .sort(compareBucket);
+};
+
 export const mapAggregations = (
   elasticAggs: AggregationsAggregate
 ): Aggregations =>
   Object.fromEntries(
     Object.entries(elasticAggs).flatMap(([name, aggregation]) => {
-      if (name !== 'timespan') {
-        const buckets: AggregationsStringTermsBucket[] =
-          aggregation.buckets ?? aggregation.terms.buckets;
-        const selfFilterBuckets: AggregationsStringTermsBucket[] =
-          aggregation.self_filter?.terms.buckets ?? [];
+      const bucketGenerator =
+        name === 'timespan' ? timespanAggregations : termBucketAggregations;
 
-        const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
-        const allBuckets = [...buckets, ...selfFilterBuckets]
-          .filter(b => {
-            const result = isNotUndefined(b) && !bucketKeys.has(b.key);
-            bucketKeys.add(b?.key);
-            return result;
-          })
-          .map(mapBucket)
-          .sort(compareBucket);
-
-        return [[name, { buckets: allBuckets, type: 'Aggregation' }]];
-      } else {
-        const transformedAgg: AggregationBucket[] = Object.keys(
-          aggregation.timespan
-        )
-          .filter(
-            key =>
-              key !== 'doc_count' && isNotUndefined(aggregation.timespan[key])
-          )
-          .map(key => ({
-            data: {
-              type: 'EventTimespan',
-              id: key,
-              label: `${String(key).charAt(0).toUpperCase() + String(key).slice(1)} events`,
-            },
-            count: aggregation.timespan[key].count_parent?.doc_count,
-            type: 'AggregationBucket',
-          }));
-
-        return [[name, { buckets: transformedAgg, type: 'Aggregation' }]];
-      }
+      return [
+        [name, { buckets: bucketGenerator(aggregation), type: 'Aggregation' }],
+      ];
     })
   );
 
