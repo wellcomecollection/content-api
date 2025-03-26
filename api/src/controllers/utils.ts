@@ -1,7 +1,6 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 import { DateTime } from 'luxon';
 
-import { MONTHS, Timespan } from '@weco/content-api/src/controllers/events';
 import {
   DayOfWeek,
   ExceptionalClosedDay,
@@ -97,6 +96,35 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   });
   // time is set in London, we can now convert back to UTC ISO string
   return withHourAndMinute.toUTC().toISO() || undefined;
+}
+
+export const MONTHS = [
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+] as const;
+export const timespans = [
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  ...MONTHS,
+] as const;
+export type Timespan = (typeof timespans)[number];
+export function isValidTimespan(type?: string): type is Timespan {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return timespans.includes(type as any);
 }
 
 export const getTimespanRange = (

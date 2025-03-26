@@ -1,43 +1,48 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
+import {
+  getTimespanRange,
+  isValidTimespan,
+} from '@weco/content-api/src/controllers/utils';
+
 import { TermsFilter } from './common';
 
-export const eventsQuery = ({
-  queryString,
-  timespan,
-}: {
-  queryString?: string;
-  timespan?: QueryDslQueryContainer[];
-}): QueryDslQueryContainer => ({
-  ...(queryString && {
-    multi_match: {
-      query: queryString,
-      fields: [
-        'id',
-        'query.title.*^100',
-        'query.caption.*^10',
-        'query.series.*^80',
-        'query.series.contributors*^8',
-        'query.series.contributors.keyword^80',
-        'query.format.*^80',
-        'query.audiences.*^80',
-        'query.interpretations.*^80',
-      ],
-      operator: 'or',
-      type: 'cross_fields',
-      minimum_should_match: '-25%',
-    },
-  }),
-  ...(timespan && {
-    nested: {
-      path: 'filter.times',
-      query: {
-        bool: {
-          must: timespan,
-        },
-      },
-    },
-  }),
+const getDateRange = (
+  timespan?: string | string[]
+): QueryDslQueryContainer[] | undefined => {
+  let queryRange;
+
+  if (timespan) {
+    const isArray = Array.isArray(timespan);
+
+    if (isArray && isValidTimespan(timespan[0]))
+      queryRange = getTimespanRange(timespan[0]);
+
+    if (!isArray && isValidTimespan(timespan))
+      queryRange = getTimespanRange(timespan);
+  }
+
+  return queryRange;
+};
+
+export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
+  multi_match: {
+    query: queryString,
+    fields: [
+      'id',
+      'query.title.*^100',
+      'query.caption.*^10',
+      'query.series.*^80',
+      'query.series.contributors*^8',
+      'query.series.contributors.keyword^80',
+      'query.format.*^80',
+      'query.audiences.*^80',
+      'query.interpretations.*^80',
+    ],
+    operator: 'or',
+    type: 'cross_fields',
+    minimum_should_match: '-25%',
+  },
 });
 
 export const eventsFilter = {
@@ -78,6 +83,16 @@ export const eventsFilter = {
       'filter.isAvailableOnline': true,
     },
   }),
+  timespan: (timespan: string[]): QueryDslQueryContainer => ({
+    nested: {
+      path: 'filter.times',
+      query: {
+        bool: {
+          must: getDateRange(timespan),
+        },
+      },
+    },
+  }),
 };
 
 export const eventsAggregations = {
@@ -111,12 +126,45 @@ export const eventsAggregations = {
       field: 'aggregatableValues.isAvailableOnline',
     },
   },
-  // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
-  // https://github.com/wellcomecollection/content-api/issues/220
   timespan: {
-    terms: {
-      size: 5,
-      field: 'filter.timespan', // use filter values and not create aggregations for it
+    nested: {
+      path: 'filter.times',
+    },
+    aggs: {
+      all: {
+        filter: {
+          match_all: {},
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      past: {
+        filter: {
+          bool: {
+            filter: getTimespanRange('past'),
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      future: {
+        filter: {
+          bool: {
+            filter: getTimespanRange('future'),
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
     },
   },
 } as const;
