@@ -97,6 +97,37 @@ const query = `{
       }
     }
   }
+  exhibitions {
+    title
+    format {
+      ... on exhibition-formats {
+        title
+      }
+    }
+    contributors {
+      role {
+        title
+      }
+      contributor {
+        ... on people {
+          name
+        }
+        ... on organisations {
+          name
+        }
+      }
+    }
+    start
+    end
+    promo {
+      ... on editorialImage {
+        non-repeat {
+          caption
+          image
+        }
+      }
+    }
+  }
 }`;
 
 export default query;
