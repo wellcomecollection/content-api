@@ -1,30 +1,38 @@
 #!/usr/bin/env bash
 
-echo Assign variables
-for ARGUMENT in "$@"
-do
-   KEY=$(echo $ARGUMENT | cut -f1 -d=)
+# Ensure the script will exit if any of the commands in it fail.
+set -o errexit
 
-   KEY_LENGTH=${#KEY}
-   VALUE="${ARGUMENT:$KEY_LENGTH+1}"
+# Set up env vars for this script
+PIPELINE_DATE="$1"
+export AWS_PROFILE=catalogue-developer
+export BUILDKITE_COMMIT=dev
+export AWS_PAGER="" # Turn off pager for AWS CLI
 
-   export "$KEY"="$VALUE"
-done
+# This returns the path to the root of the repo, used later
+ROOT=$(git rev-parse --show-toplevel)
 
-echo Ensure all necessary variables have been declared
-if [[ -z $PIPELINE_DATE || -z $AWS_PROFILE || -z $BUILDKITE_COMMIT ]]; then
-  echo "ERROR: PIPELINE_DATE, BUILDKITE_COMMIT and AWS_PROFILE are mandatory arguments.";
-  exit 1;
+# If no pipeline specified, tell the user how to use the script
+if [[ -z $PIPELINE_DATE ]]; then
+  echo "Usage: ./create_pipeline.sh <PIPELINE_DATE>"
+  exit 1
 fi
 
-echo Create zips for packages
-yarn workspace @weco/content-pipeline run package && yarn workspace @weco/content-unpublisher run package
+# Ensure there are no unset variables from this point on
+set -o nounset
 
-echo Upload zips to S3
-bash ../.buildkite/scripts/upload_lambda_package.sh content-pipeline-$PIPELINE_DATE ../pipeline/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
-bash ../.buildkite/scripts/upload_lambda_package.sh content-unpublisher-$PIPELINE_DATE ../unpublisher/package.zip $AWS_PROFILE=$AWS_PROFILE $BUILDKITE_COMMIT=$BUILDKITE_COMMIT
+# Command lines from `publish: pipeline & unpublisher ($LIVE_PIPELINE)` in `.buildkite/pipeline.yml`.
+echo "Creating zips for required packages ..."
+yarn workspace @weco/content-pipeline run package && \
+yarn workspace @weco/content-unpublisher run package
 
-echo Get zips in S3 and deploy them to our Lambdas
-bash ../.buildkite/scripts/deploy_lambda.sh content-pipeline-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
-bash ../.buildkite/scripts/deploy_lambda.sh content-unpublisher-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
+echo "Uploading zips to S3 ..."
+$ROOT/.buildkite/scripts/upload_lambda_package.sh content-pipeline-$PIPELINE_DATE $ROOT/pipeline/package.zip
+$ROOT/.buildkite/scripts/upload_lambda_package.sh content-unpublisher-$PIPELINE_DATE $ROOT/unpublisher/package.zip
+echo "Zips successfully uploaded to S3."
 
+#  Command lines from `deploy: live pipeline & unpublisher` in `.buildkite/pipeline.yml`:
+echo "Downloading zips from S3 and deploying Lambdas ..."
+$ROOT/.buildkite/scripts/deploy_lambda.sh content-pipeline-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
+$ROOT/.buildkite/scripts/deploy_lambda.sh content-unpublisher-$PIPELINE_DATE ref.$BUILDKITE_COMMIT
+echo "Packages deployed to Lambdas ..."

@@ -1,7 +1,6 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 import { DateTime } from 'luxon';
 
-import { MONTHS, Timespan } from '@weco/content-api/src/controllers/events';
 import {
   DayOfWeek,
   ExceptionalClosedDay,
@@ -99,14 +98,41 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   return withHourAndMinute.toUTC().toISO() || undefined;
 }
 
+export const MONTHS = [
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+] as const;
+export const timespans = [
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  ...MONTHS,
+] as const;
+export type Timespan = (typeof timespans)[number];
+export function isValidTimespan(type?: string): type is Timespan {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return timespans.includes(type as any);
+}
+
 export const getTimespanRange = (
   timespan: Timespan
 ): QueryDslQueryContainer[] | undefined => {
   const now = DateTime.local({ zone: 'Europe/London' });
 
   switch (timespan) {
-    // Start date: less than end of today
-    // End date: greater than now
     case 'today':
       return [
         {
@@ -125,7 +151,6 @@ export const getTimespanRange = (
         },
       ];
 
-    // FRIDAY 5pm - SUNDAY
     case 'this-weekend': {
       const friday5PM = now
         .startOf('week')
@@ -134,43 +159,29 @@ export const getTimespanRange = (
 
       const isNowWeekend = now > friday5PM;
 
-      // This is wrong
-      // An event is this weekend if it occurs during the weekend, not if it starts from Friday 5pm
-      // e.g. an event that lasts 3 days and started Thursday should be included in this.
-      // Relation needed?
-      // Need to test an event that starts Thursday and ends Saturday and if queried on the Monday prior shows up as "this weekend"
-      //
-      // End date: greater than now
       return [
         {
           range: {
             'filter.times.startDateTime': {
-              gte: isNowWeekend ? 'now' : friday5PM, // Friday 5pm or NOW
               lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
-              relation: 'contains',
             },
           },
         },
         {
           range: {
             'filter.times.endDateTime': {
-              gt: 'now',
+              gt: isNowWeekend ? 'now' : friday5PM,
             },
           },
         },
       ];
     }
 
-    // Same logic as this weekend might need testing; an event that started on the Sunday but ENDS on the Tuesday should show
-    // with this filter if queried on the Monday
-    //
-    // End date: greater than now
     case 'this-week':
       return [
         {
           range: {
             'filter.times.startDateTime': {
-              gte: 'now',
               lt: now.plus({ days: 6 }).endOf('day'),
             },
           },
@@ -189,7 +200,6 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.startDateTime': {
-              gte: 'now',
               lte: now.endOf('month').toISO(),
             },
           },
@@ -207,8 +217,8 @@ export const getTimespanRange = (
       return [
         {
           range: {
-            'filter.times.startDateTime': {
-              gte: 'now',
+            'filter.times.endDateTime': {
+              gt: 'now',
             },
           },
         },
@@ -252,8 +262,14 @@ export const getTimespanRange = (
         {
           range: {
             'filter.times.startDateTime': {
-              gte: isCurrentMonth ? 'now' : startOfMonth,
               lte: endOfMonth,
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: isCurrentMonth ? 'now' : startOfMonth,
             },
           },
         },
