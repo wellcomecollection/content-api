@@ -270,7 +270,13 @@ export const transformEventDocument = (
   const isAvailableOnline = !!availableOnline;
 
   // If an event has scheduled times, we don't want to have the parent's time range in the filterable times.
-  const filterTimes = scheduledTimes.length > 0 ? scheduledTimes : times;
+  const singleOrChildrenTimes =
+    scheduledTimes.length > 0 ? scheduledTimes : times;
+  const filterAndSortTimes = singleOrChildrenTimes
+    .map(({ startDateTime, endDateTime }) => {
+      return { startDateTime, endDateTime };
+    })
+    .filter(t => t.startDateTime || t.endDateTime);
 
   return [
     {
@@ -304,11 +310,7 @@ export const transformEventDocument = (
         audiences: audiences
           .map(audience => audience.label)
           .filter(isNotUndefined),
-        times: {
-          startDateTime: times
-            .map(time => time.startDateTime)
-            .filter(isNotUndefined),
-        },
+        times: filterAndSortTimes,
       },
       filter: {
         format: format.id,
@@ -316,14 +318,7 @@ export const transformEventDocument = (
         audiences: audiences.map(a => a.id),
         locations: locations.attendance.map(l => l.id),
         isAvailableOnline,
-        times: filterTimes
-          .map(({ startDateTime, endDateTime }) => {
-            return {
-              startDateTime,
-              endDateTime,
-            };
-          })
-          .filter(t => t.startDateTime || t.endDateTime),
+        times: filterAndSortTimes,
       },
       aggregatableValues: {
         format: JSON.stringify(format),
