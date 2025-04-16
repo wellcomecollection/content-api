@@ -449,7 +449,17 @@ exports[`events query makes the expected query to ES for a given set of query pa
     },
     {
       "query.times.startDateTime": {
-        "order": "desc",
+        "nested": {
+          "filter": {
+            "range": {
+              "query.times.endDateTime": {
+                "gt": "now",
+              },
+            },
+          },
+          "path": "query.times",
+        },
+        "order": "asc",
       },
     },
   ],

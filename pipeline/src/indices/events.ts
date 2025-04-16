@@ -141,9 +141,18 @@ export const mappings = {
             },
           },
         },
-        'times.startDateTime': {
-          type: 'date',
-          format: 'date_optional_time',
+        times: {
+          type: 'nested',
+          properties: {
+            startDateTime: {
+              type: 'date',
+              format: 'date_optional_time',
+            },
+            endDateTime: {
+              type: 'date',
+              format: 'date_optional_time',
+            },
+          },
         },
       },
     },

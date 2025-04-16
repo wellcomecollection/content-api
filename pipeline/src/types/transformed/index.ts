@@ -83,7 +83,10 @@ export type ElasticsearchEventDocument = {
     format?: string;
     interpretations?: string[];
     audiences?: string[];
-    times: { startDateTime: Date[] };
+    times: {
+      startDateTime?: Date;
+      endDateTime?: Date;
+    }[];
   };
   filter: {
     format: string;
