@@ -137,7 +137,6 @@ const getSortLogic = ({
     };
   }
 
-  // Possibly could be simplified when Sorting capacity is removed
   return {
     [sortKey]: {
       order: sortOrder,
