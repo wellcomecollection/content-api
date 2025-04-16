@@ -1,4 +1,5 @@
 import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { SortCombinations } from '@elastic/elasticsearch/lib/api/types';
 import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
@@ -104,6 +105,47 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   return hasIsAvailableOnline ? { ...params } : { ...rest };
 };
 
+const getSortLogic = ({
+  sortKey,
+  sortOrder,
+  pastOrFutureTimespan,
+}: {
+  sortKey: 'query.times.startDateTime' | '_score';
+  sortOrder?: 'asc' | 'desc';
+  pastOrFutureTimespan?: 'past' | 'future';
+}): SortCombinations => {
+  const isSortedByDateTime = sortKey === 'query.times.startDateTime';
+
+  // Only sort by date if both of these are specified
+  if (isSortedByDateTime && pastOrFutureTimespan) {
+    const finalSortOrder =
+      sortOrder || (pastOrFutureTimespan === 'past' ? 'desc' : 'asc');
+
+    return {
+      'query.times.startDateTime': {
+        order: finalSortOrder,
+        nested: {
+          path: 'query.times',
+          filter: {
+            range: {
+              'query.times.endDateTime':
+                finalSortOrder === 'desc' ? { lt: 'now' } : { gt: 'now' },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  // Possibly could be simplified when Sorting capacity is removed
+  return {
+    [sortKey]: {
+      order: sortOrder,
+      ...(isSortedByDateTime && { nested: { path: 'query.times' } }),
+    },
+  };
+};
+
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
   const index = config.eventsIndex;
   const resultList = resultListResponse(config);
@@ -161,9 +203,21 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
           },
         },
         sort: [
-          { [sortKey]: { order: sortOrder } },
-          // Use recency as a "tie-breaker" sort
-          { 'query.times.startDateTime': { order: 'desc' } },
+          getSortLogic({
+            sortKey,
+            sortOrder,
+            pastOrFutureTimespan:
+              validParams.timespan === 'past' ||
+              validParams.timespan === 'future'
+                ? validParams.timespan
+                : undefined,
+          }),
+          // Use recency as a "tie-breaker" sort, future first.
+          getSortLogic({
+            sortKey: 'query.times.startDateTime',
+            sortOrder: 'asc',
+            pastOrFutureTimespan: 'future',
+          }),
         ],
         ...paginationElasticBody(req.query),
       });
