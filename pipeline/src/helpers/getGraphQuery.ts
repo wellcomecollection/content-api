@@ -69,7 +69,9 @@ export const getGraphQuery = ({
       return venueQuery;
 
     case 'exhibition':
-      return `{
+      return isDetailed
+        ? eventDocumentsQuery
+        : `{
           ${addressablesExhibitionsQuery}
         }`;
 
