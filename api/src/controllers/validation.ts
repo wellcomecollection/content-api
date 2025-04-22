@@ -120,14 +120,14 @@ export const prismicIdValidator = (
     });
 };
 
-// Checks if the date is a valid year of 3 or 4 digits
+// Checks if the date is of the format YYYY-MM-DD
 export const dateValidator = (date: string) => {
-  const dateRegex = /^\d{3,4}$/;
+  const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
   if (!dateRegex.test(date))
     throw new HttpError({
       status: 400,
       label: 'Bad Request',
-      description: `${date} is not a valid year.`,
+      description: `${date} is not a valid YYYY-MM-DD format.`,
     });
 };
