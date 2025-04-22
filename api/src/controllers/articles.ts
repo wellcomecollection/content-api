@@ -22,7 +22,12 @@ import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
-import { queryValidator, validateDate } from './validation';
+import {
+  dateValidator,
+  prismicIdValidator,
+  queryValidator,
+  validateDate,
+} from './validation';
 
 type QueryParams = {
   query?: string;
@@ -56,6 +61,20 @@ const aggregationsValidator = queryValidator({
   allowed: ['contributors.contributor', 'format'],
 });
 
+const paramsValidator = (params: QueryParams): QueryParams => {
+  if (params.format) prismicIdValidator(params.format, 'formats');
+  if (params['contributors.contributor'])
+    prismicIdValidator(params['contributors.contributor'], 'contributors');
+
+  if (params['publicationDate.from'])
+    dateValidator(params['publicationDate.from']);
+  if (params['publicationDate.to']) dateValidator(params['publicationDate.to']);
+
+  // We are ignoring all other values passed in but "true".
+  // Anything else should remove the param from the query
+  return params;
+};
+
 const articlesController = (
   clients: Clients,
   config: Config
@@ -68,6 +87,7 @@ const articlesController = (
     const sort = sortValidator(params)?.[0];
     const sortOrder = sortOrderValidator(params)?.[0];
     const aggregations = aggregationsValidator(params);
+    const validParams = paramsValidator(params);
 
     const sortKey =
       sort === 'publicationDate' ? 'query.publicationDate' : '_score';
@@ -77,7 +97,7 @@ const articlesController = (
     );
     const initialFilters = pickFiltersFromQuery(
       ['contributors.contributor', 'format'],
-      params,
+      validParams,
       articlesFilter
     );
 
@@ -93,11 +113,11 @@ const articlesController = (
     // The date filter is a special case because 2 parameters filter 1 field,
     // and it doesn't (currently) have a corresponding aggregation.
     const dateFilters =
-      params['publicationDate.from'] || params['publicationDate.to']
+      validParams['publicationDate.from'] || params['publicationDate.to']
         ? [
             articlesFilter.publicationDate(
-              ifDefined(params['publicationDate.from'], validateDate),
-              ifDefined(params['publicationDate.to'], validateDate)
+              ifDefined(validParams['publicationDate.from'], validateDate),
+              ifDefined(validParams['publicationDate.to'], validateDate)
             ),
           ]
         : [];
