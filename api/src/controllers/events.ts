@@ -19,7 +19,7 @@ import { ResultList } from '@weco/content-api/src/types/responses';
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
 import { timespans } from './utils';
-import { queryValidator } from './validation';
+import { prismicIdValidator, queryValidator } from './validation';
 
 type QueryParams = {
   query?: string;
@@ -92,6 +92,11 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       timespan: params.timespan,
     });
   }
+
+  if (params.audience) prismicIdValidator(params.audience, 'audiences');
+  if (params.interpretation)
+    prismicIdValidator(params.interpretation, 'interpretations');
+  if (params.format) prismicIdValidator(params.format, 'formats');
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
@@ -182,6 +187,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
             'Your query contained too many terms, please try again with a simpler query',
         });
       }
+
       throw error;
     }
   });
