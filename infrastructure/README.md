@@ -3,8 +3,8 @@
 ## Creating pipeline
 
 1. Add new module to `pipeline.tf`, named with the date.
-2. From `./infrastructure`, plan and apply Terraform (`./run_terraform.sh plan`), although `terraform init` will probably be required first.
-3. Now your pipeline should have been created, you may confirm so by going into AWS Lambdas as well as ElasticCloud and seeing that it's there.
+2. From `./infrastructure`, plan and apply Terraform (`./run_terraform.sh plan / apply`), although `terraform init` will probably be required first.
+3. Now your pipeline should have been created, you may confirm so by going into AWS Lambdas as well as ElasticCloud and seeing that it's there (with `catalogue-developer`).
 4. Run `./create_pipeline.sh [NEW PIPELINE DATE]`.
 5. The Elasticsearch indexes will have been created and configured, but you'll need to run a reindex manually. The scheduler will be set but only considers the last 15 minutes of documents being published, so the inital run has to be manual (although it could be made to be automated should we desire it). Before you reindex, **_remember to change `pipelineDate` values locally to match your new pipeline's._**, otherwise you'll be doing those in the live pipeline.
 

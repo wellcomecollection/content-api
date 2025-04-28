@@ -3,7 +3,7 @@ import { AddressablesAllowedTypes } from '@weco/content-pipeline/src/helpers/get
 const documentIds: { [key: string]: string | undefined } = {
   article: 'ZdSMbREAACQA3j30',
   webcomic: 'XkV9dREAAAPkNP0b',
-  event: 'ZfhSyxgAACQAkLPZ',
+  event: 'Zwmm1RAAACIARjdm',
   venue: 'Wsttgx8AAJeSNmJ4',
   exhibition: 'Yzv9ChEAABfUrkVp',
   book: 'ZijgihEAACMAtL-',

@@ -1,4 +1,5 @@
 import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { SortCombinations } from '@elastic/elasticsearch/lib/api/types';
 import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
@@ -19,7 +20,7 @@ import { ResultList } from '@weco/content-api/src/types/responses';
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
 import { timespans } from './utils';
-import { queryValidator } from './validation';
+import { prismicIdValidator, queryValidator } from './validation';
 
 type QueryParams = {
   query?: string;
@@ -93,6 +94,11 @@ const paramsValidator = (params: QueryParams): QueryParams => {
     });
   }
 
+  if (params.audience) prismicIdValidator(params.audience, 'audiences');
+  if (params.interpretation)
+    prismicIdValidator(params.interpretation, 'interpretations');
+  if (params.format) prismicIdValidator(params.format, 'formats');
+
   const hasIsAvailableOnline =
     isAvailableOnline &&
     isAvailableOnlineValidator({
@@ -102,6 +108,46 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   // We are ignoring all other values passed in but "true".
   // Anything else should remove the param from the query
   return hasIsAvailableOnline ? { ...params } : { ...rest };
+};
+
+const getSortLogic = ({
+  sortKey,
+  sortOrder,
+  pastOrFutureTimespan,
+}: {
+  sortKey: 'query.times.startDateTime' | '_score';
+  sortOrder?: 'asc' | 'desc';
+  pastOrFutureTimespan?: 'past' | 'future';
+}): SortCombinations => {
+  const isSortedByDateTime = sortKey === 'query.times.startDateTime';
+
+  // Only sort by date if both of these are specified
+  if (isSortedByDateTime && pastOrFutureTimespan) {
+    const finalSortOrder =
+      sortOrder || (pastOrFutureTimespan === 'past' ? 'desc' : 'asc');
+
+    return {
+      'query.times.startDateTime': {
+        order: finalSortOrder,
+        nested: {
+          path: 'query.times',
+          filter: {
+            range: {
+              'query.times.endDateTime':
+                finalSortOrder === 'desc' ? { lt: 'now' } : { gt: 'now' },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  return {
+    [sortKey]: {
+      order: sortOrder,
+      ...(isSortedByDateTime && { nested: { path: 'query.times' } }),
+    },
+  };
 };
 
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
@@ -161,9 +207,21 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
           },
         },
         sort: [
-          { [sortKey]: { order: sortOrder } },
-          // Use recency as a "tie-breaker" sort
-          { 'query.times.startDateTime': { order: 'desc' } },
+          getSortLogic({
+            sortKey,
+            sortOrder,
+            pastOrFutureTimespan:
+              validParams.timespan === 'past' ||
+              validParams.timespan === 'future'
+                ? validParams.timespan
+                : undefined,
+          }),
+          // Use recency as a "tie-breaker" sort, future first.
+          getSortLogic({
+            sortKey: 'query.times.startDateTime',
+            sortOrder: 'asc',
+            pastOrFutureTimespan: 'future',
+          }),
         ],
         ...paginationElasticBody(req.query),
       });
@@ -182,6 +240,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
             'Your query contained too many terms, please try again with a simpler query',
         });
       }
+
       throw error;
     }
   });
