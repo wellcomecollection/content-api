@@ -170,6 +170,12 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       pick(eventsAggregations, requestedAggs)
     );
 
+    const excludes = pickFiltersFromQuery(
+      ['excludeFormats'],
+      validParams,
+      eventsExclusionsFilter
+    );
+
     const postFilters = pickFiltersFromQuery(
       [
         'format',
