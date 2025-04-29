@@ -213,6 +213,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                         isChildScheduledEvent: true,
                       },
                     },
+                    ...Object.values(excludes).map(esQuery),
                   ],
                 },
               },
