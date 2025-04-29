@@ -93,12 +93,11 @@ export const validateDate = (input: string): Date => {
   return date;
 };
 
-// Adapted from looksLikePrismicId in .org repo:
+// From looksLikePrismicId in .org repo:
 // \w: Matches any word character (alphanumeric & underscore).
 //     Only matches low-ascii characters (no accented or non-roman characters).
 //     Equivalent to [A-Za-z0-9_].
 // Added "-" to be matched as well.
-// Added "\s" to match spaces.
 // + means empty strings will return false.
 export const prismicIdValidator = (
   filterValues: string,
@@ -108,7 +107,7 @@ export const prismicIdValidator = (
   const invalidValues: string[] = [];
 
   filterValuesArray.forEach(filterValue => {
-    if (!/^[\w\s-]+$/.test(filterValue)) {
+    if (!/^[\w-]+$/.test(filterValue)) {
       invalidValues.push(filterValue);
     }
   });
