@@ -99,6 +99,8 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   if (params.interpretation)
     prismicIdValidator(params.interpretation, 'interpretations');
   if (params.format) prismicIdValidator(params.format, 'formats');
+  if (params.excludeFormats)
+    prismicIdValidator(params.excludeFormats, 'excludeFormats');
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
