@@ -95,6 +95,17 @@ export const eventsFilter = {
   }),
 };
 
+export const eventsExclusionsFilter = {
+  excludeFormats: (excludeFormats: string[]): TermsFilter => ({
+    values: excludeFormats,
+    esQuery: {
+      terms: {
+        'query.format.keyword': excludeFormats,
+      },
+    },
+  }),
+};
+
 export const eventsAggregations = {
   format: {
     terms: {
