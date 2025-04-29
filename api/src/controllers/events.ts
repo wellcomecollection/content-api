@@ -28,6 +28,7 @@ type QueryParams = {
   sortOrder?: string;
   aggregations?: string;
   format?: string;
+  excludeFormats?: string;
   audience?: string;
   interpretation?: string;
   location?: string;
