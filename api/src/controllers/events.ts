@@ -202,13 +202,21 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         query: {
           bool: {
             must: ifDefined(queryString, eventsQuery),
-            must_not: {
-              term: {
-                // exclude childScheduledEvents from search
-                // https://github.com/wellcomecollection/content-api/issues/93
-                isChildScheduledEvent: true,
+            filter: [
+              {
+                bool: {
+                  must_not: [
+                    {
+                      term: {
+                        // Exclude childScheduledEvents from search
+                        // https://github.com/wellcomecollection/content-api/issues/93
+                        isChildScheduledEvent: true,
+                      },
+                    },
+                  ],
+                },
               },
-            },
+            ],
           },
         },
         post_filter: {
