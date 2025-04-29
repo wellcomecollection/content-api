@@ -11,7 +11,6 @@ import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   eventsAggregations,
   eventsFilter,
-  eventsQuery,
 } from '@weco/content-api/src/queries/events';
 import { rewriteAggregationsForFacets } from '@weco/content-api/src/queries/faceting';
 import { Clients, Displayable } from '@weco/content-api/src/types';
