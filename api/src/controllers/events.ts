@@ -76,6 +76,12 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
+const filterOutExhibitionsValidator = queryValidator({
+  name: 'filterOutExhibitions',
+  allowed: ['true'],
+  singleValue: true,
+});
+
 const timespanValidator = queryValidator({
   name: 'timespan',
   allowed: timespans,
