@@ -181,17 +181,12 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const sortOrder = sortOrderValidator(params)?.[0];
     const aggregations = aggregationsValidator(params);
     const validParams = paramsValidator(params);
+
     const sortKey =
       sort === 'times.startDateTime' ? 'query.times.startDateTime' : '_score';
 
     const initialAggregations = ifDefined(aggregations, requestedAggs =>
       pick(eventsAggregations, requestedAggs)
-    );
-
-    const excludes = pickFiltersFromQuery(
-      ['excludeFormats'],
-      validParams,
-      eventsExclusionsFilter
     );
 
     const postFilters = pickFiltersFromQuery(
