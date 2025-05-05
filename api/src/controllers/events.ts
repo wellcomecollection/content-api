@@ -115,14 +115,20 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       isAvailableOnline,
     });
 
-  // We are ignoring all other values passed in but "true".
   const hasFilterOutExhibitions =
     filterOutExhibitions &&
     filterOutExhibitionsValidator({
       filterOutExhibitions,
     });
+
+  // For isAvailableOnline and filterOutExhibitions,
+  // we are ignoring all values passed in but "true".
   // Anything else should remove the param from the query
-  return hasIsAvailableOnline ? { ...params } : { ...rest };
+  return {
+    ...rest,
+    ...(hasIsAvailableOnline ? { isAvailableOnline } : {}),
+    ...(hasFilterOutExhibitions ? { filterOutExhibitions } : {}),
+  };
 };
 
 const getSortLogic = ({
