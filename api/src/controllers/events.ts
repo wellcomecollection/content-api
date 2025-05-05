@@ -89,7 +89,7 @@ const timespanValidator = queryValidator({
 });
 
 const paramsValidator = (params: QueryParams): QueryParams => {
-  const { isAvailableOnline, ...rest } = params;
+  const { isAvailableOnline, filterOutExhibitions, ...rest } = params;
 
   if (params.location)
     locationsValidator({
