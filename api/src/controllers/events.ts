@@ -116,6 +116,11 @@ const paramsValidator = (params: QueryParams): QueryParams => {
     });
 
   // We are ignoring all other values passed in but "true".
+  const hasFilterOutExhibitions =
+    filterOutExhibitions &&
+    filterOutExhibitionsValidator({
+      filterOutExhibitions,
+    });
   // Anything else should remove the param from the query
   return hasIsAvailableOnline ? { ...params } : { ...rest };
 };
