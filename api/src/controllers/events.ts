@@ -34,6 +34,7 @@ type QueryParams = {
   location?: string;
   isAvailableOnline?: string;
   timespan?: string;
+  filterOutExhibitions?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
