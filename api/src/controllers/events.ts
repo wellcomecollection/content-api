@@ -225,7 +225,16 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                         isChildScheduledEvent: true,
                       },
                     },
-                    ...Object.values(excludes).map(esQuery),
+                    ...(validParams.filterOutExhibitions
+                      ? [
+                          {
+                            term: {
+                              'filter.format':
+                                '050ff9da-f8b6-4b15-9054-cbfca48766bc',
+                            },
+                          },
+                        ]
+                      : []),
                   ],
                 },
               },
