@@ -10,7 +10,6 @@ import { resultListResponse } from '@weco/content-api/src/helpers/responses';
 import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   eventsAggregations,
-  eventsExclusionsFilter,
   eventsFilter,
   eventsQuery,
 } from '@weco/content-api/src/queries/events';
