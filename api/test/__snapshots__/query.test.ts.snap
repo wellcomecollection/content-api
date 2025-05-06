@@ -414,6 +414,19 @@ exports[`events query makes the expected query to ES for a given set of query pa
   },
   "query": {
     "bool": {
+      "filter": [
+        {
+          "bool": {
+            "must_not": [
+              {
+                "term": {
+                  "isChildScheduledEvent": true,
+                },
+              },
+            ],
+          },
+        },
+      ],
       "must": {
         "multi_match": {
           "fields": [
@@ -431,11 +444,6 @@ exports[`events query makes the expected query to ES for a given set of query pa
           "operator": "or",
           "query": "henry wellcome",
           "type": "cross_fields",
-        },
-      },
-      "must_not": {
-        "term": {
-          "isChildScheduledEvent": true,
         },
       },
     },

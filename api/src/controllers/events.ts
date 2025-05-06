@@ -33,6 +33,7 @@ type QueryParams = {
   location?: string;
   isAvailableOnline?: string;
   timespan?: string;
+  filterOutExhibitions?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -74,6 +75,12 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
+const filterOutExhibitionsValidator = queryValidator({
+  name: 'filterOutExhibitions',
+  allowed: ['true'],
+  singleValue: true,
+});
+
 const timespanValidator = queryValidator({
   name: 'timespan',
   allowed: timespans,
@@ -81,7 +88,7 @@ const timespanValidator = queryValidator({
 });
 
 const paramsValidator = (params: QueryParams): QueryParams => {
-  const { isAvailableOnline, ...rest } = params;
+  const { isAvailableOnline, filterOutExhibitions, ...rest } = params;
 
   if (params.location)
     locationsValidator({
@@ -105,9 +112,20 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       isAvailableOnline,
     });
 
-  // We are ignoring all other values passed in but "true".
+  const hasFilterOutExhibitions =
+    filterOutExhibitions &&
+    filterOutExhibitionsValidator({
+      filterOutExhibitions,
+    });
+
+  // For isAvailableOnline and filterOutExhibitions,
+  // we are ignoring all values passed in but "true".
   // Anything else should remove the param from the query
-  return hasIsAvailableOnline ? { ...params } : { ...rest };
+  return {
+    ...rest,
+    ...(hasIsAvailableOnline ? { isAvailableOnline } : {}),
+    ...(hasFilterOutExhibitions ? { filterOutExhibitions } : {}),
+  };
 };
 
 const getSortLogic = ({
@@ -160,6 +178,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const sortOrder = sortOrderValidator(params)?.[0];
     const aggregations = aggregationsValidator(params);
     const validParams = paramsValidator(params);
+
     const sortKey =
       sort === 'times.startDateTime' ? 'query.times.startDateTime' : '_score';
 
@@ -192,13 +211,31 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         query: {
           bool: {
             must: ifDefined(queryString, eventsQuery),
-            must_not: {
-              term: {
-                // exclude childScheduledEvents from search
-                // https://github.com/wellcomecollection/content-api/issues/93
-                isChildScheduledEvent: true,
+            filter: [
+              {
+                bool: {
+                  must_not: [
+                    {
+                      term: {
+                        // Exclude childScheduledEvents from search
+                        // https://github.com/wellcomecollection/content-api/issues/93
+                        isChildScheduledEvent: true,
+                      },
+                    },
+                    ...(validParams.filterOutExhibitions
+                      ? [
+                          {
+                            term: {
+                              'filter.format':
+                                '050ff9da-f8b6-4b15-9054-cbfca48766bc',
+                            },
+                          },
+                        ]
+                      : []),
+                  ],
+                },
               },
-            },
+            ],
           },
         },
         post_filter: {
