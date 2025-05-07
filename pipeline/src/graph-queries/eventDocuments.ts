@@ -117,6 +117,11 @@ const query = `{
         }
       }
     }
+    interpretations {
+      interpretationType {
+        title
+      }
+    }
     start
     end
     promo {
