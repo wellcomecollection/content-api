@@ -69,7 +69,6 @@ function transformExhibitionFormat(
     : defaultEventExhibitionFormat;
 }
 
-// TODO add In our building to all exhibitions
 const transformLocations = ({
   isOnline,
   locations,
@@ -285,7 +284,16 @@ export const transformEventDocument = (
     isOnline:
       !!scheduledLocations.find(l => l.isOnline) || parentLocations.isOnline,
     places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
-    attendance: locationsAttendance,
+    attendance:
+      document.type === 'exhibitions'
+        ? [
+            {
+              id: 'in-our-building' as const,
+              label: 'In our building' as const,
+              type: 'EventAttendance' as const,
+            },
+          ]
+        : locationsAttendance,
   };
 
   const interpretations = getUniqueValues([
