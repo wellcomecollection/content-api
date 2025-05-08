@@ -22,7 +22,7 @@ export type EventDocumentTime = {
 };
 
 export type EventDocumentFormat = {
-  type: 'EventFormat';
+  type: 'EventFormat' | 'ExhibitionFormat';
   id: string;
   label?: string;
 };

@@ -7,7 +7,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "audiences": [],
       "format": "{"type":"EventFormat","id":"W5fV5iYAACQAMxHb","label":"Festival"}",
       "interpretations": [
-        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
+        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language interpreted"}",
         "{"type":"EventInterpretation","id":"WmXl4iQAACUAnyDr","label":"Speech-to-text"}",
       ],
       "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
@@ -96,7 +96,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "interpretations": [
         {
           "id": "XkFGqxEAACIAIhNH",
-          "label": "British Sign Language",
+          "label": "British Sign Language interpreted",
           "type": "EventInterpretation",
         },
         {
@@ -392,12 +392,14 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "caption": "Explore the deep connections between mental health and ecosystem health in this four-day festival created by Land Body Ecologies (LBE), from teams across India, Uganda, Kenya, Thailand, the UK and the Arctic. Take part and experience performances, food, workshops, music, films and more.",
       "format": "Festival",
       "interpretations": [
-        "British Sign Language",
+        "British Sign Language interpreted",
         "Speech-to-text",
       ],
       "linkedIdentifiers": [
         "W5fV5iYAACQAMxHb",
         "XEnJIhUAAArdgVsW",
+        "XkFGqxEAACIAIhNH",
+        "WmXl4iQAACUAnyDr",
         "ZFtubBQAAHnPEGEG",
         "ZFteSBQAADxsEBMa",
         "ZFtfvxQAAHnPEBo-",
@@ -498,7 +500,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "audiences": [],
       "format": "{"type":"EventFormat","id":"WmYRpCQAACUAn-Ap","label":"Gallery tour"}",
       "interpretations": [
-        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
+        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language interpreted"}",
       ],
       "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
       "locations": [
@@ -581,7 +583,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "interpretations": [
         {
           "id": "XkFGqxEAACIAIhNH",
-          "label": "British Sign Language",
+          "label": "British Sign Language interpreted",
           "type": "EventInterpretation",
         },
       ],
@@ -648,7 +650,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "caption": "Join performance artist Jess Dobkin for a tour of our exhibition ‘Milk’.",
       "format": "Gallery tour",
       "interpretations": [
-        "British Sign Language",
+        "British Sign Language interpreted",
       ],
       "linkedIdentifiers": [
         "WmYRpCQAACUAn-Ap",
@@ -1092,7 +1094,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       ],
       "format": "{"type":"EventFormat","id":"Wn3Q3SoAACsAIeFI","label":"Performance"}",
       "interpretations": [
-        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language"}",
+        "{"type":"EventInterpretation","id":"XkFGqxEAACIAIhNH","label":"British Sign Language interpreted"}",
         "{"type":"EventInterpretation","id":"W5JXVSYAACYAGtkh","label":"Relaxed"}",
       ],
       "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
@@ -1182,7 +1184,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "interpretations": [
         {
           "id": "XkFGqxEAACIAIhNH",
-          "label": "British Sign Language",
+          "label": "British Sign Language interpreted",
           "type": "EventInterpretation",
         },
         {
@@ -1253,7 +1255,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "caption": "Join an afternoon of performance and discussion about beauty in which the audience plays an important part, including deciding on the running order and joining in debates.",
       "format": "Performance",
       "interpretations": [
-        "British Sign Language",
+        "British Sign Language interpreted",
         "Relaxed",
       ],
       "linkedIdentifiers": [
@@ -1624,6 +1626,316 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
       "title": "Sexing Up the Internet",
     },
     "uid": "sexing-up-the-internet",
+  },
+]
+`;
+
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: exhibitions/Yzv9ChEAABfUrkVp) 1`] = `
+[
+  {
+    "aggregatableValues": {
+      "audiences": [],
+      "format": "{"type":"EventFormat","id":"050ff9da-f8b6-4b15-9054-cbfca48766bc","label":"Exhibition"}",
+      "interpretations": [],
+      "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
+      "locations": [
+        "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+      ],
+    },
+    "display": {
+      "audiences": [],
+      "format": {
+        "id": "050ff9da-f8b6-4b15-9054-cbfca48766bc",
+        "label": "Exhibition",
+        "type": "EventFormat",
+      },
+      "id": "Yzv9ChEAABfUrkVp",
+      "image": {
+        "16:9": {
+          "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+          "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -268,
+            "zoom": 0.8,
+          },
+          "id": "Y4dnVhEAACMAGAEU",
+          "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=0,335,4000,2250&w=3200&h=1800",
+        },
+        "32:15": {
+          "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+          "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": 0,
+            "y": -387.20000000000005,
+            "zoom": 0.8,
+          },
+          "id": "Y4dnVhEAACMAGAEU",
+          "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=0,484,4000,1875&w=3200&h=1500",
+        },
+        "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+        "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+        "dimensions": {
+          "height": 2667,
+          "width": 4000,
+        },
+        "edit": {
+          "background": "#fff",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "Y4dnVhEAACMAGAEU",
+        "square": {
+          "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+          "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "#fff",
+            "x": -1599.4000749906263,
+            "y": 0,
+            "zoom": 1.1998500187476566,
+          },
+          "id": "Y4dnVhEAACMAGAEU",
+          "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=1333,0,2667,2667&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=format,compress",
+      },
+      "interpretations": [],
+      "isAvailableOnline": false,
+      "locations": {
+        "attendance": [
+          {
+            "id": "in-our-building",
+            "label": "In our building",
+            "type": "EventAttendance",
+          },
+        ],
+        "isOnline": false,
+        "places": undefined,
+        "type": "EventLocations",
+      },
+      "series": [],
+      "times": [
+        {
+          "endDateTime": 2023-04-22T23:00:00.000Z,
+          "isFullyBooked": {
+            "inVenue": false,
+            "online": false,
+          },
+          "startDateTime": 2022-11-24T00:00:00.000Z,
+        },
+      ],
+      "title": "The Healing Pavilion",
+      "type": "Event",
+      "uid": "the-healing-pavilion",
+    },
+    "filter": {
+      "audiences": [],
+      "format": "050ff9da-f8b6-4b15-9054-cbfca48766bc",
+      "interpretations": [],
+      "isAvailableOnline": false,
+      "locations": [
+        "in-our-building",
+      ],
+      "times": [
+        {
+          "endDateTime": 2023-04-22T23:00:00.000Z,
+          "startDateTime": 2022-11-24T00:00:00.000Z,
+        },
+      ],
+    },
+    "id": "Yzv9ChEAABfUrkVp",
+    "query": {
+      "audiences": [],
+      "caption": "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
+      "format": [
+        "Exhibition",
+      ],
+      "interpretations": [],
+      "linkedIdentifiers": [
+        "Wux6DyIAAO5n3lzk",
+        "Yzv-ThEAAA__rki5",
+      ],
+      "series": [],
+      "times": [
+        {
+          "endDateTime": 2023-04-22T23:00:00.000Z,
+          "startDateTime": 2022-11-24T00:00:00.000Z,
+        },
+      ],
+      "title": "The Healing Pavilion",
+    },
+    "uid": "the-healing-pavilion",
+  },
+]
+`;
+
+exports[`eventDocument transformer transforms events from Prismic to the expected format (document: exhibitions/Z1hLIxAAAB4AVAWG) 1`] = `
+[
+  {
+    "aggregatableValues": {
+      "audiences": [],
+      "format": "{"type":"EventFormat","id":"050ff9da-f8b6-4b15-9054-cbfca48766bc","label":"Exhibition"}",
+      "interpretations": [],
+      "isAvailableOnline": "{"type":"OnlineAvailabilityBoolean","value":false,"label":"Catch-up event"}",
+      "locations": [
+        "{"id":"in-our-building","label":"In our building","type":"EventAttendance"}",
+      ],
+    },
+    "display": {
+      "audiences": [],
+      "format": {
+        "id": "ZmmnbhEAACIAF5Uc",
+        "label": "Display",
+        "type": "EventFormat",
+      },
+      "id": "Z1hLIxAAAB4AVAWG",
+      "image": {
+        "16:9": {
+          "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+          "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+          "dimensions": {
+            "height": 1800,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "transparent",
+            "x": 0,
+            "y": 0,
+            "zoom": 1,
+          },
+          "id": "Z-QetXdAxsiBv74b",
+          "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&w=3200&h=1800",
+        },
+        "32:15": {
+          "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+          "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+          "dimensions": {
+            "height": 1500,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "transparent",
+            "x": 0,
+            "y": 260,
+            "zoom": 1,
+          },
+          "id": "Z-QetXdAxsiBv74b",
+          "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&rect=0%2C260%2C4000%2C1875&w=3200&h=1500",
+        },
+        "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+        "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+        "dimensions": {
+          "height": 2250,
+          "width": 4000,
+        },
+        "edit": {
+          "background": "transparent",
+          "x": 0,
+          "y": 0,
+          "zoom": 1,
+        },
+        "id": "Z-QetXdAxsiBv74b",
+        "square": {
+          "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+          "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+          "dimensions": {
+            "height": 3200,
+            "width": 3200,
+          },
+          "edit": {
+            "background": "transparent",
+            "x": 292,
+            "y": 0,
+            "zoom": 1,
+          },
+          "id": "Z-QetXdAxsiBv74b",
+          "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&rect=292%2C0%2C2250%2C2250&w=3200&h=3200",
+        },
+        "type": "PrismicImage",
+        "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format,compress",
+      },
+      "interpretations": [],
+      "isAvailableOnline": false,
+      "locations": {
+        "attendance": [
+          {
+            "id": "in-our-building",
+            "label": "In our building",
+            "type": "EventAttendance",
+          },
+        ],
+        "isOnline": false,
+        "places": undefined,
+        "type": "EventLocations",
+      },
+      "series": [],
+      "times": [
+        {
+          "endDateTime": 2025-09-14T17:00:00.000Z,
+          "isFullyBooked": {
+            "inVenue": false,
+            "online": false,
+          },
+          "startDateTime": 2025-03-14T10:00:00.000Z,
+        },
+      ],
+      "title": "Zines Forever! DIY Publishing and Disability Justice",
+      "type": "Event",
+      "uid": "zines-forever-diy-publishing-and-disability-justice",
+    },
+    "filter": {
+      "audiences": [],
+      "format": "050ff9da-f8b6-4b15-9054-cbfca48766bc",
+      "interpretations": [],
+      "isAvailableOnline": false,
+      "locations": [
+        "in-our-building",
+      ],
+      "times": [
+        {
+          "endDateTime": 2025-09-14T17:00:00.000Z,
+          "startDateTime": 2025-03-14T10:00:00.000Z,
+        },
+      ],
+    },
+    "id": "Z1hLIxAAAB4AVAWG",
+    "query": {
+      "audiences": [],
+      "caption": "Discover how self-published zines have been used to share individual expriences of disability and disabled identity. You can see, touch, listen to and create your own zines in this display, drawn from our collections.",
+      "format": [
+        "Exhibition",
+        "Display",
+      ],
+      "interpretations": [],
+      "linkedIdentifiers": [
+        "ZmmnbhEAACIAF5Uc",
+      ],
+      "series": [],
+      "times": [
+        {
+          "endDateTime": 2025-09-14T17:00:00.000Z,
+          "startDateTime": 2025-03-14T10:00:00.000Z,
+        },
+      ],
+      "title": "Zines Forever! DIY Publishing and Disability Justice",
+    },
+    "uid": "zines-forever-diy-publishing-and-disability-justice",
   },
 ]
 `;

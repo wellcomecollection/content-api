@@ -85,6 +85,36 @@ exports[`addressables transformer transforms books from Prismic to the expected 
 ]
 `;
 
+exports[`addressables transformer transforms events from Prismic to the expected format (document: events/Z9vxBBQAACEAfZwp) 1`] = `
+[
+  {
+    "display": {
+      "description": "Come along to a variety of life-affirming events around the theme of dying to mark the launch of Molly Conisbee's new book, No Ordinary Deaths.",
+      "format": "Late",
+      "id": "Z9vxBBQAACEAfZwp",
+      "times": {
+        "end": 2025-05-01T19:00:00.000Z,
+        "start": 2025-05-01T15:00:00.000Z,
+      },
+      "title": "A People's History of Death with Molly Conisbee",
+      "type": "Event",
+      "uid": "a-peoples-history-of-death-with-molly-conisbee",
+    },
+    "id": "Z9vxBBQAACEAfZwp/events",
+    "query": {
+      "contributors": "Molly Conisbee, Sarah Dabbs, Ody Caballero-Valdes, Ed Bishop, Dr Kate Lister, Peter Abraham",
+      "description": [
+        "Come along to a variety of life-affirming events around the theme of dying to mark the launch of Molly Conisbee's new book, No Ordinary Deaths.",
+        "Late",
+      ],
+      "title": "A People's History of Death with Molly Conisbee",
+      "type": "Event",
+    },
+    "uid": "a-peoples-history-of-death-with-molly-conisbee",
+  },
+]
+`;
+
 exports[`addressables transformer transforms events from Prismic to the expected format (document: events/ZfhSyxgAACQAkLPZ) 1`] = `
 [
   {

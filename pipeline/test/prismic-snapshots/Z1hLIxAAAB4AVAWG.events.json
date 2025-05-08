@@ -1,0 +1,139 @@
+{
+  "id": "Z1hLIxAAAB4AVAWG",
+  "uid": "zines-forever-diy-publishing-and-disability-justice",
+  "url": null,
+  "type": "exhibitions",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z1hLIxAAAB4AVAWG%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2024-12-16T16:18:35+0000",
+  "last_publication_date": "2025-04-29T16:52:41+0000",
+  "slugs": ["zines-forever-diy-publishing-and-disability-justice"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "format": {
+      "id": "ZmmnbhEAACIAF5Uc",
+      "type": "exhibition-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "display",
+      "first_publication_date": "2024-06-12T13:51:00+0000",
+      "last_publication_date": "2024-06-12T13:51:00+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Display",
+            "spans": [],
+            "direction": "ltr"
+          }
+        ]
+      },
+      "link_type": "Document",
+      "key": "a1349d15-9169-42f4-bd05-77c96ef4b7e8",
+      "isBroken": false
+    },
+    "title": [
+      {
+        "type": "heading1",
+        "text": "Zines Forever! DIY Publishing and Disability Justice",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "start": "2025-03-14T10:00:00+0000",
+    "end": "2025-09-14T17:00:00+0000",
+    "interpretations": [
+      {
+        "interpretationType": {
+          "link_type": "Document"
+        }
+      }
+    ],
+    "contributors": [],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Discover how self-published zines have been used to share individual expriences of disability and disabled identity. You can see, touch, listen to and create your own zines in this display, drawn from our collections.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2250
+            },
+            "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+            "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+            "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format,compress",
+            "id": "Z-QetXdAxsiBv74b",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "transparent"
+            },
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+              "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&rect=0%2C260%2C4000%2C1875&w=3200&h=1500",
+              "id": "Z-QetXdAxsiBv74b",
+              "edit": {
+                "x": 0,
+                "y": 260,
+                "zoom": 1,
+                "background": "transparent"
+              }
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+              "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&w=3200&h=1800",
+              "id": "Z-QetXdAxsiBv74b",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "transparent"
+              }
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of three people chatting in an exhibition gallery. In the centre one of the people is discussing a zine they have held open in their hands with the other two people, who are sat on a large double bed, made up of a pink mattress and orange pillows. To the side of the bed is a display table with more zines and a tablet in a holder.",
+              "copyright": "Zines Forever! DIY Publications and Disability Justice, a Display at Wellcome Collection. Gallery Photo: Benjamin Gilbert | | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/Z-QetXdAxsiBv74b_017-BTG250304142757.jpg?auto=format%2Ccompress&rect=292%2C0%2C2250%2C2250&w=3200&h=3200",
+              "id": "Z-QetXdAxsiBv74b",
+              "edit": {
+                "x": 292,
+                "y": 0,
+                "zoom": 1,
+                "background": "transparent"
+              }
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$56879ea9-c42a-4227-8d31-2c0606123b2f",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}

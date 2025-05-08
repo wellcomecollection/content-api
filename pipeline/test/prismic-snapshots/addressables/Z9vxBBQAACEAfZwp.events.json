@@ -1,0 +1,175 @@
+{
+  "id": "Z9vxBBQAACEAfZwp",
+  "uid": "a-peoples-history-of-death-with-molly-conisbee",
+  "url": null,
+  "type": "events",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
+  "tags": ["PHOD"],
+  "first_publication_date": "2025-04-03T14:52:29+0000",
+  "last_publication_date": "2025-04-28T09:22:37+0000",
+  "slugs": ["a-peoples-history-of-death-with-molly-conisbee"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "title": [
+      {
+        "type": "heading1",
+        "text": "A People's History of Death with Molly Conisbee",
+        "spans": [],
+        "direction": "ltr"
+      }
+    ],
+    "format": {
+      "id": "Ww_LyiEAAFOTlJ4-",
+      "type": "event-formats",
+      "tags": [],
+      "lang": "en-gb",
+      "slug": "late",
+      "first_publication_date": "2018-05-31T10:17:55+0000",
+      "last_publication_date": "2018-05-31T10:17:55+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Late",
+            "spans": []
+          }
+        ]
+      },
+      "link_type": "Document",
+      "key": "6d86d4d9-b861-456b-a0a1-c6f156fdd2fe",
+      "isBroken": false
+    },
+    "times": [
+      {
+        "startDateTime": "2025-05-01T15:00:00+0000",
+        "endDateTime": "2025-05-01T19:00:00+0000"
+      }
+    ],
+    "body": [],
+    "contributors": [
+      {
+        "contributor": {
+          "id": "Z77XjRAAACMAU2He",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "molly-conisbee",
+          "first_publication_date": "2025-02-26T08:58:05+0000",
+          "last_publication_date": "2025-03-05T10:01:02+0000",
+          "data": {
+            "name": "Molly Conisbee"
+          },
+          "link_type": "Document",
+          "key": "4eecad5c-72ad-441c-a1b3-e39d84c2f680",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "ZRFn1BcAACYAq1QS",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "sarah-dabbs",
+          "first_publication_date": "2023-09-25T10:59:37+0000",
+          "last_publication_date": "2025-05-06T10:42:23+0000",
+          "data": {
+            "name": "Sarah Dabbs"
+          },
+          "link_type": "Document",
+          "key": "086717c8-b10f-4533-8cee-e10e1c2671d3",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "Z-u-KhAAACIAbeXh",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "ody-caballero-valdes",
+          "first_publication_date": "2025-04-01T10:21:31+0000",
+          "last_publication_date": "2025-04-01T17:35:21+0000",
+          "data": {
+            "name": "Ody Caballero-Valdes"
+          },
+          "link_type": "Document",
+          "key": "786026b2-ea90-4441-8c66-06f463acc76a",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "XBe-_BEAAO1X8LXF",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "ed-bishop",
+          "first_publication_date": "2018-12-17T15:21:37+0000",
+          "last_publication_date": "2025-04-01T10:17:26+0000",
+          "data": {
+            "name": "Ed Bishop"
+          },
+          "link_type": "Document",
+          "key": "6e8a7300-a144-4806-8ba2-14a86280a77e",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "WxEeGCQAACcAvjtO",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "dr-kate-lister",
+          "first_publication_date": "2018-06-01T10:23:57+0000",
+          "last_publication_date": "2025-04-01T17:43:33+0000",
+          "data": {
+            "name": "Dr Kate Lister"
+          },
+          "link_type": "Document",
+          "key": "5be94e71-1d9a-4c43-b580-76c4e8ab5192",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "Z-u-cRAAAB8AbeZf",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "peter-abraham",
+          "first_publication_date": "2025-04-01T10:23:17+0000",
+          "last_publication_date": "2025-04-01T10:23:17+0000",
+          "data": {
+            "name": "Peter Abraham"
+          },
+          "link_type": "Document",
+          "key": "d43ea57f-6bac-422a-9c60-de9e654da719",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "Come along to a variety of life-affirming events around the theme of dying to mark the launch of Molly Conisbee's new book, No Ordinary Deaths.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ],
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$f7c9027f-dd1b-4da1-ba88-63c93cac2c5b",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "id": "Yzv9ChEAABfUrkVp",
+  "uid": "the-healing-pavilion",
+  "url": null,
+  "type": "exhibitions",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
+  "tags": [],
+  "first_publication_date": "2022-10-12T11:11:45+0000",
+  "last_publication_date": "2024-10-31T15:26:35+0000",
+  "slugs": ["the-healing-pavilion"],
+  "linked_documents": [],
+  "lang": "en-gb",
+  "alternate_languages": [],
+  "data": {
+    "format": {
+      "link_type": "Document"
+    },
+    "title": [
+      {
+        "type": "heading1",
+        "text": "The Healing Pavilion",
+        "spans": []
+      }
+    ],
+    "start": "2022-11-24T00:00:00+0000",
+    "end": "2023-04-22T23:00:00+0000",
+    "interpretations": [],
+    "contributors": [
+      {
+        "role": {
+          "id": "Wux6DyIAAO5n3lzk",
+          "type": "editorial-contributor-roles",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "artist",
+          "first_publication_date": "2018-05-04T15:19:48+0000",
+          "last_publication_date": "2019-08-14T14:31:04+0000",
+          "data": {
+            "title": [
+              {
+                "type": "heading1",
+                "text": "Artist",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "key": "b0bc26c3-3a22-4be6-8e16-5c1fbe0aed92",
+          "isBroken": false
+        },
+        "contributor": {
+          "id": "Yzv-ThEAAA__rki5",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "grace-ndiritu",
+          "first_publication_date": "2022-10-04T09:35:23+0000",
+          "last_publication_date": "2022-11-30T11:32:17+0000",
+          "data": {
+            "name": "Grace Ndiritu"
+          },
+          "link_type": "Document",
+          "key": "825ad2ea-57fb-4cf6-9c4f-795b1ee9aa3c",
+          "isBroken": false
+        }
+      }
+    ],
+    "promo": [
+      {
+        "primary": {
+          "caption": [
+            {
+              "type": "paragraph",
+              "text": "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu, which radically reimagines what textiles and architecture can do in a museum burdened by colonial history.",
+              "spans": []
+            }
+          ],
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2667
+            },
+            "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+            "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+            "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=format,compress",
+            "id": "Y4dnVhEAACMAGAEU",
+            "edit": {
+              "x": 0,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=0,484,4000,1875&w=3200&h=1500",
+              "id": "Y4dnVhEAACMAGAEU",
+              "edit": {
+                "x": 0,
+                "y": -387.20000000000005,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=0,335,4000,2250&w=3200&h=1800",
+              "id": "Y4dnVhEAACMAGAEU",
+              "edit": {
+                "x": 0,
+                "y": -268,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, in contemplation. To the right two more visitors, one sitting, one standing are looking at the tapestry. The standing visitor is listening to an audio guide on headphones. The hues of the scene are warm browns and olive greens.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/73d43a2a-5b3f-44e5-8699-56895f94b596_EP_002115_046.jpg?auto=compress,format&rect=1333,0,2667,2667&w=3200&h=3200",
+              "id": "Y4dnVhEAACMAGAEU",
+              "edit": {
+                "x": -1599.4000749906263,
+                "y": 0,
+                "zoom": 1.1998500187476566,
+                "background": "#fff"
+              }
+            }
+          },
+          "link": null
+        },
+        "items": [],
+        "id": "editorialImage$4ee142b3-f655-471b-8691-030583f9f3ed",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      }
+    ]
+  }
+}

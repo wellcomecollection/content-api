@@ -42,6 +42,8 @@ const eventDocumentIds = [
   'ZFt0WhQAAHnPEH7P', // festival - Land Body Ecologies Festival Day Two
   'ZRrijRIAAJNSARgG', // performance - Standards, My Right to Beauty
   'Wn3Q3SoAACsAIeFI', // event-formats - Performance
+  'Yzv9ChEAABfUrkVp', // Exhibition - The Healing Pavilion
+  'Z1hLIxAAAB4AVAWG', // Exhibition (display) - Zines Forever! DIY Publishing and Disability Justice
 ];
 
 const venueIds = [
@@ -51,7 +53,7 @@ const venueIds = [
 const addressableIds = {
   article: 'ZdSMbREAACQA3j30', // The stuck tampon
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
-  event: 'ZfhSyxgAACQAkLPZ',
+  event: 'Z9vxBBQAACEAfZwp', // A People's History of Death with Molly Conisbee
   exhibition: 'Yzv9ChEAABfUrkVp',
   'exhibition-highlight-tour': 'ZthrZRIAACQALvCC',
   'exhibition-text': 'Zs8mohAAAB4AP4sc',
@@ -91,7 +93,10 @@ const updateEventDocumentSnapshots = async (client: Client) => {
     docs.map(doc => {
       const docJson = JSON.stringify(doc, null, 2);
       return fs.writeFile(
-        path.resolve(dataDir, `${doc.id}.${doc.type}.json`),
+        path.resolve(
+          dataDir,
+          `${doc.id}.${doc.type === 'exhibitions' ? 'events' : doc.type}.json`
+        ),
         docJson
       );
     })

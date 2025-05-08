@@ -3,10 +3,10 @@
   "uid": "standards--my-right-to-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZRrijRIAAJNSARgG%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-19T15:00:00+0000",
-  "last_publication_date": "2024-10-23T12:49:51+0000",
+  "last_publication_date": "2025-04-23T16:23:41+0000",
   "slugs": ["standards-my-right-to-beauty"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "3250433e-0909-4fba-8875-0756b1f463d6",
+      "key": "320db5c0-4793-4714-b96f-2c4010c0f4ea",
       "isBroken": false
     },
     "locations": [
@@ -60,7 +60,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "043f4513-faf8-4f6d-899a-074772ae2fbc",
+          "key": "e641bb24-93ee-43a0-9a4c-fad97e2cff01",
           "isBroken": false
         }
       }
@@ -82,20 +82,21 @@
           "type": "interpretation-types",
           "tags": [],
           "lang": "en-gb",
-          "slug": "british-sign-language",
+          "slug": "british-sign-language-interpreted",
           "first_publication_date": "2020-02-10T15:44:36+0000",
-          "last_publication_date": "2024-09-10T14:33:57+0000",
+          "last_publication_date": "2025-04-23T16:36:15+0000",
           "data": {
             "title": [
               {
                 "type": "heading1",
-                "text": "British Sign Language",
-                "spans": []
+                "text": "British Sign Language interpreted",
+                "spans": [],
+                "direction": "ltr"
               }
             ]
           },
           "link_type": "Document",
-          "key": "2e021af2-b468-49b8-a10d-7791450fc8bf",
+          "key": "710cd4a1-8524-460c-8765-ffb4eef9a50f",
           "isBroken": false
         }
       },
@@ -118,7 +119,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "c6fc4eb6-4324-4e15-83cb-1373d15bcf1a",
+          "key": "2319cbeb-cf2d-486c-8181-0ead546ba9dd",
           "isBroken": false
         }
       }
@@ -143,7 +144,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "3577a910-898a-4148-adad-9fff0ae13a6e",
+          "key": "bc6ebec6-121c-4650-8b51-89c6f9231884",
           "isBroken": false
         }
       },
@@ -181,7 +182,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "477365f4-13be-4f29-85d5-d3ece88fefe8",
+          "key": "b8cc0c15-63ed-482b-a3ad-6b797c2a36f0",
           "isBroken": false
         },
         "contributor": {
@@ -196,7 +197,7 @@
             "name": "Amaarah Roze"
           },
           "link_type": "Document",
-          "key": "2706e9d9-d06f-4bbf-ab07-9edf09044c08",
+          "key": "12f46f51-143d-4dc3-925d-bbb8bc3790e3",
           "isBroken": false
         }
       },
@@ -219,7 +220,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "974956b0-e622-4a61-84e1-38577463dc0b",
+          "key": "5c3e1324-eb0c-44b7-a6f4-b9ace3b286e0",
           "isBroken": false
         },
         "contributor": {
@@ -234,7 +235,7 @@
             "name": "Chiquita Delisser"
           },
           "link_type": "Document",
-          "key": "e38d951e-b711-4021-b2af-96108fd011d3",
+          "key": "a4ef4993-a1cf-4b89-ac69-cd6839faf2cb",
           "isBroken": false
         }
       }
