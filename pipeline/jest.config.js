@@ -1,6 +1,6 @@
 module.exports = {
   displayName: 'Pipeline',
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/js-with-ts-esm',
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/test/setup.js'],
 };
