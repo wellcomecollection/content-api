@@ -3,7 +3,7 @@
   "uid": "tracing-the-roots-of-our-fears-and-fixations",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Y0U4GBEAAA__16h6%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-18T09:00:00+0000",
   "last_publication_date": "2024-10-23T14:38:42+0000",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "792a929f-e69b-4f07-85f7-319b95860ce8",
+      "key": "95b68389-534c-4b96-9ab8-a13dec7bb83c",
       "isBroken": false
     },
     "body": [
@@ -624,7 +624,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "8221aadd-2afe-4c01-af71-2d688ce9448f",
+          "key": "8e06365b-a6c1-432e-81c5-1ccceedce677",
           "isBroken": false
         },
         "contributor": {
@@ -639,7 +639,7 @@
             "name": "Kate Summerscale"
           },
           "link_type": "Document",
-          "key": "42a0c73c-b41a-4f33-bc30-feb2449d2055",
+          "key": "5c079ec7-f663-4fd2-8a4c-08710101961b",
           "isBroken": false
         }
       },
@@ -662,7 +662,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "393f129c-e8fc-4d47-a406-608147f866c0",
+          "key": "fc828172-c5f3-484f-b221-8039c8da2fa4",
           "isBroken": false
         },
         "contributor": {
@@ -677,7 +677,7 @@
             "name": "Tim Robinson"
           },
           "link_type": "Document",
-          "key": "12b5bf83-993e-4f0f-b129-570e79148652",
+          "key": "ab91a367-ee14-4449-b796-1c8c22ddf0c5",
           "isBroken": false
         }
       }
@@ -793,7 +793,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "1ec12b77-7264-4d10-92b2-9f3c023bec09",
+          "key": "ea48a4b4-738e-44ab-a1eb-63e7edcedd7c",
           "isBroken": false
         }
       }

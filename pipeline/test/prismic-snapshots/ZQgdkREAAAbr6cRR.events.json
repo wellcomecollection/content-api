@@ -3,7 +3,7 @@
   "uid": "lights-up-on-the-cult-of-beauty-11",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:39+0000",
@@ -42,7 +42,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "f1d72b03-73a0-405d-9d36-6efb6e1c3374",
+          "key": "49bd9411-498a-4cc4-bf17-c8581595ab6e",
           "isBroken": false
         }
       }
@@ -124,7 +124,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "12e2ad18-3a02-4304-bac6-1ce360736fbd",
+                  "key": "4ec2870b-ceea-4491-8bcb-668aad065b48",
                   "isBroken": false
                 }
               }
@@ -138,7 +138,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "c8772b43-c94f-4f53-b5b7-3b0d79778a35",
+          "key": "48087533-0e47-4584-94a9-849a9f690ecb",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -195,7 +195,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "e3c7f8f5-34cc-49c4-9cc4-2eb64decfa04",
+                  "key": "1ca9f0ae-a6e4-4aee-b85b-29710de34aff",
                   "isBroken": false
                 }
               }
@@ -220,7 +220,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "f8685a8c-6d53-46ac-b1e5-9117ac23fbf5",
+                  "key": "b223ab12-3bcb-4ef9-a1c9-41170ed0adfc",
                   "isBroken": false
                 }
               }
@@ -243,12 +243,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "3f4c7c5f-a176-4b9b-9bd3-f3c7f3e7ea26",
+              "key": "d99ad4dc-78c2-4268-80b8-5668e8061981",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "2470f71a-7598-4a96-be5a-614bf2828c3e",
+          "key": "d92150d6-bac8-4167-88a9-5c01354f9c6b",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -305,7 +305,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "9f6efada-d5b1-4f08-b6a7-08a282c3f087",
+                  "key": "0dd5c007-71a7-4a9c-b0ca-2a1dc330dcd5",
                   "isBroken": false
                 }
               }
@@ -319,7 +319,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "33d186be-a337-4f09-873a-90d0646dfdb1",
+          "key": "b4efa72d-0c3f-46b0-b790-bbd14a39b705",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -376,7 +376,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "7b127421-1bd8-4d15-99c2-67b791a95b97",
+                  "key": "baba4850-b38a-4075-9e37-06e9d9a43f37",
                   "isBroken": false
                 }
               }
@@ -401,7 +401,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "a0f4f4a9-66fe-402c-ae15-7c82181f2cf7",
+                  "key": "32e33dd8-1461-4522-b910-ca769964da04",
                   "isBroken": false
                 }
               }
@@ -424,12 +424,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "5cbde207-ed3c-4c21-b174-b875ca61a553",
+              "key": "f9ce7546-48fb-42cf-8b69-409e02985475",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "f9cea47e-4dbb-4ef2-9deb-83ca6fc98b9b",
+          "key": "bd92a3a1-eb5e-4537-9cc5-fd46d3682ce4",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -486,7 +486,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "5cb2bb24-c0af-4ccc-8c47-b92a4c0f3a17",
+                  "key": "1e02cc0e-ec18-46ae-abf5-6f862168e9d5",
                   "isBroken": false
                 }
               }
@@ -500,7 +500,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "67404b84-f784-4fe7-9bcc-0ef293e37a69",
+          "key": "2a0510cc-d98f-4b80-8447-9966b0dfc826",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -557,7 +557,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "3c1efd91-d192-47df-b465-336a239f3433",
+                  "key": "ea256a20-f17f-40ce-8e4b-0f52b180e654",
                   "isBroken": false
                 }
               }
@@ -582,7 +582,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "98065be1-e65b-47d3-bd59-8a6193ed5d39",
+                  "key": "ca5d4303-8f46-450c-903e-2a495dbc1618",
                   "isBroken": false
                 }
               }
@@ -605,12 +605,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "57d022a8-1808-49f9-947a-b0562329a87f",
+              "key": "1e6a69fd-8c2f-4dcb-947e-f48a632807bc",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "a3d0d5a8-1de7-4d5a-86a9-b7d8c03aed00",
+          "key": "367572c5-04f0-44c0-83f8-6343ce9c6881",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -667,7 +667,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "f90abd5a-1aa1-4500-b781-1b5ec0eb6e04",
+                  "key": "52e6052b-16ad-4294-84ab-1bc49c25f962",
                   "isBroken": false
                 }
               }
@@ -681,7 +681,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "cb07b46c-5ad8-4522-8214-4b2c7a36c946",
+          "key": "8a60104d-0c61-4d3d-92f0-036d7b1b537a",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -738,7 +738,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "27e2ab9e-1bfd-42ed-a75b-e302b95c969d",
+                  "key": "ecc42aa6-15af-4163-8cbc-ef0287c94816",
                   "isBroken": false
                 }
               }
@@ -763,7 +763,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "4ec030a7-cad0-41cf-9a53-5318b912bb78",
+                  "key": "80a67ba7-2acc-47d1-a3fc-4190547ef144",
                   "isBroken": false
                 }
               }
@@ -786,12 +786,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "e06f6162-8099-492e-9afb-c6f8f4d770f6",
+              "key": "75e3ce5c-c9f4-4b59-85c0-48bb56cb19b7",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "26650c96-4d18-4073-8f9d-e0be30a7e0de",
+          "key": "71f4b982-187b-4b2f-9e45-821c89cb3b97",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -848,7 +848,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "f652b10f-ddcf-4175-b9f5-1487e903bd0d",
+                  "key": "3ec3df3b-5ccc-43dc-88fe-9055d5a8e15d",
                   "isBroken": false
                 }
               }
@@ -862,7 +862,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "9f89a527-2a29-4e1a-bd93-f7a788c2ca51",
+          "key": "bd3b4cd4-fe89-416a-a271-3409030ccefb",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -919,7 +919,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "801b75ef-5ed0-4e7a-9592-3679a2b79556",
+                  "key": "14d64244-0202-4b31-90f3-775f4d474eef",
                   "isBroken": false
                 }
               }
@@ -944,7 +944,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "37f31e60-18b8-4a98-9ae3-94f885921bd4",
+                  "key": "85b0d69a-2540-437c-9bd2-d2d7d987f81c",
                   "isBroken": false
                 }
               }
@@ -967,12 +967,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "1f0b7cb1-d59d-4942-a7bd-93bd14fc84e5",
+              "key": "e7c74bdf-245e-4d73-8663-0c1873172a0a",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "ee025163-64a5-4e79-b651-3ea68061bc2d",
+          "key": "e89c06ff-d4aa-443c-b026-c3e9ee9e491c",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1029,7 +1029,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "b32dadb3-f813-4f9f-9e96-ed29715ad5c1",
+                  "key": "4513054f-0e0e-4302-8676-3d4b27182f75",
                   "isBroken": false
                 }
               }
@@ -1043,7 +1043,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "7459434d-84d4-4c50-8aab-14b5e82967f6",
+          "key": "6c44d874-2406-4663-9b94-479276825ced",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1100,7 +1100,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "3445cc89-fb95-4330-b2ba-4e5f2dcc127c",
+                  "key": "1e205375-65a1-4154-be46-fa5635ff5416",
                   "isBroken": false
                 }
               }
@@ -1125,7 +1125,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "e6fa85ee-073b-4faf-8d88-72b7eaa0ebee",
+                  "key": "c71a7e5c-3350-4470-beb3-61ab62220835",
                   "isBroken": false
                 }
               }
@@ -1148,12 +1148,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "0d7debc5-7d00-47a1-a818-f3d0156e12af",
+              "key": "b380625f-b32b-4acb-80ad-26f29319854b",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "1bd26fdb-52cd-4bc2-a5a0-952f1ccf10c2",
+          "key": "a5eac884-4614-400e-8089-896d77b8707c",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1210,7 +1210,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "5ccc0808-26fe-43d5-a37f-8ab3773c15eb",
+                  "key": "9d62566f-b7f6-482a-b79e-2404e3196e4a",
                   "isBroken": false
                 }
               }
@@ -1224,7 +1224,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "ff7c0e78-c18b-4cde-920d-c01e4429b606",
+          "key": "40c22439-f38e-4853-bf23-30c998302912",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1281,7 +1281,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "a1035a71-505e-4fd2-a895-de36bce10687",
+                  "key": "bdaddaaa-7d5d-4e0e-9774-75587fc86895",
                   "isBroken": false
                 }
               }
@@ -1306,7 +1306,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "b590c230-52a2-4fd3-a086-f26c808368a8",
+                  "key": "7d5a15c7-7e36-46a0-824f-ae54d2b8bd3e",
                   "isBroken": false
                 }
               }
@@ -1329,12 +1329,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "f0e4d796-f0cc-41de-b8c4-b5157f27670a",
+              "key": "715d88d3-2e85-4691-a937-6d4d245f7283",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "4e9f92e4-2a96-45cf-b752-8fdd3522c11b",
+          "key": "c4ead250-4ba2-4cac-93ee-7cdacc151ce3",
           "isBroken": false
         },
         "isNotLinked": "yes"
