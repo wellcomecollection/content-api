@@ -1,4 +1,5 @@
 import { errors as elasticErrors } from '@elastic/elasticsearch';
+import { SortCombinations } from '@elastic/elasticsearch/lib/api/types';
 import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
 
@@ -18,7 +19,8 @@ import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
-import { queryValidator } from './validation';
+import { timespans } from './utils';
+import { prismicIdValidator, queryValidator } from './validation';
 
 type QueryParams = {
   query?: string;
@@ -30,6 +32,8 @@ type QueryParams = {
   interpretation?: string;
   location?: string;
   isAvailableOnline?: string;
+  timespan?: string;
+  filterOutExhibitions?: string;
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -56,6 +60,7 @@ const aggregationsValidator = queryValidator({
     'interpretation',
     'location',
     'isAvailableOnline',
+    'timespan',
   ],
 });
 
@@ -70,13 +75,36 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
+const filterOutExhibitionsValidator = queryValidator({
+  name: 'filterOutExhibitions',
+  allowed: ['true'],
+  singleValue: true,
+});
+
+const timespanValidator = queryValidator({
+  name: 'timespan',
+  allowed: timespans,
+  singleValue: true,
+});
+
 const paramsValidator = (params: QueryParams): QueryParams => {
-  const { isAvailableOnline, ...rest } = params;
+  const { isAvailableOnline, filterOutExhibitions, ...rest } = params;
 
   if (params.location)
     locationsValidator({
       location: params.location,
     });
+
+  if (params.timespan) {
+    timespanValidator({
+      timespan: params.timespan,
+    });
+  }
+
+  if (params.audience) prismicIdValidator(params.audience, 'audiences');
+  if (params.interpretation)
+    prismicIdValidator(params.interpretation, 'interpretations');
+  if (params.format) prismicIdValidator(params.format, 'formats');
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
@@ -84,9 +112,60 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       isAvailableOnline,
     });
 
-  // We are ignoring all other values passed in but "true".
+  const hasFilterOutExhibitions =
+    filterOutExhibitions &&
+    filterOutExhibitionsValidator({
+      filterOutExhibitions,
+    });
+
+  // For isAvailableOnline and filterOutExhibitions,
+  // we are ignoring all values passed in but "true".
   // Anything else should remove the param from the query
-  return hasIsAvailableOnline ? { ...params } : { ...rest };
+  return {
+    ...rest,
+    ...(hasIsAvailableOnline ? { isAvailableOnline } : {}),
+    ...(hasFilterOutExhibitions ? { filterOutExhibitions } : {}),
+  };
+};
+
+const getSortLogic = ({
+  sortKey,
+  sortOrder,
+  pastOrFutureTimespan,
+}: {
+  sortKey: 'query.times.startDateTime' | '_score';
+  sortOrder?: 'asc' | 'desc';
+  pastOrFutureTimespan?: 'past' | 'future';
+}): SortCombinations => {
+  const isSortedByDateTime = sortKey === 'query.times.startDateTime';
+
+  // Only sort by date if both of these are specified
+  if (isSortedByDateTime && pastOrFutureTimespan) {
+    const finalSortOrder =
+      sortOrder || (pastOrFutureTimespan === 'past' ? 'desc' : 'asc');
+
+    return {
+      'query.times.startDateTime': {
+        order: finalSortOrder,
+        nested: {
+          path: 'query.times',
+          filter: {
+            range: {
+              'query.times.endDateTime':
+                finalSortOrder === 'desc' ? { lt: 'now' } : { gt: 'now' },
+            },
+          },
+        },
+      },
+    };
+  }
+
+  return {
+    [sortKey]: {
+      order: sortOrder,
+      ...(isSortedByDateTime && { nested: { path: 'query.times' } }),
+    },
+  };
 };
 
 const eventsController = (clients: Clients, config: Config): EventsHandler => {
@@ -99,6 +178,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     const sortOrder = sortOrderValidator(params)?.[0];
     const aggregations = aggregationsValidator(params);
     const validParams = paramsValidator(params);
+
     const sortKey =
       sort === 'times.startDateTime' ? 'query.times.startDateTime' : '_score';
 
@@ -107,7 +187,14 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
     );
 
     const postFilters = pickFiltersFromQuery(
-      ['format', 'audience', 'interpretation', 'location', 'isAvailableOnline'],
+      [
+        'format',
+        'audience',
+        'interpretation',
+        'location',
+        'isAvailableOnline',
+        'timespan',
+      ],
       validParams,
       eventsFilter
     );
@@ -124,13 +211,31 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
         query: {
           bool: {
             must: ifDefined(queryString, eventsQuery),
-            must_not: {
-              term: {
-                // exclude childScheduledEvents from search
-                // https://github.com/wellcomecollection/content-api/issues/93
-                isChildScheduledEvent: true,
+            filter: [
+              {
+                bool: {
+                  must_not: [
+                    {
+                      term: {
+                        // Exclude childScheduledEvents from search
+                        // https://github.com/wellcomecollection/content-api/issues/93
+                        isChildScheduledEvent: true,
+                      },
+                    },
+                    ...(validParams.filterOutExhibitions
+                      ? [
+                          {
+                            term: {
+                              'filter.format':
+                                '050ff9da-f8b6-4b15-9054-cbfca48766bc',
+                            },
+                          },
+                        ]
+                      : []),
+                  ],
+                },
               },
-            },
+            ],
           },
         },
         post_filter: {
@@ -139,9 +244,21 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
           },
         },
         sort: [
-          { [sortKey]: { order: sortOrder } },
-          // Use recency as a "tie-breaker" sort
-          { 'query.times.startDateTime': { order: 'desc' } },
+          getSortLogic({
+            sortKey,
+            sortOrder,
+            pastOrFutureTimespan:
+              validParams.timespan === 'past' ||
+              validParams.timespan === 'future'
+                ? validParams.timespan
+                : undefined,
+          }),
+          // Use recency as a "tie-breaker" sort, future first.
+          getSortLogic({
+            sortKey: 'query.times.startDateTime',
+            sortOrder: 'asc',
+            pastOrFutureTimespan: 'future',
+          }),
         ],
         ...paginationElasticBody(req.query),
       });
@@ -160,6 +277,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
             'Your query contained too many terms, please try again with a simpler query',
         });
       }
+
       throw error;
     }
   });

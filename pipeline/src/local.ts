@@ -23,7 +23,7 @@ const windowEvent: WindowEvent = {
 };
 
 getElasticClient({
-  pipelineDate: '2025-02-06',
+  pipelineDate: '2025-04-14',
   serviceName: 'pipeline',
   hostEndpointAccess: 'public',
 }).then(elasticClient => {

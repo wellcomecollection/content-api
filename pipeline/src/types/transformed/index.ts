@@ -83,7 +83,10 @@ export type ElasticsearchEventDocument = {
     format?: string;
     interpretations?: string[];
     audiences?: string[];
-    times: { startDateTime: Date[] };
+    times: {
+      startDateTime?: Date;
+      endDateTime?: Date;
+    }[];
   };
   filter: {
     format: string;
@@ -91,6 +94,10 @@ export type ElasticsearchEventDocument = {
     audiences: string[];
     locations: string[];
     isAvailableOnline: boolean;
+    times: {
+      startDateTime?: Date;
+      endDateTime?: Date;
+    }[];
   };
   aggregatableValues: {
     format: string;

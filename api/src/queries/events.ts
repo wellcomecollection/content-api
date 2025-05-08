@@ -1,6 +1,29 @@
 import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 
+import {
+  getTimespanRange,
+  isValidTimespan,
+} from '@weco/content-api/src/controllers/utils';
+
 import { TermsFilter } from './common';
+
+const getDateRange = (
+  timespan?: string | string[]
+): QueryDslQueryContainer[] | undefined => {
+  let queryRange;
+
+  if (timespan) {
+    const isArray = Array.isArray(timespan);
+
+    if (isArray && isValidTimespan(timespan[0]))
+      queryRange = getTimespanRange(timespan[0]);
+
+    if (!isArray && isValidTimespan(timespan))
+      queryRange = getTimespanRange(timespan);
+  }
+
+  return queryRange;
+};
 
 export const eventsQuery = (queryString: string): QueryDslQueryContainer => ({
   multi_match: {
@@ -55,13 +78,21 @@ export const eventsFilter = {
       },
     },
   }),
-  isAvailableOnline: (): QueryDslQueryContainer => {
-    return {
-      term: {
-        'filter.isAvailableOnline': true,
+  isAvailableOnline: (): QueryDslQueryContainer => ({
+    term: {
+      'filter.isAvailableOnline': true,
+    },
+  }),
+  timespan: (timespan: string[]): QueryDslQueryContainer => ({
+    nested: {
+      path: 'filter.times',
+      query: {
+        bool: {
+          must: getDateRange(timespan),
+        },
       },
-    };
-  },
+    },
+  }),
 };
 
 export const eventsAggregations = {
@@ -93,6 +124,47 @@ export const eventsAggregations = {
     terms: {
       size: 2,
       field: 'aggregatableValues.isAvailableOnline',
+    },
+  },
+  timespan: {
+    nested: {
+      path: 'filter.times',
+    },
+    aggs: {
+      all: {
+        filter: {
+          match_all: {},
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      past: {
+        filter: {
+          bool: {
+            filter: getTimespanRange('past'),
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
+      future: {
+        filter: {
+          bool: {
+            filter: getTimespanRange('future'),
+          },
+        },
+        aggs: {
+          count_parent: {
+            reverse_nested: {},
+          },
+        },
+      },
     },
   },
 } as const;

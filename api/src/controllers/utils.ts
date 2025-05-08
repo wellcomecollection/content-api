@@ -1,3 +1,4 @@
+import { QueryDslQueryContainer } from '@elastic/elasticsearch/lib/api/types';
 import { DateTime } from 'luxon';
 
 import {
@@ -96,3 +97,183 @@ function setHourAndMinute(date: Date, time: string): string | undefined {
   // time is set in London, we can now convert back to UTC ISO string
   return withHourAndMinute.toUTC().toISO() || undefined;
 }
+
+export const MONTHS = [
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+] as const;
+export const timespans = [
+  'today',
+  'this-week',
+  'this-weekend',
+  'this-month',
+  'future',
+  'past',
+  ...MONTHS,
+] as const;
+export type Timespan = (typeof timespans)[number];
+export function isValidTimespan(type?: string): type is Timespan {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return timespans.includes(type as any);
+}
+
+export const getTimespanRange = (
+  timespan: Timespan
+): QueryDslQueryContainer[] | undefined => {
+  const now = DateTime.local({ zone: 'Europe/London' });
+
+  switch (timespan) {
+    case 'today':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: 'now/d',
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'this-weekend': {
+      const friday5PM = now
+        .startOf('week')
+        .plus({ days: 4 })
+        .plus({ hours: 17 });
+
+      const isNowWeekend = now > friday5PM;
+
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: now.startOf('week').plus({ days: 6 }).endOf('day'), // Sunday
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: isNowWeekend ? 'now' : friday5PM,
+            },
+          },
+        },
+      ];
+    }
+
+    case 'this-week':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lt: now.plus({ days: 6 }).endOf('day'),
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'this-month':
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: now.endOf('month').toISO(),
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'future':
+      return [
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'past':
+      return [
+        {
+          range: {
+            'filter.times.endDateTime': {
+              lt: 'now',
+            },
+          },
+        },
+      ];
+
+    case 'january':
+    case 'february':
+    case 'march':
+    case 'april':
+    case 'may':
+    case 'june':
+    case 'july':
+    case 'august':
+    case 'september':
+    case 'october':
+    case 'november':
+    case 'december': {
+      const monthNumber = MONTHS.indexOf(timespan) + 1;
+      const isInPast = now.month > monthNumber;
+      const isCurrentMonth = now.month === monthNumber;
+
+      const startOfMonth = DateTime.local(
+        now.year + (isInPast ? 1 : 0),
+        monthNumber,
+        { zone: 'Europe/London' }
+      );
+      const endOfMonth = startOfMonth.endOf('month');
+
+      return [
+        {
+          range: {
+            'filter.times.startDateTime': {
+              lte: endOfMonth,
+            },
+          },
+        },
+        {
+          range: {
+            'filter.times.endDateTime': {
+              gt: isCurrentMonth ? 'now' : startOfMonth,
+            },
+          },
+        },
+      ];
+    }
+  }
+};

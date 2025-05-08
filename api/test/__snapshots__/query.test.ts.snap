@@ -208,6 +208,24 @@ exports[`events query makes the expected query to ES for a given set of query pa
                 ],
               },
             },
+            {
+              "nested": {
+                "path": "filter.times",
+                "query": {
+                  "bool": {
+                    "must": [
+                      {
+                        "range": {
+                          "filter.times.endDateTime": {
+                            "lt": "now",
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
           ],
         },
       },
@@ -250,6 +268,105 @@ exports[`events query makes the expected query to ES for a given set of query pa
                 ],
               },
             },
+            {
+              "nested": {
+                "path": "filter.times",
+                "query": {
+                  "bool": {
+                    "must": [
+                      {
+                        "range": {
+                          "filter.times.endDateTime": {
+                            "lt": "now",
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+    "timespan": {
+      "aggs": {
+        "timespan": {
+          "aggs": {
+            "all": {
+              "aggs": {
+                "count_parent": {
+                  "reverse_nested": {},
+                },
+              },
+              "filter": {
+                "match_all": {},
+              },
+            },
+            "future": {
+              "aggs": {
+                "count_parent": {
+                  "reverse_nested": {},
+                },
+              },
+              "filter": {
+                "bool": {
+                  "filter": [
+                    {
+                      "range": {
+                        "filter.times.endDateTime": {
+                          "gt": "now",
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+            "past": {
+              "aggs": {
+                "count_parent": {
+                  "reverse_nested": {},
+                },
+              },
+              "filter": {
+                "bool": {
+                  "filter": [
+                    {
+                      "range": {
+                        "filter.times.endDateTime": {
+                          "lt": "now",
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+          "nested": {
+            "path": "filter.times",
+          },
+        },
+      },
+      "filter": {
+        "bool": {
+          "filter": [
+            {
+              "terms": {
+                "filter.format": [
+                  "test-format",
+                ],
+              },
+            },
+            {
+              "terms": {
+                "filter.interpretations": [
+                  "test-interpretation",
+                ],
+              },
+            },
           ],
         },
       },
@@ -274,11 +391,42 @@ exports[`events query makes the expected query to ES for a given set of query pa
             ],
           },
         },
+        {
+          "nested": {
+            "path": "filter.times",
+            "query": {
+              "bool": {
+                "must": [
+                  {
+                    "range": {
+                      "filter.times.endDateTime": {
+                        "lt": "now",
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        },
       ],
     },
   },
   "query": {
     "bool": {
+      "filter": [
+        {
+          "bool": {
+            "must_not": [
+              {
+                "term": {
+                  "isChildScheduledEvent": true,
+                },
+              },
+            ],
+          },
+        },
+      ],
       "must": {
         "multi_match": {
           "fields": [
@@ -298,11 +446,6 @@ exports[`events query makes the expected query to ES for a given set of query pa
           "type": "cross_fields",
         },
       },
-      "must_not": {
-        "term": {
-          "isChildScheduledEvent": true,
-        },
-      },
     },
   },
   "size": 20,
@@ -314,7 +457,17 @@ exports[`events query makes the expected query to ES for a given set of query pa
     },
     {
       "query.times.startDateTime": {
-        "order": "desc",
+        "nested": {
+          "filter": {
+            "range": {
+              "query.times.endDateTime": {
+                "gt": "now",
+              },
+            },
+          },
+          "path": "query.times",
+        },
+        "order": "asc",
       },
     },
   ],

@@ -92,3 +92,42 @@ export const validateDate = (input: string): Date => {
   }
   return date;
 };
+
+// From looksLikePrismicId in .org repo:
+// \w: Matches any word character (alphanumeric & underscore).
+//     Only matches low-ascii characters (no accented or non-roman characters).
+//     Equivalent to [A-Za-z0-9_].
+// Added "-" to be matched as well.
+// + means empty strings will return false.
+export const prismicIdValidator = (
+  filterValues: string,
+  filterName: string
+) => {
+  const filterValuesArray = filterValues.split(',');
+  const invalidValues: string[] = [];
+
+  filterValuesArray.forEach(filterValue => {
+    if (!/^[\w-]+$/.test(filterValue)) {
+      invalidValues.push(filterValue);
+    }
+  });
+
+  if (invalidValues.length > 0)
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `At least one invalid value has been passed in the ${filterName} filter: ${invalidValues.length > 1 ? invalidValues.join(', ') : invalidValues}`,
+    });
+};
+
+// Checks if the date is of the format YYYY-MM-DD
+export const dateValidator = (date: string) => {
+  const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+  if (!dateRegex.test(date))
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `${date} is not a valid YYYY-MM-DD format.`,
+    });
+};
