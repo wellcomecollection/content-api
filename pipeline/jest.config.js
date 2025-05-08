@@ -1,6 +1,8 @@
-module.exports = {
+import { createJsWithTsEsmPreset } from 'ts-jest';
+
+export default {
   displayName: 'Pipeline',
-  preset: 'ts-jest/presets/js-with-ts-esm',
+  ...createJsWithTsEsmPreset(),
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/test/setup.js'],
   transformIgnorePatterns: ['/node_modules/(?!parse-duration/)'],
