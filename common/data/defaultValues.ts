@@ -12,9 +12,12 @@ export const defaultEventFormat = {
   id: 'dfc2b7f9-c362-47da-9644-b0f98212ccaa',
   label: 'Event',
 };
+
+export const EVENT_EXHIBITION_FORMAT_ID =
+  '050ff9da-f8b6-4b15-9054-cbfca48766bc';
 export const defaultEventExhibitionFormat = {
   type: 'EventFormat' as const,
-  id: '050ff9da-f8b6-4b15-9054-cbfca48766bc',
+  id: EVENT_EXHIBITION_FORMAT_ID,
   label: 'Exhibition',
 };
 

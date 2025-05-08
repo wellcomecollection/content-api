@@ -16,6 +16,7 @@ import {
 import { rewriteAggregationsForFacets } from '@weco/content-api/src/queries/faceting';
 import { Clients, Displayable } from '@weco/content-api/src/types';
 import { ResultList } from '@weco/content-api/src/types/responses';
+import { EVENT_EXHIBITION_FORMAT_ID } from '@weco/content-common/data/defaultValues';
 
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
@@ -226,8 +227,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                       ? [
                           {
                             term: {
-                              'filter.format':
-                                '050ff9da-f8b6-4b15-9054-cbfca48766bc',
+                              'filter.format': EVENT_EXHIBITION_FORMAT_ID,
                             },
                           },
                         ]
