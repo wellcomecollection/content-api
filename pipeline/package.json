@@ -1,6 +1,5 @@
 {
   "name": "@weco/content-pipeline",
-  "type": "module",
   "version": "0.1.0",
   "description": "An ETL pipeline service for getting content from Prismic into Elasticsearch",
   "license": "MIT",

@@ -1,6 +1,6 @@
-import { createJsWithTsEsmPreset } from 'ts-jest';
+const { createJsWithTsEsmPreset } = require('ts-jest');
 
-export default {
+module.exports = {
   displayName: 'Pipeline',
   ...createJsWithTsEsmPreset(),
   testEnvironment: 'node',
