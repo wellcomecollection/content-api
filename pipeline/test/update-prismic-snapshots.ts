@@ -51,7 +51,7 @@ const venueIds = [
 const addressableIds = {
   article: 'ZdSMbREAACQA3j30', // The stuck tampon
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
-  event: 'ZfhSyxgAACQAkLPZ',
+  event: 'Z9vxBBQAACEAfZwp', // A People's History of Death with Molly Conisbee
   exhibition: 'Yzv9ChEAABfUrkVp',
   'exhibition-highlight-tour': 'ZthrZRIAACQALvCC',
   'exhibition-text': 'Zs8mohAAAB4AP4sc',
