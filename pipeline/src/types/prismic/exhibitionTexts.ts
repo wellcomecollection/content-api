@@ -5,8 +5,6 @@ import {
   PromoSliceZone,
 } from '@weco/content-pipeline/src/types/prismic/';
 
-import { ExhibitionPrismicDocument } from './exhibitions';
-
 type PrismicSlices = {
   primary: {
     title?: { text: string }[];
@@ -23,7 +21,7 @@ type WithExhibitionTextSlices = {
 export type ExhibitionTextPrismicDocument = prismic.PrismicDocument<
   {
     related_exhibition: prismic.ContentRelationshipField<
-      ExhibitionPrismicDocument,
+      'exhibitions',
       'en-gb',
       { title: prismic.RichTextField; promo: PromoSliceZone }
     >;
