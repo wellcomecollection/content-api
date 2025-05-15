@@ -1,6 +1,9 @@
 import { asDate, PrismicDocument } from '@prismicio/client';
 
-import { defaultEventFormat } from '@weco/content-common/data/defaultValues';
+import {
+  defaultEventExhibitionFormat,
+  defaultEventFormat,
+} from '@weco/content-common/data/defaultValues';
 import {
   asText,
   asTitle,
@@ -10,6 +13,7 @@ import {
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import {
   EventPrismicDocument,
+  ExhibitionPrismicDocument,
   PrismicAudiences,
   PrismicInterpretations,
   PrismicLocations,
@@ -17,6 +21,7 @@ import {
   PrismicTimes,
   WithEventFormat,
 } from '@weco/content-pipeline/src/types/prismic';
+import { WithExhibitionFormat } from '@weco/content-pipeline/src/types/prismic/eventDocuments';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 import {
   EventDocumentAudience,
@@ -50,6 +55,18 @@ function transformFormat(
         label: asText(data.format.data.title),
       }
     : (defaultEventFormat as EventDocumentFormat);
+}
+function transformExhibitionFormat(
+  document: PrismicDocument<WithExhibitionFormat>
+): EventDocumentFormat {
+  const { data } = document;
+  return isFilledLinkToDocumentWithData(data.format)
+    ? {
+        type: 'EventFormat',
+        id: data.format.id,
+        label: asText(data.format.data.title),
+      }
+    : defaultEventExhibitionFormat;
 }
 
 const transformLocations = ({
@@ -196,13 +213,14 @@ const getScheduledEventsData = ({
 };
 
 export const transformEventDocument = (
-  document: EventPrismicDocument
+  document: EventPrismicDocument | ExhibitionPrismicDocument
 ): ElasticsearchEventDocument[] => {
   const {
-    data: { title, promo, availableOnline },
+    data: { title, promo },
     id,
     uid,
     tags,
+    type,
   } = document;
 
   const primaryImage = promo?.[0]?.primary;
@@ -211,9 +229,14 @@ export const transformEventDocument = (
       ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
-  const series = transformSeries(document);
+  const series = type === 'exhibitions' ? [] : transformSeries(document);
 
-  const format = transformFormat(document);
+  const format =
+    type === 'exhibitions'
+      ? defaultEventExhibitionFormat
+      : transformFormat(document);
+  const exhibitionFormat =
+    type === 'exhibitions' ? transformExhibitionFormat(document) : undefined;
 
   // If it has scheduled events, we get their data and ensure it's added to this event instead.
   const {
@@ -222,17 +245,28 @@ export const transformEventDocument = (
     scheduledInterpretations,
     scheduledTimes,
   } = getScheduledEventsData({
-    scheduledEvents: document.data.schedule,
+    scheduledEvents: type === 'exhibitions' ? [] : document.data.schedule,
   });
 
-  const times = [
-    ...transformTimes({ times: document.data.times }),
-    ...scheduledTimes,
-  ];
+  const times =
+    type === 'exhibitions'
+      ? [
+          {
+            startDateTime: asDate(document.data.start) || undefined,
+            endDateTime: asDate(document.data.end) || undefined,
+            isFullyBooked: { inVenue: false, online: false },
+          },
+        ]
+      : [
+          ...transformTimes({
+            times: document.data.times,
+          }),
+          ...scheduledTimes,
+        ];
 
   const parentLocations = transformLocations({
-    isOnline: document.data.isOnline,
-    locations: document.data.locations,
+    isOnline: type === 'exhibitions' ? false : document.data.isOnline,
+    locations: type === 'exhibitions' ? [] : document.data.locations,
   });
   const locationsPlaces = getUniqueValues(
     [parentLocations.places, ...scheduledLocations.map(s => s.places)]
@@ -250,24 +284,37 @@ export const transformEventDocument = (
     isOnline:
       !!scheduledLocations.find(l => l.isOnline) || parentLocations.isOnline,
     places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
-    attendance: locationsAttendance,
+    attendance:
+      document.type === 'exhibitions'
+        ? [
+            {
+              id: 'in-our-building' as const,
+              label: 'In our building' as const,
+              type: 'EventAttendance' as const,
+            },
+          ]
+        : locationsAttendance,
   };
 
   const interpretations = getUniqueValues([
     ...transformInterpretations({
-      interpretations: document.data.interpretations,
+      interpretations:
+        type === 'exhibitions' ? [] : document.data.interpretations,
     }),
     ...scheduledInterpretations,
   ]);
 
   const audiences = getUniqueValues([
-    ...transformAudiences({ audiences: document.data.audiences }),
+    ...transformAudiences({
+      audiences: type === 'exhibitions' ? [] : document.data.audiences,
+    }),
     ...scheduledAudiences,
   ]);
 
   // Events that existed before the field was added have `null` as a value
   // They should be considered as false
-  const isAvailableOnline = !!availableOnline;
+  const isAvailableOnline =
+    type === 'exhibitions' ? false : !!document.data.availableOnline;
 
   // If an event has scheduled times, we don't want to have the parent's time range in the filterable times.
   const singleOrChildrenTimes =
@@ -291,7 +338,7 @@ export const transformEventDocument = (
         title: asTitle(title),
         image,
         times,
-        format,
+        format: (exhibitionFormat as EventDocumentFormat) || format,
         locations,
         interpretations,
         audiences,
@@ -303,7 +350,14 @@ export const transformEventDocument = (
         title: asTitle(title),
         caption: primaryImage?.caption && asText(primaryImage.caption),
         series,
-        format: format.label,
+        format:
+          type === 'exhibitions'
+            ? [
+                ...new Set(
+                  ['Exhibition', exhibitionFormat?.label].filter(isNotUndefined)
+                ),
+              ] // Avoids duplicates
+            : format.label,
         interpretations: interpretations
           .map(interpretation => interpretation.label)
           .filter(isNotUndefined),

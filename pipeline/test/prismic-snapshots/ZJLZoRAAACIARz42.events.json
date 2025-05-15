@@ -3,10 +3,10 @@
   "uid": "perspective-tour-with-jess-dobkin",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-07-27T15:00:00+0000",
-  "last_publication_date": "2024-10-23T12:52:14+0000",
+  "last_publication_date": "2025-04-23T16:15:40+0000",
   "slugs": ["perspective-tour-with-jess-dobkin"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "bc5246ff-c2da-4bc2-94de-e097f1661cad",
+      "key": "dfb284a7-860b-412c-b963-63d18188b7da",
       "isBroken": false
     },
     "locations": [
@@ -60,7 +60,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "fc8a291f-2a32-4dd4-96c8-12b2e8137fd1",
+          "key": "95eb3e19-97c2-4fd6-9b3b-cbf40b0bb30b",
           "isBroken": false
         }
       }
@@ -82,20 +82,21 @@
           "type": "interpretation-types",
           "tags": [],
           "lang": "en-gb",
-          "slug": "british-sign-language",
+          "slug": "british-sign-language-interpreted",
           "first_publication_date": "2020-02-10T15:44:36+0000",
-          "last_publication_date": "2024-09-10T14:33:57+0000",
+          "last_publication_date": "2025-04-23T16:36:15+0000",
           "data": {
             "title": [
               {
                 "type": "heading1",
-                "text": "British Sign Language",
-                "spans": []
+                "text": "British Sign Language interpreted",
+                "spans": [],
+                "direction": "ltr"
               }
             ]
           },
           "link_type": "Document",
-          "key": "c23decd7-7ddc-4f66-8abc-62be8dd1ff72",
+          "key": "5819fbad-f51c-4992-8d0a-9a0b66fb8e67",
           "isBroken": false
         }
       }
@@ -135,7 +136,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "24b836f1-d0ec-40fa-96a2-da12e80d95c9",
+          "key": "6547c0ea-20cc-4379-a73b-156ee93537c3",
           "isBroken": false
         },
         "contributor": {
@@ -150,7 +151,7 @@
             "name": "Jess Dobkin"
           },
           "link_type": "Document",
-          "key": "24d46136-944f-4a95-917b-c7b8f88f140a",
+          "key": "9fef614c-3617-40cf-931b-38a260afcd5a",
           "isBroken": false
         }
       }
@@ -265,7 +266,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "b0d6fbbc-c7a5-4050-9ab4-7cc7d52ee187",
+          "key": "8b388c75-0d50-4b7c-af41-3c0129629881",
           "isBroken": false
         }
       }

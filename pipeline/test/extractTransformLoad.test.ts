@@ -49,7 +49,7 @@ describe('Extract, transform and load eventDocuments', () => {
     const eventPipeline = createETLPipeline({
       indexConfig: events,
       graphQuery: eventDocumentsQuery,
-      parentDocumentTypes: new Set(['events']),
+      parentDocumentTypes: new Set(['events', 'exhibitions']),
       transformer: transformEventDocument,
     });
 

@@ -3,7 +3,7 @@
   "uid": "hard-graft-exhibition-text",
   "url": null,
   "type": "exhibition-texts",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=Z6YTKhcAAC0ArE7e&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
   "tags": ["hard-graft"],
   "first_publication_date": "2024-09-12T13:07:08+0000",
   "last_publication_date": "2024-10-01T11:49:26+0000",
@@ -27,7 +27,7 @@
       "lang": "en-gb",
       "slug": "hard-graft-work-health-and-rights",
       "first_publication_date": "2024-07-26T10:59:56+0000",
-      "last_publication_date": "2025-02-04T10:53:04+0000",
+      "last_publication_date": "2025-04-24T12:00:29+0000",
       "uid": "hard-graft-work-health-and-rights",
       "data": {
         "title": [
@@ -59,7 +59,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "7b4d0d18-1765-4b02-bd5b-b814a000defa",
+      "key": "971661f1-3a3f-4ed4-84da-99fed0c12679",
       "isBroken": false
     },
     "intro_text": [],
