@@ -5,7 +5,7 @@ projects: 'wellcomecollection/18'
 ---
 
 **What**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+Context on the issue, links to relevant documentation.
 
 **Definition of Ready**
 A checklist of what is needed before work can start on this ticket
