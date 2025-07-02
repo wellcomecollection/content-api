@@ -2,25 +2,22 @@ name: 'Basic template'
 description: 'New feature or consideration for the team'
 projects: 'wellcomecollection/18'
 body:
-  - type: textarea
+  - type: markdown
     attributes:
       label: What
-      render: markdown
       description: Context on the issue, links to relevant documentation.
     validations:
       required: false
-  - type: textarea
+  - type: markdown
     attributes:
       label: Definition of Ready
-      render: markdown
       description: A checklist of what is needed before work can start on this ticket
     validations:
       required: false
-  - type: textarea
+  - type: markdown
     attributes:
       label: Definition of Done
       description: A checklist of what needs to be done before this ticket can be considered closed.
-      render: markdown
       value: |
         - [ ] Has been deployed to production
     validations:
