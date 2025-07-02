@@ -7,6 +7,7 @@ body:
     id: what
     attributes:
       label: What
+      render: markdown
       description: 'A clear and concise description of what the bug is.'
     validations:
       required: true
@@ -14,6 +15,7 @@ body:
     id: where
     attributes:
       label: Where
+      render: markdown
       description: 'A link, or a screenshot if relevant, as to where the bug is.'
     validations:
       required: true
