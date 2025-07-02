@@ -1,10 +1,7 @@
 ---
 name: Basic template
 about: New feature or consideration for the team
-title: ''
-labels: ''
-assignees: ''
-
+projects: 'wellcomecollection/18'
 ---
 
 **What**
