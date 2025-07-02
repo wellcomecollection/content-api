@@ -1,5 +1,5 @@
-name: Basic template
-description: New feature or consideration for the team
+name: 'Basic template'
+description: 'New feature or consideration for the team'
 projects: 'wellcomecollection/18'
 body:
   - type: markdown
