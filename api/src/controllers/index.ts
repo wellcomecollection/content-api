@@ -1,3 +1,4 @@
+import addressableController from './addressable';
 import addressablesController from './addressables';
 import articleController from './article';
 import articlesController from './articles';
@@ -9,6 +10,7 @@ import venuesController from './venue';
 
 export { errorHandler } from './error';
 export {
+  addressableController,
   addressablesController,
   articlesController,
   articleController,
