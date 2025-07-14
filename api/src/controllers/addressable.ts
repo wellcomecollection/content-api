@@ -10,6 +10,19 @@ import { looksLikePrismicId } from './validation';
 
 type PathParams = { id: string };
 
+const VALID_CONTENT_TYPES = [
+  'articles',
+  'books',
+  'events',
+  'exhibitions',
+  'exhibition-highlight-tours',
+  'exhibition-texts',
+  'pages',
+  'projects',
+  'seasons',
+  'visual-stories',
+];
+
 const validateAddressableId = (id: string): void => {
   const decodedId = decodeURIComponent(id);
 
@@ -32,6 +45,17 @@ const validateAddressableId = (id: string): void => {
       status: 400,
       label: 'Bad Request',
       description: `Invalid Prismic ID format. The Prismic ID should only contain alphanumeric characters, hyphens, and underscores. Found: ${prismicId}`,
+    });
+  }
+
+  // Validate content type
+  if (!VALID_CONTENT_TYPES.includes(contentType)) {
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `Invalid content type. Expected one of: ${VALID_CONTENT_TYPES.join(
+        ', '
+      )}. Found: ${contentType}`,
     });
   }
 
