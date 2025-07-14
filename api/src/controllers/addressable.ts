@@ -6,6 +6,7 @@ import { Config } from '@weco/content-api/config';
 import { Clients, Displayable } from '@weco/content-api/src/types';
 
 import { HttpError } from './error';
+import { looksLikePrismicId } from './validation';
 
 type PathParams = { id: string };
 
@@ -26,8 +27,7 @@ const validateAddressableId = (id: string): void => {
   const [prismicId, contentType, ...rest] = parts;
 
   // Validate Prismic ID format
-  const prismicIdRegex = /^[\w-]+$/;
-  if (!prismicIdRegex.test(prismicId)) {
+  if (!looksLikePrismicId(prismicId)) {
     throw new HttpError({
       status: 400,
       label: 'Bad Request',
