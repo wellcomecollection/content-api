@@ -56,7 +56,6 @@ const addressableController = (
   return asyncHandler(async (req, res) => {
     const id = req.params.id;
 
-    // Validate id format
     validateAddressableId(id);
 
     try {
