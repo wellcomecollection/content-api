@@ -14,7 +14,7 @@ const validateAddressableId = (id: string): void => {
 
   const parts = decodedId.split('/');
 
-  // Valideate id format
+  // Validate id format
   if (parts.length < 2) {
     throw new HttpError({
       status: 400,
