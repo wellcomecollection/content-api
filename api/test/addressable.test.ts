@@ -15,9 +15,18 @@ describe('GET /all/:id', () => {
     const api = mockedApi([]);
 
     const response = await api.get(
-      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz/exhibition')}`
+      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz/exhibitions')}`
     );
     expect(response.statusCode).toBe(404);
+  });
+
+  it('returns a 400 for invalid content types', async () => {
+    const invalidTestId = 'ZX123/invalid-content-type';
+    const api = mockedApi([]);
+
+    const response = await api.get(`/all/${encodeURIComponent(invalidTestId)}`);
+    expect(response.statusCode).toBe(400);
+    expect(response.body.description).toContain('Invalid content type');
   });
 
   it('returns a 400 for invalid id format (missing content type)', async () => {
