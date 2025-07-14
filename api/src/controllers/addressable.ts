@@ -9,6 +9,44 @@ import { HttpError } from './error';
 
 type PathParams = { id: string };
 
+const validateAddressableId = (id: string): void => {
+  const decodedId = decodeURIComponent(id);
+
+  const parts = decodedId.split('/');
+
+  // Valideate id format
+  if (parts.length < 2) {
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `Invalid id format. The id should be a combination of the Prismic ID and content type separated by a url encoded forward slash (%2F). For example, ZL-K4RAAACEA5IgV%2Fbooks. In the case of exhibition highlight tours, the id should also include the tour type (audio or bsl) after the content type, separated by a url encoded forward slash (%2F). For example, Z-L8zREAACUAxTSz%2Fexhibition-highlight-tours%2Faudio.`,
+    });
+  }
+
+  const [prismicId, contentType, ...rest] = parts;
+
+  // Validate Prismic ID format
+  const prismicIdRegex = /^[\w-]+$/;
+  if (!prismicIdRegex.test(prismicId)) {
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `Invalid Prismic ID format. The Prismic ID should only contain alphanumeric characters, hyphens, and underscores. Found: ${prismicId}`,
+    });
+  }
+
+  // For exhibition highlight tours, validate the tour type
+  if (contentType === 'exhibition-highlight-tours') {
+    if (rest.length !== 1 || !['audio', 'bsl'].includes(rest[0])) {
+      throw new HttpError({
+        status: 400,
+        label: 'Bad Request',
+        description: `Invalid tour type for exhibition highlight tours. Expected 'audio' or 'bsl', found: ${rest[0] || 'missing'}`,
+      });
+    }
+  }
+};
+
 const addressableController = (
   clients: Clients,
   config: Config
@@ -17,6 +55,10 @@ const addressableController = (
 
   return asyncHandler(async (req, res) => {
     const id = req.params.id;
+
+    // Validate id format
+    validateAddressableId(id);
+
     try {
       const getResponse = await clients.elastic.get<Displayable>({
         index,
@@ -31,7 +73,7 @@ const addressableController = (
           throw new HttpError({
             status: 404,
             label: 'Not Found',
-            description: `Content not found for identifier ${id}`,
+            description: `Content not found for identifier ${id}.`,
           });
         }
       }
