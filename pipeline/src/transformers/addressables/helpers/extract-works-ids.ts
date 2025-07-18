@@ -57,32 +57,6 @@ const extractWorksIdsFromRichTextField = ({
   }, []);
 };
 
-const extractWorksIdsFromTextSlice = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: TextSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.text,
-    worksUrlPattern,
-  });
-};
-
-const extractWorksIdsFromEditorialImageCaption = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: EditorialImageSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.caption,
-    worksUrlPattern,
-  });
-};
-
 // We expect a string of title|author|sourceName|sourceLink|license|copyrightHolder|copyrightLink in pipe-delimited fields
 const extractWorksIdsFromPipeDelimitedString = ({
   pipeDelimitedString,
@@ -107,6 +81,32 @@ const extractWorksIdsFromPipeDelimitedString = ({
   }
 
   return worksIds;
+};
+
+const extractWorksIdsFromTextSlice = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: TextSlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  return extractWorksIdsFromRichTextField({
+    richTextField: slice.primary.text,
+    worksUrlPattern,
+  });
+};
+
+const extractWorksIdsFromEditorialImageCaption = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: EditorialImageSlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  return extractWorksIdsFromRichTextField({
+    richTextField: slice.primary.caption,
+    worksUrlPattern,
+  });
 };
 
 const extractWorksIdsFromImageCopyright = ({
