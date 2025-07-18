@@ -177,13 +177,11 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   return [...new Set(worksIds)];
 };
 
-export const getWorksIdsFromDocumentBody = ({
-  documentBody,
-  supportedSliceTypes,
-}: {
-  documentBody: AddressableSlices[];
-  supportedSliceTypes: string[];
-}): string[] => {
+export const getWorksIdsFromDocumentBody = (
+  documentBody: AddressableSlices[]
+): string[] => {
+  const supportedSliceTypes = ['text', 'editorialImage', 'gifVideo'];
+
   const relevantSlices = documentBody.filter(slice =>
     supportedSliceTypes.includes(slice.slice_type)
   );

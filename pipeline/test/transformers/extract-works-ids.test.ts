@@ -14,10 +14,7 @@ describe('extract-works-ids', () => {
         }),
       ];
 
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['p4bh9qca']);
     });
 
@@ -28,10 +25,7 @@ describe('extract-works-ids', () => {
         }),
       ];
 
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['sgswqhrs']);
     });
 
@@ -43,10 +37,7 @@ describe('extract-works-ids', () => {
         }),
       ];
 
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['atrvxkxg']);
     });
 
@@ -57,10 +48,7 @@ describe('extract-works-ids', () => {
         }),
       ];
 
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage', 'gifVideo'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['abc123def']);
     });
 
@@ -70,18 +58,12 @@ describe('extract-works-ids', () => {
           tasl: 'Percentage split of men aged 16-30 on the stem cell registers | Thomas SG Farnetti | Wellcome Collection | https://wellcomecollection.org/works/xyk8pu8p | CC-BY | |',
         }),
       ];
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage', 'gifVideo'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['xyk8pu8p']);
     });
 
     it('returns empty array when documentBody is empty', () => {
-      const result = getWorksIdsFromDocumentBody({
-        documentBody: [],
-        supportedSliceTypes: ['text', 'editorialImage'],
-      });
+      const result = getWorksIdsFromDocumentBody([]);
       expect(result).toEqual([]);
     });
 
@@ -95,10 +77,7 @@ describe('extract-works-ids', () => {
         }),
       ];
 
-      const result = getWorksIdsFromDocumentBody({
-        documentBody,
-        supportedSliceTypes: ['text', 'editorialImage'],
-      });
+      const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['duplicate123']);
     });
   });
