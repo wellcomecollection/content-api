@@ -1,5 +1,6 @@
 import {
   EditorialImageSlice,
+  GifVideoSlice,
   TextSlice,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
@@ -7,8 +8,8 @@ const sharedImageProperties = {
   alt: 'alt text',
   copyright:
     'title | | Wellcome Collection | https://wellcomecollection.org/works/atrvxkxg/items | CC-BY | |',
-  url: '/test.jpg',
-  id: 'YJLi4hEAACAA6S7W',
+  url: 'http://test.com/test.jpg',
+  id: 'abcd1234abcd1234',
   edit: {
     x: 0,
     y: 0,
@@ -17,7 +18,11 @@ const sharedImageProperties = {
   },
 };
 
-const createImage = (copyright: string) => ({
+const createImage = ({
+  copyright = 'title | author | | | CC-BY-NC-ND | |',
+}: {
+  copyright?: string;
+}) => ({
   dimensions: {
     width: 1668,
     height: 1334,
@@ -51,13 +56,13 @@ const createImage = (copyright: string) => ({
 });
 
 export const createTextSlice = ({
-  url,
+  url = 'http://test.com',
   text = 'Some text with a link',
 }: {
-  url: string;
+  url?: string;
   text?: string;
 }): TextSlice => ({
-  id: 'text$989a371a-df89-4d87-a2be-f76e4096ee9c',
+  id: '456def456',
   slice_type: 'text',
   slice_label: null,
   variation: 'default',
@@ -85,15 +90,15 @@ export const createTextSlice = ({
 });
 
 export const createEditorialImageSlice = ({
-  captionUrl,
+  captionUrl = 'https://test.com',
   copyright = 'title | author | | | CC-BY-NC-ND | |',
   captionText = 'Image caption with link',
 }: {
-  captionUrl: string;
+  captionUrl?: string;
   copyright?: string;
   captionText?: string;
 }): EditorialImageSlice => ({
-  id: 'editorialImage$989a371a-df89-4d87-a2be-f76e4096ee9c',
+  id: '789abc789',
   slice_type: 'editorialImage',
   slice_label: null,
   variation: 'default',
@@ -119,7 +124,63 @@ export const createEditorialImageSlice = ({
           },
         ]
       : [],
-    image: createImage(copyright),
+    image: createImage({ copyright }),
     hasRoundedCorners: true,
   },
 });
+
+const sharedVideoProperties = {
+  link_type: 'Media',
+  key: '123',
+  kind: 'file',
+  id: '1011121314151617',
+  url: 'https://test.com/video.mp4',
+  name: 'video.mp4',
+  size: '338305',
+};
+
+export const createGifVideoSlice = ({
+  captionUrl = 'https://test.com',
+  captionText = 'Video caption',
+  tasl = 'title | author | | | CC-BY | |',
+}: {
+  captionUrl?: string;
+  captionText?: string;
+  tasl?: string;
+}): GifVideoSlice =>
+  ({
+    variation: 'default',
+    version: 'initial',
+    items: [],
+    primary: {
+      caption: captionUrl
+        ? [
+            {
+              type: 'paragraph',
+              text: captionText,
+              spans: [
+                {
+                  type: 'hyperlink',
+                  start: 18,
+                  end: 22,
+                  data: {
+                    link_type: 'Web',
+                    url: captionUrl,
+                  },
+                },
+              ],
+            },
+          ]
+        : [],
+      tasl,
+      video: sharedVideoProperties,
+      playbackRate: null,
+      autoPlay: true,
+      loop: true,
+      mute: true,
+      showControls: false,
+    },
+    id: '9494858ujjfj',
+    slice_type: 'gifVideo',
+    slice_label: null,
+  }) as GifVideoSlice;
