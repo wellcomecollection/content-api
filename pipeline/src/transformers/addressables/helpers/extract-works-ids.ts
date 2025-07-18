@@ -2,6 +2,7 @@ import type * as prismic from '@prismicio/client';
 
 import {
   EditorialImageSlice,
+  GifVideoSlice,
   TextSlice,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
@@ -15,13 +16,14 @@ export type AddressableSlices =
   | prismic.Content.PagesDocumentDataBodySlice
   | prismic.Content.ProjectsDocumentDataBodySlice
   | prismic.Content.SeasonsDocumentDataBodySlice
-  | prismic.Content.VisualStoriesDocumentDataBodySlice;
+  | prismic.Content.VisualStoriesDocumentDataBodySlice
+  | GifVideoSlice;
 
 // Helper functions for extracting Wellcome Collection work IDs from Prismic slice content.
 // Searches for works URLs (https://wellcomecollection.org/works/[id]) in:
 // - Text slices: hyperlinks in 'text' rich text field
 // - Editorial image slices: hyperlinks in 'caption' rich text field, URLs in the image's copyright string
-// - gifVideo slices TODO: Add support for extracting works IDs from gifVideo slices
+// - gifVideo slices: hyperlinks in 'caption' rich text field, URLs in the tasl string
 const worksUrlPattern = /^https:\/\/wellcomecollection\.org\/works\/([^/?#]+)/i;
 
 const extractWorksIdsFromRichTextField = ({
@@ -81,21 +83,20 @@ const extractWorksIdsFromEditorialImageCaption = ({
   });
 };
 
-// We expect a string of title|author|sourceName|sourceLink|license|copyrightHolder|copyrightLink in the copyright field
-const extractWorksIdsFromImageCopyright = ({
-  slice,
+// We expect a string of title|author|sourceName|sourceLink|license|copyrightHolder|copyrightLink in pipe-delimited fields
+const extractWorksIdsFromPipeDelimitedString = ({
+  pipeDelimitedString,
   worksUrlPattern,
 }: {
-  slice: EditorialImageSlice;
+  pipeDelimitedString: string | null | undefined;
   worksUrlPattern: RegExp;
 }): string[] => {
   const worksIds: string[] = [];
 
-  const copyright = slice.primary.image.copyright;
-  if (copyright && typeof copyright === 'string') {
-    const copyrightParts = copyright.split('|');
+  if (pipeDelimitedString && typeof pipeDelimitedString === 'string') {
+    const parts = pipeDelimitedString.split('|');
 
-    copyrightParts.forEach(part => {
+    parts.forEach(part => {
       if (part && typeof part === 'string') {
         const match = part.trim().match(worksUrlPattern);
         if (match?.[1]) {
@@ -106,6 +107,45 @@ const extractWorksIdsFromImageCopyright = ({
   }
 
   return worksIds;
+};
+
+const extractWorksIdsFromImageCopyright = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: EditorialImageSlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  return extractWorksIdsFromPipeDelimitedString({
+    pipeDelimitedString: slice.primary.image.copyright,
+    worksUrlPattern,
+  });
+};
+
+const extractWorksIdsFromGifVideoCaption = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: GifVideoSlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  return extractWorksIdsFromRichTextField({
+    richTextField: slice.primary.caption,
+    worksUrlPattern,
+  });
+};
+
+const extractWorksIdsFromGifVideoTasl = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: GifVideoSlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  return extractWorksIdsFromPipeDelimitedString({
+    pipeDelimitedString: slice.primary.tasl,
+    worksUrlPattern,
+  });
 };
 
 const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
@@ -121,6 +161,12 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
             slice,
             worksUrlPattern,
           }),
+        ];
+      case 'gifVideo':
+        // We check tasl before caption to maintain the correct order
+        return [
+          ...extractWorksIdsFromGifVideoTasl({ slice, worksUrlPattern }),
+          ...extractWorksIdsFromGifVideoCaption({ slice, worksUrlPattern }),
         ];
       default:
         return [];
