@@ -209,11 +209,9 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   return [...new Set(worksIds)];
 };
 
-export const getWorksIdsFromDocumentBody = ({
-  documentBody,
-}: {
-  documentBody: AddressableSlices[];
-}): string[] => {
+export const getWorksIdsFromDocumentBody = (
+  documentBody: AddressableSlices[]
+): string[] => {
   const supportedSliceTypes = [
     'text',
     'editorialImage',
