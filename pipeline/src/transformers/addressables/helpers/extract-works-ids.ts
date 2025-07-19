@@ -1,6 +1,7 @@
 import type * as prismic from '@prismicio/client';
 
 import {
+  EditorialImageGallerySlice,
   EditorialImageSlice,
   GifVideoSlice,
   TextSlice,
@@ -16,13 +17,13 @@ export type AddressableSlices =
   | prismic.Content.PagesDocumentDataBodySlice
   | prismic.Content.ProjectsDocumentDataBodySlice
   | prismic.Content.SeasonsDocumentDataBodySlice
-  | prismic.Content.VisualStoriesDocumentDataBodySlice
-  | GifVideoSlice;
+  | prismic.Content.VisualStoriesDocumentDataBodySlice;
 
 // Helper functions for extracting Wellcome Collection work IDs from Prismic slice content.
 // Searches for works URLs (https://wellcomecollection.org/works/[id]) in:
 // - Text slices: hyperlinks in 'text' rich text field
 // - Editorial image slices: hyperlinks in 'caption' rich text field, URLs in the image's copyright string
+// - Editorial image gallery slices: hyperlinks in each item's 'caption' rich text field, URLs in each item's image copyright string
 // - gifVideo slices: hyperlinks in 'caption' rich text field, URLs in the tasl string
 const worksUrlPattern = /^https:\/\/wellcomecollection\.org\/works\/([^/?#]+)/i;
 
@@ -148,6 +149,32 @@ const extractWorksIdsFromGifVideoTasl = ({
   });
 };
 
+const extractWorksIdsFromEditorialImageGallery = ({
+  slice,
+  worksUrlPattern,
+}: {
+  slice: EditorialImageGallerySlice;
+  worksUrlPattern: RegExp;
+}): string[] => {
+  const worksIds: string[] = [];
+
+  slice.items.forEach(item => {
+    const copyrightIds = extractWorksIdsFromPipeDelimitedString({
+      pipeDelimitedString: item.image.copyright,
+      worksUrlPattern,
+    });
+    worksIds.push(...copyrightIds);
+
+    const captionIds = extractWorksIdsFromRichTextField({
+      richTextField: item.caption,
+      worksUrlPattern,
+    });
+    worksIds.push(...captionIds);
+  });
+
+  return worksIds;
+};
+
 const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
@@ -162,6 +189,11 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
             worksUrlPattern,
           }),
         ];
+      case 'editorialImageGallery':
+        return extractWorksIdsFromEditorialImageGallery({
+          slice,
+          worksUrlPattern,
+        });
       case 'gifVideo':
         // We check tasl before caption to maintain the correct order
         return [
@@ -177,10 +209,17 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   return [...new Set(worksIds)];
 };
 
-export const getWorksIdsFromDocumentBody = (
-  documentBody: AddressableSlices[]
-): string[] => {
-  const supportedSliceTypes = ['text', 'editorialImage', 'gifVideo'];
+export const getWorksIdsFromDocumentBody = ({
+  documentBody,
+}: {
+  documentBody: AddressableSlices[];
+}): string[] => {
+  const supportedSliceTypes = [
+    'text',
+    'editorialImage',
+    'editorialImageGallery',
+    'gifVideo',
+  ];
 
   const relevantSlices = documentBody.filter(slice =>
     supportedSliceTypes.includes(slice.slice_type)
