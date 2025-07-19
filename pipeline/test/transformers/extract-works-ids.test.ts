@@ -1,5 +1,6 @@
 import { getWorksIdsFromDocumentBody } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
 import {
+  createEditorialImageGallerySlice,
   createEditorialImageSlice,
   createGifVideoSlice,
   createTextSlice,
@@ -79,6 +80,64 @@ describe('extract-works-ids', () => {
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['duplicate123']);
+    });
+
+    it('extracts works IDs from editorialImageGallery slice captions', () => {
+      const documentBody = [
+        createEditorialImageGallerySlice({
+          items: [
+            {
+              captionUrl: 'https://wellcomecollection.org/works/mtseafdk',
+            },
+            {
+              captionUrl: 'https://wellcomecollection.org/works/v2xh6g4x',
+            },
+          ],
+        }),
+      ];
+
+      const result = getWorksIdsFromDocumentBody(documentBody);
+      expect(result).toEqual(['mtseafdk', 'v2xh6g4x']);
+    });
+
+    it('extracts works IDs from editorialImageGallery slice copyright fields', () => {
+      const documentBody = [
+        createEditorialImageGallerySlice({
+          items: [
+            {
+              copyright:
+                "Vases of flowers | O'Brien, Thomas | Wellcome Collection | https://wellcomecollection.org/works/me4wtyvb/images?id=wgy6h8a4 | PDM | |",
+            },
+            {
+              copyright:
+                'Treatment of acute pathologies | Unknown creator | Wellcome Collection | https://wellcomecollection.org/works/v2xh6g4x/items | CC-BY | |',
+            },
+          ],
+        }),
+      ];
+
+      const result = getWorksIdsFromDocumentBody(documentBody);
+      expect(result).toEqual(['me4wtyvb', 'v2xh6g4x']);
+    });
+
+    it('extracts works IDs from editorialImageGallery slice mixed captions and copyright', () => {
+      const documentBody = [
+        createEditorialImageGallerySlice({
+          items: [
+            {
+              copyright:
+                'Data and a mind | Anthony Whishaw | Wellcome Collection | | | Anthony Whishaw | https://wellcomecollection.org/works/yz53z3ff/images?id=j3y7f4t6',
+              captionUrl: 'https://wellcomecollection.org/works/abc123',
+            },
+            {
+              captionUrl: 'https://wellcomecollection.org/works/def456',
+            },
+          ],
+        }),
+      ];
+
+      const result = getWorksIdsFromDocumentBody(documentBody);
+      expect(result).toEqual(['yz53z3ff', 'abc123', 'def456']);
     });
   });
 });
