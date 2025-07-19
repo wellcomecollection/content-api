@@ -1,4 +1,5 @@
 import {
+  EditorialImageGallerySlice,
   EditorialImageSlice,
   GifVideoSlice,
   TextSlice,
@@ -184,3 +185,49 @@ export const createGifVideoSlice = ({
     slice_type: 'gifVideo',
     slice_label: null,
   }) as GifVideoSlice;
+
+export const createEditorialImageGallerySlice = ({
+  items,
+}: {
+  items: {
+    copyright?: string;
+    captionUrl?: string;
+    captionText?: string;
+  }[];
+}): EditorialImageGallerySlice =>
+  ({
+    variation: 'default',
+    version: 'initial',
+    items: items.map(item => ({
+      image: createImage({
+        copyright: item.copyright || 'title | author | | | CC-BY | |',
+      }),
+      caption: item.captionUrl
+        ? [
+            {
+              type: 'paragraph',
+              text: item.captionText || 'Gallery image caption with link',
+              spans: [
+                {
+                  type: 'hyperlink',
+                  start: 14,
+                  end: 20,
+                  data: {
+                    link_type: 'Web',
+                    url: item.captionUrl,
+                  },
+                },
+              ],
+            },
+          ]
+        : [],
+      hasRoundedCorners: false,
+    })),
+    primary: {
+      title: [],
+      isFrames: false,
+    },
+    id: 'editorialImageGallery123',
+    slice_type: 'editorialImageGallery',
+    slice_label: null,
+  }) as EditorialImageGallerySlice;
