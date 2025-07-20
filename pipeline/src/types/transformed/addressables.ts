@@ -1,3 +1,5 @@
+import { TransformedWork } from '@weco/content-pipeline/src/transformers/addressables/helpers/catalogue-api';
+
 type AddressableType =
   | 'Article'
   | 'Book'
@@ -16,6 +18,7 @@ type AddressableBaseDisplay<T extends AddressableType> = {
   uid: string | null;
   title: string;
   description?: string;
+  linkedWorks: TransformedWork[];
 };
 
 type AddressableQuery<T> = {
@@ -24,6 +27,7 @@ type AddressableQuery<T> = {
   description?: string[] | string;
   body?: string[] | string;
   contributors?: string;
+  linkedWorks: string[];
 };
 
 export type ElasticsearchAddressable<

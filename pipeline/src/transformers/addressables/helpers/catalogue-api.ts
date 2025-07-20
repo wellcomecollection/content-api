@@ -12,7 +12,7 @@ type WorkFetchResult = {
   error?: string;
 };
 
-type TransformedWork = {
+export type TransformedWork = {
   id: string;
   title: string;
   type: string;
