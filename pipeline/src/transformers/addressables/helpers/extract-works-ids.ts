@@ -170,7 +170,9 @@ const extractWorksIdsFromEditorialImageGallery = ({
   return worksIds;
 };
 
-const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
+const extractWorksIdsFromSlices = (
+  slices: AddressableSlicesWithPossibleWorks[]
+): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
       case 'text':
@@ -205,7 +207,7 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
 };
 
 export const getWorksIdsFromDocumentBody = (
-  documentBody: AddressableSlices[]
+  documentBody: AddressableSlicesWithPossibleWorks[]
 ): string[] => {
   const supportedSliceTypes = [
     'text',
