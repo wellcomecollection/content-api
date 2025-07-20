@@ -9,7 +9,7 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/types/transformed';
 
-import { fetchWorksWithLogging } from './helpers/catalogue-api';
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
 import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableArticle = async (
@@ -38,8 +38,7 @@ export const transformAddressableArticle = async (
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as AddressableSlices[]) || []
   );
-  const works = await fetchWorksWithLogging(worksIds);
-  console.log(works);
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const queryBody = data.body
     ?.map(slice => {
@@ -64,6 +63,7 @@ export const transformAddressableArticle = async (
         uid,
         title,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Article',
@@ -73,6 +73,7 @@ export const transformAddressableArticle = async (
         ),
         contributors,
         body: queryBody,
+        linkedWorks: worksIds,
       },
     },
   ];
