@@ -36,7 +36,7 @@ import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export function transformAddressable(
   document: ArticlePrismicDocument
-): ElasticsearchAddressableArticle[];
+): Promise<ElasticsearchAddressableArticle[]>;
 export function transformAddressable(
   document: BookPrismicDocument
 ): ElasticsearchAddressableBook[];
@@ -76,7 +76,17 @@ export function transformAddressable(
     | ProjectPrismicDocument
     | SeasonPrismicDocument
     | VisualStoryPrismicDocument
-) {
+):
+  | Promise<ElasticsearchAddressableArticle[]>
+  | ElasticsearchAddressableBook[]
+  | ElasticsearchAddressableEvent[]
+  | ElasticsearchAddressableExhibition[]
+  | ElasticsearchAddressableExhibitionHighlightTour[]
+  | ElasticsearchAddressableExhibitionText[]
+  | ElasticsearchAddressablePage[]
+  | ElasticsearchAddressableProject[]
+  | ElasticsearchAddressableSeason[]
+  | ElasticsearchAddressableVisualStory[] {
   const { type } = document;
 
   let transformedDocument;

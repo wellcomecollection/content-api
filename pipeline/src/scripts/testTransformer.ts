@@ -95,7 +95,9 @@ async function main() {
 
         return isDetailed
           ? transformArticle(doc as ArticlePrismicDocument)
-          : transformAddressableArticle(doc as ArticlePrismicDocument);
+          : await Promise.resolve(
+              transformAddressableArticle(doc as ArticlePrismicDocument)
+            );
       }
 
       case 'webcomic': {

@@ -16,8 +16,10 @@ describe('addressables transformer', () => {
   const isAddressable = true;
   forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'], isAddressable)(
     'transforms articles from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await Promise.resolve(
+        transformAddressable(prismicDocument)
+      );
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
