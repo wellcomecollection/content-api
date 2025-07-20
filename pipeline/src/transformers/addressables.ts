@@ -100,11 +100,11 @@ export async function transformAddressable(
       transformedDocument = await transformAddressableBook(document);
       break;
     case 'events':
-      transformedDocument = transformAddressableEvent(document);
+      transformedDocument = await transformAddressableEvent(document);
       break;
 
     case 'exhibitions':
-      transformedDocument = transformAddressableExhibition(document);
+      transformedDocument = await transformAddressableExhibition(document);
       break;
 
     case 'exhibition-texts':
@@ -129,7 +129,7 @@ export async function transformAddressable(
       break;
 
     case 'visual-stories':
-      transformedDocument = transformAddressableVisualStory(document);
+      transformedDocument = await transformAddressableVisualStory(document);
       break;
   }
 
