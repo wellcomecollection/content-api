@@ -6,6 +6,7 @@ exports[`addressables transformer transforms articles from Prismic to the expect
     "display": {
       "description": "Dorothée King was on holiday when she experienced the awkward, uncomfortable and panicky situation all tampon users dread.",
       "id": "ZdSMbREAACQA3j30",
+      "linkedWorks": [],
       "title": "The stuck tampon",
       "type": "Article",
       "uid": "the-stuck-tampon",
@@ -50,6 +51,7 @@ exports[`addressables transformer transforms articles from Prismic to the expect
         "Dorothée King has experienced menstrual discomfort for over 20 years, but nothing quite prepared her for when a tampon got stuck. Dorothée shares the absurd story of how she juggled her commitments as a partner and parent, on holiday abroad, while attempting to get the stuck tampon out.",
         "Article",
       ],
+      "linkedWorks": [],
       "title": "The stuck tampon",
       "type": "Article",
     },
