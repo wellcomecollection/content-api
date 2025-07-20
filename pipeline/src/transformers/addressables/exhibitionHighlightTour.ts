@@ -8,10 +8,17 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ExhibitionHighlightTourPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/types/transformed';
 
+import { TransformedWork } from './helpers/catalogue-api';
+
 export const transformAddressableExhibitionHighlightTour = (
   document: ExhibitionHighlightTourPrismicDocument
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
   const { data, id, uid, type } = document;
+
+  // Exhibition highlight tours don't have standard body content that can contain works references
+  const worksIds: string[] = [];
+  const transformedWorks: TransformedWork[] = [];
+
   const relatedExhibition = isFilledLinkToDocumentWithData(
     data.related_exhibition
   )
@@ -58,10 +65,12 @@ export const transformAddressableExhibitionHighlightTour = (
       id,
       uid,
       description,
+      linkedWorks: transformedWorks,
     },
     query: {
       type: 'Exhibition highlight tour' as const,
       description,
+      linkedWorks: worksIds,
     },
   };
 

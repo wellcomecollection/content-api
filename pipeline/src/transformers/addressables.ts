@@ -39,32 +39,32 @@ export function transformAddressable(
 ): Promise<ElasticsearchAddressableArticle[]>;
 export function transformAddressable(
   document: BookPrismicDocument
-): ElasticsearchAddressableBook[];
+): Promise<ElasticsearchAddressableBook[]>;
 export function transformAddressable(
   document: EventPrismicDocument
-): ElasticsearchAddressableEvent[];
+): Promise<ElasticsearchAddressableEvent[]>;
 export function transformAddressable(
   document: ExhibitionPrismicDocument
-): ElasticsearchAddressableExhibition[];
+): Promise<ElasticsearchAddressableExhibition[]>;
 export function transformAddressable(
   document: ExhibitionHighlightTourPrismicDocument
-): ElasticsearchAddressableExhibitionHighlightTour[];
+): Promise<ElasticsearchAddressableExhibitionHighlightTour[]>;
 export function transformAddressable(
   document: ExhibitionTextPrismicDocument
-): ElasticsearchAddressableExhibitionText[];
+): Promise<ElasticsearchAddressableExhibitionText[]>;
 export function transformAddressable(
   document: PagePrismicDocument
-): ElasticsearchAddressablePage[];
+): Promise<ElasticsearchAddressablePage[]>;
 export function transformAddressable(
   document: ProjectPrismicDocument
-): ElasticsearchAddressableProject[];
+): Promise<ElasticsearchAddressableProject[]>;
 export function transformAddressable(
   document: SeasonPrismicDocument
-): ElasticsearchAddressableSeason[];
+): Promise<ElasticsearchAddressableSeason[]>;
 export function transformAddressable(
   document: VisualStoryPrismicDocument
-): ElasticsearchAddressableVisualStory[];
-export function transformAddressable(
+): Promise<ElasticsearchAddressableVisualStory[]>;
+export async function transformAddressable(
   document:
     | ArticlePrismicDocument
     | BookPrismicDocument
@@ -76,8 +76,8 @@ export function transformAddressable(
     | ProjectPrismicDocument
     | SeasonPrismicDocument
     | VisualStoryPrismicDocument
-):
-  | Promise<ElasticsearchAddressableArticle[]>
+): Promise<
+  | ElasticsearchAddressableArticle[]
   | ElasticsearchAddressableBook[]
   | ElasticsearchAddressableEvent[]
   | ElasticsearchAddressableExhibition[]
@@ -86,17 +86,18 @@ export function transformAddressable(
   | ElasticsearchAddressablePage[]
   | ElasticsearchAddressableProject[]
   | ElasticsearchAddressableSeason[]
-  | ElasticsearchAddressableVisualStory[] {
+  | ElasticsearchAddressableVisualStory[]
+> {
   const { type } = document;
 
   let transformedDocument;
 
   switch (type) {
     case 'articles':
-      transformedDocument = transformAddressableArticle(document);
+      transformedDocument = await transformAddressableArticle(document);
       break;
     case 'books':
-      transformedDocument = transformAddressableBook(document);
+      transformedDocument = await transformAddressableBook(document);
       break;
     case 'events':
       transformedDocument = transformAddressableEvent(document);
@@ -116,15 +117,15 @@ export function transformAddressable(
       break;
 
     case 'pages':
-      transformedDocument = transformAddressablePage(document);
+      transformedDocument = await transformAddressablePage(document);
       break;
 
     case 'projects':
-      transformedDocument = transformAddressableProject(document);
+      transformedDocument = await transformAddressableProject(document);
       break;
 
     case 'seasons':
-      transformedDocument = transformAddressableSeason(document);
+      transformedDocument = await transformAddressableSeason(document);
       break;
 
     case 'visual-stories':

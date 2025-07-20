@@ -8,10 +8,17 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ExhibitionPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibition } from '@weco/content-pipeline/src/types/transformed';
 
+import { TransformedWork } from './helpers/catalogue-api';
+
 export const transformAddressableExhibition = (
   document: ExhibitionPrismicDocument
 ): ElasticsearchAddressableExhibition[] => {
   const { data, id, uid, type } = document;
+
+  // Exhibitions don't have body content that can contain works references
+  const worksIds: string[] = [];
+  const transformedWorks: TransformedWork[] = [];
+
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : 'Exhibition';
@@ -45,12 +52,14 @@ export const transformAddressableExhibition = (
         description,
         format,
         dates,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Exhibition',
         title,
         contributors,
         description: queryDescription,
+        linkedWorks: worksIds,
       },
     },
   ];

@@ -10,10 +10,17 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/transformed';
 
+import { TransformedWork } from './helpers/catalogue-api';
+
 export const transformAddressableEvent = (
   document: EventPrismicDocument
 ): ElasticsearchAddressableEvent[] => {
   const { data, id, uid, type } = document;
+
+  // Events don't have body content that can contain works references
+  const worksIds: string[] = [];
+  const transformedWorks: TransformedWork[] = [];
+
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : undefined;
@@ -63,12 +70,14 @@ export const transformAddressableEvent = (
         description,
         format,
         times,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Event',
         title,
         description: queryDescription,
         contributors,
+        linkedWorks: worksIds,
       },
     },
   ];

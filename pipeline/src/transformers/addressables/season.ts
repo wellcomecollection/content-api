@@ -6,10 +6,21 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { SeasonPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableSeason } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableSeason = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  AddressableSlicesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressableSeason = async (
   document: SeasonPrismicDocument
-): ElasticsearchAddressableSeason[] => {
+): Promise<ElasticsearchAddressableSeason[]> => {
   const { data, id, uid, type } = document;
+
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const title = asTitle(data.title);
 
@@ -38,12 +49,14 @@ export const transformAddressableSeason = (
         uid,
         title,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Season',
         title,
         description: queryDescription,
         body: queryBody,
+        linkedWorks: worksIds,
       },
     },
   ];
