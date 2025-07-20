@@ -12,6 +12,68 @@ type WorkFetchResult = {
   error?: string;
 };
 
+type TransformedWork = {
+  id: string;
+  title: string;
+  type: string;
+  thumbnailUrl?: string;
+  date?: string;
+  mainContributor?: string;
+  workType?: string;
+  isOnline: boolean;
+};
+
+// Types for the Catalogue API response (partial, based on what we need)
+type CatalogueWork = {
+  id: string;
+  title: string;
+  type: string;
+  thumbnail?: {
+    url: string;
+  };
+  production?: {
+    dates: {
+      label: string;
+    }[];
+  }[];
+  contributors?: {
+    primary?: boolean;
+    agent: {
+      label: string;
+    };
+  }[];
+  workType?: {
+    label: string;
+  };
+  availabilities?: {
+    id: string;
+  }[];
+};
+
+export const transformWork = (work: CatalogueWork): TransformedWork => {
+  const date = work.production?.flatMap(productionEvent =>
+    productionEvent.dates.map(date => date.label)
+  )[0];
+
+  const mainContributor = work.contributors?.find(
+    contributor => contributor.primary
+  )?.agent.label;
+
+  const isOnline = (work.availabilities ?? []).some(
+    ({ id }) => id === 'online'
+  );
+
+  return {
+    id: work.id,
+    title: work.title,
+    type: work.type,
+    thumbnailUrl: work.thumbnail?.url,
+    date,
+    mainContributor,
+    workType: work.workType?.label,
+    isOnline,
+  };
+};
 export const fetchAllWorks = async (
   workIds: string[]
 ): Promise<WorkFetchResult[]> => {
@@ -64,16 +126,19 @@ export const fetchAllWorks = async (
   );
 };
 
-export const fetchWorksWithLogging = async (
+export const fetchAndTransformWorks = async (
   workIds: string[]
-): Promise<unknown[]> => {
+): Promise<TransformedWork[]> => {
   const results = await fetchAllWorks(workIds);
 
   const failures = results.filter(result => !result.success);
   if (failures.length > 0) {
     console.warn(`Failed to fetch ${failures.length} works:`, failures);
   }
+
   const successes = results.filter(result => result.success);
 
-  return successes.map(result => result.data);
+  return successes
+    .map(result => result.data as CatalogueWork)
+    .map(transformWork);
 };
