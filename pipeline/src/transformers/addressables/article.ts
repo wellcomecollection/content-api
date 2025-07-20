@@ -4,13 +4,17 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { AddressableSlices } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
 import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableArticle = (
+import { fetchWorksWithLogging } from './helpers/catalogue-api';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
+
+export const transformAddressableArticle = async (
   document: ArticlePrismicDocument
-): ElasticsearchAddressableArticle[] => {
+): Promise<ElasticsearchAddressableArticle[]> => {
   const { data, id, uid, type } = document;
 
   const description = primaryImageCaption(data.promo);
@@ -28,6 +32,14 @@ export const transformAddressableArticle = (
     })
     .filter(isNotUndefined)
     .join(', ');
+
+  // Need to use types from prismicio.d.ts everywhere
+  // so we don't need to cast
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as AddressableSlices[]) || []
+  );
+  const works = await fetchWorksWithLogging(worksIds);
+  console.log(works);
 
   const queryBody = data.body
     ?.map(slice => {
