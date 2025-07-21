@@ -29,10 +29,8 @@ const worksUrlPattern = /^https:\/\/wellcomecollection\.org\/works\/([^/?#]+)/i;
 
 const extractWorksIdsFromRichTextField = ({
   richTextField,
-  worksUrlPattern,
 }: {
   richTextField: prismic.RichTextField;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return richTextField.reduce<string[]>((worksIds, textElement) => {
     if ('text' in textElement) {
@@ -61,10 +59,8 @@ const extractWorksIdsFromRichTextField = ({
 // We expect a string of title|author|sourceName|sourceLink|license|copyrightHolder|copyrightLink in pipe-delimited fields
 const extractWorksIdsFromPipeDelimitedString = ({
   pipeDelimitedString,
-  worksUrlPattern,
 }: {
   pipeDelimitedString: string | null | undefined;
-  worksUrlPattern: RegExp;
 }): string[] => {
   const worksIds: string[] = [];
 
@@ -86,88 +82,69 @@ const extractWorksIdsFromPipeDelimitedString = ({
 
 const extractWorksIdsFromTextSlice = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: TextSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return extractWorksIdsFromRichTextField({
     richTextField: slice.primary.text,
-    worksUrlPattern,
   });
 };
 
 const extractWorksIdsFromEditorialImageCaption = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: EditorialImageSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return extractWorksIdsFromRichTextField({
     richTextField: slice.primary.caption,
-    worksUrlPattern,
   });
 };
 
 const extractWorksIdsFromImageCopyright = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: EditorialImageSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return extractWorksIdsFromPipeDelimitedString({
     pipeDelimitedString: slice.primary.image.copyright,
-    worksUrlPattern,
   });
 };
 
 const extractWorksIdsFromGifVideoCaption = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: GifVideoSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return extractWorksIdsFromRichTextField({
     richTextField: slice.primary.caption,
-    worksUrlPattern,
   });
 };
 
 const extractWorksIdsFromGifVideoTasl = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: GifVideoSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return extractWorksIdsFromPipeDelimitedString({
     pipeDelimitedString: slice.primary.tasl,
-    worksUrlPattern,
   });
 };
 
 const extractWorksIdsFromEditorialImageGallery = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: EditorialImageGallerySlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   const worksIds: string[] = [];
 
   slice.items.forEach(item => {
     const copyrightIds = extractWorksIdsFromPipeDelimitedString({
       pipeDelimitedString: item.image.copyright,
-      worksUrlPattern,
     });
     worksIds.push(...copyrightIds);
 
     const captionIds = extractWorksIdsFromRichTextField({
       richTextField: item.caption,
-      worksUrlPattern,
     });
     worksIds.push(...captionIds);
   });
@@ -179,28 +156,26 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
       case 'text':
-        return extractWorksIdsFromTextSlice({ slice, worksUrlPattern });
+        return extractWorksIdsFromTextSlice({ slice });
       case 'editorialImage':
         // We check copyright before caption to maintain the original order of the ids in the Prismic document.
         // This is important for the correct display of works in the frontend.
         return [
-          ...extractWorksIdsFromImageCopyright({ slice, worksUrlPattern }),
+          ...extractWorksIdsFromImageCopyright({ slice }),
           ...extractWorksIdsFromEditorialImageCaption({
             slice,
-            worksUrlPattern,
           }),
         ];
       case 'editorialImageGallery':
         return extractWorksIdsFromEditorialImageGallery({
           slice,
-          worksUrlPattern,
         });
       case 'gifVideo':
         // We check tasl before caption to maintain the original order of the ids in the Prismic document.
         // This is important for the correct display of works in the frontend.
         return [
-          ...extractWorksIdsFromGifVideoTasl({ slice, worksUrlPattern }),
-          ...extractWorksIdsFromGifVideoCaption({ slice, worksUrlPattern }),
+          ...extractWorksIdsFromGifVideoTasl({ slice }),
+          ...extractWorksIdsFromGifVideoCaption({ slice }),
         ];
       default:
         return [];
