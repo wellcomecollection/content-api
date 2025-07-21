@@ -139,5 +139,52 @@ describe('extract-works-ids', () => {
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['yz53z3ff', 'abc123', 'def456']);
     });
+
+    it('preserves order of works IDs across multiple slice types', () => {
+      const documentBody = [
+        createTextSlice({
+          url: 'https://wellcomecollection.org/works/first123',
+        }),
+        createEditorialImageSlice({
+          copyright:
+            'Title | Author | Wellcome Collection | https://wellcomecollection.org/works/second456/items | CC-BY | |',
+          captionUrl: 'https://wellcomecollection.org/works/third789duplicate',
+        }),
+        createEditorialImageGallerySlice({
+          items: [
+            {
+              copyright:
+                'Gallery Image 1 | Creator | Wellcome Collection | https://wellcomecollection.org/works/fourth012/images | PDM | |',
+            },
+            {
+              captionUrl: 'https://wellcomecollection.org/works/fifth345',
+            },
+          ],
+        }),
+        createGifVideoSlice({
+          tasl: 'Video title | Creator | Wellcome Collection | https://wellcomecollection.org/works/sixth678 | CC-BY | |',
+          captionUrl: 'https://wellcomecollection.org/works/seventh901',
+        }),
+        createTextSlice({
+          url: 'https://wellcomecollection.org/works/eighth234',
+        }),
+        createTextSlice({
+          url: 'https://wellcomecollection.org/works/third789duplicate',
+        }),
+      ];
+
+      const result = getWorksIdsFromDocumentBody(documentBody);
+
+      expect(result).toEqual([
+        'first123',
+        'second456',
+        'third789duplicate',
+        'fourth012',
+        'fifth345',
+        'sixth678',
+        'seventh901',
+        'eighth234',
+      ]);
+    });
   });
 });

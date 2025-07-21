@@ -2,9 +2,7 @@ import type * as prismic from '@prismicio/client';
 
 import {
   EditorialImageGallerySlice,
-  EditorialImageSlice,
   GifVideoSlice,
-  TextSlice,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
 export type AddressableSlicesWithPossibleWorks =
@@ -24,10 +22,8 @@ const worksUrlPattern = /^https:\/\/wellcomecollection\.org\/works\/([^/?#]+)/i;
 
 const extractWorksIdsFromRichTextField = ({
   richTextField,
-  worksUrlPattern,
 }: {
   richTextField: prismic.RichTextField;
-  worksUrlPattern: RegExp;
 }): string[] => {
   return richTextField.reduce<string[]>((worksIds, textElement) => {
     if ('text' in textElement) {
@@ -53,116 +49,54 @@ const extractWorksIdsFromRichTextField = ({
   }, []);
 };
 
-// We expect a string of title|author|sourceName|sourceLink|license|copyrightHolder|copyrightLink in pipe-delimited fields
-const extractWorksIdsFromPipeDelimitedString = ({
-  pipeDelimitedString,
-  worksUrlPattern,
+// We expect a string that may contain work URLs anywhere within it
+const extractWorksIdsFromString = ({
+  text,
 }: {
-  pipeDelimitedString: string | null | undefined;
-  worksUrlPattern: RegExp;
+  text: string | null | undefined;
 }): string[] => {
   const worksIds: string[] = [];
 
-  if (pipeDelimitedString && typeof pipeDelimitedString === 'string') {
-    const parts = pipeDelimitedString.split('|');
+  if (text && typeof text === 'string') {
+    const globalWorksUrlPattern =
+      /https:\/\/wellcomecollection\.org\/works\/([^/?#\s|]+)/gi;
+    const matches = text.matchAll(globalWorksUrlPattern);
 
-    parts.forEach(part => {
-      if (part && typeof part === 'string') {
-        const match = part.trim().match(worksUrlPattern);
-        if (match?.[1]) {
-          worksIds.push(match[1]);
-        }
+    for (const match of matches) {
+      if (match[1]) {
+        worksIds.push(match[1]);
       }
-    });
+    }
   }
 
   return worksIds;
 };
 
-const extractWorksIdsFromTextSlice = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: TextSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.text,
-    worksUrlPattern,
-  });
-};
-
-const extractWorksIdsFromEditorialImageCaption = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: EditorialImageSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.caption,
-    worksUrlPattern,
-  });
-};
-
-const extractWorksIdsFromImageCopyright = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: EditorialImageSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromPipeDelimitedString({
-    pipeDelimitedString: slice.primary.image.copyright,
-    worksUrlPattern,
-  });
-};
-
-const extractWorksIdsFromGifVideoCaption = ({
-  slice,
-  worksUrlPattern,
-}: {
-  slice: GifVideoSlice;
-  worksUrlPattern: RegExp;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.caption,
-    worksUrlPattern,
-  });
-};
-
 const extractWorksIdsFromGifVideoTasl = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: GifVideoSlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
-  return extractWorksIdsFromPipeDelimitedString({
-    pipeDelimitedString: slice.primary.tasl,
-    worksUrlPattern,
+  return extractWorksIdsFromString({
+    text: slice.primary.tasl,
   });
 };
 
 const extractWorksIdsFromEditorialImageGallery = ({
   slice,
-  worksUrlPattern,
 }: {
   slice: EditorialImageGallerySlice;
-  worksUrlPattern: RegExp;
 }): string[] => {
   const worksIds: string[] = [];
 
   slice.items.forEach(item => {
-    const copyrightIds = extractWorksIdsFromPipeDelimitedString({
-      pipeDelimitedString: item.image.copyright,
-      worksUrlPattern,
+    const copyrightIds = extractWorksIdsFromString({
+      text: item.image.copyright,
     });
     worksIds.push(...copyrightIds);
 
     const captionIds = extractWorksIdsFromRichTextField({
       richTextField: item.caption,
-      worksUrlPattern,
     });
     worksIds.push(...captionIds);
   });
@@ -176,26 +110,32 @@ const extractWorksIdsFromSlices = (
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
       case 'text':
-        return extractWorksIdsFromTextSlice({ slice, worksUrlPattern });
+        return extractWorksIdsFromRichTextField({
+          richTextField: slice.primary.text,
+        });
       case 'editorialImage':
-        // We check copyright before caption to maintain the correct order
+        // We check copyright before caption to maintain the original order of the ids in the Prismic document.
+        // This is important for the correct display of works in the frontend.
         return [
-          ...extractWorksIdsFromImageCopyright({ slice, worksUrlPattern }),
-          ...extractWorksIdsFromEditorialImageCaption({
-            slice,
-            worksUrlPattern,
+          ...extractWorksIdsFromString({
+            text: slice.primary.image.copyright,
+          }),
+          ...extractWorksIdsFromRichTextField({
+            richTextField: slice.primary.caption,
           }),
         ];
       case 'editorialImageGallery':
         return extractWorksIdsFromEditorialImageGallery({
           slice,
-          worksUrlPattern,
         });
       case 'gifVideo':
-        // We check tasl before caption to maintain the correct order
+        // We check tasl before caption to maintain the original order of the ids in the Prismic document.
+        // This is important for the correct display of works in the frontend.
         return [
-          ...extractWorksIdsFromGifVideoTasl({ slice, worksUrlPattern }),
-          ...extractWorksIdsFromGifVideoCaption({ slice, worksUrlPattern }),
+          ...extractWorksIdsFromGifVideoTasl({ slice }),
+          ...extractWorksIdsFromRichTextField({
+            richTextField: slice.primary.caption,
+          }),
         ];
       default:
         return [];
