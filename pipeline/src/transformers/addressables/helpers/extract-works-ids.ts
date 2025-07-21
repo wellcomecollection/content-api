@@ -181,7 +181,8 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
       case 'text':
         return extractWorksIdsFromTextSlice({ slice, worksUrlPattern });
       case 'editorialImage':
-        // We check copyright before caption to maintain the correct order
+        // We check copyright before caption to maintain the original order of the ids in the Prismic document.
+        // This is important for the correct display of works in the frontend.
         return [
           ...extractWorksIdsFromImageCopyright({ slice, worksUrlPattern }),
           ...extractWorksIdsFromEditorialImageCaption({
@@ -195,7 +196,8 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
           worksUrlPattern,
         });
       case 'gifVideo':
-        // We check tasl before caption to maintain the correct order
+        // We check tasl before caption to maintain the original order of the ids in the Prismic document.
+        // This is important for the correct display of works in the frontend.
         return [
           ...extractWorksIdsFromGifVideoTasl({ slice, worksUrlPattern }),
           ...extractWorksIdsFromGifVideoCaption({ slice, worksUrlPattern }),
