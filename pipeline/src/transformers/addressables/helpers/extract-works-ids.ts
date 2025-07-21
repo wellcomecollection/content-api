@@ -2,9 +2,7 @@ import type * as prismic from '@prismicio/client';
 
 import {
   EditorialImageGallerySlice,
-  EditorialImageSlice,
   GifVideoSlice,
-  TextSlice,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
 export type AddressableSlices =
@@ -80,46 +78,6 @@ const extractWorksIdsFromPipeDelimitedString = ({
   return worksIds;
 };
 
-const extractWorksIdsFromTextSlice = ({
-  slice,
-}: {
-  slice: TextSlice;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.text,
-  });
-};
-
-const extractWorksIdsFromEditorialImageCaption = ({
-  slice,
-}: {
-  slice: EditorialImageSlice;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.caption,
-  });
-};
-
-const extractWorksIdsFromImageCopyright = ({
-  slice,
-}: {
-  slice: EditorialImageSlice;
-}): string[] => {
-  return extractWorksIdsFromPipeDelimitedString({
-    pipeDelimitedString: slice.primary.image.copyright,
-  });
-};
-
-const extractWorksIdsFromGifVideoCaption = ({
-  slice,
-}: {
-  slice: GifVideoSlice;
-}): string[] => {
-  return extractWorksIdsFromRichTextField({
-    richTextField: slice.primary.caption,
-  });
-};
-
 const extractWorksIdsFromGifVideoTasl = ({
   slice,
 }: {
@@ -156,14 +114,18 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
       case 'text':
-        return extractWorksIdsFromTextSlice({ slice });
+        return extractWorksIdsFromRichTextField({
+          richTextField: slice.primary.text,
+        });
       case 'editorialImage':
         // We check copyright before caption to maintain the original order of the ids in the Prismic document.
         // This is important for the correct display of works in the frontend.
         return [
-          ...extractWorksIdsFromImageCopyright({ slice }),
-          ...extractWorksIdsFromEditorialImageCaption({
-            slice,
+          ...extractWorksIdsFromPipeDelimitedString({
+            pipeDelimitedString: slice.primary.image.copyright,
+          }),
+          ...extractWorksIdsFromRichTextField({
+            richTextField: slice.primary.caption,
           }),
         ];
       case 'editorialImageGallery':
@@ -175,7 +137,9 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
         // This is important for the correct display of works in the frontend.
         return [
           ...extractWorksIdsFromGifVideoTasl({ slice }),
-          ...extractWorksIdsFromGifVideoCaption({ slice }),
+          ...extractWorksIdsFromRichTextField({
+            richTextField: slice.primary.caption,
+          }),
         ];
       default:
         return [];
