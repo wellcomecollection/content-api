@@ -16,8 +16,8 @@ describe('addressables transformer', () => {
   const isAddressable = true;
   forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'], isAddressable)(
     'transforms articles from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -26,8 +26,8 @@ describe('addressables transformer', () => {
 
   forEachPrismicSnapshot<BookPrismicDocument>(['books'], isAddressable)(
     'transforms books from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -36,8 +36,8 @@ describe('addressables transformer', () => {
 
   forEachPrismicSnapshot<EventPrismicDocument>(['events'], isAddressable)(
     'transforms events from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -49,8 +49,8 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms exhibitions from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -62,8 +62,8 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms exhibition texts from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -75,8 +75,8 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms exhibition highlight tours from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -85,8 +85,8 @@ describe('addressables transformer', () => {
 
   forEachPrismicSnapshot<PagePrismicDocument>(['pages'], isAddressable)(
     'transforms pages from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -98,8 +98,8 @@ describe('addressables transformer', () => {
     isAddressable
   )(
     'transforms visual stories from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -108,8 +108,8 @@ describe('addressables transformer', () => {
 
   forEachPrismicSnapshot<ProjectPrismicDocument>(['projects'], isAddressable)(
     'transforms projects from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();
@@ -118,8 +118,8 @@ describe('addressables transformer', () => {
 
   forEachPrismicSnapshot<SeasonPrismicDocument>(['seasons'], isAddressable)(
     'transforms seasons from Prismic to the expected format',
-    prismicDocument => {
-      const transformed = transformAddressable(prismicDocument);
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
       // Unsure why it errors, it _is_ in a test() function, see `forEachPrismicSnapshot`
       // eslint-disable-next-line jest/no-standalone-expect
       expect(transformed).toMatchSnapshot();

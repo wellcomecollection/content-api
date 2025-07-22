@@ -90,6 +90,9 @@ export const mappings = {
             },
           },
         },
+        linkedWorks: {
+          type: 'keyword',
+        },
       },
     },
   },

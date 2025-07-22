@@ -36,35 +36,35 @@ import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export function transformAddressable(
   document: ArticlePrismicDocument
-): ElasticsearchAddressableArticle[];
+): Promise<ElasticsearchAddressableArticle[]>;
 export function transformAddressable(
   document: BookPrismicDocument
-): ElasticsearchAddressableBook[];
+): Promise<ElasticsearchAddressableBook[]>;
 export function transformAddressable(
   document: EventPrismicDocument
-): ElasticsearchAddressableEvent[];
+): Promise<ElasticsearchAddressableEvent[]>;
 export function transformAddressable(
   document: ExhibitionPrismicDocument
-): ElasticsearchAddressableExhibition[];
+): Promise<ElasticsearchAddressableExhibition[]>;
 export function transformAddressable(
   document: ExhibitionHighlightTourPrismicDocument
-): ElasticsearchAddressableExhibitionHighlightTour[];
+): Promise<ElasticsearchAddressableExhibitionHighlightTour[]>;
 export function transformAddressable(
   document: ExhibitionTextPrismicDocument
-): ElasticsearchAddressableExhibitionText[];
+): Promise<ElasticsearchAddressableExhibitionText[]>;
 export function transformAddressable(
   document: PagePrismicDocument
-): ElasticsearchAddressablePage[];
+): Promise<ElasticsearchAddressablePage[]>;
 export function transformAddressable(
   document: ProjectPrismicDocument
-): ElasticsearchAddressableProject[];
+): Promise<ElasticsearchAddressableProject[]>;
 export function transformAddressable(
   document: SeasonPrismicDocument
-): ElasticsearchAddressableSeason[];
+): Promise<ElasticsearchAddressableSeason[]>;
 export function transformAddressable(
   document: VisualStoryPrismicDocument
-): ElasticsearchAddressableVisualStory[];
-export function transformAddressable(
+): Promise<ElasticsearchAddressableVisualStory[]>;
+export async function transformAddressable(
   document:
     | ArticlePrismicDocument
     | BookPrismicDocument
@@ -76,49 +76,63 @@ export function transformAddressable(
     | ProjectPrismicDocument
     | SeasonPrismicDocument
     | VisualStoryPrismicDocument
-) {
+): Promise<
+  | ElasticsearchAddressableArticle[]
+  | ElasticsearchAddressableBook[]
+  | ElasticsearchAddressableEvent[]
+  | ElasticsearchAddressableExhibition[]
+  | ElasticsearchAddressableExhibitionHighlightTour[]
+  | ElasticsearchAddressableExhibitionText[]
+  | ElasticsearchAddressablePage[]
+  | ElasticsearchAddressableProject[]
+  | ElasticsearchAddressableSeason[]
+  | ElasticsearchAddressableVisualStory[]
+> {
   const { type } = document;
 
   let transformedDocument;
 
   switch (type) {
     case 'articles':
-      transformedDocument = transformAddressableArticle(document);
+      transformedDocument = await transformAddressableArticle(document);
       break;
     case 'books':
-      transformedDocument = transformAddressableBook(document);
+      transformedDocument = await transformAddressableBook(document);
       break;
     case 'events':
-      transformedDocument = transformAddressableEvent(document);
+      transformedDocument = await transformAddressableEvent(document);
       break;
 
     case 'exhibitions':
-      transformedDocument = transformAddressableExhibition(document);
+      transformedDocument = await transformAddressableExhibition(document);
       break;
 
     case 'exhibition-texts':
-      transformedDocument = transformAddressableExhibitionText(document);
+      transformedDocument = Promise.resolve(
+        transformAddressableExhibitionText(document)
+      );
       break;
 
     case 'exhibition-highlight-tours':
-      transformedDocument =
-        transformAddressableExhibitionHighlightTour(document);
+      transformedDocument = Promise.resolve(
+        transformAddressableExhibitionHighlightTour(document)
+      );
       break;
 
     case 'pages':
-      transformedDocument = transformAddressablePage(document);
+      transformedDocument = await transformAddressablePage(document);
       break;
 
     case 'projects':
-      transformedDocument = transformAddressableProject(document);
+      transformedDocument = await transformAddressableProject(document);
       break;
 
     case 'seasons':
-      transformedDocument = transformAddressableSeason(document);
+      transformedDocument = await transformAddressableSeason(document);
       break;
 
     case 'visual-stories':
-      transformedDocument = transformAddressableVisualStory(document);
+      transformedDocument = await transformAddressableVisualStory(document);
       break;
   }
 

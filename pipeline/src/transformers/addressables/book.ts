@@ -8,9 +8,15 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
 import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableBook = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  AddressableSlicesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressableBook = async (
   document: BookPrismicDocument
-): ElasticsearchAddressableBook[] => {
+): Promise<ElasticsearchAddressableBook[]> => {
   const { data, id, uid, type } = document;
   const description = primaryImageCaption(data.promo);
   const title = asTitle(data.title);
@@ -24,6 +30,12 @@ export const transformAddressableBook = (
     })
     .filter(isNotUndefined)
     .join(', ');
+
+  // Extract works IDs from document body
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const body = data.body
     ?.map(s => {
@@ -42,6 +54,7 @@ export const transformAddressableBook = (
         title: titleSubtitle,
         description,
         contributors,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Book',
@@ -49,6 +62,7 @@ export const transformAddressableBook = (
         description,
         body,
         contributors,
+        linkedWorks: worksIds,
       },
     },
   ];

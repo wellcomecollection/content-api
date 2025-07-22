@@ -95,7 +95,7 @@ async function main() {
 
         return isDetailed
           ? transformArticle(doc as ArticlePrismicDocument)
-          : transformAddressableArticle(doc as ArticlePrismicDocument);
+          : await transformAddressableArticle(doc as ArticlePrismicDocument);
       }
 
       case 'webcomic': {
@@ -111,7 +111,7 @@ async function main() {
 
         return isDetailed
           ? transformEventDocument(doc as EventPrismicDocument)
-          : transformAddressableEvent(doc as EventPrismicDocument);
+          : await transformAddressableEvent(doc as EventPrismicDocument);
       }
 
       case 'venue': {
@@ -127,25 +127,27 @@ async function main() {
 
         return isDetailed
           ? transformEventDocument(doc as ExhibitionPrismicDocument)
-          : transformAddressableExhibition(doc as ExhibitionPrismicDocument);
+          : await transformAddressableExhibition(
+              doc as ExhibitionPrismicDocument
+            );
       }
 
       case 'book': {
         transformerName = 'transformAddressableBook';
 
-        return transformAddressableBook(doc as BookPrismicDocument);
+        return await transformAddressableBook(doc as BookPrismicDocument);
       }
 
       case 'page': {
         transformerName = 'transformAddressablePage';
 
-        return transformAddressablePage(doc as PagePrismicDocument);
+        return await transformAddressablePage(doc as PagePrismicDocument);
       }
 
       case 'visual-story': {
         transformerName = 'transformAddressableVisualStory';
 
-        return transformAddressableVisualStory(
+        return await transformAddressableVisualStory(
           doc as VisualStoryPrismicDocument
         );
       }
@@ -169,13 +171,13 @@ async function main() {
       case 'project': {
         transformerName = 'transformProject';
 
-        return transformAddressableProject(doc as ProjectPrismicDocument);
+        return await transformAddressableProject(doc as ProjectPrismicDocument);
       }
 
       case 'season': {
         transformerName = 'transformSeason';
 
-        return transformAddressableSeason(doc as SeasonPrismicDocument);
+        return await transformAddressableSeason(doc as SeasonPrismicDocument);
       }
 
       default:

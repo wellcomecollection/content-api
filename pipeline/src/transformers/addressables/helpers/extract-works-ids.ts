@@ -5,17 +5,12 @@ import {
   GifVideoSlice,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
-export type AddressableSlices =
+export type AddressableSlicesWithPossibleWorks =
   | prismic.Content.ArticlesDocumentDataBodySlice
   | prismic.Content.BooksDocumentDataBodySlice
-  | prismic.Content.EventsDocumentDataBodySlice
-  | prismic.Content.ExhibitionsDocumentDataBodySlice
-  | prismic.Content.ExhibitionHighlightToursDocumentDataSlicesSlice
-  | prismic.Content.ExhibitionTextsDocumentDataSlicesSlice
   | prismic.Content.PagesDocumentDataBodySlice
   | prismic.Content.ProjectsDocumentDataBodySlice
-  | prismic.Content.SeasonsDocumentDataBodySlice
-  | prismic.Content.VisualStoriesDocumentDataBodySlice;
+  | prismic.Content.SeasonsDocumentDataBodySlice;
 
 // Helper functions for extracting Wellcome Collection work IDs from Prismic slice content.
 // Searches for works URLs (https://wellcomecollection.org/works/[id]) in:
@@ -109,7 +104,9 @@ const extractWorksIdsFromEditorialImageGallery = ({
   return worksIds;
 };
 
-const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
+const extractWorksIdsFromSlices = (
+  slices: AddressableSlicesWithPossibleWorks[]
+): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
       case 'text':
@@ -150,7 +147,7 @@ const extractWorksIdsFromSlices = (slices: AddressableSlices[]): string[] => {
 };
 
 export const getWorksIdsFromDocumentBody = (
-  documentBody: AddressableSlices[]
+  documentBody: AddressableSlicesWithPossibleWorks[]
 ): string[] => {
   const supportedSliceTypes = [
     'text',

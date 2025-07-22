@@ -10,10 +10,23 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableEvent = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  AddressableSlicesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressableEvent = async (
   document: EventPrismicDocument
-): ElasticsearchAddressableEvent[] => {
+): Promise<ElasticsearchAddressableEvent[]> => {
   const { data, id, uid, type } = document;
+
+  // Extract works IDs from document body
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
+
   const format = isFilledLinkToDocumentWithData(data.format)
     ? asText(data.format.data.title)
     : undefined;
@@ -63,12 +76,14 @@ export const transformAddressableEvent = (
         description,
         format,
         times,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Event',
         title,
         description: queryDescription,
         contributors,
+        linkedWorks: worksIds,
       },
     },
   ];
