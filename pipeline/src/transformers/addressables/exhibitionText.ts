@@ -15,7 +15,7 @@ export const transformAddressableExhibitionText = (
 ): ElasticsearchAddressableExhibitionText[] => {
   const { data, id, uid, type } = document;
 
-  // Exhibition texts don't have standard body content that can contain works references
+  // Exhibition texts don't have body content that can contain works references
   const worksIds: string[] = [];
   const transformedWorks: TransformedWork[] = [];
 

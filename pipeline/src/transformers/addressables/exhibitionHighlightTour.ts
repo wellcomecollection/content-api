@@ -15,7 +15,7 @@ export const transformAddressableExhibitionHighlightTour = (
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
   const { data, id, uid, type } = document;
 
-  // Exhibition highlight tours don't have standard body content that can contain works references
+  // Exhibition highlight tours don't have body content that can contain works references
   const worksIds: string[] = [];
   const transformedWorks: TransformedWork[] = [];
 
