@@ -108,12 +108,15 @@ export async function transformAddressable(
       break;
 
     case 'exhibition-texts':
-      transformedDocument = transformAddressableExhibitionText(document);
+      transformedDocument = Promise.resolve(
+        transformAddressableExhibitionText(document)
+      );
       break;
 
     case 'exhibition-highlight-tours':
-      transformedDocument =
-        transformAddressableExhibitionHighlightTour(document);
+      transformedDocument = Promise.resolve(
+        transformAddressableExhibitionHighlightTour(document)
+      );
       break;
 
     case 'pages':
