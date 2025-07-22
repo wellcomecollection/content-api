@@ -155,7 +155,7 @@ async function main() {
       case 'exhibition-text': {
         transformerName = 'transformAddressableExhibitionText';
 
-        return await transformAddressableExhibitionText(
+        return transformAddressableExhibitionText(
           doc as ExhibitionTextPrismicDocument
         );
       }
@@ -163,7 +163,7 @@ async function main() {
       case 'exhibition-highlight-tour': {
         transformerName = 'transformAddressableExhibitionHighlightTour';
 
-        return await transformAddressableExhibitionHighlightTour(
+        return transformAddressableExhibitionHighlightTour(
           doc as ExhibitionHighlightTourPrismicDocument
         );
       }
