@@ -84,9 +84,9 @@ function transformLabelType(
     : (defaultArticleFormat as ArticleFormat);
 }
 
-export const transformArticle = (
+export const transformArticle = async (
   document: ArticlePrismicDocument
-): ElasticsearchArticle[] => {
+): Promise<ElasticsearchArticle[]> => {
   const { data, id, first_publication_date: firstPublicationDate } = document;
   const uid = document.uid || undefined;
   const primaryImage = data.promo?.[0]?.primary;
