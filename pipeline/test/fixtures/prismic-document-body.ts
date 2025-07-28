@@ -58,10 +58,8 @@ const createImage = ({
 
 export const createTextSlice = ({
   url = 'http://test.com',
-  text = 'Some text with a link',
 }: {
   url?: string;
-  text?: string;
 }): TextSlice => ({
   id: '456def456',
   slice_type: 'text',
@@ -73,7 +71,7 @@ export const createTextSlice = ({
     text: [
       {
         type: 'paragraph',
-        text,
+        text: 'Some text with a link',
         spans: [
           {
             start: 16,
@@ -93,11 +91,9 @@ export const createTextSlice = ({
 export const createEditorialImageSlice = ({
   captionUrl = 'https://test.com',
   copyright = 'title | author | | | CC-BY-NC-ND | |',
-  captionText = 'Image caption with link',
 }: {
   captionUrl?: string;
   copyright?: string;
-  captionText?: string;
 }): EditorialImageSlice => ({
   id: '789abc789',
   slice_type: 'editorialImage',
@@ -110,7 +106,7 @@ export const createEditorialImageSlice = ({
       ? [
           {
             type: 'paragraph',
-            text: captionText,
+            text: 'Image caption with link',
             spans: [
               {
                 type: 'hyperlink',
@@ -142,11 +138,9 @@ const sharedVideoProperties = {
 
 export const createGifVideoSlice = ({
   captionUrl = 'https://test.com',
-  captionText = 'Video caption',
   tasl = 'title | author | | | CC-BY | |',
 }: {
   captionUrl?: string;
-  captionText?: string;
   tasl?: string;
 }): GifVideoSlice =>
   ({
@@ -158,7 +152,7 @@ export const createGifVideoSlice = ({
         ? [
             {
               type: 'paragraph',
-              text: captionText,
+              text: 'Video caption with link',
               spans: [
                 {
                   type: 'hyperlink',
@@ -192,7 +186,6 @@ export const createEditorialImageGallerySlice = ({
   items: {
     copyright?: string;
     captionUrl?: string;
-    captionText?: string;
   }[];
 }): EditorialImageGallerySlice =>
   ({
@@ -206,7 +199,7 @@ export const createEditorialImageGallerySlice = ({
         ? [
             {
               type: 'paragraph',
-              text: item.captionText || 'Gallery image caption with link',
+              text: 'Gallery image caption with link',
               spans: [
                 {
                   type: 'hyperlink',
