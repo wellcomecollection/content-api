@@ -94,14 +94,14 @@ async function main() {
           : 'transformAddressableArticle';
 
         return isDetailed
-          ? transformArticle(doc as ArticlePrismicDocument)
+          ? await transformArticle(doc as ArticlePrismicDocument)
           : await transformAddressableArticle(doc as ArticlePrismicDocument);
       }
 
       case 'webcomic': {
         transformerName = 'transformArticle';
 
-        return transformArticle(doc as ArticlePrismicDocument);
+        return await transformArticle(doc as ArticlePrismicDocument);
       }
 
       case 'event': {
@@ -110,14 +110,14 @@ async function main() {
           : 'transformAddressableEvent';
 
         return isDetailed
-          ? transformEventDocument(doc as EventPrismicDocument)
+          ? await transformEventDocument(doc as EventPrismicDocument)
           : await transformAddressableEvent(doc as EventPrismicDocument);
       }
 
       case 'venue': {
         transformerName = 'transformVenue';
 
-        return transformVenue(doc as VenuePrismicDocument);
+        return await transformVenue(doc as VenuePrismicDocument);
       }
 
       case 'exhibition': {
@@ -126,7 +126,7 @@ async function main() {
           : 'transformAddressableExhibition';
 
         return isDetailed
-          ? transformEventDocument(doc as ExhibitionPrismicDocument)
+          ? await transformEventDocument(doc as ExhibitionPrismicDocument)
           : await transformAddressableExhibition(
               doc as ExhibitionPrismicDocument
             );
