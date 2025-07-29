@@ -1,4 +1,5 @@
 // Helper functions for working with the Wellcome Collection Catalogue API
+import { isNotUndefined } from '@weco/content-api/src/helpers';
 
 const getWorkUrl = (workId: string): string => {
   return `https://api.wellcomecollection.org/catalogue/v2/works/${workId}?include=contributors%2Cproduction`;
@@ -64,7 +65,7 @@ export const transformWork = (work: CatalogueWork): TransformedWork => {
 
   const labels = (
     isOnline ? [work.workType?.label, 'Online'] : [work.workType?.label]
-  ).filter((label): label is string => label !== undefined);
+  ).filter(isNotUndefined);
 
   return {
     id: work.id,
