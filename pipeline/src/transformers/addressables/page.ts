@@ -9,7 +9,7 @@ import { ElasticsearchAddressablePage } from '@weco/content-pipeline/src/types/t
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
 import {
-  AddressableSlicesWithPossibleWorks,
+  BodiesWithPossibleWorks,
   getWorksIdsFromDocumentBody,
 } from './helpers/extract-works-ids';
 
@@ -18,8 +18,10 @@ export const transformAddressablePage = async (
 ): Promise<ElasticsearchAddressablePage[]> => {
   const { data, id, uid, tags, type } = document;
 
+  // Need to use types from prismicio.d.ts everywhere
+  // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+    (data.body as BodiesWithPossibleWorks) || []
   );
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 

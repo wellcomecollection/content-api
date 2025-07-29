@@ -5,7 +5,7 @@ import { ElasticsearchAddressableVisualStory } from '@weco/content-pipeline/src/
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
 import {
-  AddressableSlicesWithPossibleWorks,
+  BodiesWithPossibleWorks,
   getWorksIdsFromDocumentBody,
 } from './helpers/extract-works-ids';
 
@@ -14,9 +14,10 @@ export const transformAddressableVisualStory = async (
 ): Promise<ElasticsearchAddressableVisualStory[]> => {
   const { data, id, uid, type } = document;
 
-  // Extract works IDs from document body
+  // Need to use types from prismicio.d.ts everywhere
+  // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+    (data.body as BodiesWithPossibleWorks) || []
   );
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 

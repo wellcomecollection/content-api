@@ -4,7 +4,7 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { AddressableSlicesWithPossibleWorks } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
+import { BodiesWithPossibleWorks } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
 import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/types/transformed';
@@ -36,7 +36,7 @@ export const transformAddressableArticle = async (
   // Need to use types from prismicio.d.ts everywhere
   // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as AddressableSlicesWithPossibleWorks[]) || []
+    (data.body as BodiesWithPossibleWorks) || []
   );
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 

@@ -1,16 +1,36 @@
 import type * as prismic from '@prismicio/client';
 
 import {
+  ArticlesDocument,
+  BooksDocument,
   EditorialImageGallerySlice,
+  EditorialImageSlice,
+  EventsDocument,
+  ExhibitionsDocument,
   GifVideoSlice,
+  PagesDocument,
+  ProjectsDocument,
+  SeasonsDocument,
+  TextSlice,
+  VisualStoriesDocument,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
-export type AddressableSlicesWithPossibleWorks =
-  | prismic.Content.ArticlesDocumentDataBodySlice
-  | prismic.Content.BooksDocumentDataBodySlice
-  | prismic.Content.PagesDocumentDataBodySlice
-  | prismic.Content.ProjectsDocumentDataBodySlice
-  | prismic.Content.SeasonsDocumentDataBodySlice;
+export type BodiesWithPossibleWorks =
+  | ArticlesDocument['data']['body']
+  | BooksDocument['data']['body']
+  | EventsDocument['data']['body']
+  | ExhibitionsDocument['data']['body']
+  | PagesDocument['data']['body']
+  | ProjectsDocument['data']['body']
+  | SeasonsDocument['data']['body']
+  | VisualStoriesDocument['data']['body'];
+
+type SlicesWithPossibleWorks = (
+  | TextSlice
+  | EditorialImageSlice
+  | EditorialImageGallerySlice
+  | GifVideoSlice
+)[];
 
 // Helper functions for extracting Wellcome Collection work IDs from Prismic slice content.
 // Searches for works URLs (https://wellcomecollection.org/works/[id]) in:
@@ -105,7 +125,7 @@ const extractWorksIdsFromEditorialImageGallery = ({
 };
 
 const extractWorksIdsFromSlices = (
-  slices: AddressableSlicesWithPossibleWorks[]
+  slices: SlicesWithPossibleWorks
 ): string[] => {
   const worksIds = slices.flatMap(slice => {
     switch (slice.slice_type) {
@@ -146,19 +166,27 @@ const extractWorksIdsFromSlices = (
   return [...new Set(worksIds)];
 };
 
-export const getWorksIdsFromDocumentBody = (
-  documentBody: AddressableSlicesWithPossibleWorks[]
-): string[] => {
-  const supportedSliceTypes = [
+const isSliceWithPossibleWorks = (
+  slice: BodiesWithPossibleWorks[number]
+): slice is
+  | TextSlice
+  | EditorialImageSlice
+  | EditorialImageGallerySlice
+  | GifVideoSlice => {
+  return [
     'text',
     'editorialImage',
     'editorialImageGallery',
     'gifVideo',
-  ];
+  ].includes(slice.slice_type);
+};
 
-  const relevantSlices = documentBody.filter(slice =>
-    supportedSliceTypes.includes(slice.slice_type)
-  );
+export const getWorksIdsFromDocumentBody = (
+  documentBody: BodiesWithPossibleWorks
+): string[] => {
+  const relevantSlices = documentBody.filter(
+    isSliceWithPossibleWorks
+  ) as SlicesWithPossibleWorks;
 
   return extractWorksIdsFromSlices(relevantSlices);
 };
