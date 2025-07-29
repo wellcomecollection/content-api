@@ -19,8 +19,7 @@ export type TransformedWork = {
   thumbnailUrl?: string;
   date?: string;
   mainContributor?: string;
-  workType?: string;
-  isOnline: boolean;
+  labels: string[];
 };
 
 // Types for the Catalogue API response (partial, based on what we need)
@@ -63,6 +62,10 @@ export const transformWork = (work: CatalogueWork): TransformedWork => {
     ({ id }) => id === 'online'
   );
 
+  const labels = (
+    isOnline ? [work.workType?.label, 'Online'] : [work.workType?.label]
+  ).filter((label): label is string => label !== undefined);
+
   return {
     id: work.id,
     title: work.title,
@@ -70,8 +73,7 @@ export const transformWork = (work: CatalogueWork): TransformedWork => {
     thumbnailUrl: work.thumbnail?.url,
     date,
     mainContributor,
-    workType: work.workType?.label,
-    isOnline,
+    labels,
   };
 };
 export const fetchAllWorks = async (
