@@ -181,6 +181,39 @@ module "single_exhibition_route" {
   vpc_link_id       = aws_api_gateway_vpc_link.content_lb.id
 }
 
+// /v0/all
+module "all_route" {
+  source = "../modules/api_route"
+
+  parent_id   = aws_api_gateway_resource.version.id
+  path_part   = "all"
+  http_method = "ANY"
+
+  integration_path = "/all"
+  lb_port          = local.api_lb_port
+
+  external_hostname = var.external_hostname
+  rest_api_id       = aws_api_gateway_rest_api.content.id
+  vpc_link_id       = aws_api_gateway_vpc_link.content_lb.id
+}
+
+// /v0/all/{id}
+module "single_all_route" {
+  source = "../modules/api_route"
+
+  parent_id   = module.all_route.resource_id
+  path_part   = "{id}"
+  http_method = "ANY"
+
+  path_param       = "id"
+  integration_path = "/all/{id}"
+  lb_port          = local.api_lb_port
+
+  external_hostname = var.external_hostname
+  rest_api_id       = aws_api_gateway_rest_api.content.id
+  vpc_link_id       = aws_api_gateway_vpc_link.content_lb.id
+}
+
 module "default_route" {
   source = "../modules/api_route"
 
