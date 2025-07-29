@@ -1,5 +1,5 @@
 // Helper functions for working with the Wellcome Collection Catalogue API
-import { isNotUndefined } from '@weco/content-api/src/helpers';
+import { isNotUndefined } from '@weco/content-pipeline/src/helpers/type-guards';
 
 const getWorkUrl = (workId: string): string => {
   return `https://api.wellcomecollection.org/catalogue/v2/works/${workId}?include=contributors%2Cproduction`;
