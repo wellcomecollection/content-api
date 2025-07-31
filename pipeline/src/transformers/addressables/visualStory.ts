@@ -26,7 +26,7 @@ export const transformAddressableVisualStory = async (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Visual story',

@@ -52,7 +52,7 @@ export const transformAddressableProject = async (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Project',

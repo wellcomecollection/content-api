@@ -37,7 +37,7 @@ export const transformAddressablePage = async (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Page',

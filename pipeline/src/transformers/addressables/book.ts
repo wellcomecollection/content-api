@@ -46,7 +46,7 @@ export const transformAddressableBook = async (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Book',

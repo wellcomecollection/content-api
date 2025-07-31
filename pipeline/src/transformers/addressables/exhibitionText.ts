@@ -51,7 +51,7 @@ export const transformAddressableExhibitionText = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Exhibition text',

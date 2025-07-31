@@ -49,7 +49,7 @@ export const transformAddressableExhibition = async (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Exhibition',
