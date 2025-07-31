@@ -35,7 +35,7 @@ exports[`addressables transformer transforms articles from Prismic to the expect
       "type": "Article",
       "uid": "how-the-slave-trades-medical-legacies-persist",
     },
-    "id": "aAi4nhEAACMAfdxX/articles",
+    "id": "aAi4nhEAACMAfdxX.articles",
     "query": {
       "body": [
         "For Micha Frazer-Carroll, mental health conditions and disabilities are an undeniable part of her Caribbean family’s shared history – but many of her relatives choose not to see, name or diagnose their experiences this way. The Black diaspora has complex attitudes toward healthcare systems, which Micha traces back to the slave trade when disability and Blackness became heavily associated with one another.",
@@ -121,7 +121,7 @@ exports[`addressables transformer transforms books from Prismic to the expected 
       "type": "Book",
       "uid": "brains",
     },
-    "id": "WwVK3CAAAHm5Exxr/books",
+    "id": "WwVK3CAAAHm5Exxr.books",
     "query": {
       "body": [
         "'Brains' asks not what brains do to us, but what we have done to brains, focusing on the bodily presence of the organ rather than investigating the neuroscience of the mind.",
@@ -154,7 +154,7 @@ exports[`addressables transformer transforms events from Prismic to the expected
       "type": "Event",
       "uid": "a-peoples-history-of-death-with-molly-conisbee",
     },
-    "id": "Z9vxBBQAACEAfZwp/events",
+    "id": "Z9vxBBQAACEAfZwp.events",
     "query": {
       "contributors": "Molly Conisbee, Sarah Dabbs, Ody Caballero-Valdes, Ed Bishop, Dr Kate Lister, Peter Abraham",
       "description": [
@@ -186,7 +186,7 @@ exports[`addressables transformer transforms events from Prismic to the expected
       "type": "Event",
       "uid": "beauty-body-image-and-society-november-december-2024",
     },
-    "id": "ZfhSyxgAACQAkLPZ/events",
+    "id": "ZfhSyxgAACQAkLPZ.events",
     "query": {
       "contributors": "Cheyenne Eugene",
       "description": [
@@ -214,7 +214,7 @@ exports[`addressables transformer transforms exhibition highlight tours from Pri
       "type": "Exhibition highlight tour",
       "uid": "jason-and-the-adventure-of-254",
     },
-    "id": "ZthrZRIAACQALvCC/exhibition-highlight-tours/audio",
+    "id": "ZthrZRIAACQALvCC.exhibition-highlight-tours.audio",
     "query": {
       "body": [
         "Digital guide",
@@ -336,7 +336,7 @@ exports[`addressables transformer transforms exhibition highlight tours from Pri
       "type": "Exhibition highlight tour",
       "uid": "jason-and-the-adventure-of-254",
     },
-    "id": "ZthrZRIAACQALvCC/exhibition-highlight-tours/bsl",
+    "id": "ZthrZRIAACQALvCC.exhibition-highlight-tours.bsl",
     "query": {
       "body": [
         "Digital guide",
@@ -462,7 +462,7 @@ exports[`addressables transformer transforms exhibition texts from Prismic to th
       "type": "Exhibition text",
       "uid": "hard-graft-exhibition-text",
     },
-    "id": "Zs8mohAAAB4AP4sc/exhibition-texts",
+    "id": "Zs8mohAAAB4AP4sc.exhibition-texts",
     "query": {
       "body": [
         "Gestures of Labour",
@@ -1031,7 +1031,7 @@ exports[`addressables transformer transforms exhibitions from Prismic to the exp
       "type": "Exhibition",
       "uid": "the-healing-pavilion",
     },
-    "id": "Yzv9ChEAABfUrkVp/exhibitions",
+    "id": "Yzv9ChEAABfUrkVp.exhibitions",
     "query": {
       "contributors": "Grace Ndiritu",
       "description": [
@@ -1059,7 +1059,7 @@ exports[`addressables transformer transforms pages from Prismic to the expected 
       "type": "Page",
       "uid": "venue-hire-terms-and-conditions-of-booking",
     },
-    "id": "YdXSvhAAAIAW7YXQ/pages",
+    "id": "YdXSvhAAAIAW7YXQ.pages",
     "query": {
       "body": [
         "1. General",
@@ -1191,7 +1191,7 @@ exports[`addressables transformer transforms projects from Prismic to the expect
       "type": "Project",
       "uid": "updating-happiness",
     },
-    "id": "YLokOhAAACQAf8Hd/projects",
+    "id": "YLokOhAAACQAf8Hd.projects",
     "query": {
       "body": [
         "This emotional check-in device, by poetic data designer Stefanie Posavec, playfully draws attention to small daily pleasures. Complete a questionnaire and in return receive a uniquely designed quote, which will be added to a growing archive of reflections on happiness. ",
@@ -1223,7 +1223,7 @@ exports[`addressables transformer transforms seasons from Prismic to the expecte
       "type": "Season",
       "uid": "what-does-it-mean-to-be-human--now-",
     },
-    "id": "X84FvhIAACUAqiqp/seasons",
+    "id": "X84FvhIAACUAqiqp.seasons",
     "query": {
       "body": [
         "How can we care for ourselves and for each other during extraordinary cultural, social and political shifts? Our programme brings multiple perspectives and voices into the building when we reopen, and across our digital platforms, based on our collecting and commissioning activities during the coronavirus pandemic.",
@@ -1252,7 +1252,7 @@ exports[`addressables transformer transforms visual stories from Prismic to the 
       "type": "Visual story",
       "uid": "hard-graft",
     },
-    "id": "Zs8EuRAAAB4APxrA/visual-stories",
+    "id": "Zs8EuRAAAB4APxrA.visual-stories",
     "query": {
       "description": "Information to help you plan and prepare for your visit to 'Hard Graft: Work, Health and Rights'.",
       "linkedWorks": [],
