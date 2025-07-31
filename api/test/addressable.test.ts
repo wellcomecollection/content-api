@@ -2,7 +2,7 @@ import { mockedApi } from './fixtures/api';
 
 describe('GET /all/:id', () => {
   it('returns a document for the given ID', async () => {
-    const testId = 'Z-L8zREAACUAxTSz/exhibitions';
+    const testId = 'Z-L8zREAACUAxTSz.exhibitions';
     const testDoc = { title: 'test-addressable' };
     const api = mockedApi([{ id: testId, display: testDoc }]);
 
@@ -15,13 +15,13 @@ describe('GET /all/:id', () => {
     const api = mockedApi([]);
 
     const response = await api.get(
-      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz/exhibitions')}`
+      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz.exhibitions')}`
     );
     expect(response.statusCode).toBe(404);
   });
 
   it('returns a 400 for invalid content types', async () => {
-    const invalidTestId = 'ZX123/invalid-content-type';
+    const invalidTestId = 'ZX123.invalid-content-type';
     const api = mockedApi([]);
 
     const response = await api.get(`/all/${encodeURIComponent(invalidTestId)}`);
@@ -41,7 +41,7 @@ describe('GET /all/:id', () => {
     const api = mockedApi([]);
 
     const response = await api.get(
-      `/all/${encodeURIComponent('invalid%20id/exhibition')}`
+      `/all/${encodeURIComponent('invalid%20id.exhibitions')}`
     );
     expect(response.statusCode).toBe(400);
     expect(response.body.description).toContain('Invalid Prismic ID format');
@@ -51,14 +51,14 @@ describe('GET /all/:id', () => {
     const api = mockedApi([]);
 
     const response = await api.get(
-      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz/exhibition-highlight-tours/invalid')}`
+      `/all/${encodeURIComponent('Z-L8zREAACUAxTSz.exhibition-highlight-tours.invalid')}`
     );
     expect(response.statusCode).toBe(400);
     expect(response.body.description).toContain('Invalid tour type');
   });
 
   it('accepts valid exhibition highlight tour with audio type', async () => {
-    const testId = 'Z-L8zREAACUAxTSz/exhibition-highlight-tours/audio';
+    const testId = 'Z-L8zREAACUAxTSz.exhibition-highlight-tours.audio';
     const testDoc = { title: 'test-tour' };
     const api = mockedApi([{ id: testId, display: testDoc }]);
 
@@ -68,7 +68,7 @@ describe('GET /all/:id', () => {
   });
 
   it('accepts valid exhibition highlight tour with BSL type', async () => {
-    const testId = 'Z-L8zREAACUAxTSz/exhibition-highlight-tours/bsl';
+    const testId = 'Z-L8zREAACUAxTSz.exhibition-highlight-tours.bsl';
     const testDoc = { title: 'test-bsl-tour' };
     const api = mockedApi([{ id: testId, display: testDoc }]);
 

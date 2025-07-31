@@ -1,4 +1,7 @@
-import { getWorksIdsFromDocumentBody } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
+import {
+  BodiesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
 import {
   createEditorialImageGallerySlice,
   createEditorialImageSlice,
@@ -13,7 +16,7 @@ describe('extract-works-ids', () => {
         createTextSlice({
           url: 'https://wellcomecollection.org/works/p4bh9qca',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['p4bh9qca']);
@@ -24,7 +27,7 @@ describe('extract-works-ids', () => {
         createEditorialImageSlice({
           captionUrl: 'https://wellcomecollection.org/works/sgswqhrs',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['sgswqhrs']);
@@ -36,7 +39,7 @@ describe('extract-works-ids', () => {
           copyright:
             'Title | | Wellcome Collection | https://wellcomecollection.org/works/atrvxkxg/items | CC-BY | |',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['atrvxkxg']);
@@ -47,7 +50,7 @@ describe('extract-works-ids', () => {
         createGifVideoSlice({
           captionUrl: 'https://wellcomecollection.org/works/abc123def',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['abc123def']);
@@ -58,7 +61,7 @@ describe('extract-works-ids', () => {
         createGifVideoSlice({
           tasl: 'Percentage split of men aged 16-30 on the stem cell registers | Thomas SG Farnetti | Wellcome Collection | https://wellcomecollection.org/works/xyk8pu8p | CC-BY | |',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['xyk8pu8p']);
     });
@@ -76,7 +79,7 @@ describe('extract-works-ids', () => {
         createEditorialImageSlice({
           captionUrl: 'https://wellcomecollection.org/works/duplicate123',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['duplicate123']);
@@ -94,7 +97,7 @@ describe('extract-works-ids', () => {
             },
           ],
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['mtseafdk', 'v2xh6g4x']);
@@ -114,7 +117,7 @@ describe('extract-works-ids', () => {
             },
           ],
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['me4wtyvb', 'v2xh6g4x']);
@@ -134,7 +137,7 @@ describe('extract-works-ids', () => {
             },
           ],
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
       expect(result).toEqual(['yz53z3ff', 'abc123', 'def456']);
@@ -171,7 +174,7 @@ describe('extract-works-ids', () => {
         createTextSlice({
           url: 'https://wellcomecollection.org/works/third789duplicate',
         }),
-      ];
+      ] as BodiesWithPossibleWorks;
 
       const result = getWorksIdsFromDocumentBody(documentBody);
 

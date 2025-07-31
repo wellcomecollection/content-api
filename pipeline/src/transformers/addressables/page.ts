@@ -7,10 +7,23 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { PagePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressablePage } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressablePage = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  BodiesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressablePage = async (
   document: PagePrismicDocument
-): ElasticsearchAddressablePage[] => {
+): Promise<ElasticsearchAddressablePage[]> => {
   const { data, id, uid, tags, type } = document;
+
+  // Need to use types from prismicio.d.ts everywhere
+  // so we don't need to cast
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as BodiesWithPossibleWorks) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const description = primaryImageCaption(data.promo);
   const introText = data.introText && asText(data.introText);
@@ -24,7 +37,7 @@ export const transformAddressablePage = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Page',
@@ -33,12 +46,14 @@ export const transformAddressablePage = (
         title,
         description,
         tags,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Page',
         title,
         description: queryDescription,
         body,
+        linkedWorks: worksIds,
       },
     },
   ];

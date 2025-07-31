@@ -6,6 +6,7 @@ import {
   PrismicFormat,
   WithContributors,
 } from '.';
+import { WithBody } from './body';
 
 type WithExhibitionFormat = {
   format: prismic.ContentRelationshipField<
@@ -21,6 +22,7 @@ export type ExhibitionPrismicDocument = prismic.PrismicDocument<
     end: prismic.TimestampField;
   } & WithContributors &
     WithExhibitionFormat &
-    CommonPrismicFields,
+    CommonPrismicFields &
+    WithBody,
   'exhibitions'
 >;

@@ -12,9 +12,9 @@ import {
   VenuePrismicDocument,
 } from '@weco/content-pipeline/src/types/prismic/venues';
 
-export const transformVenue = (
+export const transformVenue = async (
   document: VenuePrismicDocument
-): ElasticsearchVenue[] => {
+): Promise<ElasticsearchVenue[]> => {
   const {
     data: {
       title,

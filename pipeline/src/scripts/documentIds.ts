@@ -1,7 +1,7 @@
 import { AddressablesAllowedTypes } from '@weco/content-pipeline/src/helpers/getGraphQuery';
 
 const documentIds: { [key: string]: string | undefined } = {
-  article: 'ZdSMbREAACQA3j30',
+  article: 'aAi4nhEAACMAfdxX',
   webcomic: 'XkV9dREAAAPkNP0b',
   event: 'Zwmm1RAAACIARjdm',
   venue: 'Wsttgx8AAJeSNmJ4',

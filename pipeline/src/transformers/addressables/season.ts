@@ -6,10 +6,23 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { SeasonPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableSeason } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableSeason = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  BodiesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressableSeason = async (
   document: SeasonPrismicDocument
-): ElasticsearchAddressableSeason[] => {
+): Promise<ElasticsearchAddressableSeason[]> => {
   const { data, id, uid, type } = document;
+
+  // Need to use types from prismicio.d.ts everywhere
+  // so we don't need to cast
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as BodiesWithPossibleWorks) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const title = asTitle(data.title);
 
@@ -30,7 +43,7 @@ export const transformAddressableSeason = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Season',
@@ -38,12 +51,14 @@ export const transformAddressableSeason = (
         uid,
         title,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Season',
         title,
         description: queryDescription,
         body: queryBody,
+        linkedWorks: worksIds,
       },
     },
   ];

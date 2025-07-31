@@ -26,14 +26,14 @@ const VALID_CONTENT_TYPES = [
 const validateAddressableId = (id: string): void => {
   const decodedId = decodeURIComponent(id);
 
-  const parts = decodedId.split('/');
+  const parts = decodedId.split('.');
 
   // Validate id format
   if (parts.length < 2) {
     throw new HttpError({
       status: 400,
       label: 'Bad Request',
-      description: `Invalid id format. The id should be a combination of the Prismic ID and content type separated by a url encoded forward slash (%2F). For example, ZL-K4RAAACEA5IgV%2Fbooks. In the case of exhibition highlight tours, the id should also include the tour type (audio or bsl) after the content type, separated by a url encoded forward slash (%2F). For example, Z-L8zREAACUAxTSz%2Fexhibition-highlight-tours%2Faudio.`,
+      description: `Invalid id format. The id should be a combination of the Prismic ID and content type separated by a '.'. For example, ZL-K4RAAACEA5IgV.books. In the case of exhibition highlight tours, the id should also include the tour type (audio or bsl) after the content type, separated by a '.'. For example, Z-L8zREAACUAxTSz.exhibition-highlight-tours.audio.`,
     });
   }
 

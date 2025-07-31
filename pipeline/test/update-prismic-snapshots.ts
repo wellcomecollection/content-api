@@ -51,7 +51,7 @@ const venueIds = [
 ];
 
 const addressableIds = {
-  article: 'ZdSMbREAACQA3j30', // The stuck tampon
+  article: 'aAi4nhEAACMAfdxX', // How the slave trade’s medical legacies persist
   book: 'WwVK3CAAAHm5Exxr', //  Brains: The mind as matter
   event: 'Z9vxBBQAACEAfZwp', // A People's History of Death with Molly Conisbee
   exhibition: 'Yzv9ChEAABfUrkVp',
