@@ -5,15 +5,20 @@ import asyncHandler from 'express-async-handler';
 import { Config } from '@weco/content-api/config';
 import { ifDefined } from '@weco/content-api/src/helpers';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
-import { addressablesQuery } from '@weco/content-api/src/queries/addressables';
+import {
+  addressablesQuery,
+  linkedWorkQuery,
+} from '@weco/content-api/src/queries/addressables';
 import { Clients, Displayable } from '@weco/content-api/src/types';
 import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
+import { workIdValidator } from './validation';
 
 type QueryParams = {
   query?: string;
+  linkedWork?: string;
 } & PaginationQueryParameters;
 
 type AddressablesHandler = RequestHandler<
@@ -31,7 +36,18 @@ const addressablesController = (
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString } = req.query;
+    const { query: queryString, linkedWork } = req.query;
+
+    if (linkedWork) {
+      workIdValidator(linkedWork);
+    }
+
+    const mustClauses = [
+      ifDefined(queryString, addressablesQuery),
+      ifDefined(linkedWork, linkedWorkQuery),
+    ].filter(
+      (clause): clause is NonNullable<typeof clause> => clause !== undefined
+    );
 
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
@@ -39,7 +55,7 @@ const addressablesController = (
         _source: ['display'],
         query: {
           bool: {
-            must: ifDefined(queryString, addressablesQuery),
+            must: mustClauses.length > 0 ? mustClauses : undefined,
           },
         },
 
