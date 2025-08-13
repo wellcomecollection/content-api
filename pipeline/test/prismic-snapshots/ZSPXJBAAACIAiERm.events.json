@@ -3,7 +3,7 @@
   "uid": "recipes-for-early-modern-beauty",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZSPXJBAAACIAiERm%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-10-12T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:49+0000",
@@ -38,7 +38,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "4ab4f04c-cfee-4f39-9dcb-7e4562b79161",
+      "key": "cae09c1d-9a80-4ae4-9939-d90e8f1c2930",
       "isBroken": false
     },
     "locations": [
@@ -78,7 +78,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "0da34ebf-a3e0-4975-9418-2d4e7adc0e68",
+          "key": "87c03370-82a2-4707-959f-7f9b904e93a6",
           "isBroken": false
         }
       }
@@ -118,7 +118,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "90c8a88b-a3a0-4d8e-be95-9395650e9f25",
+          "key": "61f0b99e-c853-4776-a1db-1bb8f7dbad2e",
           "isBroken": false
         },
         "contributor": {
@@ -133,7 +133,7 @@
             "name": "Jill Burke"
           },
           "link_type": "Document",
-          "key": "a9bb96bc-3bd5-435e-a9d3-ff7912dd7f16",
+          "key": "dc99edfd-711b-4f91-bfe5-dc016e23f6a8",
           "isBroken": false
         }
       },
@@ -156,7 +156,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "2faafc8d-7f86-4b38-9bdf-6faf63f2788d",
+          "key": "c9613d9f-ca5f-47a4-aa01-904098079b24",
           "isBroken": false
         },
         "contributor": {
@@ -171,7 +171,7 @@
             "name": "Hayley O’Kell"
           },
           "link_type": "Document",
-          "key": "6d6bd304-3bb5-4c9a-92d9-f93a547c2606",
+          "key": "281da38c-7436-4d70-a196-e0a5242aafa1",
           "isBroken": false
         }
       },
@@ -194,7 +194,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "9c09432b-cc52-41ad-87c8-611d080ff220",
+          "key": "65a04c33-8b8a-4fcc-a5db-797946bd30ce",
           "isBroken": false
         },
         "contributor": {
@@ -209,7 +209,7 @@
             "name": "Romana Sammern"
           },
           "link_type": "Document",
-          "key": "58eefc17-3075-468e-94aa-abcf303b36e7",
+          "key": "faa119d2-4b2c-4905-b139-dddc274e3427",
           "isBroken": false
         }
       },
@@ -232,7 +232,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "03187161-873a-4c85-bc4b-f5e3151c1375",
+          "key": "2ed13098-2cbc-4182-96e6-5d8785717bad",
           "isBroken": false
         },
         "contributor": {
@@ -247,7 +247,7 @@
             "name": "Patricia Akhimie"
           },
           "link_type": "Document",
-          "key": "cd178662-1204-49da-9d77-44b7b100e327",
+          "key": "129a2934-89dd-477a-9aac-1181aca045ae",
           "isBroken": false
         }
       }
@@ -363,7 +363,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "b3633c2e-4684-4ca6-8d2a-717fba96d85a",
+          "key": "0a3adf76-68de-42b5-a8dd-79bd6585363e",
           "isBroken": false
         }
       }

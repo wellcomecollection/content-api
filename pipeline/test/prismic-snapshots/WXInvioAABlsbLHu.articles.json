@@ -3,7 +3,7 @@
   "uid": "ken-s-ten--looking-back-at-ten-years-of-wellcome-collection",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WXInvioAABlsbLHu%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WXInvioAABlsbLHu%22%29+%5D%5D",
   "tags": ["delist"],
   "first_publication_date": "2024-05-07T15:46:28+0000",
   "last_publication_date": "2024-10-23T14:49:47+0000",
@@ -528,7 +528,7 @@
             "name": "Ken Arnold"
           },
           "link_type": "Document",
-          "key": "f168d632-0767-40ab-8234-2ac4d21a62a2",
+          "key": "9a655d58-6ace-4c9b-a452-457f915ae33b",
           "isBroken": false
         }
       }
