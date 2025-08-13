@@ -3,7 +3,7 @@
   "uid": "the-healing-pavilion",
   "url": null,
   "type": "exhibitions",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-12T11:11:45+0000",
   "last_publication_date": "2024-10-31T15:26:35+0000",
@@ -45,7 +45,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "b0bc26c3-3a22-4be6-8e16-5c1fbe0aed92",
+          "key": "297a0fa7-2778-413e-b9a9-3ee675afa4f6",
           "isBroken": false
         },
         "contributor": {
@@ -60,7 +60,7 @@
             "name": "Grace Ndiritu"
           },
           "link_type": "Document",
-          "key": "825ad2ea-57fb-4cf6-9c4f-795b1ee9aa3c",
+          "key": "4e1b9303-e7ea-47e6-86f4-df57cebda964",
           "isBroken": false
         }
       }

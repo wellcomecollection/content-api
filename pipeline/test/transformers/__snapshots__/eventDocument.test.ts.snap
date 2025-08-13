@@ -600,7 +600,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
         "places": [
           {
             "id": "W22bICkAACgA-hVJ",
-            "label": "Information Point",
+            "label": "Information Point on level 0",
             "type": "EventPlace",
           },
         ],
@@ -792,7 +792,7 @@ exports[`eventDocument transformer transforms events from Prismic to the expecte
           },
           {
             "id": "W22bICkAACgA-hVJ",
-            "label": "Information Point",
+            "label": "Information Point on level 0",
             "type": "EventPlace",
           },
         ],

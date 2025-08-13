@@ -3,7 +3,7 @@
   "uid": "perspective-tour-with-jess-dobkin",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZJLZoRAAACIARz42%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2023-07-27T15:00:00+0000",
   "last_publication_date": "2025-04-23T16:15:40+0000",
@@ -47,15 +47,16 @@
           "type": "places",
           "tags": [],
           "lang": "en-gb",
-          "slug": "-",
+          "slug": "information-point-on-level-0",
           "first_publication_date": "2018-08-10T14:03:19+0000",
-          "last_publication_date": "2024-05-07T16:35:11+0000",
+          "last_publication_date": "2025-05-13T12:38:34+0000",
           "data": {
             "title": [
               {
                 "type": "heading1",
-                "text": "Information Point",
-                "spans": []
+                "text": "Information Point on level 0",
+                "spans": [],
+                "direction": "ltr"
               }
             ]
           },

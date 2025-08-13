@@ -3,7 +3,7 @@
   "uid": "updating-happiness",
   "url": null,
   "type": "projects",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YLokOhAAACQAf8Hd%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YLokOhAAACQAf8Hd%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2021-06-08T09:50:40+0000",
   "last_publication_date": "2024-10-22T15:40:26+0000",
@@ -37,10 +37,85 @@
         ]
       },
       "link_type": "Document",
-      "key": "c1b3e7f4-9ac9-41ec-80f6-855aaae81f14",
+      "key": "683a70ea-1deb-4eb8-943d-9b58d27b8d06",
       "isBroken": false
     },
     "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "image": {
+            "dimensions": {
+              "width": 4000,
+              "height": 2670
+            },
+            "alt": "Photograph of an exhibition gallery wall, square on. The wall fills the frame. The wall is made up of an artwork in the form of a grid of highly colourful graphic shapes and text set in different sized squares. Every square on the grid contains a shape and a short text. Examples of the text in a couple of the squares are, 'Hearing my abby laugh is the aim of human existence' and 'Smelling wet earth brings happiness'. In front of the wall are two individuals with their backs to the camera looking at the artwork. Both are wearing face coverings, white tops and dark trousers. The man on the left has his arms folded, the woman on the right has her hands clasped behind her back.\n",
+            "copyright": "Updating happiness, art commission | Artwork: Stefanie Posavec. Gallery Photo: Steven Pocock | | | CC-BY-NC | |",
+            "url": "https://images.prismic.io/wellcomecollection/e6270846-e8d0-4a5b-8781-7209fc9d59e6_EP_001514_118.jpg?auto=format,compress",
+            "id": "YPgsShAAAOsSk5fK",
+            "edit": {
+              "x": -4,
+              "y": 0,
+              "zoom": 1,
+              "background": "#fff"
+            },
+            "32:15": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1500
+              },
+              "alt": "Photograph of an exhibition gallery wall, square on. The wall fills the frame. The wall is made up of an artwork in the form of a grid of highly colourful graphic shapes and text set in different sized squares. Every square on the grid contains a shape and a short text. Examples of the text in a couple of the squares are, 'Hearing my abby laugh is the aim of human existence' and 'Smelling wet earth brings happiness'. In front of the wall are two individuals with their backs to the camera looking at the artwork. Both are wearing face coverings, white tops and dark trousers. The man on the left has his arms folded, the woman on the right has her hands clasped behind her back.\n",
+              "copyright": "Updating happiness, art commission | Artwork: Stefanie Posavec. Gallery Photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/e6270846-e8d0-4a5b-8781-7209fc9d59e6_EP_001514_118.jpg?auto=format,compress",
+              "id": "YPgsShAAAOsSk5fK",
+              "edit": {
+                "x": 0,
+                "y": -296,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
+            },
+            "16:9": {
+              "dimensions": {
+                "width": 3200,
+                "height": 1800
+              },
+              "alt": "Photograph of an exhibition gallery wall, square on. The wall fills the frame. The wall is made up of an artwork in the form of a grid of highly colourful graphic shapes and text set in different sized squares. Every square on the grid contains a shape and a short text. Examples of the text in a couple of the squares are, 'Hearing my abby laugh is the aim of human existence' and 'Smelling wet earth brings happiness'. In front of the wall are two individuals with their backs to the camera looking at the artwork. Both are wearing face coverings, white tops and dark trousers. The man on the left has his arms folded, the woman on the right has her hands clasped behind her back.\n",
+              "copyright": "Updating happiness, art commission | Artwork: Stefanie Posavec. Gallery Photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/e6270846-e8d0-4a5b-8781-7209fc9d59e6_EP_001514_118.jpg?auto=format,compress",
+              "id": "YPgsShAAAOsSk5fK",
+              "edit": {
+                "x": 0,
+                "y": -36,
+                "zoom": 0.8,
+                "background": "#fff"
+              }
+            },
+            "square": {
+              "dimensions": {
+                "width": 3200,
+                "height": 3200
+              },
+              "alt": "Photograph of an exhibition gallery wall, square on. The wall fills the frame. The wall is made up of an artwork in the form of a grid of highly colourful graphic shapes and text set in different sized squares. Every square on the grid contains a shape and a short text. Examples of the text in a couple of the squares are, 'Hearing my abby laugh is the aim of human existence' and 'Smelling wet earth brings happiness'. In front of the wall are two individuals with their backs to the camera looking at the artwork. Both are wearing face coverings, white tops and dark trousers. The man on the left has his arms folded, the woman on the right has her hands clasped behind her back.\n",
+              "copyright": "Updating happiness, art commission | Artwork: Stefanie Posavec. Gallery Photo: Steven Pocock | | | CC-BY-NC | |",
+              "url": "https://images.prismic.io/wellcomecollection/e6270846-e8d0-4a5b-8781-7209fc9d59e6_EP_001514_118.jpg?auto=format,compress",
+              "id": "YPgsShAAAOsSk5fK",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1.198501872659176,
+                "background": "#fff"
+              }
+            }
+          },
+          "caption": []
+        },
+        "id": "editorialImage$e550708e-07f0-4241-a92c-cf72b2253396",
+        "slice_type": "editorialImage",
+        "slice_label": null
+      },
       {
         "variation": "default",
         "version": "initial",

@@ -24,6 +24,25 @@ describe('addressables transformer', () => {
     }
   );
 
+  forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'], isAddressable)(
+    'lists linkedWorks from various slices',
+    async prismicDocument => {
+      const transformed = await transformAddressable(prismicDocument);
+      // Unsure why we have to add eslint-disables,
+      // it _is_ in a test() function, see `forEachPrismicSnapshot`
+
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(Array.isArray(transformed)).toBe(true);
+      const first = transformed[0] as { display?: { linkedWorks?: unknown[] } };
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(first.display).toMatchObject({
+        linkedWorks: expect.any(Array),
+      });
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect(first.display?.linkedWorks?.length).toBeGreaterThan(0);
+    }
+  );
+
   forEachPrismicSnapshot<BookPrismicDocument>(['books'], isAddressable)(
     'transforms books from Prismic to the expected format',
     async prismicDocument => {

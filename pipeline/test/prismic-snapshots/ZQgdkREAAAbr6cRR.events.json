@@ -3,7 +3,7 @@
   "uid": "lights-up-on-the-cult-of-beauty-11",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJxRfRAAACEAdxqr&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQgdkREAAAbr6cRR%22%29+%5D%5D",
   "tags": ["LightsUpBeauty"],
   "first_publication_date": "2023-10-26T15:00:00+0000",
   "last_publication_date": "2024-10-23T12:53:39+0000",
@@ -42,7 +42,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "49bd9411-498a-4cc4-bf17-c8581595ab6e",
+          "key": "fee6a4f7-85c7-4be2-8952-2c3e8b05c3cb",
           "isBroken": false
         }
       }
@@ -124,7 +124,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "4ec2870b-ceea-4491-8bcb-668aad065b48",
+                  "key": "a4d9fea5-5101-432d-a077-feec92712e90",
                   "isBroken": false
                 }
               }
@@ -138,7 +138,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "48087533-0e47-4584-94a9-849a9f690ecb",
+          "key": "00331b1c-526c-428b-9b19-d73a95642703",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -182,20 +182,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "1ca9f0ae-a6e4-4aee-b85b-29710de34aff",
+                  "key": "83cdc2ca-9c81-4bf0-912c-1c11f2827876",
                   "isBroken": false
                 }
               }
@@ -220,7 +221,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "b223ab12-3bcb-4ef9-a1c9-41170ed0adfc",
+                  "key": "872f2db3-05ae-419f-8ed0-93ca8e873d9c",
                   "isBroken": false
                 }
               }
@@ -243,12 +244,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "d99ad4dc-78c2-4268-80b8-5668e8061981",
+              "key": "1c7d3f63-4e95-4526-acdb-c16bcb8a0eee",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "d92150d6-bac8-4167-88a9-5c01354f9c6b",
+          "key": "408b8454-2cc5-4e10-b00b-6f9fc1076bcb",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -305,7 +306,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "0dd5c007-71a7-4a9c-b0ca-2a1dc330dcd5",
+                  "key": "dc8d3faf-fe77-41c5-96e2-868878045651",
                   "isBroken": false
                 }
               }
@@ -319,7 +320,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "b4efa72d-0c3f-46b0-b790-bbd14a39b705",
+          "key": "56275918-7c1f-4d9c-a043-e32c6a4aab68",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -363,20 +364,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "baba4850-b38a-4075-9e37-06e9d9a43f37",
+                  "key": "1bdc7e28-830a-433a-896a-f0aaa7ab1138",
                   "isBroken": false
                 }
               }
@@ -401,7 +403,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "32e33dd8-1461-4522-b910-ca769964da04",
+                  "key": "9673e9b4-fc90-494d-96c4-aaf7b6888166",
                   "isBroken": false
                 }
               }
@@ -424,12 +426,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "f9ce7546-48fb-42cf-8b69-409e02985475",
+              "key": "e506b8e2-2d54-4fbe-b594-336794433d62",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "bd92a3a1-eb5e-4537-9cc5-fd46d3682ce4",
+          "key": "ded9322e-1f31-4286-8da5-011d61e5f6bd",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -486,7 +488,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "1e02cc0e-ec18-46ae-abf5-6f862168e9d5",
+                  "key": "43c37baa-9ea2-4ee4-b07d-cae3fd26f3f4",
                   "isBroken": false
                 }
               }
@@ -500,7 +502,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "2a0510cc-d98f-4b80-8447-9966b0dfc826",
+          "key": "732b15bc-c0b8-454e-9767-4365351a45f4",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -544,20 +546,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "ea256a20-f17f-40ce-8e4b-0f52b180e654",
+                  "key": "9d184ff1-cd0c-4680-9497-16e626d9e557",
                   "isBroken": false
                 }
               }
@@ -582,7 +585,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "ca5d4303-8f46-450c-903e-2a495dbc1618",
+                  "key": "d6cb36de-c169-4fcf-be5f-c30a16d52c04",
                   "isBroken": false
                 }
               }
@@ -605,12 +608,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "1e6a69fd-8c2f-4dcb-947e-f48a632807bc",
+              "key": "6e9142b1-0abd-4275-b2cc-609abda800f8",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "367572c5-04f0-44c0-83f8-6343ce9c6881",
+          "key": "0fe19058-4e05-4c1d-a9d1-46927bd3a4dc",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -667,7 +670,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "52e6052b-16ad-4294-84ab-1bc49c25f962",
+                  "key": "ec177b09-2409-41fd-a220-d033cc13a8ea",
                   "isBroken": false
                 }
               }
@@ -681,7 +684,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "8a60104d-0c61-4d3d-92f0-036d7b1b537a",
+          "key": "84d4cf35-3a83-4a29-bd56-a7e9ca040172",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -725,20 +728,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "ecc42aa6-15af-4163-8cbc-ef0287c94816",
+                  "key": "c0767735-36c6-4ed2-8cf1-317ffd7fc16c",
                   "isBroken": false
                 }
               }
@@ -763,7 +767,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "80a67ba7-2acc-47d1-a3fc-4190547ef144",
+                  "key": "9da3f01d-189c-4318-bdc5-e00bdf63d32b",
                   "isBroken": false
                 }
               }
@@ -786,12 +790,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "75e3ce5c-c9f4-4b59-85c0-48bb56cb19b7",
+              "key": "d1b5712e-4a64-44fe-8bc3-e1c2ad7fa205",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "71f4b982-187b-4b2f-9e45-821c89cb3b97",
+          "key": "13c0ae2d-7879-4d55-ae8d-4c9bdd44eb56",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -848,7 +852,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "3ec3df3b-5ccc-43dc-88fe-9055d5a8e15d",
+                  "key": "b728f7dc-4b9f-489a-a8d0-98a2e1b3dbd0",
                   "isBroken": false
                 }
               }
@@ -862,7 +866,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "bd3b4cd4-fe89-416a-a271-3409030ccefb",
+          "key": "469198e2-cf72-4fb3-acc0-b7844dda420c",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -906,20 +910,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "14d64244-0202-4b31-90f3-775f4d474eef",
+                  "key": "d49d3a4d-d553-4bfa-ab98-856bb0c324a9",
                   "isBroken": false
                 }
               }
@@ -944,7 +949,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "85b0d69a-2540-437c-9bd2-d2d7d987f81c",
+                  "key": "e34e9c3a-85e5-428b-9a7e-0c320f0dfca7",
                   "isBroken": false
                 }
               }
@@ -967,12 +972,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "e7c74bdf-245e-4d73-8663-0c1873172a0a",
+              "key": "760b52c4-4a00-49cb-bfbd-fc607ab9d6b2",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "e89c06ff-d4aa-443c-b026-c3e9ee9e491c",
+          "key": "5c311a6f-9086-4010-bc6c-25fb473ccde5",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1029,7 +1034,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "4513054f-0e0e-4302-8676-3d4b27182f75",
+                  "key": "19c36372-007e-4f79-97c3-f010507cbe61",
                   "isBroken": false
                 }
               }
@@ -1043,7 +1048,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "6c44d874-2406-4663-9b94-479276825ced",
+          "key": "fd25ec72-6406-43e4-bb7c-69df6733541f",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1087,20 +1092,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "1e205375-65a1-4154-be46-fa5635ff5416",
+                  "key": "176e8057-48f0-4960-9125-c55aeca4f204",
                   "isBroken": false
                 }
               }
@@ -1125,7 +1131,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "c71a7e5c-3350-4470-beb3-61ab62220835",
+                  "key": "1b9a3f8d-28e1-4af3-8d10-d448ccc16949",
                   "isBroken": false
                 }
               }
@@ -1148,12 +1154,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "b380625f-b32b-4acb-80ad-26f29319854b",
+              "key": "a06daf23-54b8-452c-ae24-d43108c9603b",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "a5eac884-4614-400e-8089-896d77b8707c",
+          "key": "1eeb57f7-1d57-472c-aba4-6a9be65d4c81",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1210,7 +1216,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "9d62566f-b7f6-482a-b79e-2404e3196e4a",
+                  "key": "ae45d244-6f12-448f-9403-c217a34232b4",
                   "isBroken": false
                 }
               }
@@ -1224,7 +1230,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "40c22439-f38e-4853-bf23-30c998302912",
+          "key": "15527b8a-1663-40a8-af09-1823082720ae",
           "isBroken": false
         },
         "isNotLinked": "yes"
@@ -1268,20 +1274,21 @@
                   "type": "places",
                   "tags": [],
                   "lang": "en-gb",
-                  "slug": "-",
+                  "slug": "information-point-on-level-0",
                   "first_publication_date": "2018-08-10T14:03:19+0000",
-                  "last_publication_date": "2024-05-07T16:35:11+0000",
+                  "last_publication_date": "2025-05-13T12:38:34+0000",
                   "data": {
                     "title": [
                       {
                         "type": "heading1",
-                        "text": "Information Point",
-                        "spans": []
+                        "text": "Information Point on level 0",
+                        "spans": [],
+                        "direction": "ltr"
                       }
                     ]
                   },
                   "link_type": "Document",
-                  "key": "bdaddaaa-7d5d-4e0e-9774-75587fc86895",
+                  "key": "1e964b1d-3439-4a88-896b-90f11a393a2f",
                   "isBroken": false
                 }
               }
@@ -1306,7 +1313,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "7d5a15c7-7e36-46a0-824f-ae54d2b8bd3e",
+                  "key": "350927d1-ba6f-4863-8c0c-4db13d6d1d16",
                   "isBroken": false
                 }
               }
@@ -1329,12 +1336,12 @@
                 ]
               },
               "link_type": "Document",
-              "key": "715d88d3-2e85-4691-a937-6d4d245f7283",
+              "key": "e3b4693a-7c43-41fa-baff-e8853b865377",
               "isBroken": false
             }
           },
           "link_type": "Document",
-          "key": "c4ead250-4ba2-4cac-93ee-7cdacc151ce3",
+          "key": "e1b2f28a-b70f-4ab6-8d2f-b1d9b993993f",
           "isBroken": false
         },
         "isNotLinked": "yes"
