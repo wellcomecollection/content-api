@@ -40,9 +40,10 @@ export const transformAddressableBook = async (
 
   const body = data.body
     ?.map(s => {
-      return s.primary.text.map(t => t.text);
+      return s.primary.text?.map(t => t.text);
     })
-    .flat();
+    .flat()
+    .filter(isNotUndefined);
 
   return [
     {

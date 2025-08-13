@@ -1,3 +1,5 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   seasons {
     title
@@ -9,15 +11,7 @@ const query = `
       }
     }
     body {
-      ...on text {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${workLinksSlices}
       ...on standfirst {
         variation {
           ...on default {

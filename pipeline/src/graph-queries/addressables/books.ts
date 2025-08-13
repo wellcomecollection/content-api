@@ -1,17 +1,11 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   books {
     title
     subtitle
     body {
-      ...on text {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${workLinksSlices}
     }
     promo {
       ...on editorialImage {
