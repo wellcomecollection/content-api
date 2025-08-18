@@ -31,9 +31,10 @@ export const transformAddressablePage = async (
   const title = asTitle(data.title);
   const body = data.body
     ?.map(s => {
-      return s.primary.text.map(t => t.text);
+      return s.primary.text?.map(t => t.text);
     })
-    .flat();
+    .flat()
+    .filter(isNotUndefined);
 
   return [
     {

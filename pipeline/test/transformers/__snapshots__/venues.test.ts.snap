@@ -7,43 +7,13 @@ exports[`eventDocument transformer transforms venues from Prismic to the expecte
       "exceptionalClosedDays": [
         {
           "endDateTime": "00:00",
-          "overrideDate": "2025-04-17T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-04-18T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-04-20T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-02T23:00:00.000Z",
+          "overrideDate": "2025-08-22T23:00:00.000Z",
           "startDateTime": "00:00",
           "type": "Bank holiday",
         },
         {
           "endDateTime": "00:00",
-          "overrideDate": "2025-05-04T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Bank holiday",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-23T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Bank holiday",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-25T23:00:00.000Z",
+          "overrideDate": "2025-08-24T23:00:00.000Z",
           "startDateTime": "00:00",
           "type": "Bank holiday",
         },
@@ -97,43 +67,13 @@ exports[`eventDocument transformer transforms venues from Prismic to the expecte
       "exceptionalClosedDays": [
         {
           "endDateTime": "00:00",
-          "overrideDate": "2025-04-17T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-04-18T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-04-20T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Easter",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-02T23:00:00.000Z",
+          "overrideDate": "2025-08-22T23:00:00.000Z",
           "startDateTime": "00:00",
           "type": "Bank holiday",
         },
         {
           "endDateTime": "00:00",
-          "overrideDate": "2025-05-04T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Bank holiday",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-23T23:00:00.000Z",
-          "startDateTime": "00:00",
-          "type": "Bank holiday",
-        },
-        {
-          "endDateTime": "00:00",
-          "overrideDate": "2025-05-25T23:00:00.000Z",
+          "overrideDate": "2025-08-24T23:00:00.000Z",
           "startDateTime": "00:00",
           "type": "Bank holiday",
         },
