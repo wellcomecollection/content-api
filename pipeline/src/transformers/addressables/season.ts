@@ -17,8 +17,6 @@ export const transformAddressableSeason = async (
 ): Promise<ElasticsearchAddressableSeason[]> => {
   const { data, id, uid, type } = document;
 
-  // Need to use types from prismicio.d.ts everywhere
-  // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as BodiesWithPossibleWorks) || []
   );

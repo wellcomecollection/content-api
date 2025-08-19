@@ -33,8 +33,6 @@ export const transformAddressableArticle = async (
     .filter(isNotUndefined)
     .join(', ');
 
-  // Need to use types from prismicio.d.ts everywhere
-  // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as BodiesWithPossibleWorks) || []
   );
