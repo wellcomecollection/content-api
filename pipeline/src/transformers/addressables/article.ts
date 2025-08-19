@@ -71,7 +71,7 @@ export const transformAddressableArticle = async (
         ),
         contributors,
         body: queryBody,
-        linkedWorks: worksIds,
+        linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
       },
     },
   ];
