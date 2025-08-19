@@ -6,8 +6,8 @@ import { Config } from '@weco/content-api/config';
 import { ifDefined } from '@weco/content-api/src/helpers';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
 import {
+  addressablesFilter,
   addressablesQuery,
-  linkedWorkQuery,
 } from '@weco/content-api/src/queries/addressables';
 import { Clients, Displayable } from '@weco/content-api/src/types';
 import { ResultList } from '@weco/content-api/src/types/responses';
@@ -44,7 +44,7 @@ const addressablesController = (
 
     const mustClauses = [
       ifDefined(queryString, addressablesQuery),
-      ifDefined(linkedWork, linkedWorkQuery),
+      ifDefined(linkedWork, addressablesFilter),
     ].filter(
       (clause): clause is NonNullable<typeof clause> => clause !== undefined
     );

@@ -1,6 +1,6 @@
 import {
+  addressablesFilter,
   addressablesQuery,
-  linkedWorkQuery,
 } from '@weco/content-api/src/queries/addressables';
 
 describe('addressablesQuery', () => {
@@ -27,9 +27,9 @@ describe('addressablesQuery', () => {
   });
 });
 
-describe('linkedWorkQuery', () => {
+describe('addressablesFilter', () => {
   it('creates a term query for the linkedWorks field', () => {
-    const result = linkedWorkQuery('work123');
+    const result = addressablesFilter('work123');
 
     expect(result).toEqual({
       term: {

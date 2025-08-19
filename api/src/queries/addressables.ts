@@ -20,7 +20,7 @@ export const addressablesQuery = (
   },
 });
 
-export const linkedWorkQuery = (workId: string): QueryDslQueryContainer => ({
+export const addressablesFilter = (workId: string): QueryDslQueryContainer => ({
   term: {
     'query.linkedWorks': workId,
   },
