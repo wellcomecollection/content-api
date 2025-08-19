@@ -69,7 +69,7 @@ const applyItemsApiDeepstoreLogic = (
 const run = async () => {
   const elasticClient = await getElasticClient({
     serviceName: 'api',
-    pipelineDate: '2025-05-07',
+    pipelineDate: '2025-07-30',
     hostEndpointAccess: 'public',
   });
 
