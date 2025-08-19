@@ -1,6 +1,6 @@
 // Helper functions for working with the Wellcome Collection Catalogue API
 
-const getWorkUrl = (workId: string): string => {
+const getCatalogueAPIUrl = (workId: string): string => {
   return `https://api.wellcomecollection.org/catalogue/v2/works/${workId}?include=contributors%2Cproduction`;
 };
 
@@ -70,7 +70,7 @@ export const fetchAllWorks = async (
 ): Promise<WorkFetchResult[]> => {
   const fetchPromises = workIds.map(
     async (workId): Promise<WorkFetchResult> => {
-      const url = getWorkUrl(workId);
+      const url = getCatalogueAPIUrl(workId);
 
       try {
         const response = await fetch(url);
