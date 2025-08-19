@@ -3,7 +3,7 @@
   "uid": "groan",
   "url": null,
   "type": "webcomics",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XK9p2RIAAO1vQn__%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XK9p2RIAAO1vQn__%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2019-04-12T09:00:00+0000",
   "last_publication_date": "2024-10-23T10:21:31+0000",
@@ -37,7 +37,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "3a633cc5-ec42-4a74-9cb5-2d3ec55cdb35",
+      "key": "ea3cd7c8-f5da-4a47-a6d6-634d1bdd4291",
       "isBroken": false
     },
     "contributors": [
@@ -60,7 +60,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "7ec5e2f1-c32b-4fab-9e97-bff0d856b2f0",
+          "key": "1c4d5418-f2fd-46df-ae2d-e39e1709ba20",
           "isBroken": false
         },
         "contributor": {
@@ -75,7 +75,7 @@
             "name": "Rob Bidder"
           },
           "link_type": "Document",
-          "key": "4570f0e6-a19f-4440-b48f-a1c47aa1a441",
+          "key": "514f3b5a-3b14-43a3-9331-e9fd1aae0d63",
           "isBroken": false
         }
       }
@@ -190,7 +190,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "dd67ec3d-e90c-4108-a74c-3f8ff85c9ea4",
+          "key": "87dcc591-3a8b-43c9-a13d-db8aa0c616f6",
           "isBroken": false
         }
       }

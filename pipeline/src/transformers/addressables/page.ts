@@ -18,8 +18,6 @@ export const transformAddressablePage = async (
 ): Promise<ElasticsearchAddressablePage[]> => {
   const { data, id, uid, tags, type } = document;
 
-  // Need to use types from prismicio.d.ts everywhere
-  // so we don't need to cast
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as BodiesWithPossibleWorks) || []
   );
@@ -31,9 +29,10 @@ export const transformAddressablePage = async (
   const title = asTitle(data.title);
   const body = data.body
     ?.map(s => {
-      return s.primary.text.map(t => t.text);
+      return s.primary.text?.map(t => t.text);
     })
-    .flat();
+    .flat()
+    .filter(isNotUndefined);
 
   return [
     {

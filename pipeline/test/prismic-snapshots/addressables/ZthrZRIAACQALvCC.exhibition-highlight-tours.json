@@ -3,10 +3,10 @@
   "uid": "jason-and-the-adventure-of-254",
   "url": null,
   "type": "exhibition-highlight-tours",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZthrZRIAACQALvCC%22%29+%5D%5D",
-  "tags": [],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZthrZRIAACQALvCC%22%29+%5D%5D",
+  "tags": ["delist"],
   "first_publication_date": "2024-09-16T13:19:23+0000",
-  "last_publication_date": "2024-11-20T09:43:33+0000",
+  "last_publication_date": "2025-05-12T09:52:55+0000",
   "slugs": ["jason-and-the-adventure-of-254"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -57,7 +57,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "30418a4d-912b-45ae-90e9-2aacf5ca0a3d",
+      "key": "9a745b6a-4788-4210-9044-6f9a3fe017bc",
       "isBroken": false
     },
     "intro_text": [],

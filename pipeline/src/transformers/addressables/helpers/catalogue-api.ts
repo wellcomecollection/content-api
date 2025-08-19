@@ -1,7 +1,6 @@
 // Helper functions for working with the Wellcome Collection Catalogue API
-import { isNotUndefined } from '@weco/content-pipeline/src/helpers/type-guards';
 
-const getWorkUrl = (workId: string): string => {
+const getCatalogueAPIUrl = (workId: string): string => {
   return `https://api.wellcomecollection.org/catalogue/v2/works/${workId}?include=contributors%2Cproduction`;
 };
 
@@ -17,10 +16,10 @@ export type TransformedWork = {
   id: string;
   title: string;
   type: string;
+  workType?: string;
   thumbnailUrl?: string;
   date?: string;
   mainContributor?: string;
-  labels: string[];
 };
 
 // Types for the Catalogue API response (partial, based on what we need)
@@ -45,9 +44,6 @@ type CatalogueWork = {
   workType?: {
     label: string;
   };
-  availabilities?: {
-    id: string;
-  }[];
 };
 
 export const transformWork = (work: CatalogueWork): TransformedWork => {
@@ -59,22 +55,14 @@ export const transformWork = (work: CatalogueWork): TransformedWork => {
     contributor => contributor.primary
   )?.agent.label;
 
-  const isOnline = (work.availabilities ?? []).some(
-    ({ id }) => id === 'online'
-  );
-
-  const labels = (
-    isOnline ? [work.workType?.label, 'Online'] : [work.workType?.label]
-  ).filter(isNotUndefined);
-
   return {
     id: work.id,
     title: work.title,
-    type: work.type,
+    type: work.type, // TODO is this useful? It's always "Work"
+    workType: work.workType?.label,
     thumbnailUrl: work.thumbnail?.url,
     date,
     mainContributor,
-    labels,
   };
 };
 export const fetchAllWorks = async (
@@ -82,7 +70,7 @@ export const fetchAllWorks = async (
 ): Promise<WorkFetchResult[]> => {
   const fetchPromises = workIds.map(
     async (workId): Promise<WorkFetchResult> => {
-      const url = getWorkUrl(workId);
+      const url = getCatalogueAPIUrl(workId);
 
       try {
         const response = await fetch(url);

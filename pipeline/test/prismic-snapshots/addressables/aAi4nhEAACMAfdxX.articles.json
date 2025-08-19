@@ -3,7 +3,7 @@
   "uid": "how-the-slave-trades-medical-legacies-persist",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aIOl-BIAACMA_UsH&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2025-04-24T10:55:24+0000",
   "last_publication_date": "2025-04-24T11:51:59+0000",
@@ -28,6 +28,15 @@
       "slug": "article",
       "first_publication_date": "2018-10-03T15:24:27+0000",
       "last_publication_date": "2023-10-02T13:38:58+0000",
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Article",
+            "spans": []
+          }
+        ]
+      },
       "link_type": "Document",
       "key": "f0ecacf6-a4a0-48e3-8d46-443452c2a8bb",
       "isBroken": false
@@ -210,8 +219,7 @@
               "spans": [],
               "direction": "ltr"
             }
-          ],
-          "hasRoundedCorners": true
+          ]
         },
         "id": "editorialImage$64749f86-504c-4889-a56b-4c1bddd40b29",
         "slice_type": "editorialImage",
@@ -625,8 +633,7 @@
               "spans": [],
               "direction": "ltr"
             }
-          ],
-          "hasRoundedCorners": true
+          ]
         },
         "id": "editorialImage$e7359269-42fb-41ea-9969-ae76d6ec564b",
         "slice_type": "editorialImage",
@@ -669,26 +676,6 @@
         },
         "id": "text$8d734517-cce9-4160-bf9c-c26494942d74",
         "slice_type": "text",
-        "slice_label": null
-      },
-      {
-        "variation": "default",
-        "version": "initial",
-        "items": [],
-        "primary": {
-          "text": [
-            {
-              "type": "paragraph",
-              "text": "We were simultaneously seen as defective and somewhat superhuman – an inferior race that could withstand conditions that white people could not.  ",
-              "spans": [],
-              "direction": "ltr"
-            }
-          ],
-          "citation": [],
-          "isPullOrReview": true
-        },
-        "id": "quote$3159df2c-240c-434c-b2a6-0f42be56cfd6",
-        "slice_type": "quote",
         "slice_label": null
       },
       {
@@ -958,8 +945,7 @@
               ],
               "direction": "ltr"
             }
-          ],
-          "hasRoundedCorners": false
+          ]
         },
         "id": "editorialImage$4f6b74c0-ef5e-4900-b7d2-338651e49f9c",
         "slice_type": "editorialImage",
@@ -1128,26 +1114,6 @@
           "text": [
             {
               "type": "paragraph",
-              "text": "Black people’s cultures and behaviours remain at risk of pathologisation – treated as if they’re illnesses in need of cure.",
-              "spans": [],
-              "direction": "ltr"
-            }
-          ],
-          "citation": [],
-          "isPullOrReview": true
-        },
-        "id": "quote$4336fff6-42fc-45cc-a800-43f706e8c89d",
-        "slice_type": "quote",
-        "slice_label": null
-      },
-      {
-        "variation": "default",
-        "version": "initial",
-        "items": [],
-        "primary": {
-          "text": [
-            {
-              "type": "paragraph",
               "text": "During this era, the logics of the plantation often permeated the treatment of Black people in asylums, with asylum superintendents such as Daniel Burr Conrad in Virginia suggesting that manual labour was the “chief” cure for Black asylum residents. Into the 20th century, Black detainees were put to work in agricultural fields in the South, while Black civil rights activists were often admitted to institutions for what was described by some psychiatrists as a “protest psychosis”.  ",
               "spans": [
                 {
@@ -1245,8 +1211,7 @@
               "spans": [],
               "direction": "ltr"
             }
-          ],
-          "hasRoundedCorners": true
+          ]
         },
         "id": "editorialImage$4ec2e7f1-0cbe-4007-aed1-dadc1b4dc90f",
         "slice_type": "editorialImage",
@@ -1321,18 +1286,6 @@
     ],
     "contributors": [
       {
-        "role": {
-          "id": "WcUWeCgAAFws-nGh",
-          "type": "editorial-contributor-roles",
-          "tags": [],
-          "lang": "en-gb",
-          "slug": "author",
-          "first_publication_date": "2017-09-22T13:56:23+0000",
-          "last_publication_date": "2022-08-10T14:18:33+0000",
-          "link_type": "Document",
-          "key": "680c95d4-fb44-4fde-b23c-92b411dbd9dd",
-          "isBroken": false
-        },
         "contributor": {
           "id": "aAkWOxEAACEAfnP3",
           "type": "people",
@@ -1341,25 +1294,15 @@
           "slug": "micha-frazer-carroll",
           "first_publication_date": "2025-04-23T16:33:01+0000",
           "last_publication_date": "2025-04-23T16:34:56+0000",
+          "data": {
+            "name": "Micha Frazer-Carroll"
+          },
           "link_type": "Document",
           "key": "2e407400-97d1-401f-834b-c641d3ebeb0a",
           "isBroken": false
-        },
-        "description": []
+        }
       },
       {
-        "role": {
-          "id": "Wux6DyIAAO5n3lzk",
-          "type": "editorial-contributor-roles",
-          "tags": [],
-          "lang": "en-gb",
-          "slug": "artist",
-          "first_publication_date": "2018-05-04T15:19:48+0000",
-          "last_publication_date": "2019-08-14T14:31:04+0000",
-          "link_type": "Document",
-          "key": "e4eb90d6-78ad-49e2-bc94-334d5022ce83",
-          "isBroken": false
-        },
         "contributor": {
           "id": "YK0WWxEAACMAQsG9",
           "type": "people",
@@ -1368,14 +1311,15 @@
           "slug": "joelle-avelino",
           "first_publication_date": "2021-05-25T15:24:37+0000",
           "last_publication_date": "2025-04-23T16:29:42+0000",
+          "data": {
+            "name": "Joelle Avelino"
+          },
           "link_type": "Document",
           "key": "f97e32c0-4a61-41ca-88ad-1a63e18a2db9",
           "isBroken": false
-        },
-        "description": []
+        }
       }
     ],
-    "contributorsTitle": [],
     "promo": [
       {
         "primary": {
@@ -1387,70 +1331,6 @@
               "direction": "ltr"
             }
           ],
-          "image": {
-            "dimensions": {
-              "width": 5039,
-              "height": 2835
-            },
-            "alt": "On the left are three black silhouettes of two adults and a child who are enslaved. They are in chains and engaged in agricultural activities. Separately, on the right is a family portrait with three children, an older woman and a man. Some of them are looking towards the people working on the plantation. Everyone in the illustration is connected along a bright yellow path which suggests a sense of connection between them all. Elements of flora and a deep orange background add to the rural setting.",
-            "copyright": "How the slave trade’s medical legacies persist | Artwork: Joelle Avelino for Wellcome Collection | | | CC-BY-NC-ND | |",
-            "url": "https://images.prismic.io/wellcomecollection/aAj4-PIqRLdaBheX_joelle_avelino_headline.jpg?auto=format,compress",
-            "id": "aAj4-PIqRLdaBheX",
-            "edit": {
-              "x": 0,
-              "y": 0,
-              "zoom": 1,
-              "background": "transparent"
-            },
-            "32:15": {
-              "dimensions": {
-                "width": 3200,
-                "height": 1500
-              },
-              "alt": "On the left are three black silhouettes of two adults and a child who are enslaved. They are in chains and engaged in agricultural activities. Separately, on the right is a family portrait with three children, an older woman and a man. Some of them are looking towards the people working on the plantation. Everyone in the illustration is connected along a bright yellow path which suggests a sense of connection between them all. Elements of flora and a deep orange background add to the rural setting.",
-              "copyright": "How the slave trade’s medical legacies persist | Artwork: Joelle Avelino for Wellcome Collection | | | CC-BY-NC-ND | |",
-              "url": "https://images.prismic.io/wellcomecollection/aAj4-PIqRLdaBheX_joelle_avelino_headline.jpg?auto=format,compress&rect=0,236,5039,2362&w=3200&h=1500",
-              "id": "aAj4-PIqRLdaBheX",
-              "edit": {
-                "x": 0,
-                "y": 236,
-                "zoom": 1,
-                "background": "transparent"
-              }
-            },
-            "16:9": {
-              "dimensions": {
-                "width": 3200,
-                "height": 1800
-              },
-              "alt": "On the left are three black silhouettes of two adults and a child who are enslaved. They are in chains and engaged in agricultural activities. Separately, on the right is a family portrait with three children, an older woman and a man. Some of them are looking towards the people working on the plantation. Everyone in the illustration is connected along a bright yellow path which suggests a sense of connection between them all. Elements of flora and a deep orange background add to the rural setting.",
-              "copyright": "How the slave trade’s medical legacies persist | Artwork: Joelle Avelino for Wellcome Collection | | | CC-BY-NC-ND | |",
-              "url": "https://images.prismic.io/wellcomecollection/aAj4-PIqRLdaBheX_joelle_avelino_headline.jpg?auto=format,compress&rect=0,0,5039,2834&w=3200&h=1800",
-              "id": "aAj4-PIqRLdaBheX",
-              "edit": {
-                "x": 0,
-                "y": 0,
-                "zoom": 1,
-                "background": "transparent"
-              }
-            },
-            "square": {
-              "dimensions": {
-                "width": 3200,
-                "height": 3200
-              },
-              "alt": "On the left are three black silhouettes of two adults and a child who are enslaved. They are in chains and engaged in agricultural activities. Separately, on the right is a family portrait with three children, an older woman and a man. Some of them are looking towards the people working on the plantation. Everyone in the illustration is connected along a bright yellow path which suggests a sense of connection between them all. Elements of flora and a deep orange background add to the rural setting.",
-              "copyright": "How the slave trade’s medical legacies persist | Artwork: Joelle Avelino for Wellcome Collection | | | CC-BY-NC-ND | |",
-              "url": "https://images.prismic.io/wellcomecollection/aAj4-PIqRLdaBheX_joelle_avelino_headline.jpg?auto=format,compress&rect=1102,0,2835,2835&w=3200&h=3200",
-              "id": "aAj4-PIqRLdaBheX",
-              "edit": {
-                "x": 1102,
-                "y": 0,
-                "zoom": 1,
-                "background": "transparent"
-              }
-            }
-          },
           "link": null
         },
         "items": [],
@@ -1458,34 +1338,6 @@
         "slice_type": "editorialImage",
         "slice_label": null
       }
-    ],
-    "metadataDescription": [],
-    "exploreMoreDocument": {
-      "link_type": "Document"
-    },
-    "series": [
-      {
-        "series": {
-          "link_type": "Document"
-        },
-        "positionInSeries": null
-      }
-    ],
-    "seasons": [
-      {
-        "season": {
-          "link_type": "Document"
-        }
-      }
-    ],
-    "parents": [
-      {
-        "order": null,
-        "parent": {
-          "link_type": "Document"
-        }
-      }
-    ],
-    "publishDate": null
+    ]
   }
 }

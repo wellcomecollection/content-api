@@ -1,3 +1,5 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   pages {
     title
@@ -10,15 +12,7 @@ const query = `
     }
     introText
     body {
-      ...on text {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${workLinksSlices}
     }
   }
 `;
