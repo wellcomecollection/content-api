@@ -212,9 +212,9 @@ const getScheduledEventsData = ({
   };
 };
 
-export const transformEventDocument = (
+export const transformEventDocument = async (
   document: EventPrismicDocument | ExhibitionPrismicDocument
-): ElasticsearchEventDocument[] => {
+): Promise<ElasticsearchEventDocument[]> => {
   const {
     data: { title, promo },
     id,

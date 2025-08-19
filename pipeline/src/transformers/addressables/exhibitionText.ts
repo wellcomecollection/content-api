@@ -8,10 +8,17 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ExhibitionTextPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionText } from '@weco/content-pipeline/src/types/transformed';
 
+import { TransformedWork } from './helpers/catalogue-api';
+
 export const transformAddressableExhibitionText = (
   document: ExhibitionTextPrismicDocument
 ): ElasticsearchAddressableExhibitionText[] => {
   const { data, id, uid, type } = document;
+
+  // Exhibition texts don't have body content that can contain works references
+  const worksIds: string[] = [];
+  const transformedWorks: TransformedWork[] = [];
+
   const relatedExhibition = isFilledLinkToDocumentWithData(
     data.related_exhibition
   )
@@ -44,7 +51,7 @@ export const transformAddressableExhibitionText = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Exhibition text',
@@ -52,12 +59,14 @@ export const transformAddressableExhibitionText = (
         uid,
         title: displayTitle,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Exhibition text',
         title,
         body,
         description: queryDescription,
+        linkedWorks: worksIds,
       },
     },
   ];

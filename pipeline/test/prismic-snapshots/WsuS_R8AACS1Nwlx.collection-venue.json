@@ -3,10 +3,10 @@
   "uid": null,
   "url": null,
   "type": "collection-venue",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aBuRgRAAACMAGYh6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WsuS_R8AACS1Nwlx%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WsuS_R8AACS1Nwlx%22%29+%5D%5D",
   "tags": ["ShortNoticeClosure"],
   "first_publication_date": "2018-04-09T16:21:23+0000",
-  "last_publication_date": "2025-05-06T09:01:00+0000",
+  "last_publication_date": "2025-08-11T09:07:17+0000",
   "slugs": ["library"],
   "linked_documents": [],
   "lang": "en-gb",
@@ -57,43 +57,13 @@
     ],
     "modifiedDayOpeningTimes": [
       {
-        "overrideDate": "2025-04-17T23:00:00+0000",
-        "type": "Easter",
-        "startDateTime": null,
-        "endDateTime": null
-      },
-      {
-        "overrideDate": "2025-04-18T23:00:00+0000",
-        "type": "Easter",
-        "startDateTime": null,
-        "endDateTime": null
-      },
-      {
-        "overrideDate": "2025-04-20T23:00:00+0000",
-        "type": "Easter",
-        "startDateTime": null,
-        "endDateTime": null
-      },
-      {
-        "overrideDate": "2025-05-02T23:00:00+0000",
+        "overrideDate": "2025-08-22T23:00:00+0000",
         "type": "Bank holiday",
         "startDateTime": null,
         "endDateTime": null
       },
       {
-        "overrideDate": "2025-05-04T23:00:00+0000",
-        "type": "Bank holiday",
-        "startDateTime": null,
-        "endDateTime": null
-      },
-      {
-        "overrideDate": "2025-05-23T23:00:00+0000",
-        "type": "Bank holiday",
-        "startDateTime": null,
-        "endDateTime": null
-      },
-      {
-        "overrideDate": "2025-05-25T23:00:00+0000",
+        "overrideDate": "2025-08-24T23:00:00+0000",
         "type": "Bank holiday",
         "startDateTime": null,
         "endDateTime": null

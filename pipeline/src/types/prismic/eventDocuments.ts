@@ -6,6 +6,7 @@ import {
   PrismicFormat,
   WithContributors,
 } from '.';
+import { WithBody } from './body';
 import { WithSeries } from './series';
 
 export type WithEventFormat = {
@@ -94,6 +95,7 @@ export type EventPrismicDocument = prismic.PrismicDocument<
     WithAudiences &
     WithContributors &
     WithSchedule &
-    CommonPrismicFields,
+    CommonPrismicFields &
+    WithBody,
   'events'
 >;

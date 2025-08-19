@@ -1,3 +1,5 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   projects {
     title
@@ -12,15 +14,7 @@ const query = `
       title
     }
     body {
-      ...on text {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${workLinksSlices}
     }
     contributors {
       contributor {

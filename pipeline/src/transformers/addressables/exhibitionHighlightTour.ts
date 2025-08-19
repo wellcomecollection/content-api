@@ -8,10 +8,17 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ExhibitionHighlightTourPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/types/transformed';
 
+import { TransformedWork } from './helpers/catalogue-api';
+
 export const transformAddressableExhibitionHighlightTour = (
   document: ExhibitionHighlightTourPrismicDocument
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
   const { data, id, uid, type } = document;
+
+  // Exhibition highlight tours don't have body content that can contain works references
+  const worksIds: string[] = [];
+  const transformedWorks: TransformedWork[] = [];
+
   const relatedExhibition = isFilledLinkToDocumentWithData(
     data.related_exhibition
   )
@@ -58,16 +65,18 @@ export const transformAddressableExhibitionHighlightTour = (
       id,
       uid,
       description,
+      linkedWorks: transformedWorks,
     },
     query: {
       type: 'Exhibition highlight tour' as const,
       description,
+      linkedWorks: worksIds,
     },
   };
 
   const audio = {
     ...shared,
-    id: `${id}/${type}/audio`,
+    id: `${id}.${type}.audio`,
     display: {
       ...shared.display,
       highlightTourType: 'audio',
@@ -78,7 +87,7 @@ export const transformAddressableExhibitionHighlightTour = (
 
   const bsl = {
     ...shared,
-    id: `${id}/${type}/bsl`,
+    id: `${id}.${type}.bsl`,
     display: { ...shared.display, highlightTourType: 'bsl', title: bslTitle },
     query: { ...shared.query, title: bslTitle, body: bslBody },
   };

@@ -4,13 +4,17 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
+import { BodiesWithPossibleWorks } from '@weco/content-pipeline/src/transformers/addressables/helpers/extract-works-ids';
 import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableArticle } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableArticle = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
+
+export const transformAddressableArticle = async (
   document: ArticlePrismicDocument
-): ElasticsearchAddressableArticle[] => {
+): Promise<ElasticsearchAddressableArticle[]> => {
   const { data, id, uid, type } = document;
 
   const description = primaryImageCaption(data.promo);
@@ -29,6 +33,11 @@ export const transformAddressableArticle = (
     .filter(isNotUndefined)
     .join(', ');
 
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as BodiesWithPossibleWorks) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
+
   const queryBody = data.body
     ?.map(slice => {
       if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
@@ -44,7 +53,7 @@ export const transformAddressableArticle = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Article',
@@ -52,6 +61,7 @@ export const transformAddressableArticle = (
         uid,
         title,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Article',
@@ -61,6 +71,7 @@ export const transformAddressableArticle = (
         ),
         contributors,
         body: queryBody,
+        linkedWorks: worksIds,
       },
     },
   ];

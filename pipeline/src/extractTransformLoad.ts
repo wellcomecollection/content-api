@@ -23,7 +23,9 @@ type ETLParameters<PrismicDocument, ElasticsearchDocument> = {
   graphQuery: string;
   filters?: string[];
   parentDocumentTypes: Set<string>;
-  transformer: (prismicDoc: PrismicDocument) => ElasticsearchDocument[];
+  transformer: (
+    prismicDoc: PrismicDocument
+  ) => Promise<ElasticsearchDocument[]>;
 };
 
 export const createETLPipeline =
@@ -96,7 +98,11 @@ export const createETLPipeline =
       clients.elastic,
       etlParameters.indexConfig.index,
       concat(initialParentDocuments, remainingParentDocuments).pipe(
-        mergeMap(etlParameters.transformer)
+        mergeMap(async doc => {
+          const result = await etlParameters.transformer(doc);
+          return result;
+        }),
+        mergeMap(docs => docs)
       )
     );
     log.info(

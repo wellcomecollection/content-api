@@ -8,10 +8,21 @@ import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/uti
 import { ProjectPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableProject } from '@weco/content-pipeline/src/types/transformed';
 
-export const transformAddressableProject = (
+import { fetchAndTransformWorks } from './helpers/catalogue-api';
+import {
+  BodiesWithPossibleWorks,
+  getWorksIdsFromDocumentBody,
+} from './helpers/extract-works-ids';
+
+export const transformAddressableProject = async (
   document: ProjectPrismicDocument
-): ElasticsearchAddressableProject[] => {
+): Promise<ElasticsearchAddressableProject[]> => {
   const { data, id, uid, type } = document;
+
+  const worksIds = getWorksIdsFromDocumentBody(
+    (data.body as BodiesWithPossibleWorks) || []
+  );
+  const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const title = asTitle(data.title);
   const format = isFilledLinkToDocumentWithData(data.format)
@@ -39,7 +50,7 @@ export const transformAddressableProject = (
 
   return [
     {
-      id: `${id}/${type}`,
+      id: `${id}.${type}`,
       uid,
       display: {
         type: 'Project',
@@ -48,6 +59,7 @@ export const transformAddressableProject = (
         title,
         format,
         description,
+        linkedWorks: transformedWorks,
       },
       query: {
         type: 'Project',
@@ -55,6 +67,7 @@ export const transformAddressableProject = (
         description: queryDescription,
         contributors,
         body: queryBody,
+        linkedWorks: worksIds,
       },
     },
   ];
