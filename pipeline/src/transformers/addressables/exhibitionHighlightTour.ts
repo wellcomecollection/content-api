@@ -70,7 +70,7 @@ export const transformAddressableExhibitionHighlightTour = (
     query: {
       type: 'Exhibition highlight tour' as const,
       description,
-      linkedWorks: worksIds,
+      linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
     },
   };
 

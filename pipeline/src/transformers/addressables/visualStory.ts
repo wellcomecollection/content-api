@@ -38,7 +38,7 @@ export const transformAddressableVisualStory = async (
         type: 'Visual story',
         title,
         description,
-        linkedWorks: worksIds,
+        linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
       },
     },
   ];
