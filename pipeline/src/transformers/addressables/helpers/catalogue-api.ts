@@ -58,7 +58,7 @@ export const transformWork = (work: CatalogueWork): TransformedWork => {
   return {
     id: work.id,
     title: work.title,
-    type: work.type, // TODO is this useful? It's always "Work"
+    type: work.type,
     workType: work.workType?.label,
     thumbnailUrl: work.thumbnail?.url,
     date,
