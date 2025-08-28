@@ -53,3 +53,21 @@ data "aws_iam_policy_document" "scheduler_invoke_lambda" {
     resources = [module.pipeline_lambda.lambda.arn]
   }
 }
+
+resource "aws_scheduler_schedule" "daily_addressables" {
+  name                = "content-pipeline-daily-addressables-${var.pipeline_date}"
+  schedule_expression = "rate(24 hours)"
+
+  target {
+    arn      = module.pipeline_lambda.lambda.arn
+    role_arn = aws_iam_role.scheduler.arn
+
+    input = jsonencode({
+      contentType = "addressables"
+    })
+  }
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+}
