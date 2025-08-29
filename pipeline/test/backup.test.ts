@@ -31,8 +31,8 @@ describe('backupPrismicContent', () => {
 
   it('should backup all document types to S3', async () => {
     // Mock Prismic responses
-    mockPrismicClient.getAllByType.mockImplementation(
-      (type: string) => Promise.resolve([
+    mockPrismicClient.getAllByType.mockImplementation((type: string) =>
+      Promise.resolve([
         { id: `${type}-1`, type, data: { title: 'Test' } },
         { id: `${type}-2`, type, data: { title: 'Test 2' } },
       ])
@@ -46,24 +46,34 @@ describe('backupPrismicContent', () => {
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('books');
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('events');
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('exhibitions');
-    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('exhibition-texts');
-    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('exhibition-highlight-tours');
+    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith(
+      'exhibition-texts'
+    );
+    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith(
+      'exhibition-highlight-tours'
+    );
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('pages');
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('projects');
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('seasons');
-    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('visual-stories');
+    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith(
+      'visual-stories'
+    );
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('webcomics');
-    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith('collection-venue');
+    expect(mockPrismicClient.getAllByType).toHaveBeenCalledWith(
+      'collection-venue'
+    );
 
     // Should upload each document type to S3
     expect(mockUploadToS3).toHaveBeenCalledTimes(12);
-    
+
     // Check that each call has the expected pattern
     const uploadCalls = mockUploadToS3.mock.calls;
     uploadCalls.forEach((call: any[], index: number) => {
       const [bucketName, s3Key, content] = call;
       expect(bucketName).toBe('test-bucket');
-      expect(s3Key).toMatch(/^backups\/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\/[a-z-]+\.json$/);
+      expect(s3Key).toMatch(
+        /^backups\/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\/[a-z-]+\.json$/
+      );
       expect(content).toContain('"id"');
       expect(content).toContain('"type"');
     });
@@ -75,21 +85,28 @@ describe('backupPrismicContent', () => {
       if (type === 'articles') {
         return Promise.reject(new Error('Prismic error'));
       }
-      return Promise.resolve([{ id: `${type}-1`, type, data: { title: 'Test' } }]);
+      return Promise.resolve([
+        { id: `${type}-1`, type, data: { title: 'Test' } },
+      ]);
     });
 
     // Mock console.error to verify error handling
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleSpy = jest
+      .spyOn(console, 'error')
+      .mockImplementation(() => {});
 
     await backupPrismicContent(mockClients, 'test-bucket');
 
     // Should still call getAllByType for each document type
     expect(mockPrismicClient.getAllByType).toHaveBeenCalledTimes(12);
-    
+
     // Should upload successful document types (11 out of 12)
     expect(mockUploadToS3).toHaveBeenCalledTimes(11);
-    
+
     // Should log the error
-    expect(consoleSpy).toHaveBeenCalledWith('Error backing up articles:', expect.any(Error));
+    expect(consoleSpy).toHaveBeenCalledWith(
+      'Error backing up articles:',
+      expect.any(Error)
+    );
   });
 });

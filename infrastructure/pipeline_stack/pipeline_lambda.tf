@@ -15,9 +15,9 @@ module "pipeline_lambda" {
 
   environment = {
     variables = {
-      PIPELINE_DATE        = var.pipeline_date
-      NODE_OPTIONS         = "--enable-source-maps"
-      BACKUP_BUCKET_NAME   = var.backup_bucket_name
+      PIPELINE_DATE      = var.pipeline_date
+      NODE_OPTIONS       = "--enable-source-maps"
+      BACKUP_BUCKET_NAME = var.backup_bucket_name
     }
   }
 
@@ -59,7 +59,7 @@ data "aws_iam_policy_document" "pipeline_s3_backup_access" {
       "s3:PutObject",
       "s3:PutObjectAcl"
     ]
-    effect = "Allow"
+    effect    = "Allow"
     resources = ["${var.backup_bucket_arn}/*"]
   }
 }

@@ -14,8 +14,9 @@ let event: WindowEvent | BackupEvent;
 
 if (operation === 'backup') {
   // Set up environment for local backup testing
-  process.env.BACKUP_BUCKET_NAME = process.env.BACKUP_BUCKET_NAME || 'test-backup-bucket';
-  
+  process.env.BACKUP_BUCKET_NAME =
+    process.env.BACKUP_BUCKET_NAME || 'test-backup-bucket';
+
   event = {
     operation: 'backup',
   };

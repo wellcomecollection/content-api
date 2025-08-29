@@ -66,7 +66,9 @@ export const createHandler =
     if ('operation' in event && event.operation === 'backup') {
       const bucketName = process.env.BACKUP_BUCKET_NAME;
       if (!bucketName) {
-        throw new Error('BACKUP_BUCKET_NAME environment variable must be set for backup operations');
+        throw new Error(
+          'BACKUP_BUCKET_NAME environment variable must be set for backup operations'
+        );
       }
       await backupPrismicContent(clients, bucketName);
       return;
@@ -77,16 +79,28 @@ export const createHandler =
     if (!windowEvent.contentType) {
       throw new Error('Event contentType must be specified!');
     }
-    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'addressables') {
+    if (
+      windowEvent.contentType === 'all' ||
+      windowEvent.contentType === 'addressables'
+    ) {
       await loadAddressables(clients, windowEvent);
     }
-    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'articles') {
+    if (
+      windowEvent.contentType === 'all' ||
+      windowEvent.contentType === 'articles'
+    ) {
       await loadArticles(clients, windowEvent);
     }
-    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'events') {
+    if (
+      windowEvent.contentType === 'all' ||
+      windowEvent.contentType === 'events'
+    ) {
       await loadEvents(clients, windowEvent);
     }
-    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'venues') {
+    if (
+      windowEvent.contentType === 'all' ||
+      windowEvent.contentType === 'venues'
+    ) {
       await loadVenues(clients, windowEvent);
     }
   };

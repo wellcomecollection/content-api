@@ -42,7 +42,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "prismic_backup" {
     status = "Enabled"
 
     expiration {
-      days = 90  # 3 months as specified in requirements
+      days = 90 # 3 months as specified in requirements
     }
 
     noncurrent_version_expiration {
