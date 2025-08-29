@@ -15,8 +15,9 @@ module "pipeline_lambda" {
 
   environment = {
     variables = {
-      PIPELINE_DATE = var.pipeline_date
-      NODE_OPTIONS  = "--enable-source-maps"
+      PIPELINE_DATE        = var.pipeline_date
+      NODE_OPTIONS         = "--enable-source-maps"
+      BACKUP_BUCKET_NAME   = var.backup_bucket_name
     }
   }
 
@@ -52,14 +53,35 @@ data "aws_iam_policy_document" "pipeline_secrets_access" {
   }
 }
 
+data "aws_iam_policy_document" "pipeline_s3_backup_access" {
+  statement {
+    actions = [
+      "s3:PutObject",
+      "s3:PutObjectAcl"
+    ]
+    effect = "Allow"
+    resources = ["${var.backup_bucket_arn}/*"]
+  }
+}
+
 resource "aws_iam_policy" "pipeline_secrets_access" {
   name   = "${local.pipeline_lambda_name}-secrets-access"
   policy = data.aws_iam_policy_document.pipeline_secrets_access.json
 }
 
+resource "aws_iam_policy" "pipeline_s3_backup_access" {
+  name   = "${local.pipeline_lambda_name}-s3-backup-access"
+  policy = data.aws_iam_policy_document.pipeline_s3_backup_access.json
+}
+
 resource "aws_iam_role_policy_attachment" "pipeline_lambda_role_attachment" {
   role       = module.pipeline_lambda.lambda_role.name
   policy_arn = aws_iam_policy.pipeline_secrets_access.arn
+}
+
+resource "aws_iam_role_policy_attachment" "pipeline_lambda_s3_backup_attachment" {
+  role       = module.pipeline_lambda.lambda_role.name
+  policy_arn = aws_iam_policy.pipeline_s3_backup_access.arn
 }
 
 resource "aws_security_group" "egress" {

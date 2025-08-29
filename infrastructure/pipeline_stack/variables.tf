@@ -39,3 +39,11 @@ variable "lambda_alarm_topic_arn" {
 variable "deployment_template_id" {
   type = string
 }
+
+variable "backup_bucket_name" {
+  type = string
+}
+
+variable "backup_bucket_arn" {
+  type = string
+}

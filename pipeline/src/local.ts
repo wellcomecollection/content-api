@@ -2,25 +2,38 @@ import { Context } from 'aws-lambda';
 
 import { getElasticClient } from '@weco/content-common/services/elasticsearch';
 
-import { WindowEvent } from './event';
+import { BackupEvent, WindowEvent } from './event';
 import { createHandler } from './handler';
 import { createPrismicClient } from './services/prismic';
 
 const prismicClient = createPrismicClient();
 
-const contentType = (process.argv[2] ?? 'all') as
-  | 'addressables'
-  | 'articles'
-  | 'events'
-  | 'venues'
-  | 'all';
+const operation = process.argv[2];
 
-// Reindexes all documents by default
-const windowEvent: WindowEvent = {
-  contentType,
-  start: undefined,
-  end: undefined,
-};
+let event: WindowEvent | BackupEvent;
+
+if (operation === 'backup') {
+  // Set up environment for local backup testing
+  process.env.BACKUP_BUCKET_NAME = process.env.BACKUP_BUCKET_NAME || 'test-backup-bucket';
+  
+  event = {
+    operation: 'backup',
+  };
+} else {
+  const contentType = (operation ?? 'all') as
+    | 'addressables'
+    | 'articles'
+    | 'events'
+    | 'venues'
+    | 'all';
+
+  // Reindexes all documents by default
+  event = {
+    contentType,
+    start: undefined,
+    end: undefined,
+  };
+}
 
 getElasticClient({
   pipelineDate: '2025-07-30',
@@ -31,5 +44,5 @@ getElasticClient({
     prismic: prismicClient,
     elastic: elasticClient,
   });
-  return handler(windowEvent, {} as Context, () => {});
+  return handler(event, {} as Context, () => {});
 });

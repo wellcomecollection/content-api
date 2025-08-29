@@ -1,7 +1,8 @@
 import * as prismic from '@prismicio/client';
 import { Handler } from 'aws-lambda';
 
-import { WindowEvent } from './event';
+import { backupPrismicContent } from './backup';
+import { BackupEvent, WindowEvent } from './event';
 import { createETLPipeline } from './extractTransformLoad';
 import {
   articlesQuery,
@@ -59,21 +60,33 @@ const loadVenues = createETLPipeline({
 });
 
 export const createHandler =
-  (clients: Clients): Handler<WindowEvent> =>
+  (clients: Clients): Handler<WindowEvent | BackupEvent> =>
   async event => {
-    if (!event.contentType) {
+    // Handle backup operation
+    if ('operation' in event && event.operation === 'backup') {
+      const bucketName = process.env.BACKUP_BUCKET_NAME;
+      if (!bucketName) {
+        throw new Error('BACKUP_BUCKET_NAME environment variable must be set for backup operations');
+      }
+      await backupPrismicContent(clients, bucketName);
+      return;
+    }
+
+    // Handle regular window events
+    const windowEvent = event as WindowEvent;
+    if (!windowEvent.contentType) {
       throw new Error('Event contentType must be specified!');
     }
-    if (event.contentType === 'all' || event.contentType === 'addressables') {
-      await loadAddressables(clients, event);
+    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'addressables') {
+      await loadAddressables(clients, windowEvent);
     }
-    if (event.contentType === 'all' || event.contentType === 'articles') {
-      await loadArticles(clients, event);
+    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'articles') {
+      await loadArticles(clients, windowEvent);
     }
-    if (event.contentType === 'all' || event.contentType === 'events') {
-      await loadEvents(clients, event);
+    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'events') {
+      await loadEvents(clients, windowEvent);
     }
-    if (event.contentType === 'all' || event.contentType === 'venues') {
-      await loadVenues(clients, event);
+    if (windowEvent.contentType === 'all' || windowEvent.contentType === 'venues') {
+      await loadVenues(clients, windowEvent);
     }
   };

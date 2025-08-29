@@ -71,3 +71,21 @@ resource "aws_scheduler_schedule" "daily_addressables" {
     mode = "OFF"
   }
 }
+
+resource "aws_scheduler_schedule" "daily_backup" {
+  name                = "content-pipeline-daily-backup-${var.pipeline_date}"
+  schedule_expression = "rate(24 hours)"
+
+  target {
+    arn      = module.pipeline_lambda.lambda.arn
+    role_arn = aws_iam_role.scheduler.arn
+
+    input = jsonencode({
+      operation = "backup"
+    })
+  }
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+}
