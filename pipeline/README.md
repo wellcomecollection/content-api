@@ -5,16 +5,42 @@ This service extracts documents from Prismic, transforms them into a common sche
 It runs as a Lambda which expects events that look like:
 
 ```typescript
-type Event = {
+type WindowEvent = {
+  contentType: 'addressables' | 'articles' | 'events' | 'venues' | 'all';
   start?: string;
   end?: string;
   duration?: string;
 };
+
+type BackupEvent = {
+  operation: 'backup';
+};
 ```
 
-It will then fetch documents between a given start and end, or for a duration before/after an end/start (respectively), or all documents if none of these parameters are specified.
+For indexing operations, it will fetch documents between a given start and end, or for a duration before/after an end/start (respectively), or all documents if none of these parameters are specified.
+
+For backup operations, it will fetch ALL Prismic document types and save them to S3 with ISO8601 timestamps.
 
 ![generic-ETL](https://github.com/user-attachments/assets/ed1f6fd7-4111-4829-9f51-802fc77b742f)
+
+## Backup Functionality
+
+The pipeline includes a daily backup feature that saves all Prismic content types to S3:
+
+- **Document Types**: Backs up all 12 content types: articles, books, events, exhibitions, exhibition-texts, exhibition-highlight-tours, pages, projects, seasons, visual-stories, webcomics, collection-venue
+- **Storage**: Raw Prismic documents saved to S3 with path format: `backups/YYYY-MM-DDTHH:mm:ss.sssZ/content-type.json`
+- **Schedule**: Runs daily via AWS EventBridge scheduler
+- **Infrastructure**: Dedicated S3 bucket with versioning and 90-day lifecycle policy
+- **Local Testing**: Use `npm run backup` to test backup functionality locally
+
+### Backup Testing
+
+To run backup locally:
+```bash
+npm run backup
+```
+
+Note: Local testing requires proper AWS credentials and BACKUP_BUCKET_NAME environment variable.
 
 ## Tests
 
