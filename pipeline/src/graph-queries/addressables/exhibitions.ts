@@ -1,6 +1,11 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   exhibitions {
     title
+    body {
+      ${workLinksSlices}
+    }
     format {
       title
     }
