@@ -39,6 +39,7 @@ export const transformAddressableVisualStory = async (
         title,
         description,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+        prismicId: id,
       },
     },
   ];

@@ -71,6 +71,7 @@ export const transformAddressableExhibitionHighlightTour = (
       type: 'Exhibition highlight tour' as const,
       description,
       linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+      prismicId: id,
     },
   };
 
