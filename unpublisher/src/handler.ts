@@ -3,7 +3,10 @@ import { WebhookBodyAPIUpdate } from '@prismicio/types';
 import { EventBridgeHandler } from 'aws-lambda';
 
 import { getConfig } from './config';
-import { createUnpublisher } from './unpublisher';
+import {
+  createAddressablesUnpublisher,
+  createUnpublisher,
+} from './unpublisher';
 
 const config = getConfig();
 
@@ -11,7 +14,7 @@ const articlesUnpublisher = createUnpublisher(config.indices.articlesIndex);
 const eventDocumentsUnpublisher = createUnpublisher(
   config.indices.eventdocumentsIndex
 );
-const addressablesUnplublisher = createUnpublisher(
+const addressablesUnpublisher = createAddressablesUnpublisher(
   config.indices.addressablesIndex
 );
 
@@ -28,5 +31,5 @@ export const createHandler =
 
     await articlesUnpublisher(clients, unpublishedDocuments);
     await eventDocumentsUnpublisher(clients, unpublishedDocuments);
-    await addressablesUnplublisher(clients, unpublishedDocuments);
+    await addressablesUnpublisher(clients, unpublishedDocuments);
   };
