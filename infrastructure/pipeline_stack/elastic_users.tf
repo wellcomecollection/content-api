@@ -27,8 +27,8 @@ locals {
       "${local.indices.articles}_write",
       "${local.indices.events}_write",
       "${local.indices.venues}_write",
+      "${local.indices.addressables}_read",
       "${local.indices.addressables}_write"
-
     ]
   }
 }
