@@ -96,6 +96,9 @@ export const mappings = {
         prismicId: {
           type: 'keyword',
         },
+        tags: {
+          type: 'keyword',
+        },
       },
     },
   },
