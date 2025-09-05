@@ -16,7 +16,6 @@ export const transformAddressableExhibitionHighlightTour = (
   const { data, id, uid, tags, type } = document;
 
   // Exhibition highlight tours don't have body content that can contain works references
-  const worksIds: string[] = [];
   const transformedWorks: TransformedWork[] = [];
 
   const relatedExhibition = isFilledLinkToDocumentWithData(
