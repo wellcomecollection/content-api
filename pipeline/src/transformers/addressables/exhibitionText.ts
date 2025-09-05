@@ -13,7 +13,7 @@ import { TransformedWork } from './helpers/catalogue-api';
 export const transformAddressableExhibitionText = (
   document: ExhibitionTextPrismicDocument
 ): ElasticsearchAddressableExhibitionText[] => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   // Exhibition texts don't have body content that can contain works references
   const worksIds: string[] = [];
@@ -68,6 +68,7 @@ export const transformAddressableExhibitionText = (
         description: queryDescription,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
         prismicId: id,
+        tags,
       },
     },
   ];

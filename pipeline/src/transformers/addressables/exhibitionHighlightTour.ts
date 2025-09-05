@@ -13,7 +13,7 @@ import { TransformedWork } from './helpers/catalogue-api';
 export const transformAddressableExhibitionHighlightTour = (
   document: ExhibitionHighlightTourPrismicDocument
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   // Exhibition highlight tours don't have body content that can contain works references
   const worksIds: string[] = [];
@@ -72,6 +72,7 @@ export const transformAddressableExhibitionHighlightTour = (
       description,
       linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
       prismicId: id,
+      tags,
     },
   };
 

@@ -17,7 +17,7 @@ import {
 export const transformAddressableBook = async (
   document: BookPrismicDocument
 ): Promise<ElasticsearchAddressableBook[]> => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
   const description = primaryImageCaption(data.promo);
   const title = asTitle(data.title);
   const subtitle = data.subtitle ? asText(data.subtitle) : undefined;
@@ -64,6 +64,7 @@ export const transformAddressableBook = async (
         contributors,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
         prismicId: id,
+        tags,
       },
     },
   ];
