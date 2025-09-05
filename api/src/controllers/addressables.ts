@@ -40,6 +40,13 @@ const addressablesController = (
         query: {
           bool: {
             must: ifDefined(queryString, addressablesQuery),
+            must_not: [
+              {
+                term: {
+                  'query.tags': 'delist',
+                },
+              },
+            ],
           },
         },
 
