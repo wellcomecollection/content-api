@@ -127,6 +127,20 @@ export const prismicIdValidator = (
     });
 };
 
+export const looksLikeWorkId = (
+  id: string | string[] | undefined
+): id is string => (isString(id) ? /^[a-zA-Z0-9]+$/.test(id) : false);
+
+export const workIdValidator = (workId: string) => {
+  if (!looksLikeWorkId(workId)) {
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `Invalid work ID format. Work IDs should only contain alphanumeric characters. Found: ${workId}`,
+    });
+  }
+};
+
 // Checks if the date is of the format YYYY-MM-DD
 export const dateValidator = (date: string) => {
   const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;

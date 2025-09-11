@@ -19,3 +19,9 @@ export const addressablesQuery = (
     minimum_should_match: '-25%',
   },
 });
+
+export const addressablesFilter = (workId: string): QueryDslQueryContainer => ({
+  term: {
+    'query.linkedWorks': workId,
+  },
+});
