@@ -15,7 +15,7 @@ import {
 export const transformAddressableSeason = async (
   document: SeasonPrismicDocument
 ): Promise<ElasticsearchAddressableSeason[]> => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as BodiesWithPossibleWorks) || []
@@ -57,6 +57,8 @@ export const transformAddressableSeason = async (
         description: queryDescription,
         body: queryBody,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+        prismicId: id,
+        tags,
       },
     },
   ];

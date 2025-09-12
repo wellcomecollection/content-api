@@ -93,6 +93,12 @@ export const mappings = {
         linkedWorks: {
           type: 'keyword',
         },
+        prismicId: {
+          type: 'keyword',
+        },
+        tags: {
+          type: 'keyword',
+        },
       },
     },
   },

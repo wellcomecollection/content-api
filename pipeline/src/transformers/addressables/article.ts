@@ -15,7 +15,7 @@ import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 export const transformAddressableArticle = async (
   document: ArticlePrismicDocument
 ): Promise<ElasticsearchAddressableArticle[]> => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   const description = primaryImageCaption(data.promo);
   const title = asTitle(data.title);
@@ -72,6 +72,8 @@ export const transformAddressableArticle = async (
         contributors,
         body: queryBody,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+        prismicId: id,
+        tags,
       },
     },
   ];

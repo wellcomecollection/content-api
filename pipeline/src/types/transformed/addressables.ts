@@ -28,6 +28,8 @@ type AddressableQuery<T> = {
   body?: string[] | string;
   contributors?: string;
   linkedWorks: string[];
+  prismicId: string;
+  tags: string[];
 };
 
 export type ElasticsearchAddressable<

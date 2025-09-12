@@ -1,4 +1,3 @@
-import * as prismic from '@prismicio/client';
 import { Handler } from 'aws-lambda';
 
 import { WindowEvent } from './event';
@@ -20,7 +19,6 @@ import { Clients } from './types';
 
 const loadAddressables = createETLPipeline({
   graphQuery: addressablesQuery,
-  filters: [prismic.filter.not('document.tags', ['delist'])],
   indexConfig: addressables,
   parentDocumentTypes: new Set([
     'articles',

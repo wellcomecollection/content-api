@@ -44,7 +44,6 @@ export const transformAddressablePage = async (
         uid,
         title,
         description,
-        tags,
         linkedWorks: transformedWorks,
       },
       query: {
@@ -53,6 +52,8 @@ export const transformAddressablePage = async (
         description: queryDescription,
         body,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+        prismicId: id,
+        tags,
       },
     },
   ];
