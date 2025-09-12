@@ -62,7 +62,7 @@ export const transformAddressableBook = async (
         description,
         body,
         contributors,
-        linkedWorks: worksIds,
+        linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
       },
     },
   ];

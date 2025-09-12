@@ -1,3 +1,5 @@
+import { workLinksSlices } from './shared';
+
 const query = `
   events {
     title
@@ -11,6 +13,7 @@ const query = `
           }
         }
       }
+      ${workLinksSlices}
     }
     format {
       title
