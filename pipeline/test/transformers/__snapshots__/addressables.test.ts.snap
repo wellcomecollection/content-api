@@ -1073,6 +1073,7 @@ exports[`addressables transformer transforms pages from Prismic to the expected 
       "description": "Wellcome Collection venue hire terms and conditions",
       "id": "YdXSvhAAAIAW7YXQ",
       "linkedWorks": [],
+      "tags": [],
       "title": "Venue hire terms and conditions of booking",
       "type": "Page",
       "uid": "venue-hire-terms-and-conditions-of-booking",

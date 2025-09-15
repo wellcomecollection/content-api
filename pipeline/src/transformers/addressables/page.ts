@@ -44,6 +44,7 @@ export const transformAddressablePage = async (
         uid,
         title,
         description,
+        tags,
         linkedWorks: transformedWorks,
       },
       query: {
