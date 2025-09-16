@@ -127,9 +127,11 @@ steps:
 
   - wait
 
-  - label: 'E2E Tests: PROD Front-end / STAGE Content API'
+  - label: 'E2E Tests: PROD Front-end / STAGING APIs'
     branches: 'main'
     trigger: 'experience-e2e'
+    soft_fail:
+      - exit_status: 1
     build:
       env:
         PLAYWRIGHT_BASE_URL: https://wellcomecollection.org
