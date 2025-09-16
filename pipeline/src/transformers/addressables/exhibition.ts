@@ -25,7 +25,7 @@ export const transformAddressableExhibition = async (
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const format = isFilledLinkToDocumentWithData(data.format)
-    ? asText(data.format.data.title)
+    ? asText(data.format.data.title) || 'Exhibition'
     : 'Exhibition';
 
   const dates = {
