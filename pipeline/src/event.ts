@@ -7,6 +7,10 @@ export type WindowEvent = {
   duration?: string;
 };
 
+export type BackupEvent = {
+  operation: 'backup';
+};
+
 export type TimeWindow = {
   start?: Date;
   end?: Date;

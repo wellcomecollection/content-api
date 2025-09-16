@@ -10,12 +10,14 @@
     "reindex-articles": "tsx src/local.ts articles",
     "reindex-events": "tsx src/local.ts events",
     "reindex-venues": "tsx src/local.ts venues",
+    "backup": "tsx src/local.ts backup",
     "testGraphQuery": "tsx src/scripts/testGraphQuery",
     "testTransformer": "tsx src/scripts/testTransformer",
     "update-prismic-snapshots": "tsx test/update-prismic-snapshots.ts",
     "test": "jest"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
     "@prismicio/client": "^7.3.1",
     "@weco/content-common": "*",
     "parse-duration": "^2.1.3",
