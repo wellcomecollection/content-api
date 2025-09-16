@@ -32,10 +32,14 @@ type AddressableQuery<T> = {
   tags: string[];
 };
 
-export type ElasticsearchAddressable<
-  T extends AddressableType,
-  U extends Record<string, unknown> = Record<string, unknown>,
-> = {
+export type ElasticsearchAddressableBase<T extends AddressableType> = {
+  id: string;
+  uid: string | null;
+  display: AddressableBaseDisplay<T>;
+  query: AddressableQuery<T>;
+};
+
+export type ElasticsearchAddressableExtended<T extends AddressableType, U> = {
   id: string;
   uid: string | null;
   display: AddressableBaseDisplay<T> & U;
