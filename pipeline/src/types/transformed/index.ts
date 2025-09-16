@@ -1,6 +1,9 @@
 import { PrismicImage } from '@weco/content-pipeline/src/types/prismic';
 
-import { ElasticsearchAddressable } from './addressables';
+import {
+  ElasticsearchAddressableBase,
+  ElasticsearchAddressableExtended,
+} from './addressables';
 import { Article, ArticleFormat } from './article';
 import {
   EventDocument,
@@ -109,39 +112,45 @@ export type ElasticsearchEventDocument = {
 };
 
 export type ElasticsearchAddressableArticle =
-  ElasticsearchAddressable<'Article'>;
+  ElasticsearchAddressableBase<'Article'>;
 
-export type ElasticsearchAddressableBook = ElasticsearchAddressable<
+export type ElasticsearchAddressableBook = ElasticsearchAddressableExtended<
   'Book',
   { contributors: string }
 >;
 
-export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
+export type ElasticsearchAddressableEvent = ElasticsearchAddressableExtended<
   'Event',
   { format?: string; times?: { start: Date; end: Date } }
 >;
 
-export type ElasticsearchAddressableProject =
-  ElasticsearchAddressable<'Project'>;
+export type ElasticsearchAddressableProject = ElasticsearchAddressableExtended<
+  'Project',
+  { format?: string }
+>;
 
-export type ElasticsearchAddressableSeason = ElasticsearchAddressable<'Season'>;
+export type ElasticsearchAddressableSeason =
+  ElasticsearchAddressableBase<'Season'>;
 
 export type ElasticsearchAddressableExhibition =
-  ElasticsearchAddressable<'Exhibition'>;
+  ElasticsearchAddressableExtended<
+    'Exhibition',
+    { format: string; dates: { start: string | null; end: string | null } }
+  >;
 
 export type ElasticsearchAddressableExhibitionHighlightTour =
-  ElasticsearchAddressable<
+  ElasticsearchAddressableExtended<
     'Exhibition highlight tour',
     { highlightTourType: string }
   >;
 
 export type ElasticsearchAddressableExhibitionText =
-  ElasticsearchAddressable<'Exhibition text'>;
+  ElasticsearchAddressableBase<'Exhibition text'>;
 
-export type ElasticsearchAddressablePage = ElasticsearchAddressable<
+export type ElasticsearchAddressablePage = ElasticsearchAddressableExtended<
   'Page',
   { tags: string[] }
 >;
 
 export type ElasticsearchAddressableVisualStory =
-  ElasticsearchAddressable<'Visual story'>;
+  ElasticsearchAddressableBase<'Visual story'>;
