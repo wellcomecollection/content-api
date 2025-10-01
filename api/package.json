@@ -10,7 +10,7 @@
     "check_holiday_closures": "AWS_PROFILE=catalogue-developer tsx ./scripts/holiday_closure_test.ts"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "^9.1.1",
+    "@elastic/elasticsearch": "^8.18.2",
     "@types/express": "^5.0.1",
     "@weco/content-common": "*",
     "express": "^5.1.0",
