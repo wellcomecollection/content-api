@@ -23,8 +23,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.4",
     "@tsconfig/node20": "20.1.6",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
     "husky": "^8.0.3",
     "eslint": "^8.46.0",
     "eslint-plugin-import": "^2.30.0",
