@@ -14,6 +14,7 @@ updates:
       - dependency-name: 'eslint*'
       - dependency-name: '@elastic/elasticsearch'
       - dependency-name: 'husky'
+      - dependency-name: '@types/node'
       # Needs Node >= 20.15, update when we get there.
       - dependency-name: 'lint-staged'
     groups:
