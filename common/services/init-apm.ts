@@ -4,7 +4,7 @@ import z from 'zod';
 const apmEnvironmentVariables = z.object({
   apm_service_name: z.string().default('content-api'),
   apm_environment: z.string().default('local'),
-  apm_server_url: z.string().url().optional(),
+  apm_server_url: z.url().optional(),
   apm_secret: z.string().optional(),
 });
 const environment = apmEnvironmentVariables.parse(process.env);

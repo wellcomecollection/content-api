@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`addressables transformer transforms articles from Prismic to the expected format (document: articles/aAi4nhEAACMAfdxX) 1`] = `
 [

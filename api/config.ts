@@ -3,7 +3,6 @@ import { z } from 'zod';
 
 const environmentSchema = z.object({
   PUBLIC_ROOT_URL: z
-    .string()
     .url()
     .default('https://api.wellcomecollection.org/content/v0'),
 });

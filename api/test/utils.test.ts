@@ -198,8 +198,7 @@ describe('getNextOpeningDates', () => {
   });
 });
 
-const c = ['lte', 'lt', 'gt', 'gte'] as const;
-type CT = (typeof c)[number];
+type CT = 'lte' | 'lt' | 'gt' | 'gte';
 type TimeCompare = {
   [key in CT]?: string;
 };
