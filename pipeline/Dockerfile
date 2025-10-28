@@ -1,5 +1,5 @@
 # Build this with the repo root as the build context
-FROM public.ecr.aws/docker/library/node:24
+FROM public.ecr.aws/docker/library/node:20
 
 WORKDIR /app
 
