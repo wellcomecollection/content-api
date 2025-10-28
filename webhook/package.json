@@ -13,7 +13,7 @@
     "@weco/content-common": "*"
   },
   "devDependencies": {
-    "@tsconfig/node24": "24.1.0",
+    "@tsconfig/node24": "24.0.1",
     "@types/aws-lambda": "^8.10.153",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.0.0",
