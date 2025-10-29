@@ -111,3 +111,31 @@ describe('events query', () => {
     expect(esRequest).toMatchSnapshot();
   });
 });
+
+describe('addressables query', () => {
+  it('makes the expected query to ES for a given set of query parameters', async () => {
+    const pageSize = 30;
+    const page = 2;
+    const query = 'henry wellcome';
+    const linkedWork = 'work123';
+
+    const params = new URLSearchParams({
+      page,
+      pageSize,
+      query,
+      linkedWork,
+    } as unknown as Record<string, string>);
+    const esRequest = await elasticsearchRequestForURL(
+      `/all?${params.toString()}`
+    );
+    console.log(esRequest);
+
+    expect(esRequest.from).toBe((page - 1) * pageSize);
+    expect(esRequest.size).toBe(pageSize);
+
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(linkedWork);
+
+    expect(esRequest).toMatchSnapshot();
+  });
+});
