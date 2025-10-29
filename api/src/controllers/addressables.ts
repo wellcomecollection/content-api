@@ -18,7 +18,7 @@ import { workIdValidator } from './validation';
 
 type QueryParams = {
   query?: string;
-  linkedWork?: string;
+  linkedWork?: string | string[];
 } & PaginationQueryParameters;
 
 type AddressablesHandler = RequestHandler<
@@ -38,13 +38,17 @@ const addressablesController = (
   return asyncHandler(async (req, res) => {
     const { query: queryString, linkedWork } = req.query;
 
-    if (linkedWork) {
-      workIdValidator(linkedWork);
-    }
+    const workIds = Array.isArray(linkedWork)
+      ? linkedWork
+      : linkedWork
+        ? linkedWork.split(',').map(id => id.trim())
+        : [];
+
+    workIds.forEach(workId => workIdValidator(workId));
 
     const mustClauses = [
       ifDefined(queryString, addressablesQuery),
-      ifDefined(linkedWork, addressablesFilter),
+      workIds.length > 0 ? addressablesFilter(workIds) : undefined,
     ].filter(
       (clause): clause is NonNullable<typeof clause> => clause !== undefined
     );

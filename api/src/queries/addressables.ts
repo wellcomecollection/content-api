@@ -20,8 +20,21 @@ export const addressablesQuery = (
   },
 });
 
-export const addressablesFilter = (workId: string): QueryDslQueryContainer => ({
-  term: {
-    'query.linkedWorks': workId,
-  },
-});
+export const addressablesFilter = (
+  workIds: string[]
+): QueryDslQueryContainer => {
+  // Use 'term' for single work ID, 'terms' for multiple work IDs
+  if (workIds.length === 1) {
+    return {
+      term: {
+        'query.linkedWorks': workIds[0],
+      },
+    };
+  }
+
+  return {
+    terms: {
+      'query.linkedWorks': workIds,
+    },
+  };
+};

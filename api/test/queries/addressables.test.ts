@@ -28,12 +28,22 @@ describe('addressablesQuery', () => {
 });
 
 describe('addressablesFilter', () => {
-  it('creates a term query for the linkedWorks field', () => {
-    const result = addressablesFilter('work123');
+  it('creates a term query for a single linkedWork', () => {
+    const result = addressablesFilter(['work123']);
 
     expect(result).toEqual({
       term: {
         'query.linkedWorks': 'work123',
+      },
+    });
+  });
+
+  it('creates a terms query for multiple linkedWorks', () => {
+    const result = addressablesFilter(['work123', 'work456', 'work789']);
+
+    expect(result).toEqual({
+      terms: {
+        'query.linkedWorks': ['work123', 'work456', 'work789'],
       },
     });
   });
