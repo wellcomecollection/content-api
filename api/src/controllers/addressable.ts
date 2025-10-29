@@ -83,13 +83,42 @@ const addressableController = (
     validateAddressableId(id);
 
     try {
-      const getResponse = await clients.elastic.get<Displayable>({
+      const searchResponse = await clients.elastic.search<Displayable>({
         index,
-        id,
-        _source: ['display'],
+        body: {
+          query: {
+            bool: {
+              must: [
+                {
+                  term: {
+                    _id: id,
+                  },
+                },
+              ],
+              must_not: [
+                {
+                  term: {
+                    'query.tags': 'delist',
+                  },
+                },
+              ],
+            },
+          },
+          _source: ['display'],
+        },
+        size: 1,
       });
 
-      res.status(200).json(getResponse._source!.display);
+      if (searchResponse.hits.hits.length === 0) {
+        throw new HttpError({
+          status: 404,
+          label: 'Not Found',
+          description: `Content not found for identifier ${id}.`,
+        });
+      }
+
+      const document = searchResponse.hits.hits[0]._source!;
+      res.status(200).json(document.display);
     } catch (error) {
       if (error instanceof elasticErrors.ResponseError) {
         if (error.statusCode === 404) {

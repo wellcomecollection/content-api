@@ -1,5 +1,5 @@
 env:
-  LIVE_PIPELINE: '2025-07-30'
+  LIVE_PIPELINE: '2025-09-03'
 steps:
   - label: 'autoformat'
     command: '.buildkite/scripts/autoformat.sh'
@@ -124,6 +124,19 @@ steps:
     plugins:
       - wellcomecollection/aws-assume-role#v0.2.2:
           role: 'arn:aws:iam::756629837203:role/catalogue-ci'
+
+  - wait
+
+  - label: 'E2E Tests: PROD Front-end / STAGING APIs'
+    branches: 'main'
+    trigger: 'experience-e2e'
+    soft_fail: true
+    build:
+      env:
+        PLAYWRIGHT_BASE_URL: https://wellcomecollection.org
+        USE_STAGE_APIS: true
+
+  - wait
 
   - block: ':rocket: deploy to prod'
     branches: 'main'

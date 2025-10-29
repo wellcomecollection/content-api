@@ -56,6 +56,13 @@ const addressablesController = (
         query: {
           bool: {
             must: mustClauses.length > 0 ? mustClauses : undefined,
+            must_not: [
+              {
+                term: {
+                  'query.tags': 'delist',
+                },
+              },
+            ],
           },
         },
 

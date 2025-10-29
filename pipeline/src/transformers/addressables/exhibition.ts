@@ -17,7 +17,7 @@ import {
 export const transformAddressableExhibition = async (
   document: ExhibitionPrismicDocument
 ): Promise<ElasticsearchAddressableExhibition[]> => {
-  const { data, id, uid, type } = document;
+  const { data, id, uid, tags, type } = document;
 
   const worksIds = getWorksIdsFromDocumentBody(
     (data.body as BodiesWithPossibleWorks) || []
@@ -25,7 +25,7 @@ export const transformAddressableExhibition = async (
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const format = isFilledLinkToDocumentWithData(data.format)
-    ? asText(data.format.data.title)
+    ? asText(data.format.data.title) || 'Exhibition'
     : 'Exhibition';
 
   const dates = {
@@ -65,6 +65,8 @@ export const transformAddressableExhibition = async (
         contributors,
         description: queryDescription,
         linkedWorks: transformedWorks.map(work => work.id), // Use transformedWorks ids, in case they have been redirected from the original work id
+        prismicId: id,
+        tags,
       },
     },
   ];

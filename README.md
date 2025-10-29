@@ -1,6 +1,6 @@
 # Content API
 
-These are the services that back our [Content API](https://developers.wellcomecollection.org/api/content). The Content API exposes our non-catalogue content: at the moment, that's just articles, but in the future it might include endpoints for events, exhibitions, and functional content.
+These are the services that back our [Content API](https://developers.wellcomecollection.org/api/content). The Content API exposes our non-catalogue content. There are endpoints for `articles`, `events`, and `all` (where `all` includes articles, books, events, exhibitions, exhibition texts, exhibition highlight tours (BSL), exhibition highlight tours (audio), pages, projects, seasons, and visual stories).
 
 ![Architecture diagram](https://github.com/wellcomecollection/content-api/assets/4429247/b29a6bf5-f5af-426c-b827-550b84c5541c)
 

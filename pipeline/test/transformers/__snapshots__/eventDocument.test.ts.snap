@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`eventDocument transformer transforms events from Prismic to the expected format (document: events/ZFt0WhQAAHnPEH7P) 1`] = `
 [
