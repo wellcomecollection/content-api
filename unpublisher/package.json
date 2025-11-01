@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@tsconfig/node24": "24.0.1",
-    "@types/aws-lambda": "^8.10.153",
+    "@types/aws-lambda": "^8.10.157",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.9.1",
     "dotenv": "^17.2.3",

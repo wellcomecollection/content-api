@@ -8,13 +8,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-sdk/client-eventbridge": "^3.899.0",
+    "@aws-sdk/client-eventbridge": "^3.922.0",
     "@prismicio/types": "^0.2.8",
     "@weco/content-common": "*"
   },
   "devDependencies": {
     "@tsconfig/node20": "20.1.6",
-    "@types/aws-lambda": "^8.10.153",
+    "@types/aws-lambda": "^8.10.157",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.16.5",
     "esbuild": "^0.25.10",
