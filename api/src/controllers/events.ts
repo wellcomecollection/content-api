@@ -7,6 +7,7 @@ import { Config } from '@weco/content-api/config';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
+import { addressablesFilter } from '@weco/content-api/src/queries/addressables';
 import { esQuery } from '@weco/content-api/src/queries/common';
 import {
   eventsAggregations,
@@ -21,7 +22,11 @@ import { EVENT_EXHIBITION_FORMAT_ID } from '@weco/content-common/data/defaultVal
 import { HttpError } from './error';
 import { paginationElasticBody, PaginationQueryParameters } from './pagination';
 import { timespans } from './utils';
-import { prismicIdValidator, queryValidator } from './validation';
+import {
+  prismicIdValidator,
+  queryValidator,
+  workIdValidator,
+} from './validation';
 
 type QueryParams = {
   query?: string;
@@ -35,6 +40,7 @@ type QueryParams = {
   isAvailableOnline?: string;
   timespan?: string;
   filterOutExhibitions?: string;
+  linkedWork?: string | string[];
 } & PaginationQueryParameters;
 
 type EventsHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -106,6 +112,14 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   if (params.interpretation)
     prismicIdValidator(params.interpretation, 'interpretations');
   if (params.format) prismicIdValidator(params.format, 'formats');
+
+  // Validate linkedWork parameter(s)
+  if (params.linkedWork) {
+    const workIds = Array.isArray(params.linkedWork)
+      ? params.linkedWork
+      : params.linkedWork.split(',').map(id => id.trim());
+    workIds.forEach(workId => workIdValidator(workId));
+  }
 
   const hasIsAvailableOnline =
     isAvailableOnline &&
@@ -204,6 +218,46 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
       rewriteAggregationsForFacets(aggs, postFilters)
     );
 
+    // Handle linkedWork filtering - query addressables first to get event IDs
+    let eventIds: string[] | undefined;
+    if (validParams.linkedWork) {
+      const workIds = Array.isArray(validParams.linkedWork)
+        ? validParams.linkedWork
+        : validParams.linkedWork.split(',').map(id => id.trim());
+
+      const addressablesResponse = await clients.elastic.search<Displayable>({
+        index: config.addressablesIndex,
+        _source: ['display.id'],
+        query: {
+          bool: {
+            must: [
+              addressablesFilter(workIds),
+              { terms: { 'display.type': ['Event', 'Exhibition'] } },
+            ],
+            must_not: [{ term: { 'query.tags': 'delist' } }],
+          },
+        },
+        size: 1000, // Get all matching addressables
+      });
+
+      // Extract event IDs from addressables results (includes both events and exhibitions)
+      eventIds = addressablesResponse.hits.hits
+        .map(hit => hit._source?.display?.id)
+        .filter(Boolean);
+
+      // If no events found, return empty results early
+      if (eventIds.length === 0) {
+        res.status(200).json({
+          type: 'ResultList',
+          results: [],
+          totalResults: 0,
+          pageSize: 0,
+          totalPages: 0,
+        });
+        return;
+      }
+    }
+
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
@@ -235,6 +289,8 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                   ],
                 },
               },
+              // Add linkedWork filter if event IDs were found
+              ...(eventIds ? [{ terms: { id: eventIds } }] : []),
             ],
           },
         },
