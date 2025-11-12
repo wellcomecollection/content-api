@@ -152,7 +152,7 @@ const articlesController = (
             must_not: [{ term: { 'query.tags': 'delist' } }],
           },
         },
-        size: 1000, // Get all matching addressables
+        size: 1000, // Get all matching addressables. They'll never be this many so it's safe
       });
 
       // Extract article IDs from addressables results

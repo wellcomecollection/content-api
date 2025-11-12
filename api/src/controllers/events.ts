@@ -237,7 +237,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
             must_not: [{ term: { 'query.tags': 'delist' } }],
           },
         },
-        size: 1000, // Get all matching addressables
+        size: 1000, // Get all matching addressables. They'll never be this many so it's safe
       });
 
       // Extract event IDs from addressables results (includes both events and exhibitions)
