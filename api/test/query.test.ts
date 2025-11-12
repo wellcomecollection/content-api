@@ -111,3 +111,60 @@ describe('events query', () => {
     expect(esRequest).toMatchSnapshot();
   });
 });
+
+describe('addressables query', () => {
+  it('makes the expected query to ES for a given set of query parameters', async () => {
+    const pageSize = 30;
+    const page = 2;
+    const query = 'henry wellcome';
+    const linkedWork = 'work123';
+
+    const params = new URLSearchParams({
+      page,
+      pageSize,
+      query,
+      linkedWork,
+    } as unknown as Record<string, string>);
+    const esRequest = await elasticsearchRequestForURL(
+      `/all?${params.toString()}`
+    );
+
+    expect(esRequest.from).toBe((page - 1) * pageSize);
+    expect(esRequest.size).toBe(pageSize);
+
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(linkedWork);
+
+    expect(esRequest).toMatchSnapshot();
+  });
+
+  it('makes the expected query to ES for multiple linkedWork parameters', async () => {
+    const pageSize = 20;
+    const page = 1;
+    const query = 'sculpture';
+    const linkedWork = ['work123', 'work456'];
+
+    const params = new URLSearchParams({
+      page,
+      pageSize,
+      query,
+    } as unknown as Record<string, string>);
+
+    // Add multiple linkedWork parameters
+    linkedWork.forEach(workId => params.append('linkedWork', workId));
+
+    const esRequest = await elasticsearchRequestForURL(
+      `/all?${params.toString()}`
+    );
+
+    expect(esRequest.from).toBe((page - 1) * pageSize);
+    expect(esRequest.size).toBe(pageSize);
+
+    expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(query);
+    linkedWork.forEach(workId => {
+      expect(JSON.stringify(esRequest.query?.bool?.must)).toInclude(workId);
+    });
+
+    expect(esRequest).toMatchSnapshot();
+  });
+});
