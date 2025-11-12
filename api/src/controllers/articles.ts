@@ -147,7 +147,7 @@ const articlesController = (
           bool: {
             must: [
               addressablesFilter(workIds),
-              { term: { 'display.type': 'Article' } },
+              { term: { 'query.type.keyword': 'Article' } },
             ],
             must_not: [{ term: { 'query.tags': 'delist' } }],
           },
@@ -190,7 +190,7 @@ const articlesController = (
               Object.values(queryFilters).map(esQuery),
               dateFilters,
               // Add linkedWork filter if article IDs were found
-              articleIds ? [{ terms: { id: articleIds } }] : [],
+              articleIds ? [{ ids: { values: articleIds } }] : [],
             ].flat(),
           },
         },

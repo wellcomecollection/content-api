@@ -232,7 +232,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
           bool: {
             must: [
               addressablesFilter(workIds),
-              { terms: { 'display.type': ['Event', 'Exhibition'] } },
+              { terms: { 'query.type.keyword': ['Event', 'Exhibition'] } },
             ],
             must_not: [{ term: { 'query.tags': 'delist' } }],
           },
@@ -290,7 +290,7 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                 },
               },
               // Add linkedWork filter if event IDs were found
-              ...(eventIds ? [{ terms: { id: eventIds } }] : []),
+              ...(eventIds ? [{ ids: { values: eventIds } }] : []),
             ],
           },
         },
