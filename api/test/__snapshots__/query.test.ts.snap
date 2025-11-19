@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`addressables query makes the expected query to ES for a given set of query parameters 1`] = `
+{
+  "_source": [
+    "display",
+  ],
+  "from": 30,
+  "index": "test-addressables",
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "multi_match": {
+            "fields": [
+              "id",
+              "uid",
+              "query.title.*^100",
+              "query.contributors.*^10",
+              "query.contributors.keyword^100",
+              "query.body.*",
+              "query.description.*",
+            ],
+            "minimum_should_match": "-25%",
+            "operator": "or",
+            "query": "henry wellcome",
+            "type": "cross_fields",
+          },
+        },
+        {
+          "term": {
+            "query.linkedWorks": "work123",
+          },
+        },
+      ],
+      "must_not": [
+        {
+          "term": {
+            "query.tags": "delist",
+          },
+        },
+      ],
+    },
+  },
+  "size": 30,
+}
+`;
+
 exports[`articles query makes the expected query to ES for a given set of query parameters 1`] = `
 {
   "_source": [

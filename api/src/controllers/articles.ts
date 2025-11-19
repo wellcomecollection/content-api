@@ -7,6 +7,7 @@ import { Config } from '@weco/content-api/config';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
 import { pickFiltersFromQuery } from '@weco/content-api/src/helpers/requests';
 import { resultListResponse } from '@weco/content-api/src/helpers/responses';
+import { addressablesFilter } from '@weco/content-api/src/queries/addressables';
 import {
   articlesAggregations,
   articlesFilter,
@@ -27,6 +28,7 @@ import {
   prismicIdValidator,
   queryValidator,
   validateDate,
+  workIdValidator,
 } from './validation';
 
 type QueryParams = {
@@ -38,6 +40,7 @@ type QueryParams = {
   'publicationDate.from'?: string;
   'publicationDate.to'?: string;
   format?: string;
+  linkedWork?: string | string[];
 } & PaginationQueryParameters;
 
 type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
@@ -69,6 +72,14 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   if (params['publicationDate.from'])
     dateValidator(params['publicationDate.from']);
   if (params['publicationDate.to']) dateValidator(params['publicationDate.to']);
+
+  // Validate linkedWork parameter(s)
+  if (params.linkedWork) {
+    const workIds = Array.isArray(params.linkedWork)
+      ? params.linkedWork
+      : params.linkedWork.split(',').map(id => id.trim());
+    workIds.forEach(workId => workIdValidator(workId));
+  }
 
   // We are ignoring all other values passed in but "true".
   // Anything else should remove the param from the query
@@ -122,6 +133,46 @@ const articlesController = (
           ]
         : [];
 
+    // Handle linkedWork filtering - query addressables first to get article IDs
+    let articleIds: string[] | undefined;
+    if (validParams.linkedWork) {
+      const workIds = Array.isArray(validParams.linkedWork)
+        ? validParams.linkedWork
+        : validParams.linkedWork.split(',').map(id => id.trim());
+
+      const addressablesResponse = await clients.elastic.search<Displayable>({
+        index: config.addressablesIndex,
+        _source: ['display.id'],
+        query: {
+          bool: {
+            must: [
+              addressablesFilter(workIds),
+              { term: { 'query.type.keyword': 'Article' } },
+            ],
+            must_not: [{ term: { 'query.tags': 'delist' } }],
+          },
+        },
+        size: 1000, // Get all matching addressables. They'll never be this many so it's safe
+      });
+
+      // Extract article IDs from addressables results
+      articleIds = addressablesResponse.hits.hits
+        .map(hit => hit._source?.display?.id)
+        .filter(Boolean);
+
+      // If no articles found, return empty results early
+      if (articleIds.length === 0) {
+        res.status(200).json({
+          type: 'ResultList',
+          results: [],
+          totalResults: 0,
+          pageSize: 0,
+          totalPages: 0,
+        });
+        return;
+      }
+    }
+
     try {
       const searchResponse = await clients.elastic.search<
         Displayable,
@@ -138,6 +189,8 @@ const articlesController = (
             filter: [
               Object.values(queryFilters).map(esQuery),
               dateFilters,
+              // Add linkedWork filter if article IDs were found
+              articleIds ? [{ ids: { values: articleIds } }] : [],
             ].flat(),
           },
         },
