@@ -44,7 +44,7 @@ async function downloadPrismicSnapshot() {
     // Upload to S3
     const uploadCommand = new PutObjectCommand({
       Bucket: BUCKET_NAME,
-      Key: filename,
+      Key: `snapshots/${filename}`,
       Body: JSON.stringify(documents, null, 2),
       ContentType: 'application/json',
       Metadata: {
@@ -56,7 +56,7 @@ async function downloadPrismicSnapshot() {
 
     await s3Client.send(uploadCommand);
     console.log(
-      `Successfully uploaded snapshot to s3://${BUCKET_NAME}/${filename}`
+      `Successfully uploaded snapshot to s3://${BUCKET_NAME}/snapshots/${filename}`
     );
 
     return {
