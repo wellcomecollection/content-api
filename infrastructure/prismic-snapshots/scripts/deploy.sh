@@ -15,9 +15,9 @@ if ! aws sts get-caller-identity > /dev/null 2>&1; then
     exit 1
 fi
 
-# Check if Prismic secret exists (using experience-developer role)
+# Check if Prismic secret exists (using catalogue-developer role)
 echo "Checking for Prismic access token in Secrets Manager..."
-if ! AWS_PROFILE=experience-developer aws secretsmanager describe-secret --secret-id "prismic-model/prod/access-token" > /dev/null 2>&1; then
+if ! AWS_PROFILE=catalogue-developer aws secretsmanager describe-secret --secret-id "prismic-model/prod/access-token" > /dev/null 2>&1; then
     echo "Prismic access token not found in Secrets Manager."
     echo "This secret should already exist (used by other services)."
     echo "If it's missing, please create it:"
@@ -57,10 +57,10 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
     echo ""
     echo "Test the deployment:"
-    echo "AWS_PROFILE=experience-developer aws lambda invoke --function-name prismic-snapshot --payload '{}' response.json"
+    echo "AWS_PROFILE=catalogue-developer aws lambda invoke --function-name prismic-snapshot --payload '{}' response.json"
     echo ""
     echo "View snapshots:"
-    echo "AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-snapshots/"
+    echo "AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/"
 
 else
     echo "Deployment cancelled"
