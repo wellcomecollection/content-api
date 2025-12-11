@@ -1,7 +1,5 @@
 locals {
   lambda_snapshot_name = "prismic-snapshot"
-  lambda_name = "prismic-snapshot"
-
 }
 
 
@@ -20,7 +18,7 @@ resource "aws_lambda_function" "prismic_snapshot" {
 
   environment {
     variables = {
-      BUCKET_NAME          = aws_s3_bucket.prismic_snapshots.bucket
+      BUCKET_NAME          = aws_s3_bucket.prismic_backups.bucket
       NODE_OPTIONS         = "--enable-source-maps"
       PRISMIC_ACCESS_TOKEN = data.aws_secretsmanager_secret_version.prismic_access_token.secret_string
     }
@@ -36,8 +34,7 @@ resource "aws_lambda_function" "prismic_snapshot" {
 }
 
 # Create a zip file for the Lambda function with dependencies
-# resource "null_resource" "snapshot_lambda_build" {
-resource "null_resource" "lambda_build" {
+resource "null_resource" "snapshot_lambda_build" {
   triggers = {
     # Rebuild when the Lambda code changes
     lambda_code = filemd5("${path.module}/lambda/prismic_snapshot.js")
@@ -61,8 +58,7 @@ data "archive_file" "prismic_snapshot_lambda_zip" {
   }
 
   # Depend on the build to ensure it runs first
-  # depends_on = [null_resource.snapshot_lambda_build]
-  depends_on = [null_resource.lambda_build]
+  depends_on = [null_resource.snapshot_lambda_build]
 }
 
 # CloudWatch Log Group for the Lambda function
@@ -71,17 +67,12 @@ resource "aws_cloudwatch_log_group" "prismic_snapshot_lambda_logs" {
   retention_in_days = 14
 } 
 
-resource "aws_iam_role_policy_attachment" "prismic_snapshot_lambda_policy" {
+resource "aws_iam_role_policy_attachment" "prismic_snapshot_lambda_cloudwatch_policy" {
   role       = aws_iam_role.prismic_snapshot_lambda_role.name
-  policy_arn = aws_iam_policy.prismic_snapshot_lambda_policy.arn
+  policy_arn = aws_iam_policy.lambda_cloudwatch_policy.arn
 }
 
-# resource "aws_iam_role_policy_attachment" "prismic_snapshot_lambda_cloudwatch_policy" {
-#   role       = aws_iam_role.prismic_snapshot_lambda_role.name
-#   policy_arn = aws_iam_policy.lambda_cloudwatch_policy.arn
-# }
-
-# resource "aws_iam_role_policy_attachment" "prismic_snapshot_lambda_s3_policy" {
-#   role       = aws_iam_role.prismic_snapshot_lambda_role.name
-#   policy_arn = aws_iam_policy.lambda_s3_policy.arn
-# }
+resource "aws_iam_role_policy_attachment" "prismic_snapshot_lambda_s3_policy" {
+  role       = aws_iam_role.prismic_snapshot_lambda_role.name
+  policy_arn = aws_iam_policy.lambda_s3_policy.arn
+}

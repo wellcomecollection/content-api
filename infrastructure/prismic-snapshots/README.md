@@ -70,7 +70,7 @@ Adjust in `main.tf` if needed based on Prismic content size.
 
 ### S3 Bucket Location
 
-**Bucket**: `wellcomecollection-prismic-snapshots`
+**Bucket**: `wellcomecollection-prismic-backups`
 
 ### Filename Structure
 
@@ -147,10 +147,10 @@ cat response.json
 
 ```bash
 # List all snapshots
-AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-snapshots/
+AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 
 # Download latest snapshot
-AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-snapshots/ ./snapshots/ --recursive
+AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
 ```
 
 ## Monitoring

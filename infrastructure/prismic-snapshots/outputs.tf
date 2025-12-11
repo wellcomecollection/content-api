@@ -4,8 +4,8 @@ output "lambda_function_name" {
 }
 
 output "s3_bucket_name" {
-  description = "Name of the S3 bucket storing snapshots"
-  value       = aws_s3_bucket.prismic_snapshots.bucket
+  description = "Name of the S3 bucket storing backups"
+  value       = aws_s3_bucket.prismic_backups.bucket
 }
 
 output "lambda_function_url" {
@@ -15,7 +15,7 @@ output "lambda_function_url" {
 
 output "s3_bucket_url" {
   description = "AWS Console URL for the S3 bucket"
-  value       = "https://s3.console.aws.amazon.com/s3/buckets/${aws_s3_bucket.prismic_snapshots.bucket}"
+  value       = "https://s3.console.aws.amazon.com/s3/buckets/${aws_s3_bucket.prismic_backups.bucket}"
 }
 
 output "schedule_expression" {

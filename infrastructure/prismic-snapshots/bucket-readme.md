@@ -48,16 +48,16 @@ To download a snapshot (use the Prismic ref or a wildcard):
 
 ```bash
 # exact file
-aws s3 cp s3://wellcomecollection-prismic-snapshots/prismic-snapshot-masterref123-2025-11-03T23-00-00Z.json .
+aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/prismic-snapshot-masterref123-2025-11-03T23-00-00Z.json .
 
 # or using a wildcard for the timestamp/ref
-aws s3 cp s3://wellcomecollection-prismic-snapshots/prismic-snapshot-* . --recursive
+aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ . --recursive
 ```
 
 To list all available snapshots:
 
 ```bash
-aws s3 ls s3://wellcomecollection-prismic-snapshots/
+aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 ```
 
 ## Related documentation

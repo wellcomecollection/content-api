@@ -1,6 +1,6 @@
-# S3 bucket for storing Prismic snapshots
-resource "aws_s3_bucket" "prismic_snapshots" {
-  bucket = "wellcomecollection-prismic-snapshots"
+# S3 bucket for storing Prismic backups
+resource "aws_s3_bucket" "prismic_backups" {
+  bucket = "wellcomecollection-prismic-backups"
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "prismic_snapshots" {
@@ -11,7 +11,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "prismic_snapshots" {
     status = "Enabled"
 
     filter {
-      prefix = "prismic-snapshot-"
+      prefix = "snapshots/"
     }
 
     expiration {
