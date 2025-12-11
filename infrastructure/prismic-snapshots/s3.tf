@@ -3,8 +3,8 @@ resource "aws_s3_bucket" "prismic_backups" {
   bucket = "wellcomecollection-prismic-backups"
 }
 
-resource "aws_s3_bucket_lifecycle_configuration" "prismic_snapshots" {
-  bucket = aws_s3_bucket.prismic_snapshots.id
+resource "aws_s3_bucket_lifecycle_configuration" "prismic_backups" {
+  bucket = aws_s3_bucket.prismic_backups.id
 
   rule {
     id     = "delete_old_snapshots"
@@ -27,7 +27,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "prismic_snapshots" {
 
 # Upload README to S3 bucket for documentation
 resource "aws_s3_object" "bucket_readme" {
-  bucket       = aws_s3_bucket.prismic_snapshots.bucket
+  bucket       = aws_s3_bucket.prismic_backups.bucket
   key          = "README.md"
   source       = "${path.module}/bucket-readme.md"
   content_type = "text/markdown"
