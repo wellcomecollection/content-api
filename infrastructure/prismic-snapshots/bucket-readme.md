@@ -74,6 +74,6 @@ aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 
 ## Related documentation
 
-- Main project README: [infrastructure/prismic-snapshots/README.md](https://github.com/wellcomecollection/wellcomecollection.org/blob/main/infrastructure/prismic-snapshots/README.md)
-- Lambdas source code: [infrastructure/prismic-snapshots/lambda/](https://github.com/wellcomecollection/wellcomecollection.org/tree/main/infrastructure/prismic-snapshots/lambda)
-- Terraform infrastructure: [infrastructure/prismic-snapshots](https://github.com/wellcomecollection/wellcomecollection.org/blob/main/infrastructure/prismic-snapshots)
+- Main project README: [infrastructure/prismic-snapshots/README.md](https://github.com/wellcomecollection/content-api/blob/main/infrastructure/prismic-snapshots/README.md)
+- Lambdas source code: [infrastructure/prismic-snapshots/lambda/](https://github.com/wellcomecollection/content-api/tree/main/infrastructure/prismic-snapshots/lambda)
+- Terraform infrastructure: [infrastructure/prismic-snapshots](https://github.com/wellcomecollection/content-api/blob/main/infrastructure/prismic-snapshots)
