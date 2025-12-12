@@ -65,7 +65,7 @@ data "archive_file" "prismic_backup_trigger_lambda_zip" {
 resource "aws_cloudwatch_log_group" "prismic_backup_trigger_lambda_logs" {
   name              = "/aws/lambda/${aws_lambda_function.prismic_backup_trigger.function_name}"
   retention_in_days = 14
-} 
+}
 
 resource "aws_iam_role_policy_attachment" "prismic_backup_trigger_lambda_cloudwatch_policy" {
   role       = aws_iam_role.prismic_backup_trigger_lambda_role.name

@@ -29,9 +29,9 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_duration" {
   evaluation_periods  = "1"
   metric_name         = "Duration"
   namespace           = "AWS/Lambda"
-  period              = "3600" # 1 hour - more likely to capture the daily execution
+  period              = "3600"    # 1 hour - more likely to capture the daily execution
   statistic           = "Maximum" # Use max since we only have one execution per period
-  threshold           = "720000" # 12 minutes (warn before 15min timeout)
+  threshold           = "720000"  # 12 minutes (warn before 15min timeout)
   alarm_description   = "This metric monitors duration for the Prismic snapshot Lambda function"
   treat_missing_data  = "notBreaching" # Don't alarm when no data (most of the time)
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]

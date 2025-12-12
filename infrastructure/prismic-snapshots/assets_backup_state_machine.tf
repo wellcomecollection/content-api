@@ -14,9 +14,9 @@ resource "aws_sfn_state_machine" "assets_backup" {
         Next     = "BackupDownload"
       }
       BackupDownload = {
-        Type     = "Map"
-        Comment  = "Processes each batch in parallel (max 10 concurrent batches)"
-        ItemsPath = "$.items"
+        Type           = "Map"
+        Comment        = "Processes each batch in parallel (max 10 concurrent batches)"
+        ItemsPath      = "$.items"
         MaxConcurrency = 10
         Iterator = {
           StartAt = "DownloadAssets"
