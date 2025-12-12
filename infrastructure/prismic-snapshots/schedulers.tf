@@ -28,3 +28,26 @@ resource "aws_iam_role_policy_attachment" "prismic_snapshot_scheduler_policy" {
   role       = aws_iam_role.prismic_snapshot_scheduler_role.name
   policy_arn = aws_iam_policy.prismic_snapshot_scheduler_policy.arn
 }
+
+
+# EventBridge Scheduler for assets backup state machine at 11 PM UTC
+resource "aws_scheduler_schedule" "assets_backup_daily" {
+  name       = "${aws_sfn_state_machine.assets_backup.name}-schedule"
+  group_name = "default"
+
+  flexible_time_window {
+    mode = "OFF"
+  }
+
+  schedule_expression = "cron(0 23 * * ? *)" # 11 PM UTC daily
+
+  target {
+    arn      = aws_sfn_state_machine.assets_backup.arn
+    role_arn = aws_iam_role.assets_backup_scheduler_role.arn
+  }
+}
+
+resource "aws_iam_role_policy_attachment" "assets_backup_scheduler_policy" {
+  role       = aws_iam_role.assets_backup_scheduler_role.name
+  policy_arn = aws_iam_policy.assets_backup_scheduler_policy.arn
+}
