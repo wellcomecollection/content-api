@@ -191,10 +191,10 @@ cat response.json
 
 ```bash
 # List all snapshots
-AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
+AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 
 # Download latest snapshot
-AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
+AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
 ```
 
 ## Monitoring
@@ -203,10 +203,10 @@ AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backu
 
 ```bash
 # Check recent logs
-AWS_PROFILE=experience-developer aws logs describe-log-groups --log-group-name-prefix "/aws/lambda/prismic-snapshot"
+AWS_PROFILE=catalogue-developer aws logs describe-log-groups --log-group-name-prefix "/aws/lambda/prismic-snapshot"
 
 # Follow logs in real-time
-AWS_PROFILE=experience-developer aws logs tail /aws/lambda/prismic-snapshot --follow
+AWS_PROFILE=catalogue-developer aws logs tail /aws/lambda/prismic-snapshot --follow
 ```
 
 ### CloudWatch Alarms
@@ -237,10 +237,10 @@ There are CloudWatch alarms to monitor Lambda function health:
 
 ```bash
 # Check alarm status via CLI
-AWS_PROFILE=experience-developer aws cloudwatch describe-alarms --alarm-names "prismic-snapshot-errors" "prismic-snapshot-duration-warning" "prismic-snapshot-missing-invocations"
+AWS_PROFILE=catalogue-developer aws cloudwatch describe-alarms --alarm-names "prismic-snapshot-errors" "prismic-snapshot-duration-warning" "prismic-snapshot-missing-invocations"
 
 # Get alarm history
-AWS_PROFILE=experience-developer aws cloudwatch describe-alarm-history --alarm-name "prismic-snapshot-errors"
+AWS_PROFILE=catalogue-developer aws cloudwatch describe-alarm-history --alarm-name "prismic-snapshot-errors"
 ```
 
 ## Cleanup/Destruction\*\*
