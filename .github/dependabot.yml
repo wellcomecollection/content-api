@@ -13,7 +13,6 @@ updates:
       # Needs more work.
       - dependency-name: 'eslint*'
       - dependency-name: '@elastic/elasticsearch'
-      - dependency-name: 'husky'
       # Needs Node >= 20.15, update when we get there.
       - dependency-name: '@types/node'
       - dependency-name: 'lint-staged'
