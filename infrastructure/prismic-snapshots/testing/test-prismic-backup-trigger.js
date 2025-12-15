@@ -23,12 +23,9 @@ if (!process.env.AWS_ACCESS_KEY_ID) {
 process.env.S3_ENDPOINT = 'http://localhost:4566';
 
 // Load bearer token from environment or prompt to set it
-if (
-  !process.env.PRISMIC_BEARER_TOKEN &&
-  !process.env.PRISMIC_BEARER_TOKEN_STAGE
-) {
+if (!process.env.PRISMIC_BEARER_TOKEN) {
   console.error(
-    'Error: PRISMIC_BEARER_TOKEN or PRISMIC_BEARER_TOKEN_STAGE environment variable is required'
+    'Error: PRISMIC_BEARER_TOKEN environment variable is required'
   );
   console.error('Add it to infrastructure/prismic-snapshots/.env file');
   process.exit(1);
