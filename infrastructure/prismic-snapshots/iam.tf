@@ -120,8 +120,8 @@ resource "aws_iam_policy" "prismic_snapshot_scheduler_policy" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect = "Allow"
-        Action = "lambda:InvokeFunction"
+        Effect   = "Allow"
+        Action   = "lambda:InvokeFunction"
         Resource = aws_lambda_function.prismic_snapshot.arn
       }
     ]
