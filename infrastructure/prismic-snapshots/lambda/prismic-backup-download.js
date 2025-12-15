@@ -93,39 +93,70 @@ async function processAssetBatch(batch) {
     failed: 0,
     errors: [],
   };
+  const concurrency = Number(process.env.BATCH_CONCURRENCY || '5');
 
-  for (const asset of batch) {
-    const { id, url } = asset;
+  for (let i = 0; i < batch.length; i += concurrency) {
+    const chunk = batch.slice(i, i + concurrency);
 
-    // Download the asset
-    const downloadResult = await downloadAsset(url);
+    const settledResults = await Promise.allSettled(
+      chunk.map(async asset => {
+        const { id, url } = asset;
 
-    if (!downloadResult.success) {
-      results.failed++;
-      results.errors.push({
-        id,
-        url,
-        stage: 'download',
-        error: downloadResult.error,
-      });
-      continue;
+        const downloadResult = await downloadAsset(url);
+
+        if (!downloadResult.success) {
+          return {
+            success: false,
+            id,
+            url,
+            stage: 'download',
+            error: downloadResult.error,
+          };
+        }
+
+        const uploadResult = await uploadToS3(id, downloadResult.buffer, url);
+
+        if (!uploadResult.success) {
+          return {
+            success: false,
+            id,
+            url,
+            stage: 'upload',
+            error: uploadResult.error,
+          };
+        }
+
+        return { success: true, id, url };
+      })
+    );
+
+    for (const result of settledResults) {
+      if (result.status === 'fulfilled') {
+        const value = result.value;
+
+        if (value.success) {
+          results.successful++;
+        } else {
+          results.failed++;
+          results.errors.push({
+            id: value.id,
+            url: value.url,
+            stage: value.stage,
+            error: value.error,
+          });
+        }
+      } else {
+        results.failed++;
+        results.errors.push({
+          id: null,
+          url: null,
+          stage: 'unknown',
+          error:
+            (result.reason && result.reason.message) ||
+            'Unknown error while processing asset',
+        });
+      }
     }
-
-    // Upload to S3
-    const uploadResult = await uploadToS3(id, downloadResult.buffer, url);
-
-    if (!uploadResult.success) {
-      results.failed++;
-      results.errors.push({
-        id,
-        url,
-        stage: 'upload',
-        error: uploadResult.error,
-      });
-      continue;
-    }
-
-    results.successful++;
   }
 
   return results;
