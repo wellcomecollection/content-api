@@ -61,6 +61,7 @@ module.exports = [
       '**/lib/',
       '**/_next/',
       '**/dist/',
+      '**/.terraform/',
     ],
   },
   // Global linter options
@@ -98,12 +99,10 @@ module.exports = [
     },
   },
   // TypeScript config
-  ...tseslint.config(
-    ...tseslint.configs.recommended.map(config => ({
-      ...config,
-      files: ['**/*.ts'],
-    }))
-  ),
+  ...tseslint.configs.recommended.map(config => ({
+    ...config,
+    files: ['**/*.ts'],
+  })),
   {
     files: ['**/*.ts'],
     languageOptions: {
