@@ -40,6 +40,9 @@
     "prettier": "^3.7.3"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{js,ts}": [
+      "eslint --fix --max-warnings=0 --report-unused-disable-directives",
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
