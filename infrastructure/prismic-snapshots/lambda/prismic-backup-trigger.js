@@ -152,7 +152,7 @@ async function downloadPrismicAssets() {
 
     // Create filename with timestamp
     const timestamp = new Date();
-    const filename = `prismic-assets-${timestamp}.json`;
+    const filename = `prismic-assets-${timestamp.toISOString()}.json`;
 
     // Upload main assets file to S3 (all assets, unfiltered)
     const uploadCommand = new PutObjectCommand({
