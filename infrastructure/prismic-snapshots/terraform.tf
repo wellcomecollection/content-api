@@ -5,9 +5,9 @@ terraform {
     assume_role = {
       role_arn = "arn:aws:iam::756629837203:role/catalogue-developer"
     }
-    bucket   = "wellcomecollection-catalogue-infra-delta"
-    key      = "terraform/prismic-backups/prismic_backups.tfstate"
-    region   = "eu-west-1"
+    bucket = "wellcomecollection-catalogue-infra-delta"
+    key    = "terraform/prismic-backups/prismic_backups.tfstate"
+    region = "eu-west-1"
 
     dynamodb_table = "terraform-locktable"
   }

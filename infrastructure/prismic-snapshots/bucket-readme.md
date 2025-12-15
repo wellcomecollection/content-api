@@ -2,19 +2,27 @@
 
 This S3 bucket contains automated daily backups of the Wellcome Collection Prismic content repository.
 
-## What are these files?
-
-These snapshots are complete exports of all content from our Prismic CMS in JSON format
+The `/snapshots` prefix contains complete exports of all content from our Prismic CMS in JSON format.  
+The `/media-library` prefix contains all the digital assets hosted in our Prismic CMS, such as images, files and videos. TO DO: also has the latest list of assets? with timestamp?
 
 ## File naming convention
 
-Files are named with the Prismic ref and an ISO 8601 timestamp:
+#### Snapshots files are named with the Prismic ref and an ISO 8601 timestamp:
 
 ```
-prismic-snapshot-<prismic-ref>-YYYY-MM-DDTHH-MM-SSZ.json
+snapshots/prismic-snapshot-<prismic-ref>-YYYY-MM-DDTHH-MM-SSZ.json
 ```
 
-For example: `prismic-snapshot-ref123-2025-11-03T23-00-00Z.json`
+For example: `snapshots/prismic-snapshot-ref123-2025-11-03T23-00-00Z.json`
+
+#### Media libray backups are named with their Prismic id:
+
+```
+media-library/prismic_asset_id
+```
+
+For example: `media-library/dfsfgD57gffg£$TFa`  
+We only keep one version of each asset, ie. the lastest version downloaded from Prismic.
 
 ## File format
 
@@ -25,9 +33,12 @@ Each snapshot is a JSON file containing the complete Prismic repository export a
 - `total_pages`: Number of pages in the export
 - Various metadata fields
 
+TO DO: add format of the asset list we get from Prismic API
+
 ## Backup schedule
 
 Snapshots are created automatically every day at 11:00 PM UTC by an AWS Lambda function.
+Media library is backed up every day at 11:00 PM UTC by an AWS State Machine
 
 ## Purpose
 
@@ -41,6 +52,7 @@ These backups serve as:
 ## Retention
 
 Snapshots are retained for 14 days.
+Assets do not expire.
 
 ## Access
 
@@ -62,6 +74,6 @@ aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 
 ## Related documentation
 
-- Main project README: [infrastructure/prismic-snapshots/README.md](https://github.com/wellcomecollection/wellcomecollection.org/blob/main/infrastructure/prismic-snapshots/README.md)
-- Lambda source code: [infrastructure/prismic-snapshots/lambda/](https://github.com/wellcomecollection/wellcomecollection.org/tree/main/infrastructure/prismic-snapshots/lambda)
-- Terraform infrastructure: [infrastructure/prismic-snapshots/main.tf](https://github.com/wellcomecollection/wellcomecollection.org/blob/main/infrastructure/prismic-snapshots/main.tf)
+- Main project README: [infrastructure/prismic-snapshots/README.md](https://github.com/wellcomecollection/content-api/blob/main/infrastructure/prismic-snapshots/README.md)
+- Lambdas source code: [infrastructure/prismic-snapshots/lambda/](https://github.com/wellcomecollection/content-api/tree/main/infrastructure/prismic-snapshots/lambda)
+- Terraform infrastructure: [infrastructure/prismic-snapshots](https://github.com/wellcomecollection/content-api/blob/main/infrastructure/prismic-snapshots)
