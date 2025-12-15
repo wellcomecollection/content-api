@@ -24,9 +24,7 @@ process.env.S3_ENDPOINT = 'http://localhost:4566';
 
 // Load bearer token from environment or prompt to set it
 if (!process.env.PRISMIC_BEARER_TOKEN) {
-  console.error(
-    'Error: PRISMIC_BEARER_TOKEN environment variable is required'
-  );
+  console.error('Error: PRISMIC_BEARER_TOKEN environment variable is required');
   console.error('Add it to infrastructure/prismic-snapshots/.env file');
   process.exit(1);
 }
