@@ -51,7 +51,7 @@ infrastructure/prismic-snapshots/
 ```
 ┌─────────────────┐    ┌──────────────────────────┐    ┌─────────────────────┐
 │ EventBridge     │───▶│ prismic-backup-trigger   │───▶│ Step Functions      │
-│ (Daily 11 PM)     │    │ (Fetch asset list)       │    │ State Machine       │
+│ (Daily 11 PM)   │    │ (Fetch asset list)       │    │ State Machine       │
 └─────────────────┘    └──────────────────────────┘    └─────────────────────┘
                                                                  │
                                                                  ▼
