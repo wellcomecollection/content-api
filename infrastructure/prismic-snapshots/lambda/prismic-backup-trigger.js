@@ -117,7 +117,7 @@ async function downloadPrismicAssets() {
     const fetchStartTime = Date.now();
     const assets = await fetchAllPrismicAssets();
 
-    console.log(`Downloaded ${assets.length} assets from Prismic`);
+    console.log(`Fetched asset list of ${assets.length} assets from Prismic`);
 
     // Filter assets modified since last fetch
     let filteredAssets = assets;
