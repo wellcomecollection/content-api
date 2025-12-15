@@ -12,6 +12,9 @@ const s3Client = new S3Client({
   }),
 });
 const BUCKET_NAME = process.env.BUCKET_NAME;
+if (!BUCKET_NAME) {
+  throw new Error('BUCKET_NAME environment variable is required');
+}
 
 function getPrismicAuthToken() {
   const token = process.env.PRISMIC_BEARER_TOKEN;
