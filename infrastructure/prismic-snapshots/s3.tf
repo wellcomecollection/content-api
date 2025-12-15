@@ -57,4 +57,4 @@ resource "aws_s3_object" "bucket_readme" {
     Environment = "production"
     Purpose     = "documentation"
   }
-}
+  }
