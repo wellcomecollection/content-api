@@ -66,7 +66,9 @@ async function fetchAllPrismicAssets() {
 
   console.log(`Fetching asset list from ${repo}...`);
 
-  do {
+  let isLastPage = false;
+
+  while (!isLastPage) {
     const url = new URL(assetsUrlBase);
     url.searchParams.set('repository', repo);
     url.searchParams.set('limit', pageSize.toString());
@@ -91,20 +93,22 @@ async function fetchAllPrismicAssets() {
 
     const json = await res.json();
     // The Asset API returns { total, items, cursor }
-    if (Array.isArray(json.items) && json.items.length > 0) {
-      allAssets = allAssets.concat(json.items);
+    const items = Array.isArray(json.items) ? json.items : [];
+    if (items.length > 0) {
+      allAssets = allAssets.concat(items);
       console.log(
-        `Fetched ${json.items.length} assets (total so far: ${allAssets.length} / ${json.total})`
+        `Fetched ${items.length} assets (total so far: ${allAssets.length} / ${json.total})`
       );
     }
 
+    isLastPage = items.length < pageSize;
     cursor = json.cursor;
 
     // Delay between requests to be nice to the Prismic API and avoid rate limiting
-    if (cursor) {
+    if (!isLastPage) {
       await delay(1000);
     }
-  } while (cursor);
+  }
 
   console.log(`Finished: fetched a list of ${allAssets.length} total assets`);
   return allAssets;
