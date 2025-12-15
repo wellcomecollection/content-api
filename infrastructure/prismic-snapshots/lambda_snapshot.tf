@@ -37,13 +37,13 @@ resource "aws_lambda_function" "prismic_snapshot" {
 resource "null_resource" "snapshot_lambda_build" {
   triggers = {
     # Rebuild when the Lambda code changes
-    lambda_code = filemd5("${path.module}/lambda/prismic_snapshot.js")
+    lambda_code = filemd5("${path.module}/lambda/prismic-snapshot.js")
     # Rebuild when the build script changes
     build_script = filemd5("${path.module}/scripts/build-lambda.sh")
   }
 
   provisioner "local-exec" {
-    command = "${path.module}/scripts/build-lambda.sh prismic_snapshot ${path.module}/prismic_snapshot_lambda.zip"
+    command = "${path.module}/scripts/build-lambda.sh prismic-snapshot ${path.module}/prismic_snapshot_lambda.zip"
   }
 }
 
