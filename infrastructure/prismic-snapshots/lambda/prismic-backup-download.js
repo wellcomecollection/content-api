@@ -9,6 +9,9 @@ const s3Client = new S3Client({
 });
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
+if (!BUCKET_NAME) {
+  throw new Error('Missing required environment variable: BUCKET_NAME');
+}
 async function downloadAsset(url, retryCount = 0) {
   const maxRetries = 1;
 
