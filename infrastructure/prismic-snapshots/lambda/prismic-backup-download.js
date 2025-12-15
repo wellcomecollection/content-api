@@ -62,9 +62,21 @@ async function downloadAsset(url, retryCount = 0) {
 
 async function uploadToS3(id, buffer, url) {
   try {
-    // Extract filename from URL (already contains the ID)
-    const urlPath = new URL(url).pathname;
-    const filename = urlPath.split('/').pop() || id;
+    // Extract filename from URL, falling back safely to the asset ID
+    const urlObj = new URL(url);
+    const pathSegments = urlObj.pathname.split('/').filter(Boolean);
+    let filename = pathSegments[pathSegments.length - 1] || '';
+
+    // If we still don't have a usable filename, fall back to the asset ID
+    if (!filename) {
+      filename = id;
+    }
+
+    // Ensure the filename includes the asset ID for traceability
+    if (!filename.includes(id)) {
+      filename = `${id}-${filename}`;
+    }
+
     const key = `media-library/files/${filename}`;
 
     const uploadCommand = new PutObjectCommand({
