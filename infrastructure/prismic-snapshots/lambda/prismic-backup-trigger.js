@@ -110,7 +110,7 @@ async function fetchAllPrismicAssets() {
   return allAssets;
 }
 
-async function downloadPrismicAssets() {
+async function prepareAssetsForDownload() {
   try {
     console.log('Starting Prismic assets download...');
 
@@ -208,5 +208,5 @@ async function downloadPrismicAssets() {
 
 exports.handler = async (event, context) => {
   console.log('Prismic list assets Lambda triggered', { event, context });
-  return await downloadPrismicAssets();
+  return await prepareAssetsForDownload();
 };
