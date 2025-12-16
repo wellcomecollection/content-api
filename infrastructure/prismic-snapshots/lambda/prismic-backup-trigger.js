@@ -114,28 +114,21 @@ async function fetchAllPrismicAssets() {
   return allAssets;
 }
 
-function parseLastModified(value) {
-  if (typeof value === 'number') {
-    return value;
-  }
-
-  if (typeof value === 'string') {
-    const timestamp = Date.parse(value);
-    return Number.isFinite(timestamp) ? timestamp : undefined;
-  }
-
-  return undefined;
-}
-
 function filterAssetsSince(assets, previousFetchTime) {
   if (!previousFetchTime) {
     return assets;
   }
 
-  return assets.filter(asset => {
-    const modified = parseLastModified(asset.last_modified);
-    return typeof modified === 'number' && modified >= previousFetchTime;
+  assets.forEach(asset => {
+    if (typeof asset.last_modified !== 'number') {
+      const id = asset.id || '<unknown>';
+      throw new Error(
+        `Expected numeric last_modified for asset ${id}, got ${typeof asset.last_modified}`
+      );
+    }
   });
+
+  return assets.filter(asset => asset.last_modified >= previousFetchTime);
 }
 
 async function prepareAssetsForDownload() {
