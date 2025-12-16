@@ -207,7 +207,7 @@ async function prepareAssetsForDownload() {
     const batchesCommand = new PutObjectCommand({
       Bucket: BUCKET_NAME,
       Key: latestBatchesKey,
-      Body: JSON.stringify({ batches }, null, 2),
+      Body: JSON.stringify(batches, null, 2),
       ContentType: 'application/json',
     });
 
