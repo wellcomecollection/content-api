@@ -282,7 +282,18 @@ To test with LocalStack S3:
    process.env.S3_ENDPOINT = 'http://localhost:4566';
    ```
 
-3. **Run the tests** as normal
+3. **Create the S3 buckets in LocalStack**:
+
+   These names must match `BUCKET_NAME` in the test scripts:
+   - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
+   - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
+
+   ```bash
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-backups
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-downloads
+   ```
+
+4. **Run the tests** as normal
 
 ### Manual Lambda Invocation/Snapshot Creation
 
