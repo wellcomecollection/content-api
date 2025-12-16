@@ -164,10 +164,6 @@ async function prepareAssetsForDownload() {
       Key: `media-library/${filename}`,
       Body: JSON.stringify(assets, null, 2),
       ContentType: 'application/json',
-      Metadata: {
-        'asset-count': assets.length.toString(),
-        'created-at': new Date().toISOString(),
-      },
     });
 
     await s3Client.send(uploadCommand);
