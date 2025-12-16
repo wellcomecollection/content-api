@@ -78,7 +78,7 @@ infrastructure/prismic-snapshots/
    - Updates latest-assets.json with last fetch time and file location
    - Filters assets modified since last backup
    - Batches assets into groups of 100
-   - Returns batches to Step Functions as `{ items: [[batch1], [batch2], ...] }`
+   - Writes batches to S3 at `media-library/latest-batches.json` and returns `{ bucket, key }` for Step Functions to read
 
 2. **Step Functions State Machine**:
    - Receives batches from trigger Lambda
