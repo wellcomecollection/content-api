@@ -46,23 +46,9 @@ lambda
   .handler(event, context)
   .then(result => {
     console.log('\n=== Lambda Response ===');
-    console.log('Number of batches:', result.items?.length || 0);
-
-    if (result.items && result.items.length > 0) {
-      console.log('First batch size:', result.items[0].length);
-      const totalAssets = result.items.reduce((sum, b) => sum + b.length, 0);
-      console.log('Total assets to download:', totalAssets);
-
-      // Show first batch as JSON
-      console.log('\n=== First Batch (JSON) ===');
-      console.log(JSON.stringify(result.items[0], null, 2));
-
-      // Show batch sizes
-      console.log('\n=== Batch Sizes ===');
-      result.items.forEach((batch, i) => {
-        console.log(`Batch ${i + 1}: ${batch.length} assets`);
-      });
-    }
+    console.log('Batches written to:');
+    console.log('  Bucket:', result.bucket);
+    console.log('  Key:   ', result.key);
   })
   .catch(error => {
     console.error('\n=== Lambda Error ===');
