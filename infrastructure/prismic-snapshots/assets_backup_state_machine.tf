@@ -10,13 +10,24 @@ resource "aws_sfn_state_machine" "assets_backup" {
       BackupTrigger = {
         Type     = "Task"
         Resource = aws_lambda_function.prismic_backup_trigger.arn
-        Comment  = "Returns batched assets: {items: [[batch1], [batch2], ...]}"
+        Comment  = "Generates asset list and uploads to S3, returns S3 location"
         Next     = "BackupDownload"
       }
       BackupDownload = {
-        Type     = "Map"
-        Comment  = "Processes each batch in parallel (max 10 concurrent batches)"
-        ItemsPath = "$.items"
+        Type           = "Map"
+        ItemReader = {
+          Resource = "arn:aws:states:::s3:getObject"
+          ReaderConfig = {
+            InputType = "JSON"
+          }
+          Parameters = {
+            "Bucket.$" = "$.bucket"
+            "Key.$"    = "$.key"
+          }
+        }
+        ItemSelector = {
+          "batch.$" = "$$.Map.Item.Value"
+        }
         MaxConcurrency = 10
         Iterator = {
           StartAt = "DownloadAssets"
@@ -29,7 +40,7 @@ resource "aws_sfn_state_machine" "assets_backup" {
           }
         }
         Next = "Success"
-      },
+      }
       Success = {
         Type = "Succeed"
       }
