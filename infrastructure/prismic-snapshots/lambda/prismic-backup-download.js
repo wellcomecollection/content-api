@@ -77,7 +77,7 @@ async function uploadToS3(id, buffer, url) {
       filename = `${id}-${filename}`;
     }
 
-    const key = `media-library/files/${filename}`;
+    const key = `media-library/assets/${filename}`;
 
     const uploadCommand = new PutObjectCommand({
       Bucket: BUCKET_NAME,
@@ -179,7 +179,7 @@ exports.handler = async (event, context) => {
 
   try {
     // Event contains a batch of assets to download
-    const batch = event.batch;
+    const batch = event;
 
     if (!Array.isArray(batch)) {
       throw new Error('Invalid input: batch must be an array of assets');
@@ -193,19 +193,16 @@ exports.handler = async (event, context) => {
       `Completed: ${results.successful} successful, ${results.failed} failed`
     );
 
-    return {
-      statusCode: results.failed > 0 ? 207 : 200, // 207 Multi-Status if partial success
-      body: JSON.stringify(results),
-    };
+    if (results.failed > 0) {
+      const error = new Error(
+        `Partial failure: ${results.failed}/${results.total} assets failed`
+      );
+      error.results = results; // Attach details
+      throw error;
+    }
+    return results;
   } catch (error) {
     console.error('Error processing asset batch:', error);
-
-    return {
-      statusCode: error.statusCode || 500,
-      body: JSON.stringify({
-        message: 'Error processing asset batch',
-        error: error.message,
-      }),
-    };
+    throw error; // Let Step Functions handle the failure
   }
 };
