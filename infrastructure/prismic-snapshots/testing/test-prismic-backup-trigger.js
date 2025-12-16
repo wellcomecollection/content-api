@@ -46,31 +46,22 @@ lambda
   .handler(event, context)
   .then(result => {
     console.log('\n=== Lambda Response ===');
-    console.log('Status Code:', result.statusCode);
+    console.log('Number of batches:', result.items?.length || 0);
 
-    const body = JSON.parse(result.body);
-    console.log('Number of batches:', body.items?.length || 0);
-
-    if (body.items && body.items.length > 0) {
-      console.log('First batch size:', body.items[0].length);
-      const totalAssets = body.items.reduce((sum, b) => sum + b.length, 0);
+    if (result.items && result.items.length > 0) {
+      console.log('First batch size:', result.items[0].length);
+      const totalAssets = result.items.reduce((sum, b) => sum + b.length, 0);
       console.log('Total assets to download:', totalAssets);
 
       // Show first batch as JSON
       console.log('\n=== First Batch (JSON) ===');
-      console.log(JSON.stringify(body.items[0], null, 2));
+      console.log(JSON.stringify(result.items[0], null, 2));
 
       // Show batch sizes
       console.log('\n=== Batch Sizes ===');
-      body.items.forEach((batch, i) => {
+      result.items.forEach((batch, i) => {
         console.log(`Batch ${i + 1}: ${batch.length} assets`);
       });
-    }
-
-    if (body.message) {
-      console.log('\n=== Error Message ===');
-      console.log(body.message);
-      console.log(body.error);
     }
   })
   .catch(error => {

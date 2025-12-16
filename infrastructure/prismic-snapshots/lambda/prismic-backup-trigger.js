@@ -202,9 +202,7 @@ async function prepareAssetsForDownload() {
     console.log(`Updated latest-assets.json pointer to ${filename}`);
 
     return {
-      body: JSON.stringify({
-        items: batches, // Return batched assets for parallel processing
-      }),
+      items: batches, // Return batched assets for parallel processing
     };
   } catch (error) {
     console.error('Error creating Prismic assets snapshot:', error);
