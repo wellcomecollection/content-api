@@ -188,7 +188,6 @@ async function prepareAssetsForDownload() {
     console.log(`Updated latest-assets.json pointer to ${filename}`);
 
     return {
-      statusCode: 200,
       body: JSON.stringify({
         items: batches, // Return batched assets for parallel processing
       }),
