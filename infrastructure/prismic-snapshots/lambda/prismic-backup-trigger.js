@@ -114,6 +114,30 @@ async function fetchAllPrismicAssets() {
   return allAssets;
 }
 
+function parseLastModified(value) {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    const timestamp = Date.parse(value);
+    return Number.isFinite(timestamp) ? timestamp : undefined;
+  }
+
+  return undefined;
+}
+
+function filterAssetsSince(assets, previousFetchTime) {
+  if (!previousFetchTime) {
+    return assets;
+  }
+
+  return assets.filter(asset => {
+    const modified = parseLastModified(asset.last_modified);
+    return typeof modified === 'number' && modified >= previousFetchTime;
+  });
+}
+
 async function prepareAssetsForDownload() {
   try {
     console.log('Starting Prismic assets download...');
@@ -127,11 +151,8 @@ async function prepareAssetsForDownload() {
     console.log(`Fetched asset list of ${assets.length} assets from Prismic`);
 
     // Filter assets modified since last fetch
-    let filteredAssets = assets;
+    const filteredAssets = filterAssetsSince(assets, previousFetchTime);
     if (previousFetchTime) {
-      filteredAssets = assets.filter(
-        asset => asset.last_modified >= previousFetchTime
-      );
       console.log(
         `Filtered to ${filteredAssets.length} assets modified since last fetch`
       );
@@ -209,3 +230,5 @@ exports.handler = async (event, context) => {
   console.log('Prismic list assets Lambda triggered', { event, context });
   return await prepareAssetsForDownload();
 };
+
+exports.filterAssetsSince = filterAssetsSince;
