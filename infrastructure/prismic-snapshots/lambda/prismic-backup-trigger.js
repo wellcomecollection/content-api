@@ -201,8 +201,22 @@ async function prepareAssetsForDownload() {
     await s3Client.send(latestCommand);
     console.log(`Updated latest-assets.json pointer to ${filename}`);
 
+    // Store the latest batches in S3 so the Step Functions state machine
+    // can read them
+    const latestBatchesKey = 'media-library/latest-batches.json';
+    const batchesCommand = new PutObjectCommand({
+      Bucket: BUCKET_NAME,
+      Key: latestBatchesKey,
+      Body: JSON.stringify({ batches }, null, 2),
+      ContentType: 'application/json',
+    });
+
+    await s3Client.send(batchesCommand);
+    console.log(`Updated latest-batches.json at ${latestBatchesKey}`);
+
     return {
-      items: batches, // Return batched assets for parallel processing
+      bucket: BUCKET_NAME,
+      key: latestBatchesKey,
     };
   } catch (error) {
     console.error('Error creating Prismic assets snapshot:', error);
