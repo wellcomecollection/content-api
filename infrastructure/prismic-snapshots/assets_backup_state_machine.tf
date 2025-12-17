@@ -2,10 +2,10 @@
 resource "aws_sfn_state_machine" "assets_backup" {
   name     = "prismic-assets-backup"
   role_arn = aws_iam_role.assets_backup_state_machine_role.arn
-  
+
   definition = jsonencode({
-    Comment       = "State machine to trigger backup and download Prismic assets"
-    StartAt       = "BackupTrigger"
+    Comment = "State machine to trigger backup and download Prismic assets"
+    StartAt = "BackupTrigger"
     States = {
       BackupTrigger = {
         Type     = "Task"
@@ -14,7 +14,7 @@ resource "aws_sfn_state_machine" "assets_backup" {
         Next     = "BackupDownload"
       }
       BackupDownload = {
-        Type           = "Map"
+        Type = "Map"
         ItemReader = {
           Resource = "arn:aws:states:::s3:getObject"
           ReaderConfig = {
@@ -28,7 +28,7 @@ resource "aws_sfn_state_machine" "assets_backup" {
         MaxConcurrency = 10
         ItemProcessor = {
           ProcessorConfig = {
-            Mode = "DISTRIBUTED"
+            Mode          = "DISTRIBUTED"
             ExecutionType = "STANDARD"
           }
           StartAt = "DownloadAssets"
@@ -48,9 +48,9 @@ resource "aws_sfn_state_machine" "assets_backup" {
             HandleError = {
               Type = "Pass"
               Parameters = {
-                "error.$"       = "$.error"
-                "input.$"       = "$"
-                errorHandled    = true
+                "error.$"    = "$.error"
+                "input.$"    = "$"
+                errorHandled = true
               }
               End = true
             }
