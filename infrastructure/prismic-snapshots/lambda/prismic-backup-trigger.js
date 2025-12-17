@@ -151,11 +151,24 @@ async function prepareAssetsForDownload() {
       );
     }
 
-    // Map filtered assets to only include id and url for next step
-    const assetsForDownload = filteredAssets.map(asset => ({
-      id: asset.id,
-      url: asset.url,
-    }));
+    // Map filtered assets to only include id and a cleaned url (no query params)
+    const assetsForDownload = filteredAssets.map(asset => {
+      try {
+        const urlObj = new URL(asset.url);
+        urlObj.search = '';
+        urlObj.hash = '';
+        return {
+          id: asset.id,
+          url: urlObj.toString(),
+        };
+      } catch (e) {
+        // If URL parsing fails for any reason, fall back to the original URL
+        return {
+          id: asset.id,
+          url: asset.url,
+        };
+      }
+    });
 
     // Batch assets into groups of 100 for parallel processing
     const batchSize = 100;
