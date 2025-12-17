@@ -60,24 +60,9 @@ async function downloadAsset(url, retryCount = 0) {
   }
 }
 
-async function uploadToS3(id, buffer, url) {
+async function uploadToS3(id, buffer, url, filenameFromBatch) {
   try {
-    // Extract filename from URL, falling back safely to the asset ID
-    const urlObj = new URL(url);
-    const pathSegments = urlObj.pathname.split('/').filter(Boolean);
-    let filename = pathSegments[pathSegments.length - 1] || '';
-
-    // If we still don't have a usable filename, fall back to the asset ID
-    if (!filename) {
-      filename = id;
-    }
-
-    // Ensure the filename includes the asset ID for traceability
-    if (!filename.includes(id)) {
-      filename = `${id}-${filename}`;
-    }
-
-    const key = `media-library/assets/${filename}`;
+    const key = `media-library/assets/${filenameFromBatch}`;
 
     const uploadCommand = new PutObjectCommand({
       Bucket: BUCKET_NAME,
@@ -112,7 +97,7 @@ async function processAssetBatch(batch) {
 
     const settledResults = await Promise.allSettled(
       chunk.map(async asset => {
-        const { id, url } = asset;
+        const { id, url, filename } = asset;
 
         const downloadResult = await downloadAsset(url);
 
@@ -126,7 +111,12 @@ async function processAssetBatch(batch) {
           };
         }
 
-        const uploadResult = await uploadToS3(id, downloadResult.buffer, url);
+        const uploadResult = await uploadToS3(
+          id,
+          downloadResult.buffer,
+          url,
+          filename
+        );
 
         if (!uploadResult.success) {
           return {

@@ -131,6 +131,28 @@ function filterAssetsSince(assets, previousFetchTime) {
   return assets.filter(asset => asset.last_modified >= previousFetchTime);
 }
 
+function deriveFilename(asset) {
+  if (asset && typeof asset.filename === 'string') {
+    const cleanFilename = asset.filename.trim();
+    if (cleanFilename) {
+      return `${asset.id}-${cleanFilename}`;
+    }
+  }
+
+  if (asset && typeof asset.extension === 'string') {
+    const cleanExtension = asset.extension.trim();
+    if (cleanExtension) {
+      const ext = cleanExtension.startsWith('.')
+        ? cleanExtension
+        : `.${cleanExtension}`;
+      return `${asset.id}${ext}`;
+    }
+  }
+
+  // Worst case, use the id only (no extension)
+  return asset.id;
+}
+
 async function prepareAssetsForDownload() {
   try {
     console.log('Starting Prismic assets download...');
@@ -151,8 +173,10 @@ async function prepareAssetsForDownload() {
       );
     }
 
-    // Map filtered assets to only include id and a cleaned url (no query params)
+    // Map filtered assets to include id, a cleaned url (no query params), and a filename
     const assetsForDownload = filteredAssets.map(asset => {
+      const filename = deriveFilename(asset);
+
       try {
         const urlObj = new URL(asset.url);
         urlObj.search = '';
@@ -160,12 +184,14 @@ async function prepareAssetsForDownload() {
         return {
           id: asset.id,
           url: urlObj.toString(),
+          filename,
         };
       } catch (e) {
         // If URL parsing fails for any reason, fall back to the original URL
         return {
           id: asset.id,
           url: asset.url,
+          filename,
         };
       }
     });
