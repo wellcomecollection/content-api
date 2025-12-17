@@ -13,6 +13,7 @@ Maintains backups for 14-days:
 
 ```
 infrastructure/prismic-snapshots/
+
 ├── terraform.tf                      # Provider configuration
 ├── lambda_snapshot.tf                # Document snapshot Lambda
 ├── lambda_backup_trigger.tf          # Asset list/trigger Lambda
@@ -108,6 +109,10 @@ Document snapshots and asset backups occur daily at **11 PM UTC**. These are con
 To change the schedules, modify the `schedule_expression`.
 
 ```hcl
+// "prismic_snapshot_daily"
+schedule_expression = "cron(0 23 * * ? *)" # 11 PM UTC daily
+
+// "prismic_backup_daily"
 schedule_expression = "cron(0 23 * * ? *)" # 11 PM UTC daily
 ```
 
@@ -150,7 +155,7 @@ wellcomecollection-prismic-backups/
     ├── prismic-assets-{timestamp}.json # full asset inventory snapshots (14-day retention)
     ├── prismic-assets-{timestamp}.json
     └── ...
-    └── files/
+    └── assets/
         ├── {filename-1}.jpg
         ├── {filename-2}.pdf
         ├── {filename-3}.mp4
@@ -165,7 +170,7 @@ wellcomecollection-prismic-backups/
 - Naming: `prismic-snapshot-{ISO-8601-timestamp}.json`
 - Content: Complete Prismic document export
 
-**Asset Files** (`media-library/files/`):
+**Asset Files** (`media-library/assets/`):
 
 - Format: Original file type (JPEG, PNG, PDF, MP4, etc.)
 - Content: Binary asset file from Prismic CDN
@@ -197,7 +202,7 @@ wellcomecollection-prismic-backups/
 N.B. The Prismic access token is already stored in AWS Secrets Manager as `prismic-model/prod/access-token` and is used by other services. You can verify it exists:
 
 ```bash
-AWS_PROFILE=experience-developer aws secretsmanager describe-secret --secret-id "prismic-model/prod/access-token"
+AWS_PROFILE=catalogue-developer aws secretsmanager describe-secret --secret-id "prismic-model/prod/access-token"
 ```
 
 ### Full Deployment (Rare)
@@ -299,7 +304,7 @@ To test with LocalStack S3:
 
 ```bash
 # Test the Lambda function
-AWS_PROFILE=experience-developer aws lambda invoke \
+AWS_PROFILE=catalogue-developer aws lambda invoke \
   --function-name prismic-snapshot \
   --payload '{}' \
   response.json
@@ -332,7 +337,7 @@ AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backu
 
 ### Manual Step Functions Execution
 
-```bash
+````bash
 # Start asset backup manually
 AWS_PROFILE=experience-developer aws stepfunctions start-execution \
   --state-machine-arn $(terraform output -raw assets_backup_state_machine_arn) \
@@ -341,7 +346,6 @@ AWS_PROFILE=experience-developer aws stepfunctions start-execution \
 # Check execution status
 AWS_PROFILE=experience-developer aws stepfunctions describe-execution \
   --execution-arn <execution-arn-from-above>
-```
 
 ## Monitoring
 
@@ -349,11 +353,11 @@ AWS_PROFILE=experience-developer aws stepfunctions describe-execution \
 
 ```bash
 # Check recent logs
-AWS_PROFILE=experience-developer aws logs describe-log-groups --log-group-name-prefix "/aws/lambda/prismic-snapshot"
+AWS_PROFILE=catalogue-developer aws logs describe-log-groups --log-group-name-prefix "/aws/lambda/prismic-snapshot"
 
 # Follow logs in real-time
-AWS_PROFILE=experience-developer aws logs tail /aws/lambda/prismic-snapshot --follow
-```
+AWS_PROFILE=catalogue-developer aws logs tail /aws/lambda/prismic-snapshot --follow
+````
 
 ### CloudWatch Alarms
 
@@ -383,10 +387,10 @@ There are CloudWatch alarms to monitor Lambda function health:
 
 ```bash
 # Check alarm status via CLI
-AWS_PROFILE=experience-developer aws cloudwatch describe-alarms --alarm-names "prismic-snapshot-errors" "prismic-snapshot-duration-warning" "prismic-snapshot-missing-invocations"
+AWS_PROFILE=catalogue-developer aws cloudwatch describe-alarms --alarm-names "prismic-snapshot-errors" "prismic-snapshot-duration-warning" "prismic-snapshot-missing-invocations"
 
 # Get alarm history
-AWS_PROFILE=experience-developer aws cloudwatch describe-alarm-history --alarm-name "prismic-snapshot-errors"
+AWS_PROFILE=catalogue-developer aws cloudwatch describe-alarm-history --alarm-name "prismic-snapshot-errors"
 ```
 
 ## Cleanup/Destruction\*\*

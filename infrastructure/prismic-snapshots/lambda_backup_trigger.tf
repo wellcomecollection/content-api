@@ -20,7 +20,7 @@ resource "aws_lambda_function" "prismic_backup_trigger" {
     variables = {
       BUCKET_NAME          = aws_s3_bucket.prismic_backups.bucket
       NODE_OPTIONS         = "--enable-source-maps"
-      PRISMIC_ACCESS_TOKEN = data.aws_secretsmanager_secret_version.prismic_access_token.secret_string
+      PRISMIC_BEARER_TOKEN = data.aws_secretsmanager_secret_version.prismic_bearer_token.secret_string
     }
   }
 

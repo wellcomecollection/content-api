@@ -180,7 +180,7 @@ resource "aws_iam_role" "assets_backup_state_machine_role" {
   })
 }
 
-# IAM policy for Step Functions to invoke Lambda functions
+# IAM policy for Step Functions to invoke Lambda functions and start executions
 resource "aws_iam_policy" "assets_backup_state_machine_policy" {
   name = "prismic-assets-backup-state-machine-policy"
 
@@ -195,6 +195,15 @@ resource "aws_iam_policy" "assets_backup_state_machine_policy" {
         Resource = [
           aws_lambda_function.prismic_backup_trigger.arn,
           aws_lambda_function.prismic_backup_download.arn
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "states:StartExecution"
+        ]
+        Resource = [
+          aws_sfn_state_machine.assets_backup.arn
         ]
       }
     ]
