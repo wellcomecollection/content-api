@@ -94,6 +94,28 @@ const timespanValidator = queryValidator({
   singleValue: true,
 });
 
+const formatAliasMap: Record<string, string> = {
+  exhibitions: EVENT_EXHIBITION_FORMAT_ID,
+  shopping: 'W-BjXhEAAASpa8Kb',
+  screening: 'W5fV0iYAACYAMxF9',
+  festival: 'W5fV5iYAACQAMxHb',
+  'send-workshop': 'W5ZIZyYAACMALDSB',
+  'walking-tour': 'WcKmcSsAACx_A8La',
+  'study-day': 'WcKmeisAALN8A8MB',
+  workshop: 'WcKmiysAACx_A8NR',
+  discussion: 'Wd-QYCcAACcAoiJS',
+  seminar: 'WlYVBiQAACcAWcu9',
+  'gallery-tour': 'WmYRpCQAACUAn-Ap',
+  symposium: 'Wn3NiioAACsAIdNK',
+  performance: 'Wn3Q3SoAACsAIeFI',
+  late: 'Ww_LyiEAAFOTlJ4-',
+  'chill-out': 'Xa7NJhAAAGpKv4uR',
+  installation: 'XiCd_BQAACQA36bS',
+  game: 'XiCdcxQAACIA36RO',
+  session: 'YzGUuBEAANURf3dM',
+  'relaxed-opening': 'ZCv01hQAAOAiVLeR',
+};
+
 const paramsValidator = (params: QueryParams): QueryParams => {
   const { isAvailableOnline, filterOutExhibitions, ...rest } = params;
 
