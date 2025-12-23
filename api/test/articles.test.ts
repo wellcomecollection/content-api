@@ -8,9 +8,9 @@ describe('GET /articles', () => {
         title: `test doc ${i}`,
       },
     }));
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/articles`);
+    const response = await agent.get(`/articles`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toStrictEqual(docs.map(d => d.display));
   });
@@ -22,17 +22,17 @@ describe('GET /articles', () => {
         display: { title: 'Article with works' },
       },
     ];
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/articles?linkedWork=work123`);
+    const response = await agent.get(`/articles?linkedWork=work123`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
 
   it('returns 400 for invalid linkedWork format', async () => {
-    const api = mockedApi([]);
+    const { agent } = mockedApi([]);
 
-    const response = await api.get(`/articles?linkedWork=invalid-work-id!`);
+    const response = await agent.get(`/articles?linkedWork=invalid-work-id!`);
     expect(response.statusCode).toBe(400);
     expect(response.body.description).toContain('Invalid work ID format');
   });
@@ -44,9 +44,11 @@ describe('GET /articles', () => {
         display: { title: 'Health article' },
       },
     ];
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/articles?query=health&linkedWork=work123`);
+    const response = await agent.get(
+      `/articles?query=health&linkedWork=work123`
+    );
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
@@ -58,9 +60,9 @@ describe('GET /articles', () => {
         display: { title: 'Article with multiple works' },
       },
     ];
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/articles?linkedWork=work123,work456`);
+    const response = await agent.get(`/articles?linkedWork=work123,work456`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
