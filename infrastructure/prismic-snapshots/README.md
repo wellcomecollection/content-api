@@ -92,7 +92,6 @@ infrastructure/prismic-snapshots/
 ### How Asset Backups Work
 
 1. **Trigger Lambda** (`prismic-backup-trigger`):
-
    - Fetches the complete list of assets from Prismic Asset API (stored in S3 with 14-day retention)
    - Checks `latest-asset-snapshot-metadata.json` in S3 for previous fetch time
    - Updates `latest-asset-snapshot-metadata.json` with last fetch time and file location
@@ -266,7 +265,6 @@ To test with LocalStack S3:
 3. **Create the S3 buckets in LocalStack**:
 
    These names must match `BUCKET_NAME` in the test scripts:
-
    - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
    - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
 
