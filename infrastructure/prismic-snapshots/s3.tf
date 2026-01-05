@@ -22,6 +22,23 @@ resource "aws_s3_bucket_lifecycle_configuration" "prismic_backups" {
       noncurrent_days = 1
     }
   }
+
+  rule {
+    id     = "delete_old_asset_inventories"
+    status = "Enabled"
+
+    filter {
+      prefix = "media-library/prismic-assets-"
+    }
+
+    expiration {
+      days = 14
+    }
+
+    noncurrent_version_expiration {
+      noncurrent_days = 1
+    }
+  }
 }
 
 

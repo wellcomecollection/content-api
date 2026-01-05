@@ -1,0 +1,14 @@
+{
+  "name": "prismic-snapshots",
+  "version": "1.0.0",
+  "description": "Local testing for Prismic backup Lambda functions",
+  "private": true,
+  "scripts": {
+    "test:trigger": "node testing/test-prismic-backup-trigger.js",
+    "test:download": "node testing/test-prismic-backup-download.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "dotenv": "^16.0.0"
+  }
+}
