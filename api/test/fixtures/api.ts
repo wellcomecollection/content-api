@@ -90,5 +90,11 @@ export const mockedApi = <T extends Displayable & Identified>(
     mockConfig
   );
 
-  return supertest.agent(app);
+  return {
+    agent: supertest.agent(app),
+    mocks: {
+      elasticClientSearch,
+      elasticClientGet,
+    },
+  };
 };

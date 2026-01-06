@@ -1,3 +1,5 @@
+import { EVENT_EXHIBITION_FORMAT_ID } from '@weco/content-common/data/defaultValues';
+
 import { mockedApi } from './fixtures/api';
 
 describe('GET /events', () => {
@@ -8,9 +10,9 @@ describe('GET /events', () => {
         title: `test event ${i}`,
       },
     }));
-    const api = mockedApi(events);
+    const { agent } = mockedApi(events);
 
-    const response = await api.get(`/events`);
+    const response = await agent.get(`/events`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toStrictEqual(events.map(x => x.display));
   });
@@ -22,17 +24,17 @@ describe('GET /events', () => {
         display: { title: 'Event with works' },
       },
     ];
-    const api = mockedApi(events);
+    const { agent } = mockedApi(events);
 
-    const response = await api.get(`/events?linkedWork=work123`);
+    const response = await agent.get(`/events?linkedWork=work123`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
 
   it('returns 400 for invalid linkedWork format', async () => {
-    const api = mockedApi([]);
+    const { agent } = mockedApi([]);
 
-    const response = await api.get(`/events?linkedWork=invalid-work-id!`);
+    const response = await agent.get(`/events?linkedWork=invalid-work-id!`);
     expect(response.statusCode).toBe(400);
     expect(response.body.description).toContain('Invalid work ID format');
   });
@@ -44,9 +46,9 @@ describe('GET /events', () => {
         display: { title: 'Health event' },
       },
     ];
-    const api = mockedApi(events);
+    const { agent } = mockedApi(events);
 
-    const response = await api.get(`/events?query=health&linkedWork=work123`);
+    const response = await agent.get(`/events?query=health&linkedWork=work123`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
@@ -58,10 +60,67 @@ describe('GET /events', () => {
         display: { title: 'Event with multiple works' },
       },
     ];
-    const api = mockedApi(events);
+    const { agent } = mockedApi(events);
 
-    const response = await api.get(`/events?linkedWork=work123,work456`);
+    const response = await agent.get(`/events?linkedWork=work123,work456`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
+  });
+
+  describe('format alias mapping', () => {
+    it('maps exhibitions slug to correct Prismic ID in ES query', async () => {
+      const events = [{ id: 'event-1', display: { title: 'Test' } }];
+      const { agent, mocks } = mockedApi(events);
+
+      await agent.get('/events?format=!exhibitions');
+
+      expect(mocks.elasticClientSearch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          query: expect.objectContaining({
+            bool: expect.objectContaining({
+              filter: expect.arrayContaining([
+                expect.objectContaining({
+                  bool: expect.objectContaining({
+                    must_not: expect.arrayContaining([
+                      {
+                        terms: {
+                          'filter.format': [EVENT_EXHIBITION_FORMAT_ID],
+                        },
+                      },
+                    ]),
+                  }),
+                }),
+              ]),
+            }),
+          }),
+        })
+      );
+    });
+
+    it('passes raw Prismic ID through unchanged in ES query', async () => {
+      const events = [{ id: 'event-1', display: { title: 'Test' } }];
+      const { agent, mocks } = mockedApi(events);
+
+      const rawId = 'WcKmiysAACx_A8NR';
+      await agent.get(`/events?format=!${rawId}`);
+
+      expect(mocks.elasticClientSearch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          query: expect.objectContaining({
+            bool: expect.objectContaining({
+              filter: expect.arrayContaining([
+                expect.objectContaining({
+                  bool: expect.objectContaining({
+                    must_not: expect.arrayContaining([
+                      { terms: { 'filter.format': [rawId] } },
+                    ]),
+                  }),
+                }),
+              ]),
+            }),
+          }),
+        })
+      );
+    });
   });
 });

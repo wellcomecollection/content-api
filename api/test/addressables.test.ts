@@ -8,9 +8,9 @@ describe('GET /all', () => {
         title: `test doc ${i}`,
       },
     }));
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/all`);
+    const response = await agent.get(`/all`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toStrictEqual(docs.map(d => d.display));
   });
@@ -22,17 +22,17 @@ describe('GET /all', () => {
         display: { title: 'Document with works' },
       },
     ];
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/all?linkedWork=work123`);
+    const response = await agent.get(`/all?linkedWork=work123`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
 
   it('returns 400 for invalid linkedWork format', async () => {
-    const api = mockedApi([]);
+    const { agent } = mockedApi([]);
 
-    const response = await api.get(`/all?linkedWork=invalid-work-id!`);
+    const response = await agent.get(`/all?linkedWork=invalid-work-id!`);
     expect(response.statusCode).toBe(400);
     expect(response.body.description).toContain('Invalid work ID format');
   });
@@ -44,9 +44,9 @@ describe('GET /all', () => {
         display: { title: 'Health article' },
       },
     ];
-    const api = mockedApi(docs);
+    const { agent } = mockedApi(docs);
 
-    const response = await api.get(`/all?query=health&linkedWork=work123`);
+    const response = await agent.get(`/all?query=health&linkedWork=work123`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results).toBeDefined();
   });
