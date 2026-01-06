@@ -34,6 +34,11 @@ type QueryParams = {
   sortOrder?: string;
   aggregations?: string;
   format?: string;
+  // `excludeFormat` comes from the `paramsValidator` when the public `format`
+  // query parameter contains negated values (e.g. `format=!exhibitions`). It
+  // is a comma-separated list of Prismic format IDs to exclude from results
+  // and is used to build an Elasticsearch `must_not` clause.
+  excludeFormat?: string;
   audience?: string;
   interpretation?: string;
   location?: string;
@@ -94,8 +99,30 @@ const timespanValidator = queryValidator({
   singleValue: true,
 });
 
+const formatAliasMap: Record<string, string> = {
+  exhibitions: EVENT_EXHIBITION_FORMAT_ID,
+  shopping: 'W-BjXhEAAASpa8Kb',
+  screening: 'W5fV0iYAACYAMxF9',
+  festival: 'W5fV5iYAACQAMxHb',
+  'send-workshop': 'W5ZIZyYAACMALDSB',
+  'walking-tour': 'WcKmcSsAACx_A8La',
+  'study-day': 'WcKmeisAALN8A8MB',
+  workshop: 'WcKmiysAACx_A8NR',
+  discussion: 'Wd-QYCcAACcAoiJS',
+  seminar: 'WlYVBiQAACcAWcu9',
+  'gallery-tour': 'WmYRpCQAACUAn-Ap',
+  symposium: 'Wn3NiioAACsAIdNK',
+  performance: 'Wn3Q3SoAACsAIeFI',
+  late: 'Ww_LyiEAAFOTlJ4-',
+  'chill-out': 'Xa7NJhAAAGpKv4uR',
+  installation: 'XiCd_BQAACQA36bS',
+  game: 'XiCdcxQAACIA36RO',
+  session: 'YzGUuBEAANURf3dM',
+  'relaxed-opening': 'ZCv01hQAAOAiVLeR',
+};
+
 const paramsValidator = (params: QueryParams): QueryParams => {
-  const { isAvailableOnline, filterOutExhibitions, ...rest } = params;
+  const { isAvailableOnline, filterOutExhibitions, format, ...rest } = params;
 
   if (params.location)
     locationsValidator({
@@ -111,7 +138,44 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   if (params.audience) prismicIdValidator(params.audience, 'audiences');
   if (params.interpretation)
     prismicIdValidator(params.interpretation, 'interpretations');
-  if (params.format) prismicIdValidator(params.format, 'formats');
+
+  const includeFormats: string[] = [];
+  const excludeFormats: string[] = [];
+
+  if (format) {
+    const rawFormats = format.split(',').map(value => value.trim());
+
+    rawFormats.forEach(value => {
+      if (!value) return;
+
+      if (value.startsWith('!')) {
+        const rawExclusion = value.slice(1).trim();
+
+        if (!rawExclusion) return;
+
+        // Normalise alias -> id; keep original value if no mapping exists
+        let normalized = rawExclusion;
+        if (formatAliasMap[normalized.toLowerCase()]) {
+          normalized = formatAliasMap[normalized.toLowerCase()];
+        }
+        excludeFormats.push(normalized);
+      } else {
+        let normalized = value;
+        if (formatAliasMap[normalized.toLowerCase()]) {
+          normalized = formatAliasMap[normalized.toLowerCase()];
+        }
+        includeFormats.push(normalized);
+      }
+    });
+
+    if (includeFormats.length > 0) {
+      prismicIdValidator(includeFormats.join(','), 'formats');
+    }
+
+    if (excludeFormats.length > 0) {
+      prismicIdValidator(excludeFormats.join(','), 'formats');
+    }
+  }
 
   // Validate linkedWork parameter(s)
   if (params.linkedWork) {
@@ -138,6 +202,10 @@ const paramsValidator = (params: QueryParams): QueryParams => {
   // Anything else should remove the param from the query
   return {
     ...rest,
+    ...(includeFormats.length > 0 ? { format: includeFormats.join(',') } : {}),
+    ...(excludeFormats.length > 0
+      ? { excludeFormat: excludeFormats.join(',') }
+      : {}),
     ...(hasIsAvailableOnline ? { isAvailableOnline } : {}),
     ...(hasFilterOutExhibitions ? { filterOutExhibitions } : {}),
   };
@@ -282,6 +350,16 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                           {
                             term: {
                               'filter.format': EVENT_EXHIBITION_FORMAT_ID,
+                            },
+                          },
+                        ]
+                      : []),
+                    ...(validParams.excludeFormat
+                      ? [
+                          {
+                            terms: {
+                              'filter.format':
+                                validParams.excludeFormat.split(','),
                             },
                           },
                         ]

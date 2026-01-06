@@ -1,9 +1,16 @@
-# Prismic Snapshots
+# Prismic backups
 
 This S3 bucket contains automated daily backups of the Wellcome Collection Prismic content repository.
 
-The `/snapshots` prefix contains complete exports of all content from our Prismic CMS in JSON format.  
-The `/media-library` prefix contains all the digital assets hosted in our Prismic CMS, such as images, files and videos. TO DO: also has the latest list of assets? with timestamp?
+The `/snapshots` prefix contains complete exports of all content from our Prismic CMS in JSON format.
+
+The `/media-library` prefix contains data related to digital assets hosted in our Prismic CMS:
+
+- the `latest-asset-snapshot-metadata.json` file contains information about the most recent successful run of asset backup: the filename of the most recent list of assets (eg. `prismic-assets-2026-01-04T23:00:53.674Z.json`) and the time the last successful fetch started (eg. `1767567642255`)
+- the `latest-batches.json` file contains batches of assets to backup. It is used in the `BackupDownload` step of the [assets_backup state machine](./assets_backup_state_machine.tf)
+- the `assets` prefix contains all the digital assets hosted in our Prismic CMS, such as images, files and videos.
+
+`latest-asset-snapshot-metadata.json` and `latest-batches.json` are overwritten every time the state machine runs.
 
 ## File naming convention
 
@@ -15,25 +22,50 @@ snapshots/prismic-snapshot-<prismic-ref>-YYYY-MM-DDTHH-MM-SSZ.json
 
 For example: `snapshots/prismic-snapshot-ref123-2025-11-03T23-00-00Z.json`
 
-#### Media libray backups are named with their Prismic id:
+#### Media libray backups are named with their Prismic id and filename:
 
 ```
-media-library/prismic_asset_id
+media-library/assets/<prismic_asset_id>-<filename>
 ```
 
-For example: `media-library/dfsfgD57gffg£$TFa`  
+For example: `media-library/assets/dfsfgD57gffg£$TFa-some_digital_file.png`
+
 We only keep one version of each asset, ie. the lastest version downloaded from Prismic.
 
 ## File format
 
-Each snapshot is a JSON file containing the complete Prismic repository export as returned by the Prismic API. The structure includes:
+Each snapshot is a JSON file containing a list of all the Prismic documents. It is the value of the `results` in the complete Prismic repository export as returned by the Prismic API.
 
-- `results`: Array of all documents
-- `total_results_size`: Total number of documents
-- `total_pages`: Number of pages in the export
-- Various metadata fields
+Each `media-library/prismic-assets-<date>.json` file contains the complete list of digital assets hosted in Prismic at the given date, eg.:
 
-TO DO: add format of the asset list we get from Prismic API
+```
+{
+  "id": "ZoQE4h5LeNNTwtnO",
+  "url": "https://images.prismic.io/wellcomecollection/ZoQE4h5LeNNTwtnO_PoeticUnity.jpg?auto=format,compress",
+  "filename": "Poetic Unity.jpg",
+  "size": 8066890,
+  "width": 4000,
+  "height": 2250,
+  "last_modified": 1720092571453,
+  "kind": "image",
+  "extension": "jpg",
+  "notes": "reimagining your world",
+  "credits": "Reimagining Our World. Artwork: Jess Thom. Portraits: Steven Pocock | | Wellcome Collection | | CC-BY-NC | |",
+  "alt": "Photographic and digital artwork showing a young person pointing into the air against a pink background. Floating above their finger is a colourful drawing of a world, connect by lines to a speak bubble, a microphone, a pencil.",
+  "uploader_id": "ghost",
+  "created_at": 1719928035057,
+  "tags": []
+}
+```
+
+`latest-asset-snapshot-metadata.json` contain information about the latest backup run
+
+```json
+{
+  "filename": "prismic-assets-2025-12-01T12-00-00Z.json",
+  "fetch_started_at": 1733054400000
+}
+```
 
 ## Backup schedule
 
@@ -52,7 +84,8 @@ These backups serve as:
 ## Retention
 
 Snapshots are retained for 14 days.
-Assets do not expire.
+
+The `prismic-assets` lists are retained for 14 days. Assets do not expire.
 
 ## Access
 
