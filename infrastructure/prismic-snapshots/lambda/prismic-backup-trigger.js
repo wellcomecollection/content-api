@@ -224,23 +224,12 @@ async function prepareAssetsForDownload() {
       `Successfully uploaded ${assets.length} assets to s3://${BUCKET_NAME}/${filename}`
     );
 
-    // Create and upload latest-asset-snapshot-metadata.json pointer file
+    // Prepare metadata for updating after successful completion
+    // This will be written to S3 by the state machine if all downloads succeed
     const latestInfo = {
       filename,
       fetch_started_at: fetchStartTime,
     };
-
-    const latestCommand = new PutObjectCommand({
-      Bucket: BUCKET_NAME,
-      Key: 'media-library/latest-asset-snapshot-metadata.json',
-      Body: JSON.stringify(latestInfo, null, 2),
-      ContentType: 'application/json',
-    });
-
-    await s3Client.send(latestCommand);
-    console.log(
-      `Updated latest-asset-snapshot-metadata.json pointer to ${filename}`
-    );
 
     // Store the latest batches in S3 so the Step Functions state machine
     // can read them
@@ -258,6 +247,7 @@ async function prepareAssetsForDownload() {
     return {
       bucket: BUCKET_NAME,
       key: latestBatchesKey,
+      metadata: latestInfo,
     };
   } catch (error) {
     console.error('Error creating Prismic assets snapshot:', error);

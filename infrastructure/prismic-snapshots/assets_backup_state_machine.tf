@@ -26,6 +26,7 @@ resource "aws_sfn_state_machine" "assets_backup" {
           }
         }
         MaxConcurrency = 10
+        ResultPath     = "$.mapOutput" # not used, needed to ensures the state's input is preserved so it can be used in following state 
         ItemProcessor = {
           ProcessorConfig = {
             Mode          = "DISTRIBUTED"
@@ -55,6 +56,17 @@ resource "aws_sfn_state_machine" "assets_backup" {
               End = true
             }
           }
+        }
+        Next = "UpdateAssetSnapshotMetadata"
+      }
+      UpdateAssetSnapshotMetadata = {
+        Type     = "Task"
+        Resource = "arn:aws:states:::aws-sdk:s3:putObject"
+        Parameters = {
+          Bucket = aws_s3_bucket.prismic_backups.bucket
+          Key    = "media-library/latest-asset-snapshot-metadata.json"
+          "Body.$" = "States.JsonToString($.metadata)"
+          ContentType = "application/json"
         }
         Next = "Success"
       }
