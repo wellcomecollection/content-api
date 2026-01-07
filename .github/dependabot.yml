@@ -10,8 +10,6 @@ updates:
     schedule:
       interval: 'monthly'
     ignore:
-      # Needs more work.
-      - dependency-name: 'eslint*'
       - dependency-name: '@elastic/elasticsearch'
       # Needs Node >= 20.15, update when we get there.
       - dependency-name: '@types/node'
