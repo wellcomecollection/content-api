@@ -186,7 +186,7 @@ async function prepareAssetsForDownload() {
           url: urlObj.toString(),
           filename,
         };
-      } catch (e) {
+      } catch {
         // If URL parsing fails for any reason, fall back to the original URL
         return {
           id: asset.id,
