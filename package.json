@@ -16,16 +16,16 @@
     ]
   },
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint \"**/*.{js,ts}\"",
     "tsc": "yarn workspaces run tsc --noEmit --skipLibCheck"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.5",
     "@tsconfig/node20": "20.1.8",
-    "@typescript-eslint/eslint-plugin": "^8.48.0",
-    "@typescript-eslint/parser": "^8.48.0",
-    "husky": "^8.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "husky": "^9.1.7",
     "eslint": "^8.46.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-config-prettier": "^9.1.0",
@@ -40,6 +40,9 @@
     "prettier": "^3.7.3"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{js,ts}": [
+      "eslint --fix --max-warnings=0 --report-unused-disable-directives",
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
