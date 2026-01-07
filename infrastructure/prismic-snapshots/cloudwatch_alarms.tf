@@ -71,3 +71,52 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_missing_invocations" {
     Purpose     = "monitoring"
   }
 }
+
+# CloudWatch Alarm for Assets Backup State Machine Failures
+resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_failed" {
+  alarm_name          = "${aws_sfn_state_machine.assets_backup.name}-failed"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "ExecutionsFailed"
+  namespace           = "AWS/States"
+  period              = "60" # 1 minute
+  statistic           = "Sum"
+  threshold           = "1"
+  alarm_description   = "This metric monitors failed executions for the Prismic assets backup state machine"
+  alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
+
+  dimensions = {
+    StateMachineArn = aws_sfn_state_machine.assets_backup.arn
+  }
+
+  tags = {
+    Name        = "Prismic Assets Backup State Machine Failed Alarm"
+    Environment = "production"
+    Purpose     = "monitoring"
+  }
+}
+
+# CloudWatch Alarm for Missing State Machine Executions (scheduled job didn't run)
+resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_missing_executions" {
+  alarm_name          = "${aws_sfn_state_machine.assets_backup.name}-missing-executions"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = "1"
+  metric_name         = "ExecutionsStarted"
+  namespace           = "AWS/States"
+  period              = "86400" # 24 hours
+  statistic           = "Sum"
+  threshold           = "1"
+  alarm_description   = "This metric monitors that the Prismic assets backup state machine is being executed daily"
+  treat_missing_data  = "breaching"
+  alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
+
+  dimensions = {
+    StateMachineArn = aws_sfn_state_machine.assets_backup.arn
+  }
+
+  tags = {
+    Name        = "Prismic Assets Backup State Machine Missing Executions Alarm"
+    Environment = "production"
+    Purpose     = "monitoring"
+  }
+}

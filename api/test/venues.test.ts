@@ -249,11 +249,11 @@ describe('GET /venues', () => {
     jest.useFakeTimers().setSystemTime(new Date('2024-04-02T08:00:00.000Z'));
 
     const testId = '123';
-    const api = mockedApi([
+    const { agent } = mockedApi([
       { id: testId, display: venueDisplay, data: venueData },
     ]);
 
-    const response = await api.get(`/venues`);
+    const response = await agent.get(`/venues`);
     expect(response.statusCode).toBe(200);
     expect(response.body.results[0]).toEqual({
       ...venueDisplay,
