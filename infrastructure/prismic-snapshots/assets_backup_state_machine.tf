@@ -63,10 +63,12 @@ resource "aws_sfn_state_machine" "assets_backup" {
         Type     = "Task"
         Resource = "arn:aws:states:::aws-sdk:s3:putObject"
         Parameters = {
-          Bucket      = aws_s3_bucket.prismic_backups.bucket
-          Key         = "media-library/latest-asset-snapshot-metadata.json"
-          "Body.$"    = "States.JsonToString($.metadata)"
-          ContentType = "application/json"
+          Bucket   = aws_s3_bucket.prismic_backups.bucket
+          Key      = "media-library/latest-asset-snapshot-metadata.json"
+          Body = {
+            "filename.$"         = "$.metadata.filename"
+            "fetch_started_at.$" = "$.metadata.fetch_started_at"
+          }
         }
         Next = "Success"
       }
