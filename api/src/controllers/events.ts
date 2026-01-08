@@ -44,7 +44,6 @@ type QueryParams = {
   location?: string;
   isAvailableOnline?: string;
   timespan?: string;
-  filterOutExhibitions?: string;
   linkedWork?: string | string[];
 } & PaginationQueryParameters;
 
@@ -87,12 +86,6 @@ const isAvailableOnlineValidator = queryValidator({
   singleValue: true,
 });
 
-const filterOutExhibitionsValidator = queryValidator({
-  name: 'filterOutExhibitions',
-  allowed: ['true'],
-  singleValue: true,
-});
-
 const timespanValidator = queryValidator({
   name: 'timespan',
   allowed: timespans,
@@ -122,7 +115,7 @@ const formatAliasMap: Record<string, string> = {
 };
 
 const paramsValidator = (params: QueryParams): QueryParams => {
-  const { isAvailableOnline, filterOutExhibitions, format, ...rest } = params;
+  const { isAvailableOnline, format, ...rest } = params;
 
   if (params.location)
     locationsValidator({
@@ -191,14 +184,7 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       isAvailableOnline,
     });
 
-  const hasFilterOutExhibitions =
-    filterOutExhibitions &&
-    filterOutExhibitionsValidator({
-      filterOutExhibitions,
-    });
-
-  // For isAvailableOnline and filterOutExhibitions,
-  // we are ignoring all values passed in but "true".
+  // For isAvailableOnline, we are ignoring all values passed in but "true".
   // Anything else should remove the param from the query
   return {
     ...rest,
@@ -207,7 +193,6 @@ const paramsValidator = (params: QueryParams): QueryParams => {
       ? { excludeFormat: excludeFormats.join(',') }
       : {}),
     ...(hasIsAvailableOnline ? { isAvailableOnline } : {}),
-    ...(hasFilterOutExhibitions ? { filterOutExhibitions } : {}),
   };
 };
 
@@ -345,15 +330,6 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
                         isChildScheduledEvent: true,
                       },
                     },
-                    ...(validParams.filterOutExhibitions
-                      ? [
-                          {
-                            term: {
-                              'filter.format': EVENT_EXHIBITION_FORMAT_ID,
-                            },
-                          },
-                        ]
-                      : []),
                     ...(validParams.excludeFormat
                       ? [
                           {
