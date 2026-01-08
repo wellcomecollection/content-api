@@ -3,11 +3,13 @@
   "uid": "updating-happiness",
   "url": null,
   "type": "projects",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YLokOhAAACQAf8Hd%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22YLokOhAAACQAf8Hd%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2021-06-08T09:50:40+0000",
   "last_publication_date": "2024-10-22T15:40:26+0000",
-  "slugs": ["updating-happiness"],
+  "slugs": [
+    "updating-happiness"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -37,7 +39,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "37611b7d-8358-4922-9568-2790c6f90cdf",
+      "key": "551c8a04-f194-489f-9e39-f4fc3502807c",
       "isBroken": false
     },
     "body": [

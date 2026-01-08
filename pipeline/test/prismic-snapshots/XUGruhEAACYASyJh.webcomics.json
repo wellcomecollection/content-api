@@ -3,11 +3,13 @@
   "uid": "footpath",
   "url": null,
   "type": "webcomics",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XUGruhEAACYASyJh%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XUGruhEAACYASyJh%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2019-08-02T09:00:00+0000",
   "last_publication_date": "2024-10-23T10:21:33+0000",
-  "slugs": ["footpath"],
+  "slugs": [
+    "footpath"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -37,7 +39,7 @@
         ]
       },
       "link_type": "Document",
-      "key": "14a7e39e-6504-41c1-bdcd-3f920eebb6ad",
+      "key": "86e6f27a-9b00-4bb2-8777-744afcef7c0c",
       "isBroken": false
     },
     "contributors": [
@@ -60,7 +62,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "987e118d-0f90-4cc1-8dd6-7cb2c0948b96",
+          "key": "d29a1a1f-5cb4-4101-8e00-c59eafa34f8a",
           "isBroken": false
         },
         "contributor": {
@@ -75,7 +77,7 @@
             "name": "Rob Bidder"
           },
           "link_type": "Document",
-          "key": "43239837-60aa-445f-a1c2-c4a6287e1343",
+          "key": "146df55a-5078-4560-ab7c-b11ff9cbbf79",
           "isBroken": false
         }
       }
@@ -190,7 +192,7 @@
             ]
           },
           "link_type": "Document",
-          "key": "54de7a98-a7f7-4cf3-b65f-0f1c7f0c71e7",
+          "key": "e78b3b8d-7d4e-4a1e-ba2b-17a5420ad671",
           "isBroken": false
         }
       }

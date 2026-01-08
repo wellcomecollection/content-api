@@ -3,11 +3,15 @@
   "uid": null,
   "url": null,
   "type": "collection-venue",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WsuS_R8AACS1Nwlx%22%29+%5D%5D",
-  "tags": ["ShortNoticeClosure"],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WsuS_R8AACS1Nwlx%22%29+%5D%5D",
+  "tags": [
+    "ShortNoticeClosure"
+  ],
   "first_publication_date": "2018-04-09T16:21:23+0000",
-  "last_publication_date": "2025-08-11T09:07:17+0000",
-  "slugs": ["library"],
+  "last_publication_date": "2026-01-01T09:00:54+0000",
+  "slugs": [
+    "library"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -33,8 +37,8 @@
     ],
     "thursday": [
       {
-        "startDateTime": "2022-01-23T10:00:00+0000",
-        "endDateTime": "2022-01-23T20:00:00+0000"
+        "startDateTime": "2026-01-01T10:00:00+0000",
+        "endDateTime": "2026-01-01T18:00:00+0000"
       }
     ],
     "friday": [
@@ -57,14 +61,62 @@
     ],
     "modifiedDayOpeningTimes": [
       {
-        "overrideDate": "2025-08-22T23:00:00+0000",
-        "type": "Bank holiday",
+        "overrideDate": "2025-12-24T00:00:00+0000",
+        "type": "Christmas and New Year",
         "startDateTime": null,
         "endDateTime": null
       },
       {
-        "overrideDate": "2025-08-24T23:00:00+0000",
-        "type": "Bank holiday",
+        "overrideDate": "2025-12-25T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2025-12-26T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2025-12-27T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2025-12-29T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2025-12-30T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2025-12-31T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2026-01-01T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2026-01-02T00:00:00+0000",
+        "type": "Christmas and New Year",
+        "startDateTime": null,
+        "endDateTime": null
+      },
+      {
+        "overrideDate": "2026-01-03T00:00:00+0000",
+        "type": "Christmas and New Year",
         "startDateTime": null,
         "endDateTime": null
       }

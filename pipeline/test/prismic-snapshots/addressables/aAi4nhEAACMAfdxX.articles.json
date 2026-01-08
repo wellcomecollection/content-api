@@ -3,11 +3,13 @@
   "uid": "how-the-slave-trades-medical-legacies-persist",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2025-04-24T10:55:24+0000",
-  "last_publication_date": "2025-04-24T11:51:59+0000",
-  "slugs": ["how-the-slave-trades-medical-legacies-persist"],
+  "last_publication_date": "2025-10-14T12:37:32+0000",
+  "slugs": [
+    "how-the-slave-trades-medical-legacies-persist"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -1293,7 +1295,7 @@
           "lang": "en-gb",
           "slug": "micha-frazer-carroll",
           "first_publication_date": "2025-04-23T16:33:01+0000",
-          "last_publication_date": "2025-04-23T16:34:56+0000",
+          "last_publication_date": "2025-12-15T12:11:09+0000",
           "data": {
             "name": "Micha Frazer-Carroll"
           },

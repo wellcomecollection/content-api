@@ -3,11 +3,16 @@
   "uid": "hard-graft-exhibition-text",
   "url": null,
   "type": "exhibition-texts",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
-  "tags": ["hard-graft", "delist"],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Zs8mohAAAB4AP4sc%22%29+%5D%5D",
+  "tags": [
+    "hard-graft",
+    "delist"
+  ],
   "first_publication_date": "2024-09-12T13:07:08+0000",
   "last_publication_date": "2025-05-08T13:44:10+0000",
-  "slugs": ["hard-graft"],
+  "slugs": [
+    "hard-graft"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
