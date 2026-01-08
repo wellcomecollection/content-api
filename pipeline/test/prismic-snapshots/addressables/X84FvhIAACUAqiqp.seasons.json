@@ -4,14 +4,10 @@
   "url": null,
   "type": "seasons",
   "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22X84FvhIAACUAqiqp%22%29+%5D%5D",
-  "tags": [
-    "delist"
-  ],
+  "tags": ["delist"],
   "first_publication_date": "2020-12-07T10:37:12+0000",
   "last_publication_date": "2024-10-22T15:27:05+0000",
-  "slugs": [
-    "what-does-it-mean-to-be-human-now"
-  ],
+  "slugs": ["what-does-it-mean-to-be-human-now"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

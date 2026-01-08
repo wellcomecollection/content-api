@@ -4,14 +4,10 @@
   "url": null,
   "type": "events",
   "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
-  "tags": [
-    "PHOD"
-  ],
+  "tags": ["PHOD"],
   "first_publication_date": "2025-04-03T14:52:29+0000",
   "last_publication_date": "2025-04-28T09:22:37+0000",
-  "slugs": [
-    "a-peoples-history-of-death-with-molly-conisbee"
-  ],
+  "slugs": ["a-peoples-history-of-death-with-molly-conisbee"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

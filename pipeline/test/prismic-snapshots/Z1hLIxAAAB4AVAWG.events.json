@@ -4,14 +4,10 @@
   "url": null,
   "type": "exhibitions",
   "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z1hLIxAAAB4AVAWG%22%29+%5D%5D",
-  "tags": [
-    "Zines-Forever"
-  ],
+  "tags": ["Zines-Forever"],
   "first_publication_date": "2024-12-16T16:18:35+0000",
   "last_publication_date": "2025-09-18T10:16:34+0000",
-  "slugs": [
-    "zines-forever-diy-publishing-and-disability-justice"
-  ],
+  "slugs": ["zines-forever-diy-publishing-and-disability-justice"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

@@ -4,14 +4,10 @@
   "url": null,
   "type": "exhibition-highlight-tours",
   "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZthrZRIAACQALvCC%22%29+%5D%5D",
-  "tags": [
-    "delist"
-  ],
+  "tags": ["delist"],
   "first_publication_date": "2024-09-16T13:19:23+0000",
   "last_publication_date": "2025-05-12T09:52:55+0000",
-  "slugs": [
-    "jason-and-the-adventure-of-254"
-  ],
+  "slugs": ["jason-and-the-adventure-of-254"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],

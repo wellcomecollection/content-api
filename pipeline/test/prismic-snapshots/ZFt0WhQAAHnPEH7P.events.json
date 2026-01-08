@@ -4,14 +4,10 @@
   "url": null,
   "type": "events",
   "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
-  "tags": [
-    "LBEF"
-  ],
+  "tags": ["LBEF"],
   "first_publication_date": "2023-05-25T15:00:01+0000",
   "last_publication_date": "2025-04-23T16:16:53+0000",
-  "slugs": [
-    "land-body-ecologies-festival-day-two"
-  ],
+  "slugs": ["land-body-ecologies-festival-day-two"],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -140,10 +136,7 @@
         "event": {
           "id": "ZFtubBQAAHnPEGEG",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "boalno",
           "first_publication_date": "2023-05-10T10:15:04+0000",
@@ -239,10 +232,7 @@
         "event": {
           "id": "ZFteSBQAADxsEBMa",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "communal-meitophi",
           "first_publication_date": "2023-05-10T09:05:18+0000",
@@ -334,10 +324,7 @@
         "event": {
           "id": "ZFtfvxQAAHnPEBo-",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "stories-as-evidence",
           "first_publication_date": "2023-05-10T13:59:11+0000",
@@ -471,10 +458,7 @@
         "event": {
           "id": "ZFtX3xQAADxsD_RB",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "weaving-land-and-health",
           "first_publication_date": "2023-05-10T08:39:05+0000",
@@ -566,10 +550,7 @@
         "event": {
           "id": "ZFtd-BQAAMCZEBGP",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "meitau-making",
           "first_publication_date": "2023-05-10T09:04:05+0000",
@@ -661,10 +642,7 @@
         "event": {
           "id": "ZFtZFBQAAHnPD_n1",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "reimagining-conservation-policy",
           "first_publication_date": "2023-05-10T08:43:14+0000",
@@ -756,10 +734,7 @@
         "event": {
           "id": "ZGTv2hQAADxsOdmn",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "in-the-end-of-this-world",
           "first_publication_date": "2023-05-17T15:17:50+0000",
@@ -851,10 +826,7 @@
         "event": {
           "id": "ZFttJBQAAHnPEFn0",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "microtonal",
           "first_publication_date": "2023-05-10T10:08:54+0000",
@@ -946,10 +918,7 @@
         "event": {
           "id": "ZFtr3BQAAHnPEFN5",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "stories-of-entanglement",
           "first_publication_date": "2023-05-10T10:03:27+0000",
@@ -1041,10 +1010,7 @@
         "event": {
           "id": "ZFttnRQAAHnPEFyu",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "asking-the-salmon-to-return",
           "first_publication_date": "2023-05-10T10:11:06+0000",
@@ -1136,10 +1102,7 @@
         "event": {
           "id": "ZFtsuRQAAHnPEFfW",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "virran-mukana",
           "first_publication_date": "2023-05-10T10:07:07+0000",
@@ -1231,10 +1194,7 @@
         "event": {
           "id": "ZFtsVxQAAHnPEFXh",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "ovdavazzit--forewalkers",
           "first_publication_date": "2023-05-10T10:05:28+0000",
@@ -1326,10 +1286,7 @@
         "event": {
           "id": "ZFuh7hQAAMCZEVTX",
           "type": "events",
-          "tags": [
-            "delist",
-            "LBEF"
-          ],
+          "tags": ["delist", "LBEF"],
           "lang": "en-gb",
           "slug": "chill-out-room",
           "first_publication_date": "2023-05-10T13:54:03+0000",
@@ -1618,9 +1575,7 @@
         "series": {
           "id": "ZFt3UBQAAMFmEIya",
           "type": "event-series",
-          "tags": [
-            "LBEF"
-          ],
+          "tags": ["LBEF"],
           "lang": "en-gb",
           "slug": "land-body-ecologies-festival",
           "first_publication_date": "2023-05-16T14:46:48+0000",
