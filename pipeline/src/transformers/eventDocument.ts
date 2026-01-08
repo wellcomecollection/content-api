@@ -223,20 +223,22 @@ export const transformEventDocument = async (
     type,
   } = document;
 
+  const isExhibition = type === 'exhibitions';
+
   const primaryImage = promo?.[0]?.primary;
   const image =
     primaryImage && isImageLink(primaryImage.image)
       ? { type: 'PrismicImage' as const, ...primaryImage.image }
       : undefined;
 
-  const series = type === 'exhibitions' ? [] : transformSeries(document);
+  const series = isExhibition ? [] : transformSeries(document);
 
-  const format =
-    type === 'exhibitions'
-      ? defaultEventExhibitionFormat
-      : transformFormat(document);
-  const exhibitionFormat =
-    type === 'exhibitions' ? transformExhibitionFormat(document) : undefined;
+  const format = isExhibition
+    ? defaultEventExhibitionFormat
+    : transformFormat(document);
+  const exhibitionFormat = isExhibition
+    ? transformExhibitionFormat(document)
+    : undefined;
 
   // If it has scheduled events, we get their data and ensure it's added to this event instead.
   const {
@@ -245,28 +247,27 @@ export const transformEventDocument = async (
     scheduledInterpretations,
     scheduledTimes,
   } = getScheduledEventsData({
-    scheduledEvents: type === 'exhibitions' ? [] : document.data.schedule,
+    scheduledEvents: isExhibition ? [] : document.data.schedule,
   });
 
-  const times =
-    type === 'exhibitions'
-      ? [
-          {
-            startDateTime: asDate(document.data.start) || undefined,
-            endDateTime: asDate(document.data.end) || undefined,
-            isFullyBooked: { inVenue: false, online: false },
-          },
-        ]
-      : [
-          ...transformTimes({
-            times: document.data.times,
-          }),
-          ...scheduledTimes,
-        ];
+  const times = isExhibition
+    ? [
+        {
+          startDateTime: asDate(document.data.start) || undefined,
+          endDateTime: asDate(document.data.end) || undefined,
+          isFullyBooked: { inVenue: false, online: false },
+        },
+      ]
+    : [
+        ...transformTimes({
+          times: document.data.times,
+        }),
+        ...scheduledTimes,
+      ];
 
   const parentLocations = transformLocations({
-    isOnline: type === 'exhibitions' ? false : document.data.isOnline,
-    locations: type === 'exhibitions' ? [] : document.data.locations,
+    isOnline: isExhibition ? false : document.data.isOnline,
+    locations: isExhibition ? [] : document.data.locations,
   });
   const locationsPlaces = getUniqueValues(
     [parentLocations.places, ...scheduledLocations.map(s => s.places)]
@@ -284,37 +285,36 @@ export const transformEventDocument = async (
     isOnline:
       !!scheduledLocations.find(l => l.isOnline) || parentLocations.isOnline,
     places: locationsPlaces.length > 0 ? locationsPlaces : undefined,
-    attendance:
-      document.type === 'exhibitions'
-        ? [
-            {
-              id: 'in-our-building' as const,
-              label: 'In our building' as const,
-              type: 'EventAttendance' as const,
-            },
-          ]
-        : locationsAttendance,
+    attendance: isExhibition
+      ? [
+          {
+            id: 'in-our-building' as const,
+            label: 'In our building' as const,
+            type: 'EventAttendance' as const,
+          },
+        ]
+      : locationsAttendance,
   };
 
   const interpretations = getUniqueValues([
     ...transformInterpretations({
-      interpretations:
-        type === 'exhibitions' ? [] : document.data.interpretations,
+      interpretations: isExhibition ? [] : document.data.interpretations,
     }),
     ...scheduledInterpretations,
   ]);
 
   const audiences = getUniqueValues([
     ...transformAudiences({
-      audiences: type === 'exhibitions' ? [] : document.data.audiences,
+      audiences: isExhibition ? [] : document.data.audiences,
     }),
     ...scheduledAudiences,
   ]);
 
   // Events that existed before the field was added have `null` as a value
   // They should be considered as false
-  const isAvailableOnline =
-    type === 'exhibitions' ? false : !!document.data.availableOnline;
+  const isAvailableOnline = isExhibition
+    ? false
+    : !!document.data.availableOnline;
 
   // If an event has scheduled times, we don't want to have the parent's time range in the filterable times.
   const singleOrChildrenTimes =
@@ -338,6 +338,7 @@ export const transformEventDocument = async (
         title: asTitle(title),
         image,
         times,
+        isExhibition,
         format: (exhibitionFormat as EventDocumentFormat) || format,
         locations,
         interpretations,
@@ -350,14 +351,13 @@ export const transformEventDocument = async (
         title: asTitle(title),
         caption: primaryImage?.caption && asText(primaryImage.caption),
         series,
-        format:
-          type === 'exhibitions'
-            ? [
-                ...new Set(
-                  ['Exhibition', exhibitionFormat?.label].filter(isNotUndefined)
-                ),
-              ] // Avoids duplicates
-            : format.label,
+        format: isExhibition
+          ? [
+              ...new Set(
+                ['Exhibition', exhibitionFormat?.label].filter(isNotUndefined)
+              ),
+            ] // Avoids duplicates
+          : format.label,
         interpretations: interpretations
           .map(interpretation => interpretation.label)
           .filter(isNotUndefined),
