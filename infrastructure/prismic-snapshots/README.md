@@ -1,86 +1,125 @@
-# Prismic Snapshots - Infrastructure
+# Prismic Snapshots & Assets - Infrastructure
 
-This directory contains Terraform infrastructure for daily Prismic content snapshots and media library backups.
+This directory contains Terraform infrastructure for daily Prismic content snapshot and asset backups.
 
 ## Purpose
 
-Maintains 14 days of rolling snapshots for all Prismic document content. Keep up-to-date copies of every digital asset held in Prismic (eg. images, files...).  
-Snapshots and backups are generated at 11 PM UTC.
+Maintains backups for 14-days:
+
+- **Document snapshots**: Complete JSON export of all Prismic documents (11 PM UTC daily)
+- **Asset backups**: Complete JSON export of all media library meta data and incremental backups of the assets themselves (11 PM UTC daily)
 
 ## File Structure
 
 ```
 infrastructure/prismic-snapshots/
-├── terraform.tf                      # Terraform version configuration, remote state
-├── data.tf                           # Data sources (Prismic access token id)
-├── s3.tf                             # S3 bucket for snapshots and backups
-├── iam.tf                            # IAM roles and policies
-├── lambda_snapshot.tf                # Prismic snapshot Lambda
-├── lambda_backup_trigger.tf          # Media library backup trigger Lambda
-├── lambda_backup_download.tf         # Media library download Lambda
-├── assets_backup_state_machine.tf    # Step Functions for asset backups
-├── schedulers.tf                     # EventBridge schedulers
-├── cloudwatch_alarms.tf              # CloudWatch alarms for monitoring
-├── outputs.tf                        # Terraform outputs
-├── README.md                         # This file
-├── bucket-readme.md                  # Documentation for S3 bucket contents
+
+├── terraform.tf                      # Provider configuration
+├── data.tf                          # Data sources
+├── iam.tf                           # IAM roles and policies
+├── lambda_snapshot.tf                # Document snapshot Lambda
+├── lambda_backup_trigger.tf          # Asset list/trigger Lambda
+├── lambda_backup_download.tf         # Asset download Lambda
+├── assets_backup_state_machine.tf    # Step Functions workflow
+├── s3.tf                            # S3 bucket
+├── bucket-readme.md                 # S3 bucket documentation
+├── schedulers.tf                    # EventBridge schedules
+├── cloudwatch_alarms.tf             # CloudWatch alarms configuration
+├── outputs.tf                       # Terraform outputs
+├── package.json                     # Node.js dependencies
+├── yarn.lock                        # Yarn lock file
+├── .env.example                     # Environment variables template
+├── README.md                        # This file
+├── scripts/
+│   ├── build-lambda.sh              # Lambda package builder
+│   ├── deploy.sh                    # Full infrastructure deployment
+│   └── deploy-code.sh               # Code-only deployment
 ├── lambda/
-│   ├── prismic-snapshot.js           # Prismic content snapshot Lambda code
-│   ├── prismic-backup-trigger.js     # Media library backup trigger Lambda code
-│   └── prismic-backup-download.js    # Media library backup download Lambda code
-└── scripts/
-    ├── build-lambda.sh               # Script to build Lambda packages with dependencies
-    ├── deploy.sh                     # Full infrastructure deployment
-    └── deploy-code.sh                # Code-only deployment script
+│   ├── prismic-snapshot.js          # Document snapshot Lambda
+│   ├── prismic-backup-trigger.js    # Asset list Lambda
+│   └── prismic-backup-download.js   # Asset download Lambda
+└── testing/
+    ├── test-prismic-backup-trigger.js # For local testing/development
+    └── test-prismic-backup-download.js # For local testing/development
 ```
 
 ## Architecture
 
-### Prismic Content Snapshots
+### Document Snapshots (Daily at 11 PM UTC)
 
 ```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│ EventBridge     │───▶│ Lambda Function  │───▶│ S3 Bucket       │
-│ (Daily 11 PM)   │    │ (Snapshot)       │    │ (Store + Clean) │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-                              │
-                              ▼
-                       ┌──────────────────┐
-                       │ CloudWatch Logs  │
-                       │ (Monitoring)     │
-                       └──────────────────┘
+┌─────────────────┐    ┌──────────────────────┐    ┌─────────────────┐
+│ EventBridge     │───▶│ prismic-snapshot     │───▶│ S3 Bucket       │
+│ (Daily 11 PM)   │    │ Lambda               │    │ snapshots/      │
+└─────────────────┘    └──────────────────────┘    └─────────────────┘
 ```
 
-### Media Library Backups
+### Asset Backups (Incremental)
 
 ```
-┌─────────────────┐    ┌──────────────────────────────────────┐
-│ EventBridge     │───▶│ Step Functions State Machine         │
-│ (Daily 11 PM)   │    │                                      │
-└─────────────────┘    │  ┌────────────────────────────────┐ │
-                       │  │ 1. Trigger Lambda              │ │
-                       │  │    (Get asset list)            │ │───┐
-                       │  └────────────────────────────────┘ │   │
-                       │                │                     │   │
-                       │                ▼                     │   │
-                       │  ┌────────────────────────────────┐ │   │
-                       │  │ 2. Download Lambda (parallel)  │ │   │
-                       │  │    (Download assets)           │ │───┤
-                       │  └────────────────────────────────┘ │   │
-                       └──────────────────────────────────────┘   │
-                                                                   ▼
-                                                         ┌─────────────────┐
-                                                         │ S3 Bucket       │
-                                                         │ (Store list     │
-                                                         │ and assets)     │
-                                                         └─────────────────┘
+┌─────────────────┐
+│ EventBridge     │
+│ (Daily 11 PM)   │
+└────────┬────────┘
+         │
+         ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ Step Functions State Machine: prismic-assets-backup             │
+│                                                                 │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ State 1: BackupTrigger                                     │ │
+│  │   Lambda: prismic-backup-trigger                           │ │
+│  └─────────────────────────┬──────────────────────────────────┘ │
+│                            │                                    │
+│                            ▼                                    │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ State 2: BackupDownload (Map State)                        │ │
+│  │   ItemReader: Reads batches from S3                        │ │
+│  │   MaxConcurrency: 10                                       │ │
+│  │   ┌──────────────────────────────────────────────────┐     │ │
+│  │   │ Lambda: prismic-backup-download                  │     │ │
+│  │   │   - Uploads to S3 media-library/assets/          │     │ │
+│  │   └──────────────────────────────────────────────────┘     │ │
+│  └─────────────────────────┬──────────────────────────────────┘ │
+│                            │                                    │
+│                            ▼                                    │
+│  ┌────────────────────────────────────────────────────────────┐ │
+│  │ State 3: Success                                           │ │
+│  └────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘
 ```
+
+### How Asset Backups Work
+
+1. **Trigger Lambda** (`prismic-backup-trigger`):
+   - Fetches the complete list of assets from Prismic Asset API (stored in S3 with 14-day retention)
+   - Checks `latest-asset-snapshot-metadata.json` in S3 for previous fetch time
+   - Updates `latest-asset-snapshot-metadata.json` with last fetch time and file location
+   - Filters assets modified since last backup
+   - Batches filtered assets into groups of 100
+   - Writes batches to S3 at `media-library/latest-batches.json` and returns `{ bucket, key }` for Item Reader in next step
+
+2. **Download Lambda** (`prismic-backup-download`):
+   - Uses Map state to process batches in parallel
+   - Runs up to 10 concurrent download Lambda executions
+   - Receives one batch (up to 100 asset IDs + URLs)
+   - Downloads each asset file from Prismic CMS
+   - Uploads to S3 at `media-library/assets/{prismic-id}-{filename}.{extension}`
+   - Reports success/failure counts back to state machine
+
+### Incremental Backup Strategy
+
+- **First run**: Downloads entire list of assets with meta data and downloads all asset files
+- **Subsequent runs**: Downloads entire list of assets with meta data but only downloads assets modified since last backup
+- **Tracking**: `latest-assets.json` stores last fetch timestamp and filename of latest backup
 
 ## Configuration
 
-### Schedule
+### Schedules
 
-The snapshot and backup run daily at **11 PM UTC**. To change this, modify the relevant `schedule_expression` in `schedulers.tf`:
+Document snapshots and asset backups occur daily at **11 PM UTC**. These are configured in `schedulers.tf`
+
+To change the schedules, modify the `schedule_expression`.
 
 ```hcl
 // "prismic_snapshot_daily"
@@ -92,7 +131,9 @@ schedule_expression = "cron(0 23 * * ? *)" # 11 PM UTC daily
 
 ### Retention
 
-Snapshots are kept for **14 days**. To change this, modify the `days` in the lifecycle configuration in `main.tf`:
+Both document snapshots and asset inventories are kept for **14 days**. Asset files in `media-library/assets/` have no automatic expiration.
+
+To change retention, modify the `days` in the lifecycle configuration in `s3.tf`:
 
 ```hcl
 expiration {
@@ -100,37 +141,35 @@ expiration {
 }
 ```
 
-### Memory/Timeout
-
-Snapshot lambda is configured with:
-
-- **1GB memory**
-- **15 minute timeout**
-
-Adjust in `lambda_snapshot.tf` if needed based on Prismic content size.
-
 ## Storage
 
-### S3 Bucket Location
+### S3 Bucket
 
 **Bucket**: `wellcomecollection-prismic-backups`
 
-### Filename Structure
-
-Snapshots are stored with ISO 8601 timestamp filenames:
+### Directory Structure
 
 ```
-snapshots/prismic-snapshot-<prismic-ref>-YYYY-MM-DDTHH-MM-SSZ.json
+wellcomecollection-prismic-backups/
+├── snapshots/
+│   ├── prismic-snapshot-{timestamp}.json     # full document content snapshots (14-day retention)
+│   ├── prismic-snapshot-2{timestamp}.json
+│   └── ...
+└── media-library/
+    ├── latest-assets-snapshot-metadata.json  # tracking file for incremental backups
+    ├── prismic-assets-{timestamp}.json       # full asset inventory snapshots (14-day retention)
+    ├── prismic-assets-{timestamp}.json
+    └── ...
+    └── assets/
+        ├── {filename-1}.jpg
+        ├── {filename-2}.pdf
+        ├── {filename-3}.mp4
+        └── ...
 ```
 
-**Examples**:
+### File Formats
 
-- `snapshots/prismic-snapshot-prismicMasterRef1-2025-11-03T23-00-15Z.json` (daily backup at 11 PM UTC)
-- `snapshots/prismic-snapshot-prismicMasterRef2-2025-11-04T23-00-22Z.json` (next day's backup)
-
-### File Content
-
-Each snapshot contains the complete prismic repository content data for wellcomecollection.org in JSON format
+See S3 bucket: `wellcomecollection-prismic-backups/README.md`
 
 ## Deployment
 
@@ -139,13 +178,7 @@ Each snapshot contains the complete prismic repository content data for wellcome
 1. **AWS CLI configured** with appropriate permissions
 2. **Terraform installed** (>= 0.12)
 3. **Node.js and npm installed** (for building Lambda package)
-4. **Prismic access token** stored in AWS Secrets Manager
-
-N.B. The Prismic access token is already stored in AWS Secrets Manager as `prismic-model/prod/access-token` and is used by other services. You can verify it exists:
-
-```bash
-AWS_PROFILE=catalogue-developer aws secretsmanager describe-secret --secret-id "prismic-model/prod/access-token"
-```
+4. **Prismic access token and bearer** stored in AWS Secrets Manager
 
 ### Full Deployment (Rare)
 
@@ -167,12 +200,80 @@ cd infrastructure/prismic-snapshots
 - **How**:
 
 ```bash
-cd infrastructure/prismic-snapshots
-./deploy-code.sh <lambda_name>
-// eg. ./deploy-code.sh prismic-snapshot
+cd infrastructure/prismic-snapshots/scripts
+
+# Deploy a specific Lambda function
+./deploy-code.sh <lambda-name>
+
+# Examples:
+./deploy-code.sh prismic-snapshot              # Snapshot Lambda
+./deploy-code.sh prismic-backup-trigger        # Asset list/trigger Lambda
+./deploy-code.sh prismic-backup-download       # Asset download Lambda
 ```
 
 ## Testing
+
+### Running lambdas locally
+
+#### Prerequisites
+
+1. **Install dependencies**:
+
+   ```bash
+   cd infrastructure/prismic-snapshots
+   npm install
+   ```
+
+2. **Create `.env` file** in `infrastructure/prismic-snapshots/`:
+
+   ```bash
+   PRISMIC_BEARER_TOKEN=your-prismic-token-here
+   ```
+
+3. **AWS credentials** (automatic for LocalStack):
+   - The test scripts automatically use dummy credentials (`test`/`test`)
+   - For real AWS testing, set `AWS_PROFILE` or provide actual credentials
+
+#### Running Tests
+
+```bash
+cd infrastructure/prismic-snapshots/testing
+
+# Test the trigger Lambda (fetches asset list from Prismic)
+node test-prismic-backup-trigger.js
+
+# Test the download Lambda (downloads assets to S3)
+node test-prismic-backup-download.js
+```
+
+#### LocalStack Testing
+
+To test with LocalStack S3:
+
+1. **Start LocalStack**:
+
+   ```bash
+   localstack start
+   ```
+
+2. **Uncomment the S3_ENDPOINT line** in the test files:
+
+   ```javascript
+   process.env.S3_ENDPOINT = 'http://localhost:4566';
+   ```
+
+3. **Create the S3 buckets in LocalStack**:
+
+   These names must match `BUCKET_NAME` in the test scripts:
+   - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
+   - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
+
+   ```bash
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-backups
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-downloads
+   ```
+
+4. **Run the tests** as normal
 
 ### Manual Lambda Invocation/Snapshot Creation
 
@@ -187,15 +288,39 @@ AWS_PROFILE=catalogue-developer aws lambda invoke \
 cat response.json
 ```
 
-### Checking S3 snapshots
+### Checking S3 Backups
 
 ```bash
-# List all snapshots
-AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
+# List document snapshots
+AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
+
+# List asset inventory files
+AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/
+
+# List asset files
+AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/files/
+
+# Check latest asset tracking file
+AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/latest-assets.json - | jq .
 
 # Download latest snapshot
-AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
+AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
+
+# Download specific asset
+AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/files/{asset-id}.jpg ./
 ```
+
+### Manual Step Functions Execution
+
+````bash
+# Start asset backup manually
+AWS_PROFILE=experience-developer aws stepfunctions start-execution \
+  --state-machine-arn $(terraform output -raw assets_backup_state_machine_arn) \
+  --input '{}'
+
+# Check execution status
+AWS_PROFILE=experience-developer aws stepfunctions describe-execution \
+  --execution-arn <execution-arn-from-above>
 
 ## Monitoring
 
@@ -207,7 +332,7 @@ AWS_PROFILE=catalogue-developer aws logs describe-log-groups --log-group-name-pr
 
 # Follow logs in real-time
 AWS_PROFILE=catalogue-developer aws logs tail /aws/lambda/prismic-snapshot --follow
-```
+````
 
 ### CloudWatch Alarms
 
@@ -220,6 +345,8 @@ There are CloudWatch alarms to monitor Lambda function health:
    - `prismic-snapshot-errors`
    - `prismic-snapshot-duration-warning`
    - `prismic-snapshot-missing-invocations`
+   - `assets_backup-failed`
+   - `assets_backup-missing-executions`
 
 #### Alarm Details
 
