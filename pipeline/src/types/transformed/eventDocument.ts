@@ -7,6 +7,7 @@ export type EventDocument = {
   title: string;
   image?: Image;
   times: EventDocumentTime[];
+  isExhibition: boolean;
   format: EventDocumentFormat;
   locations: EventDocumentLocations;
   interpretations: EventDocumentInterpretation[];

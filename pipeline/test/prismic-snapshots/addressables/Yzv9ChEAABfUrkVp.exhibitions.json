@@ -3,7 +3,7 @@
   "uid": "the-healing-pavilion",
   "url": null,
   "type": "exhibitions",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Yzv9ChEAABfUrkVp%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2022-10-12T11:11:45+0000",
   "last_publication_date": "2024-10-31T15:26:35+0000",
@@ -24,6 +24,722 @@
     ],
     "start": "2022-11-24T00:00:00+0000",
     "end": "2023-04-22T23:00:00+0000",
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "paragraph",
+              "text": "‘The Healing Pavilion’ is a new art commission by British-Kenyan visual artist Grace Ndiritu. It radically reimagines what textiles and architecture can do in a museum burdened by colonial history. It is deeply connected to Ndiritu’s ongoing body of work, ‘Healing The Museum’ which she began in 2012.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "The installation consists of two tapestries within a site-specific structure, inspired by Zen Buddhist temples in Japan. It is designed to re-activate the museum as a space to encounter, contemplate, ask questions, exchange, listen, share and meditate.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "‘The Twin Tapestries’ are based on archival images from Wellcome Collection and the Ethnologisches Museum, Berlin, titled ‘Repair (1915)’ and ‘Restitution (1973)’, respectively. They ask what has changed since these photographs were taken and reveal violent pasts and hidden power dynamics at the foundation of Western museology, while reflecting attitudes and practices towards African objects in many European museum collections.",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "Lined with walnut panels taken from Wellcome Collection’s former ‘Medicine Man’ gallery, which closed shortly after this exhibition opened, the pavilion embodies a physical transformation of the past. Through her practice, Ndiritu asks how we might energetically and architecturally reinvent the role of contemporary museums and transform these institutional spaces.",
+              "spans": [
+                {
+                  "start": 66,
+                  "end": 78,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/exhibitions/Weoe4SQAAKJwjcDC"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The exhibition is accompanied by an audio walkthrough and guided meditation from the artist to immerse visitors within the sanctuary-like structure of the pavilion. ",
+              "spans": []
+            },
+            {
+              "type": "paragraph",
+              "text": "‘The Healing Pavilion’ is curated by Janice Li and Emily Sargent.",
+              "spans": []
+            }
+          ]
+        },
+        "id": "text$c5acc01d-c8d7-4abe-a714-834d6e34496c",
+        "slice_type": "text",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2250
+              },
+              "alt": "Photograph of a gallery exhibition space showing two large tapestries hung on opposite wooden walls, facing one another. The tapestries are made up of two black and white, archive photographs, one from the early 20th century and the other from the late 20th century. Both show a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. The tapestry on the left has a yellow border and the one one the right a pink border. Surrounding the tapestries is a wider wooden structure containing seating and alcoves. The hues of the scene are warm browns and olive greens.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/3ea42e63-19f0-4fa2-a2c6-da74d693a32b_GraceNdiritu_JimNaughten_0001.jpg?auto=format,compress",
+              "id": "Y4d5KREAACAAGFaM",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing two large tapestries hung on opposite wooden walls, facing one another. The tapestries are made up of two black and white, archive photographs, one from the early 20th century and the other from the late 20th century. Both show a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. The tapestry on the left has a yellow border and the one one the right a pink border. Surrounding the tapestries is a wider wooden structure containing seating and alcoves. The hues of the scene are warm browns and olive greens.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/3ea42e63-19f0-4fa2-a2c6-da74d693a32b_GraceNdiritu_JimNaughten_0001.jpg?auto=format,compress",
+                "id": "Y4d5KREAACAAGFaM",
+                "edit": {
+                  "x": 0,
+                  "y": -150,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing two large tapestries hung on opposite wooden walls, facing one another. The tapestries are made up of two black and white, archive photographs, one from the early 20th century and the other from the late 20th century. Both show a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. The tapestry on the left has a yellow border and the one one the right a pink border. Surrounding the tapestries is a wider wooden structure containing seating and alcoves. The hues of the scene are warm browns and olive greens.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/3ea42e63-19f0-4fa2-a2c6-da74d693a32b_GraceNdiritu_JimNaughten_0001.jpg?auto=format,compress",
+                "id": "Y4d5KREAACAAGFaM",
+                "edit": {
+                  "x": 0,
+                  "y": 0,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing two large tapestries hung on opposite wooden walls, facing one another. The tapestries are made up of two black and white, archive photographs, one from the early 20th century and the other from the late 20th century. Both show a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. The tapestry on the left has a yellow border and the one one the right a pink border. Surrounding the tapestries is a wider wooden structure containing seating and alcoves. The hues of the scene are warm browns and olive greens.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/3ea42e63-19f0-4fa2-a2c6-da74d693a32b_GraceNdiritu_JimNaughten_0001.jpg?auto=format,compress",
+                "id": "Y4d5KREAACAAGFaM",
+                "edit": {
+                  "x": -1244,
+                  "y": 0,
+                  "zoom": 1.4222222222222223,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "Hung across from one another in ‘The Healing Pavilion’ are ‘The Twin Tapestries'. On the left is 'Repair (1915)' and on the right is 'Restitution (1973)’. The photographs within these tapestries reveal a violent history within European museums and highlight attitudes towards African collections.",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2667
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. The tapestry is framed with a bright pink border. In surrounding the tapestry is a wooden pavilion-like structure made up of columns, alcoves and seating areas. The walls are olive green in hue and the overall sense is one of a clam reflective space.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/60b618a8-0ba5-4304-9097-5c89af6e6957_EP_002114_004.jpg?auto=format,compress",
+              "id": "Y4d5KREAAB0AGFaO",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. The tapestry is framed with a bright pink border. In surrounding the tapestry is a wooden pavilion-like structure made up of columns, alcoves and seating areas. The walls are olive green in hue and the overall sense is one of a clam reflective space.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/60b618a8-0ba5-4304-9097-5c89af6e6957_EP_002114_004.jpg?auto=format,compress",
+                "id": "Y4d5KREAAB0AGFaO",
+                "edit": {
+                  "x": 0,
+                  "y": -317,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. The tapestry is framed with a bright pink border. In surrounding the tapestry is a wooden pavilion-like structure made up of columns, alcoves and seating areas. The walls are olive green in hue and the overall sense is one of a clam reflective space.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/60b618a8-0ba5-4304-9097-5c89af6e6957_EP_002114_004.jpg?auto=format,compress",
+                "id": "Y4d5KREAAB0AGFaO",
+                "edit": {
+                  "x": 0,
+                  "y": -167,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. The tapestry is framed with a bright pink border. In surrounding the tapestry is a wooden pavilion-like structure made up of columns, alcoves and seating areas. The walls are olive green in hue and the overall sense is one of a clam reflective space.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/60b618a8-0ba5-4304-9097-5c89af6e6957_EP_002114_004.jpg?auto=format,compress",
+                "id": "Y4d5KREAAB0AGFaO",
+                "edit": {
+                  "x": -800,
+                  "y": 0,
+                  "zoom": 1.1998500187476566,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "‘The Healing Pavilion’ is a sanctuary-like structure inspired by Zen Buddhist temples in Japan. Having spent decades living in Buddhist monasteries and other spiritual communities, the artist, Grace Ndiritu, has created this space for individual and collective healing.",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2666
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border.Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/71c66a0b-d873-4aca-a391-6331994feb34_EP_002114_012.jpg?auto=format,compress",
+              "id": "Y4d5KhEAACAAGFaQ",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border.Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/71c66a0b-d873-4aca-a391-6331994feb34_EP_002114_012.jpg?auto=format,compress",
+                "id": "Y4d5KhEAACAAGFaQ",
+                "edit": {
+                  "x": 0,
+                  "y": -316,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border.Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/71c66a0b-d873-4aca-a391-6331994feb34_EP_002114_012.jpg?auto=format,compress",
+                "id": "Y4d5KhEAACAAGFaQ",
+                "edit": {
+                  "x": 0,
+                  "y": -166,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border.Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/71c66a0b-d873-4aca-a391-6331994feb34_EP_002114_012.jpg?auto=format,compress",
+                "id": "Y4d5KhEAACAAGFaQ",
+                "edit": {
+                  "x": -801,
+                  "y": 0,
+                  "zoom": 1.2003000750187547,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "The first tapestry is based on a photograph taken in 1915 which depicts staff from the Wellcome Historical Medical Museum posing with collection objects from the Global South, including human remains, masks and skulls. How do we interrogate, repair and heal from this violent history? ",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2666
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/eaada9ce-152c-4a35-bfbd-a27b6b2eeed2_EP_002114_013.jpg?auto=format,compress",
+              "id": "Y4d5JREAAB0AGFaF",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/eaada9ce-152c-4a35-bfbd-a27b6b2eeed2_EP_002114_013.jpg?auto=format,compress",
+                "id": "Y4d5JREAAB0AGFaF",
+                "edit": {
+                  "x": 0,
+                  "y": -316,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/eaada9ce-152c-4a35-bfbd-a27b6b2eeed2_EP_002114_013.jpg?auto=format,compress",
+                "id": "Y4d5JREAAB0AGFaF",
+                "edit": {
+                  "x": 0,
+                  "y": -166,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/eaada9ce-152c-4a35-bfbd-a27b6b2eeed2_EP_002114_013.jpg?auto=format,compress",
+                "id": "Y4d5JREAAB0AGFaF",
+                "edit": {
+                  "x": -801,
+                  "y": 0,
+                  "zoom": 1.2003000750187547,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "The second tapestry is based on an archival photograph taken in 1973 of staff at the Ethnologisches Museum, in Berlin, though their faces have been digitally altered. The staff are sitting and leaning on a well-respected royal throne from Cameroon, revealing a shocking behind-the-scenes relationship between museum workers and their collections.",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2667
+              },
+              "alt": "Photograph of three exhibition printed guides resting on a wooden tabletop. The top copy is open at a page with text on the left hand page titled 'Repair' and a black and white archive photograph on a yellow background on the right hand page.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/96148089-ec7b-4fda-81bc-331d269d0c91_EP_002114_019.jpg?auto=format,compress",
+              "id": "Y4d5LhEAAB0AGFab",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of three exhibition printed guides resting on a wooden tabletop. The top copy is open at a page with text on the left hand page titled 'Repair' and a black and white archive photograph on a yellow background on the right hand page.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/96148089-ec7b-4fda-81bc-331d269d0c91_EP_002114_019.jpg?auto=format,compress",
+                "id": "Y4d5LhEAAB0AGFab",
+                "edit": {
+                  "x": 0,
+                  "y": -317,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of three exhibition printed guides resting on a wooden tabletop. The top copy is open at a page with text on the left hand page titled 'Repair' and a black and white archive photograph on a yellow background on the right hand page.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/96148089-ec7b-4fda-81bc-331d269d0c91_EP_002114_019.jpg?auto=format,compress",
+                "id": "Y4d5LhEAAB0AGFab",
+                "edit": {
+                  "x": 0,
+                  "y": -167,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of three exhibition printed guides resting on a wooden tabletop. The top copy is open at a page with text on the left hand page titled 'Repair' and a black and white archive photograph on a yellow background on the right hand page.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/96148089-ec7b-4fda-81bc-331d269d0c91_EP_002114_019.jpg?auto=format,compress",
+                "id": "Y4d5LhEAAB0AGFab",
+                "edit": {
+                  "x": -800,
+                  "y": 0,
+                  "zoom": 1.1998500187476566,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "Inside our 'Exhibition Guide' you can see the Mandu Yenu throne in its original context. The royal throne, originally from the Kingdom of Bamum in Cameroon, was a signifier of great power and respect. ",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2667
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/4657a8a3-af59-408f-884b-aa5aa70bbf34_EP_002115_035.jpg?auto=format,compress",
+              "id": "Y4d5LBEAACAAGFaV",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4657a8a3-af59-408f-884b-aa5aa70bbf34_EP_002115_035.jpg?auto=format,compress",
+                "id": "Y4d5LBEAACAAGFaV",
+                "edit": {
+                  "x": 0,
+                  "y": -317,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4657a8a3-af59-408f-884b-aa5aa70bbf34_EP_002115_035.jpg?auto=format,compress",
+                "id": "Y4d5LBEAACAAGFaV",
+                "edit": {
+                  "x": 0,
+                  "y": -167,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. One of them is seated on an ornate throne with the others perched and lying around him, some holding museum artefacts in their hands. The tapestry is framed with a bright pink border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4657a8a3-af59-408f-884b-aa5aa70bbf34_EP_002115_035.jpg?auto=format,compress",
+                "id": "Y4d5LBEAACAAGFaV",
+                "edit": {
+                  "x": -800,
+                  "y": 0,
+                  "zoom": 1.1998500187476566,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "If you’re visiting the exhibition, you can listen to the audio walkthrough and guided meditation recorded by Grace Ndiritu, which helps us confront these violent colonial histories in a caring and compassionate way.",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2667
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, eyes closed in contemplation. ",
+              "copyright": "The Healing Pavilion exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/92432beb-faae-4902-8401-9c6521def1e2_EP_002115_051.jpg?auto=format,compress",
+              "id": "Y4d5LBEAAB0AGFaU",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, eyes closed in contemplation. ",
+                "copyright": "The Healing Pavilion exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/92432beb-faae-4902-8401-9c6521def1e2_EP_002115_051.jpg?auto=format,compress",
+                "id": "Y4d5LBEAAB0AGFaU",
+                "edit": {
+                  "x": 0,
+                  "y": -317,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, eyes closed in contemplation. ",
+                "copyright": "The Healing Pavilion exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/92432beb-faae-4902-8401-9c6521def1e2_EP_002115_051.jpg?auto=format,compress",
+                "id": "Y4d5LBEAAB0AGFaU",
+                "edit": {
+                  "x": 0,
+                  "y": -167,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the early 20th century showing a group of white men and women gathered in a group holding museum artefacts in their hands or on their laps. They are surrounded by other museum exhibits and display cases. The tapestry is framed with a bright yellow border. Surrounding the tapestry is a wider wooden structure containing seating and alcoves. To the right of the image a gallery visitor reclines in one of the alcoves with her back to the tapestry, eyes closed in contemplation. ",
+                "copyright": "The Healing Pavilion exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/92432beb-faae-4902-8401-9c6521def1e2_EP_002115_051.jpg?auto=format,compress",
+                "id": "Y4d5LBEAAB0AGFaU",
+                "edit": {
+                  "x": -800,
+                  "y": 0,
+                  "zoom": 1.1998500187476566,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "‘The Healing Pavilion’ physically and spiritually transforms the gallery into a safe, meditative space for quiet contemplation.",
+                "spans": []
+              }
+            ]
+          },
+          {
+            "image": {
+              "dimensions": {
+                "width": 4000,
+                "height": 2667
+              },
+              "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones. Either side of them are two more visitors, one standing looking at the tapestry, the other seated holding a walking stick.",
+              "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+              "url": "https://images.prismic.io/wellcomecollection/4a3cdb13-305b-4fb2-9eec-e5d9381f6390_EP_002115_012.jpg?auto=format,compress",
+              "id": "Y4d5LxEAACEAGFaf",
+              "edit": {
+                "x": 0,
+                "y": 0,
+                "zoom": 1,
+                "background": "#fff"
+              },
+              "32:15": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1500
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones. Either side of them are two more visitors, one standing looking at the tapestry, the other seated holding a walking stick.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4a3cdb13-305b-4fb2-9eec-e5d9381f6390_EP_002115_012.jpg?auto=format,compress",
+                "id": "Y4d5LxEAACEAGFaf",
+                "edit": {
+                  "x": 0,
+                  "y": -317,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "16:9": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 1800
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones. Either side of them are two more visitors, one standing looking at the tapestry, the other seated holding a walking stick.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4a3cdb13-305b-4fb2-9eec-e5d9381f6390_EP_002115_012.jpg?auto=format,compress",
+                "id": "Y4d5LxEAACEAGFaf",
+                "edit": {
+                  "x": 0,
+                  "y": -167,
+                  "zoom": 0.8,
+                  "background": "#fff"
+                }
+              },
+              "square": {
+                "dimensions": {
+                  "width": 3200,
+                  "height": 3200
+                },
+                "alt": "Photograph of a gallery exhibition space showing large tapestry hung on a wooden wall. The tapestry is made up of a black and white, archive photograph, from the late 20th century showing a group of white men and women gathered in a group within an exhibition exhibit. Sat crosslegged on a seat in front of the tapestry is a gallery visitor in a striped top. They are listening to the gallery audio guide on a pair of headphones. Either side of them are two more visitors, one standing looking at the tapestry, the other seated holding a walking stick.",
+                "copyright": "The Healing Pavilion, exhibition | Artworks: Grace Ndiritu. Gallery photos: Steven Pocock | Wellcome Collection | | CC-BY ||",
+                "url": "https://images.prismic.io/wellcomecollection/4a3cdb13-305b-4fb2-9eec-e5d9381f6390_EP_002115_012.jpg?auto=format,compress",
+                "id": "Y4d5LxEAACEAGFaf",
+                "edit": {
+                  "x": -800,
+                  "y": 0,
+                  "zoom": 1.1998500187476566,
+                  "background": "#fff"
+                }
+              }
+            },
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "On entering the pavilion, we encourage you to take off your shoes and sit barefoot on the carpet and benches - like one would in a temple - as we ask ourselves what, if anything, has changed since these photographs were taken.",
+                "spans": []
+              }
+            ]
+          }
+        ],
+        "primary": {},
+        "id": "editorialImageGallery$d302ed7f-0381-4ac7-b25d-fd8a6f856c81",
+        "slice_type": "editorialImageGallery",
+        "slice_label": null
+      },
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "Exhibition guide",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "A digital exhibition guide, with audio description, British Sign Language and captions and transcripts is available to use on your own phone or device. You can access the guide using QR codes in the gallery.",
+              "spans": [
+                {
+                  "start": 2,
+                  "end": 26,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/guides/exhibitions/the-healing-pavilion",
+                    "target": "_self"
+                  }
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "heading2",
+              "text": "Read more",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This exhibition is accompanied by two essays: ‘Collective Healing Through Confrontation in Safety’ by Janice Li and ‘Ways of Seeing: A New Museum Story for Planet Earth’ by Grace Ndiritu.",
+              "spans": [
+                {
+                  "start": 47,
+                  "end": 97,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/pages/Y2pruxEAAP-0fgBZ",
+                    "target": "_blank"
+                  }
+                },
+                {
+                  "start": 117,
+                  "end": 168,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/pages/Y2zToBAAAB4AKgRn",
+                    "target": "_blank"
+                  }
+                }
+              ],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "text$bdf02154-11d1-4970-9b3e-591423ad13f2",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
     "contributors": [
       {
         "contributor": {
@@ -38,7 +754,7 @@
             "name": "Grace Ndiritu"
           },
           "link_type": "Document",
-          "key": "e4209fda-dda0-409e-a409-b56ccc1bf219",
+          "key": "940b5249-9ec7-433e-9c2d-20a3f7267d07",
           "isBroken": false
         }
       }

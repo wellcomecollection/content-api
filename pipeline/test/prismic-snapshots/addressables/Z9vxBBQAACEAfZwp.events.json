@@ -3,7 +3,7 @@
   "uid": "a-peoples-history-of-death-with-molly-conisbee",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aJyDARAAAB8Ad2XQ&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
   "tags": ["PHOD"],
   "first_publication_date": "2025-04-03T14:52:29+0000",
   "last_publication_date": "2025-04-28T09:22:37+0000",
@@ -47,7 +47,84 @@
         "endDateTime": "2025-05-01T19:00:00+0000"
       }
     ],
-    "body": [],
+    "body": [
+      {
+        "variation": "default",
+        "version": "initial",
+        "items": [],
+        "primary": {
+          "text": [
+            {
+              "type": "heading2",
+              "text": "What you’ll do",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "Join us for an evening of activities to mark the launch of 'No Ordinary Deaths: A People’s History of Mortality' by Molly Conisbee. We'll be exploring the topic of death, dying, and how these endings shape societies.",
+              "spans": [
+                {
+                  "start": 60,
+                  "end": 111,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/books/no-ordinary-deaths",
+                    "target": "_self"
+                  }
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There will be an object spotlight, a display of archive materials and a discussion with the author, where you'll have a chance to ask questions.",
+              "spans": [
+                {
+                  "start": 17,
+                  "end": 33,
+                  "type": "hyperlink",
+                  "data": {
+                    "link_type": "Web",
+                    "url": "https://wellcomecollection.org/works/d4sys8yv/images?id=bp6wfgxw",
+                    "target": "_self"
+                  }
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "At the end of the evening, you can enjoy refreshments, buy the book and have it signed by Molly Conisbee. ",
+              "spans": [],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "There will be a chill-out space on level 1 available for everyone to use throughout the evening. ",
+              "spans": [
+                {
+                  "start": 96,
+                  "end": 97,
+                  "type": "strong"
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "text": "This event is recommended for people aged 18 and over.",
+              "spans": [],
+              "direction": "ltr"
+            }
+          ]
+        },
+        "id": "text$56be6283-4e9b-4436-867f-b32587697097",
+        "slice_type": "text",
+        "slice_label": null
+      }
+    ],
     "contributors": [
       {
         "contributor": {
@@ -74,7 +151,7 @@
           "lang": "en-gb",
           "slug": "sarah-dabbs",
           "first_publication_date": "2023-09-25T10:59:37+0000",
-          "last_publication_date": "2025-05-06T10:42:23+0000",
+          "last_publication_date": "2026-01-06T14:13:50+0000",
           "data": {
             "name": "Sarah Dabbs"
           },

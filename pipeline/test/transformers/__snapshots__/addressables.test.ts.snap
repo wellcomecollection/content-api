@@ -143,7 +143,17 @@ exports[`addressables transformer transforms events from Prismic to the expected
       "description": "Come along to a variety of life-affirming events around the theme of dying to mark the launch of Molly Conisbee's new book, No Ordinary Deaths.",
       "format": "Late",
       "id": "Z9vxBBQAACEAfZwp",
-      "linkedWorks": [],
+      "linkedWorks": [
+        {
+          "date": "1803",
+          "id": "p4bh9qca",
+          "mainContributor": "Collins, Dr.",
+          "thumbnailUrl": "https://iiif.wellcomecollection.org/thumbs/b21297563_0007.jp2/full/!200,200/0/default.jpg",
+          "title": "Practical rules for the management and medical treatment of Negro slaves, in the sugar colonies / by a professional planter.",
+          "type": "Work",
+          "workType": "Books",
+        },
+      ],
       "times": {
         "end": 2025-05-01T19:00:00.000Z,
         "start": 2025-05-01T15:00:00.000Z,
@@ -159,7 +169,9 @@ exports[`addressables transformer transforms events from Prismic to the expected
         "Come along to a variety of life-affirming events around the theme of dying to mark the launch of Molly Conisbee's new book, No Ordinary Deaths.",
         "Late",
       ],
-      "linkedWorks": [],
+      "linkedWorks": [
+        "p4bh9qca",
+      ],
       "prismicId": "Z9vxBBQAACEAfZwp",
       "tags": [
         "PHOD",
