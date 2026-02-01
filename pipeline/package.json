@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@tsconfig/node20": "20.1.8",
-    "@types/aws-lambda": "^8.10.159",
+    "@types/aws-lambda": "^8.10.160",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.16.5",
     "esbuild": "^0.27.2",
