@@ -8,7 +8,8 @@
     "test:download": "node testing/test-prismic-backup-download.js"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.0.0",
+    "@aws-sdk/client-s3": "^3.899.0",
+    "@prismicio/client": "^7.0.0",
     "dotenv": "^16.0.0"
   }
 }
