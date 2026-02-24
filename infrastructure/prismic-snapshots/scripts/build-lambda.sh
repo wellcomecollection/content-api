@@ -14,10 +14,16 @@ fi
 LAMBDA_NAME="$1"
 OUTPUT_FILE="$2"
 
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LAMBDA_DIR="$SCRIPT_DIR/../lambda"
 PROJECT_DIR="$SCRIPT_DIR/.."
+
+if ! command -v jq >/dev/null 2>&1; then
+  echo "Error: 'jq' is required but not installed or not found in PATH." >&2
+  echo "Please install jq before running this script." >&2
+  echo "  macOS (Homebrew):  brew install jq" >&2
+  exit 1
+fi
 
 # Create temporary directory for Lambda package
 TEMP_DIR=$(mktemp -d)
@@ -29,10 +35,10 @@ echo "Building Lambda package for $LAMBDA_NAME..."
 cp "$LAMBDA_DIR/${LAMBDA_NAME}.js" "$TEMP_DIR/index.js"
 
 # Copy and adapt package.json for Lambda
-jq '{
-  name: ("'"${LAMBDA_NAME}"'-lambda"),
+jq --arg name "$LAMBDA_NAME" '{
+  name: ($name + "-lambda"),
   version: .version,
-  description: ("Lambda function for '"${LAMBDA_NAME}"'"),
+  description: ("Lambda function for " + $name),
   main: "index.js",
   dependencies: .dependencies
 }' "$PROJECT_DIR/package.json" > "$TEMP_DIR/package.json"
