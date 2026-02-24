@@ -14,10 +14,6 @@ fi
 LAMBDA_NAME="$1"
 OUTPUT_FILE="$2"
 
-# Convert OUTPUT_FILE to absolute path if it's relative
-if [[ "$OUTPUT_FILE" != /* ]]; then
-  OUTPUT_FILE="$PWD/$OUTPUT_FILE"
-fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LAMBDA_DIR="$SCRIPT_DIR/../lambda"
