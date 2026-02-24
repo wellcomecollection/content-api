@@ -34,10 +34,3 @@
     "tsx": "^4.21.0"
   }
 }
-
-// docker build -f api/Dockerfile -t content-api .
-
-// docker run -p 3000:3000 \
-//   -v ~/.aws:/root/.aws:ro \
-//   -e AWS_PROFILE=catalogue-developer \
-//   content-api
