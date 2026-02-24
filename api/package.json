@@ -20,7 +20,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@tsconfig/node20": "20.1.8",
+    "@tsconfig/node24": "24.0.4",
     "@types/jest": "^30.0.0",
     "@types/luxon": "^3.7.1",
     "@types/morgan": "^1.9.3",
@@ -34,3 +34,10 @@
     "tsx": "^4.21.0"
   }
 }
+
+// docker build -f api/Dockerfile -t content-api .
+
+// docker run -p 3000:3000 \
+//   -v ~/.aws:/root/.aws:ro \
+//   -e AWS_PROFILE=catalogue-developer \
+//   content-api
