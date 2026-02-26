@@ -8,7 +8,7 @@ resource "aws_lambda_function" "prismic_backup_trigger" {
   function_name = local.lambda_backup_trigger_name
   role          = aws_iam_role.prismic_backup_trigger_lambda_role.arn
   handler       = "index.handler"
-  runtime       = "nodejs20.x"
+  runtime       = "nodejs24.x"
   timeout       = 900 # 15 minutes
   memory_size   = 1024
 
