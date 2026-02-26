@@ -38,6 +38,8 @@ resource "null_resource" "lambda_backup_trigger_build" {
   triggers = {
     # Rebuild when the Lambda code changes
     lambda_code = filemd5("${path.module}/lambda/${local.lambda_backup_trigger_name}.js")
+    # Rebuild when package.json changes
+    package_json = filemd5("${path.module}/package.json")
     # Rebuild when the build script changes
     build_script = filemd5("${path.module}/scripts/build-lambda.sh")
   }
