@@ -8,7 +8,7 @@ resource "aws_lambda_function" "prismic_snapshot" {
   function_name = local.lambda_snapshot_name
   role          = aws_iam_role.prismic_snapshot_lambda_role.arn
   handler       = "index.handler"
-  runtime       = "nodejs20.x"
+  runtime       = "nodejs24.x"
   timeout       = 900 # 15 minutes
   memory_size   = 1024
 
