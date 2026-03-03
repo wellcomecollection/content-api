@@ -1,5 +1,5 @@
 import type { EventBridgeClient } from '@aws-sdk/client-eventbridge';
-import { APIGatewayProxyStructuredResultV2, Context } from 'aws-lambda';
+import { APIGatewayProxyStructuredResultV2 } from 'aws-lambda';
 
 import { mockEvent, MockEventConfig, mockWebhook } from './mock-event';
 import { createHandler } from '../src/handler';
@@ -22,9 +22,7 @@ describe('Event handling', () => {
     event: MockEventConfig
   ): Promise<number | undefined> => {
     const result = (await testHandler(
-      mockEvent(event),
-      {} as Context,
-      () => {}
+      mockEvent(event)
     )) as unknown as APIGatewayProxyStructuredResultV2;
     return result.statusCode;
   };

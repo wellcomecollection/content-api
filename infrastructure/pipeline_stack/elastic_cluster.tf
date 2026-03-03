@@ -1,5 +1,6 @@
 locals {
-  elastic_cloud_region = data.aws_region.current.name
+  # Use 'id' instead of deprecated 'name' for aws_region data source (id returns the region name, e.g., 'eu-west-1')
+  elastic_cloud_region = data.aws_region.current.id
   cluster_id           = ec_deployment.content_cluster.elasticsearch[0].resource_id
   cluster_alias        = ec_deployment.content_cluster.alias
   cluster_public_host  = "${local.cluster_alias}.es.${local.elastic_cloud_region}.aws.found.io"

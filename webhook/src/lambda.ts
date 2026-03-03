@@ -1,5 +1,5 @@
 import { EventBridgeClient } from '@aws-sdk/client-eventbridge';
-import { Handler } from 'aws-lambda';
+import { APIGatewayProxyEventV2 } from 'aws-lambda';
 
 import { getSecret } from '@weco/content-common/services/aws';
 
@@ -27,7 +27,7 @@ const initialiseHandler = async () => {
 
 const handlerPromise = initialiseHandler();
 
-export const handler: Handler = async (event, context, cb) => {
+export const handler = async (event: APIGatewayProxyEventV2) => {
   const initialisedHandler = await handlerPromise;
-  return initialisedHandler(event, context, cb);
+  return initialisedHandler(event);
 };

@@ -28,11 +28,14 @@ resource "aws_scheduler_schedule" "windows" {
 resource "aws_iam_role" "scheduler" {
   name               = "concept-pipeline-windows-${var.pipeline_date}"
   assume_role_policy = data.aws_iam_policy_document.scheduler_assume_role.json
+}
 
-  inline_policy {
-    name   = "invoke-lambda"
-    policy = data.aws_iam_policy_document.scheduler_invoke_lambda.json
-  }
+# aws_iam_role_policy is used instead of the deprecated inline_policy block above.
+# This is the recommended way to attach policies to roles in Terraform 1.x and later.
+resource "aws_iam_role_policy" "scheduler_invoke_lambda" {
+  name   = "invoke-lambda"
+  role   = aws_iam_role.scheduler.id
+  policy = data.aws_iam_policy_document.scheduler_invoke_lambda.json
 }
 
 data "aws_iam_policy_document" "scheduler_assume_role" {

@@ -2,7 +2,7 @@ import {
   EventBridgeClient,
   PutEventsCommand,
 } from '@aws-sdk/client-eventbridge';
-import { APIGatewayProxyHandlerV2 } from 'aws-lambda';
+import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 
 import log from '@weco/content-common/services/logging';
 
@@ -24,8 +24,8 @@ type Config = {
 };
 
 export const createHandler =
-  (clients: Clients, config: Config): APIGatewayProxyHandlerV2 =>
-  async event => {
+  (clients: Clients, config: Config) =>
+  async (event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> => {
     if (event.requestContext.http.method !== 'POST') {
       return response({
         status: 405,

@@ -1,5 +1,3 @@
-import { Context } from 'aws-lambda';
-
 import { getElasticClient } from '@weco/content-common/services/elasticsearch';
 
 import { WindowEvent } from './event';
@@ -31,5 +29,5 @@ getElasticClient({
     prismic: prismicClient,
     elastic: elasticClient,
   });
-  return handler(windowEvent, {} as Context, () => {});
+  return handler(windowEvent);
 });

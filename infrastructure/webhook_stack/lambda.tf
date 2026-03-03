@@ -7,7 +7,7 @@ module "webhook_lambda" {
   source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
 
   name    = local.lambda_name
-  runtime = "nodejs20.x"
+  runtime = "nodejs24.x"
   handler = "lambda.handler"
 
   filename    = data.archive_file.empty_zip.output_path

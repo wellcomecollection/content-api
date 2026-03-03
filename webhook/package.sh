@@ -6,7 +6,7 @@ set -o pipefail
 yarn run esbuild ./src/lambda.js \
   --bundle \
   --platform=node \
-  --target=node20 \
+  --target=node24 \
   --sourcemap=external \
   --outdir=dist
 

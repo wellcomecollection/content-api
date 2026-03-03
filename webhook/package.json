@@ -13,10 +13,10 @@
     "@weco/content-common": "*"
   },
   "devDependencies": {
-    "@tsconfig/node20": "20.1.8",
+    "@tsconfig/node24": "24.0.4",
     "@types/aws-lambda": "^8.10.160",
     "@types/jest": "^30.0.0",
-    "@types/node": "^20.16.5",
+    "@types/node": "^24.10.13",
     "esbuild": "^0.27.2",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.6",

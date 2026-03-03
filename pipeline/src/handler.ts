@@ -1,5 +1,3 @@
-import { Handler } from 'aws-lambda';
-
 import { WindowEvent } from './event';
 import { createETLPipeline } from './extractTransformLoad';
 import {
@@ -57,8 +55,8 @@ const loadVenues = createETLPipeline({
 });
 
 export const createHandler =
-  (clients: Clients): Handler<WindowEvent> =>
-  async event => {
+  (clients: Clients) =>
+  async (event: WindowEvent): Promise<void> => {
     if (!event.contentType) {
       throw new Error('Event contentType must be specified!');
     }

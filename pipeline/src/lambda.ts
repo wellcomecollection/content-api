@@ -1,11 +1,10 @@
 // This must be the first import in the app!
 import '@weco/content-common/services/init-apm';
 
-import { Handler } from 'aws-lambda';
-
 import { getElasticClient } from '@weco/content-common/services/elasticsearch';
 
 import { getConfig } from './config';
+import { WindowEvent } from './event';
 import { createHandler } from './handler';
 import { createPrismicClient } from './services/prismic';
 
@@ -26,7 +25,7 @@ const initialiseHandler = async () => {
 
 const handlerPromise = initialiseHandler();
 
-export const handler: Handler = async (event, context, cb) => {
+export const handler = async (event: WindowEvent) => {
   const initialisedHandler = await handlerPromise;
-  return initialisedHandler(event, context, cb);
+  return initialisedHandler(event);
 };
