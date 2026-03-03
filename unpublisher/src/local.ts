@@ -1,4 +1,3 @@
-import { Context } from 'aws-lambda';
 import { argv } from 'node:process';
 
 import { getElasticClient } from '@weco/content-common/services/elasticsearch';
@@ -15,5 +14,5 @@ getElasticClient({
   hostEndpointAccess: 'public',
 }).then(async elasticClient => {
   const handler = createHandler({ elastic: elasticClient });
-  await handler(eventBridgePrismicEvent(deletionIds), {} as Context, () => {});
+  await handler(eventBridgePrismicEvent(deletionIds));
 });

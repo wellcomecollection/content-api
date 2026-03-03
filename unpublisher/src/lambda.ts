@@ -1,4 +1,5 @@
-import { Handler } from 'aws-lambda';
+import { WebhookBodyAPIUpdate } from '@prismicio/types';
+import { EventBridgeEvent } from 'aws-lambda';
 
 import { getElasticClient } from '@weco/content-common/services/elasticsearch';
 
@@ -18,7 +19,9 @@ const initialiseHandler = async () => {
 
 const handlerPromise = initialiseHandler();
 
-export const handler: Handler = async (event, context, cb) => {
+export const handler = async (
+  event: EventBridgeEvent<'document-unpublish', WebhookBodyAPIUpdate>
+) => {
   const initialisedHandler = await handlerPromise;
-  return initialisedHandler(event, context, cb);
+  return initialisedHandler(event);
 };
