@@ -221,7 +221,7 @@ cd infrastructure/prismic-snapshots/scripts
 
    ```bash
    cd infrastructure/prismic-snapshots
-   npm install
+   yarn install
    ```
 
 2. **Create `.env` file** in `infrastructure/prismic-snapshots/`:
@@ -237,18 +237,20 @@ cd infrastructure/prismic-snapshots/scripts
 #### Running Tests
 
 ```bash
-cd infrastructure/prismic-snapshots/testing
+cd infrastructure/prismic-snapshots
 
 # Test the trigger Lambda (fetches asset list from Prismic)
-node test-prismic-backup-trigger.js
+yarn test:trigger
 
-# Test the download Lambda (downloads assets to S3)
-node test-prismic-backup-download.js
+# Test the download Lambda (downloads assets from Prismic)
+yarn test:download
 ```
 
-#### LocalStack Testing
+**Note**: Without LocalStack, tests will successfully fetch from Prismic but fail on S3 operations. This is expected and still validates the Prismic integration logic.
 
-To test with LocalStack S3:
+#### LocalStack Testing (Optional)
+
+To test complete S3 upload functionality with LocalStack:
 
 1. **Start LocalStack**:
 
@@ -256,7 +258,7 @@ To test with LocalStack S3:
    localstack start
    ```
 
-2. **Uncomment the S3_ENDPOINT line** in the test files:
+2. **Uncomment the S3_ENDPOINT line** in the test files (`testing/*.js`):
 
    ```javascript
    process.env.S3_ENDPOINT = 'http://localhost:4566';
@@ -264,7 +266,7 @@ To test with LocalStack S3:
 
 3. **Create the S3 buckets in LocalStack**:
 
-   These names must match `BUCKET_NAME` in the test scripts:
+   These names must match `BUCKET_NAME` in the test scripts (`testing/*.js`):
    - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
    - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
 
@@ -273,7 +275,7 @@ To test with LocalStack S3:
    aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-downloads
    ```
 
-4. **Run the tests** as normal
+4. **Run the tests** with `yarn test:trigger` or `yarn test:download`
 
 ### Manual Lambda Invocation/Snapshot Creation
 

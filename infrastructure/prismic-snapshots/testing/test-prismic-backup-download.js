@@ -11,10 +11,12 @@ process.env.BUCKET_NAME = 'wellcomecollection-prismic-downloads';
 if (!process.env.AWS_ACCESS_KEY_ID) {
   process.env.AWS_ACCESS_KEY_ID = 'test';
   process.env.AWS_SECRET_ACCESS_KEY = 'test';
-  console.log('Using dummy AWS credentials for LocalStack');
+  console.log(
+    'Using dummy AWS credentials (will fail on S3 operations without LocalStack)'
+  );
 }
 
-// For LocalStack, uncomment this:
+// For LocalStack testing with S3, uncomment this:
 process.env.S3_ENDPOINT = 'http://localhost:4566';
 
 // Import the Lambda handler
@@ -56,7 +58,7 @@ console.log(`Processing ${event.batch.length} test assets\n`);
 
 // Invoke the handler
 lambda
-  .handler(event, context)
+  .handler(event.batch, context)
   .then(result => {
     console.log('\n=== Lambda Response ===');
     console.log('Status Code:', result.statusCode);
