@@ -1,0 +1,10 @@
+# Lambda build artifacts
+*.zip
+
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Environment files
+.env
