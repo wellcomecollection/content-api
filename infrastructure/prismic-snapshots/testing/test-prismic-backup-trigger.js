@@ -16,11 +16,13 @@ process.env.BUCKET_NAME = 'wellcomecollection-prismic-assets';
 if (!process.env.AWS_ACCESS_KEY_ID) {
   process.env.AWS_ACCESS_KEY_ID = 'test';
   process.env.AWS_SECRET_ACCESS_KEY = 'test';
-  console.log('Using dummy AWS credentials for LocalStack');
+  console.log(
+    'Using dummy AWS credentials (will fail on S3 operations without LocalStack)'
+  );
 }
 
-// For LocalStack, uncomment this:
-process.env.S3_ENDPOINT = 'http://localhost:4566';
+// For LocalStack testing with S3, uncomment this:
+// process.env.S3_ENDPOINT = 'http://localhost:4566';
 
 // Load bearer token from environment or prompt to set it
 if (!process.env.PRISMIC_BEARER_TOKEN) {
