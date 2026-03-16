@@ -17,7 +17,7 @@ if (!process.env.AWS_ACCESS_KEY_ID) {
 }
 
 // For LocalStack testing with S3, uncomment this:
-process.env.S3_ENDPOINT = 'http://localhost:4566';
+// process.env.S3_ENDPOINT = 'http://localhost:4566';
 
 // Import the Lambda handler
 const lambda = require('../lambda/prismic-backup-download.js');
