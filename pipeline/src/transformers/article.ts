@@ -100,7 +100,7 @@ export const transformArticle = async (
 
   const format = transformLabelType(document);
 
-  // When we imported data into Prismic from the Wordpress blog captured its original publication date which we want to use as the publication date for articles. If that field isn't present, we fall back to the Prismic document's first publication date.
+  // When we imported data into Prismic from the WordPress blog captured its original publication date which we want to use as the publication date for articles. If that field isn't present, we fall back to the Prismic document's first publication date.
   const datePublished = data.publishDate || firstPublicationDate;
 
   const contributors = getContributors(document);
