@@ -8,7 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@aws-sdk/client-eventbridge": "^3.1025.0",
+    "@aws-sdk/client-eventbridge": "^3.1041.0",
     "@prismicio/types": "^0.2.8",
     "@weco/content-common": "*"
   },
