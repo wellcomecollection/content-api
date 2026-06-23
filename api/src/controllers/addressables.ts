@@ -1,6 +1,7 @@
 import { errors as elasticErrors } from '@elastic/elasticsearch';
 import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
+import { z } from 'zod';
 
 import { Config } from '@weco/content-api/config';
 import { ifDefined } from '@weco/content-api/src/helpers';
@@ -13,19 +14,26 @@ import { Clients, Displayable } from '@weco/content-api/src/types';
 import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
-import { paginationElasticBody, PaginationQueryParameters } from './pagination';
-import { workIdValidator } from './validation';
+import { paginationElasticBody } from './pagination';
+import {
+  PaginationQuerySchema,
+  queryStringSchema,
+  workIdsSchema,
+} from './validation';
 
-type QueryParams = {
-  query?: string;
-  linkedWork?: string | string[];
-} & PaginationQueryParameters;
+export const AddressablesQuerySchema = z
+  .object({
+    query: queryStringSchema,
+    linkedWork: workIdsSchema,
+  })
+  .extend(PaginationQuerySchema.shape);
 
+type AddressablesParams = z.infer<typeof AddressablesQuerySchema>;
 type AddressablesHandler = RequestHandler<
   never,
   ResultList,
   never,
-  QueryParams
+  Record<string, unknown>
 >;
 
 const addressablesController = (
@@ -36,18 +44,18 @@ const addressablesController = (
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, linkedWork } = req.query;
+    const { query: queryString, ...rawParams } = req.query;
+    const params: AddressablesParams = AddressablesQuerySchema.parse(rawParams);
+    const { linkedWork } = params;
 
     const workIds = Array.isArray(linkedWork)
       ? linkedWork
       : linkedWork
-        ? linkedWork.split(',').map(id => id.trim())
+        ? (linkedWork as string).split(',').map(id => id.trim())
         : [];
 
-    workIds.forEach(workId => workIdValidator(workId));
-
     const mustClauses = [
-      ifDefined(queryString, addressablesQuery),
+      ifDefined(queryString as string | undefined, addressablesQuery),
       workIds.length > 0 ? addressablesFilter(workIds) : undefined,
     ].filter(
       (clause): clause is NonNullable<typeof clause> => clause !== undefined
@@ -82,7 +90,7 @@ const addressablesController = (
         // for length is a heuristic so that if we get legitimate `too_many_nested_clauses`
         // errors, we're still alerted to them
         e.message.includes('too_many_nested_clauses') &&
-        encodeURIComponent(queryString || '').length > 2000
+        encodeURIComponent((queryString as string) || '').length > 2000
       ) {
         throw new HttpError({
           status: 400,

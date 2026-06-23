@@ -1,16 +1,8 @@
-import { isInSet, not } from '@weco/content-api/src/helpers';
-import { StringLiteral } from '@weco/content-api/src/types';
+import { z } from 'zod';
 
 import { HttpError } from './error';
 
 type NonEmptyArray<T> = [T, ...T[]];
-
-type QueryValidatorConfig<Name, AllowedValue> = {
-  name: StringLiteral<Name>;
-  allowed: readonly StringLiteral<AllowedValue>[];
-  defaultValue?: Readonly<StringLiteral<AllowedValue>>;
-  singleValue?: boolean;
-};
 
 const quoted = (str: string) => `'${str}'`;
 
@@ -30,55 +22,6 @@ const readableList = (
     : quotes[0];
 };
 
-export const queryValidator = <Name, AllowedValue>({
-  name,
-  allowed,
-  defaultValue,
-  singleValue,
-}: QueryValidatorConfig<Name, AllowedValue>) => {
-  const allowedSet = new Set(allowed);
-  return <Query extends { [key in typeof name]?: string }>(
-    query: Query
-  ): NonEmptyArray<AllowedValue> | undefined => {
-    const providedValues = query[name]?.split(',');
-    if (providedValues === undefined) {
-      return defaultValue === undefined ? undefined : [defaultValue];
-    }
-
-    const validValues = providedValues.filter(isInSet(allowedSet));
-    if (
-      validValues.length !== providedValues.length ||
-      validValues.length === 0
-    ) {
-      const invalidValues = providedValues.filter(not(isInSet(allowedSet)));
-      const invalidMessage =
-        invalidValues.length === 1
-          ? 'is not a valid value'
-          : 'are not valid values';
-      throw new HttpError({
-        status: 400,
-        label: 'Bad Request',
-        description: `${name}: ${readableList(
-          invalidValues
-        )} ${invalidMessage}. Please choose one of ${readableList(
-          allowed,
-          'or'
-        )}`,
-      });
-    }
-
-    if (singleValue && validValues.length > 1) {
-      throw new HttpError({
-        status: 400,
-        label: 'Bad Request',
-        description: `Only 1 value can be specified for ${name}`,
-      });
-    }
-
-    return validValues as NonEmptyArray<AllowedValue>;
-  };
-};
-
 export const validateDate = (input: string): Date => {
   const date = new Date(input);
   if (isNaN(date.getTime())) {
@@ -93,62 +36,145 @@ export const validateDate = (input: string): Date => {
   return date;
 };
 
-function isString(v: unknown): v is string {
-  return typeof v === 'string';
-}
-// From looksLikePrismicId in .org repo:
-// \w: Matches any word character (alphanumeric & underscore).
-// Only matches low-ascii characters (no accented or non-roman characters).
-// Equivalent to [A-Za-z0-9_].
-// Added "-" to be matched as well.
-// + means empty strings will return false.
 export const looksLikePrismicId = (
   id: string | string[] | undefined
-): id is string => (isString(id) ? /^[\w-]+$/.test(id) : false);
-
-export const prismicIdValidator = (
-  filterValues: string,
-  filterName: string
-) => {
-  const filterValuesArray = filterValues.split(',');
-  const invalidValues: string[] = [];
-
-  filterValuesArray.forEach(filterValue => {
-    if (!looksLikePrismicId(filterValue)) {
-      invalidValues.push(filterValue);
-    }
-  });
-
-  if (invalidValues.length > 0)
-    throw new HttpError({
-      status: 400,
-      label: 'Bad Request',
-      description: `At least one invalid value has been passed in the ${filterName} filter: ${invalidValues.length > 1 ? invalidValues.join(', ') : invalidValues}`,
-    });
-};
+): id is string => (typeof id === 'string' ? /^[\w-]+$/.test(id) : false);
 
 export const looksLikeWorkId = (
   id: string | string[] | undefined
-): id is string => (isString(id) ? /^[a-zA-Z0-9]+$/.test(id) : false);
+): id is string => (typeof id === 'string' ? /^[a-zA-Z0-9]+$/.test(id) : false);
 
-export const workIdValidator = (workId: string) => {
-  if (!looksLikeWorkId(workId)) {
-    throw new HttpError({
-      status: 400,
-      label: 'Bad Request',
-      description: `Invalid work ID format. Work IDs should only contain alphanumeric characters. Found: ${workId}`,
+// ---- Zod-based helpers ----
+
+/** Builds a Zod field for a comma-separated enum query param. */
+export function commaSeparatedEnum<T extends string>(
+  name: string,
+  values: readonly [T, ...T[]],
+  opts: { singleValue?: boolean; defaultValue?: T } = {}
+) {
+  return z
+    .string()
+    .optional()
+    .transform((val, ctx): NonEmptyArray<T> | undefined => {
+      if (val === undefined) {
+        return opts.defaultValue ? [opts.defaultValue] : undefined;
+      }
+      const parts = val.split(',') as T[];
+      const invalid = parts.filter(
+        p => !(values as readonly string[]).includes(p)
+      );
+      if (invalid.length > 0 || parts.length === 0) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `${name}: ${readableList(invalid)} ${
+            invalid.length === 1
+              ? 'is not a valid value'
+              : 'are not valid values'
+          }. Please choose one of ${readableList(values, 'or')}`,
+        });
+        return z.NEVER;
+      }
+      if (opts.singleValue && parts.length > 1) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Only 1 value can be specified for ${name}`,
+        });
+        return z.NEVER;
+      }
+      return parts as NonEmptyArray<T>;
     });
-  }
-};
+}
 
-// Checks if the date is of the format YYYY-MM-DD
-export const dateValidator = (date: string) => {
-  const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
-
-  if (!dateRegex.test(date))
-    throw new HttpError({
-      status: 400,
-      label: 'Bad Request',
-      description: `${date} is not a valid YYYY-MM-DD format.`,
+/** Validates a comma-separated list of Prismic IDs */
+export const commaSeparatedPrismicIds = (filterName: string) =>
+  z
+    .string()
+    .optional()
+    .superRefine((val, ctx) => {
+      if (!val) return;
+      const parts = val.split(',');
+      const invalidValues = parts.filter(p => !looksLikePrismicId(p));
+      if (invalidValues.length > 0) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `At least one invalid value has been passed in the ${filterName} filter: ${
+            invalidValues.length > 1
+              ? invalidValues.join(', ')
+              : invalidValues[0]
+          }`,
+        });
+      }
     });
-};
+
+/** Full-text search query string, shared across list endpoints */
+export const queryStringSchema = z
+  .string()
+  .optional()
+  .meta({ description: 'Full-text search query' });
+
+/** Validates a comma-separated string or repeated array of work IDs */
+export const workIdsSchema = z
+  .union([z.string(), z.array(z.string())])
+  .optional()
+  .superRefine((val, ctx) => {
+    if (!val) return;
+    const ids = Array.isArray(val) ? val : val.split(',').map(id => id.trim());
+    for (const id of ids) {
+      if (!looksLikeWorkId(id)) {
+        ctx.addIssue({
+          code: 'custom',
+          message: `Invalid work ID format. Work IDs should only contain alphanumeric characters. Found: ${id}`,
+        });
+      }
+    }
+  })
+  .meta({
+    description:
+      'Filter by linked catalogue work IDs. Accepts multiple work IDs via comma-separated values or repeated parameters.',
+  });
+
+// Matches YYYY-MM-DD where:
+//   YYYY  — any 4-digit year
+//   MM    — 01–12
+//   DD    — 01–31 (does not validate days-in-month, e.g. 02-31 is accepted)
+const DATE_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+
+/** Validates a YYYY-MM-DD date string */
+export const dateStringSchema = z
+  .string()
+  .optional()
+  .superRefine((val, ctx) => {
+    if (!val) return;
+    if (!DATE_REGEX.test(val)) {
+      ctx.addIssue({
+        code: 'custom',
+        message: `${quoted(val)} is not a valid date. Please use YYYY-MM-DD format.`,
+      });
+    }
+  });
+
+/** Shared pagination params for all list endpoints */
+export const PaginationQuerySchema = z.object({
+  page: z.coerce
+    .number()
+    .int()
+    .min(1, 'page: must be a number greater than 1')
+    .optional()
+    .meta({
+      description: 'The page to return from the result list',
+      minimum: 1,
+      default: 1,
+    }),
+  pageSize: z.coerce
+    .number()
+    .int()
+    .min(1, 'pageSize: must be a number between 1 and 100')
+    .max(100, 'pageSize: must be a number between 1 and 100')
+    .optional()
+    .meta({
+      description: 'The number of results to return per page',
+      minimum: 1,
+      maximum: 100,
+      default: 10,
+    }),
+});

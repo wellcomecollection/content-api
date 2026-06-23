@@ -1,5 +1,6 @@
 import apm from 'elastic-apm-node';
 import { ErrorRequestHandler } from 'express';
+import { ZodError } from 'zod';
 
 import log from '@weco/content-common/services/logging';
 
@@ -49,6 +50,14 @@ export class HttpError extends Error {
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof HttpError) {
     res.status(err.status).json(err.responseJson);
+  } else if (err instanceof ZodError) {
+    res.status(400).json({
+      type: 'Error',
+      httpStatus: 400,
+      label: 'Bad Request',
+      description: err.issues[0]?.message,
+      errorType: 'http',
+    } satisfies ErrorResponse);
   } else {
     // Log this to prevent it getting swallowed
     log.error(err);
