@@ -7,6 +7,7 @@ Guidelines for AI assistants working on this codebase. Read this before implemen
 **Ask before assuming.** If requirements are unclear, the approach is ambiguous, or there are multiple reasonable solutions, ask rather than guessing.
 
 **Complete work properly.** Before considering a task done:
+
 - Fix all linting errors (`yarn lint` from the root)
 - Run `yarn tsc` from the root to check TypeScript across all packages
 - Run `yarn test` inside the relevant service directory (e.g. `cd api && yarn test`)
@@ -18,14 +19,14 @@ Write casually. No emojis or excessive bold in responses.
 
 This is a Yarn workspaces monorepo. The main packages are:
 
-| Directory | Purpose |
-|-----------|---------|
-| `api/` | Express API served to external consumers. Query params validated with Zod, responses from Elasticsearch. |
-| `pipeline/` | Scheduled Lambda. Fetches content from Prismic, transforms it, indexes into Elasticsearch. |
-| `webhook/` | Lambda function URL. Receives Prismic webhooks, publishes events to EventBridge. |
-| `unpublisher/` | Lambda. Consumes EventBridge events, removes documents from Elasticsearch. |
-| `common/` | Shared types, services (Elasticsearch client, logging, AWS), and data constants. |
-| `infrastructure/` | Terraform. Do not modify unless specifically asked. |
+| Directory         | Purpose                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| `api/`            | Express API served to external consumers. Query params validated with Zod, responses from Elasticsearch. |
+| `pipeline/`       | Scheduled Lambda. Fetches content from Prismic, transforms it, indexes into Elasticsearch.               |
+| `webhook/`        | Lambda function URL. Receives Prismic webhooks, publishes events to EventBridge.                         |
+| `unpublisher/`    | Lambda. Consumes EventBridge events, removes documents from Elasticsearch.                               |
+| `common/`         | Shared types, services (Elasticsearch client, logging, AWS), and data constants.                         |
+| `infrastructure/` | Terraform. Do not modify unless specifically asked.                                                      |
 
 ## Build and Test
 
@@ -111,6 +112,7 @@ throw new HttpError({ status: 400, label: 'Bad Request', description: '...' });
 ## Pull Requests
 
 A good PR description covers:
+
 - **What does this change?** — the problem and how it's solved
 - **How to test** — concrete steps (e.g. "hit `/articles?sort=foo` and expect a 400")
 - **Risks** — anything that could affect the pipeline, Elasticsearch index, or downstream consumers
