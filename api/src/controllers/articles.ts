@@ -99,12 +99,8 @@ const articlesController = (
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: rawQuery, ...rawParams } = req.query as Record<
-      string,
-      unknown
-    >;
-    const queryString = typeof rawQuery === 'string' ? rawQuery : undefined;
-    const params: ArticlesParams = ArticlesQuerySchema.parse(rawParams);
+    const params: ArticlesParams = ArticlesQuerySchema.parse(req.query);
+    const queryString = params.query;
     const sort = params.sort?.[0];
     const sortOrder = params.sortOrder?.[0];
     const aggregations = params.aggregations;
@@ -147,7 +143,7 @@ const articlesController = (
     if (params.linkedWork) {
       const workIds = Array.isArray(params.linkedWork)
         ? params.linkedWork
-        : (params.linkedWork as string).split(',').map(id => id.trim());
+        : params.linkedWork.split(',').map(id => id.trim());
 
       const addressablesResponse = await clients.elastic.search<Displayable>({
         index: config.addressablesIndex,

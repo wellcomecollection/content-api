@@ -81,6 +81,10 @@ describe('dateStringSchema', () => {
   it('returns undefined for undefined input', () => {
     expect(dateStringSchema.parse(undefined)).toBeUndefined();
   });
+
+  it('rejects empty string', () => {
+    expect(() => dateStringSchema.parse('')).toThrow(ZodError);
+  });
 });
 
 describe('commaSeparatedPrismicIds', () => {
@@ -95,6 +99,10 @@ describe('commaSeparatedPrismicIds', () => {
 
   it('rejects invalid Prismic IDs', () => {
     expect(() => schema.parse('not valid!')).toThrow(ZodError);
+  });
+
+  it('rejects empty string', () => {
+    expect(() => schema.parse('')).toThrow(ZodError);
   });
 
   it('returns undefined for undefined input', () => {
@@ -120,6 +128,10 @@ describe('workIdsSchema', () => {
 
   it('returns undefined for undefined input', () => {
     expect(workIdsSchema.parse(undefined)).toBeUndefined();
+  });
+
+  it('rejects empty string', () => {
+    expect(() => workIdsSchema.parse('')).toThrow(ZodError);
   });
 });
 

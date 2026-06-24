@@ -217,12 +217,8 @@ const eventsController = (clients: Clients, config: Config): EventsHandler => {
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: rawQuery, ...rawParams } = req.query as Record<
-      string,
-      unknown
-    >;
-    const queryString = typeof rawQuery === 'string' ? rawQuery : undefined;
-    const params = EventsQuerySchema.parse(rawParams);
+    const params = EventsQuerySchema.parse(req.query);
+    const queryString = params.query;
     const { format, excludeFormat } = transformFormat(params.format);
     const sort = params.sort?.[0];
     const sortOrder = params.sortOrder?.[0];

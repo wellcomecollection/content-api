@@ -91,7 +91,7 @@ export const commaSeparatedPrismicIds = (filterName: string) =>
     .string()
     .optional()
     .superRefine((val, ctx) => {
-      if (!val) return;
+      if (val === undefined) return;
       const parts = val.split(',');
       const invalidValues = parts.filter(p => !looksLikePrismicId(p));
       if (invalidValues.length > 0) {
@@ -117,7 +117,7 @@ export const workIdsSchema = z
   .union([z.string(), z.array(z.string())])
   .optional()
   .superRefine((val, ctx) => {
-    if (!val) return;
+    if (val === undefined) return;
     const ids = Array.isArray(val) ? val : val.split(',').map(id => id.trim());
     for (const id of ids) {
       if (!looksLikeWorkId(id)) {
@@ -144,7 +144,7 @@ export const dateStringSchema = z
   .string()
   .optional()
   .superRefine((val, ctx) => {
-    if (!val) return;
+    if (val === undefined) return;
     if (!DATE_REGEX.test(val)) {
       ctx.addIssue({
         code: 'custom',

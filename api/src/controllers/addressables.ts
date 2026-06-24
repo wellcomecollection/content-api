@@ -44,18 +44,17 @@ const addressablesController = (
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, ...rawParams } = req.query;
-    const params: AddressablesParams = AddressablesQuerySchema.parse(rawParams);
-    const { linkedWork } = params;
+    const params: AddressablesParams = AddressablesQuerySchema.parse(req.query);
+    const { query: queryString, linkedWork } = params;
 
     const workIds = Array.isArray(linkedWork)
       ? linkedWork
       : linkedWork
-        ? (linkedWork as string).split(',').map(id => id.trim())
+        ? linkedWork.split(',').map(id => id.trim())
         : [];
 
     const mustClauses = [
-      ifDefined(queryString as string | undefined, addressablesQuery),
+      ifDefined(queryString, addressablesQuery),
       workIds.length > 0 ? addressablesFilter(workIds) : undefined,
     ].filter(
       (clause): clause is NonNullable<typeof clause> => clause !== undefined
