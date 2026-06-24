@@ -2,7 +2,7 @@ name: Sync OpenAPI spec for developers.wellcomecollection.org
 
 on:
   push:
-    branches: [main]
+    branches: [main, zod-openapi]
     paths:
       - 'api/**'
   workflow_dispatch:
