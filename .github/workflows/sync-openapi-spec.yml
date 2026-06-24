@@ -1,8 +1,8 @@
-name: Sync OpenAPI spec
+name: Sync OpenAPI spec for developers.wellcomecollection.org
 
 on:
   push:
-    branches: [main, zod-openapi]
+    branches: [main]
     paths:
       - 'api/**'
   workflow_dispatch:
@@ -19,7 +19,7 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ vars.SYNC_APP_ID }}
+          client-id: ${{ vars.SYNC_APP_CLIENT_ID }}
           private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
           repositories: developers.wellcomecollection.org
 
