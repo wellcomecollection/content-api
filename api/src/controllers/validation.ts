@@ -158,7 +158,7 @@ export const PaginationQuerySchema = z.object({
   page: z.coerce
     .number()
     .int()
-    .min(1, 'page: must be a number greater than 1')
+    .min(1, 'page: must be a number greater than or equal to 1')
     .optional()
     .meta({
       description: 'The page to return from the result list',

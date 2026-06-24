@@ -89,7 +89,7 @@ const addressablesController = (
         // for length is a heuristic so that if we get legitimate `too_many_nested_clauses`
         // errors, we're still alerted to them
         e.message.includes('too_many_nested_clauses') &&
-        encodeURIComponent((queryString as string) || '').length > 2000
+        encodeURIComponent(queryString || '').length > 2000
       ) {
         throw new HttpError({
           status: 400,
