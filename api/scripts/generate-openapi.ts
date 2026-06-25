@@ -83,7 +83,7 @@ registry.register(
         .string()
         .optional()
         .openapi({ description: 'The specific error' }),
-      type: z.string(),
+      type: z.literal('Error'),
     })
     .openapi({ title: 'Error' })
 );
