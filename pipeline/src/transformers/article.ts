@@ -1,6 +1,7 @@
 import * as prismic from '@prismicio/client';
 
 import { defaultArticleFormat } from '@weco/content-common/data/defaultValues';
+import { ArticleFormat, Contributor } from '@weco/content-common/types/article';
 import {
   asText,
   asTitle,
@@ -14,11 +15,7 @@ import {
   WithArticleFormat,
   WithContributors,
 } from '@weco/content-pipeline/src/types/prismic';
-import {
-  ArticleFormat,
-  Contributor,
-  ElasticsearchArticle,
-} from '@weco/content-pipeline/src/types/transformed';
+import { ElasticsearchArticle } from '@weco/content-pipeline/src/types/transformed';
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
 

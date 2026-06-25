@@ -13,6 +13,34 @@ import { z } from 'zod';
 import { AddressablesQuerySchema } from '@weco/content-api/src/controllers/addressables';
 import { ArticlesQuerySchema } from '@weco/content-api/src/controllers/articles';
 import { EventsQuerySchema } from '@weco/content-api/src/controllers/events';
+import {
+  AddressableArticleDisplaySchema,
+  AddressableBookDisplaySchema,
+  AddressableEventDisplaySchema,
+  AddressableExhibitionDisplaySchema,
+  AddressableExhibitionHighlightTourDisplaySchema,
+  AddressableExhibitionTextDisplaySchema,
+  AddressablePageDisplaySchema,
+  AddressableProjectDisplaySchema,
+  AddressableSeasonDisplaySchema,
+  AddressableVisualStoryDisplaySchema,
+  LinkedWorkSchema as CommonLinkedWorkSchema,
+} from '@weco/content-common/types/addressable';
+import {
+  ArticleFormatSchema as CommonArticleFormatSchema,
+  ArticleSchema as CommonArticleSchema,
+  ContributorAgentSchema as CommonContributorAgentSchema,
+  ContributorRoleSchema as CommonContributorRoleSchema,
+  ContributorSchema as CommonContributorSchema,
+} from '@weco/content-common/types/article';
+import {
+  EventDocumentSchema as CommonEventDocumentSchema,
+  EventDocumentLocationsSchema as CommonEventLocationsSchema,
+} from '@weco/content-common/types/eventDocument';
+import {
+  DimensionsSchema as CommonDimensionsSchema,
+  ImageSchema as CommonImageSchema,
+} from '@weco/content-common/types/image';
 
 extendZodWithOpenApi(z);
 
@@ -60,285 +88,72 @@ registry.register(
     .openapi({ title: 'Error' })
 );
 
-const DimensionsSchema = registry.register(
-  'Dimensions',
-  z.object({
-    width: z.number().int(),
-    height: z.number().int(),
-  })
-);
+registry.register('Dimensions', CommonDimensionsSchema);
 
-const ImageSchema = registry.register(
+registry.register(
   'Image',
-  z
-    .object({
-      dimensions: DimensionsSchema.openapi({
-        description: 'The intrinsic dimensions of an image',
-      }),
-      alt: z.string().optional().openapi({
-        description:
-          'Alternative text to display in place of the image if it cannot be rendered',
-      }),
-      copyright: z.string().optional().openapi({
-        description:
-          'Copyright information about the image, including the copyright holder',
-      }),
-      url: z
-        .string()
-        .openapi({ description: 'The URL of the image', format: 'uri' }),
-      '32:15': DimensionsSchema.optional().openapi({
-        description: 'Dimensions of the image for 32:15 aspect ratio',
-      }),
-      '16:9': DimensionsSchema.optional().openapi({
-        description: 'Dimensions of the image for 16:9 aspect ratio',
-      }),
-      square: DimensionsSchema.optional().openapi({
-        description: 'Dimensions of the image for a square aspect ratio',
-      }),
-      type: z.string(),
-    })
-    .openapi({
-      title: 'Image',
-      description:
-        'Information regarding the location, dimensions, alt-text, and copyright of an image',
-      required: ['dimensions', 'type', 'url'],
-    })
+  CommonImageSchema.openapi({
+    title: 'Image',
+    description:
+      'Information regarding the location, dimensions, alt-text, and copyright of an image',
+  })
 );
 
 const ArticleFormatSchema = registry.register(
   'ArticleFormat',
-  z
-    .object({
-      id: z.string().openapi({ description: 'The identifier of the format' }),
-      label: z
-        .string()
-        .openapi({ description: 'The short label of the format' }),
-      type: z.string(),
-    })
-    .openapi({
-      title: 'ArticleFormat',
-      description: 'The format of an article (eg article, comic)',
-    })
+  CommonArticleFormatSchema.openapi({
+    title: 'ArticleFormat',
+    description: 'The format of an article (eg article, comic)',
+  })
 );
 
-const ContributorRoleSchema = registry.register(
+registry.register(
   'ContributorRole',
-  z
-    .object({
-      id: z
-        .string()
-        .openapi({ description: 'The identifier of the contributor role' }),
-      label: z
-        .string()
-        .openapi({ description: 'The short label of the contributor role' }),
-      type: z.string(),
-    })
-    .openapi({
-      title: 'ContributorRole',
-      description: 'A role of a contributor (eg. author, editor)',
-    })
+  CommonContributorRoleSchema.openapi({
+    title: 'ContributorRole',
+    description: 'A role of a contributor (eg. author, editor)',
+  })
 );
 
 const ContributorAgentSchema = registry.register(
   'ContributorAgent',
-  z
-    .object({
-      id: z
-        .string()
-        .openapi({ description: 'The identifier of the contributor' }),
-      label: z.string().openapi({
-        description: 'The name or other short label of the contributor',
-      }),
-      type: z.enum(['Person', 'Organisation']),
-    })
-    .openapi({ title: 'Contributor', description: 'A contributor' })
-);
-
-const ContributorSchema = registry.register(
-  'Contributor',
-  z.object({
-    contributor: ContributorAgentSchema,
-    role: ContributorRoleSchema.optional(),
+  CommonContributorAgentSchema.openapi({
+    title: 'Contributor',
+    description: 'A contributor',
   })
 );
 
+registry.register('Contributor', CommonContributorSchema);
+
 const ArticleSchema = registry.register(
   'Article',
-  z
-    .object({
-      id: z.string().openapi({ description: 'The identifier of the article' }),
-      uid: z.string().openapi({
-        description: 'The human-readable identifier of the article',
-      }),
-      title: z.string().openapi({ description: 'The title of the article' }),
-      publicationDate: z.string().openapi({
-        description: 'The date on which the article was published',
-        format: 'date-time',
-      }),
-      contributors: z.array(ContributorSchema).openapi({
-        description:
-          'Relates an article to its author, editor, and any other contributors',
-      }),
-      format: ArticleFormatSchema,
-      caption: z.string().optional().openapi({
-        description: "A short description of the article's content",
-      }),
-      image: ImageSchema.optional(),
-      type: z.string(),
-    })
-    .openapi({ title: 'Article', description: 'A piece of editorial content' })
+  CommonArticleSchema.openapi({
+    title: 'Article',
+    description: 'A piece of editorial content',
+  })
 );
 
-const LinkedWorkSchema = registry.register(
+registry.register(
   'LinkedWork',
-  z
-    .object({
-      id: z
-        .string()
-        .openapi({ description: 'The identifier of the linked work' }),
-      title: z
-        .string()
-        .openapi({ description: 'The title of the linked work' }),
-      type: z.string().openapi({ description: 'The type of the linked work' }),
-      thumbnailUrl: z.string().optional().openapi({
-        description: 'URL of the thumbnail image for the linked work',
-      }),
-      date: z
-        .string()
-        .optional()
-        .openapi({ description: 'The date associated with the linked work' }),
-      mainContributor: z
-        .string()
-        .openapi({ description: 'The main contributor of the linked work' }),
-      workType: z.string().optional().openapi({
-        description: 'The type of the work, e.g. Books, Digital Images',
-      }),
-    })
-    .openapi({
-      title: 'LinkedWork',
-      description: 'A Catalogue Work linked to from the content',
-      required: ['id', 'title', 'type', 'mainContributor'],
-    })
+  CommonLinkedWorkSchema.openapi({
+    title: 'LinkedWork',
+    description: 'A Catalogue Work linked to from the content',
+  })
 );
 
-const EventLocationsSchema = registry.register(
+registry.register(
   'EventLocations',
-  z
-    .object({
-      isOnline: z.boolean().openapi({
-        description: 'Whether or not the event takes place online',
-      }),
-      attendance: z
-        .array(
-          z.object({
-            id: z.enum(['in-our-building', 'online']).openapi({
-              description: 'The identifier of the place',
-            }),
-            label: z.enum(['In our building', 'Online']).openapi({
-              description: 'The short label of the place',
-            }),
-            type: z.string(),
-          })
-        )
-        .openapi({
-          description: 'The general location (e.g. in our building or online)',
-        }),
-      places: z
-        .array(
-          z.object({
-            id: z
-              .string()
-              .openapi({ description: 'The identifier of the place' }),
-            label: z
-              .string()
-              .openapi({ description: 'The short label of the place' }),
-            type: z.string(),
-          })
-        )
-        .openapi({ description: 'The physical location of the event' }),
-      type: z.string(),
-    })
-    .openapi({ description: 'Where the event takes place' })
+  CommonEventLocationsSchema.openapi({
+    description: 'Where the event takes place',
+  })
 );
 
 const EventSchema = registry.register(
   'Event',
-  z
-    .object({
-      id: z.string().openapi({ description: 'The identifier of the event' }),
-      uid: z
-        .string()
-        .openapi({ description: 'The human-readable identifier of the event' }),
-      title: z.string().openapi({ description: 'The title of the event' }),
-      image: ImageSchema.optional(),
-      format: z
-        .object({
-          id: z
-            .string()
-            .openapi({ description: 'The identifier of the format' }),
-          label: z
-            .string()
-            .openapi({ description: 'The short label of the format' }),
-          type: z.string(),
-        })
-        .openapi({
-          title: 'EventFormat',
-          description: 'The format of an event (eg discussion)',
-        }),
-      locations: EventLocationsSchema,
-      interpretations: z.array(
-        z
-          .object({
-            id: z
-              .string()
-              .openapi({ description: 'The identifier of the format' }),
-            label: z
-              .string()
-              .openapi({ description: 'The short label of the format' }),
-            type: z.string(),
-          })
-          .openapi({
-            title: 'EventInterpretation',
-            description: 'Which accessibility features the event offers',
-          })
-      ),
-      audiences: z
-        .array(
-          z
-            .object({
-              id: z
-                .string()
-                .openapi({ description: 'The identifier of the audience' }),
-              label: z
-                .string()
-                .openapi({ description: 'The short label of the audience' }),
-              type: z.string(),
-            })
-            .openapi({ title: 'EventAudience' })
-        )
-        .openapi({ description: 'Which audiences the event is for' }),
-      series: z
-        .array(
-          z.object({
-            id: z
-              .string()
-              .openapi({ description: 'The identifier of the series' }),
-            title: z
-              .string()
-              .openapi({ description: 'The title of the series' }),
-            contributors: z.array(z.string()),
-          })
-        )
-        .openapi({ description: 'Which series the event is part of' }),
-      isAvailableOnline: z
-        .boolean()
-        .openapi({ description: 'Whether or not it is a catch-up event' }),
-      type: z.string(),
-    })
-    .openapi({
-      title: 'Event',
-      description: 'A Wellcome Collection event (on location or online)',
-    })
+  CommonEventDocumentSchema.openapi({
+    title: 'Event',
+    description: 'A Wellcome Collection event (on location or online)',
+  })
 );
 
 const AggregationBucketSchema = registry.register(
@@ -443,109 +258,55 @@ registry.register(
     })
 );
 
-// Addressable schemas (flattened — live spec uses nested Addressables/* keys)
-function makeAddressable(
-  name: string,
-  typeLabel: string,
-  extra?: z.ZodRawShape
-): void {
-  registry.register(
-    name,
-    z
-      .object({
-        type: z.literal(typeLabel),
-        id: z.string().openapi({
-          description: `The identifier of the ${typeLabel.toLowerCase()}`,
-        }),
-        uid: z.string().openapi({
-          description: `The human-readable identifier of the ${typeLabel.toLowerCase()}`,
-        }),
-        title: z.string().openapi({
-          description: `The title of the ${typeLabel.toLowerCase()}`,
-        }),
-        description: z.string().openapi({
-          description: `A short description of the ${typeLabel.toLowerCase()}'s content`,
-        }),
-        linkedWorks: z.array(LinkedWorkSchema).openapi({
-          description: 'An array of Catalogue Works linked to from the content',
-        }),
-        ...(extra ?? {}),
-      })
-      .openapi({
-        title: typeLabel,
-        description:
-          'A reduced piece of editorial content, limited to the parts necessary to render a summary',
-        required: ['type', 'id', 'uid', 'title', 'description', 'linkedWorks'],
-      })
-  );
-}
-
-makeAddressable('AddressablesArticle', 'Article');
-makeAddressable('AddressablesBook', 'Book', {
-  contributors: z.string().optional().openapi({
-    description: 'The name or other short label of the contributor',
-  }),
-});
-makeAddressable('AddressablesEvent', 'Event', {
-  format: z
-    .string()
-    .optional()
-    .openapi({ description: 'The short label of the format' }),
-  times: z
-    .object({
-      start: z.string().openapi({
-        description: 'The date and time of the start of the event',
-        format: 'date-time',
-      }),
-      end: z.string().openapi({
-        description: 'The date and time of the end of the event',
-        format: 'date-time',
-      }),
-    })
-    .optional(),
-});
-makeAddressable('AddressablesExhibition', 'Exhibition', {
-  format: z
-    .string()
-    .optional()
-    .openapi({ description: 'The short label of the format' }),
-  times: z
-    .object({
-      start: z.string().openapi({
-        description: 'The date and time of the start of the exhibition',
-        format: 'date-time',
-      }),
-      end: z.string().openapi({
-        description: 'The date and time of the end of the exhibition',
-        format: 'date-time',
-      }),
-    })
-    .optional()
-    .openapi({ required: ['times'] }),
-});
-makeAddressable('AddressablesExhibitionText', 'Exhibition text');
-makeAddressable(
+// Addressable schemas
+registry.register(
+  'AddressablesArticle',
+  AddressableArticleDisplaySchema.openapi({ title: 'Article' })
+);
+registry.register(
+  'AddressablesBook',
+  AddressableBookDisplaySchema.openapi({ title: 'Book' })
+);
+registry.register(
+  'AddressablesEvent',
+  AddressableEventDisplaySchema.openapi({ title: 'Event' })
+);
+registry.register(
+  'AddressablesExhibition',
+  AddressableExhibitionDisplaySchema.openapi({ title: 'Exhibition' })
+);
+registry.register(
+  'AddressablesExhibitionText',
+  AddressableExhibitionTextDisplaySchema.openapi({ title: 'Exhibition text' })
+);
+registry.register(
   'AddressablesExhibitionHighlightTourBSL',
-  'Exhibition highlight tour'
+  AddressableExhibitionHighlightTourDisplaySchema.openapi({
+    title: 'Exhibition highlight tour',
+  })
 );
-makeAddressable(
+registry.register(
   'AddressablesExhibitionHighlightTourAudio',
-  'Exhibition highlight tour'
+  AddressableExhibitionHighlightTourDisplaySchema.openapi({
+    title: 'Exhibition highlight tour',
+  })
 );
-makeAddressable('AddressablesPage', 'Page', {
-  tags: z
-    .array(z.string())
-    .optional()
-    .openapi({ description: 'A list of document tags' }),
-});
-makeAddressable('AddressablesProject', 'Project', {
-  format: z
-    .string()
-    .optional()
-    .openapi({ description: 'The short label of the format' }),
-});
-makeAddressable('AddressablesSeason', 'Season');
-makeAddressable('AddressablesVisualStory', 'Visual story');
+registry.register(
+  'AddressablesPage',
+  AddressablePageDisplaySchema.openapi({ title: 'Page' })
+);
+registry.register(
+  'AddressablesProject',
+  AddressableProjectDisplaySchema.openapi({ title: 'Project' })
+);
+registry.register(
+  'AddressablesSeason',
+  AddressableSeasonDisplaySchema.openapi({ title: 'Season' })
+);
+registry.register(
+  'AddressablesVisualStory',
+  AddressableVisualStoryDisplaySchema.openapi({ title: 'Visual story' })
+);
 
 const allAddressableSchemaNames = [
   'AddressablesArticle',

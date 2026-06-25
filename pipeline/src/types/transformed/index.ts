@@ -1,52 +1,22 @@
-import { PrismicImage } from '@weco/content-pipeline/src/types/prismic';
-
 import {
-  ElasticsearchAddressableBase,
-  ElasticsearchAddressableExtended,
-} from './addressables';
-import { Article, ArticleFormat } from './article';
+  AddressableArticleDisplay,
+  AddressableBookDisplay,
+  AddressableEventDisplay,
+  AddressableExhibitionDisplay,
+  AddressableExhibitionHighlightTourDisplay,
+  AddressableExhibitionTextDisplay,
+  AddressablePageDisplay,
+  AddressableProjectDisplay,
+  AddressableSeasonDisplay,
+  AddressableVisualStoryDisplay,
+} from '@weco/content-common/types/addressable';
+import { Article } from '@weco/content-common/types/article';
 import {
   EventDocument,
-  EventDocumentFormat,
-  EventDocumentInterpretation,
-  EventDocumentLocations,
-} from './eventDocument';
+  Series,
+} from '@weco/content-common/types/eventDocument';
 
-// Image
-export type Image = PrismicImage & {
-  type: 'PrismicImage';
-};
-
-// Contributors (e.g. author, photographer)
-type BasicContributorInformation = {
-  id: string;
-  label?: string;
-};
-
-export type Contributor = {
-  type: 'Contributor';
-  contributor?: BasicContributorInformation & {
-    type: 'Person' | 'Organisation';
-  };
-  role?: BasicContributorInformation & {
-    type: 'EditorialContributorRole';
-  };
-};
-
-export type Series = {
-  id: string;
-  title?: string;
-  contributors?: string[];
-}[];
-
-export type { Article, ArticleFormat };
-
-export type {
-  EventDocument,
-  EventDocumentFormat,
-  EventDocumentLocations,
-  EventDocumentInterpretation,
-};
+import { ElasticsearchAddressable } from './addressables';
 
 export type ElasticsearchArticle = {
   id: string;
@@ -111,46 +81,53 @@ export type ElasticsearchEventDocument = {
   };
 };
 
-export type ElasticsearchAddressableArticle =
-  ElasticsearchAddressableBase<'Article'>;
+export type ElasticsearchAddressableArticle = ElasticsearchAddressable<
+  'Article',
+  AddressableArticleDisplay
+>;
 
-export type ElasticsearchAddressableBook = ElasticsearchAddressableExtended<
+export type ElasticsearchAddressableBook = ElasticsearchAddressable<
   'Book',
-  { contributors: string }
+  AddressableBookDisplay
 >;
 
-export type ElasticsearchAddressableEvent = ElasticsearchAddressableExtended<
+export type ElasticsearchAddressableEvent = ElasticsearchAddressable<
   'Event',
-  { format?: string; times?: { start: Date; end: Date } }
+  AddressableEventDisplay
 >;
 
-export type ElasticsearchAddressableProject = ElasticsearchAddressableExtended<
+export type ElasticsearchAddressableProject = ElasticsearchAddressable<
   'Project',
-  { format?: string }
+  AddressableProjectDisplay
 >;
 
-export type ElasticsearchAddressableSeason =
-  ElasticsearchAddressableBase<'Season'>;
+export type ElasticsearchAddressableSeason = ElasticsearchAddressable<
+  'Season',
+  AddressableSeasonDisplay
+>;
 
-export type ElasticsearchAddressableExhibition =
-  ElasticsearchAddressableExtended<
-    'Exhibition',
-    { format: string; dates: { start: string | null; end: string | null } }
-  >;
+export type ElasticsearchAddressableExhibition = ElasticsearchAddressable<
+  'Exhibition',
+  AddressableExhibitionDisplay
+>;
 
 export type ElasticsearchAddressableExhibitionHighlightTour =
-  ElasticsearchAddressableExtended<
+  ElasticsearchAddressable<
     'Exhibition highlight tour',
-    { highlightTourType: string }
+    AddressableExhibitionHighlightTourDisplay
   >;
 
-export type ElasticsearchAddressableExhibitionText =
-  ElasticsearchAddressableBase<'Exhibition text'>;
-
-export type ElasticsearchAddressablePage = ElasticsearchAddressableExtended<
-  'Page',
-  { tags: string[] }
+export type ElasticsearchAddressableExhibitionText = ElasticsearchAddressable<
+  'Exhibition text',
+  AddressableExhibitionTextDisplay
 >;
 
-export type ElasticsearchAddressableVisualStory =
-  ElasticsearchAddressableBase<'Visual story'>;
+export type ElasticsearchAddressablePage = ElasticsearchAddressable<
+  'Page',
+  AddressablePageDisplay
+>;
+
+export type ElasticsearchAddressableVisualStory = ElasticsearchAddressable<
+  'Visual story',
+  AddressableVisualStoryDisplay
+>;
