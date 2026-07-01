@@ -7,11 +7,7 @@ import { createPrismicClient } from './services/prismic';
 const prismicClient = createPrismicClient();
 
 const contentType = (process.argv[2] ?? 'all') as
-  | 'addressables'
-  | 'articles'
-  | 'events'
-  | 'venues'
-  | 'all';
+  'addressables' | 'articles' | 'events' | 'venues' | 'all';
 
 // Reindexes all documents by default
 const windowEvent: WindowEvent = {

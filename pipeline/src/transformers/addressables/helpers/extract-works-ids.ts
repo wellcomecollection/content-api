@@ -26,10 +26,7 @@ export type BodiesWithPossibleWorks =
   | VisualStoriesDocument['data']['body'];
 
 type SlicesWithPossibleWorks = (
-  | TextSlice
-  | EditorialImageSlice
-  | EditorialImageGallerySlice
-  | GifVideoSlice
+  TextSlice | EditorialImageSlice | EditorialImageGallerySlice | GifVideoSlice
 )[];
 
 // Helper functions for extracting Wellcome Collection work IDs from Prismic slice content.
