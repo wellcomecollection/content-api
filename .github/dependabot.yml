@@ -17,6 +17,9 @@ updates:
       - dependency-name: '@typescript-eslint/parser'
       - dependency-name: 'typescript-eslint'
       - dependency-name: '@elastic/elasticsearch'
+      # @types/node should match the Node.js runtime version (currently Node 24 per Dockerfiles).
+      # Bump this manually when upgrading Node, not automatically.
+      - dependency-name: '@types/node'
     groups:
       all:
         patterns: ['*']
