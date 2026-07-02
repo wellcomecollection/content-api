@@ -22,7 +22,42 @@ describe('ensureIndexExists', () => {
     } as unknown as ElasticClient;
 
     await ensureIndexExists(client, { index: 'test' });
-    expect(createIndex).toHaveBeenCalledWith({ index: 'test' });
+    expect(createIndex).toHaveBeenCalledWith({
+      index: 'test',
+      settings: { number_of_replicas: 0 },
+    });
+  });
+
+  it('merges index settings with the zero-replicas default', async () => {
+    const createIndex = jest.fn().mockResolvedValue(true);
+    const client = {
+      indices: {
+        create: createIndex,
+      },
+    } as unknown as ElasticClient;
+
+    const testSettings = { analysis: { normalizer: {} } } as const;
+    await ensureIndexExists(client, { index: 'test', settings: testSettings });
+    expect(createIndex).toHaveBeenCalledWith({
+      index: 'test',
+      settings: { number_of_replicas: 0, ...testSettings },
+    });
+  });
+
+  it('allows per-index settings to override the zero-replicas default', async () => {
+    const createIndex = jest.fn().mockResolvedValue(true);
+    const client = {
+      indices: {
+        create: createIndex,
+      },
+    } as unknown as ElasticClient;
+
+    const testSettings = { number_of_replicas: 2 } as const;
+    await ensureIndexExists(client, { index: 'test', settings: testSettings });
+    expect(createIndex).toHaveBeenCalledWith({
+      index: 'test',
+      settings: { number_of_replicas: 2 },
+    });
   });
 
   it('updates the mapping if the index already exists', async () => {
@@ -54,6 +89,7 @@ describe('ensureIndexExists', () => {
     expect(createIndex).toHaveBeenCalledWith({
       index: 'test',
       mappings: testMapping,
+      settings: { number_of_replicas: 0 },
     });
     expect(putMapping).toHaveBeenCalledWith({
       index: 'test',
