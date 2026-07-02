@@ -30,7 +30,16 @@ export const ensureIndexExists = async (
   indexConfig: IndexConfig
 ): Promise<void> => {
   try {
-    await elasticClient.indices.create(indexConfig);
+    await elasticClient.indices.create({
+      ...indexConfig,
+      settings: {
+        // The content cluster is a single node, so replicas can never be
+        // allocated; the default of 1 leaves the cluster permanently yellow.
+        // See https://github.com/wellcomecollection/content-api/issues/387
+        number_of_replicas: 0,
+        ...indexConfig.settings,
+      },
+    });
     log.info(`Index '${indexConfig.index}' was created`);
   } catch (e) {
     if (
