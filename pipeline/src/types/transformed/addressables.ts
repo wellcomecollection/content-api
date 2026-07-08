@@ -1,26 +1,3 @@
-import { TransformedWork } from '@weco/content-pipeline/src/transformers/addressables/helpers/catalogue-api';
-
-type AddressableType =
-  | 'Article'
-  | 'Book'
-  | 'Event'
-  | 'Project'
-  | 'Season'
-  | 'Exhibition'
-  | 'Exhibition highlight tour'
-  | 'Exhibition text'
-  | 'Page'
-  | 'Visual story';
-
-type AddressableBaseDisplay<T extends AddressableType> = {
-  type: T;
-  id: string;
-  uid: string | null;
-  title: string;
-  description?: string;
-  linkedWorks: TransformedWork[];
-};
-
 type AddressableQuery<T> = {
   type: T;
   title: string;
@@ -32,16 +9,9 @@ type AddressableQuery<T> = {
   tags: string[];
 };
 
-export type ElasticsearchAddressableBase<T extends AddressableType> = {
+export type ElasticsearchAddressable<T, D> = {
   id: string;
   uid: string | null;
-  display: AddressableBaseDisplay<T>;
-  query: AddressableQuery<T>;
-};
-
-export type ElasticsearchAddressableExtended<T extends AddressableType, U> = {
-  id: string;
-  uid: string | null;
-  display: AddressableBaseDisplay<T> & U;
+  display: D;
   query: AddressableQuery<T>;
 };

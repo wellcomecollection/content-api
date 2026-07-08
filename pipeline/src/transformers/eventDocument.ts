@@ -5,6 +5,14 @@ import {
   defaultEventFormat,
 } from '@weco/content-common/data/defaultValues';
 import {
+  EventDocumentAudience,
+  EventDocumentFormat,
+  EventDocumentInterpretation,
+  EventDocumentLocations,
+  EventDocumentPlace,
+  EventDocumentTime,
+} from '@weco/content-common/types/eventDocument';
+import {
   asText,
   asTitle,
   isFilledLinkToDocumentWithData,
@@ -23,14 +31,6 @@ import {
 } from '@weco/content-pipeline/src/types/prismic';
 import { WithExhibitionFormat } from '@weco/content-pipeline/src/types/prismic/eventDocuments';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
-import {
-  EventDocumentAudience,
-  EventDocumentFormat,
-  EventDocumentInterpretation,
-  EventDocumentLocations,
-  EventDocumentPlace,
-  EventDocumentTime,
-} from '@weco/content-pipeline/src/types/transformed/eventDocument';
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
 

@@ -1,5 +1,6 @@
 import { PrismicDocument } from '@prismicio/client';
 
+import { Series } from '@weco/content-common/types/eventDocument';
 import {
   asText,
   isFilledLinkToDocumentWithData,
@@ -7,7 +8,6 @@ import {
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import { PromoSliceZone } from '@weco/content-pipeline/src/types/prismic';
 import { WithSeries } from '@weco/content-pipeline/src/types/prismic/series';
-import { Series } from '@weco/content-pipeline/src/types/transformed';
 
 type JsonPrimitive = string | number | boolean | null;
 type JsonValue = JsonPrimitive | JsonObject | JsonValue[];

@@ -2,6 +2,7 @@ import { errors as elasticErrors } from '@elastic/elasticsearch';
 import { AggregationsAggregate } from '@elastic/elasticsearch/lib/api/types';
 import { RequestHandler } from 'express';
 import asyncHandler from 'express-async-handler';
+import { z } from 'zod';
 
 import { Config } from '@weco/content-api/config';
 import { ifDefined, pick } from '@weco/content-api/src/helpers';
@@ -22,69 +23,73 @@ import { Clients, Displayable } from '@weco/content-api/src/types';
 import { ResultList } from '@weco/content-api/src/types/responses';
 
 import { HttpError } from './error';
-import { paginationElasticBody, PaginationQueryParameters } from './pagination';
+import { paginationElasticBody } from './pagination';
 import {
-  dateValidator,
-  prismicIdValidator,
-  queryValidator,
+  commaSeparatedEnum,
+  commaSeparatedPrismicIds,
+  dateStringSchema,
+  PaginationQuerySchema,
+  queryStringSchema,
   validateDate,
-  workIdValidator,
+  workIdsSchema,
 } from './validation';
 
-type QueryParams = {
-  query?: string;
-  sort?: string;
-  sortOrder?: string;
-  aggregations?: string;
-  'contributors.contributor'?: string;
-  'publicationDate.from'?: string;
-  'publicationDate.to'?: string;
-  format?: string;
-  linkedWork?: string | string[];
-} & PaginationQueryParameters;
+export const ArticlesQuerySchema = z
+  .object({
+    query: queryStringSchema,
+    sort: commaSeparatedEnum(
+      'sort',
+      ['relevance', 'publicationDate'] as const,
+      {
+        singleValue: true,
+        defaultValue: 'relevance',
+      }
+    ).meta({
+      description: 'Which field to sort the results on',
+      enum: ['relevance', 'publicationDate'],
+    }),
+    sortOrder: commaSeparatedEnum('sortOrder', ['asc', 'desc'] as const, {
+      singleValue: true,
+      defaultValue: 'desc',
+    }).meta({
+      description: 'The order that the results should be returned in',
+      enum: ['asc', 'desc'],
+    }),
+    aggregations: commaSeparatedEnum('aggregations', [
+      'contributors.contributor',
+      'format',
+    ] as const).meta({
+      description:
+        'What aggregated data in relation to the results should we return',
+      enum: ['contributors.contributor', 'format'],
+    }),
+    'contributors.contributor': commaSeparatedPrismicIds('contributors').meta({
+      description: 'Filter the articles by contributor',
+    }),
+    format: commaSeparatedPrismicIds('formats').meta({
+      description: 'Filter the articles by format',
+    }),
+    'publicationDate.from': dateStringSchema.meta({
+      description:
+        'Return all articles with a publication date after and including this date.\n\nCan be used in conjunction with `publicationDate.to` to create a range.',
+      format: 'date',
+    }),
+    'publicationDate.to': dateStringSchema.meta({
+      description:
+        'Return all articles with a publication date before and including this date.\n\nCan be used in conjunction with `publicationDate.from` to create a range.',
+      format: 'date',
+    }),
+    linkedWork: workIdsSchema,
+  })
+  .extend(PaginationQuerySchema.shape);
 
-type ArticlesHandler = RequestHandler<never, ResultList, never, QueryParams>;
-
-const sortValidator = queryValidator({
-  name: 'sort',
-  defaultValue: 'relevance',
-  allowed: ['relevance', 'publicationDate'],
-  singleValue: true,
-});
-
-const sortOrderValidator = queryValidator({
-  name: 'sortOrder',
-  defaultValue: 'desc',
-  allowed: ['asc', 'desc'],
-  singleValue: true,
-});
-
-const aggregationsValidator = queryValidator({
-  name: 'aggregations',
-  allowed: ['contributors.contributor', 'format'],
-});
-
-const paramsValidator = (params: QueryParams): QueryParams => {
-  if (params.format) prismicIdValidator(params.format, 'formats');
-  if (params['contributors.contributor'])
-    prismicIdValidator(params['contributors.contributor'], 'contributors');
-
-  if (params['publicationDate.from'])
-    dateValidator(params['publicationDate.from']);
-  if (params['publicationDate.to']) dateValidator(params['publicationDate.to']);
-
-  // Validate linkedWork parameter(s)
-  if (params.linkedWork) {
-    const workIds = Array.isArray(params.linkedWork)
-      ? params.linkedWork
-      : params.linkedWork.split(',').map(id => id.trim());
-    workIds.forEach(workId => workIdValidator(workId));
-  }
-
-  // We are ignoring all other values passed in but "true".
-  // Anything else should remove the param from the query
-  return params;
-};
+type ArticlesParams = z.infer<typeof ArticlesQuerySchema>;
+type ArticlesHandler = RequestHandler<
+  never,
+  ResultList,
+  never,
+  Record<string, unknown>
+>;
 
 const articlesController = (
   clients: Clients,
@@ -94,11 +99,11 @@ const articlesController = (
   const resultList = resultListResponse(config);
 
   return asyncHandler(async (req, res) => {
-    const { query: queryString, ...params } = req.query;
-    const sort = sortValidator(params)?.[0];
-    const sortOrder = sortOrderValidator(params)?.[0];
-    const aggregations = aggregationsValidator(params);
-    const validParams = paramsValidator(params);
+    const params: ArticlesParams = ArticlesQuerySchema.parse(req.query);
+    const queryString = params.query;
+    const sort = params.sort?.[0];
+    const sortOrder = params.sortOrder?.[0];
+    const aggregations = params.aggregations;
 
     const sortKey =
       sort === 'publicationDate' ? 'query.publicationDate' : '_score';
@@ -108,7 +113,7 @@ const articlesController = (
     );
     const initialFilters = pickFiltersFromQuery(
       ['contributors.contributor', 'format'],
-      validParams,
+      params as unknown as Record<string, string | undefined>,
       articlesFilter
     );
 
@@ -124,21 +129,21 @@ const articlesController = (
     // The date filter is a special case because 2 parameters filter 1 field,
     // and it doesn't (currently) have a corresponding aggregation.
     const dateFilters =
-      validParams['publicationDate.from'] || params['publicationDate.to']
+      params['publicationDate.from'] || params['publicationDate.to']
         ? [
             articlesFilter.publicationDate(
-              ifDefined(validParams['publicationDate.from'], validateDate),
-              ifDefined(validParams['publicationDate.to'], validateDate)
+              ifDefined(params['publicationDate.from'], validateDate),
+              ifDefined(params['publicationDate.to'], validateDate)
             ),
           ]
         : [];
 
     // Handle linkedWork filtering - query addressables first to get article IDs
     let articleIds: string[] | undefined;
-    if (validParams.linkedWork) {
-      const workIds = Array.isArray(validParams.linkedWork)
-        ? validParams.linkedWork
-        : validParams.linkedWork.split(',').map(id => id.trim());
+    if (params.linkedWork) {
+      const workIds = Array.isArray(params.linkedWork)
+        ? params.linkedWork
+        : params.linkedWork.split(',').map(id => id.trim());
 
       const addressablesResponse = await clients.elastic.search<Displayable>({
         index: config.addressablesIndex,

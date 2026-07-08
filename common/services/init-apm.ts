@@ -1,5 +1,5 @@
 import apm from 'elastic-apm-node';
-import z from 'zod';
+import { z } from 'zod';
 
 const apmEnvironmentVariables = z.object({
   apm_service_name: z.string().default('content-api'),
