@@ -2,7 +2,7 @@ name: Sync OpenAPI spec for developers.wellcomecollection.org
 
 on:
   push:
-    branches: [main]
+    branches: [main, fix-doc-script]
     paths:
       - 'api/src/**'
       - 'common/types/**'
@@ -38,7 +38,7 @@ jobs:
         run: yarn install
 
       - name: Generate OpenAPI spec
-        run: npx tsx api/scripts/generate-openapi.ts > /tmp/content.yaml
+        run: npx tsx api/scripts/documentation/generate-openapi.ts > /tmp/content.yaml
 
       - name: Checkout developers.wellcomecollection.org
         uses: actions/checkout@v6

@@ -78,14 +78,14 @@ Query parameter validation in `api/` is done with Zod schemas, not raw Express t
 - Each list endpoint has a `*QuerySchema` exported from its controller (e.g. `ArticlesQuerySchema`, `EventsQuerySchema`)
 - Shared helpers (`commaSeparatedEnum`, `commaSeparatedPrismicIds`, `dateStringSchema`, `queryStringSchema`, `workIdsSchema`, `PaginationQuerySchema`) live in `api/src/controllers/validation.ts`
 - `ZodError` is caught and converted to the standard `ErrorResponse` JSON shape in `api/src/controllers/error.ts` — do not add separate error handling in controllers
-- When adding a new query parameter, add it to the Zod schema with a `.meta({ description: '...' })` annotation. The OpenAPI generator imports the schema directly, so the parameter appears in the spec automatically. Only touch `api/scripts/generate-openapi.ts` if you're changing response schemas.
+- When adding a new query parameter, add it to the Zod schema with a `.meta({ description: '...' })` annotation. The OpenAPI generator imports the schema directly, so the parameter appears in the spec automatically. Only touch `api/scripts/documentation/generate-openapi.ts` if you're changing response schemas.
 
 ## OpenAPI Spec Generation
 
 The Content API spec is auto-generated and synced to `wellcomecollection/developers.wellcomecollection.org`.
 
-- Generator: `api/scripts/generate-openapi.ts`
-- Run it: `npx tsx api/scripts/generate-openapi.ts` (outputs YAML to stdout)
+- Generator: `api/scripts/documentation/generate-openapi.ts`
+- Run it: `npx tsx api/scripts/documentation/generate-openapi.ts` (outputs YAML to stdout)
 - Sync workflow: `.github/workflows/sync-openapi-spec.yml` — triggers on push to `main` when `api/**` changes
 - **Do not manually edit `reference/content.yaml`** in the developers repo — it is overwritten by the generator
 
