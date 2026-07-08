@@ -86,7 +86,7 @@ The Content API spec is auto-generated and synced to `wellcomecollection/develop
 
 - Generator: `api/scripts/documentation/generate-openapi.ts`
 - Run it: `npx tsx api/scripts/documentation/generate-openapi.ts` (outputs YAML to stdout)
-- Sync workflow: `.github/workflows/sync-openapi-spec.yml` — triggers on push to `main` when `api/**` changes
+- Sync workflow: `.github/workflows/sync-openapi-spec.yml` — triggers on push to `main` when `api/src/**` or `common/types/**` changes
 - **Do not manually edit `reference/content.yaml`** in the developers repo — it is overwritten by the generator
 
 When adding or changing an endpoint, update the generator script to match.
