@@ -11,6 +11,7 @@ export type ElasticsearchVenue = {
   };
 };
 
+// Comment to trigger documentation
 export type Venue = {
   type: 'Venue';
   id: string;
