@@ -1,9 +1,13 @@
 /**
  * Generates the OpenAPI 3.1 spec for the Content API and writes it to stdout.
- * Usage: npx tsx api/scripts/generate-openapi.ts
+ * Usage: npx tsx api/scripts/documentation/generate-openapi.ts
+ *
+ * IMPORTANT: extend-zod must be the very first import. In CommonJS (tsx), imports
+ * are evaluated in order. extendZodWithOpenApi must run before any Zod schemas from
+ * common/ or controllers are created, or those schemas won't have .openapi().
  */
+import './extend-zod';
 import {
-  extendZodWithOpenApi,
   OpenApiGeneratorV31,
   OpenAPIRegistry,
 } from '@asteasolutions/zod-to-openapi';
@@ -41,8 +45,6 @@ import {
   DimensionsSchema as CommonDimensionsSchema,
   ImageSchema as CommonImageSchema,
 } from '@weco/content-common/types/image';
-
-extendZodWithOpenApi(z);
 
 const registry = new OpenAPIRegistry();
 
