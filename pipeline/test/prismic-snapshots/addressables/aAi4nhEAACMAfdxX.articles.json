@@ -3,11 +3,13 @@
   "uid": "how-the-slave-trades-medical-legacies-persist",
   "url": null,
   "type": "articles",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ak-GXRIAACsAg0t6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22aAi4nhEAACMAfdxX%22%29+%5D%5D",
   "tags": [],
   "first_publication_date": "2025-04-24T10:55:24+0000",
-  "last_publication_date": "2025-10-14T12:37:32+0000",
-  "slugs": ["how-the-slave-trades-medical-legacies-persist"],
+  "last_publication_date": "2026-03-06T15:34:45+0000",
+  "slugs": [
+    "how-the-slave-trades-medical-legacies-persist"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -1293,7 +1295,7 @@
           "lang": "en-gb",
           "slug": "micha-frazer-carroll",
           "first_publication_date": "2025-04-23T16:33:01+0000",
-          "last_publication_date": "2025-12-15T12:11:09+0000",
+          "last_publication_date": "2026-01-20T12:41:56+0000",
           "data": {
             "name": "Micha Frazer-Carroll"
           },
@@ -1316,6 +1318,23 @@
           },
           "link_type": "Document",
           "key": "f97e32c0-4a61-41ca-88ad-1a63e18a2db9",
+          "isBroken": false
+        }
+      },
+      {
+        "contributor": {
+          "id": "ZAnKexQAAB3yCZEO",
+          "type": "people",
+          "tags": [],
+          "lang": "en-gb",
+          "slug": "vanesha-kirita-singh",
+          "first_publication_date": "2023-03-09T12:01:05+0000",
+          "last_publication_date": "2026-03-06T15:45:56+0000",
+          "data": {
+            "name": "Vanesha Kirita Singh"
+          },
+          "link_type": "Document",
+          "key": "6ac9a2f0-8fdc-49f1-a285-2924d79c773c",
           "isBroken": false
         }
       }

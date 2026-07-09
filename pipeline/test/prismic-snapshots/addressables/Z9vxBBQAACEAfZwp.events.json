@@ -3,11 +3,15 @@
   "uid": "a-peoples-history-of-death-with-molly-conisbee",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
-  "tags": ["PHOD"],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ak-GXRIAACsAg0t6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Z9vxBBQAACEAfZwp%22%29+%5D%5D",
+  "tags": [
+    "PHOD"
+  ],
   "first_publication_date": "2025-04-03T14:52:29+0000",
   "last_publication_date": "2025-04-28T09:22:37+0000",
-  "slugs": ["a-peoples-history-of-death-with-molly-conisbee"],
+  "slugs": [
+    "a-peoples-history-of-death-with-molly-conisbee"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -25,15 +29,16 @@
       "type": "event-formats",
       "tags": [],
       "lang": "en-gb",
-      "slug": "late",
+      "slug": "lates",
       "first_publication_date": "2018-05-31T10:17:55+0000",
-      "last_publication_date": "2018-05-31T10:17:55+0000",
+      "last_publication_date": "2026-05-28T10:23:40+0000",
       "data": {
         "title": [
           {
             "type": "heading1",
-            "text": "Late",
-            "spans": []
+            "text": "Lates",
+            "spans": [],
+            "direction": "ltr"
           }
         ]
       },
@@ -166,11 +171,11 @@
           "type": "people",
           "tags": [],
           "lang": "en-gb",
-          "slug": "ody-caballero-valdes",
+          "slug": "odalys-caballero-valdes",
           "first_publication_date": "2025-04-01T10:21:31+0000",
-          "last_publication_date": "2025-04-01T17:35:21+0000",
+          "last_publication_date": "2026-04-09T12:44:37+0000",
           "data": {
-            "name": "Ody Caballero-Valdes"
+            "name": "Odalys Caballero-Valdes"
           },
           "link_type": "Document",
           "key": "786026b2-ea90-4441-8c66-06f463acc76a",

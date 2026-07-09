@@ -3,11 +3,15 @@
   "uid": "land-body-ecologies-festival-day-two",
   "url": null,
   "type": "events",
-  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=aV_a6BEAACIAHb8F&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
-  "tags": ["LBEF"],
+  "href": "https://wellcomecollection.cdn.prismic.io/api/v2/documents/search?ref=ak-GXRIAACsAg0t6&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZFt0WhQAAHnPEH7P%22%29+%5D%5D",
+  "tags": [
+    "LBEF"
+  ],
   "first_publication_date": "2023-05-25T15:00:01+0000",
   "last_publication_date": "2025-04-23T16:16:53+0000",
-  "slugs": ["land-body-ecologies-festival-day-two"],
+  "slugs": [
+    "land-body-ecologies-festival-day-two"
+  ],
   "linked_documents": [],
   "lang": "en-gb",
   "alternate_languages": [],
@@ -136,7 +140,10 @@
         "event": {
           "id": "ZFtubBQAAHnPEGEG",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "boalno",
           "first_publication_date": "2023-05-10T10:15:04+0000",
@@ -188,7 +195,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "b43dd6e8-cb72-4439-84f1-2f6ce5c8e14f",
+                  "key": "defc6875-4139-4472-b17a-7662d4acbc81",
                   "isBroken": false
                 }
               }
@@ -218,7 +225,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "8539e7e0-f64c-4bfe-bbb2-b35fbec58fef",
+              "key": "54f0f2b6-b499-47fe-bdb3-c3a4f77d99b6",
               "isBroken": false
             }
           },
@@ -232,7 +239,10 @@
         "event": {
           "id": "ZFteSBQAADxsEBMa",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "communal-meitophi",
           "first_publication_date": "2023-05-10T09:05:18+0000",
@@ -280,7 +290,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "7f27e6e5-90cf-4597-becc-85ff686f9c7c",
+                  "key": "a9fa8eb4-0756-41c1-b602-82bce1ca637d",
                   "isBroken": false
                 }
               }
@@ -310,7 +320,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "760629d9-8f04-4712-8ae2-89b119d74572",
+              "key": "7ae7cfb7-ca7d-4f6a-a165-3be695b4c87d",
               "isBroken": false
             }
           },
@@ -324,7 +334,10 @@
         "event": {
           "id": "ZFtfvxQAAHnPEBo-",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "stories-as-evidence",
           "first_publication_date": "2023-05-10T13:59:11+0000",
@@ -372,7 +385,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "1664b0d7-7017-4221-aea6-2e58ca1f38af",
+                  "key": "4844de47-d6cd-4186-ab43-c67d130eb1f8",
                   "isBroken": false
                 }
               }
@@ -398,7 +411,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "ca57218e-d810-48ec-af21-712a8eefc75d",
+                  "key": "f5fd3c3a-7950-4322-9a6e-f09c46b7961b",
                   "isBroken": false
                 }
               },
@@ -421,7 +434,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "6ae75a84-a36e-4ed9-a4b7-f71e45a23e43",
+                  "key": "e811a3f3-d840-403e-9d0b-5db2b325323a",
                   "isBroken": false
                 }
               }
@@ -444,7 +457,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "f34bbe28-b8ff-4871-9525-1b93c14822fa",
+              "key": "73a7f564-7789-4c79-b2b2-2c0d34020736",
               "isBroken": false
             }
           },
@@ -458,7 +471,10 @@
         "event": {
           "id": "ZFtX3xQAADxsD_RB",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "weaving-land-and-health",
           "first_publication_date": "2023-05-10T08:39:05+0000",
@@ -506,7 +522,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "a4713708-be59-4ca1-b952-2069efb1375f",
+                  "key": "d438243f-2aaf-4e27-9314-d20ce1380c98",
                   "isBroken": false
                 }
               }
@@ -536,7 +552,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "7ee6c054-d4c0-46f3-b75c-bc80b12f30d7",
+              "key": "bafc28ad-ec92-4c33-b6a9-928cbf3d8a0b",
               "isBroken": false
             }
           },
@@ -550,7 +566,10 @@
         "event": {
           "id": "ZFtd-BQAAMCZEBGP",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "meitau-making",
           "first_publication_date": "2023-05-10T09:04:05+0000",
@@ -598,7 +617,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "bd58f6c3-f6b9-45b8-840e-1bc5933554d7",
+                  "key": "9af06274-d578-475e-9c34-51f2e3e3d618",
                   "isBroken": false
                 }
               }
@@ -628,7 +647,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "0dbac9fa-b782-4f2a-936c-3272afd06d4d",
+              "key": "dd740d0a-543f-439a-9848-d79926d76c5f",
               "isBroken": false
             }
           },
@@ -642,7 +661,10 @@
         "event": {
           "id": "ZFtZFBQAAHnPD_n1",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "reimagining-conservation-policy",
           "first_publication_date": "2023-05-10T08:43:14+0000",
@@ -690,7 +712,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "96d5fbc8-4df9-414a-a930-42484cf7e5af",
+                  "key": "c7e5f8af-671c-4bd7-bc73-b1e2673718c1",
                   "isBroken": false
                 }
               }
@@ -720,7 +742,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "d4290c7d-40d1-47b1-890b-78aaa5dd3e77",
+              "key": "db9da15b-c3ae-4ebe-a27c-bd64cd65908d",
               "isBroken": false
             }
           },
@@ -734,7 +756,10 @@
         "event": {
           "id": "ZGTv2hQAADxsOdmn",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "in-the-end-of-this-world",
           "first_publication_date": "2023-05-17T15:17:50+0000",
@@ -782,7 +807,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "91186c16-2d31-4044-8858-ce9eea2626b7",
+                  "key": "5a98c2fa-8623-49f9-9b87-bbcf622dbcde",
                   "isBroken": false
                 }
               }
@@ -812,7 +837,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "29dd4071-2fc9-499f-8a85-43f6b84ac110",
+              "key": "9efaa00e-4d22-4327-9d51-7c5b9bc33244",
               "isBroken": false
             }
           },
@@ -826,7 +851,10 @@
         "event": {
           "id": "ZFttJBQAAHnPEFn0",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "microtonal",
           "first_publication_date": "2023-05-10T10:08:54+0000",
@@ -874,7 +902,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "ee516bfa-88b9-42e2-96f7-28605a250b68",
+                  "key": "c2dd8be1-badd-416a-9ed1-a3db9b1387db",
                   "isBroken": false
                 }
               }
@@ -904,7 +932,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "0ab1b2c5-946b-4bbd-a3ec-96a64cf56cb1",
+              "key": "aadb33a7-83ca-4867-b7b7-943cecfac076",
               "isBroken": false
             }
           },
@@ -918,7 +946,10 @@
         "event": {
           "id": "ZFtr3BQAAHnPEFN5",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "stories-of-entanglement",
           "first_publication_date": "2023-05-10T10:03:27+0000",
@@ -966,7 +997,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "9b53e2fd-cd75-4487-bfae-43c1a130ecbe",
+                  "key": "a509f167-0b08-479c-b4f1-3eb2e0c08ac2",
                   "isBroken": false
                 }
               }
@@ -996,7 +1027,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "bfa7d266-3340-4ce8-b34c-17092ca2f9fa",
+              "key": "e4e4970e-5664-4e66-be6c-fdc4a93baad6",
               "isBroken": false
             }
           },
@@ -1010,7 +1041,10 @@
         "event": {
           "id": "ZFttnRQAAHnPEFyu",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "asking-the-salmon-to-return",
           "first_publication_date": "2023-05-10T10:11:06+0000",
@@ -1058,7 +1092,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "aa380e09-5965-43f7-9b76-91ec37e738dd",
+                  "key": "0918f11b-d319-4e05-b6fe-97b9021e8f49",
                   "isBroken": false
                 }
               }
@@ -1088,7 +1122,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "1e23c8da-5d6f-4444-ab3c-9291db49d90a",
+              "key": "1606658e-0091-430a-a4bc-4bbd26ff5095",
               "isBroken": false
             }
           },
@@ -1102,7 +1136,10 @@
         "event": {
           "id": "ZFtsuRQAAHnPEFfW",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "virran-mukana",
           "first_publication_date": "2023-05-10T10:07:07+0000",
@@ -1150,7 +1187,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "8383a148-b7d2-4735-9d3c-912e40ca4ea6",
+                  "key": "bac785cf-7e69-4fae-944c-be12b183a125",
                   "isBroken": false
                 }
               }
@@ -1180,7 +1217,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "5849fa51-3a7c-4572-9e8e-c5d998880955",
+              "key": "979e02cc-cf7d-4266-be9f-b8f3e72f647a",
               "isBroken": false
             }
           },
@@ -1194,7 +1231,10 @@
         "event": {
           "id": "ZFtsVxQAAHnPEFXh",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "ovdavazzit--forewalkers",
           "first_publication_date": "2023-05-10T10:05:28+0000",
@@ -1242,7 +1282,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "3e317014-3127-4ce6-a03c-b30abaae9e17",
+                  "key": "2c4bf2c5-f933-43b8-b051-2c3351d3e7ea",
                   "isBroken": false
                 }
               }
@@ -1272,7 +1312,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "50bc7625-f9af-4cfc-82e6-0297939554be",
+              "key": "9fcf2d13-dd17-4a19-b851-db918713409f",
               "isBroken": false
             }
           },
@@ -1286,7 +1326,10 @@
         "event": {
           "id": "ZFuh7hQAAMCZEVTX",
           "type": "events",
-          "tags": ["delist", "LBEF"],
+          "tags": [
+            "delist",
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "chill-out-room",
           "first_publication_date": "2023-05-10T13:54:03+0000",
@@ -1334,7 +1377,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "39463f83-2424-44df-a158-6b33b8c4e4d7",
+                  "key": "649a0acf-ab3f-4715-92c3-74559f0ffdd8",
                   "isBroken": false
                 }
               },
@@ -1357,7 +1400,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "3a52e8c7-1af3-4d50-b644-c9e791a155e2",
+                  "key": "1b474bf3-1c9a-410f-8173-ce38b871be71",
                   "isBroken": false
                 }
               }
@@ -1387,7 +1430,7 @@
                 ]
               },
               "link_type": "Document",
-              "key": "a0ea8a82-3d3a-40ae-b7ca-d6385fb8de26",
+              "key": "d4ac9646-e24c-48e9-adea-9cbb9b416741",
               "isBroken": false
             }
           },
@@ -1575,7 +1618,9 @@
         "series": {
           "id": "ZFt3UBQAAMFmEIya",
           "type": "event-series",
-          "tags": ["LBEF"],
+          "tags": [
+            "LBEF"
+          ],
           "lang": "en-gb",
           "slug": "land-body-ecologies-festival",
           "first_publication_date": "2023-05-16T14:46:48+0000",
@@ -1609,7 +1654,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "5d9aa898-3a57-4bde-9158-ba84fd8d981f",
+                  "key": "2884cb9f-7c71-4f0d-aa6a-2f8abcb081a3",
                   "isBroken": false
                 }
               },
@@ -1632,7 +1677,7 @@
                     ]
                   },
                   "link_type": "Document",
-                  "key": "1ddfd1cc-7523-4cfb-b8c7-c6c306a5cfc7",
+                  "key": "9ec4316f-a730-4d79-9019-e00f1b88e330",
                   "isBroken": false
                 }
               }
