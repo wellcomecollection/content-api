@@ -1,0 +1,46 @@
+name: 'Validate Prismic Graph Queries'
+permissions:
+  contents: read
+on:
+  pull_request:
+    paths:
+      - 'pipeline/src/types/prismic/**'
+      - 'pipeline/src/graph-queries/**'
+      - 'pipeline/test/graph-queries.test.ts'
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/src/types/prismic/**'
+      - 'pipeline/src/graph-queries/**'
+      - 'pipeline/test/graph-queries.test.ts'
+
+jobs:
+  validate-graph-queries:
+    name: Validate graph queries against Prismic types
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run TypeScript compilation
+        run: yarn tsc
+
+      - name: Run graph query validation tests
+        working-directory: pipeline
+        run: yarn jest graph-queries.test.ts
+
+      - name: Summary
+        if: success()
+        run: |
+          echo "✅ All pipeline graph queries validated against Prismic types"
+          echo "✅ Main pipeline queries (articles, webcomics, events, venues)"
+          echo "✅ Addressables queries (11 document types)"
+          echo ""
+          echo "This ensures that queries won't fail when Prismic types are updated."
