@@ -20,22 +20,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      
+
       - name: Install Node
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      
+
       - name: Install dependencies
         run: yarn install
-      
+
       - name: Run TypeScript compilation
         run: yarn tsc
-      
+
       - name: Run graph query validation tests
         working-directory: pipeline
         run: yarn jest graph-queries.test.ts
-      
+
       - name: Summary
         if: success()
         run: |
