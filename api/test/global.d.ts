@@ -1,1 +1,2 @@
-import 'jest-extended';
+/// <reference types="jest" />
+/// <reference types="jest-extended" />
