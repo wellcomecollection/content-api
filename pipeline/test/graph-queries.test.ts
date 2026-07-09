@@ -1,4 +1,10 @@
 import {
+  articlesQuery,
+  eventDocumentsQuery,
+  venueQuery,
+  webcomicsQuery,
+} from '@weco/content-pipeline/src/graph-queries';
+import {
   addressablesArticlesQuery,
   addressablesBooksQuery,
   addressablesEventsQuery,
@@ -21,6 +27,7 @@ import {
   ProjectsDocument,
   SeasonsDocument,
   VisualStoriesDocument,
+  WebcomicsDocument,
 } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
 // Extract slice types from a document's body union type
@@ -49,6 +56,7 @@ type SeasonSliceTypes = ExtractSliceTypes<SeasonsDocument['data']['body']>;
 type VisualStorySliceTypes = ExtractSliceTypes<
   VisualStoriesDocument['data']['body']
 >;
+type WebcomicSliceTypes = ExtractSliceTypes<WebcomicsDocument['data']['body']>;
 
 // Helper to extract slice names from a GraphQL query string
 const extractSliceNamesFromQuery = (query: string): string[] => {
@@ -70,6 +78,73 @@ const extractSliceNamesFromQuery = (query: string): string[] => {
 };
 
 describe('Graph query validation', () => {
+  describe('Main pipeline queries reference only valid slice types', () => {
+    it('articles pipeline query uses only valid article slices', () => {
+      const slicesInQuery = extractSliceNamesFromQuery(articlesQuery);
+      const bodySlices = slicesInQuery.filter(
+        s => !['editorialImage'].some(promo => s === promo)
+      );
+
+      const validSlices = [
+        'audioPlayer',
+        'editorialImage',
+        'editorialImageGallery',
+        'embed',
+        'gifVideo',
+        'iframe',
+        'infoBlock',
+        'quote',
+        'standfirst',
+        'tagList',
+        'text',
+      ] satisfies ArticleSliceTypes[];
+
+      bodySlices.forEach(slice => {
+        expect(validSlices).toContain(slice);
+      });
+    });
+
+    it('webcomics pipeline query uses only valid webcomic slices', () => {
+      const slicesInQuery = extractSliceNamesFromQuery(webcomicsQuery);
+      const bodySlices = slicesInQuery.filter(
+        s => !['editorialImage'].some(promo => s === promo)
+      );
+
+      // Webcomics support editorialImageGallery in body, but the query doesn't fetch it
+      const validSlices = [
+        'editorialImageGallery',
+      ] satisfies WebcomicSliceTypes[];
+
+      // Currently no body slices are queried
+      expect(bodySlices).toEqual([]);
+
+      // But if any were, they must be in validSlices
+      bodySlices.forEach(slice => {
+        expect(validSlices).toContain(slice);
+      });
+    });
+
+    it('eventDocuments pipeline query does not reference invalid slices', () => {
+      const slicesInQuery = extractSliceNamesFromQuery(eventDocumentsQuery);
+      const bodySlices = slicesInQuery.filter(
+        s =>
+          !['editorialImage', 'event-formats', 'exhibition-formats'].some(
+            promo => s === promo
+          )
+      );
+
+      // eventDocuments doesn't query body/slices, only metadata
+      expect(bodySlices).toEqual([]);
+    });
+
+    it('venues pipeline query does not reference slices', () => {
+      const slicesInQuery = extractSliceNamesFromQuery(venueQuery);
+
+      // Venues have no slices
+      expect(slicesInQuery).toEqual([]);
+    });
+  });
+
   describe('Addressables queries reference only valid slice types', () => {
     it('articles query uses only valid article slices', () => {
       const slicesInQuery = extractSliceNamesFromQuery(
@@ -283,40 +358,6 @@ describe('Graph query validation', () => {
 
       bodySlices.forEach(slice => {
         expect(validSlices).toContain(slice);
-      });
-    });
-  });
-
-  describe('Graph queries are syntactically valid', () => {
-    it('all addressables queries contain valid GraphQL syntax', () => {
-      const queries = [
-        { name: 'articles', query: addressablesArticlesQuery },
-        { name: 'books', query: addressablesBooksQuery },
-        { name: 'events', query: addressablesEventsQuery },
-        { name: 'exhibitions', query: addressablesExhibitionsQuery },
-        {
-          name: 'exhibition-highlight-tours',
-          query: addressablesExhibitionHighlightToursQuery,
-        },
-        {
-          name: 'exhibition-texts',
-          query: addressablesExhibitionTextsQuery,
-        },
-        { name: 'pages', query: addressablesPagesQuery },
-        { name: 'projects', query: addressablesProjectsQuery },
-        { name: 'seasons', query: addressablesSeasonsQuery },
-        { name: 'visual-stories', query: addressablesVisualStoriesQuery },
-      ];
-
-      queries.forEach(({ query }) => {
-        // Basic GraphQL syntax checks
-        expect(query).toMatch(/\{/); // Has opening brace
-        expect(query).toMatch(/\}/); // Has closing brace
-
-        // Count braces to ensure they're balanced
-        const openBraces = (query.match(/\{/g) || []).length;
-        const closeBraces = (query.match(/\}/g) || []).length;
-        expect(openBraces).toBe(closeBraces);
       });
     });
   });

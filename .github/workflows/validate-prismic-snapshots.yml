@@ -8,7 +8,7 @@ on:
       - 'pipeline/src/graph-queries/**'
       - 'pipeline/test/graph-queries.test.ts'
   push:
-    branches: [main]
+    branches: [main, add-test-graphquery]
     paths:
       - 'pipeline/src/types/prismic/**'
       - 'pipeline/src/graph-queries/**'
@@ -39,7 +39,8 @@ jobs:
       - name: Summary
         if: success()
         run: |
-          echo "✅ All graph queries reference valid slice types"
-          echo "✅ GraphQL syntax is valid"
+          echo "✅ All pipeline graph queries validated against Prismic types"
+          echo "✅ Main pipeline queries (articles, webcomics, events, venues)"
+          echo "✅ Addressables queries (11 document types)"
           echo ""
           echo "This ensures that queries won't fail when Prismic types are updated."
