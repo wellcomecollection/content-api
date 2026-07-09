@@ -8,7 +8,7 @@ on:
       - 'pipeline/src/graph-queries/**'
       - 'pipeline/test/graph-queries.test.ts'
   push:
-    branches: [main, add-test-graphquery]
+    branches: [main]
     paths:
       - 'pipeline/src/types/prismic/**'
       - 'pipeline/src/graph-queries/**'
