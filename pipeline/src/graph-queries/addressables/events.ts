@@ -1,19 +1,10 @@
-import { workLinksSlices } from './shared';
+import { textSlice } from './shared';
 
 const query = `
   events {
     title
     body {
-      ...on standfirst {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
-      ${workLinksSlices}
+      ${textSlice}
     }
     format {
       title

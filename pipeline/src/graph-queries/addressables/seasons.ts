@@ -1,4 +1,4 @@
-import { workLinksSlices } from './shared';
+import { standfirstSlice, textSlice } from './shared';
 
 const query = `
   seasons {
@@ -11,16 +11,8 @@ const query = `
       }
     }
     body {
-      ${workLinksSlices}
-      ...on standfirst {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${textSlice}
+      ${standfirstSlice}
     }
   }
 `;

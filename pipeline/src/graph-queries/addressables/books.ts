@@ -1,11 +1,11 @@
-import { workLinksSlices } from './shared';
+import { textSlice } from './shared';
 
 const query = `
   books {
     title
     subtitle
     body {
-      ${workLinksSlices}
+      ${textSlice}
     }
     promo {
       ...on editorialImage {

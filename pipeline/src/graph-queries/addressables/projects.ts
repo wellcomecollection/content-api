@@ -1,4 +1,4 @@
-import { workLinksSlices } from './shared';
+import { editorialImageSlice, textSlice } from './shared';
 
 const query = `
   projects {
@@ -14,7 +14,8 @@ const query = `
       title
     }
     body {
-      ${workLinksSlices}
+      ${textSlice}
+      ${editorialImageSlice}
     }
     contributors {
       contributor {
