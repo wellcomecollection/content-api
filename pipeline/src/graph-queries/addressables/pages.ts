@@ -1,4 +1,8 @@
-import { workLinksSlices } from './shared';
+import {
+  editorialImageGallerySlice,
+  editorialImageSlice,
+  textSlice,
+} from './shared';
 
 const query = `
   pages {
@@ -12,7 +16,9 @@ const query = `
     }
     introText
     body {
-      ${workLinksSlices}
+      ${textSlice}
+      ${editorialImageSlice}
+      ${editorialImageGallerySlice}
     }
   }
 `;

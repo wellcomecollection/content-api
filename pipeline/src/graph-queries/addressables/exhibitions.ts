@@ -1,10 +1,11 @@
-import { workLinksSlices } from './shared';
+import { editorialImageGallerySlice, textSlice } from './shared';
 
 const query = `
   exhibitions {
     title
     body {
-      ${workLinksSlices}
+      ${textSlice}
+      ${editorialImageGallerySlice}
     }
     format {
       title

@@ -1,5 +1,7 @@
-// This is what is needed to get all work links
-export const workLinksSlices = `
+// Individual slice query fragments for extracting work links from body content.
+// Each document type imports only the slices it supports.
+
+export const textSlice = `
   ...on text {
     variation {
       ...on default {
@@ -9,16 +11,21 @@ export const workLinksSlices = `
       }
     }
   }
-  ...on gifVideo {
+`;
+
+export const standfirstSlice = `
+  ...on standfirst {
     variation {
       ...on default {
         primary {
-          tasl
-          caption
+          text
         }
       }
     }
   }
+`;
+
+export const editorialImageSlice = `
   ...on editorialImage {
     variation {
       ...on default {
@@ -29,6 +36,22 @@ export const workLinksSlices = `
       }
     }
   }
+`;
+
+export const gifVideoSlice = `
+  ...on gifVideo {
+    variation {
+      ...on default {
+        primary {
+          tasl
+          caption
+        }
+      }
+    }
+  }
+`;
+
+export const editorialImageGallerySlice = `
   ...on editorialImageGallery {
     variation {
       ...on default {

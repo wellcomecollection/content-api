@@ -1,4 +1,10 @@
-import { workLinksSlices } from './shared';
+import {
+  editorialImageGallerySlice,
+  editorialImageSlice,
+  gifVideoSlice,
+  standfirstSlice,
+  textSlice,
+} from './shared';
 
 const query = `
   articles {
@@ -21,16 +27,11 @@ const query = `
       }
     }
     body {
-      ${workLinksSlices}
-      ...on standfirst {
-        variation {
-          ...on default {
-            primary {
-              text
-            }
-          }
-        }
-      }
+      ${textSlice}
+      ${standfirstSlice}
+      ${gifVideoSlice}
+      ${editorialImageSlice}
+      ${editorialImageGallerySlice}
     }
   }
 `;
