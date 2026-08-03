@@ -25,12 +25,12 @@ jobs:
           repositories: developers.wellcomecollection.org
 
       - name: Checkout content-api
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
 
@@ -41,7 +41,7 @@ jobs:
         run: npx tsx api/scripts/documentation/generate-openapi.ts > /tmp/content.yaml
 
       - name: Checkout developers.wellcomecollection.org
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: wellcomecollection/developers.wellcomecollection.org
           token: ${{ steps.app-token.outputs.token }}
