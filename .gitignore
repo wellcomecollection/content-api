@@ -12,3 +12,6 @@ node_modules/
 
 # Terraform
 *.plan
+
+# AI
+.claude
