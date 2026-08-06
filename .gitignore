@@ -13,5 +13,5 @@ node_modules/
 # Terraform
 *.plan
 
-# AI
-.claude
+# AI personal preferences
+.claude/*.local.*
