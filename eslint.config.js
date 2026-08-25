@@ -1,6 +1,6 @@
 const eslint = require('@eslint/js');
 const eslintConfigPrettier = require('eslint-config-prettier');
-const eslintPluginImport = require('eslint-plugin-import');
+const importXPlugin = require('eslint-plugin-import-x');
 const eslintPluginJest = require('eslint-plugin-jest');
 const eslintPluginPrettier = require('eslint-plugin-prettier');
 const globals = require('globals');
@@ -8,7 +8,7 @@ const tseslint = require('typescript-eslint');
 
 const sharedRules = {
   'eol-last': 'error',
-  'import/order': [
+  'import-x/order': [
     'warn',
     {
       groups: [
@@ -42,6 +42,9 @@ const sharedRules = {
     "JSXElement.children > [expression.callee.property.name='stringify']",
   ],
   'no-return-assign': 'off',
+  'object-shorthand': ['warn', 'always'],
+  'prefer-arrow-callback': 'warn',
+  'prefer-template': 'warn',
   'prettier/prettier': 'error',
   'sort-imports': [
     'error',
@@ -89,7 +92,7 @@ module.exports = [
       },
     },
     plugins: {
-      import: eslintPluginImport,
+      'import-x': importXPlugin,
       jest: eslintPluginJest,
       prettier: eslintPluginPrettier,
     },
@@ -119,7 +122,7 @@ module.exports = [
     },
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      import: eslintPluginImport,
+      'import-x': importXPlugin,
       jest: eslintPluginJest,
       prettier: eslintPluginPrettier,
     },
@@ -134,6 +137,10 @@ module.exports = [
       '@typescript-eslint/no-unused-vars': [
         'error',
         { ignoreRestSiblings: true },
+      ],
+      '@typescript-eslint/no-unused-expressions': [
+        'error',
+        { allowShortCircuit: true, allowTernary: true },
       ],
       'jest/no-standalone-expect': [
         'error',

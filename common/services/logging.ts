@@ -7,7 +7,7 @@ const formatter = format.combine(
   format.printf(({ level, message, timestamp, stack }) => {
     let log = `${timestamp} ${level.toUpperCase()} - ${message}`;
     if (stack) {
-      log += '\n' + stack;
+      log += `\n${stack}`;
     }
     return log;
   })
