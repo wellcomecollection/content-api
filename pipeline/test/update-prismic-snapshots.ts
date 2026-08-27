@@ -200,7 +200,7 @@ const addCommentsToUpdateScript = async (docs: PrismicDocument[]) => {
       const indent = stringArrayItemLine.groups?.indent;
       const uncommentedLine = `${indent}"${id}",`;
       if (id && comments.has(id)) {
-        await writeLine(uncommentedLine + ` // ${comments.get(id)}`);
+        await writeLine(`${uncommentedLine} // ${comments.get(id)}`);
         continue;
       }
     }

@@ -23,7 +23,7 @@ const dateNow = new Date();
 
 const formatDate = (openingDay: NextOpeningDate) =>
   openingDay.open
-    ? new Date(openingDay.open).toUTCString().slice(0, 11) + '\n'
+    ? `${new Date(openingDay.open).toUTCString().slice(0, 11)}\n`
     : '';
 
 const compareDates = (library: NextOpeningDate, deepstore: NextOpeningDate) => {
