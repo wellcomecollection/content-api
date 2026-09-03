@@ -16,22 +16,22 @@
     "test": "jest"
   },
   "dependencies": {
-    "@prismicio/client": "^7.21.8",
+    "@prismicio/client": "^7.22.0",
     "@weco/content-common": "*",
     "parse-duration": "^2.1.8",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
-    "@tsconfig/node24": "24.0.4",
+    "@tsconfig/node24": "24.0.5",
     "@types/aws-lambda": "^8.10.162",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.13.2",
-    "esbuild": "^0.28.1",
-    "jest": "^30.4.2",
+    "esbuild": "^0.28.2",
+    "jest": "^30.5.0",
     "jest-extended": "^7.0.0",
     "ts-jest": "^29.4.12",
     "typescript": "^5.9.3",
-    "tsx": "^4.23.1",
+    "tsx": "^4.23.12",
     "yargs": "^18.1.0"
   }
 }
