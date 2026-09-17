@@ -115,6 +115,41 @@ A good PR description covers:
 
 - **What does this change?** — the problem and how it's solved
 - **How to test** — concrete steps (e.g. "hit `/articles?sort=foo` and expect a 400")
-- **Risks** — anything that could affect the pipeline, Elasticsearch index, or downstream consumers
+- **Have we considered potential risks?** — anything that could affect the pipeline, Elasticsearch index, or downstream consumers
+
+Keep the template's own headings verbatim.
+
+When referencing GitHub issues, put `- For #123` or `- Refs #123` (never `Closes #123`, so merging doesn't auto-close the ticket) as the very first line of the description, before `## What does this change?` starts.
 
 Breaking changes to the API response shape must be coordinated with the front-end team (`@wellcomecollection/digital-experience`) since they consume this API directly.
+
+### Writing style
+
+PR descriptions are for humans first — write them the way you'd explain the change to a teammate:
+
+- Casual tone, not stiff or formal. British spelling in prose (see [copilot-instructions.md](.github/copilot-instructions.md)).
+- Terse: cut padding, hedging, and anything already obvious from the diff. Don't restate context.
+- Plain words over jargon or vivid-metaphor shorthand ("soak", "load-bearing", etc.) — if a normal phrase says it, use that.
+- One line per paragraph or bullet — don't hard-wrap markdown at a column width.
+- In "How to test", keep specific example query strings rather than generic placeholders, and link them inline on the descriptive phrase where there's a URL to hit, e.g. `[Articles sorted by relevance](http://localhost:3002/articles?sort=relevance)` (`yarn dev` runs the API on port 3002).
+- In "Have we considered potential risks?", state the actual risk and stop — don't conclude "no alarms needed" or similar. Whether alarms/monitoring are needed is a call for the human reviewer, not something to assert.
+- A `> [!NOTE]` callout is a good place for a genuine open caveat you want a reviewer to weigh in on (e.g. "response shape isn't final, pending sign-off from digital-experience") — skip it if there isn't one.
+
+### AI-assisted PRs
+
+When an AI assistant drafts the PR description, on top of the above:
+
+- If there's a genuinely non-obvious decision, alternative considered, or open question worth recording for a future debugging session, add a collapsed section at the end of the body:
+
+  ```markdown
+  <details>
+  <summary>For AI / future debugging</summary>
+
+  Whatever's actually non-obvious - why this approach over another one, an edge case deliberately left unhandled, an assumption made, a gotcha hit while implementing.
+
+  </details>
+  ```
+
+  Skip this entirely for straightforward PRs — it's for genuine signal, not a checklist item to fill in every time. Don't duplicate what's already stated plainly above the fold.
+- Commit messages can carry more of the "why" than the PR body does — humans rarely read them, but they're useful `git blame`/`git log` context for AI-assisted debugging later. This doesn't change the general git workflow guidance elsewhere (new commits rather than amending, etc.).
+- Append `_Written by Claude Code._` (or the relevant tool's name) as a short italic line at the very end of the body, after any "For AI" section.
