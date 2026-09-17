@@ -151,5 +151,6 @@ When an AI assistant drafts the PR description, on top of the above:
   ```
 
   Skip this entirely for straightforward PRs — it's for genuine signal, not a checklist item to fill in every time. Don't duplicate what's already stated plainly above the fold.
+
 - Commit messages can carry more of the "why" than the PR body does — humans rarely read them, but they're useful `git blame`/`git log` context for AI-assisted debugging later. This doesn't change the general git workflow guidance elsewhere (new commits rather than amending, etc.).
 - Append `_Written by Claude Code._` (or the relevant tool's name) as a short italic line at the very end of the body, after any "For AI" section.
