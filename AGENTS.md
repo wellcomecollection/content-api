@@ -132,7 +132,7 @@ PR descriptions are for humans first — write them the way you'd explain the ch
 - Plain words over jargon or vivid-metaphor shorthand ("soak", "load-bearing", etc.) — if a normal phrase says it, use that.
 - One line per paragraph or bullet — don't hard-wrap markdown at a column width.
 - In "How to test", keep specific example query strings rather than generic placeholders, and link them inline on the descriptive phrase where there's a URL to hit, e.g. `[Articles sorted by relevance](http://localhost:3002/articles?sort=relevance)` (`yarn dev` runs the API on port 3002).
-- In "Have we considered potential risks?", state the actual risk and stop — don't conclude "no alarms needed" or similar. Whether alarms/monitoring are needed is a call for the human reviewer, not something to assert.
+- In "Have we considered potential risks?", cover the risk and any mitigation as the template asks — but don't tack on a boilerplate conclusion like "no alarms needed". Whether alarms/monitoring are actually needed is a call for the human reviewer, not something to assert.
 - A `> [!NOTE]` callout is a good place for a genuine open caveat you want a reviewer to weigh in on (e.g. "response shape isn't final, pending sign-off from digital-experience") — skip it if there isn't one.
 
 ### AI-assisted PRs
