@@ -14,7 +14,7 @@ ROOT=$(git rev-parse --show-toplevel)
 
 # If no pipeline specified, tell the user how to use the script
 if [[ -z $PIPELINE_DATE ]]; then
-  echo "Usage: ./create_pipeline.sh <PIPELINE_DATE>"
+  echo "Usage: ./deploy_pipeline_lambdas.sh <PIPELINE_DATE>"
   exit 1
 fi
 
