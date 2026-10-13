@@ -85,27 +85,25 @@ const addressableController = (
     try {
       const searchResponse = await clients.elastic.search<Displayable>({
         index,
-        body: {
-          query: {
-            bool: {
-              must: [
-                {
-                  term: {
-                    _id: id,
-                  },
+        query: {
+          bool: {
+            must: [
+              {
+                term: {
+                  _id: id,
                 },
-              ],
-              must_not: [
-                {
-                  term: {
-                    'query.tags': 'delist',
-                  },
+              },
+            ],
+            must_not: [
+              {
+                term: {
+                  'query.tags': 'delist',
                 },
-              ],
-            },
+              },
+            ],
           },
-          _source: ['display'],
         },
+        _source: ['display'],
         size: 1,
       });
 

@@ -53,11 +53,9 @@ export const createAddressablesUnpublisher =
           try {
             const response = await clients.elastic.deleteByQuery({
               index,
-              body: {
-                query: {
-                  term: {
-                    'query.prismicId': prismicId,
-                  },
+              query: {
+                term: {
+                  'query.prismicId': prismicId,
                 },
               },
             });
