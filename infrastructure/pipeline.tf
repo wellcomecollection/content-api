@@ -13,7 +13,7 @@ module "pipeline_2025-09-03" {
 module "pipeline_2026-10-13" {
   source                      = "./pipeline_stack"
   pipeline_date               = "2026-10-13"
-  elasticsearch_version_regex = "9.4.?"
+  elasticsearch_version_regex = "^9\\.4\\.\\d+$"
   window_duration_minutes     = 15
   deployment_template_id      = "aws-storage-optimized"
   logging_cluster_id          = local.logging_cluster_id
