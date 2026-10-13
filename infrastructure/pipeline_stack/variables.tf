@@ -39,3 +39,8 @@ variable "lambda_alarm_topic_arn" {
 variable "deployment_template_id" {
   type = string
 }
+
+variable "elasticsearch_version_regex" {
+  type    = string
+  default = "8.6.?"
+}
