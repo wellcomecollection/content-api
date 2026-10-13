@@ -49,7 +49,7 @@ resource "ec_deployment_traffic_filter_association" "content_cluster" {
 }
 
 data "ec_stack" "latest_patch" {
-  version_regex = "8.6.?"
+  version_regex = var.elasticsearch_version_regex
   region        = local.elastic_cloud_region
 }
 
