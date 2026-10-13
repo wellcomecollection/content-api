@@ -16,7 +16,9 @@ updates:
       - dependency-name: '@typescript-eslint/eslint-plugin'
       - dependency-name: '@typescript-eslint/parser'
       - dependency-name: 'typescript-eslint'
+      # Keep the client minor in step with the cluster's (currently ES 9.4), so only allow patches.
       - dependency-name: '@elastic/elasticsearch'
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
       # @types/node should match the Node.js runtime version (currently Node 24 per Dockerfiles).
       # Bump this manually when upgrading Node, not automatically.
       - dependency-name: '@types/node'
