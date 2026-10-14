@@ -23,7 +23,7 @@ const includeEmptyFilterValues = (
   aggregation: AggregationsAggregationContainer,
   filter: Filter
 ): AggregationsAggregationContainer =>
-  'terms' in aggregation && isTermsFilter(filter)
+  aggregation.terms && isTermsFilter(filter)
     ? {
         ...aggregation,
         terms: {

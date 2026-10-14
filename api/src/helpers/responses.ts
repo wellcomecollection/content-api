@@ -1,6 +1,5 @@
 import {
   AggregationsAggregate,
-  AggregationsStringTermsBucket,
   SearchResponse,
 } from '@elastic/elasticsearch/lib/api/types';
 import { Request } from 'express';
@@ -16,9 +15,25 @@ import {
 
 import { isNotUndefined } from './index';
 
-const mapBucket = (
-  bucket: AggregationsStringTermsBucket
-): AggregationBucket => ({
+// The client types aggregation results as a wide union (including null keys),
+// which doesn't describe what our queries return. These types describe the
+// shapes we actually build in the queries.
+type TermsBucket = {
+  key: string;
+  doc_count: number;
+};
+
+type TermsAggregation = {
+  buckets?: TermsBucket[];
+  terms?: { buckets: TermsBucket[] };
+  self_filter?: { terms: { buckets: TermsBucket[] } };
+};
+
+type TimespanAggregation = {
+  timespan: Record<string, { count_parent: { doc_count: number } } | undefined>;
+};
+
+const mapBucket = (bucket: TermsBucket): AggregationBucket => ({
   // This should always be a JSONified string, so if we can't
   // parse it something has gone wrong in the pipeline and we
   // should know about it
@@ -32,7 +47,7 @@ const compareBucket = (a: AggregationBucket, b: AggregationBucket) =>
   b.count - a.count || (a.data.id ?? '').localeCompare(b.data.id ?? '');
 
 const timespanAggregations = (
-  aggregation: AggregationsStringTermsBucket
+  aggregation: TimespanAggregation
 ): AggregationBucket[] =>
   Object.keys(aggregation.timespan)
     .filter(
@@ -44,16 +59,16 @@ const timespanAggregations = (
         id: key,
         label: `${String(key).charAt(0).toUpperCase() + String(key).slice(1)} events`,
       },
-      count: aggregation.timespan[key].count_parent?.doc_count,
+      count: aggregation.timespan[key]!.count_parent?.doc_count,
       type: 'AggregationBucket',
     }));
 
 const termBucketAggregations = (
-  aggregation: AggregationsStringTermsBucket
+  aggregation: TermsAggregation
 ): AggregationBucket[] => {
-  const buckets: AggregationsStringTermsBucket[] =
-    aggregation.buckets ?? aggregation.terms.buckets;
-  const selfFilterBuckets: AggregationsStringTermsBucket[] =
+  const buckets: TermsBucket[] =
+    aggregation.buckets ?? aggregation.terms!.buckets;
+  const selfFilterBuckets: TermsBucket[] =
     aggregation.self_filter?.terms.buckets ?? [];
 
   const bucketKeys = new Set<string>(); // prevent duplicates from the self-filter
@@ -69,17 +84,23 @@ const termBucketAggregations = (
 };
 
 export const mapAggregations = (
-  elasticAggs: AggregationsAggregate
+  elasticAggs: Record<string, AggregationsAggregate>
 ): Aggregations =>
   Object.fromEntries(
-    Object.entries(elasticAggs).flatMap(([name, aggregation]) => {
-      const bucketGenerator =
-        name === 'timespan' ? timespanAggregations : termBucketAggregations;
-
-      return [
-        [name, { buckets: bucketGenerator(aggregation), type: 'Aggregation' }],
-      ];
-    })
+    Object.entries(elasticAggs).map(([name, aggregation]) => [
+      name,
+      {
+        buckets:
+          name === 'timespan'
+            ? timespanAggregations(
+                aggregation as unknown as TimespanAggregation
+              )
+            : termBucketAggregations(
+                aggregation as unknown as TermsAggregation
+              ),
+        type: 'Aggregation',
+      },
+    ])
   );
 
 export const resultListResponse = (config: Config) => {

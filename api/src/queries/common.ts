@@ -8,7 +8,7 @@ export type TermsFilter = {
 export type Filter = TermsFilter | QueryDslQueryContainer;
 
 export const isTermsFilter = (filter: Filter): filter is TermsFilter =>
-  'values' in filter && 'esQuery' in filter;
+  filter !== undefined && 'values' in filter && 'esQuery' in filter;
 
 export const esQuery = (filter: Filter): QueryDslQueryContainer =>
   isTermsFilter(filter) ? filter.esQuery : filter;

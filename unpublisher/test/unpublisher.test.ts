@@ -98,21 +98,17 @@ describe('addressables unpublisher', () => {
     expect(mockElasticClient.deleteByQuery).toHaveBeenCalledTimes(2);
     expect(mockElasticClient.deleteByQuery).toHaveBeenCalledWith({
       index: testIndex,
-      body: {
-        query: {
-          term: {
-            'query.prismicId': 'aAi4nhEAACMAfdxX',
-          },
+      query: {
+        term: {
+          'query.prismicId': 'aAi4nhEAACMAfdxX',
         },
       },
     });
     expect(mockElasticClient.deleteByQuery).toHaveBeenCalledWith({
       index: testIndex,
-      body: {
-        query: {
-          term: {
-            'query.prismicId': 'XP4bGxIAADCGoFOi',
-          },
+      query: {
+        term: {
+          'query.prismicId': 'XP4bGxIAADCGoFOi',
         },
       },
     });
@@ -136,11 +132,9 @@ describe('addressables unpublisher', () => {
     expect(mockElasticClient.deleteByQuery).toHaveBeenCalledTimes(1);
     expect(mockElasticClient.deleteByQuery).toHaveBeenCalledWith({
       index: testIndex,
-      body: {
-        query: {
-          term: {
-            'query.prismicId': 'nonexistent',
-          },
+      query: {
+        term: {
+          'query.prismicId': 'nonexistent',
         },
       },
     });

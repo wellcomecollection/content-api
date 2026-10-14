@@ -9,7 +9,7 @@ import { createHandler } from './handler';
 const [_1, _2, ...deletionIds] = argv;
 
 getElasticClient({
-  pipelineDate: '2025-09-03',
+  pipelineDate: '2026-10-13',
   serviceName: 'unpublisher',
   hostEndpointAccess: 'public',
 }).then(async elasticClient => {
