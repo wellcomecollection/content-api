@@ -41,6 +41,5 @@ variable "deployment_template_id" {
 }
 
 variable "elasticsearch_version_regex" {
-  type    = string
-  default = "8.6.?"
+  type = string
 }
