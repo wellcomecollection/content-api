@@ -6,6 +6,8 @@ import { HttpError } from './error';
 const limits = {
   minSize: 1,
   maxSize: 100,
+  // Elasticsearch's default index.max_result_window
+  maxResultWindow: 10000,
 };
 
 const defaultPageSize = 10;
@@ -30,10 +32,15 @@ export const paginationElasticBody = ({
   const safePage = isNaN(Number(page)) ? undefined : page;
   const safeSize = isNaN(Number(pageSize)) ? undefined : pageSize;
   const size = Math.min(safeSize ?? defaultPageSize, limits.maxSize);
-  return {
-    size,
-    from: ((safePage ?? 1) - 1) * size,
-  };
+  const from = ((safePage ?? 1) - 1) * size;
+  if (from + size > limits.maxResultWindow) {
+    throw new HttpError({
+      status: 400,
+      label: 'Bad Request',
+      description: `page: only the first ${limits.maxResultWindow} results can be paged through; with pageSize ${size} the last page is ${Math.floor(limits.maxResultWindow / size)}`,
+    });
+  }
+  return { size, from };
 };
 
 const parseNumberParam = (

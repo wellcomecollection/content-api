@@ -20,6 +20,7 @@ import { Clients } from './types';
 
 const createApp = (clients: Clients, config: Config) => {
   const app = express();
+  app.disable('x-powered-by');
 
   app.use(morgan('short', { stream: logStream('http') }));
 
