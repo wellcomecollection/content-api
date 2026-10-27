@@ -64,11 +64,15 @@ describe('Event handling', () => {
     ).toBe(403);
   });
 
-  it('Rejects requests with a non-string secret', async () => {
+  it.each([
+    ['a number', 12345],
+    ['an object whose toString is null', { toString: null }],
+    ['an array holding the valid secret', [testConfig.secret]],
+  ])('Rejects requests with %s as the secret', async (_, secret) => {
     expect(
       await status({
         method: 'POST',
-        webhook: mockWebhook({ secret: 12345 as unknown as string }),
+        webhook: mockWebhook({ secret: secret as unknown as string }),
         headers: { 'x-weco-prismic-trigger': testConfig.trigger },
       })
     ).toBe(403);

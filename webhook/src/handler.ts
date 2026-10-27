@@ -26,8 +26,9 @@ type Config = {
 
 // Hashing first gives equal-length buffers, so the compare doesn't leak the secret's length.
 const secretsMatch = (received: unknown, expected: string): boolean =>
+  typeof received === 'string' &&
   timingSafeEqual(
-    createHash('sha256').update(String(received)).digest(),
+    createHash('sha256').update(received).digest(),
     createHash('sha256').update(expected).digest()
   );
 
