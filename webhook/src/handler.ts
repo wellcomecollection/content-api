@@ -3,6 +3,7 @@ import {
   PutEventsCommand,
 } from '@aws-sdk/client-eventbridge';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
+import { createHash, timingSafeEqual } from 'node:crypto';
 
 import log from '@weco/content-common/services/logging';
 
@@ -22,6 +23,14 @@ type Config = {
   eventBusName: string;
   trigger?: string;
 };
+
+// Hashing first gives equal-length buffers, so the compare doesn't leak the secret's length.
+const secretsMatch = (received: unknown, expected: string): boolean =>
+  typeof received === 'string' &&
+  timingSafeEqual(
+    createHash('sha256').update(received).digest(),
+    createHash('sha256').update(expected).digest()
+  );
 
 export const createHandler =
   (clients: Clients, config: Config) =>
@@ -58,7 +67,7 @@ export const createHandler =
       });
     }
 
-    if (webhook.secret !== config.secret) {
+    if (!secretsMatch(webhook.secret, config.secret)) {
       return response({
         status: 403,
         label: 'Forbidden',
