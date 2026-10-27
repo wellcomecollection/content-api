@@ -8,6 +8,13 @@ services:
     build:
       dockerfile: ./api/Dockerfile
       context: .
+      target: runtime
+
+  api-test:
+    build:
+      dockerfile: ./api/Dockerfile
+      context: .
+      target: test
 
   pipeline:
     build:

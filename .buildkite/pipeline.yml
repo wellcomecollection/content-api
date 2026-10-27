@@ -13,7 +13,7 @@ steps:
   - label: 'test: API'
     plugins:
       - docker-compose#v4.11.0:
-          run: api
+          run: api-test
           command: ['yarn', 'test']
 
   - label: 'test: ETL pipeline'
