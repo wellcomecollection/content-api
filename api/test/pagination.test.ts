@@ -6,6 +6,8 @@ import {
   paginationResponseGetter,
 } from '@weco/content-api/src/controllers/pagination';
 
+import { mockedApi } from './fixtures/api';
+
 describe('pagination tools', () => {
   describe('paginationElasticBody', () => {
     it('returns a `size` and `from` value', () => {
@@ -21,6 +23,30 @@ describe('pagination tools', () => {
       expect(size).toBe(100);
       expect(from).toBe(9 * 100);
     });
+
+    it.each([
+      [1000, 10],
+      [100, 100],
+      [3333, 3],
+    ])(
+      'allows page %i with pageSize %i inside the result window',
+      (page, pageSize) => {
+        expect(() => paginationElasticBody({ page, pageSize })).not.toThrow();
+      }
+    );
+
+    it.each([
+      [1001, 10],
+      [101, 100],
+      [1001, undefined],
+    ])(
+      'rejects page %i with pageSize %s past the result window',
+      (page, pageSize) => {
+        expect(() => paginationElasticBody({ page, pageSize })).toThrow(
+          HttpError
+        );
+      }
+    );
   });
 
   describe('getPaginationResponse', () => {
@@ -71,5 +97,37 @@ describe('pagination tools', () => {
         getPaginationResponse({ requestUrl, totalResults })
       ).not.toThrow();
     });
+  });
+});
+
+describe('result window limit', () => {
+  it.each(['/articles', '/events', '/all'])(
+    'returns 400 for %s past the result window',
+    async path => {
+      const { agent } = mockedApi([]);
+
+      const response = await agent.get(`${path}?page=1001`);
+      expect(response.statusCode).toBe(400);
+      expect(response.body.description).toContain('the last page is 1000');
+    }
+  );
+
+  it.each(['/articles', '/events', '/all'])(
+    'returns 200 for %s on the last page in the result window',
+    async path => {
+      const { agent } = mockedApi([]);
+
+      const response = await agent.get(`${path}?page=100&pageSize=100`);
+      expect(response.statusCode).toBe(200);
+    }
+  );
+});
+
+describe('response headers', () => {
+  it('does not send X-Powered-By', async () => {
+    const { agent } = mockedApi([]);
+
+    const response = await agent.get('/articles');
+    expect(response.headers['x-powered-by']).toBeUndefined();
   });
 });
