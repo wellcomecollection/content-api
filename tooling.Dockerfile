@@ -1,4 +1,4 @@
-FROM public.ecr.aws/docker/library/node:24.13.0
+FROM public.ecr.aws/docker/library/node:24.22.1@sha256:6449e19d8184d84062525b6a7524def03146c2cb04a7f08b076680d0e8e4240a
 
 # Install Terraform (for formatting)
 ARG TERRAFORM_VERSION=1.4.0
