@@ -78,16 +78,21 @@ const writeSnapshotTypeChecks = async () => {
     a.toLowerCase() < b.toLowerCase() ? -1 : 1;
   const sortedFiles = files.sort(byLowerCase);
 
-  const snapshots = sortedFiles.map((file, index) => {
-    const kind = path.basename(file, '.json').split('.')[1];
-    const type = snapshotTypes[kind];
-    if (!type) {
-      throw new Error(
-        `No type to check ${file} against. Add '${kind}' to snapshotTypes in ${path.basename(__filename)}.`
+  // The type comes from the document itself, as exhibitions are saved with an `.events.json` suffix
+  const snapshots = await Promise.all(
+    sortedFiles.map(async (file, index) => {
+      const { type: kind } = JSON.parse(
+        await fs.readFile(path.resolve(dataDir, file), 'utf-8')
       );
-    }
-    return { file, type, variable: `snapshot${index}` };
-  });
+      const type = snapshotTypes[kind];
+      if (!type) {
+        throw new Error(
+          `No type to check ${file} against. Add '${kind}' to snapshotTypes in ${path.basename(__filename)}.`
+        );
+      }
+      return { file, type, variable: `snapshot${index}` };
+    })
+  );
 
   const typeImports = (module: string) =>
     [
