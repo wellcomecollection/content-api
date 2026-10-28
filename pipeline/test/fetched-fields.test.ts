@@ -3,7 +3,13 @@ import path from 'node:path';
 
 import { fetchedFields } from '@weco/content-pipeline/src/types/prismic';
 
-type FetchedField = string | { id: string };
+type FetchedField =
+  | string
+  | {
+      id: string;
+      fields?: readonly FetchedField[];
+      customtypes?: readonly { id: string; fields: readonly FetchedField[] }[];
+    };
 type LinkedDocument = { type: string; data: Record<string, unknown> };
 
 const snapshotDirs = ['prismic-snapshots', 'prismic-snapshots/addressables'];
@@ -36,6 +42,39 @@ const findLinkedDocuments = (value: unknown): LinkedDocument[] => {
 const fieldName = (field: FetchedField) =>
   typeof field === 'string' ? field : field.id;
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+/**
+ * Returns the paths of any keys in `data` that the descriptors don't declare,
+ * following group items and linked documents into their own descriptors.
+ * Prismic leaves out fields that are empty, so we only check for extra ones.
+ */
+const findUnexpectedKeys = (
+  data: Record<string, unknown>,
+  descriptors: readonly FetchedField[],
+  prefix = ''
+): string[] =>
+  Object.entries(data).flatMap(([key, value]) => {
+    const descriptor = descriptors.find(d => fieldName(d) === key);
+    if (descriptor === undefined) return [`${prefix}${key}`];
+    if (typeof descriptor === 'string') return [];
+
+    const { fields, customtypes } = descriptor;
+    if (fields && Array.isArray(value)) {
+      return value
+        .filter(isRecord)
+        .flatMap(item => findUnexpectedKeys(item, fields, `${prefix}${key}.`));
+    }
+    if (customtypes && isLinkedDocumentWithData(value)) {
+      const customtype = customtypes.find(c => c.id === value.type);
+      return customtype
+        ? findUnexpectedKeys(value.data, customtype.fields, `${prefix}${key}.`)
+        : [`${prefix}${key} (${value.type})`];
+    }
+    return [];
+  });
+
 const snapshots = snapshotDirs.flatMap(dir => {
   const dirPath = path.resolve(__dirname, dir);
   return fs
@@ -63,12 +102,9 @@ describe('fetchedFields', () => {
           type: linked.type,
           known: true,
         });
-        // Prismic leaves out fields that are empty, so we only check for extra ones
-        const unexpected = Object.keys(linked.data).filter(
-          key =>
-            !(expected as readonly FetchedField[]).map(fieldName).includes(key)
-        );
-        expect(unexpected).toEqual([]);
+        expect(
+          findUnexpectedKeys(linked.data, expected as readonly FetchedField[])
+        ).toEqual([]);
       });
     }
   );
