@@ -9,9 +9,12 @@ import {
   isImageLink,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
 import {
-  ArticlePrismicDocument,
+  primaryImageCaption,
+  sliceTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import {
+  ArticlesOrWebcomicsDocumentWithLinks,
   WithArticleFormat,
   WithContributors,
 } from '@weco/content-pipeline/src/types/prismic';
@@ -82,7 +85,7 @@ function transformLabelType(
 }
 
 export const transformArticle = async (
-  document: ArticlePrismicDocument
+  document: ArticlesOrWebcomicsDocumentWithLinks
 ): Promise<ElasticsearchArticle[]> => {
   const { data, id, first_publication_date: firstPublicationDate } = document;
   const uid = document.uid || undefined;
@@ -106,18 +109,9 @@ export const transformArticle = async (
     .map(c => c.contributor?.label)
     .filter(isNotUndefined);
 
-  const queryBody = data.body
-    ?.map(slice => {
-      if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
-        return slice.primary.text.map(text => text.text);
-      } else {
-        return [];
-      }
-    })
-    .flat();
+  const queryBody = sliceTextLines(data.body, ['text', 'quote', 'standfirst']);
 
-  const queryStandfirst = data.body?.find(b => b.slice_type === 'standfirst')
-    ?.primary.text[0].text;
+  const queryStandfirst = sliceTextLines(data.body, ['standfirst'])?.[0];
 
   const flatContributors = contributors.flatMap(c => c.contributor ?? []);
   const series = transformSeries(document);

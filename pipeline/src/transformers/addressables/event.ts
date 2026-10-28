@@ -7,23 +7,18 @@ import {
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import { EventsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableEvent } from '@weco/content-pipeline/src/types/transformed';
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
-import {
-  BodiesWithPossibleWorks,
-  getWorksIdsFromDocumentBody,
-} from './helpers/extract-works-ids';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableEvent = async (
-  document: EventPrismicDocument
+  document: EventsDocumentWithLinks
 ): Promise<ElasticsearchAddressableEvent[]> => {
   const { data, id, uid, tags, type } = document;
 
-  const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as BodiesWithPossibleWorks) || []
-  );
+  const worksIds = getWorksIdsFromDocumentBody(data.body);
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const format = isFilledLinkToDocumentWithData(data.format)

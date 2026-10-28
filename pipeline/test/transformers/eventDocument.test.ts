@@ -1,9 +1,9 @@
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
-import { EventPrismicDocument } from '@weco/content-pipeline/src/types/prismic/eventDocuments';
+import { EventsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 describe('eventDocument transformer', () => {
-  forEachPrismicSnapshot<EventPrismicDocument>(['events'])(
+  forEachPrismicSnapshot<EventsDocumentWithLinks>(['events'])(
     'transforms events from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformEventDocument(prismicDocument);

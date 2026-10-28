@@ -20,16 +20,16 @@ import {
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
 import {
-  EventPrismicDocument,
-  ExhibitionPrismicDocument,
+  EventsDocumentWithLinks,
+  ExhibitionsDocumentWithLinks,
   PrismicAudiences,
   PrismicInterpretations,
   PrismicLocations,
   PrismicScheduledEvent,
   PrismicTimes,
   WithEventFormat,
+  WithExhibitionFormat,
 } from '@weco/content-pipeline/src/types/prismic';
-import { WithExhibitionFormat } from '@weco/content-pipeline/src/types/prismic/eventDocuments';
 import { ElasticsearchEventDocument } from '@weco/content-pipeline/src/types/transformed';
 
 import { linkedDocumentIdentifiers, transformSeries } from './utils';
@@ -213,7 +213,7 @@ const getScheduledEventsData = ({
 };
 
 export const transformEventDocument = async (
-  document: EventPrismicDocument | ExhibitionPrismicDocument
+  document: EventsDocumentWithLinks | ExhibitionsDocumentWithLinks
 ): Promise<ElasticsearchEventDocument[]> => {
   const {
     data: { title, promo },
