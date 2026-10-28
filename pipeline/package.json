@@ -13,6 +13,7 @@
     "testGraphQuery": "tsx src/scripts/testGraphQuery",
     "testTransformer": "tsx src/scripts/testTransformer",
     "update-prismic-snapshots": "tsx test/update-prismic-snapshots.ts",
+    "refresh-test-data": "yarn update-prismic-snapshots && yarn prettier --write test/prismic-snapshots test/fixtures/prismic-snapshot-types.ts && jest --updateSnapshot",
     "test": "jest"
   },
   "dependencies": {
