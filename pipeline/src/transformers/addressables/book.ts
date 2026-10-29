@@ -4,18 +4,18 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
+import {
+  primaryImageCaption,
+  sliceTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import { BooksDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableBook } from '@weco/content-pipeline/src/types/transformed';
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
-import {
-  BodiesWithPossibleWorks,
-  getWorksIdsFromDocumentBody,
-} from './helpers/extract-works-ids';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableBook = async (
-  document: BookPrismicDocument
+  document: BooksDocumentWithLinks
 ): Promise<ElasticsearchAddressableBook[]> => {
   const { data, id, uid, tags, type } = document;
   const description = primaryImageCaption(data.promo);
@@ -31,17 +31,10 @@ export const transformAddressableBook = async (
     .filter(isNotUndefined)
     .join(', ');
 
-  const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as BodiesWithPossibleWorks) || []
-  );
+  const worksIds = getWorksIdsFromDocumentBody(data.body);
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
-  const body = data.body
-    ?.map(s => {
-      return s.primary.text?.map(t => t.text);
-    })
-    .flat()
-    .filter(isNotUndefined);
+  const body = sliceTextLines(data.body);
 
   return [
     {

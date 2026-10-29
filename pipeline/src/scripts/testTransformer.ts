@@ -20,18 +20,20 @@ import { transformArticle } from '@weco/content-pipeline/src/transformers/articl
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
 import { transformVenue } from '@weco/content-pipeline/src/transformers/venue';
 import {
-  ArticlePrismicDocument,
-  EventPrismicDocument,
-  ExhibitionHighlightTourPrismicDocument,
-  ExhibitionPrismicDocument,
-  ExhibitionTextPrismicDocument,
-  PagePrismicDocument,
-  ProjectPrismicDocument,
-  SeasonPrismicDocument,
-  VisualStoryPrismicDocument,
+  ArticlesOrWebcomicsDocumentWithLinks,
+  BooksDocumentWithLinks,
+  EventsDocumentWithLinks,
+  ExhibitionHighlightToursDocumentWithLinks,
+  ExhibitionsDocumentWithLinks,
+  ExhibitionTextsDocumentWithLinks,
+  ProjectsDocumentWithLinks,
 } from '@weco/content-pipeline/src/types/prismic';
-import { BookPrismicDocument } from '@weco/content-pipeline/src/types/prismic/books';
-import { VenuePrismicDocument } from '@weco/content-pipeline/src/types/prismic/venues';
+import {
+  CollectionVenueDocument,
+  PagesDocument,
+  SeasonsDocument,
+  VisualStoriesDocument,
+} from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 
 import { getDocumentId } from './documentIds';
 
@@ -94,14 +96,18 @@ async function main() {
           : 'transformAddressableArticle';
 
         return isDetailed
-          ? await transformArticle(doc as ArticlePrismicDocument)
-          : await transformAddressableArticle(doc as ArticlePrismicDocument);
+          ? await transformArticle(doc as ArticlesOrWebcomicsDocumentWithLinks)
+          : await transformAddressableArticle(
+              doc as ArticlesOrWebcomicsDocumentWithLinks
+            );
       }
 
       case 'webcomic': {
         transformerName = 'transformArticle';
 
-        return await transformArticle(doc as ArticlePrismicDocument);
+        return await transformArticle(
+          doc as ArticlesOrWebcomicsDocumentWithLinks
+        );
       }
 
       case 'event': {
@@ -110,14 +116,14 @@ async function main() {
           : 'transformAddressableEvent';
 
         return isDetailed
-          ? await transformEventDocument(doc as EventPrismicDocument)
-          : await transformAddressableEvent(doc as EventPrismicDocument);
+          ? await transformEventDocument(doc as EventsDocumentWithLinks)
+          : await transformAddressableEvent(doc as EventsDocumentWithLinks);
       }
 
       case 'venue': {
         transformerName = 'transformVenue';
 
-        return await transformVenue(doc as VenuePrismicDocument);
+        return await transformVenue(doc as CollectionVenueDocument);
       }
 
       case 'exhibition': {
@@ -126,29 +132,29 @@ async function main() {
           : 'transformAddressableExhibition';
 
         return isDetailed
-          ? await transformEventDocument(doc as ExhibitionPrismicDocument)
+          ? await transformEventDocument(doc as ExhibitionsDocumentWithLinks)
           : await transformAddressableExhibition(
-              doc as ExhibitionPrismicDocument
+              doc as ExhibitionsDocumentWithLinks
             );
       }
 
       case 'book': {
         transformerName = 'transformAddressableBook';
 
-        return await transformAddressableBook(doc as BookPrismicDocument);
+        return await transformAddressableBook(doc as BooksDocumentWithLinks);
       }
 
       case 'page': {
         transformerName = 'transformAddressablePage';
 
-        return await transformAddressablePage(doc as PagePrismicDocument);
+        return await transformAddressablePage(doc as PagesDocument);
       }
 
       case 'visual-story': {
         transformerName = 'transformAddressableVisualStory';
 
         return await transformAddressableVisualStory(
-          doc as VisualStoryPrismicDocument
+          doc as VisualStoriesDocument
         );
       }
 
@@ -156,7 +162,7 @@ async function main() {
         transformerName = 'transformAddressableExhibitionText';
 
         return transformAddressableExhibitionText(
-          doc as ExhibitionTextPrismicDocument
+          doc as ExhibitionTextsDocumentWithLinks
         );
       }
 
@@ -164,20 +170,22 @@ async function main() {
         transformerName = 'transformAddressableExhibitionHighlightTour';
 
         return transformAddressableExhibitionHighlightTour(
-          doc as ExhibitionHighlightTourPrismicDocument
+          doc as ExhibitionHighlightToursDocumentWithLinks
         );
       }
 
       case 'project': {
         transformerName = 'transformProject';
 
-        return await transformAddressableProject(doc as ProjectPrismicDocument);
+        return await transformAddressableProject(
+          doc as ProjectsDocumentWithLinks
+        );
       }
 
       case 'season': {
         transformerName = 'transformSeason';
 
-        return await transformAddressableSeason(doc as SeasonPrismicDocument);
+        return await transformAddressableSeason(doc as SeasonsDocument);
       }
 
       default:

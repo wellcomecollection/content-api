@@ -1,15 +1,17 @@
 import {
-  ArticlePrismicDocument,
-  BookPrismicDocument,
-  EventPrismicDocument,
-  ExhibitionHighlightTourPrismicDocument,
-  ExhibitionPrismicDocument,
-  ExhibitionTextPrismicDocument,
-  PagePrismicDocument,
-  ProjectPrismicDocument,
-  SeasonPrismicDocument,
-  VisualStoryPrismicDocument,
+  ArticlesOrWebcomicsDocumentWithLinks,
+  BooksDocumentWithLinks,
+  EventsDocumentWithLinks,
+  ExhibitionHighlightToursDocumentWithLinks,
+  ExhibitionsDocumentWithLinks,
+  ExhibitionTextsDocumentWithLinks,
+  ProjectsDocumentWithLinks,
 } from '@weco/content-pipeline/src/types/prismic';
+import {
+  PagesDocument,
+  SeasonsDocument,
+  VisualStoriesDocument,
+} from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 import {
   ElasticsearchAddressableArticle,
   ElasticsearchAddressableBook,
@@ -35,47 +37,47 @@ import { transformAddressableSeason } from './addressables/season';
 import { transformAddressableVisualStory } from './addressables/visualStory';
 
 export function transformAddressable(
-  document: ArticlePrismicDocument
+  document: ArticlesOrWebcomicsDocumentWithLinks
 ): Promise<ElasticsearchAddressableArticle[]>;
 export function transformAddressable(
-  document: BookPrismicDocument
+  document: BooksDocumentWithLinks
 ): Promise<ElasticsearchAddressableBook[]>;
 export function transformAddressable(
-  document: EventPrismicDocument
+  document: EventsDocumentWithLinks
 ): Promise<ElasticsearchAddressableEvent[]>;
 export function transformAddressable(
-  document: ExhibitionPrismicDocument
+  document: ExhibitionsDocumentWithLinks
 ): Promise<ElasticsearchAddressableExhibition[]>;
 export function transformAddressable(
-  document: ExhibitionHighlightTourPrismicDocument
+  document: ExhibitionHighlightToursDocumentWithLinks
 ): Promise<ElasticsearchAddressableExhibitionHighlightTour[]>;
 export function transformAddressable(
-  document: ExhibitionTextPrismicDocument
+  document: ExhibitionTextsDocumentWithLinks
 ): Promise<ElasticsearchAddressableExhibitionText[]>;
 export function transformAddressable(
-  document: PagePrismicDocument
+  document: PagesDocument
 ): Promise<ElasticsearchAddressablePage[]>;
 export function transformAddressable(
-  document: ProjectPrismicDocument
+  document: ProjectsDocumentWithLinks
 ): Promise<ElasticsearchAddressableProject[]>;
 export function transformAddressable(
-  document: SeasonPrismicDocument
+  document: SeasonsDocument
 ): Promise<ElasticsearchAddressableSeason[]>;
 export function transformAddressable(
-  document: VisualStoryPrismicDocument
+  document: VisualStoriesDocument
 ): Promise<ElasticsearchAddressableVisualStory[]>;
 export async function transformAddressable(
   document:
-    | ArticlePrismicDocument
-    | BookPrismicDocument
-    | EventPrismicDocument
-    | ExhibitionPrismicDocument
-    | ExhibitionHighlightTourPrismicDocument
-    | ExhibitionTextPrismicDocument
-    | PagePrismicDocument
-    | ProjectPrismicDocument
-    | SeasonPrismicDocument
-    | VisualStoryPrismicDocument
+    | ArticlesOrWebcomicsDocumentWithLinks
+    | BooksDocumentWithLinks
+    | EventsDocumentWithLinks
+    | ExhibitionsDocumentWithLinks
+    | ExhibitionHighlightToursDocumentWithLinks
+    | ExhibitionTextsDocumentWithLinks
+    | PagesDocument
+    | ProjectsDocumentWithLinks
+    | SeasonsDocument
+    | VisualStoriesDocument
 ): Promise<
   | ElasticsearchAddressableArticle[]
   | ElasticsearchAddressableBook[]

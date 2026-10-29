@@ -6,18 +6,18 @@ import {
   ExceptionalClosedDay,
   RegularOpeningDay,
 } from '@weco/content-common/types/venue';
-import {
-  PrismicExceptionalOpeningDays,
-  PrismicRegularOpeningDay,
-  VenuePrismicDocument,
-} from '@weco/content-pipeline/src/types/prismic/venues';
+import { CollectionVenueDocument } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
+
+type PrismicRegularOpeningDay = CollectionVenueDocument['data']['monday'];
+type PrismicExceptionalOpeningDays =
+  CollectionVenueDocument['data']['modifiedDayOpeningTimes'];
 
 export const transformVenue = async (
-  document: VenuePrismicDocument
+  document: CollectionVenueDocument
 ): Promise<ElasticsearchVenue[]> => {
   const {
     data: {
-      title,
+      title: prismicTitle,
       monday,
       tuesday,
       wednesday,
@@ -29,6 +29,10 @@ export const transformVenue = async (
     },
     id,
   } = document;
+  if (!prismicTitle) {
+    throw new Error(`Venue ${id} has no title`);
+  }
+  const title = prismicTitle;
 
   const formatRegularOpeningDay = (
     day: DayOfWeek,

@@ -2,16 +2,18 @@ import {
   asText,
   asTitle,
   isFilledLinkToDocumentWithData,
-  isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { ExhibitionHighlightTourPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import {
+  primaryImageCaption,
+  richTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import { ExhibitionHighlightToursDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionHighlightTour } from '@weco/content-pipeline/src/types/transformed';
 
 import { TransformedWork } from './helpers/catalogue-api';
 
 export const transformAddressableExhibitionHighlightTour = (
-  document: ExhibitionHighlightTourPrismicDocument
+  document: ExhibitionHighlightToursDocumentWithLinks
 ): ElasticsearchAddressableExhibitionHighlightTour[] => {
   const { data, id, uid, tags, type } = document;
 
@@ -35,23 +37,19 @@ export const transformAddressableExhibitionHighlightTour = (
   const bslTitle = `${exhibitionTitle} British Sign Language tour`;
 
   function getBody(type: 'audio' | 'bsl') {
-    return data.slices
-      ?.map(s => {
-        const subtitles = s.primary.subtitles?.length
-          ? s.primary.subtitles
-          : undefined;
-        const transcript = s.primary.transcript?.length
-          ? s.primary.transcript
-          : undefined;
-        const texts =
-          type === 'audio'
-            ? (transcript ?? subtitles)
-            : (subtitles ?? transcript);
-        return [s.primary.title?.map(t => t.text), texts?.map(t => t.text)]
-          .filter(isNotUndefined)
-          .flat();
-      })
-      .flat();
+    return data.slices?.flatMap(s => {
+      const subtitles = s.primary.subtitles?.length
+        ? s.primary.subtitles
+        : undefined;
+      const transcript = s.primary.transcript?.length
+        ? s.primary.transcript
+        : undefined;
+      const texts =
+        type === 'audio'
+          ? (transcript ?? subtitles)
+          : (subtitles ?? transcript);
+      return [...richTextLines(s.primary.title), ...richTextLines(texts)];
+    });
   }
 
   const audioBody = getBody('audio');

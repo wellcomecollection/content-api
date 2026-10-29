@@ -4,24 +4,22 @@ import {
   isFilledLinkToDocumentWithData,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { ProjectPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import {
+  primaryImageCaption,
+  sliceTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import { ProjectsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableProject } from '@weco/content-pipeline/src/types/transformed';
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
-import {
-  BodiesWithPossibleWorks,
-  getWorksIdsFromDocumentBody,
-} from './helpers/extract-works-ids';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableProject = async (
-  document: ProjectPrismicDocument
+  document: ProjectsDocumentWithLinks
 ): Promise<ElasticsearchAddressableProject[]> => {
   const { data, id, uid, tags, type } = document;
 
-  const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as BodiesWithPossibleWorks) || []
-  );
+  const worksIds = getWorksIdsFromDocumentBody(data.body);
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const title = asTitle(data.title);
@@ -38,15 +36,7 @@ export const transformAddressableProject = async (
     .join(', ');
   const description = primaryImageCaption(data.promo);
   const queryDescription = [description, format].filter(isNotUndefined);
-  const queryBody = data.body
-    ?.map(slice => {
-      if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
-        return slice.primary.text.map(text => text.text);
-      } else {
-        return [];
-      }
-    })
-    .flat();
+  const queryBody = sliceTextLines(data.body, ['text', 'quote', 'standfirst']);
 
   return [
     {

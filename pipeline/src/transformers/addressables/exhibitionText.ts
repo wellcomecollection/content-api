@@ -2,16 +2,18 @@ import {
   asText,
   asTitle,
   isFilledLinkToDocumentWithData,
-  isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { ExhibitionTextPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import {
+  primaryImageCaption,
+  richTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import { ExhibitionTextsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { ElasticsearchAddressableExhibitionText } from '@weco/content-pipeline/src/types/transformed';
 
 import { TransformedWork } from './helpers/catalogue-api';
 
 export const transformAddressableExhibitionText = (
-  document: ExhibitionTextPrismicDocument
+  document: ExhibitionTextsDocumentWithLinks
 ): ElasticsearchAddressableExhibitionText[] => {
   const { data, id, uid, tags, type } = document;
 
@@ -36,17 +38,15 @@ export const transformAddressableExhibitionText = (
     ? `${asTitle(exhibitionTitle)} exhibition text`
     : 'Exhibition text';
 
-  const body = data.slices
-    ?.map(s => {
-      return [
-        s.primary.title?.map(t => t.text),
-        s.primary.tombstone?.map(t => t.text),
-        s.primary.caption?.map(t => t.text),
-      ]
-        .filter(isNotUndefined)
-        .flat();
-    })
-    .flat();
+  const body = data.slices?.flatMap(s =>
+    s.slice_type === 'guide_text_item'
+      ? [
+          ...richTextLines(s.primary.title),
+          ...richTextLines(s.primary.tombstone),
+          ...richTextLines(s.primary.caption),
+        ]
+      : richTextLines(s.primary.title)
+  );
 
   return [
     {

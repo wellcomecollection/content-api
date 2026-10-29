@@ -179,11 +179,9 @@ const isSliceWithPossibleWorks = (
 };
 
 export const getWorksIdsFromDocumentBody = (
-  documentBody: BodiesWithPossibleWorks
+  documentBody: BodiesWithPossibleWorks | undefined
 ): string[] => {
-  const relevantSlices = documentBody.filter(
-    isSliceWithPossibleWorks
-  ) as SlicesWithPossibleWorks;
+  const relevantSlices = (documentBody ?? []).filter(isSliceWithPossibleWorks);
 
   return extractWorksIdsFromSlices(relevantSlices);
 };

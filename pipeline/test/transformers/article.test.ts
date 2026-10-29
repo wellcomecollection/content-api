@@ -1,9 +1,9 @@
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
-import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import { ArticlesOrWebcomicsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 describe('article transformer', () => {
-  forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'])(
+  forEachPrismicSnapshot<ArticlesOrWebcomicsDocumentWithLinks>(['articles'])(
     'transforms articles from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformArticle(prismicDocument);
@@ -13,7 +13,7 @@ describe('article transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ArticlePrismicDocument>(['webcomics'])(
+  forEachPrismicSnapshot<ArticlesOrWebcomicsDocumentWithLinks>(['webcomics'])(
     'also works for webcomics',
     async prismicDocument => {
       const transformed = await transformArticle(prismicDocument);
