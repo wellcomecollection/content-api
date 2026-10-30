@@ -30,8 +30,8 @@ module "content_api_stage" {
   container_image = {
     api = "${aws_ecr_repository.content_api.repository_url}:env.stage"
   }
-  # Canary for aws-for-fluent-bit 3.5.5 (wellcomecollection/platform-infrastructure#601).
-  log_router_container_tag = "f4da802a657cec42381e6af1f38418faa3b6fd68"
+  # Canary for aws-for-fluent-bit 3.5.5 (wellcomecollection/platform-infrastructure#601, wellcomecollection/platform-infrastructure#609).
+  log_router_container_tag = "d50a271ebd110b5a181bfde89f06a96e51d2f88d"
 
   desired_task_count = {
     api = 1
