@@ -24,6 +24,12 @@ If you want to update the Prismic data that's in the repo, run _`yarn update-pri
 
 To update the Jest snapshots, you'll need to run `yarn jest --updateSnapshot`.
 
+To do both in one go, run `yarn refresh-test-data`. It fetches the Prismic data (the public master ref, so no access token is needed), formats it, and updates the Jest snapshots. The Jest snapshot changes it makes are worth reading, as they show how new content or types change what we index.
+
+Refreshing the data also regenerates `test/fixtures/prismic-snapshot-types.ts`, which `yarn tsc` uses to check each snapshot against the type we use for that kind of document. The check only covers the fields a snapshot has, as our graph queries don't fetch every field.
+
+`test/fetched-fields.test.ts` checks the linked documents in the Prismic data against `fetchedFields` in `src/types/prismic/index.ts`, so refresh the data after changing a graph query.
+
 ## How we handle nested content
 
 We use Prismic's graph query API to denormalise nested content onto articles: for example, although contributors are separate documents which articles are linked to, when we fetch an article we instruct Prismic to grab the contributors' names off those linked documents for us and to insert them into the article response.
