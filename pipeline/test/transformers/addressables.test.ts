@@ -1,15 +1,17 @@
 import { transformAddressable } from '@weco/content-pipeline/src/transformers/addressables';
 import {
-  ArticlePrismicDocument,
-  BookPrismicDocument,
-  EventPrismicDocument,
-  ExhibitionHighlightTourPrismicDocument,
-  ExhibitionTextPrismicDocument,
-  PagePrismicDocument,
-  ProjectPrismicDocument,
-  SeasonPrismicDocument,
-  VisualStoryPrismicDocument,
+  ArticlesOrWebcomicsDocumentWithLinks,
+  BooksDocumentWithLinks,
+  EventsDocumentWithLinks,
+  ExhibitionHighlightToursDocumentWithLinks,
+  ExhibitionTextsDocumentWithLinks,
+  ProjectsDocumentWithLinks,
 } from '@weco/content-pipeline/src/types/prismic';
+import {
+  PagesDocument,
+  SeasonsDocument,
+  VisualStoriesDocument,
+} from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 import { forEachPrismicSnapshot } from '@weco/content-pipeline/test/fixtures/prismic-snapshots';
 
 // Mock fetch to avoid real HTTP calls to the Catalogue API
@@ -53,7 +55,10 @@ describe('addressables transformer', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'], isAddressable)(
+  forEachPrismicSnapshot<ArticlesOrWebcomicsDocumentWithLinks>(
+    ['articles'],
+    isAddressable
+  )(
     'transforms articles from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);
@@ -63,26 +68,26 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ArticlePrismicDocument>(['articles'], isAddressable)(
-    'lists linkedWorks from various slices',
-    async prismicDocument => {
-      const transformed = await transformAddressable(prismicDocument);
-      // Unsure why we have to add eslint-disables,
-      // it _is_ in a test() function, see `forEachPrismicSnapshot`
+  forEachPrismicSnapshot<ArticlesOrWebcomicsDocumentWithLinks>(
+    ['articles'],
+    isAddressable
+  )('lists linkedWorks from various slices', async prismicDocument => {
+    const transformed = await transformAddressable(prismicDocument);
+    // Unsure why we have to add eslint-disables,
+    // it _is_ in a test() function, see `forEachPrismicSnapshot`
 
-      // eslint-disable-next-line jest/no-standalone-expect
-      expect(Array.isArray(transformed)).toBe(true);
-      const first = transformed[0] as { display?: { linkedWorks?: unknown[] } };
-      // eslint-disable-next-line jest/no-standalone-expect
-      expect(first.display).toMatchObject({
-        linkedWorks: expect.any(Array),
-      });
-      // eslint-disable-next-line jest/no-standalone-expect
-      expect(first.display?.linkedWorks?.length).toBeGreaterThan(0);
-    }
-  );
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(Array.isArray(transformed)).toBe(true);
+    const first = transformed[0] as { display?: { linkedWorks?: unknown[] } };
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(first.display).toMatchObject({
+      linkedWorks: expect.any(Array),
+    });
+    // eslint-disable-next-line jest/no-standalone-expect
+    expect(first.display?.linkedWorks?.length).toBeGreaterThan(0);
+  });
 
-  forEachPrismicSnapshot<BookPrismicDocument>(['books'], isAddressable)(
+  forEachPrismicSnapshot<BooksDocumentWithLinks>(['books'], isAddressable)(
     'transforms books from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);
@@ -92,7 +97,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<EventPrismicDocument>(['events'], isAddressable)(
+  forEachPrismicSnapshot<EventsDocumentWithLinks>(['events'], isAddressable)(
     'transforms events from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);
@@ -102,7 +107,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ExhibitionTextPrismicDocument>(
+  forEachPrismicSnapshot<ExhibitionTextsDocumentWithLinks>(
     ['exhibitions'],
     isAddressable
   )(
@@ -115,7 +120,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ExhibitionTextPrismicDocument>(
+  forEachPrismicSnapshot<ExhibitionTextsDocumentWithLinks>(
     ['exhibition-texts'],
     isAddressable
   )(
@@ -128,7 +133,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ExhibitionHighlightTourPrismicDocument>(
+  forEachPrismicSnapshot<ExhibitionHighlightToursDocumentWithLinks>(
     ['exhibition-highlight-tours'],
     isAddressable
   )(
@@ -141,7 +146,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<PagePrismicDocument>(['pages'], isAddressable)(
+  forEachPrismicSnapshot<PagesDocument>(['pages'], isAddressable)(
     'transforms pages from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);
@@ -151,7 +156,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<VisualStoryPrismicDocument>(
+  forEachPrismicSnapshot<VisualStoriesDocument>(
     ['visual-stories'],
     isAddressable
   )(
@@ -164,7 +169,10 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<ProjectPrismicDocument>(['projects'], isAddressable)(
+  forEachPrismicSnapshot<ProjectsDocumentWithLinks>(
+    ['projects'],
+    isAddressable
+  )(
     'transforms projects from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);
@@ -174,7 +182,7 @@ describe('addressables transformer', () => {
     }
   );
 
-  forEachPrismicSnapshot<SeasonPrismicDocument>(['seasons'], isAddressable)(
+  forEachPrismicSnapshot<SeasonsDocument>(['seasons'], isAddressable)(
     'transforms seasons from Prismic to the expected format',
     async prismicDocument => {
       const transformed = await transformAddressable(prismicDocument);

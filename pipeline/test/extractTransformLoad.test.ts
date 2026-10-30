@@ -18,7 +18,7 @@ import {
 import { transformAddressable } from '@weco/content-pipeline/src/transformers/addressables';
 import { transformArticle } from '@weco/content-pipeline/src/transformers/article';
 import { transformEventDocument } from '@weco/content-pipeline/src/transformers/eventDocument';
-import { ArticlePrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import { ArticlesOrWebcomicsDocumentWithLinks } from '@weco/content-pipeline/src/types/prismic';
 
 import {
   createElasticBulkHelper,
@@ -164,7 +164,7 @@ describe('Extract, transform and load articles', () => {
   it('finds parent documents of updated children and re-fetches and indexes them', async () => {
     const contributors = getSnapshots(['people']);
     // Any articles/webcomics which contain any of the `contributors`
-    const parentArticles = getSnapshots<ArticlePrismicDocument>([
+    const parentArticles = getSnapshots<ArticlesOrWebcomicsDocumentWithLinks>([
       'articles',
       'webcomics',
     ]).filter(article =>

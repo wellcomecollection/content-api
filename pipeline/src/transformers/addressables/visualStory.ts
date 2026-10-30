@@ -1,22 +1,17 @@
 import { asTitle } from '@weco/content-pipeline/src/helpers/type-guards';
 import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { VisualStoryPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import { VisualStoriesDocument } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 import { ElasticsearchAddressableVisualStory } from '@weco/content-pipeline/src/types/transformed';
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
-import {
-  BodiesWithPossibleWorks,
-  getWorksIdsFromDocumentBody,
-} from './helpers/extract-works-ids';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableVisualStory = async (
-  document: VisualStoryPrismicDocument
+  document: VisualStoriesDocument
 ): Promise<ElasticsearchAddressableVisualStory[]> => {
   const { data, id, uid, tags, type } = document;
 
-  const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as BodiesWithPossibleWorks) || []
-  );
+  const worksIds = getWorksIdsFromDocumentBody(data.body);
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const description = primaryImageCaption(data.promo);

@@ -2,42 +2,31 @@ import {
   asTitle,
   isNotUndefined,
 } from '@weco/content-pipeline/src/helpers/type-guards';
-import { primaryImageCaption } from '@weco/content-pipeline/src/transformers/utils';
-import { SeasonPrismicDocument } from '@weco/content-pipeline/src/types/prismic';
+import {
+  primaryImageCaption,
+  sliceTextLines,
+} from '@weco/content-pipeline/src/transformers/utils';
+import { SeasonsDocument } from '@weco/content-pipeline/src/types/prismic/prismicio-types';
 import { ElasticsearchAddressableSeason } from '@weco/content-pipeline/src/types/transformed';
 
 import { fetchAndTransformWorks } from './helpers/catalogue-api';
-import {
-  BodiesWithPossibleWorks,
-  getWorksIdsFromDocumentBody,
-} from './helpers/extract-works-ids';
+import { getWorksIdsFromDocumentBody } from './helpers/extract-works-ids';
 
 export const transformAddressableSeason = async (
-  document: SeasonPrismicDocument
+  document: SeasonsDocument
 ): Promise<ElasticsearchAddressableSeason[]> => {
   const { data, id, uid, tags, type } = document;
 
-  const worksIds = getWorksIdsFromDocumentBody(
-    (data.body as BodiesWithPossibleWorks) || []
-  );
+  const worksIds = getWorksIdsFromDocumentBody(data.body);
   const transformedWorks = await fetchAndTransformWorks(worksIds);
 
   const title = asTitle(data.title);
 
   const description = primaryImageCaption(data.promo);
 
-  const standfirst = data.body?.find(b => b.slice_type === 'standfirst')
-    ?.primary.text[0].text;
+  const standfirst = sliceTextLines(data.body, ['standfirst'])?.[0];
   const queryDescription = [description, standfirst].filter(isNotUndefined);
-  const queryBody = data.body
-    ?.map(slice => {
-      if (['text', 'quote', 'standfirst'].includes(slice.slice_type)) {
-        return slice.primary.text.map(text => text.text);
-      } else {
-        return [];
-      }
-    })
-    .flat();
+  const queryBody = sliceTextLines(data.body, ['text', 'quote', 'standfirst']);
 
   return [
     {

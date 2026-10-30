@@ -2,6 +2,7 @@ module "log_router_container" {
   source    = "git::github.com/wellcomecollection/terraform-aws-ecs-service.git//modules/firelens?ref=v3.13.1"
   namespace = var.service_name
 
+  container_tag            = var.log_router_container_tag
   use_privatelink_endpoint = true
 }
 
