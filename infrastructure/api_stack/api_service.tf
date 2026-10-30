@@ -17,6 +17,8 @@ module "content_api_service" {
   container_image    = var.container_image.api
   container_port     = local.api_app_port
 
+  log_router_container_tag = var.log_router_container_tag
+
   app_cpu    = 256
   app_memory = 512
 
