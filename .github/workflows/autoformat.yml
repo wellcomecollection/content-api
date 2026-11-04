@@ -5,15 +5,18 @@ name: 'Run auto formatting'
 
 on: push
 
+# Workflow-level, so a newer push cancels the whole older run and an older push job
+# cannot cancel a newer format job.
+concurrency:
+  group: autoformat-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   format:
     if: github.ref_type == 'branch'
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    concurrency:
-      group: autoformat-${{ github.ref }}
-      cancel-in-progress: true
     outputs:
       changes: ${{ steps.diff.outputs.changes }}
     steps:
@@ -56,9 +59,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    concurrency:
-      group: autoformat-${{ github.ref }}
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v7
 
