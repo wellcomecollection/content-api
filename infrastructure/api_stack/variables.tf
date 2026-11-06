@@ -38,8 +38,3 @@ variable "network_config" {
     ec_privatelink_security_group_id = string
   })
 }
-
-variable "log_router_container_tag" {
-  type    = string
-  default = "0b9948b83bfb68e4481ed988f15ede80239e4879"
-}
