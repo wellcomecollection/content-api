@@ -315,11 +315,15 @@ const main = async () => {
   const client = createPrismicClient();
 
   // delete all first
-  const existing = await fs.readdir(dataDir);
   await Promise.all(
-    existing
-      .filter(f => /[.]json$/.test(f))
-      .map(f => fs.unlink(`${dataDir}/${f}`))
+    ['', 'addressables'].map(async dir => {
+      const existing = await fs.readdir(path.resolve(dataDir, dir));
+      await Promise.all(
+        existing
+          .filter(f => /[.]json$/.test(f))
+          .map(f => fs.unlink(path.resolve(dataDir, dir, f)))
+      );
+    })
   );
 
   const articleDocs = await updateArticleSnapshots(client);
