@@ -24,27 +24,26 @@ import snapshot3 from '@weco/content-pipeline/test/prismic-snapshots/addressable
 import snapshot4 from '@weco/content-pipeline/test/prismic-snapshots/addressables/YLokOhAAACQAf8Hd.projects.json';
 import snapshot5 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Yzv9ChEAABfUrkVp.exhibitions.json';
 import snapshot6 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Z9vxBBQAACEAfZwp.events.json';
-import snapshot7 from '@weco/content-pipeline/test/prismic-snapshots/addressables/ZfhSyxgAACQAkLPZ.events.json';
-import snapshot8 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Zs8EuRAAAB4APxrA.visual-stories.json';
-import snapshot9 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Zs8mohAAAB4AP4sc.exhibition-texts.json';
-import snapshot10 from '@weco/content-pipeline/test/prismic-snapshots/addressables/ZthrZRIAACQALvCC.exhibition-highlight-tours.json';
-import snapshot11 from '@weco/content-pipeline/test/prismic-snapshots/WcvPmSsAAG5B5-ox.articles.json';
-import snapshot12 from '@weco/content-pipeline/test/prismic-snapshots/Wn3Q3SoAACsAIeFI.event-formats.json';
-import snapshot13 from '@weco/content-pipeline/test/prismic-snapshots/WsuS_R8AACS1Nwlx.collection-venue.json';
-import snapshot14 from '@weco/content-pipeline/test/prismic-snapshots/WXInvioAABlsbLHu.articles.json';
-import snapshot15 from '@weco/content-pipeline/test/prismic-snapshots/XK9p2RIAAO1vQn__.webcomics.json';
-import snapshot16 from '@weco/content-pipeline/test/prismic-snapshots/XUGruhEAACYASyJh.webcomics.json';
-import snapshot17 from '@weco/content-pipeline/test/prismic-snapshots/Y0U4GBEAAA__16h6.articles.json';
-import snapshot18 from '@weco/content-pipeline/test/prismic-snapshots/YbjAThEAACEAcPYF.articles.json';
-import snapshot19 from '@weco/content-pipeline/test/prismic-snapshots/YvtXgxAAACMA9j5d.people.json';
-import snapshot20 from '@weco/content-pipeline/test/prismic-snapshots/Yzv9ChEAABfUrkVp.events.json';
-import snapshot21 from '@weco/content-pipeline/test/prismic-snapshots/Z1hLIxAAAB4AVAWG.events.json';
-import snapshot22 from '@weco/content-pipeline/test/prismic-snapshots/ZFt0WhQAAHnPEH7P.events.json';
-import snapshot23 from '@weco/content-pipeline/test/prismic-snapshots/ZJLZoRAAACIARz42.events.json';
-import snapshot24 from '@weco/content-pipeline/test/prismic-snapshots/ZQgdkREAAAbr6cRR.events.json';
-import snapshot25 from '@weco/content-pipeline/test/prismic-snapshots/ZRrijRIAAJNSARgG.events.json';
-import snapshot26 from '@weco/content-pipeline/test/prismic-snapshots/ZSPXJBAAACIAiERm.events.json';
-import snapshot27 from '@weco/content-pipeline/test/prismic-snapshots/ZTevFxAAACQAyHEk.events.json';
+import snapshot7 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Zs8EuRAAAB4APxrA.visual-stories.json';
+import snapshot8 from '@weco/content-pipeline/test/prismic-snapshots/addressables/Zs8mohAAAB4AP4sc.exhibition-texts.json';
+import snapshot9 from '@weco/content-pipeline/test/prismic-snapshots/addressables/ZthrZRIAACQALvCC.exhibition-highlight-tours.json';
+import snapshot10 from '@weco/content-pipeline/test/prismic-snapshots/WcvPmSsAAG5B5-ox.articles.json';
+import snapshot11 from '@weco/content-pipeline/test/prismic-snapshots/Wn3Q3SoAACsAIeFI.event-formats.json';
+import snapshot12 from '@weco/content-pipeline/test/prismic-snapshots/WsuS_R8AACS1Nwlx.collection-venue.json';
+import snapshot13 from '@weco/content-pipeline/test/prismic-snapshots/WXInvioAABlsbLHu.articles.json';
+import snapshot14 from '@weco/content-pipeline/test/prismic-snapshots/XK9p2RIAAO1vQn__.webcomics.json';
+import snapshot15 from '@weco/content-pipeline/test/prismic-snapshots/XUGruhEAACYASyJh.webcomics.json';
+import snapshot16 from '@weco/content-pipeline/test/prismic-snapshots/Y0U4GBEAAA__16h6.articles.json';
+import snapshot17 from '@weco/content-pipeline/test/prismic-snapshots/YbjAThEAACEAcPYF.articles.json';
+import snapshot18 from '@weco/content-pipeline/test/prismic-snapshots/YvtXgxAAACMA9j5d.people.json';
+import snapshot19 from '@weco/content-pipeline/test/prismic-snapshots/Yzv9ChEAABfUrkVp.events.json';
+import snapshot20 from '@weco/content-pipeline/test/prismic-snapshots/Z1hLIxAAAB4AVAWG.events.json';
+import snapshot21 from '@weco/content-pipeline/test/prismic-snapshots/ZFt0WhQAAHnPEH7P.events.json';
+import snapshot22 from '@weco/content-pipeline/test/prismic-snapshots/ZJLZoRAAACIARz42.events.json';
+import snapshot23 from '@weco/content-pipeline/test/prismic-snapshots/ZQgdkREAAAbr6cRR.events.json';
+import snapshot24 from '@weco/content-pipeline/test/prismic-snapshots/ZRrijRIAAJNSARgG.events.json';
+import snapshot25 from '@weco/content-pipeline/test/prismic-snapshots/ZSPXJBAAACIAiERm.events.json';
+import snapshot26 from '@weco/content-pipeline/test/prismic-snapshots/ZTevFxAAACQAyHEk.events.json';
 
 import { Loose } from './loose';
 
@@ -56,25 +55,24 @@ export const snapshots = [
   snapshot4 satisfies Loose<ProjectsDocumentWithLinks>,
   snapshot5 satisfies Loose<ExhibitionsDocumentWithLinks>,
   snapshot6 satisfies Loose<EventsDocumentWithLinks>,
-  snapshot7 satisfies Loose<EventsDocumentWithLinks>,
-  snapshot8 satisfies Loose<VisualStoriesDocument>,
-  snapshot9 satisfies Loose<ExhibitionTextsDocumentWithLinks>,
-  snapshot10 satisfies Loose<ExhibitionHighlightToursDocumentWithLinks>,
-  snapshot11 satisfies Loose<ArticlesDocumentWithLinks>,
-  snapshot12 satisfies Loose<EventFormatsDocument>,
-  snapshot13 satisfies Loose<CollectionVenueDocument>,
-  snapshot14 satisfies Loose<ArticlesDocumentWithLinks>,
+  snapshot7 satisfies Loose<VisualStoriesDocument>,
+  snapshot8 satisfies Loose<ExhibitionTextsDocumentWithLinks>,
+  snapshot9 satisfies Loose<ExhibitionHighlightToursDocumentWithLinks>,
+  snapshot10 satisfies Loose<ArticlesDocumentWithLinks>,
+  snapshot11 satisfies Loose<EventFormatsDocument>,
+  snapshot12 satisfies Loose<CollectionVenueDocument>,
+  snapshot13 satisfies Loose<ArticlesDocumentWithLinks>,
+  snapshot14 satisfies Loose<WebcomicsDocumentWithLinks>,
   snapshot15 satisfies Loose<WebcomicsDocumentWithLinks>,
-  snapshot16 satisfies Loose<WebcomicsDocumentWithLinks>,
+  snapshot16 satisfies Loose<ArticlesDocumentWithLinks>,
   snapshot17 satisfies Loose<ArticlesDocumentWithLinks>,
-  snapshot18 satisfies Loose<ArticlesDocumentWithLinks>,
-  snapshot19 satisfies Loose<PeopleDocument>,
+  snapshot18 satisfies Loose<PeopleDocument>,
+  snapshot19 satisfies Loose<ExhibitionsDocumentWithLinks>,
   snapshot20 satisfies Loose<ExhibitionsDocumentWithLinks>,
-  snapshot21 satisfies Loose<ExhibitionsDocumentWithLinks>,
+  snapshot21 satisfies Loose<EventsDocumentWithLinks>,
   snapshot22 satisfies Loose<EventsDocumentWithLinks>,
   snapshot23 satisfies Loose<EventsDocumentWithLinks>,
   snapshot24 satisfies Loose<EventsDocumentWithLinks>,
   snapshot25 satisfies Loose<EventsDocumentWithLinks>,
   snapshot26 satisfies Loose<EventsDocumentWithLinks>,
-  snapshot27 satisfies Loose<EventsDocumentWithLinks>,
 ];
