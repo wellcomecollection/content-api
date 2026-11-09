@@ -63,3 +63,24 @@ variable "app_memory" {
 variable "target_group_arn" {
   type = string
 }
+
+# Sidecar image tags are set centrally in platform-infrastructure/sidecars/terraform.
+variable "sidecar_tier" {
+  type = string
+
+  validation {
+    condition     = contains(["stage", "prod"], var.sidecar_tier)
+    error_message = "sidecar_tier must be stage or prod."
+  }
+}
+
+# Pins this service to a tag instead of the tier's parameter.
+variable "fluentbit_tag_override" {
+  type    = string
+  default = null
+}
+
+variable "nginx_tag_override" {
+  type    = string
+  default = null
+}

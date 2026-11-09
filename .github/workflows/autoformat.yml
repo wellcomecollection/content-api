@@ -1,0 +1,77 @@
+# Formats pushed branches and commits the result back with GITHUB_TOKEN, replacing
+# the Buildkite step that pushed as weco-bot. Branch code runs in the read-only
+# format job; only the patch reaches the job that can write.
+name: 'Run auto formatting'
+
+on: push
+
+# Workflow-level, so a newer push cancels the whole older run and an older push job
+# cannot cancel a newer format job.
+concurrency:
+  group: autoformat-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  format:
+    if: github.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      changes: ${{ steps.diff.outputs.changes }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - uses: hashicorp/setup-terraform@v4
+
+      - name: Run formatting
+        run: |
+          yarn install --frozen-lockfile
+          yarn prettier --write .
+          terraform fmt -recursive .
+
+      # GITHUB_TOKEN cannot push workflow changes, so they stay out of the patch.
+      - name: Capture formatting changes
+        id: diff
+        run: |
+          if ! git diff --quiet HEAD -- . ':!.github/workflows'; then
+            git diff --binary HEAD -- . ':!.github/workflows' > "$RUNNER_TEMP/formatting.patch"
+            echo "changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload formatting patch
+        if: steps.diff.outputs.changes == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: formatting-patch
+          path: ${{ runner.temp }}/formatting.patch
+          retention-days: 1
+
+  push:
+    needs: format
+    if: needs.format.outputs.changes == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: formatting-patch
+          path: ${{ runner.temp }}
+
+      # Safe only while the token is GITHUB_TOKEN, which cannot write .github/workflows.
+      - name: Commit and push formatting changes
+        run: |
+          git apply --index "$RUNNER_TEMP/formatting.patch"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Apply auto-formatting rules"
+          git push

@@ -17,9 +17,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@prismicio/client": "^7.22.3",
+    "@prismicio/client": "^7.23.0",
     "@weco/content-common": "*",
-    "parse-duration": "^2.1.9",
+    "parse-duration": "^2.1.11",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "esbuild": "^0.28.2",
     "jest": "^30.5.2",
     "jest-extended": "^7.0.0",
-    "ts-jest": "^29.4.14",
+    "ts-jest": "^29.4.15",
     "typescript": "^5.9.3",
     "tsx": "^4.23.15",
     "yargs": "^18.2.0"

@@ -30,6 +30,11 @@ resource "aws_lambda_function" "prismic_backup_download" {
       source_code_hash,
     ]
   }
+
+  # Names the repo that owns this function, for owners on Inspector findings
+  tags = {
+    "github.com/project-slug" = "wellcomecollection/content-api"
+  }
 }
 
 # Create a zip file for the Lambda function with dependencies
