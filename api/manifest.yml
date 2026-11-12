@@ -1,0 +1,11 @@
+apiVersion: backplane/v1
+kind: Component
+metadata:
+  name: content-api
+  title: Content API
+  description: Express service on ECS serving articles, events and other Prismic content from Elasticsearch
+spec:
+  type: service
+  owner: team:digital-experience
+  lifecycle: production
+  system: system:content-api

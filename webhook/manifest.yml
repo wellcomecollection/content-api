@@ -1,0 +1,11 @@
+apiVersion: backplane/v1
+kind: Component
+metadata:
+  name: content-prismic-webhook
+  title: Content Prismic webhook
+  description: Lambda behind a function URL that publishes Prismic webhook events to EventBridge
+spec:
+  type: service
+  owner: team:digital-experience
+  lifecycle: production
+  system: system:content-api
