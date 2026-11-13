@@ -1,0 +1,11 @@
+apiVersion: backplane/v1
+kind: Component
+metadata:
+  name: content-pipeline
+  title: Content pipeline
+  description: Scheduled Lambda that indexes updated Prismic content into the content Elasticsearch cluster
+spec:
+  type: pipeline
+  owner: team:digital-experience
+  lifecycle: production
+  system: system:content-api

@@ -1,0 +1,11 @@
+apiVersion: backplane/v1
+kind: Component
+metadata:
+  name: prismic-snapshots
+  title: Prismic snapshots
+  description: Scheduled Lambdas and a Step Functions workflow that back up Prismic documents and assets to S3 daily
+spec:
+  type: pipeline
+  owner: team:digital-experience
+  lifecycle: production
+  system: system:content-api

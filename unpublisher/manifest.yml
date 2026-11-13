@@ -1,0 +1,11 @@
+apiVersion: backplane/v1
+kind: Component
+metadata:
+  name: content-unpublisher
+  title: Content unpublisher
+  description: Lambda that removes unpublished Prismic documents from the content index
+spec:
+  type: pipeline
+  owner: team:digital-experience
+  lifecycle: production
+  system: system:content-api
