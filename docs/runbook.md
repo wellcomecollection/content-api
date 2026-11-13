@@ -152,7 +152,7 @@ Follow the general [rollback guide](https://github.com/wellcomecollection/develo
   - A pipeline date flip. Going back means pointing `LIVE_PIPELINE` and `pipelineDate` at the old date, which only works while the old pipeline and cluster still exist. The steps for creating and deleting pipelines are in [infrastructure/README.md](https://github.com/wellcomecollection/content-api/blob/main/infrastructure/README.md).
   - Terraform changes in `infrastructure/`, which are applied from a laptop. Roll forward with another reviewed apply.
   - Prismic model changes, which live in [wellcomecollection.org/prismic-model](https://github.com/wellcomecollection/wellcomecollection.org/tree/main/prismic-model). Fix the graph query here instead (see above).
-  - Documents already deleted from the index by the unpublisher. Re-run the pipeline for the period or reindex the content type.
+  - Documents already deleted from the index by the unpublisher. If a document should come back, republish it in Prismic first, then reindex its content type or re-run the pipeline for a window covering its last publication. The pipeline selects documents by last publication date, so replaying the period of the deletion misses them.
 - **Check it worked:** the quick checks pass, and `aws ecs describe-services --cluster content-api --services content-api-prod --query 'services[0].deployments[0].rolloutState'` shows `COMPLETED`. For a Lambda, `aws lambda get-function-configuration --function-name content-pipeline-{date} --query LastModified` shows the time of your redeploy.
 
 ## Dependencies and supplier escalation
