@@ -255,8 +255,10 @@ To test complete S3 upload functionality with LocalStack:
 1. **Start LocalStack**:
 
    ```bash
-   localstack start
+   docker run --rm -p 4566:4566 localstack/localstack:4.14
    ```
+
+   `localstack start` needs a `LOCALSTACK_AUTH_TOKEN` and exits without one, since LocalStack 2026.03.0 requires an account. Pinning the last image that runs without a token is enough for these S3-only tests.
 
 2. **Uncomment the S3_ENDPOINT line** in the test files (`testing/*.js`):
 
@@ -267,15 +269,17 @@ To test complete S3 upload functionality with LocalStack:
 3. **Create the S3 buckets in LocalStack**:
 
    These names must match `BUCKET_NAME` in the test scripts (`testing/*.js`):
-   - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
+   - `wellcomecollection-prismic-assets` (used by `test-prismic-backup-trigger.js`)
    - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
 
    ```bash
-   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-backups
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-assets
    aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-downloads
    ```
 
 4. **Run the tests** with `yarn test:trigger` or `yarn test:download`
+
+**Note**: `yarn test:trigger` can report success when S3 calls have failed. The trigger Lambda catches its own errors and returns a `statusCode`/`body` object rather than throwing, so the test script prints its "Batches written to" block with an undefined bucket and key, and exits 0. Read the log for errors rather than trusting the exit code. See [#442](https://github.com/wellcomecollection/content-api/issues/442) for this and other drift between the test scripts and the Lambdas.
 
 ### Manual Lambda Invocation/Snapshot Creation
 
