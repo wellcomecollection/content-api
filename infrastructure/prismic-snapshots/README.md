@@ -111,7 +111,7 @@ infrastructure/prismic-snapshots/
 
 - **First run**: Downloads entire list of assets with meta data and downloads all asset files
 - **Subsequent runs**: Downloads entire list of assets with meta data but only downloads assets modified since last backup
-- **Tracking**: `latest-assets.json` stores last fetch timestamp and filename of latest backup
+- **Tracking**: `latest-asset-snapshot-metadata.json` stores last fetch timestamp and filename of latest backup
 
 ## Configuration
 
@@ -156,7 +156,7 @@ wellcomecollection-prismic-backups/
 │   ├── prismic-snapshot-2{timestamp}.json
 │   └── ...
 └── media-library/
-    ├── latest-assets-snapshot-metadata.json  # tracking file for incremental backups
+    ├── latest-asset-snapshot-metadata.json   # tracking file for incremental backups
     ├── prismic-assets-{timestamp}.json       # full asset inventory snapshots (14-day retention)
     ├── prismic-assets-{timestamp}.json
     └── ...
@@ -294,35 +294,36 @@ cat response.json
 
 ```bash
 # List document snapshots
-AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
+AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/snapshots/
 
 # List asset inventory files
-AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/
+AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/
 
 # List asset files
-AWS_PROFILE=experience-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/files/
+AWS_PROFILE=catalogue-developer aws s3 ls s3://wellcomecollection-prismic-backups/media-library/assets/
 
 # Check latest asset tracking file
-AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/latest-assets.json - | jq .
+AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/latest-asset-snapshot-metadata.json - | jq .
 
 # Download latest snapshot
-AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
+AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
 
 # Download specific asset
-AWS_PROFILE=experience-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/files/{asset-id}.jpg ./
+AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/assets/{prismic-id}-{filename}.{extension} ./
 ```
 
 ### Manual Step Functions Execution
 
-````bash
+```bash
 # Start asset backup manually
-AWS_PROFILE=experience-developer aws stepfunctions start-execution \
+AWS_PROFILE=catalogue-developer aws stepfunctions start-execution \
   --state-machine-arn $(terraform output -raw assets_backup_state_machine_arn) \
   --input '{}'
 
 # Check execution status
-AWS_PROFILE=experience-developer aws stepfunctions describe-execution \
+AWS_PROFILE=catalogue-developer aws stepfunctions describe-execution \
   --execution-arn <execution-arn-from-above>
+```
 
 ## Monitoring
 
@@ -334,7 +335,7 @@ AWS_PROFILE=catalogue-developer aws logs describe-log-groups --log-group-name-pr
 
 # Follow logs in real-time
 AWS_PROFILE=catalogue-developer aws logs tail /aws/lambda/prismic-snapshot --follow
-````
+```
 
 ### CloudWatch Alarms
 
@@ -347,16 +348,18 @@ There are CloudWatch alarms to monitor Lambda function health:
    - `prismic-snapshot-errors`
    - `prismic-snapshot-duration-warning`
    - `prismic-snapshot-missing-invocations`
-   - `assets_backup-failed`
-   - `assets_backup-missing-executions`
+   - `prismic-assets-backup-failed`
+   - `prismic-assets-backup-missing-executions`
 
 #### Alarm Details
 
-| Alarm Name                             | Triggers When                  | Purpose                                               |
-| -------------------------------------- | ------------------------------ | ----------------------------------------------------- |
-| `prismic-snapshot-errors`              | Any unhandled exception occurs | Catch Lambda failures immediately                     |
-| `prismic-snapshot-duration-warning`    | Execution takes >12 minutes    | Early warning before reaching the 15min timeout limit |
-| `prismic-snapshot-missing-invocations` | No invocations in 24 hours     | Detect if scheduled job stops running                 |
+| Alarm Name                                 | Triggers When                     | Purpose                                               |
+| ------------------------------------------ | --------------------------------- | ----------------------------------------------------- |
+| `prismic-snapshot-errors`                  | Any unhandled exception occurs    | Catch Lambda failures immediately                     |
+| `prismic-snapshot-duration-warning`        | Execution takes >12 minutes       | Early warning before reaching the 15min timeout limit |
+| `prismic-snapshot-missing-invocations`     | No invocations in 24 hours        | Detect if scheduled job stops running                 |
+| `prismic-assets-backup-failed`             | Any state machine execution fails | Catch asset backup failures                           |
+| `prismic-assets-backup-missing-executions` | No executions started in 24 hours | Detect if the asset backup schedule stops running     |
 
 #### Notifications
 
