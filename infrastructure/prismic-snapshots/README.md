@@ -309,7 +309,7 @@ AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backup
 AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/snapshots/ ./snapshots/ --recursive
 
 # Download specific asset
-AWS_PROFILE=catalogue-developer aws s3 cp s3://wellcomecollection-prismic-backups/media-library/assets/{prismic-id}-{filename}.{extension} ./
+AWS_PROFILE=catalogue-developer aws s3 cp "s3://wellcomecollection-prismic-backups/media-library/assets/{prismic-id}-{filename}" ./
 ```
 
 ### Manual Step Functions Execution
