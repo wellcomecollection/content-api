@@ -20,13 +20,13 @@ The Content API is a System of five parts, all in the catalogue AWS account in e
 
 `{date}` is the live pipeline date. It is `LIVE_PIPELINE` in [.buildkite/pipeline.yml](https://github.com/wellcomecollection/content-api/blob/main/.buildkite/pipeline.yml) and `pipelineDate` in [api/config.ts](https://github.com/wellcomecollection/content-api/blob/main/api/config.ts), and the API reports it at `/_elasticConfig`. The stage API reads the same cluster as prod; there is no stage pipeline.
 
-|                                      |                                                                                                                                                                                                         |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Runs in                              | catalogue account, eu-west-1: ECS cluster `content-api`, the Lambdas above, Elastic Cloud deployment `content-{date}`                                                                                   |
-| Public URL or entry point            | `https://api.wellcomecollection.org/content/v0` (stage: `https://api-stage.wellcomecollection.org/content/v0`)                                                                                          |
-| Users affected if down               | Content results on the main search page, stories and events search, the stories and events listing pages, the latest stories on the homepage and the stories shown on work pages all read from this API |
-| Users affected if the pipeline stops | Nothing breaks, but new and edited content stops appearing in search and listings. Unpublishing does not depend on the pipeline: if unpublished content stays visible, look at the webhook and unpublisher                                                                                |
-| Statuspage component                 | Website & Content                                                                                                                                                                                       |
+|                                      |                                                                                                                                                                                                            |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Runs in                              | catalogue account, eu-west-1: ECS cluster `content-api`, the Lambdas above, Elastic Cloud deployment `content-{date}`                                                                                      |
+| Public URL or entry point            | `https://api.wellcomecollection.org/content/v0` (stage: `https://api-stage.wellcomecollection.org/content/v0`)                                                                                             |
+| Users affected if down               | Content results on the main search page, stories and events search, the stories and events listing pages, the latest stories on the homepage and the stories shown on work pages all read from this API    |
+| Users affected if the pipeline stops | Nothing breaks, but new and edited content stops appearing in search and listings. Unpublishing does not depend on the pipeline: if unpublished content stays visible, look at the webhook and unpublisher |
+| Statuspage component                 | Website & Content                                                                                                                                                                                          |
 
 ## How to tell it is broken
 
