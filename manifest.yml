@@ -8,5 +8,8 @@ metadata:
   description: The Content API, serving non-catalogue content such as articles, events and exhibitions
   annotations:
     github.com/project-slug: wellcomecollection/content-api
+  links:
+    - title: Runbook
+      url: https://github.com/wellcomecollection/content-api/blob/main/docs/runbook.md
 spec:
   owner: team:digital-experience
