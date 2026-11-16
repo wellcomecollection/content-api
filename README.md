@@ -13,5 +13,6 @@ These are the services that back our [Content API](https://developers.wellcomeco
 
 ## Developing
 
-- Deployment is all done in CI, see `.buildkite/pipeline.yml`
+- Deployment is done in CI (see `.buildkite/pipeline.yml`), apart from the Prismic backup Lambdas and the Terraform in `infrastructure/`, which are deployed from a laptop
 - `husky` will set up a pre-commit hook for autoformatting when you first install dependencies
+- [Runbook](docs/runbook.md): alarms, common failures, rollback
