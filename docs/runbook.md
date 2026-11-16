@@ -66,7 +66,7 @@ Quick checks anyone can run:
 - **Symptom:** `lambda-content-pipeline-{date}-errors` in #wc-platform-alerts.
 - **Confirm:** read the failed run's log: `AWS_PROFILE=catalogue-read_only aws logs tail /aws/lambda/content-pipeline-{date} --since 1h`. Check whether the runs after it succeeded.
 - **Cause:** two causes have been seen so far. A new dated pipeline was invoked before its code was deployed (`Runtime.HandlerNotFound`), and a graph query stopped matching the Prismic model after a model change (see the next section). A Prismic or Elastic Cloud outage would also do it.
-- **Fix:** fix the cause, then re-run the window that failed. Each scheduled run looks back only 16 minutes, so later runs do not cover a failed window. The daily addressables run reloads addressables but not articles, events or venues. Re-running a window is safe, so do it unless you are sure a retry of the same run succeeded. Invoke the pipeline with an explicit start and end that cover the failure:
+- **Fix:** fix the cause, then re-run the window that failed. Each scheduled run looks back only 16 minutes, so later runs do not cover a failed window. The daily addressables run reloads addressables but not articles, events or venues.  Re-running a window is safe, so re-run it unless you can see the run already succeeded on retry. Invoke the pipeline with an explicit start and end that cover the failure:
 
   ```bash
   AWS_PROFILE=catalogue-developer aws lambda invoke \
