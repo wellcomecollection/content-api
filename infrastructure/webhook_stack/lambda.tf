@@ -4,7 +4,7 @@ locals {
 }
 
 module "webhook_lambda" {
-  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
+  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.3.0"
 
   name    = local.lambda_name
   runtime = "nodejs24.x"
@@ -15,6 +15,8 @@ module "webhook_lambda" {
   timeout     = 30
 
   error_alarm_topic_arn = var.lambda_alarm_topic_arn
+  alarm_component       = "content-api"
+  alarm_repository      = "wellcomecollection/content-api"
 
   environment = {
     variables = {
