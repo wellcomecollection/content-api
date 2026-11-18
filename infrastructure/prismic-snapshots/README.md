@@ -255,8 +255,12 @@ To test complete S3 upload functionality with LocalStack:
 1. **Start LocalStack**:
 
    ```bash
-   localstack start
+   docker run --rm -p 4566:4566 localstack/localstack:4.14
    ```
+
+   This runs in the foreground and holds the terminal until you stop it, so run the remaining steps in a second one.
+
+   `localstack start` needs a `LOCALSTACK_AUTH_TOKEN` and exits without one, since LocalStack 2026.03.0 requires an account. Pinning the last image that runs without a token is enough for these S3-only tests.
 
 2. **Uncomment the S3_ENDPOINT line** in the test files (`testing/*.js`):
 
@@ -267,15 +271,28 @@ To test complete S3 upload functionality with LocalStack:
 3. **Create the S3 buckets in LocalStack**:
 
    These names must match `BUCKET_NAME` in the test scripts (`testing/*.js`):
-   - `wellcomecollection-prismic-backups` (used by `test-prismic-backup-trigger.js`)
+   - `wellcomecollection-prismic-assets` (used by `test-prismic-backup-trigger.js`)
    - `wellcomecollection-prismic-downloads` (used by `test-prismic-backup-download.js`)
 
    ```bash
-   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-backups
+   aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-assets
    aws --endpoint-url=http://localhost:4566 s3 mb s3://wellcomecollection-prismic-downloads
+   aws --endpoint-url=http://localhost:4566 s3 ls
    ```
 
+   The buckets live in LocalStack's memory, so `docker run --rm` loses them when you stop it and you'll need to create them again next time. That final `s3 ls` is there to confirm they exist before you run anything.
+
+   If the CLI says it can't find credentials, prefix those commands with `AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test` — LocalStack doesn't check them.
+
 4. **Run the tests** with `yarn test:trigger` or `yarn test:download`
+
+   Check what was written with `aws --endpoint-url=http://localhost:4566 s3 ls s3://wellcomecollection-prismic-assets/media-library/` — a successful `test:trigger` leaves `latest-batches.json` and a timestamped `prismic-assets-*.json`.
+
+   The scripts print "Using dummy AWS credentials (will fail on S3 operations without LocalStack)" whenever `AWS_ACCESS_KEY_ID` is unset, whether or not LocalStack is working. A successful run says it too — ignore it.
+
+**Note**: `yarn test:trigger` can report success when S3 calls have failed. The trigger Lambda catches its own errors and returns a `statusCode`/`body` object rather than throwing, so the test script prints its "Batches written to" block with an undefined bucket and key, and exits 0. Read the log for errors rather than trusting the exit code. See [#442](https://github.com/wellcomecollection/content-api/issues/442) for this and other drift between the test scripts and the Lambdas.
+
+Skipping step 3 is the most likely way to hit that: the first thing the trigger Lambda does is read `media-library/latest-asset-snapshot-metadata.json`, which throws `NoSuchBucket` before Prismic is ever called. A missing bucket and a bad `PRISMIC_BEARER_TOKEN` look the same from the exit code, so read the log.
 
 ### Manual Lambda Invocation/Snapshot Creation
 
