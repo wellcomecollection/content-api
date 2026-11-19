@@ -30,7 +30,7 @@ module "unpublisher_lambda" {
   }
 
   error_alarm_topic_arn = var.lambda_alarm_topic_arn
-  alarm_component       = "content-api"
+  alarm_component       = "content-unpublisher"
   alarm_repository      = "wellcomecollection/content-api"
 }
 
