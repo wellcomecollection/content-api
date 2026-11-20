@@ -3,7 +3,7 @@ locals {
 }
 
 module "unpublisher_lambda" {
-  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
+  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.3.0"
 
   name        = local.unpublisher_lambda_name
   description = "Handle any documents which are 'unpublished' (deleted) in Prismic"
@@ -30,6 +30,8 @@ module "unpublisher_lambda" {
   }
 
   error_alarm_topic_arn = var.lambda_alarm_topic_arn
+  alarm_component       = "content-unpublisher"
+  alarm_repository      = "wellcomecollection/content-api"
 }
 
 resource "aws_cloudwatch_event_target" "trigger_unpublisher" {

@@ -3,7 +3,7 @@ locals {
 }
 
 module "pipeline_lambda" {
-  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.2.0"
+  source = "git@github.com:wellcomecollection/terraform-aws-lambda?ref=v1.3.0"
 
   name    = local.pipeline_lambda_name
   runtime = "nodejs24.x"
@@ -29,6 +29,8 @@ module "pipeline_lambda" {
   }
 
   error_alarm_topic_arn = var.lambda_alarm_topic_arn
+  alarm_component       = "content-pipeline"
+  alarm_repository      = "wellcomecollection/content-api"
 }
 
 data "archive_file" "empty_zip" {

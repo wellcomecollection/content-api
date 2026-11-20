@@ -8,7 +8,7 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_errors" {
   period              = "60" # 1 minute
   statistic           = "Sum"
   threshold           = "1"
-  alarm_description   = "This metric monitors errors for the Prismic snapshot Lambda function"
+  alarm_description   = "[component=prismic-snapshots severity=medium] This metric monitors errors for the Prismic snapshot Lambda function"
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
 
   dimensions = {
@@ -16,9 +16,12 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_errors" {
   }
 
   tags = {
-    Name        = "Prismic Snapshot Error Alarm"
-    Environment = "production"
-    Purpose     = "monitoring"
+    Name                      = "Prismic Snapshot Error Alarm"
+    Environment               = "production"
+    Purpose                   = "monitoring"
+    "backplane:component"     = "prismic-snapshots"
+    "github.com/project-slug" = "wellcomecollection/content-api"
+    severity                  = "medium"
   }
 }
 
@@ -32,7 +35,7 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_duration" {
   period              = "3600"    # 1 hour - more likely to capture the daily execution
   statistic           = "Maximum" # Use max since we only have one execution per period
   threshold           = "720000"  # 12 minutes (warn before 15min timeout)
-  alarm_description   = "This metric monitors duration for the Prismic snapshot Lambda function"
+  alarm_description   = "[component=prismic-snapshots severity=low] This metric monitors duration for the Prismic snapshot Lambda function"
   treat_missing_data  = "notBreaching" # Don't alarm when no data (most of the time)
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
 
@@ -41,9 +44,12 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_duration" {
   }
 
   tags = {
-    Name        = "Prismic Snapshot Duration Alarm"
-    Environment = "production"
-    Purpose     = "monitoring"
+    Name                      = "Prismic Snapshot Duration Alarm"
+    Environment               = "production"
+    Purpose                   = "monitoring"
+    "backplane:component"     = "prismic-snapshots"
+    "github.com/project-slug" = "wellcomecollection/content-api"
+    severity                  = "low"
   }
 }
 
@@ -57,7 +63,7 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_missing_invocations" {
   period              = "86400" # 24 hours
   statistic           = "Sum"
   threshold           = "1"
-  alarm_description   = "This metric monitors if the Prismic snapshot Lambda function is being invoked daily"
+  alarm_description   = "[component=prismic-snapshots severity=medium] This metric monitors if the Prismic snapshot Lambda function is being invoked daily"
   treat_missing_data  = "breaching"
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
 
@@ -66,9 +72,12 @@ resource "aws_cloudwatch_metric_alarm" "prismic_snapshot_missing_invocations" {
   }
 
   tags = {
-    Name        = "Prismic Snapshot Missing Invocations Alarm"
-    Environment = "production"
-    Purpose     = "monitoring"
+    Name                      = "Prismic Snapshot Missing Invocations Alarm"
+    Environment               = "production"
+    Purpose                   = "monitoring"
+    "backplane:component"     = "prismic-snapshots"
+    "github.com/project-slug" = "wellcomecollection/content-api"
+    severity                  = "medium"
   }
 }
 
@@ -82,7 +91,7 @@ resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_failed" {
   period              = "60" # 1 minute
   statistic           = "Sum"
   threshold           = "1"
-  alarm_description   = "This metric monitors failed executions for the Prismic assets backup state machine"
+  alarm_description   = "[component=prismic-snapshots severity=medium] This metric monitors failed executions for the Prismic assets backup state machine"
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
 
   dimensions = {
@@ -90,9 +99,12 @@ resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_failed" {
   }
 
   tags = {
-    Name        = "Prismic Assets Backup State Machine Failed Alarm"
-    Environment = "production"
-    Purpose     = "monitoring"
+    Name                      = "Prismic Assets Backup State Machine Failed Alarm"
+    Environment               = "production"
+    Purpose                   = "monitoring"
+    "backplane:component"     = "prismic-snapshots"
+    "github.com/project-slug" = "wellcomecollection/content-api"
+    severity                  = "medium"
   }
 }
 
@@ -106,7 +118,7 @@ resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_missing_exec
   period              = "86400" # 24 hours
   statistic           = "Sum"
   threshold           = "1"
-  alarm_description   = "This metric monitors that the Prismic assets backup state machine is being executed daily"
+  alarm_description   = "[component=prismic-snapshots severity=medium] This metric monitors that the Prismic assets backup state machine is being executed daily"
   treat_missing_data  = "breaching"
   alarm_actions       = [data.terraform_remote_state.platform_monitoring.outputs.chatbot_topic_arn]
 
@@ -115,8 +127,11 @@ resource "aws_cloudwatch_metric_alarm" "assets_backup_state_machine_missing_exec
   }
 
   tags = {
-    Name        = "Prismic Assets Backup State Machine Missing Executions Alarm"
-    Environment = "production"
-    Purpose     = "monitoring"
+    Name                      = "Prismic Assets Backup State Machine Missing Executions Alarm"
+    Environment               = "production"
+    Purpose                   = "monitoring"
+    "backplane:component"     = "prismic-snapshots"
+    "github.com/project-slug" = "wellcomecollection/content-api"
+    severity                  = "medium"
   }
 }
