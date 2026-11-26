@@ -9,3 +9,9 @@ spec:
   owner: team:digital-experience
   lifecycle: production
   system: system:content-api
+  dependsOn:
+    - ref: component:content-prismic-webhook
+      type: data
+      criticality: soft
+      description: Unpublish events on the webhook's EventBridge bus
+    - resource:content-elasticsearch

@@ -13,3 +13,23 @@ metadata:
       url: https://github.com/wellcomecollection/content-api/blob/main/docs/runbook.md
 spec:
   owner: team:digital-experience
+---
+apiVersion: backplane/v1
+kind: Resource
+metadata:
+  name: prismic
+  description: Prismic repository wellcomecollection, the source of editorial content
+spec:
+  type: external
+  owner: team:digital-experience
+  system: system:content-api
+---
+apiVersion: backplane/v1
+kind: Resource
+metadata:
+  name: content-elasticsearch
+  description: Elastic Cloud cluster for the content API, a dated deployment (content-2026-10-13)
+spec:
+  type: search-index
+  owner: team:digital-experience
+  system: system:content-api
