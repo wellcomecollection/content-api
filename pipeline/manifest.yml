@@ -9,3 +9,12 @@ spec:
   owner: team:digital-experience
   lifecycle: production
   system: system:content-api
+  dependsOn:
+    - ref: component:catalogue-api-search
+      criticality: soft
+      description: Enriches addressables with works; failures are dropped
+    - resource:prismic
+    - ref: resource:content-elasticsearch
+      description: Writes the indexes
+    - ref: resource:api-wellcomecollection-org-cloudfront
+      criticality: soft

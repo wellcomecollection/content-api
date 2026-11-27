@@ -9,3 +9,5 @@ spec:
   owner: team:digital-experience
   lifecycle: production
   system: system:content-api
+  dependsOn:
+    - resource:prismic

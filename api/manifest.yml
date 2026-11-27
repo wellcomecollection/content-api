@@ -9,3 +9,6 @@ spec:
   owner: team:digital-experience
   lifecycle: production
   system: system:content-api
+  dependsOn:
+    - resource:content-elasticsearch
+    - resource:api-wellcomecollection-org-cloudfront
